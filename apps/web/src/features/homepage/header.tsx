@@ -57,7 +57,7 @@ export function LandingHeader() {
 					className={cn("hidden size-[30px] dark:block", night && "block")}
 				/>
 				{/* The wordmark stays in the DOM for screen readers and crawlers; the logomark is what shows. */}
-				<span className="sr-only">Reactive Resume</span>
+				<span className="sr-only">PortoFit</span>
 			</a>
 
 			<nav aria-label={t`Story`} className="mx-auto hidden items-center gap-0.5 min-[1240px]:flex">
@@ -120,7 +120,7 @@ function GithubLink() {
 	}, [stars, i18n.locale]);
 
 	const count = stars == null ? null : i18n.number(stars);
-	const label = count ? t`Star Reactive Resume on GitHub, ${count} stars` : t`Star Reactive Resume on GitHub`;
+	const label = count ? t`Star PortoFit on GitHub, ${count} stars` : t`Star PortoFit on GitHub`;
 
 	return (
 		<a

@@ -81,7 +81,7 @@ export function LandingFooter() {
 					<img
 						loading="lazy"
 						src="/logo/light.svg"
-						alt="Reactive Resume"
+						alt="PortoFit"
 						width={140}
 						height={140}
 						className="-ms-[18px] -mt-[22px] -mb-[18px] size-[140px] dark:hidden"
@@ -89,7 +89,7 @@ export function LandingFooter() {
 					<img
 						loading="lazy"
 						src="/logo/dark.svg"
-						alt="Reactive Resume"
+						alt="PortoFit"
 						width={140}
 						height={140}
 						className="-ms-[18px] -mt-[22px] -mb-[18px] hidden size-[140px] dark:block"

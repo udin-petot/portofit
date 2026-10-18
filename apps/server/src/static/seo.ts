@@ -71,13 +71,13 @@ export function handleSitemap(options?: StaticSeoOptions) {
 export function handleLlms(options?: StaticSeoOptions) {
 	const baseUrl = appUrl();
 	const body = [
-		"# Reactive Resume",
+		"# PortoFit",
 		"",
-		`> Reactive Resume is a free and open-source resume builder. Write a resume in an editor beside a live page, pick one of ${templateSchema.options.length} templates, check that applicant tracking systems can read it, tailor it to a job posting, and share it at a public link or download it. No ads, no tracking, no paid tier; it is funded by donations and released under the MIT License.`,
+		`> PortoFit is a free and open-source resume builder. Write a resume in an editor beside a live page, pick one of ${templateSchema.options.length} templates, check that applicant tracking systems can read it, tailor it to a job posting, and share it at a public link or download it. No ads, no tracking, no paid tier; it is funded by donations and released under the MIT License.`,
 		"",
 		"## Product",
 		"",
-		`- [Homepage](${baseUrl}/): what Reactive Resume does, with answers to common questions.`,
+		`- [Homepage](${baseUrl}/): what PortoFit does, with answers to common questions.`,
 		`- [ATS checker](${baseUrl}/ats-checker): a free tool that shows the text applicant tracking systems extract from a resume PDF and what to fix. It runs in the browser; the file is never uploaded.`,
 		`- [Get started](${baseUrl}/dashboard): create an account and a first resume.`,
 		"",
@@ -94,7 +94,7 @@ export function handleLlms(options?: StaticSeoOptions) {
 		"",
 		"## Documentation",
 		"",
-		`- [Documentation](${DOCS_URL}): guides for using and self-hosting Reactive Resume.`,
+		`- [Documentation](${DOCS_URL}): guides for using and self-hosting PortoFit.`,
 		`- [Documentation llms.txt](${DOCS_URL}/llms.txt)`,
 		`- [Self-hosting with Docker](${DOCS_URL}/self-hosting/docker)`,
 		`- [API reference](${DOCS_URL}/api-reference)`,

@@ -77,21 +77,21 @@ const BASE_SECURITY_HEADERS = {
 const githubUrl = "https://github.com/reactive-resume/reactive-resume";
 // The English copy, for a build without prerendered pages; a prerendered page carries its own locale's title and
 // description, and the social cards reuse them.
-const ROOT_TITLE = "Reactive Resume — A free and open-source resume builder";
+const ROOT_TITLE = "PortoFit — Bikin CV Profesional, Gratis";
 const ROOT_DESCRIPTION =
 	"Free, open-source resume builder. Create, update, and share your resume, with PDF and Word downloads, no ads and no paywall.";
-const ATS_CHECKER_TITLE = "Free ATS resume checker — Reactive Resume";
+const ATS_CHECKER_TITLE = "Free ATS resume checker — PortoFit";
 const ATS_CHECKER_DESCRIPTION =
 	"Check whether software can read your resume PDF. Runs entirely in your browser, so your file is never uploaded.";
 
 type StructuredData = Record<string, unknown>;
 
-/** Who makes Reactive Resume, referenced by id from every page's structured data. */
+/** Who makes PortoFit, referenced by id from every page's structured data. */
 function organization(origin: string): StructuredData {
 	return {
 		"@type": "Organization",
 		"@id": `${origin}/#organization`,
-		name: "Reactive Resume",
+		name: "PortoFit",
 		url: `${origin}/`,
 		contactPoint: { "@type": "ContactPoint", contactType: "support", email: "amruth@rxresu.me" },
 		logo: { "@type": "ImageObject", url: `${origin}/pwa-512x512.png`, width: 512, height: 512 },
@@ -115,13 +115,13 @@ function homepageStructuredData(origin: string): StructuredData {
 			{
 				"@type": "WebSite",
 				"@id": `${origin}/#website`,
-				name: "Reactive Resume",
+				name: "PortoFit",
 				url: rootUrl,
 				publisher: { "@id": `${origin}/#organization` },
 			},
 			{
 				"@type": ["SoftwareApplication", "WebApplication"],
-				name: "Reactive Resume",
+				name: "PortoFit",
 				url: rootUrl,
 				description: ROOT_DESCRIPTION,
 				applicationCategory: "BusinessApplication",
@@ -161,7 +161,7 @@ function atsCheckerStructuredData(origin: string): StructuredData {
 				operatingSystem: "Web",
 				isAccessibleForFree: true,
 				offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-				isPartOf: { "@type": "WebSite", "@id": `${origin}/#website`, name: "Reactive Resume", url: `${origin}/` },
+				isPartOf: { "@type": "WebSite", "@id": `${origin}/#website`, name: "PortoFit", url: `${origin}/` },
 				provider: { "@id": `${origin}/#organization` },
 			},
 		],
@@ -191,7 +191,7 @@ function createPageSeoMarkup(options: PageSeoOptions) {
 		<link rel="canonical" href="${escapeAttribute(pageUrl)}">
 		${alternates}
 		<meta property="og:type" content="website">
-		<meta property="og:site_name" content="Reactive Resume">
+		<meta property="og:site_name" content="PortoFit">
 		<meta property="og:locale" content="${options.locale.replace("-", "_")}">
 		<meta property="og:title" content="${options.title}">
 		<meta property="og:description" content="${options.description}">
@@ -235,7 +235,7 @@ async function createPublicResumeSeoMarkup(pathname: string, origin: string) {
 
 	const canonicalUrl = `${origin}/${username}/${slug}`;
 	const imageUrl = `${origin}/opengraph/banner.jpg`;
-	const pageTitle = escapeAttribute(`${meta.name} - Reactive Resume`);
+	const pageTitle = escapeAttribute(`${meta.name} - PortoFit`);
 	const title = escapeAttribute(meta.title);
 	const description = escapeAttribute(meta.description);
 
@@ -245,7 +245,7 @@ async function createPublicResumeSeoMarkup(pathname: string, origin: string) {
 		markup: `
 		<link rel="canonical" href="${canonicalUrl}">
 		<meta property="og:type" content="profile">
-		<meta property="og:site_name" content="Reactive Resume">
+		<meta property="og:site_name" content="PortoFit">
 		<meta property="og:title" content="${title}">
 		<meta property="og:description" content="${description}">
 		<meta property="og:url" content="${canonicalUrl}">
@@ -371,7 +371,7 @@ export async function handleWebApp(request: Request, readFile: ReadWebFile = (pa
 		// Root configuration never discloses a target in the HTML shell. The public API
 		// gates data and browser metadata; shell requests must not count extra views.
 		const shell = html
-			.replace(/<title>[^<]*<\/title>/, "<title>Reactive Resume</title>")
+			.replace(/<title>[^<]*<\/title>/, "<title>PortoFit</title>")
 			.replace(/<meta\s+name="description"[^>]*>/, '<meta name="description" content="">');
 		const markup = `<link rel="canonical" href="${escapeAttribute(canonicalUrl)}" data-root-resume-shell><meta name="robots" content="noindex, follow" data-root-resume-shell>`;
 		return new Response(

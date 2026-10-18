@@ -53,7 +53,7 @@ const formatSize = (bytes: number) =>
 function requireImportKind(kind: ImportKind | null): ImportKind {
 	if (!kind) {
 		throw new ImportError(
-			t`This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip).`,
+			t`This file type can't be imported. Use a PDF, Word, PortoFit or JSON Resume file, or a LinkedIn export (.zip).`,
 		);
 	}
 	return kind;
@@ -267,7 +267,7 @@ export function NewDocumentDialog({ data }: { data?: NewDocumentDialogData | und
 							</span>
 							<span className="text-[13px] leading-[19px] text-ink-2">
 								<Trans>
-									Drop a file here or browse. PDF, Word, Reactive Resume or JSON Resume. We fill in every section and
+									Drop a file here or browse. PDF, Word, PortoFit or JSON Resume. We fill in every section and
 									flag anything we're unsure of.
 								</Trans>
 							</span>

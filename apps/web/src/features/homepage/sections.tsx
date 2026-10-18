@@ -230,7 +230,7 @@ export function Support() {
 	const templates = i18n.number(templateSchema.options.length);
 	const none = t({
 		message: "none",
-		comment: "Receipt line amount for something Reactive Resume doesn't have, e.g. ads.",
+		comment: "Receipt line amount for something PortoFit doesn't have, e.g. ads.",
 	});
 	const lineItems = [
 		[t`Resume builder`, nothing],
@@ -274,7 +274,7 @@ export function Support() {
 					</Trans>
 				</h2>
 				<p className="max-w-[28em] font-display text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
-					{t`Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier.`}
+					{t`PortoFit is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier.`}
 				</p>
 				<ul className="flex flex-wrap gap-2">
 					{pills.map((pill) => (

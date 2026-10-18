@@ -1,7 +1,7 @@
 {
-	"name": "Reactive Resume",
-	"short_name": "Reactive Resume",
-	"description": "A free and open-source resume builder.",
+	"name": "PortoFit",
+	"short_name": "PortoFit",
+	"description": "Bikin CV dan resume profesional, gratis."
 	"id": "/?source=pwa",
 	"start_url": "/?source=pwa",
 	"scope": "/",
