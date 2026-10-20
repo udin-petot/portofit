@@ -851,8 +851,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "A ទទួលយក និង R បដិសេធការកែសម្រួលដែលផ្តោត។ ↑ និង ↓ ផ្លាស់ទីរវាងការកែសម្រួល។"
 
 #: src/routes/builder/letter/-components/share-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
-msgstr "ការបម្រុងទុកនៃលិខិតនេះ។ នាំចូលត្រឡប់ទៅ Reactive Resume ជាលិខិតមួយ។"
+msgid "A backup of this letter. Imports back into PortoFit as a letter."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
@@ -982,10 +982,6 @@ msgstr "ផែនការកំណត់ពេល សេចក្ដីផ្�
 #: src/features/ats-checker/messages.ts
 msgid "A web address is written without https://."
 msgstr "អាសយដ្ឋានវេបសាយត៍មួយត្រូវបានសរសេរដោយគ្មាន https://."
-
-#: src/features/homepage/footer.tsx
-msgid "About"
-msgstr "អំពីកម្មវិធីនេះ"
 
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
@@ -2412,10 +2408,6 @@ msgstr "ផ្លាស់ប្តូរប្រវត្តិរូបដោ
 msgid "Changed your mind? Rename your resume to something more descriptive."
 msgstr "ប្តូរ​ចិត្ត​ហើយ​ឬ​អត់? ប្ដូរ​ឈ្មោះ​ប្រវត្តិរូប​របស់​អ្នក​ឲ្យ​មាន​អត្ថន័យ​ច្បាស់​លាស់​ជាង​មុន។"
 
-#: src/features/homepage/footer.tsx
-msgid "Changelog"
-msgstr "កំណត់ហេតុ​បម្លែង"
-
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Changes section titles and date words only, not your content."
 msgstr "ផ្លាស់ប្តូរចំណងជើងផ្នែក និងពាក្យកាលបរិច្ឆេទតែប៉ុណ្ណោះ មិនមែនខ្លឹមសាររបស់អ្នកទេ។"
@@ -2761,8 +2753,8 @@ msgid "Compares your resume with the posting"
 msgstr "ប្រៀបធៀបប្រវត្តិរូបសង្ខេបរបស់អ្នកជាមួយនឹងការប្រកាសការងារ"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
-msgstr "ការបម្រុងទុកទិន្នន័យពេញលេញ។ នាំចូលត្រឡប់ទៅឧបករណ៍ Reactive Resume ឬ JSON Resume ។"
+msgid "Complete data backup. Imports back into PortoFit or JSON Resume tools."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -2870,7 +2862,6 @@ msgid "Connections bill speech separately and may use tokens on your account. Yo
 msgstr "ការតភ្ជាប់គិតថ្លៃសំឡេងដាច់ដោយឡែក ហើយអាចប្រើ token ក្នុងគណនីរបស់អ្នក។ សំឡេងរបស់កម្មវិធីរុករកគឺឥតគិតថ្លៃ ប៉ុន្តែអ្នកផលិតវាអាចដំណើរការសំឡេងនោះ។ ម៉ាស៊ីនមេរក្សាទុកអត្ថបទចម្លង ប៉ុន្តែមិនដែលរក្សាទុកការថតសំឡេងទេ។"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/homepage/footer.tsx
 msgid "Contact"
 msgstr "ទំនាក់ទំនង"
 
@@ -2932,10 +2923,6 @@ msgstr "បន្ត"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "បន្តជាភ្ញៀវ"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "ចូលរួមចំណែកកូដ"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -4012,19 +3999,11 @@ msgstr "បោះបង់ការផ្លាស់ប្តូរ?"
 msgid "Disconnect"
 msgstr "ផ្ដាច់"
 
-#: src/features/homepage/footer.tsx
-msgid "Discord"
-msgstr "Discord"
-
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Dismiss"
 msgstr "បដិសេធ"
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Docs"
-msgstr "ឯកសារ"
 
 #: src/features/resume/editor/chrome.tsx
 msgid "Document menu: {name}"
@@ -4033,10 +4012,6 @@ msgstr "ម៉ឺនុយឯកសារ៖ {name}"
 #: src/features/documents/documents-page.tsx
 msgid "Document type"
 msgstr "ប្រភេទឯកសារ"
-
-#: src/features/homepage/footer.tsx
-msgid "Documentation"
-msgstr "ឯកសារ"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/documents-page.tsx
@@ -4064,7 +4039,6 @@ msgstr "កុំផ្ញើ {0}"
 
 #: src/components/ui/donation-toast.tsx
 #: src/features/resume/share/download-tab.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Donate"
 msgstr "បរិច្ចាគ"
 
@@ -4232,8 +4206,8 @@ msgid "Drag to reposition and use the slider to zoom before uploading."
 msgstr "អូសដើម្បីប្តូរទីតាំង ហើយប្រើគ្រាប់រំកិលដើម្បីពង្រីកមុនពេលផ្ទុកឡើង។"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "Drop a file here or browse. PDF, Word, Reactive Resume or JSON Resume. We fill in every section and flag anything we're unsure of."
-msgstr "ទម្លាក់ឯកសារនៅទីនេះ ឬរុករក។ PDF, Word, Reactive Resume ឬ JSON Resume ។ យើងបំពេញគ្រប់ផ្នែក ហើយដាក់ទង់នូវអ្វីដែលយើងមិនប្រាកដ។"
+msgid "Drop a file here or browse. PDF, Word, PortoFit or JSON Resume. We fill in every section and flag anything we're unsure of."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Drop a PDF here or choose a file"
@@ -4494,8 +4468,8 @@ msgid "Enhanced reading was unavailable. The built-in reader retrieved this post
 msgstr "ការអានដែលប្រសើរឡើងគឺមិនមានទេ។ អ្នកអានដែលភ្ជាប់មកជាមួយបានទាញយកការប្រកាសការងារនេះ។"
 
 #: src/components/ui/donation-toast.tsx
-msgid "Enjoying Reactive Resume?"
-msgstr "ចូលចិត្ត Reactive Resume ទេ?"
+msgid "Enjoying PortoFit?"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5245,8 +5219,8 @@ msgid "Go to…"
 msgstr "ចូលទៅកាន់…"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Reactive Resume stays free because people chip in."
-msgstr "សូមសំណាងល្អនៅទីនោះ។ Reactive Resume ស្នាក់នៅដោយមិនគិតថ្លៃ ដោយសារមនុស្សច្របូកច្របល់។"
+msgid "Good luck out there. PortoFit stays free because people chip in."
+msgstr ""
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -5333,10 +5307,6 @@ msgstr "បានឮមកវិញ"
 #: src/libs/locale.ts
 msgid "Hebrew"
 msgstr "Hebrew"
-
-#: src/features/settings/root.tsx
-msgid "Help & docs"
-msgstr "ជំនួយ និងឯកសារ"
 
 #: src/features/career/coach.tsx
 msgid "Help me turn an accomplishment into a Situation, Task, Action, Result and Reflection story."
@@ -5603,8 +5573,8 @@ msgid "Import steps"
 msgstr "ជំហាននាំចូល"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
-msgstr "នាំចូលឯកសារនេះទៅក្នុង Reactive Resume ឥតគិតថ្លៃ។ បញ្ហានីមួយៗកំពុងរង់ចាំអ្នកនៅក្នុង Check ។"
+msgid "Import this file into a free PortoFit. Every issue is waiting for you in Check."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -5774,8 +5744,8 @@ msgid "Is equity part of the offer?"
 msgstr "តើភាគហ៊ុនជាផ្នែកមួយនៃការផ្តល់ការងារទេ?"
 
 #: src/features/homepage/faq.tsx
-msgid "Is Reactive Resume really free?"
-msgstr "តើ Reactive Resume ពិតជាឥតគិតថ្លៃមែនទេ?"
+msgid "Is PortoFit really free?"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
@@ -6353,12 +6323,12 @@ msgid "Link"
 msgstr "តំណភ្ជាប់"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
-msgstr "ភ្ជាប់ Reactive Resume (បានណែនាំ)"
+msgid "Link a PortoFit (recommended)"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
-msgstr "ភ្ជាប់ Reactive Resume ដើម្បីប្រើការវាយតម្លៃភាពត្រូវគ្នា និងការកែសម្រួលដោយ AI។"
+msgid "Link a PortoFit to use AI match scoring and tailoring."
+msgstr ""
 
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
@@ -6598,8 +6568,8 @@ msgid "Lower the design sheet"
 msgstr "ទម្លាក់សន្លឹករចនា"
 
 #: src/features/resume/public/public-resume.tsx
-msgid "Made with Reactive Resume, free and open source"
-msgstr "ផលិតជាមួយ Reactive Resume ឥតគិតថ្លៃ និងប្រភពបើកចំហ"
+msgid "Made with PortoFit, free and open source"
+msgstr ""
 
 #. Layout editor column label for the primary content area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -7425,7 +7395,7 @@ msgstr "រកមិនឃើញផ្នែកបទពិសោធន៍កា
 msgid "No. {number} · {name}"
 msgstr "លេខ {number} · {name}"
 
-#. Receipt line amount for something Reactive Resume doesn't have, e.g. ads.
+#. Receipt line amount for something PortoFit doesn't have, e.g. ads.
 #: src/features/homepage/sections.tsx
 msgid "none"
 msgstr "គ្មាន"
@@ -7532,10 +7502,6 @@ msgstr "មិនបានជ្រើសរើស"
 #: src/features/settings/root.tsx
 msgid "Not set up"
 msgstr "មិនបានដំឡើង"
-
-#: src/features/resume/stylesheet/editor.tsx
-msgid "Not sure what to write?"
-msgstr "មិនប្រាកដថាត្រូវសរសេរអ្វីទេ?"
 
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
@@ -7857,10 +7823,6 @@ msgstr "ការបើកឯកសារ"
 msgid "Opens in Career → Offers."
 msgstr "បើកក្នុង អាជីព → ការផ្តល់ការងារ។"
 
-#: src/features/resume/stylesheet/editor.tsx
-msgid "opens in new tab"
-msgstr "បើក​ក្នុង​ផ្ទាំង​ថ្មី"
-
 #: src/features/documents/new-document-dialog.tsx
 msgid "Opens the editor on your name. Nothing else to fill in first."
 msgstr "បើកកម្មវិធីនិពន្ធលើឈ្មោះរបស់អ្នក។ គ្មានអ្វីផ្សេងទៀតដែលត្រូវបំពេញជាមុនទេ។"
@@ -8179,8 +8141,8 @@ msgid "PDF styles support a subset of CSS. Rotation, dashed and dotted borders, 
 msgstr "រចនាប័ទ្ម PDF គាំទ្រសំណុំរងនៃ CSS ។ ការបង្វិល បន្ទាត់ដាច់ៗ និងបន្ទាត់ចំនុច និងលក្ខណៈសម្បត្តិប្លង់មួយចំនួនមិនត្រូវបានអើពើ។"
 
 #: src/features/homepage/faq.tsx
-msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any Reactive Resume, including one you host yourself, so your data is never locked in."
-msgstr "PDF, Word (DOCX), Markdown និង JSON ។ ការនាំចេញ JSON ត្រឡប់ទៅ Reactive Resume ណាមួយ រួមទាំងអ្នកបង្ហោះដោយខ្លួនឯង ដូច្នេះទិន្នន័យរបស់អ្នកមិនត្រូវបានចាក់សោទេ។"
+msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any PortoFit, including one you host yourself, so your data is never locked in."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "PDF, Word or JSON. We'll build a resume from it."
@@ -8295,6 +8257,22 @@ msgstr "Polish"
 #: src/features/career/shared.tsx
 msgid "Polishing"
 msgstr "កំពុងកែលម្អ"
+
+#: src/routes/_home/-sections/header.tsx
+msgid "PortoFit - Go to homepage"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "PortoFit {__APP_VERSION__} · MIT"
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "PortoFit is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+msgstr ""
+
+#: src/features/homepage/sections.tsx
+msgid "PortoFit is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
+msgstr ""
 
 #. Preset button for setting picture aspect ratio to portrait orientation
 #: src/features/resume/editor/write/picture-settings.tsx
@@ -8497,10 +8475,6 @@ msgstr "បោះពុម្ព ឬនាំចេញទម្រង់ទៅ�
 #: src/features/resume/public/public-resume.tsx
 msgid "Printing is turned off for this resume."
 msgstr "ការបោះពុម្ពត្រូវបានបិទសម្រាប់ប្រវត្តិរូបសង្ខេបនេះ។"
-
-#: src/features/homepage/footer.tsx
-msgid "Privacy policy"
-msgstr "គោលការណ៍ឯកជនភាព"
 
 #: src/features/homepage/share.tsx
 msgid "Private"
@@ -8715,22 +8689,6 @@ msgstr "នាំចេញម្តងទៀតជាមួយពុម្ពអ
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
 
-#: src/routes/_home/-sections/header.tsx
-msgid "Reactive Resume - Go to homepage"
-msgstr "Reactive Resume - ទៅ​កាន់​ទំព័រ​ដើម"
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr "Reactive Resume {__APP_VERSION__} · MIT"
-
-#: src/features/homepage/hero.tsx
-msgid "Reactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
-msgstr "Reactive Resume គឺជាកម្មវិធីបង្កើតប្រវត្តិរូបសង្ខេបឥតគិតថ្លៃ និងកូដចំហ។ សរសេរវា រចនាវា ពិនិត្យវា កែសម្រួលវាសម្រាប់ការងារនីមួយៗ ហើយចូលសម្ភាសន៍ដោយបានត្រៀមខ្លួនរួចរាល់។"
-
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
-msgstr "Reactive Resume គឺជាកូដចំហក្រោមអាជ្ញាប័ណ្ណ MIT។ Amruth Pillai និងសហគមន៍អ្នករួមចំណែកធ្វើឱ្យវាដំណើរការ ហើយការបរិច្ចាគចំណាយលើការបង្ហោះ និងការអភិវឌ្ឍ។ មិនមានកម្រិតបង់ប្រាក់ទេ។"
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -8762,10 +8720,6 @@ msgstr "អានប្រកាសការងារ"
 msgid "Read questions with"
 msgstr "អានសំណួរដោយប្រើ"
 
-#: src/features/resume/stylesheet/editor.tsx
-msgid "Read the Applying Custom Styles guide."
-msgstr "សូមអានការណែនាំអំពីការអនុវត្តរចនាប័ទ្មផ្ទាល់ខ្លួន។"
-
 #: src/features/assistant/conversation.tsx
 msgid "Read the attachment"
 msgstr "អានឯកសារភ្ជាប់"
@@ -8785,10 +8739,6 @@ msgstr "អានទំព័រ"
 #: src/features/assistant/conversation.tsx
 msgid "Read the resume"
 msgstr "បានអានប្រវត្តិរូបសង្ខេប"
-
-#: src/features/homepage/faq.tsx
-msgid "Read the self-hosting guide"
-msgstr "អានការណែនាំអំពីការបង្ហោះដោយខ្លួនឯង។"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Read your documents and job applications."
@@ -9970,10 +9920,6 @@ msgstr "ជ្រើសរើស..."
 msgid "Selected documents"
 msgstr "ឯកសារដែលបានជ្រើសរើស"
 
-#: src/features/homepage/footer.tsx
-msgid "Self-hosting"
-msgstr "ការបង្ហោះខ្លួនឯង"
-
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Semantic CSS stylesheet"
 msgstr "សន្លឹករចនាប័ទ្ម CSS ន័យវិទ្យា"
@@ -10106,10 +10052,6 @@ msgstr "ការកំណត់"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Setup Authenticator App"
 msgstr "រៀបចំ​កម្មវិធី​ផ្ទៀងផ្ទាត់​អត្តសញ្ញាណ"
-
-#: src/features/settings/ai/mcp.tsx
-msgid "Setup guide"
-msgstr "ការណែនាំអំពីការដំឡើង"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Shadow Color"
@@ -10638,12 +10580,12 @@ msgid "Standard section headings"
 msgstr "ចំណងជើងផ្នែកស្តង់ដារ"
 
 #: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub"
-msgstr "ដាក់ផ្កាយ Reactive Resume នៅលើ GitHub"
+msgid "Star PortoFit on GitHub"
+msgstr ""
 
 #: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub, {count} stars"
-msgstr "ដាក់ផ្កាយ Reactive Resume នៅលើផ្កាយ GitHub, {count}"
+msgid "Star PortoFit on GitHub, {count} stars"
+msgstr ""
 
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
@@ -10852,10 +10794,6 @@ msgstr "បានដាក់ស្នើលិខិតគម្រប៖ {0}"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Submitted attached resume: {0}"
 msgstr "បានបញ្ជូនប្រវត្តិរូបសង្ខេប៖ {0}"
-
-#: src/features/homepage/footer.tsx
-msgid "Subreddit"
-msgstr "Subreddit"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Success at 90 days · next step"
@@ -11612,8 +11550,8 @@ msgid "This file is larger than many application forms accept."
 msgstr "ឯកសារនេះធំជាងអ្វីដែលទម្រង់ដាក់ពាក្យជាច្រើនអនុញ្ញាត។"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
-msgstr "ប្រភេទឯកសារនេះមិនអាចនាំចូលបានទេ។ ប្រើឯកសារ PDF, Word, Reactive Resume ឬ JSON Resume ឬនាំចេញ LinkedIn (.zip) ។"
+msgid "This file type can't be imported. Use a PDF, Word, PortoFit or JSON Resume file, or a LinkedIn export (.zip)."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This file uses a lot of different fonts."
@@ -11867,21 +11805,9 @@ msgstr "កំពុងបំលែងជាអក្សរដោយប្រើ
 msgid "Transcript copied"
 msgstr "ប្រតិចារិកត្រូវបានចម្លង"
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Translate"
-msgstr "បកប្រែ"
-
 #: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "បកប្រែកម្មវិធី"
-
-#: src/features/homepage/sections.tsx
-msgid "Translated into {languageCount} languages. Help translate it into yours."
-msgstr "បកប្រែជា {languageCount} ភាសា។ ជួយបកប្រែកម្មវិធីទៅជាភាសារបស់អ្នក។"
-
-#: src/features/homepage/footer.tsx
-msgid "Translations"
-msgstr "ការបកប្រែ"
+msgid "Translated into {languageCount} languages by volunteers."
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
@@ -12987,12 +12913,12 @@ msgid "Yes. Every job you track gets its own workspace: check your fit against t
 msgstr "បាទ/ចាស។ ការងារនីមួយៗដែលអ្នកតាមដាន មានផ្ទៃការងារផ្ទាល់ខ្លួន៖ ពិនិត្យភាពសមស្របរបស់អ្នកធៀបនឹងការប្រកាសការងារ ព្រាងចម្លើយពីរឿងដែលអ្នកបានសរសេរម្តង ទទួលផែនការខ្លីមុនការសម្ភាសន៍ ហាត់និយាយឮៗជាមួយមតិកែលម្អ និងសង្ខេបក្រោយការសម្ភាសន៍។ នៅពេលការផ្តល់ការងារមកដល់ ប្រៀបធៀបវាទន្ទឹមគ្នា។ ការបង្វឹកប្រើកូនសោ AI ផ្ទាល់ខ្លួនរបស់អ្នក; ការប្រៀបធៀបមិនត្រូវការវាទេ។"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a Reactive Resume export, then pick up where it left off. With an AI provider set up, Word documents work too."
-msgstr "បាទ។ នាំចូល PDF ការនាំចេញទិន្នន័យ LinkedIn ឯកសារ JSON Resume ឬការនាំចេញ Reactive Resume បន្ទាប់មកជ្រើសរើសកន្លែងដែលវាបានចាកចេញ។ ជាមួយនឹងការដំឡើងអ្នកផ្តល់សេវា AI ឯកសារ Word ក៏ដំណើរការផងដែរ។"
+msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a PortoFit export, then pick up where it left off. With an AI provider set up, Word documents work too."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Reactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
-msgstr "បាទ។ Reactive Resume គឺជាប្រភពបើកចំហរក្រោម MIT License ហើយដឹកជញ្ជូនជារូបភាព Docker ដូច្នេះវាដំណើរការលើម៉ាស៊ីនមេរបស់អ្នកជាមួយនឹងមូលដ្ឋានទិន្នន័យ និងការផ្ទុកផ្ទាល់ខ្លួនរបស់អ្នក។"
+msgid "Yes. PortoFit is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Yesterday"

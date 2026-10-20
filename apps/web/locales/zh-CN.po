@@ -851,8 +851,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "A 接受而 R 拒绝焦点编辑。 ↑ 和 ↓ 在编辑之间移动。"
 
 #: src/routes/builder/letter/-components/share-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
-msgstr "这封信的备份。作为信件导入回 Reactive Resume。"
+msgid "A backup of this letter. Imports back into PortoFit as a letter."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
@@ -982,10 +982,6 @@ msgstr "按时间分配的计划、您的开场白、要准备的故事和要提
 #: src/features/ats-checker/messages.ts
 msgid "A web address is written without https://."
 msgstr "有一个网址没有写 https://。"
-
-#: src/features/homepage/footer.tsx
-msgid "About"
-msgstr "关于"
 
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
@@ -2412,10 +2408,6 @@ msgstr "直接改了简历（之前的对话）"
 msgid "Changed your mind? Rename your resume to something more descriptive."
 msgstr "改变主意了？那就把简历重命名得更具体一些吧。"
 
-#: src/features/homepage/footer.tsx
-msgid "Changelog"
-msgstr "更新日志"
-
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Changes section titles and date words only, not your content."
 msgstr "仅更改部分标题和日期单词，而不更改您的内容。"
@@ -2761,8 +2753,8 @@ msgid "Compares your resume with the posting"
 msgstr "将您的简历与职位发布进行比较"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
-msgstr "完整的数据备份。导入回 Reactive Resume 或 JSON Resume 工具。"
+msgid "Complete data backup. Imports back into PortoFit or JSON Resume tools."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -2870,7 +2862,6 @@ msgid "Connections bill speech separately and may use tokens on your account. Yo
 msgstr "连接会单独对语音计费，并可能消耗您账户中的 token。浏览器语音免费，但浏览器厂商可能会处理音频。服务器只保存转写文本，从不保存录音。"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/homepage/footer.tsx
 msgid "Contact"
 msgstr "接触"
 
@@ -2932,10 +2923,6 @@ msgstr "继续"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "以访客身份继续"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "贡献代码"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -4012,19 +3999,11 @@ msgstr "放弃更改？"
 msgid "Disconnect"
 msgstr "断开连接"
 
-#: src/features/homepage/footer.tsx
-msgid "Discord"
-msgstr "Discord 频道"
-
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Dismiss"
 msgstr "忽略"
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Docs"
-msgstr "文档"
 
 #: src/features/resume/editor/chrome.tsx
 msgid "Document menu: {name}"
@@ -4033,10 +4012,6 @@ msgstr "文档菜单：{name}"
 #: src/features/documents/documents-page.tsx
 msgid "Document type"
 msgstr "文件类型"
-
-#: src/features/homepage/footer.tsx
-msgid "Documentation"
-msgstr "文档"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/documents-page.tsx
@@ -4064,7 +4039,6 @@ msgstr "不要发送 {0}"
 
 #: src/components/ui/donation-toast.tsx
 #: src/features/resume/share/download-tab.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Donate"
 msgstr "捐赠"
 
@@ -4232,8 +4206,8 @@ msgid "Drag to reposition and use the slider to zoom before uploading."
 msgstr "拖动即可重新定位，上传前可使用滑块进行缩放。"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "Drop a file here or browse. PDF, Word, Reactive Resume or JSON Resume. We fill in every section and flag anything we're unsure of."
-msgstr "将文件拖放到此处或浏览。 PDF、Word、Reactive Resume 或 JSON Resume。我们填写每个部分并标记任何我们不确定的内容。"
+msgid "Drop a file here or browse. PDF, Word, PortoFit or JSON Resume. We fill in every section and flag anything we're unsure of."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Drop a PDF here or choose a file"
@@ -4494,8 +4468,8 @@ msgid "Enhanced reading was unavailable. The built-in reader retrieved this post
 msgstr "增强阅读不可用。内置阅读器检索到了该职位发布。"
 
 #: src/components/ui/donation-toast.tsx
-msgid "Enjoying Reactive Resume?"
-msgstr "喜欢 Reactive Resume 吗？"
+msgid "Enjoying PortoFit?"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5245,8 +5219,8 @@ msgid "Go to…"
 msgstr "前往…"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Reactive Resume stays free because people chip in."
-msgstr "祝你好运。 Reactive Resume 保持免费，因为有人捐款。"
+msgid "Good luck out there. PortoFit stays free because people chip in."
+msgstr ""
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -5333,10 +5307,6 @@ msgstr "收到回音"
 #: src/libs/locale.ts
 msgid "Hebrew"
 msgstr "希伯来语"
-
-#: src/features/settings/root.tsx
-msgid "Help & docs"
-msgstr "帮助和文档"
 
 #: src/features/career/coach.tsx
 msgid "Help me turn an accomplishment into a Situation, Task, Action, Result and Reflection story."
@@ -5603,8 +5573,8 @@ msgid "Import steps"
 msgstr "导入步骤"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
-msgstr "将此文件导入到免费的 Reactive Resume 中。每一个问题都在 Check 中等着您。"
+msgid "Import this file into a free PortoFit. Every issue is waiting for you in Check."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -5774,8 +5744,8 @@ msgid "Is equity part of the offer?"
 msgstr "录用条件中包含股权吗？"
 
 #: src/features/homepage/faq.tsx
-msgid "Is Reactive Resume really free?"
-msgstr "Reactive Resume真的免费吗？"
+msgid "Is PortoFit really free?"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
@@ -6353,12 +6323,12 @@ msgid "Link"
 msgstr "关联"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
-msgstr "关联 Reactive Resume（推荐）"
+msgid "Link a PortoFit (recommended)"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
-msgstr "关联一份 Reactive Resume 简历，即可使用 AI 匹配度评分和定制功能。"
+msgid "Link a PortoFit to use AI match scoring and tailoring."
+msgstr ""
 
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
@@ -6598,8 +6568,8 @@ msgid "Lower the design sheet"
 msgstr "降低设计表"
 
 #: src/features/resume/public/public-resume.tsx
-msgid "Made with Reactive Resume, free and open source"
-msgstr "使用Reactive Resume制作，免费开源"
+msgid "Made with PortoFit, free and open source"
+msgstr ""
 
 #. Layout editor column label for the primary content area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -7425,7 +7395,7 @@ msgstr "未找到工作经历部分。"
 msgid "No. {number} · {name}"
 msgstr "编号：{number}·{name}"
 
-#. Receipt line amount for something Reactive Resume doesn't have, e.g. ads.
+#. Receipt line amount for something PortoFit doesn't have, e.g. ads.
 #: src/features/homepage/sections.tsx
 msgid "none"
 msgstr "没有任何"
@@ -7532,10 +7502,6 @@ msgstr "未选择"
 #: src/features/settings/root.tsx
 msgid "Not set up"
 msgstr "未设置"
-
-#: src/features/resume/stylesheet/editor.tsx
-msgid "Not sure what to write?"
-msgstr "不知道该写些什么？"
 
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
@@ -7857,10 +7823,6 @@ msgstr "打开文件"
 msgid "Opens in Career → Offers."
 msgstr "在“职业 → 录用通知”中打开。"
 
-#: src/features/resume/stylesheet/editor.tsx
-msgid "opens in new tab"
-msgstr "在新标签页中打开"
-
 #: src/features/documents/new-document-dialog.tsx
 msgid "Opens the editor on your name. Nothing else to fill in first."
 msgstr "打开您名字的编辑器。没有什么可以先填写的。"
@@ -8179,8 +8141,8 @@ msgid "PDF styles support a subset of CSS. Rotation, dashed and dotted borders, 
 msgstr "PDF 样式支持 CSS 的子集。旋转、虚线和点线边框以及某些布局属性将被忽略。"
 
 #: src/features/homepage/faq.tsx
-msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any Reactive Resume, including one you host yourself, so your data is never locked in."
-msgstr "PDF, Word （DOCX), Markdown 和 JSON。这 JSON 出口进口回到任何 Reactive Resume，包括您自己托管的数据，因此您的数据永远不会被锁定。"
+msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any PortoFit, including one you host yourself, so your data is never locked in."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "PDF, Word or JSON. We'll build a resume from it."
@@ -8295,6 +8257,22 @@ msgstr "波兰语"
 #: src/features/career/shared.tsx
 msgid "Polishing"
 msgstr "正在润色"
+
+#: src/routes/_home/-sections/header.tsx
+msgid "PortoFit - Go to homepage"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "PortoFit {__APP_VERSION__} · MIT"
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "PortoFit is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+msgstr ""
+
+#: src/features/homepage/sections.tsx
+msgid "PortoFit is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
+msgstr ""
 
 #. Preset button for setting picture aspect ratio to portrait orientation
 #: src/features/resume/editor/write/picture-settings.tsx
@@ -8497,10 +8475,6 @@ msgstr "在发送之前，把表单打印或导出为扁平化的 PDF。"
 #: src/features/resume/public/public-resume.tsx
 msgid "Printing is turned off for this resume."
 msgstr "此简历的打印已关闭。"
-
-#: src/features/homepage/footer.tsx
-msgid "Privacy policy"
-msgstr "隐私政策"
 
 #: src/features/homepage/share.tsx
 msgid "Private"
@@ -8715,22 +8689,6 @@ msgstr "重新导出并嵌入字体，然后打开文件检查文字复制出来
 msgid "Re: Senior Product Designer"
 msgstr "Re: 高级产品设计师"
 
-#: src/routes/_home/-sections/header.tsx
-msgid "Reactive Resume - Go to homepage"
-msgstr "Reactive Resume - 返回首页"
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr "Reactive Resume {__APP_VERSION__} · MIT"
-
-#: src/features/homepage/hero.tsx
-msgid "Reactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
-msgstr "Reactive Resume 是一款免费开源的简历生成器。撰写、设计、检查、针对每个职位定制简历，从容走进面试。"
-
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
-msgstr "Reactive Resume 基于 MIT 许可证开源。Amruth Pillai 和贡献者社区维护着它的运转，捐赠用于支付托管和开发费用。没有付费版本。"
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -8762,10 +8720,6 @@ msgstr "阅读职位发布"
 msgid "Read questions with"
 msgstr "朗读问题使用"
 
-#: src/features/resume/stylesheet/editor.tsx
-msgid "Read the Applying Custom Styles guide."
-msgstr "请阅读“应用自定义样式”指南。"
-
 #: src/features/assistant/conversation.tsx
 msgid "Read the attachment"
 msgstr "阅读附件"
@@ -8785,10 +8739,6 @@ msgstr "阅读页面"
 #: src/features/assistant/conversation.tsx
 msgid "Read the resume"
 msgstr "已读取简历"
-
-#: src/features/homepage/faq.tsx
-msgid "Read the self-hosting guide"
-msgstr "阅读自托管指南"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Read your documents and job applications."
@@ -9970,10 +9920,6 @@ msgstr "选择..."
 msgid "Selected documents"
 msgstr "所选文件"
 
-#: src/features/homepage/footer.tsx
-msgid "Self-hosting"
-msgstr "自托管"
-
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Semantic CSS stylesheet"
 msgstr "语义化 CSS 样式表"
@@ -10106,10 +10052,6 @@ msgstr "设置"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Setup Authenticator App"
 msgstr "设置验证器应用"
-
-#: src/features/settings/ai/mcp.tsx
-msgid "Setup guide"
-msgstr "设置指南"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Shadow Color"
@@ -10638,12 +10580,12 @@ msgid "Standard section headings"
 msgstr "标准章节标题"
 
 #: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub"
-msgstr "GitHub 上的明星 Reactive Resume"
+msgid "Star PortoFit on GitHub"
+msgstr ""
 
 #: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub, {count} stars"
-msgstr "GitHub、{count} 上的星星 Reactive Resume"
+msgid "Star PortoFit on GitHub, {count} stars"
+msgstr ""
 
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
@@ -10852,10 +10794,6 @@ msgstr "提交附求职信：{0}"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Submitted attached resume: {0}"
 msgstr "提交的附简历：{0}"
-
-#: src/features/homepage/footer.tsx
-msgid "Subreddit"
-msgstr "Subreddit 论坛"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Success at 90 days · next step"
@@ -11612,8 +11550,8 @@ msgid "This file is larger than many application forms accept."
 msgstr "该文件的大小超过了许多申请表单允许的上限。"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
-msgstr "无法导入此文件类型。使用 PDF、Word、Reactive Resume 或 JSON Resume 文件，或 LinkedIn 导出 (.zip)。"
+msgid "This file type can't be imported. Use a PDF, Word, PortoFit or JSON Resume file, or a LinkedIn export (.zip)."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This file uses a lot of different fonts."
@@ -11867,21 +11805,9 @@ msgstr "正在使用 {model} 转写…"
 msgid "Transcript copied"
 msgstr "复制成绩单"
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Translate"
-msgstr "翻译"
-
 #: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "翻译该应用程序"
-
-#: src/features/homepage/sections.tsx
-msgid "Translated into {languageCount} languages. Help translate it into yours."
-msgstr "已翻译成 {languageCount} 种语言。欢迎帮忙翻译成您的语言。"
-
-#: src/features/homepage/footer.tsx
-msgid "Translations"
-msgstr "翻译"
+msgid "Translated into {languageCount} languages by volunteers."
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
@@ -12987,12 +12913,12 @@ msgid "Yes. Every job you track gets its own workspace: check your fit against t
 msgstr "可以。您追踪的每个职位都有自己的工作区：对照职位公告检查匹配度，用写过一次的故事起草回答，在面试前获取简短计划，大声练习并获得反馈，事后进行复盘。收到录用通知时，可以并排比较。辅导使用您自己的 AI 密钥；比较功能则不需要。"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a Reactive Resume export, then pick up where it left off. With an AI provider set up, Word documents work too."
-msgstr "是的。导入 PDF、LinkedIn 数据导出、JSON Resume 文件或 Reactive Resume 导出，然后从中断处继续。设置 AI 提供商后，Word 文档也可以工作。"
+msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a PortoFit export, then pick up where it left off. With an AI provider set up, Word documents work too."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Reactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
-msgstr "是的。 Reactive Resume 在 MIT License 下开源，并作为 Docker 映像提供，因此它可以在您自己的服务器上运行，并具有您自己的数据库和存储。"
+msgid "Yes. PortoFit is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Yesterday"
