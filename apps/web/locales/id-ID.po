@@ -852,7 +852,7 @@ msgstr "A menerima dan R menolak pengeditan terfokus. ↑ dan ↓ berpindah anta
 
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "A backup of this letter. Imports back into PortoFit as a letter."
-msgstr ""
+msgstr "A backup of this letter. Imports back into PortoFit as a letter."
 
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
@@ -1675,11 +1675,11 @@ msgstr "Apa pun yang perlu diingat tentang pekerjaan ini"
 
 #: src/features/homepage/faq.tsx
 msgid "Apakah memakai AI?"
-msgstr ""
+msgstr "Apakah memakai AI?"
 
 #: src/features/homepage/faq.tsx
 msgid "Apakah PortoFit gratis?"
-msgstr ""
+msgstr "Apakah PortoFit gratis?"
 
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
@@ -2170,23 +2170,23 @@ msgstr "Terbaik untuk melamar"
 
 #: src/features/homepage/sections.tsx
 msgid "Bikin CV, cocokkan ke lowongan, latihan wawancara"
-msgstr ""
+msgstr "Bikin CV, cocokkan ke lowongan, latihan wawancara"
 
 #: src/features/homepage/faq.tsx
 msgid "Bisa bantu latihan wawancara?"
-msgstr ""
+msgstr "Bisa bantu latihan wawancara?"
 
 #: src/features/homepage/faq.tsx
 msgid "Bisa impor CV yang sudah ada?"
-msgstr ""
+msgstr "Bisa impor CV yang sudah ada?"
 
 #: src/features/homepage/faq.tsx
 msgid "Bisa. Impor PDF, berkas ekspor data LinkedIn, JSON Resume, atau ekspor PortoFit, lalu lanjutkan dari sana. Berkas Word juga terbaca."
-msgstr ""
+msgstr "Bisa. Impor PDF, berkas ekspor data LinkedIn, JSON Resume, atau ekspor PortoFit, lalu lanjutkan dari sana. Berkas Word juga terbaca."
 
 #: src/features/homepage/faq.tsx
 msgid "Bisa. Tiap lowongan yang kamu simpan punya ruang kerja sendiri: cek kecocokan dengan iklan, susun jawaban dari cerita yang kamu tulis sekali, rencana singkat sebelum wawancara, latihan bicara dengan umpan balik, lalu catatan setelah wawancara."
-msgstr ""
+msgstr "Bisa. Tiap lowongan yang kamu simpan punya ruang kerja sendiri: cek kecocokan dengan iklan, susun jawaban dari cerita yang kamu tulis sekali, rencana singkat sebelum wawancara, latihan bicara dengan umpan balik, lalu catatan setelah wawancara."
 
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
@@ -2765,7 +2765,7 @@ msgstr "Bandingkan resume Anda dengan lowongan pekerjaan"
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Complete data backup. Imports back into PortoFit or JSON Resume tools."
-msgstr ""
+msgstr "Complete data backup. Imports back into PortoFit or JSON Resume tools."
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -4214,7 +4214,7 @@ msgstr "Seret untuk memposisikan ulang dan gunakan penggeser untuk memperbesar a
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Drop a file here or browse. PDF, Word, PortoFit or JSON Resume. We fill in every section and flag anything we're unsure of."
-msgstr ""
+msgstr "Drop a file here or browse. PDF, Word, PortoFit or JSON Resume. We fill in every section and flag anything we're unsure of."
 
 #: src/features/ats-checker/checker.tsx
 msgid "Drop a PDF here or choose a file"
@@ -4476,7 +4476,7 @@ msgstr "Bacaan yang disempurnakan tidak tersedia. Pembaca internal mengambil pos
 
 #: src/components/ui/donation-toast.tsx
 msgid "Enjoying PortoFit?"
-msgstr ""
+msgstr "Enjoying PortoFit?"
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5214,7 +5214,7 @@ msgstr "Pergi ke…"
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Good luck out there. PortoFit stays free because people chip in."
-msgstr ""
+msgstr "Good luck out there. PortoFit stays free because people chip in."
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -5568,7 +5568,7 @@ msgstr "Impor langkah-langkah"
 
 #: src/features/ats-checker/checker.tsx
 msgid "Import this file into a free PortoFit. Every issue is waiting for you in Check."
-msgstr ""
+msgstr "Import this file into a free PortoFit. Every issue is waiting for you in Check."
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -5920,7 +5920,7 @@ msgstr "Rata kanan-kiri"
 #. Hero headline, line 3 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
 #: src/features/homepage/hero.tsx
 msgid "kamu kerjakan,"
-msgstr ""
+msgstr "kamu kerjakan,"
 
 #: src/libs/locale.ts
 msgid "Kannada"
@@ -6320,11 +6320,11 @@ msgstr "Tautan"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Link a PortoFit (recommended)"
-msgstr ""
+msgstr "Link a PortoFit (recommended)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Link a PortoFit to use AI match scoring and tailoring."
-msgstr ""
+msgstr "Link a PortoFit to use AI match scoring and tailoring."
 
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
@@ -6565,7 +6565,7 @@ msgstr "Turunkan lembar desain"
 
 #: src/features/resume/public/public-resume.tsx
 msgid "Made with PortoFit, free and open source"
-msgstr ""
+msgstr "Made with PortoFit, free and open source"
 
 #. Layout editor column label for the primary content area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -8124,7 +8124,7 @@ msgstr "Gaya PDF mendukung subset CSS. Rotasi, batas putus-putus dan putus-putus
 
 #: src/features/homepage/faq.tsx
 msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any PortoFit, including one you host yourself, so your data is never locked in."
-msgstr ""
+msgstr "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any PortoFit, including one you host yourself, so your data is never locked in."
 
 #: src/features/documents/documents-page.tsx
 msgid "PDF, Word or JSON. We'll build a resume from it."
@@ -8144,11 +8144,11 @@ msgstr "Persia"
 
 #: src/libs/seo.ts
 msgid "Persiapan kerja dari CV sampai wawancara"
-msgstr ""
+msgstr "Persiapan kerja dari CV sampai wawancara"
 
 #: src/features/homepage/hero.tsx
 msgid "Persiapan kerja untuk pencari kerja Indonesia"
-msgstr ""
+msgstr "Persiapan kerja untuk pencari kerja Indonesia"
 
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
@@ -8250,23 +8250,23 @@ msgstr "Memoles"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "PortoFit - Go to homepage"
-msgstr ""
+msgstr "PortoFit - Go to homepage"
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "PortoFit {__APP_VERSION__} · MIT"
-msgstr ""
+msgstr "PortoFit {__APP_VERSION__} · MIT"
 
 #: src/features/homepage/sections.tsx
 msgid "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk CV yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacakan."
-msgstr ""
+msgstr "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk CV yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacakan."
 
 #: src/libs/seo.ts
 msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara membacanya, cocokkan dengan lowongan, lalu latihan wawancara. Mulai gratis, tanpa iklan."
-msgstr ""
+msgstr "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara membacanya, cocokkan dengan lowongan, lalu latihan wawancara. Mulai gratis, tanpa iklan."
 
 #: src/features/homepage/hero.tsx
 msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara sistem membacanya, cocokkan dengan lowongan yang kamu incar, lalu latihan wawancara. Mulai gratis, tanpa iklan."
-msgstr ""
+msgstr "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara sistem membacanya, cocokkan dengan lowongan yang kamu incar, lalu latihan wawancara. Mulai gratis, tanpa iklan."
 
 #. Preset button for setting picture aspect ratio to portrait orientation
 #: src/features/resume/editor/write/picture-settings.tsx
@@ -9521,7 +9521,7 @@ msgstr "Contoh resume ditambahkan. Hapus kapan saja."
 #. Hero headline, line 4 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
 #: src/features/homepage/hero.tsx
 msgid "satu halaman."
-msgstr ""
+msgstr "satu halaman."
 
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
@@ -9864,7 +9864,7 @@ msgstr "Menelusuri web…"
 
 #: src/features/homepage/faq.tsx
 msgid "Sebagian. Membuat CV, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk CV beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan."
-msgstr ""
+msgstr "Sebagian. Membuat CV, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk CV beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -9930,11 +9930,11 @@ msgstr "Lembar gaya CSS semantik"
 #. Hero headline, line 1 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
 #: src/features/homepage/hero.tsx
 msgid "Semua"
-msgstr ""
+msgstr "Semua"
 
 #: src/features/homepage/hero.tsx
 msgid "Semua yang sudah kamu kerjakan, dalam satu halaman."
-msgstr ""
+msgstr "Semua yang sudah kamu kerjakan, dalam satu halaman."
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -10593,11 +10593,11 @@ msgstr "Judul bagian standar"
 
 #: src/features/homepage/header.tsx
 msgid "Star PortoFit on GitHub"
-msgstr ""
+msgstr "Star PortoFit on GitHub"
 
 #: src/features/homepage/header.tsx
 msgid "Star PortoFit on GitHub, {count} stars"
-msgstr ""
+msgstr "Star PortoFit on GitHub, {count} stars"
 
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
@@ -11563,7 +11563,7 @@ msgstr "File ini lebih besar dari yang diterima banyak formulir lamaran."
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "This file type can't be imported. Use a PDF, Word, PortoFit or JSON Resume file, or a LinkedIn export (.zip)."
-msgstr ""
+msgstr "This file type can't be imported. Use a PDF, Word, PortoFit or JSON Resume file, or a LinkedIn export (.zip)."
 
 #: src/features/ats-checker/messages.ts
 msgid "This file uses a lot of different fonts."
@@ -11819,7 +11819,7 @@ msgstr "Transkrip disalin"
 
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages by volunteers."
-msgstr ""
+msgstr "Translated into {languageCount} languages by volunteers."
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
@@ -12097,11 +12097,11 @@ msgstr "Resume tanpa judul"
 
 #: src/features/homepage/faq.tsx
 msgid "Untuk pencari kerja di Indonesia, terutama mahasiswa tingkat akhir, fresh graduate, dan yang sedang melamar magang atau pekerjaan pertama. Alur, contoh, dan bahasanya dibuat untuk kebutuhan mereka."
-msgstr ""
+msgstr "Untuk pencari kerja di Indonesia, terutama mahasiswa tingkat akhir, fresh graduate, dan yang sedang melamar magang atau pekerjaan pertama. Alur, contoh, dan bahasanya dibuat untuk kebutuhan mereka."
 
 #: src/features/homepage/faq.tsx
 msgid "Untuk siapa PortoFit?"
-msgstr ""
+msgstr "Untuk siapa PortoFit?"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Up to 2 minutes. Or <0>choose an audio file</0> up to 2 MB."
@@ -12926,16 +12926,16 @@ msgstr "Penawaran tertulis"
 
 #: src/features/homepage/faq.tsx
 msgid "Ya, untuk menyarankan perbaikan kalimat, menyesuaikan CV ke satu iklan lowongan, dan latihan wawancara. Layanan AI sudah disiapkan PortoFit, jadi kamu tidak perlu kunci API sendiri. Isi lamaranmu hanya dikirim ke layanan AI saat kamu memakai fitur itu."
-msgstr ""
+msgstr "Ya, untuk menyarankan perbaikan kalimat, menyesuaikan CV ke satu iklan lowongan, dan latihan wawancara. Layanan AI sudah disiapkan PortoFit, jadi kamu tidak perlu kunci API sendiri. Isi lamaranmu hanya dikirim ke layanan AI saat kamu memakai fitur itu."
 
 #. Hero headline, line 2 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
 #: src/features/homepage/hero.tsx
 msgid "yang sudah"
-msgstr ""
+msgstr "yang sudah"
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. PortoFit is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
-msgstr ""
+msgstr "Yes. PortoFit is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
 
 #: src/features/career/coach-thread.tsx
 msgid "Yesterday"
