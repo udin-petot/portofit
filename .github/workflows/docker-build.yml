@@ -309,11 +309,11 @@ jobs:
           docker buildx imagetools create \
             "${args[@]}" \
             --annotation "index:org.opencontainers.image.licenses=MIT" \
-            --annotation "index:org.opencontainers.image.title=Reactive Resume" \
+            --annotation "index:org.opencontainers.image.title=PortoFit" \
             --annotation "index:org.opencontainers.image.description=A free and open-source resume builder." \
             --annotation "index:org.opencontainers.image.vendor=Amruth Pillai" \
-            --annotation "index:org.opencontainers.image.url=https://rxresu.me" \
-            --annotation "index:org.opencontainers.image.documentation=https://docs.rxresu.me" \
+            --annotation "index:org.opencontainers.image.url=https://www.portofit.tech" \
+            --annotation "index:org.opencontainers.image.documentation=https://www.portofit.tech" \
             --annotation "index:org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
             --annotation "index:org.opencontainers.image.version=${{ steps.version.outputs.version }}"
 

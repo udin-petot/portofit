@@ -85,7 +85,7 @@ export function handleLlms(options?: StaticSeoOptions) {
 		"",
 		"- Price: free, every feature. Optional donations through GitHub Sponsors and Open Collective.",
 		"- Export: PDF, Word (DOCX), Markdown and JSON.",
-		"- Import: PDF, LinkedIn data export, JSON Resume, Reactive Resume JSON; Word files with an AI provider.",
+		"- Import: PDF, LinkedIn data export, JSON Resume, PortoFit JSON; Word files with an AI provider.",
 		"- Sharing: private by default; a public link or a password-protected link, changeable at any time.",
 		"- AI: optional, with the user's own API key (OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama and others). Nothing is sent to an AI service without one.",
 		"- Also includes: cover letters, a job application tracker, version history, passkeys and two-factor authentication.",

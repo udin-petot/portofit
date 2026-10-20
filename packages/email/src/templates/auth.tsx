@@ -21,7 +21,7 @@ import {
 void React;
 
 const appName = "PortoFit";
-const logoUrl = "https://rxresu.me/icon/dark.svg";
+const logoUrl = "https://www.portofit.tech/icon/dark.svg";
 
 interface AuthEmailLayoutProps {
 	preview: string;
