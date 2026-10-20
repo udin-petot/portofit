@@ -5,6 +5,7 @@ import { Link } from "@tanstack/react-router";
 import { cn } from "@reactive-resume/utils/style";
 import { SCENE } from "./scroll";
 import { labelClass } from "./ui";
+import { LocaleToggle } from "@/features/locale/toggle";
 
 const githubUrl = "https://github.com/udin-petot/portofit";
 const licenseUrl = `${githubUrl}/blob/main/LICENSE`;
@@ -97,6 +98,10 @@ export function LandingFooter() {
 							</Trans>
 						</p>
 						<p>v{__APP_VERSION__}</p>
+						<div className="mt-1 flex items-center gap-3">
+							<span className={labelClass}>{t`Language`}</span>
+							<LocaleToggle />
+						</div>
 					</div>
 				</div>
 
@@ -124,8 +129,8 @@ export function LandingFooter() {
 			<div aria-hidden="true" className="@container mx-auto mt-14 max-w-[1440px] px-(--gutter)">
 				<div className="h-[27cqw] overflow-hidden [mask-image:linear-gradient(to_bottom,#000_35%,transparent_100%)]">
 					<div className="font-anybody [transform:translateY(calc((1-clamp(0,(var(--p)-.1)/.8,1))*60%))] pt-[.12em] pb-[.06em] text-[17.5cqw] leading-[.84] font-extrabold tracking-[-.035em] whitespace-nowrap text-ink font-stretch-[78%] select-none [transition:transform_.35s_var(--ease)]">
-						<span className="block">Reactive</span>
-						<span className="block text-accent-text">Resume</span>
+						<span className="block">Porto</span>
+						<span className="block text-accent-text">Fit</span>
 					</div>
 				</div>
 			</div>

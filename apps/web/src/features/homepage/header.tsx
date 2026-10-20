@@ -7,6 +7,7 @@ import { cn } from "@reactive-resume/utils/style";
 import { goToScene, prefersReducedMotion, SCENE, useLanding } from "./scroll";
 import { CtaLink } from "./ui";
 import { useTheme } from "@/features/theme/provider";
+import { LocaleToggle } from "@/features/locale/toggle";
 import { orpc } from "@/libs/orpc/client";
 
 const githubUrl = "https://github.com/udin-petot/portofit";
@@ -85,6 +86,7 @@ export function LandingHeader() {
 			</nav>
 
 			<div className="ms-auto flex items-center gap-2">
+				<LocaleToggle className="hidden sm:flex" />
 				<GithubLink />
 				<CtaLink size="header" />
 			</div>
