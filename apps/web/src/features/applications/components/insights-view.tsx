@@ -406,7 +406,7 @@ function PipelineFlow({ insights }: { insights: ReturnType<typeof computeInsight
 					fillRule="evenodd"
 					clipRule="evenodd"
 				>
-					<path d="M 40 24 L 216 24 L 216 200 L 196 220 L 196 232 L 40 232 Z M 68 52 L 68 204 L 88 204 L 88 52 Z M 88 52 L 88 116 L 144 116 A 32 32 0 0 0 144 52 Z M 88 72 L 144 72 A 12 12 0 0 1 144 96 L 88 96 Z M 68 132 L 168 132 L 168 150 L 68 150 Z M 68 164 L 150 164 L 150 182 L 68 182 Z" />
+					<path d="M 40 24 L 216 24 L 216 200 L 196 220 L 196 232 L 40 232 Z M 68 52 L 68 204 L 88 204 L 88 52 Z M 88 52 L 88 116 L 144 116 A 32 32 0 0 0 144 52 Z M 88 72 L 144 72 A 12 12 0 0 1 144 96 L 88 96 Z M 88 132 L 168 132 L 168 150 L 88 150 Z M 88 164 L 150 164 L 150 182 L 88 182 Z" />
 				</g>
 			</svg>
 		</div>

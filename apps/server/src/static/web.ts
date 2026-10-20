@@ -258,7 +258,12 @@ export const serveWebDistStatic = env.CLOUDFLARE
 				// Vite fingerprints everything under /assets, so a file there never changes.
 				if (context.req.path.startsWith("/assets/") || /^\/videos\/.*-v\d+\.(?:mp4|webp)$/.test(context.req.path)) {
 					context.header("Cache-Control", "public, max-age=31536000, immutable");
+					return;
 				}
+
+				// Everything else keeps a stable path, so a replaced logo, icon or screenshot must
+				// revalidate instead of being pinned by heuristic freshness after a rebrand.
+				context.header("Cache-Control", "public, max-age=0, must-revalidate");
 			},
 		});
 
