@@ -1,12 +1,12 @@
-Review the resume below and return the JSON object described in your instructions. Return raw JSON only.
+Tinjau CV di bawah dan kembalikan objek JSON sesuai instruksimu. Kembalikan JSON mentah saja.
 
-## Extracted resume text
+## Teks CV hasil ekstraksi
 
 <<<RESUME_TEXT_START>>>
 {{EXTRACTED_TEXT}}
 <<<RESUME_TEXT_END>>>
 
-## Formatting findings already reported (context only — do not repeat these)
+## Temuan format yang sudah dilaporkan (hanya konteks, jangan diulang)
 
 {{FINDINGS}}
 {{JOB_DESCRIPTION_SECTION}}

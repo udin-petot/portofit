@@ -1,12 +1,12 @@
-Request: {{REQUEST}}
+Permintaan: {{REQUEST}}
 
-Where the line sits: {{WHERE}}
+Posisi baris: {{WHERE}}
 
 <<<LINE_START>>>
 {{LINE}}
 <<<LINE_END>>>
 
-The rest of the field:
+Sisa isian tempat baris itu berada:
 
 <<<CONTEXT_START>>>
 {{CONTEXT}}
