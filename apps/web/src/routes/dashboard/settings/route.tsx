@@ -21,11 +21,8 @@ const SETTINGS_PAGES: Page[] = [
 
 // The project's own links: where to read up, see the code, help translate, report a problem or donate.
 const getProjectLinks = () => [
-	{ href: "https://docs.rxresu.me", label: t`Docs` },
-	{ href: "https://github.com/reactive-resume/reactive-resume", label: t`Source` },
-	{ href: "https://crowdin.com/project/reactive-resume", label: t`Translate` },
-	{ href: "https://github.com/reactive-resume/reactive-resume/issues", label: t`Report a bug` },
-	{ href: "https://opencollective.com/reactive-resume/donate", label: t`Donate` },
+	{ href: "https://github.com/udin-petot/portofit", label: t`Source` },
+	{ href: "https://github.com/udin-petot/portofit/issues", label: t`Report a bug` },
 ];
 
 export const Route = createFileRoute("/dashboard/settings")({ component: RouteComponent });

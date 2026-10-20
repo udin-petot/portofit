@@ -9,7 +9,7 @@ import { SCENE, useLanding } from "./scroll";
 import { Sheet } from "./sheet";
 import { Doodle, labelClass, TypedText } from "./ui";
 
-const ADDRESS = "rxresu.me/alex-morgan";
+const ADDRESS = "portofit.tech/alex-morgan";
 const SLUG_START = ADDRESS.indexOf("/") + 1;
 
 /**
@@ -134,7 +134,7 @@ export function Share() {
 				</div>
 
 				<div className="absolute inset-x-(--gutter) top-1/2 flex -translate-y-1/2 flex-col items-center gap-[26px] text-center">
-					{/* The heading reads "Your resume, live at rxresu.me/…"; this label is its visible first half. */}
+					{/* The heading reads "Your resume, live at portofit.tech/…"; this label is its visible first half. */}
 					<span
 						aria-hidden="true"
 						className={cn(labelClass, "tracking-[.1em] text-(--night-label) opacity-[clamp(0,var(--tu)*20,1)]")}

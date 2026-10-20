@@ -65,7 +65,6 @@ function useQuestions(): Question[] {
 			id: "self-host",
 			question: t`Can I host it myself?`,
 			answer: t`Yes. PortoFit is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage.`,
-			link: { label: t`Read the self-hosting guide`, href: "https://docs.rxresu.me/self-hosting/docker" },
 		},
 		{
 			id: "languages",

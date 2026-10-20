@@ -23,8 +23,8 @@ export const Config = z.object({
 	apiKey: z.string().default("").description("API key from <url>/dashboard/settings/api-keys."),
 	url: z
 		.string()
-		.default("https://rxresu.me")
-		.description("Reactive Resume origin. Set this for a self-hosted instance."),
+		.default("https://www.portofit.tech")
+		.description("PortoFit origin. Set this for a self-hosted instance."),
 	serverName: z
 		.string()
 		.pattern(SERVER_NAME_PATTERN)

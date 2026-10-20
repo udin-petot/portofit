@@ -6,7 +6,7 @@ import { cn } from "@reactive-resume/utils/style";
 import { SCENE } from "./scroll";
 import { labelClass } from "./ui";
 
-const githubUrl = "https://github.com/reactive-resume/reactive-resume";
+const githubUrl = "https://github.com/udin-petot/portofit";
 const licenseUrl = `${githubUrl}/blob/main/LICENSE`;
 const linkClass = "text-ink transition-colors hover:text-accent-text";
 
@@ -27,23 +27,13 @@ const getColumns = (): { id: string; title: string; links: FooterLink[] }[] => [
 		id: "resources",
 		title: t`Resources`,
 		links: [
-			{ label: t`About`, href: "https://docs.rxresu.me/getting-started" },
-			{ label: t`Documentation`, href: "https://docs.rxresu.me" },
-			{ label: t`Changelog`, href: "https://docs.rxresu.me/changelog" },
 			{ label: t`Source code`, href: githubUrl },
-			{ label: t`Self-hosting`, href: "https://docs.rxresu.me" },
 		],
 	},
 	{
 		id: "community",
 		title: t`Community`,
 		links: [
-			{ label: t`Discord`, href: "https://discord.gg/aSyA5ZSxpb" },
-			{ label: t`Subreddit`, href: "https://reddit.com/r/reactiveresume" },
-			{ label: t`Translations`, href: "https://crowdin.com/project/reactive-resume" },
-			{ label: t`Contact`, href: "mailto:amruth@rxresu.me" },
-			{ label: "LinkedIn", href: "https://www.linkedin.com/company/reactive-resume" },
-			{ label: "Amruth Pillai · X", href: "https://x.com/KingOKings" },
 			{ label: t`Report an issue`, href: `${githubUrl}/issues` },
 		],
 	},
@@ -51,7 +41,6 @@ const getColumns = (): { id: string; title: string; links: FooterLink[] }[] => [
 		id: "legal",
 		title: t`Legal`,
 		links: [
-			{ label: t`Privacy policy`, href: "https://docs.rxresu.me/legal/privacy-policy" },
 			{ label: t`MIT License`, href: licenseUrl },
 		],
 	},

@@ -13,8 +13,7 @@ import { prefersReducedMotion, SCENE, useLanding } from "./scroll";
 import { CtaLink, Doodle, labelClass } from "./ui";
 import { orpc } from "@/libs/orpc/client";
 
-const crowdinUrl = "https://crowdin.com/project/reactive-resume";
-const githubUrl = "https://github.com/reactive-resume/reactive-resume";
+const githubUrl = "https://github.com/udin-petot/portofit";
 // The statistics service caches the totals for six hours.
 const statisticsStaleTime = 6 * 60 * 60 * 1000;
 // A fresh self-hosted install has a handful of users; a total that small reads as a joke, so it isn't shown.
@@ -205,12 +204,7 @@ export function Languages() {
 				</button>
 			</div>
 			<p className="mt-3 max-w-[30em] font-display text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
-				<a
-					href={crowdinUrl}
-					className="text-accent-text italic underline underline-offset-[3px] transition-colors hover:text-accent-hover"
-				>
-					{t`Translated into ${languageCount} languages. Help translate it into yours.`}
-				</a>
+				{t`Translated into ${languageCount} languages by volunteers.`}
 			</p>
 		</section>
 	);
@@ -245,9 +239,7 @@ export function Support() {
 		[t`Tracking`, none],
 	] as const;
 	const pills: { href: string; icon: IconName; label: string }[] = [
-		{ href: crowdinUrl, icon: "translate", label: t`Translate the app` },
 		{ href: `${githubUrl}/issues`, icon: "bug", label: t`Report a bug` },
-		{ href: "https://docs.rxresu.me/contributing/development", icon: "code", label: t`Contribute code` },
 	];
 
 	return (

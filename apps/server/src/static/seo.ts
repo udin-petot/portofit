@@ -2,8 +2,6 @@ import { env } from "@reactive-resume/env/server";
 import { templateSchema } from "@reactive-resume/schema/templates";
 import { getLocaleAlternates } from "@reactive-resume/utils/locale";
 
-const DOCS_URL = "https://docs.rxresu.me";
-
 type StaticSeoOptions = {
 	head?: boolean;
 };
@@ -34,7 +32,6 @@ export function handleRobots(options?: StaticSeoOptions) {
 		"Allow: /.well-known/agent-skills/",
 		"",
 		`Sitemap: ${baseUrl}/sitemap.xml`,
-		`Sitemap: ${DOCS_URL}/sitemap.xml`,
 		"",
 	].join("\n");
 
@@ -92,24 +89,17 @@ export function handleLlms(options?: StaticSeoOptions) {
 		"- Languages: the interface is translated into more than 50 languages by volunteers on Crowdin.",
 		"- Self-hosting: a Docker image, with PostgreSQL and local or S3-compatible storage.",
 		"",
-		"## Documentation",
+		"## Interfaces",
 		"",
-		`- [Documentation](${DOCS_URL}): guides for using and self-hosting PortoFit.`,
-		`- [Documentation llms.txt](${DOCS_URL}/llms.txt)`,
-		`- [Self-hosting with Docker](${DOCS_URL}/self-hosting/docker)`,
-		`- [API reference](${DOCS_URL}/api-reference)`,
 		`- [OpenAPI specification](${baseUrl}/openapi.json)`,
 		`- [Resume JSON schema](${baseUrl}/schema.json)`,
-		`- [MCP server guide](${DOCS_URL}/guides/using-the-mcp-server): connect any MCP client to ${baseUrl}/mcp with OAuth or an API key.`,
-		`- [Agent skills](${DOCS_URL}/guides/using-agent-skills): eight job-search skills, also listed at ${baseUrl}/.well-known/agent-skills/index.json.`,
+		`- [MCP server](${baseUrl}/mcp): connect any MCP client with OAuth or an API key.`,
+		`- [Agent skills](${baseUrl}/.well-known/agent-skills/index.json): eight job-search skills.`,
 		`- [Integrations](${baseUrl}/.well-known/integrations.json): every API and MCP surface with its authentication.`,
 		"",
-		"## Community",
+		"## Source",
 		"",
-		"- [Source code on GitHub](https://github.com/reactive-resume/reactive-resume)",
-		"- [Discord](https://discord.gg/aSyA5ZSxpb)",
-		"- [Subreddit](https://www.reddit.com/r/reactiveresume)",
-		"- [Translations on Crowdin](https://crowdin.com/project/reactive-resume)",
+		"- [Source code on GitHub](https://github.com/udin-petot/portofit)",
 		"",
 	].join("\n");
 
