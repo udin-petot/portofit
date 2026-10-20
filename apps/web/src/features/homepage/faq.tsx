@@ -3,7 +3,6 @@ import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
 import { Link } from "@tanstack/react-router";
-import { templateSchema } from "@reactive-resume/schema/templates";
 import { localeSchema } from "@reactive-resume/utils/locale";
 import { cn } from "@reactive-resume/utils/style";
 import { SCENE } from "./scroll";
@@ -20,15 +19,19 @@ type Question = {
 
 function useQuestions(): Question[] {
 	const { i18n } = useLingui();
-	const templates = i18n.number(templateSchema.options.length);
 	// Every locale but Lingui's pseudo-locale, which only exists to test layouts.
 	const languages = i18n.number(localeSchema.options.length - 1);
 
 	return [
 		{
+			id: "who",
+			question: t`Untuk siapa PortoFit?`,
+			answer: t`Untuk pencari kerja di Indonesia, terutama mahasiswa tingkat akhir, fresh graduate, dan yang sedang melamar magang atau pekerjaan pertama. Alur, contoh, dan bahasanya dibuat untuk kebutuhan mereka.`,
+		},
+		{
 			id: "free",
-			question: t`Is PortoFit really free?`,
-			answer: t`Yes. Every feature is free: all ${templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development.`,
+			question: t`Apakah PortoFit gratis?`,
+			answer: t`Sebagian. Membuat CV, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk CV beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan.`,
 		},
 		{
 			id: "ats",
@@ -43,8 +46,8 @@ function useQuestions(): Question[] {
 		},
 		{
 			id: "import",
-			question: t`Can I import a resume I already have?`,
-			answer: t`Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a PortoFit export, then pick up where it left off. With an AI provider set up, Word documents work too.`,
+			question: t`Bisa impor CV yang sudah ada?`,
+			answer: t`Bisa. Impor PDF, berkas ekspor data LinkedIn, JSON Resume, atau ekspor PortoFit, lalu lanjutkan dari sana. Berkas Word juga terbaca.`,
 		},
 		{
 			id: "export",
@@ -53,13 +56,13 @@ function useQuestions(): Question[] {
 		},
 		{
 			id: "ai",
-			question: t`Does it use AI?`,
-			answer: t`Only if you want it to. Add your own key from OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama or another provider for sharper lines, tailoring to a job posting, coaching for applications and interviews, and reading Word files. Without a key, nothing is sent to an AI service.`,
+			question: t`Apakah memakai AI?`,
+			answer: t`Ya, untuk menyarankan perbaikan kalimat, menyesuaikan CV ke satu iklan lowongan, dan latihan wawancara. Layanan AI sudah disiapkan PortoFit, jadi kamu tidak perlu kunci API sendiri. Isi lamaranmu hanya dikirim ke layanan AI saat kamu memakai fitur itu.`,
 		},
 		{
 			id: "interviews",
-			question: t`Can it help me prepare for interviews?`,
-			answer: t`Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one.`,
+			question: t`Bisa bantu latihan wawancara?`,
+			answer: t`Bisa. Tiap lowongan yang kamu simpan punya ruang kerja sendiri: cek kecocokan dengan iklan, susun jawaban dari cerita yang kamu tulis sekali, rencana singkat sebelum wawancara, latihan bicara dengan umpan balik, lalu catatan setelah wawancara.`,
 		},
 		{
 			id: "self-host",

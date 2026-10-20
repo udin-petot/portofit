@@ -902,11 +902,6 @@ msgstr "Soustředěný plán pro toto kolo"
 msgid "A font is referenced but not embedded."
 msgstr "Písmo je odkazováno, ale není vloženo."
 
-#: src/features/homepage/sections.tsx
-#: src/libs/seo.ts
-msgid "A free and open-source resume builder"
-msgstr "Bezplatný a open source tvůrce životopisů"
-
 #: src/features/ats-checker/messages.ts
 msgid "A full-height gap splits this page into two columns."
 msgstr "Mezera přes celou výšku rozděluje tuto stránku na dva sloupce."
@@ -1608,10 +1603,6 @@ msgstr "Záznam nemá žádná data"
 msgid "an error"
 msgstr "chyba"
 
-#: src/features/homepage/hero.tsx
-msgid "An open-source resume builder"
-msgstr "Nástroj pro tvorbu životopisů s otevřeným zdrojovým kódem"
-
 #: src/components/layout/error-screen.tsx
 msgid "An unexpected error stopped this page from loading. You can try again or head back."
 msgstr "Neočekávaná chyba zastavila načítání této stránky. Můžete to zkusit znovu nebo se vrátit zpět."
@@ -1681,6 +1672,14 @@ msgstr "Každý, kdo má odkaz, bude moci zobrazit váš životopis."
 #: src/features/applications/components/application-notes.tsx
 msgid "Anything to remember about this job"
 msgstr "Cokoli, co byste si o této práci měli zapamatovat"
+
+#: src/features/homepage/faq.tsx
+msgid "Apakah memakai AI?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Apakah PortoFit gratis?"
+msgstr ""
 
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
@@ -2169,6 +2168,26 @@ msgstr "Bengálština"
 msgid "Best for applying"
 msgstr "Nejlepší pro žádosti o práci"
 
+#: src/features/homepage/sections.tsx
+msgid "Bikin CV, cocokkan ke lowongan, latihan wawancara"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa bantu latihan wawancara?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa impor CV yang sudah ada?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa. Impor PDF, berkas ekspor data LinkedIn, JSON Resume, atau ekspor PortoFit, lalu lanjutkan dari sana. Berkas Word juga terbaca."
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa. Tiap lowongan yang kamu simpan punya ruang kerja sendiri: cek kecocokan dengan iklan, susun jawaban dari cerita yang kamu tulis sekali, rencana singkat sebelum wawancara, latihan bicara dengan umpan balik, lalu catatan setelah wawancara."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr "Blokující problém"
@@ -2294,14 +2313,6 @@ msgstr "Kalendář"
 #: src/features/homepage/faq.tsx
 msgid "Can I host it myself?"
 msgstr "Mohu to hostit sám?"
-
-#: src/features/homepage/faq.tsx
-msgid "Can I import a resume I already have?"
-msgstr "Mohu importovat životopis, který již mám?"
-
-#: src/features/homepage/faq.tsx
-msgid "Can it help me prepare for interviews?"
-msgstr "Pomůže mi připravit se na pohovory?"
 
 #: src/features/ats-checker/checker.tsx
 msgid "Can software read your resume?"
@@ -4024,10 +4035,6 @@ msgstr "Dokumenty"
 msgid "Documents for this job"
 msgstr "Dokumenty pro tuto práci"
 
-#: src/features/homepage/faq.tsx
-msgid "Does it use AI?"
-msgstr "Používá AI?"
-
 #: src/features/auth/pages/login.tsx
 msgid "Don't have an account? <0/>"
 msgstr "Nemáte účet? <0/>"
@@ -4564,19 +4571,10 @@ msgstr "Každý termín, který pracovní nabídka zdůrazňuje, tam již je."
 msgid "Every week"
 msgstr "Každý týden"
 
-#. Hero headline, line 1 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "Everything"
-msgstr "Vše,"
-
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "Vše, co kouč napsal pro {0}, od nejnovějšího."
-
-#: src/features/homepage/hero.tsx
-msgid "Everything you’ve done, on one page."
-msgstr "Vše, co jste udělali, na jedné stránce."
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
@@ -5078,10 +5076,6 @@ msgstr "Zdarma kontrola resumé ATS"
 #: src/routes/builder/letter/-components/letter-page.tsx
 msgid "Free-form"
 msgstr "Volný formát"
-
-#: src/libs/seo.ts
-msgid "Free, open-source resume builder. Create, update, and share your resume, with PDF and Word downloads, no ads and no paywall."
-msgstr "Zdarma open-source tvůrce životopisů. Vytvářejte, aktualizujte a sdílejte svůj životopis pomocí stahování PDF a Word, bez reklam a bez paywallu."
 
 #: src/libs/locale.ts
 msgid "French"
@@ -5743,10 +5737,6 @@ msgstr "Tazatel"
 msgid "Is equity part of the offer?"
 msgstr "Jsou součástí nabídky akcie?"
 
-#: src/features/homepage/faq.tsx
-msgid "Is PortoFit really free?"
-msgstr ""
-
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
 msgstr "Je k dispozici bonus a na čem závisí?"
@@ -5926,6 +5916,11 @@ msgstr "Čtení JSON"
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
 msgstr "Zarovnat do bloku"
+
+#. Hero headline, line 3 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "kamu kerjakan,"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Kannada"
@@ -7656,11 +7651,6 @@ msgstr "Dny v kanceláři neuvedeny"
 msgid "Offline · saved on this device"
 msgstr "Offline · uloženo v tomto zařízení"
 
-#. Hero headline, line 3 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "on one"
-msgstr "na jedné"
-
 #: src/features/resume/share/link-tab.tsx
 msgid "On. Anyone with the link can view. It isn't listed or indexed by search engines."
 msgstr "Na. Kdokoli s odkazem může prohlížet. Není uveden ani indexován vyhledávači."
@@ -7693,10 +7683,6 @@ msgstr "Povolte pouze aplikace, kterým důvěřujete. Tato aplikace bude umět:
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Only applies when the section fits on a single page."
 msgstr "Platí pouze tehdy, když se sekce vejde na jednu stránku."
-
-#: src/features/homepage/faq.tsx
-msgid "Only if you want it to. Add your own key from OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama or another provider for sharper lines, tailoring to a job posting, coaching for applications and interviews, and reading Word files. Without a key, nothing is sent to an AI service."
-msgstr "Jen pokud chcete. Přidejte vlastní klíč od OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama nebo jiného poskytovatele pro výstižnější formulace, přizpůsobení inzerátu, koučování k žádostem a pohovorům a čtení souborů Word. Bez klíče se do žádné služby AI nic neodesílá."
 
 #: src/features/ats-checker/messages.ts
 msgid "Only one recognisable section heading was found."
@@ -7972,11 +7958,6 @@ msgstr "Čtení stránky nebylo dokončeno."
 msgid "Page view"
 msgstr "Zobrazení stránky"
 
-#. Hero headline, line 4 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "page."
-msgstr "stránce."
-
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "Papír"
@@ -8160,6 +8141,14 @@ msgstr "Trvale odstraní vše. Pokud chcete kopii, nejprve exportujte."
 msgid "Persian"
 msgstr "Perština"
 
+#: src/libs/seo.ts
+msgid "Persiapan kerja dari CV sampai wawancara"
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Persiapan kerja untuk pencari kerja Indonesia"
+msgstr ""
+
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/entries.tsx
@@ -8266,12 +8255,16 @@ msgstr ""
 msgid "PortoFit {__APP_VERSION__} · MIT"
 msgstr ""
 
-#: src/features/homepage/hero.tsx
-msgid "PortoFit is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+#: src/features/homepage/sections.tsx
+msgid "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk CV yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacakan."
 msgstr ""
 
-#: src/features/homepage/sections.tsx
-msgid "PortoFit is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
+#: src/libs/seo.ts
+msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara membacanya, cocokkan dengan lowongan, lalu latihan wawancara. Mulai gratis, tanpa iklan."
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara sistem membacanya, cocokkan dengan lowongan yang kamu incar, lalu latihan wawancara. Mulai gratis, tanpa iklan."
 msgstr ""
 
 #. Preset button for setting picture aspect ratio to portrait orientation
@@ -9524,6 +9517,11 @@ msgstr "Pořád vy. Méně začínání od nuly."
 msgid "Sample resume added. Delete it anytime."
 msgstr "Ukázka resumé přidána. Kdykoli jej smažte."
 
+#. Hero headline, line 4 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "satu halaman."
+msgstr ""
+
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
@@ -9863,6 +9861,10 @@ msgstr "Hledá se na webu"
 msgid "Searching the web…"
 msgstr "Vyhledávání na webu…"
 
+#: src/features/homepage/faq.tsx
+msgid "Sebagian. Membuat CV, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk CV beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan."
+msgstr ""
+
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
 msgstr "Tajný kód zkopírován do schránky."
@@ -9923,6 +9925,15 @@ msgstr "Vybrané dokumenty"
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Semantic CSS stylesheet"
 msgstr "Sémantický CSS stylový list"
+
+#. Hero headline, line 1 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "Semua"
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Semua yang sudah kamu kerjakan, dalam satu halaman."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -12083,6 +12094,14 @@ msgstr "Dopis bez názvu"
 msgid "Untitled resume"
 msgstr "Resumé bez názvu"
 
+#: src/features/homepage/faq.tsx
+msgid "Untuk pencari kerja di Indonesia, terutama mahasiswa tingkat akhir, fresh graduate, dan yang sedang melamar magang atau pekerjaan pertama. Alur, contoh, dan bahasanya dibuat untuk kebutuhan mereka."
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Untuk siapa PortoFit?"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Up to 2 minutes. Or <0>choose an audio file</0> up to 2 MB."
 msgstr "Až 2 minuty. Nebo <0>vyberte zvukový soubor</0> do 2 MB."
@@ -12905,15 +12924,12 @@ msgid "Written offer"
 msgstr "Písemná nabídka"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "Ano. Každá funkce je zdarma: všech {templates} šablon, stahování v PDF a Wordu, kontrola ATS, průvodní dopisy a přehled žádostí o práci. Nejsou tu žádné reklamy, žádné sledování a žádná placená úroveň. Dary platí hosting a vývoj."
+msgid "Ya, untuk menyarankan perbaikan kalimat, menyesuaikan CV ke satu iklan lowongan, dan latihan wawancara. Layanan AI sudah disiapkan PortoFit, jadi kamu tidak perlu kunci API sendiri. Isi lamaranmu hanya dikirim ke layanan AI saat kamu memakai fitur itu."
+msgstr ""
 
-#: src/features/homepage/faq.tsx
-msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."
-msgstr "Ano. Každá pozice, kterou sledujete, má vlastní pracovní prostor: porovnejte svou shodu s inzerátem, navrhněte odpovědi z příběhů, které jste jednou sepsali, získejte před pohovorem krátký plán, nacvičte si odpovědi nahlas se zpětnou vazbou a potom udělejte rozbor. Když přijdou nabídky, porovnejte je vedle sebe. Koučování používá váš vlastní klíč k AI; porovnání ho nepotřebuje."
-
-#: src/features/homepage/faq.tsx
-msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a PortoFit export, then pick up where it left off. With an AI provider set up, Word documents work too."
+#. Hero headline, line 2 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "yang sudah"
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -13017,11 +13033,6 @@ msgstr "Máte vše vyřízeno"
 #: src/features/auth/components/guest-banner.tsx
 msgid "You're using a guest account"
 msgstr "Používáte účet hosta"
-
-#. Hero headline, line 2 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "you’ve done,"
-msgstr "co jste dokázali,"
 
 #: src/features/auth/pages/forgot-password.tsx
 #: src/features/auth/pages/register.tsx

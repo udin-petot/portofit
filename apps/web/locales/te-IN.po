@@ -902,11 +902,6 @@ msgstr "ఈ రౌండ్ కోసం దృష్టి కేంద్ర�
 msgid "A font is referenced but not embedded."
 msgstr "ఒక ఫాంట్ ప్రస్తావించబడింది కానీ ఎంబెడ్ చేయబడలేదు."
 
-#: src/features/homepage/sections.tsx
-#: src/libs/seo.ts
-msgid "A free and open-source resume builder"
-msgstr "ఉచిత మరియు ఓపెన్ సోర్స్ రెజ్యూమ్ బిల్డర్"
-
 #: src/features/ats-checker/messages.ts
 msgid "A full-height gap splits this page into two columns."
 msgstr "పూర్తి-ఎత్తు గ్యాప్ ఈ పేజీని రెండు కాలమ్‌లుగా విభజిస్తుంది."
@@ -1608,10 +1603,6 @@ msgstr "ఎంట్రీకి తేదీలు లేవు"
 msgid "an error"
 msgstr "ఒక లోపం"
 
-#: src/features/homepage/hero.tsx
-msgid "An open-source resume builder"
-msgstr "ఓపెన్ సోర్స్ రెజ్యూమ్ బిల్డర్"
-
 #: src/components/layout/error-screen.tsx
 msgid "An unexpected error stopped this page from loading. You can try again or head back."
 msgstr "ఊహించని లోపం కారణంగా ఈ పేజీ లోడ్ అవ్వడం ఆగిపోయింది. మీరు మళ్ళీ ప్రయత్నించవచ్చు లేదా వెనక్కి వెళ్ళవచ్చు."
@@ -1681,6 +1672,14 @@ msgstr "లింక్‌ని కలిగి ఉన్న ఎవరైనా
 #: src/features/applications/components/application-notes.tsx
 msgid "Anything to remember about this job"
 msgstr "ఈ ఉద్యోగం గురించి ఏదైనా గుర్తుంచుకోవాలి"
+
+#: src/features/homepage/faq.tsx
+msgid "Apakah memakai AI?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Apakah PortoFit gratis?"
+msgstr ""
 
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
@@ -2169,6 +2168,26 @@ msgstr "బెంగాలీ"
 msgid "Best for applying"
 msgstr "దరఖాస్తు చేయడానికి ఉత్తమమైనది"
 
+#: src/features/homepage/sections.tsx
+msgid "Bikin CV, cocokkan ke lowongan, latihan wawancara"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa bantu latihan wawancara?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa impor CV yang sudah ada?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa. Impor PDF, berkas ekspor data LinkedIn, JSON Resume, atau ekspor PortoFit, lalu lanjutkan dari sana. Berkas Word juga terbaca."
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa. Tiap lowongan yang kamu simpan punya ruang kerja sendiri: cek kecocokan dengan iklan, susun jawaban dari cerita yang kamu tulis sekali, rencana singkat sebelum wawancara, latihan bicara dengan umpan balik, lalu catatan setelah wawancara."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr "బ్లాకర్"
@@ -2294,14 +2313,6 @@ msgstr "క్యాలెండర్"
 #: src/features/homepage/faq.tsx
 msgid "Can I host it myself?"
 msgstr "నేనే హోస్ట్ చేయవచ్చా?"
-
-#: src/features/homepage/faq.tsx
-msgid "Can I import a resume I already have?"
-msgstr "నేను ఇప్పటికే కలిగి ఉన్న రెజ్యూమేని దిగుమతి చేసుకోవచ్చా?"
-
-#: src/features/homepage/faq.tsx
-msgid "Can it help me prepare for interviews?"
-msgstr "ఇంటర్వ్యూలకు సిద్ధం కావడంలో ఇది నాకు సహాయపడుతుందా?"
 
 #: src/features/ats-checker/checker.tsx
 msgid "Can software read your resume?"
@@ -4024,10 +4035,6 @@ msgstr "పత్రాలు"
 msgid "Documents for this job"
 msgstr "ఈ ఉద్యోగం కోసం పత్రాలు"
 
-#: src/features/homepage/faq.tsx
-msgid "Does it use AI?"
-msgstr "ఇది AIని ఉపయోగిస్తుందా?"
-
 #: src/features/auth/pages/login.tsx
 msgid "Don't have an account? <0/>"
 msgstr "ఖాతా లేదా? <0/>"
@@ -4564,19 +4571,10 @@ msgstr "ఉద్యోగ పోస్టింగ్ నొక్కి చె
 msgid "Every week"
 msgstr "ప్రతి వారం"
 
-#. Hero headline, line 1 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "Everything"
-msgstr "మీరు"
-
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "{0} కోసం కోచ్ రాసినవన్నీ, కొత్తవి ముందుగా."
-
-#: src/features/homepage/hero.tsx
-msgid "Everything you’ve done, on one page."
-msgstr "మీరు చేసిన ప్రతిదీ, ఒక పేజీలో."
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
@@ -5078,10 +5076,6 @@ msgstr "ఉచిత ATS రెజ్యూమ్ చెకర్"
 #: src/routes/builder/letter/-components/letter-page.tsx
 msgid "Free-form"
 msgstr "స్వేచ్ఛా రూపం"
-
-#: src/libs/seo.ts
-msgid "Free, open-source resume builder. Create, update, and share your resume, with PDF and Word downloads, no ads and no paywall."
-msgstr "ఉచిత, ఓపెన్ సోర్స్ రెజ్యూమ్ బిల్డర్. PDF మరియు Word డౌన్‌లోడ్‌లతో, ప్రకటనలు లేవు మరియు పేవాల్‌తో మీ రెజ్యూమ్‌ని సృష్టించండి, నవీకరించండి మరియు భాగస్వామ్యం చేయండి."
 
 #: src/libs/locale.ts
 msgid "French"
@@ -5743,10 +5737,6 @@ msgstr "ఇంటర్వ్యూయర్"
 msgid "Is equity part of the offer?"
 msgstr "ఈక్విటీ ఆఫర్‌లో భాగమా?"
 
-#: src/features/homepage/faq.tsx
-msgid "Is PortoFit really free?"
-msgstr ""
-
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
 msgstr "బోనస్ ఉందా, అది దేనిపై ఆధారపడి ఉంటుంది?"
@@ -5926,6 +5916,11 @@ msgstr "JSON చదివారు"
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
 msgstr "రెండు వైపులా సమలేఖనం"
+
+#. Hero headline, line 3 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "kamu kerjakan,"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Kannada"
@@ -7656,11 +7651,6 @@ msgstr "ఆఫీసు రోజులు పేర్కొనలేదు"
 msgid "Offline · saved on this device"
 msgstr "ఆఫ్‌లైన్ · ఈ పరికరంలో సేవ్ చేయబడింది"
 
-#. Hero headline, line 3 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "on one"
-msgstr "ఒకే"
-
 #: src/features/resume/share/link-tab.tsx
 msgid "On. Anyone with the link can view. It isn't listed or indexed by search engines."
 msgstr "ఆన్. లింక్ ఉన్న ఎవరైనా వీక్షించగలరు. ఇది శోధన ఇంజిన్‌లచే జాబితా చేయబడలేదు లేదా సూచిక చేయబడలేదు."
@@ -7693,10 +7683,6 @@ msgstr "మీరు విశ్వసించే అప్లికేషన�
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Only applies when the section fits on a single page."
 msgstr "విభాగం ఒకే పేజీలో సరిపోయినప్పుడు మాత్రమే వర్తిస్తుంది."
-
-#: src/features/homepage/faq.tsx
-msgid "Only if you want it to. Add your own key from OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama or another provider for sharper lines, tailoring to a job posting, coaching for applications and interviews, and reading Word files. Without a key, nothing is sent to an AI service."
-msgstr "మీరు కోరుకుంటే మాత్రమే. మెరుగైన వాక్యాలు, ఉద్యోగ ప్రకటనకు అనుగుణంగా మార్చడం, దరఖాస్తులు మరియు ఇంటర్వ్యూల కోసం కోచింగ్, Word ఫైళ్లను చదవడం కోసం OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama లేదా మరో ప్రొవైడర్ నుండి మీ సొంత కీని జోడించండి. కీ లేకుండా, ఏదీ AI సేవకు పంపబడదు."
 
 #: src/features/ats-checker/messages.ts
 msgid "Only one recognisable section heading was found."
@@ -7972,11 +7958,6 @@ msgstr "పేజీ పఠనం పూర్తి కాలేదు."
 msgid "Page view"
 msgstr "పేజీ వీక్షణ"
 
-#. Hero headline, line 4 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "page."
-msgstr "పేజీలో."
-
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "పేపర్"
@@ -8160,6 +8141,14 @@ msgstr "అన్నింటినీ శాశ్వతంగా తొలగ�
 msgid "Persian"
 msgstr "పర్షియన్"
 
+#: src/libs/seo.ts
+msgid "Persiapan kerja dari CV sampai wawancara"
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Persiapan kerja untuk pencari kerja Indonesia"
+msgstr ""
+
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/entries.tsx
@@ -8266,12 +8255,16 @@ msgstr ""
 msgid "PortoFit {__APP_VERSION__} · MIT"
 msgstr ""
 
-#: src/features/homepage/hero.tsx
-msgid "PortoFit is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+#: src/features/homepage/sections.tsx
+msgid "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk CV yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacakan."
 msgstr ""
 
-#: src/features/homepage/sections.tsx
-msgid "PortoFit is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
+#: src/libs/seo.ts
+msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara membacanya, cocokkan dengan lowongan, lalu latihan wawancara. Mulai gratis, tanpa iklan."
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara sistem membacanya, cocokkan dengan lowongan yang kamu incar, lalu latihan wawancara. Mulai gratis, tanpa iklan."
 msgstr ""
 
 #. Preset button for setting picture aspect ratio to portrait orientation
@@ -9524,6 +9517,11 @@ msgstr "అదే మీరు. మళ్లీ మొదటి నుంచి 
 msgid "Sample resume added. Delete it anytime."
 msgstr "నమూనా రెజ్యూమ్ జోడించబడింది. దీన్ని ఎప్పుడైనా తొలగించండి."
 
+#. Hero headline, line 4 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "satu halaman."
+msgstr ""
+
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
@@ -9863,6 +9861,10 @@ msgstr "వెబ్‌లో వెతుకుతోంది"
 msgid "Searching the web…"
 msgstr "వెబ్‌లో శోధిస్తోంది..."
 
+#: src/features/homepage/faq.tsx
+msgid "Sebagian. Membuat CV, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk CV beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan."
+msgstr ""
+
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
 msgstr "రహస్యాన్ని క్లిప్‌బోర్డ్‌కు కాపీ చేశాం."
@@ -9923,6 +9925,15 @@ msgstr "ఎంచుకున్న పత్రాలు"
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Semantic CSS stylesheet"
 msgstr "సెమాంటిక్ CSS స్టైల్‌షీట్"
+
+#. Hero headline, line 1 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "Semua"
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Semua yang sudah kamu kerjakan, dalam satu halaman."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -12083,6 +12094,14 @@ msgstr "పేరులేని లేఖ"
 msgid "Untitled resume"
 msgstr "పేరులేని రెజ్యూమే"
 
+#: src/features/homepage/faq.tsx
+msgid "Untuk pencari kerja di Indonesia, terutama mahasiswa tingkat akhir, fresh graduate, dan yang sedang melamar magang atau pekerjaan pertama. Alur, contoh, dan bahasanya dibuat untuk kebutuhan mereka."
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Untuk siapa PortoFit?"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Up to 2 minutes. Or <0>choose an audio file</0> up to 2 MB."
 msgstr "2 నిమిషాల వరకు. లేదా 2 MB వరకు ఉన్న <0>ఆడియో ఫైల్‌ను ఎంచుకోండి</0>."
@@ -12905,15 +12924,12 @@ msgid "Written offer"
 msgstr "లిఖిత ఆఫర్"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "అవును. ప్రతి ఫీచర్ ఉచితం: అన్ని {templates} టెంప్లేట్‌లు, PDF మరియు Word డౌన్‌లోడ్‌లు, ATS చెకర్, కవర్ లెటర్‌లు మరియు జాబ్ ట్రాకర్. ప్రకటనలు లేవు, ట్రాకింగ్ లేదు మరియు చెల్లింపు శ్రేణి లేదు. హోస్టింగ్ మరియు అభివృద్ధి కోసం విరాళాలు చెల్లిస్తారు."
+msgid "Ya, untuk menyarankan perbaikan kalimat, menyesuaikan CV ke satu iklan lowongan, dan latihan wawancara. Layanan AI sudah disiapkan PortoFit, jadi kamu tidak perlu kunci API sendiri. Isi lamaranmu hanya dikirim ke layanan AI saat kamu memakai fitur itu."
+msgstr ""
 
-#: src/features/homepage/faq.tsx
-msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."
-msgstr "అవును. మీరు ట్రాక్ చేసే ప్రతి ఉద్యోగానికి సొంత వర్క్‌స్పేస్ ఉంటుంది: ఉద్యోగ ప్రకటనతో మీ ఫిట్‌ను తనిఖీ చేయండి, ఒకసారి రాసిన కథల నుండి సమాధానాలను డ్రాఫ్ట్ చేయండి, ఇంటర్వ్యూకు ముందు చిన్న ప్రణాళికను పొందండి, ఫీడ్‌బ్యాక్‌తో బిగ్గరగా సాధన చేయండి, తర్వాత సమీక్షించండి. ఆఫర్‌లు వచ్చినప్పుడు, వాటిని పక్కపక్కనే పోల్చండి. కోచింగ్ మీ సొంత AI కీని ఉపయోగిస్తుంది; పోలికకు కీ అవసరం లేదు."
-
-#: src/features/homepage/faq.tsx
-msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a PortoFit export, then pick up where it left off. With an AI provider set up, Word documents work too."
+#. Hero headline, line 2 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "yang sudah"
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -13017,11 +13033,6 @@ msgstr "అన్నీ చూసేశారు"
 #: src/features/auth/components/guest-banner.tsx
 msgid "You're using a guest account"
 msgstr "మీరు అతిథి ఖాతాను ఉపయోగిస్తున్నారు"
-
-#. Hero headline, line 2 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "you’ve done,"
-msgstr "చేసినదంతా,"
 
 #: src/features/auth/pages/forgot-password.tsx
 #: src/features/auth/pages/register.tsx

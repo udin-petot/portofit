@@ -902,11 +902,6 @@ msgstr "Mērķtiecīgs plāns šai kārtai"
 msgid "A font is referenced but not embedded."
 msgstr "Fonts ir norādīts, bet nav iegults."
 
-#: src/features/homepage/sections.tsx
-#: src/libs/seo.ts
-msgid "A free and open-source resume builder"
-msgstr "Bezmaksas un atvērtā koda CV veidotājs"
-
 #: src/features/ats-checker/messages.ts
 msgid "A full-height gap splits this page into two columns."
 msgstr "Pilnas augstuma atstarpe sadala šo lapu divās kolonnās."
@@ -1608,10 +1603,6 @@ msgstr "Ierakstam nav datumu"
 msgid "an error"
 msgstr "kļūda"
 
-#: src/features/homepage/hero.tsx
-msgid "An open-source resume builder"
-msgstr "Atvērtā koda CV veidotājs"
-
 #: src/components/layout/error-screen.tsx
 msgid "An unexpected error stopped this page from loading. You can try again or head back."
 msgstr "Negaidīta kļūda apturēja šīs lapas ielādi. Varat mēģināt vēlreiz vai atgriezties."
@@ -1681,6 +1672,14 @@ msgstr "Ikviens, kuram ir saite, varēs skatīt jūsu CV."
 #: src/features/applications/components/application-notes.tsx
 msgid "Anything to remember about this job"
 msgstr "Viss, kas jāatceras par šo darbu"
+
+#: src/features/homepage/faq.tsx
+msgid "Apakah memakai AI?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Apakah PortoFit gratis?"
+msgstr ""
 
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
@@ -2169,6 +2168,26 @@ msgstr "Bengāļu"
 msgid "Best for applying"
 msgstr "Vislabākais pieteikumiem"
 
+#: src/features/homepage/sections.tsx
+msgid "Bikin CV, cocokkan ke lowongan, latihan wawancara"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa bantu latihan wawancara?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa impor CV yang sudah ada?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa. Impor PDF, berkas ekspor data LinkedIn, JSON Resume, atau ekspor PortoFit, lalu lanjutkan dari sana. Berkas Word juga terbaca."
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa. Tiap lowongan yang kamu simpan punya ruang kerja sendiri: cek kecocokan dengan iklan, susun jawaban dari cerita yang kamu tulis sekali, rencana singkat sebelum wawancara, latihan bicara dengan umpan balik, lalu catatan setelah wawancara."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr "Bloķētājs"
@@ -2294,14 +2313,6 @@ msgstr "Kalendārs"
 #: src/features/homepage/faq.tsx
 msgid "Can I host it myself?"
 msgstr "Vai es varu to uzņemt pats?"
-
-#: src/features/homepage/faq.tsx
-msgid "Can I import a resume I already have?"
-msgstr "Vai es varu importēt CV, kas man jau ir?"
-
-#: src/features/homepage/faq.tsx
-msgid "Can it help me prepare for interviews?"
-msgstr "Vai tas var palīdzēt sagatavoties intervijām?"
 
 #: src/features/ats-checker/checker.tsx
 msgid "Can software read your resume?"
@@ -4024,10 +4035,6 @@ msgstr "Dokumenti"
 msgid "Documents for this job"
 msgstr "Dokumenti šim darbam"
 
-#: src/features/homepage/faq.tsx
-msgid "Does it use AI?"
-msgstr "Vai tas izmanto AI?"
-
 #: src/features/auth/pages/login.tsx
 msgid "Don't have an account? <0/>"
 msgstr "Nav konta? <0/>"
@@ -4564,19 +4571,10 @@ msgstr "Katrs termins, ko uzsver darba sludinājums, jau ir tur."
 msgid "Every week"
 msgstr "Katru nedēļu"
 
-#. Hero headline, line 1 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "Everything"
-msgstr "Viss,"
-
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "Viss, ko konsultants sagatavoja šim pieteikumam ({0}), jaunākais augšā."
-
-#: src/features/homepage/hero.tsx
-msgid "Everything you’ve done, on one page."
-msgstr "Viss, ko esat paveicis, vienā lapā."
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
@@ -5078,10 +5076,6 @@ msgstr "Bezmaksas ATS CV pārbaudītājs"
 #: src/routes/builder/letter/-components/letter-page.tsx
 msgid "Free-form"
 msgstr "Brīvā forma"
-
-#: src/libs/seo.ts
-msgid "Free, open-source resume builder. Create, update, and share your resume, with PDF and Word downloads, no ads and no paywall."
-msgstr "Bezmaksas atvērtā koda CV veidotājs. Izveidojiet, atjauniniet un kopīgojiet savu CV, izmantojot PDF un Word lejupielādes, bez reklāmām un bez maksas."
 
 #: src/libs/locale.ts
 msgid "French"
@@ -5743,10 +5737,6 @@ msgstr "Intervētājs"
 msgid "Is equity part of the offer?"
 msgstr "Vai piedāvājumā ir iekļautas akcijas?"
 
-#: src/features/homepage/faq.tsx
-msgid "Is PortoFit really free?"
-msgstr ""
-
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
 msgstr "Vai ir prēmija, un no kā tā ir atkarīga?"
@@ -5926,6 +5916,11 @@ msgstr "JSON lasīt"
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
 msgstr "Līdzināt abās malās"
+
+#. Hero headline, line 3 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "kamu kerjakan,"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Kannada"
@@ -7656,11 +7651,6 @@ msgstr "Dienas birojā nav norādītas"
 msgid "Offline · saved on this device"
 msgstr "Bezsaistē · saglabāts šajā ierīcē"
 
-#. Hero headline, line 3 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "on one"
-msgstr "vienā"
-
 #: src/features/resume/share/link-tab.tsx
 msgid "On. Anyone with the link can view. It isn't listed or indexed by search engines."
 msgstr "Ieslēgts. Ikviens, kam ir saite, var skatīt. Meklētājprogrammas to nenorāda vai indeksē."
@@ -7693,10 +7683,6 @@ msgstr "Atļaujiet tikai uzticamas programmas. Šī lietojumprogramma varēs:"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Only applies when the section fits on a single page."
 msgstr "Attiecas tikai tad, ja sadaļa ietilpst vienā lapā."
-
-#: src/features/homepage/faq.tsx
-msgid "Only if you want it to. Add your own key from OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama or another provider for sharper lines, tailoring to a job posting, coaching for applications and interviews, and reading Word files. Without a key, nothing is sent to an AI service."
-msgstr "Tikai tad, ja vēlaties. Pievienojiet savu atslēgu no OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama vai cita nodrošinātāja, lai iegūtu precīzākus formulējumus, pielāgošanu darba sludinājumam, konsultācijas par pieteikumiem un intervijām un Word failu lasīšanu. Bez atslēgas AI pakalpojumam nekas netiek sūtīts."
 
 #: src/features/ats-checker/messages.ts
 msgid "Only one recognisable section heading was found."
@@ -7972,11 +7958,6 @@ msgstr "Lapas lasīšana netika pabeigta."
 msgid "Page view"
 msgstr "Lapas skatījums"
 
-#. Hero headline, line 4 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "page."
-msgstr "lapā."
-
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "Papīrs"
@@ -8160,6 +8141,14 @@ msgstr "Neatgriezeniski noņem visu. Vispirms eksportējiet, ja vēlaties kopiju
 msgid "Persian"
 msgstr "Persiešu"
 
+#: src/libs/seo.ts
+msgid "Persiapan kerja dari CV sampai wawancara"
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Persiapan kerja untuk pencari kerja Indonesia"
+msgstr ""
+
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/entries.tsx
@@ -8266,12 +8255,16 @@ msgstr ""
 msgid "PortoFit {__APP_VERSION__} · MIT"
 msgstr ""
 
-#: src/features/homepage/hero.tsx
-msgid "PortoFit is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+#: src/features/homepage/sections.tsx
+msgid "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk CV yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacakan."
 msgstr ""
 
-#: src/features/homepage/sections.tsx
-msgid "PortoFit is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
+#: src/libs/seo.ts
+msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara membacanya, cocokkan dengan lowongan, lalu latihan wawancara. Mulai gratis, tanpa iklan."
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara sistem membacanya, cocokkan dengan lowongan yang kamu incar, lalu latihan wawancara. Mulai gratis, tanpa iklan."
 msgstr ""
 
 #. Preset button for setting picture aspect ratio to portrait orientation
@@ -9524,6 +9517,11 @@ msgstr "Tas pats jūs. Mazāk sākšanas no nulles."
 msgid "Sample resume added. Delete it anytime."
 msgstr "Pievienots CV paraugs. Izdzēsiet to jebkurā laikā."
 
+#. Hero headline, line 4 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "satu halaman."
+msgstr ""
+
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
@@ -9863,6 +9861,10 @@ msgstr "Meklē tīmeklī"
 msgid "Searching the web…"
 msgstr "Meklēšana tīmeklī…"
 
+#: src/features/homepage/faq.tsx
+msgid "Sebagian. Membuat CV, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk CV beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan."
+msgstr ""
+
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
 msgstr "Noslēpums nokopēts starpliktuvē."
@@ -9923,6 +9925,15 @@ msgstr "Atlasītie dokumenti"
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Semantic CSS stylesheet"
 msgstr "Semantiskā CSS stila lapa"
+
+#. Hero headline, line 1 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "Semua"
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Semua yang sudah kamu kerjakan, dalam satu halaman."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -12083,6 +12094,14 @@ msgstr "Vēstule bez nosaukuma"
 msgid "Untitled resume"
 msgstr "CV bez nosaukuma"
 
+#: src/features/homepage/faq.tsx
+msgid "Untuk pencari kerja di Indonesia, terutama mahasiswa tingkat akhir, fresh graduate, dan yang sedang melamar magang atau pekerjaan pertama. Alur, contoh, dan bahasanya dibuat untuk kebutuhan mereka."
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Untuk siapa PortoFit?"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Up to 2 minutes. Or <0>choose an audio file</0> up to 2 MB."
 msgstr "Līdz 2 minūtēm. Vai <0>izvēlieties audio failu</0> līdz 2 MB."
@@ -12905,15 +12924,12 @@ msgid "Written offer"
 msgstr "Rakstisks piedāvājums"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "Jā. Katra funkcija ir bezmaksas: visas {templates} veidnes, PDF un Word lejupielādes, ATS pārbaudītājs, pavadvēstules un darbu izsekotājs. Nav reklāmu, nav izsekošanas un nav apmaksāta līmeņa. Ziedojumi maksā par hostingu un attīstību."
+msgid "Ya, untuk menyarankan perbaikan kalimat, menyesuaikan CV ke satu iklan lowongan, dan latihan wawancara. Layanan AI sudah disiapkan PortoFit, jadi kamu tidak perlu kunci API sendiri. Isi lamaranmu hanya dikirim ke layanan AI saat kamu memakai fitur itu."
+msgstr ""
 
-#: src/features/homepage/faq.tsx
-msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."
-msgstr "Jā. Katram izsekotajam darbam ir sava darba telpa: pārbaudiet atbilstību sludinājumam, sagatavojiet atbildes no vienreiz uzrakstītiem stāstiem, saņemiet īsu plānu pirms intervijas, vingrinieties skaļi ar atsauksmēm un pēc tam izvērtējiet. Kad pienāk piedāvājumi, salīdziniet tos blakus. Konsultēšanai tiek izmantota jūsu AI atslēga; salīdzināšanai tā nav vajadzīga."
-
-#: src/features/homepage/faq.tsx
-msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a PortoFit export, then pick up where it left off. With an AI provider set up, Word documents work too."
+#. Hero headline, line 2 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "yang sudah"
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -13017,11 +13033,6 @@ msgstr "Viss apskatīts"
 #: src/features/auth/components/guest-banner.tsx
 msgid "You're using a guest account"
 msgstr "Jūs izmantojat viesa kontu"
-
-#. Hero headline, line 2 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "you’ve done,"
-msgstr "ko esat paveicis,"
 
 #: src/features/auth/pages/forgot-password.tsx
 #: src/features/auth/pages/register.tsx

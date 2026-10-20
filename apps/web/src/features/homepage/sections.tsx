@@ -266,7 +266,7 @@ export function Support() {
 					</Trans>
 				</h2>
 				<p className="max-w-[28em] font-display text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
-					{t`PortoFit is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier.`}
+					{t`PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk CV yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacakan.`}
 				</p>
 				<ul className="flex flex-wrap gap-2">
 					{pills.map((pill) => (
@@ -292,7 +292,7 @@ export function Support() {
 						<div className="receipt-paper font-receipt bg-[#fdfcf8] px-[26px] pt-[30px] pb-[46px] text-[14px] leading-[1.75] font-medium text-[oklch(0.25_0.01_95)]">
 							<div className="mb-4 flex flex-col gap-0.5 text-center">
 								<b className="text-[18px] leading-[1.1] font-bold tracking-[-.01em]">PortoFit</b>
-								<span className="text-[oklch(0.5_0.01_95)]">{t`A free and open-source resume builder`}</span>
+								<span className="text-[oklch(0.5_0.01_95)]">{t`Bikin CV, cocokkan ke lowongan, latihan wawancara`}</span>
 								<span className="text-[oklch(0.5_0.01_95)] uppercase">
 									{i18n.date(receiptDate, { day: "2-digit", month: "short", year: "numeric" })}
 								</span>

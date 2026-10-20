@@ -61,7 +61,8 @@ export const localeSchema = z.enum([
 
 export type Locale = z.infer<typeof localeSchema>;
 
-export const defaultLocale: Locale = "en-US";
+/** PortoFit menyasar pencari kerja Indonesia, jadi pengunjung baru langsung melihat antarmuka berbahasa Indonesia. */
+export const defaultLocale: Locale = "id-ID";
 
 export function isLocale(value: unknown): value is Locale {
 	return localeSchema.safeParse(value).success;

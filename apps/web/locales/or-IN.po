@@ -902,11 +902,6 @@ msgstr "ଏହି ରାଉଣ୍ଡ ପାଇଁ ଏକ କେନ୍ଦ୍ର�
 msgid "A font is referenced but not embedded."
 msgstr "ଏକ ଫଣ୍ଟ ସନ୍ଦର୍ଭିତ କିନ୍ତୁ ଏମ୍ବେଡ୍ କରାଯାଇ ନାହିଁ।"
 
-#: src/features/homepage/sections.tsx
-#: src/libs/seo.ts
-msgid "A free and open-source resume builder"
-msgstr "ଏକ ମାଗଣା ଏବଂ ମୁକ୍ତ ଉତ୍ସ ରେଜୁମ୍ ବିଲଡର୍ |"
-
 #: src/features/ats-checker/messages.ts
 msgid "A full-height gap splits this page into two columns."
 msgstr "ଏକ ପୂର୍ଣ୍ଣ-ଉଚ୍ଚତା ଖାଲି ସ୍ଥାନ ଏହି ପୃଷ୍ଠାକୁ ଦୁଇ କଲମ୍‌ରେ ବିଭକ୍ତ କରେ।"
@@ -1608,10 +1603,6 @@ msgstr "ଏକ ପ୍ରବେଶର କ dates ଣସି ତାରିଖ ନା�
 msgid "an error"
 msgstr "ଏକ ତ୍ରୁଟି |"
 
-#: src/features/homepage/hero.tsx
-msgid "An open-source resume builder"
-msgstr "ଏକ ମୁକ୍ତ ଉତ୍ସ ରେଜୁମ୍ ବିଲଡର୍ |"
-
 #: src/components/layout/error-screen.tsx
 msgid "An unexpected error stopped this page from loading. You can try again or head back."
 msgstr "ଏକ ଅପ୍ରତ୍ୟାଶିତ ତ୍ରୁଟି ଏହି ପୃଷ୍ଠାକୁ ଲୋଡ୍ ହେବାରେ ଅଟକାଇ ଦେଇଛି। ଆପଣ ପୁଣି ଚେଷ୍ଟା କରିପାରିବେ କିମ୍ବା ପଛକୁ ଫେରିପାରିବେ।"
@@ -1681,6 +1672,14 @@ msgstr "ଲିଙ୍କ୍ ଥିବା ଯେକ your ଣସି ବ୍ୟକ୍
 #: src/features/applications/components/application-notes.tsx
 msgid "Anything to remember about this job"
 msgstr "ଏହି କାର୍ଯ୍ୟ ବିଷୟରେ ମନେ ରଖିବାକୁ କିଛି |"
+
+#: src/features/homepage/faq.tsx
+msgid "Apakah memakai AI?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Apakah PortoFit gratis?"
+msgstr ""
 
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
@@ -2169,6 +2168,26 @@ msgstr "ବଙ୍ଗାଳୀ"
 msgid "Best for applying"
 msgstr "ଆବେଦନ ପାଇଁ ସର୍ବୋତ୍ତମ |"
 
+#: src/features/homepage/sections.tsx
+msgid "Bikin CV, cocokkan ke lowongan, latihan wawancara"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa bantu latihan wawancara?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa impor CV yang sudah ada?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa. Impor PDF, berkas ekspor data LinkedIn, JSON Resume, atau ekspor PortoFit, lalu lanjutkan dari sana. Berkas Word juga terbaca."
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Bisa. Tiap lowongan yang kamu simpan punya ruang kerja sendiri: cek kecocokan dengan iklan, susun jawaban dari cerita yang kamu tulis sekali, rencana singkat sebelum wawancara, latihan bicara dengan umpan balik, lalu catatan setelah wawancara."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr "ଅବରୋଧକ"
@@ -2294,14 +2313,6 @@ msgstr "କ୍ୟାଲେଣ୍ଡର"
 #: src/features/homepage/faq.tsx
 msgid "Can I host it myself?"
 msgstr "ମୁଁ ଏହାକୁ ନିଜେ ହୋଷ୍ଟ କରିପାରିବି କି?"
-
-#: src/features/homepage/faq.tsx
-msgid "Can I import a resume I already have?"
-msgstr "ମୁଁ ପୂର୍ବରୁ ଥିବା ଏକ ରେଜୁମ୍ ଆମଦାନି କରିପାରିବି କି?"
-
-#: src/features/homepage/faq.tsx
-msgid "Can it help me prepare for interviews?"
-msgstr "ଏହା ମୋତେ ସାକ୍ଷାତକାର ପାଇଁ ପ୍ରସ୍ତୁତ ହେବାରେ ସାହାଯ୍ୟ କରିପାରିବ କି?"
 
 #: src/features/ats-checker/checker.tsx
 msgid "Can software read your resume?"
@@ -4024,10 +4035,6 @@ msgstr "ଡକ୍ୟୁମେଣ୍ଟ୍"
 msgid "Documents for this job"
 msgstr "ଏହି କାର୍ଯ୍ୟ ପାଇଁ ଡକ୍ୟୁମେଣ୍ଟ୍ |"
 
-#: src/features/homepage/faq.tsx
-msgid "Does it use AI?"
-msgstr "ଏହା AI ବ୍ୟବହାର କରେ କି?"
-
 #: src/features/auth/pages/login.tsx
 msgid "Don't have an account? <0/>"
 msgstr "ଖାତା ନାହିଁ? <0/>"
@@ -4564,19 +4571,10 @@ msgstr "ଚାକିରି ବିଜ୍ଞାପନ ଗୁରୁତ୍ୱ ଦେ
 msgid "Every week"
 msgstr "ପ୍ରତି ସପ୍ତାହ"
 
-#. Hero headline, line 1 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "Everything"
-msgstr "ଆପଣ"
-
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "{0} ପାଇଁ କୋଚ୍ ଲେଖିଥିବା ସବୁକିଛି, ନୂଆଟି ପ୍ରଥମେ।"
-
-#: src/features/homepage/hero.tsx
-msgid "Everything you’ve done, on one page."
-msgstr "ଗୋଟିଏ ପୃଷ୍ଠାରେ ତୁମେ ସବୁକିଛି କରିଛ |"
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
@@ -5078,10 +5076,6 @@ msgstr "ମାଗଣା ATS ରେଜୁମ୍ ଚେକର୍ |"
 #: src/routes/builder/letter/-components/letter-page.tsx
 msgid "Free-form"
 msgstr "ମୁକ୍ତ-ଫର୍ମ"
-
-#: src/libs/seo.ts
-msgid "Free, open-source resume builder. Create, update, and share your resume, with PDF and Word downloads, no ads and no paywall."
-msgstr "ମାଗଣା, ମୁକ୍ତ ଉତ୍ସ ରିଜ୍ୟୁମ୍ ତିଆରି ସାଧନ। ଆପଣଙ୍କ ରିଜ୍ୟୁମ୍ ସୃଷ୍ଟି, ଅଦ୍ୟତନ ଓ ସେୟାର୍ କରନ୍ତୁ। PDF ଓ Word ଡାଉନଲୋଡ୍ ସୁବିଧା ସହିତ, ବିଜ୍ଞାପନ ନାହିଁ କିମ୍ବା ଦେୟ ଦେବାର ବାଧ୍ୟତା ନାହିଁ।"
 
 #: src/libs/locale.ts
 msgid "French"
@@ -5743,10 +5737,6 @@ msgstr "ସାକ୍ଷାତକାର"
 msgid "Is equity part of the offer?"
 msgstr "ଇକ୍ୱିଟି ଅଫରର ଅଂଶ କି?"
 
-#: src/features/homepage/faq.tsx
-msgid "Is PortoFit really free?"
-msgstr ""
-
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
 msgstr "ବୋନସ୍ ଅଛି କି, ଏବଂ ଏହା କେଉଁଥିରେ ନିର୍ଭର କରେ?"
@@ -5926,6 +5916,11 @@ msgstr "JSON ପ read ଼ନ୍ତୁ |"
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
 msgstr "ଉଭୟ ପାର୍ଶ୍ୱରେ ସଜାନ୍ତୁ"
+
+#. Hero headline, line 3 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "kamu kerjakan,"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Kannada"
@@ -7656,11 +7651,6 @@ msgstr "ଅଫିସ୍ ଦିନ ଉଲ୍ଲେଖ ନାହିଁ"
 msgid "Offline · saved on this device"
 msgstr "ଅଫଲାଇନ୍ · ଏହି ଡିଭାଇସରେ ସେଭ୍ ହୋଇଛି |"
 
-#. Hero headline, line 3 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "on one"
-msgstr "ଗୋଟିଏ"
-
 #: src/features/resume/share/link-tab.tsx
 msgid "On. Anyone with the link can view. It isn't listed or indexed by search engines."
 msgstr "ଅନ୍। ଲିଙ୍କ୍ ଥିବା ଯେକେହି ଦେଖିପାରିବେ | ଏହା ସର୍ଚ୍ଚ ଇଞ୍ଜିନ୍ ଦ୍ୱାରା ତାଲିକାଭୁକ୍ତ କିମ୍ବା ସୂଚୀବଦ୍ଧ ନୁହେଁ |"
@@ -7693,10 +7683,6 @@ msgstr "ଆପଣ ବିଶ୍ୱାସ କରୁଥିବା ଆପ୍ଲିକ
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Only applies when the section fits on a single page."
 msgstr "କେବଳ ସେତେବେଳେ ଲାଗୁ ହୁଏ ଯେତେବେଳେ ବିଭାଗଟି ଗୋଟିଏ ପୃଷ୍ଠାରେ ଫିଟ୍ ହୁଏ।"
-
-#: src/features/homepage/faq.tsx
-msgid "Only if you want it to. Add your own key from OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama or another provider for sharper lines, tailoring to a job posting, coaching for applications and interviews, and reading Word files. Without a key, nothing is sent to an AI service."
-msgstr "କେବଳ ଆପଣ ଚାହିଁଲେ। ତୀକ୍ଷ୍ଣ ବାକ୍ୟ, ଚାକିରି ବିଜ୍ଞାପନ ଅନୁଯାୟୀ ଖାପ ଖୁଆଇବା, ଆବେଦନ ଓ ସାକ୍ଷାତକାର ପାଇଁ କୋଚିଂ, ଏବଂ Word ଫାଇଲ୍ ପଢ଼ିବା ପାଇଁ OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama କିମ୍ବା ଅନ୍ୟ ପ୍ରଦାନକାରୀଙ୍କ ଠାରୁ ନିଜର କି ଯୋଡ଼ନ୍ତୁ। କି ବିନା, AI ସେବାକୁ କିଛି ପଠାଯାଏ ନାହିଁ।"
 
 #: src/features/ats-checker/messages.ts
 msgid "Only one recognisable section heading was found."
@@ -7972,11 +7958,6 @@ msgstr "ପୃଷ୍ଠା ପ reading ିବା ସମାପ୍ତ ହେଲା
 msgid "Page view"
 msgstr "ପୃଷ୍ଠା ଦୃଶ୍ୟ |"
 
-#. Hero headline, line 4 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "page."
-msgstr "ପୃଷ୍ଠାରେ।"
-
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "କାଗଜ |"
@@ -8160,6 +8141,14 @@ msgstr "ସବୁଦିନ ପାଇଁ ସବୁକିଛି ଅପସାରଣ
 msgid "Persian"
 msgstr "ପର୍ସିଆନ୍"
 
+#: src/libs/seo.ts
+msgid "Persiapan kerja dari CV sampai wawancara"
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Persiapan kerja untuk pencari kerja Indonesia"
+msgstr ""
+
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/entries.tsx
@@ -8266,12 +8255,16 @@ msgstr ""
 msgid "PortoFit {__APP_VERSION__} · MIT"
 msgstr ""
 
-#: src/features/homepage/hero.tsx
-msgid "PortoFit is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+#: src/features/homepage/sections.tsx
+msgid "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk CV yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacakan."
 msgstr ""
 
-#: src/features/homepage/sections.tsx
-msgid "PortoFit is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
+#: src/libs/seo.ts
+msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara membacanya, cocokkan dengan lowongan, lalu latihan wawancara. Mulai gratis, tanpa iklan."
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara sistem membacanya, cocokkan dengan lowongan yang kamu incar, lalu latihan wawancara. Mulai gratis, tanpa iklan."
 msgstr ""
 
 #. Preset button for setting picture aspect ratio to portrait orientation
@@ -9524,6 +9517,11 @@ msgstr "ସେହି ଆପଣ। ବାରମ୍ବାର ନୂଆରୁ ଆ�
 msgid "Sample resume added. Delete it anytime."
 msgstr "ନମୁନା ରେଜୁମ୍ ଯୋଗ କରାଯାଇଛି | ଏହାକୁ ଯେକ time ଣସି ସମୟରେ ବିଲୋପ କରନ୍ତୁ |"
 
+#. Hero headline, line 4 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "satu halaman."
+msgstr ""
+
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
@@ -9863,6 +9861,10 @@ msgstr "ୱେବ୍‌ରେ ଖୋଜୁଛି"
 msgid "Searching the web…"
 msgstr "ୱେବ୍ ଖୋଜୁଛି…"
 
+#: src/features/homepage/faq.tsx
+msgid "Sebagian. Membuat CV, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk CV beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan."
+msgstr ""
+
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
 msgstr "ଗୁପ୍ତ ସଙ୍କେତ କ୍ଲିପ୍‌ବୋର୍ଡକୁ କପି ହୋଇଛି।"
@@ -9923,6 +9925,15 @@ msgstr "ଚୟନିତ ଡକ୍ୟୁମେଣ୍ଟ୍"
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Semantic CSS stylesheet"
 msgstr "ଅର୍ଥଗତ CSS ଷ୍ଟାଇଲସିଟ୍"
+
+#. Hero headline, line 1 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "Semua"
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Semua yang sudah kamu kerjakan, dalam satu halaman."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -12083,6 +12094,14 @@ msgstr "ଆଖ୍ୟାବିହୀନ ଅକ୍ଷର |"
 msgid "Untitled resume"
 msgstr "ଆଖ୍ୟାବିହୀନ ରେଜୁମ୍ |"
 
+#: src/features/homepage/faq.tsx
+msgid "Untuk pencari kerja di Indonesia, terutama mahasiswa tingkat akhir, fresh graduate, dan yang sedang melamar magang atau pekerjaan pertama. Alur, contoh, dan bahasanya dibuat untuk kebutuhan mereka."
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Untuk siapa PortoFit?"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Up to 2 minutes. Or <0>choose an audio file</0> up to 2 MB."
 msgstr "2 ମିନିଟ୍ ପର୍ଯ୍ୟନ୍ତ। କିମ୍ବା 2 MB ପର୍ଯ୍ୟନ୍ତ <0>ଏକ ଅଡିଓ ଫାଇଲ୍ ବାଛନ୍ତୁ</0>।"
@@ -12905,15 +12924,12 @@ msgid "Written offer"
 msgstr "ଲିଖିତ ଅଫର୍"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "ହଁ। ପ୍ରତ୍ୟେକ ବୈଶିଷ୍ଟ୍ୟ ମାଗଣା: ସମସ୍ତ {templates} ଟେମ୍ପଲେଟ୍, PDF ଏବଂ Word ଡାଉନଲୋଡ୍, ATS ଚେକର୍, କଭର୍ ଚିଠି ଏବଂ ଚାକିରି ଟ୍ରାକର୍। କୌଣସି ବିଜ୍ଞାପନ ନାହିଁ, ଟ୍ରାକିଂ ନାହିଁ ଏବଂ ଦେୟଯୁକ୍ତ ସ୍ତର ନାହିଁ। ଦାନ ହୋଷ୍ଟିଂ ଏବଂ ବିକାଶର ଖର୍ଚ୍ଚ ବହନ କରେ।"
+msgid "Ya, untuk menyarankan perbaikan kalimat, menyesuaikan CV ke satu iklan lowongan, dan latihan wawancara. Layanan AI sudah disiapkan PortoFit, jadi kamu tidak perlu kunci API sendiri. Isi lamaranmu hanya dikirim ke layanan AI saat kamu memakai fitur itu."
+msgstr ""
 
-#: src/features/homepage/faq.tsx
-msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."
-msgstr "ହଁ। ଆପଣ ଟ୍ରାକ୍ କରୁଥିବା ପ୍ରତ୍ୟେକ ଚାକିରି ନିଜର ୱାର୍କସ୍ପେସ୍ ପାଏ: ଚାକିରି ବିଜ୍ଞାପନ ସହ ଆପଣଙ୍କ ଉପଯୁକ୍ତତା ଯାଞ୍ଚ କରନ୍ତୁ, ଥରେ ଲେଖିଥିବା କାହାଣୀରୁ ଉତ୍ତର ଡ୍ରାଫ୍ଟ କରନ୍ତୁ, ସାକ୍ଷାତକାର ପୂର୍ବରୁ ଏକ ସଂକ୍ଷିପ୍ତ ଯୋଜନା ପାଆନ୍ତୁ, ମତାମତ ସହ ଜୋରରେ ଅଭ୍ୟାସ କରନ୍ତୁ ଏବଂ ପରେ ସମୀକ୍ଷା କରନ୍ତୁ। ଅଫର୍ ଆସିଲେ, ସେଗୁଡ଼ିକୁ ପାଖାପାଖି ରଖି ତୁଳନା କରନ୍ତୁ। କୋଚିଂ ଆପଣଙ୍କ ନିଜ AI କି ବ୍ୟବହାର କରେ; ତୁଳନା ପାଇଁ କି ଦରକାର ନାହିଁ।"
-
-#: src/features/homepage/faq.tsx
-msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a PortoFit export, then pick up where it left off. With an AI provider set up, Word documents work too."
+#. Hero headline, line 2 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "yang sudah"
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -13017,11 +13033,6 @@ msgstr "ଆପଣ ଅପ୍-ଟୁ-ଡେଟ୍ ଅଛନ୍ତି"
 #: src/features/auth/components/guest-banner.tsx
 msgid "You're using a guest account"
 msgstr "ଆପଣ ଏକ ଅତିଥି ଆକାଉଣ୍ଟ ବ୍ୟବହାର କରୁଛନ୍ତି"
-
-#. Hero headline, line 2 of 4: “Everything / you’ve done, / on one / page.”
-#: src/features/homepage/hero.tsx
-msgid "you’ve done,"
-msgstr "କରିଥିବା ସବୁକିଛି,"
 
 #: src/features/auth/pages/forgot-password.tsx
 #: src/features/auth/pages/register.tsx
