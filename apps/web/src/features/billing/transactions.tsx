@@ -13,9 +13,9 @@ const STATUS_VARIANT: Record<string, "neutral" | "warn" | "accent" | "danger"> =
 	ditolak: "danger",
 };
 
-type TransactionsPageProps = { selectedOrderId?: string | undefined };
+type TransactionsPageProps = { selectedOrderId?: string | undefined; isAdmin?: boolean };
 
-export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
+export function TransactionsPage({ selectedOrderId, isAdmin = false }: TransactionsPageProps) {
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 	const balances = useQuery(orpc.billing.balances.queryOptions());
@@ -44,9 +44,14 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 					<h1 className="text-2xl font-semibold text-ink">Transaksi</h1>
 					<p className="mt-1 text-sm text-ink-2">Pesanan, bukti bayar, dan sisa kredit kamu.</p>
 				</div>
-				<div className="flex gap-2">
+				<div className="flex flex-wrap items-center gap-2">
 					<Badge variant="outline">Kredit lamaran: {balances.data?.application ?? 0}</Badge>
 					<Badge variant="outline">Kredit wawancara: {balances.data?.interview ?? 0}</Badge>
+					{isAdmin ? (
+						<Button size="sm" variant="secondary" onClick={() => void navigate({ to: "/dashboard/admin" })}>
+							Panel admin
+						</Button>
+					) : null}
 				</div>
 			</header>
 
