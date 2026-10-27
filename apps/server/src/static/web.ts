@@ -83,6 +83,9 @@ const ROOT_DESCRIPTION =
 const ATS_CHECKER_TITLE = "Pemeriksa resume ATS gratis — PortoFit";
 const ATS_CHECKER_DESCRIPTION =
 	"Periksa apakah sistem bisa membaca PDF resume kamu. Berjalan sepenuhnya di browser, jadi berkasmu tidak diunggah.";
+const PRICING_TITLE = "Harga — PortoFit";
+const PRICING_DESCRIPTION =
+	"Cek ATS gratis, Rp5.000 per lamaran untuk CV dan cover letter yang disesuaikan, Rp10.000 per sesi latihan wawancara. Bayar QRIS, verifikasi manual.";
 
 type StructuredData = Record<string, unknown>;
 
@@ -342,6 +345,14 @@ const prerenderedPages: Record<
 		image: "/opengraph/ats-checker.png",
 		structuredData: atsCheckerStructuredData,
 		fallback: (shell) => withMeta(shell, { title: ATS_CHECKER_TITLE, description: ATS_CHECKER_DESCRIPTION }),
+	},
+	// No prerendered file yet: the server serves the app shell with the pricing title and description.
+	"/harga": {
+		name: "harga",
+		meta: { title: PRICING_TITLE, description: PRICING_DESCRIPTION },
+		image: "/opengraph/banner.jpg",
+		structuredData: homepageStructuredData,
+		fallback: (shell) => withMeta(shell, { title: PRICING_TITLE, description: PRICING_DESCRIPTION }),
 	},
 };
 
