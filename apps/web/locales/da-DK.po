@@ -2160,6 +2160,10 @@ msgstr "Før du indsender"
 msgid "Behavioral"
 msgstr "Adfærdsbaseret"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Bengali"
@@ -6062,6 +6066,10 @@ msgstr "Viden kunne ikke indlæses. Prøv igen, eller slå Viden fra, før du se
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Koreansk"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

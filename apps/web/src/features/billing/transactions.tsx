@@ -13,17 +13,21 @@ const STATUS_VARIANT: Record<string, "neutral" | "warn" | "accent" | "danger"> =
 	ditolak: "danger",
 };
 
+const KIND_LABEL: Record<string, string> = { application: "Lamaran", interview: "Wawancara" };
+
 type TransactionsPageProps = { selectedOrderId?: string | undefined; isAdmin?: boolean };
 
 export function TransactionsPage({ selectedOrderId, isAdmin = false }: TransactionsPageProps) {
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 	const balances = useQuery(orpc.billing.balances.queryOptions());
+	const ledger = useQuery(orpc.billing.ledger.queryOptions({ input: { limit: 20 } }));
 	const orders = useQuery(orpc.billing.myOrders.queryOptions({ input: { limit: 50 } }));
 	const uploadFile = useMutation(orpc.storage.uploadFile.mutationOptions({ meta: { noInvalidate: true } }));
 	const attachProof = useMutation(orpc.billing.attachProof.mutationOptions());
 
 	const list = orders.data?.orders ?? [];
+	const entries = ledger.data?.entries ?? [];
 	const selected = list.find((order) => order.id === selectedOrderId) ?? list[0] ?? null;
 
 	const openOrder = async (id: string) => {
@@ -41,12 +45,13 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 		<div className="mx-auto w-full max-w-4xl px-5 py-8">
 			<header className="flex flex-wrap items-end justify-between gap-4">
 				<div>
-					<h1 className="text-2xl font-semibold text-ink">Transaksi</h1>
-					<p className="mt-1 text-sm text-ink-2">Pesanan, bukti bayar, dan sisa kredit kamu.</p>
+					<h1 className="text-2xl font-semibold text-ink">Kredit &amp; transaksi</h1>
+					<p className="mt-1 text-sm text-ink-2">Sisa kredit, riwayat pemakaian, dan pesanan kamu.</p>
 				</div>
 				<div className="flex flex-wrap items-center gap-2">
-					<Badge variant="outline">Kredit lamaran: {balances.data?.application ?? 0}</Badge>
-					<Badge variant="outline">Kredit wawancara: {balances.data?.interview ?? 0}</Badge>
+					<Button size="sm" variant="secondary" onClick={() => void navigate({ to: "/harga" })}>
+						Beli kredit
+					</Button>
 					{isAdmin ? (
 						<Button size="sm" variant="secondary" onClick={() => void navigate({ to: "/dashboard/admin" })}>
 							Panel admin
@@ -54,6 +59,76 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 					) : null}
 				</div>
 			</header>
+
+			<section className="mt-6 grid gap-4 sm:grid-cols-2">
+				{[
+					{
+						kind: "application",
+						title: "Kredit lamaran",
+						balance: balances.data?.application ?? 0,
+						price: "Rp 5.000 per kredit",
+						use: "1 kredit dipakai untuk menyesuaikan (tailor) CV ke satu lowongan dan menyiapkan cover letter-nya.",
+					},
+					{
+						kind: "interview",
+						title: "Kredit wawancara",
+						balance: balances.data?.interview ?? 0,
+						price: "Rp 10.000 per kredit",
+						use: "1 kredit dipakai untuk satu sesi latihan wawancara: briefing, tanya-jawab, dan review jawaban.",
+					},
+				].map((card) => (
+					<div key={card.kind} className="rounded-lg border border-line bg-surface p-4">
+						<div className="flex items-center justify-between gap-2">
+							<h2 className="text-sm font-semibold text-ink">{card.title}</h2>
+							{card.balance > 0 ? <Badge variant="accent">aktif</Badge> : <Badge variant="warn">habis</Badge>}
+						</div>
+						<p className="mt-2 text-3xl font-semibold text-ink">{card.balance}</p>
+						<p className="mt-1 text-xs text-ink-3">{card.price}</p>
+						<p className="mt-2 text-xs text-ink-2">{card.use}</p>
+						<Button
+							className="mt-3"
+							size="sm"
+							variant={card.balance > 0 ? "secondary" : "primary"}
+							onClick={() => void navigate({ to: "/harga" })}
+						>
+							{card.balance > 0 ? "Tambah kredit" : "Beli sekarang"}
+						</Button>
+					</div>
+				))}
+			</section>
+
+			<p className="mt-3 rounded-md border border-line bg-sunken p-3 text-xs text-ink-2">
+				Kredit masuk otomatis setelah admin memverifikasi bukti bayar, biasanya di hari yang sama. Setiap pemakaian tercatat di riwayat di
+				bawah, jadi kelihatan kredit dipakai untuk lamaran atau wawancara yang mana.
+			</p>
+
+			<section className="mt-6 rounded-lg border border-line bg-surface">
+				<h2 className="border-b border-line px-4 py-3 text-sm font-semibold text-ink">Riwayat kredit</h2>
+				{ledger.isLoading ? (
+					<p className="px-4 py-5 text-sm text-ink-3">Memuat riwayat…</p>
+				) : entries.length === 0 ? (
+					<p className="px-4 py-5 text-sm text-ink-3">Belum ada riwayat. Setelah kredit masuk atau dipakai, catatannya muncul di sini.</p>
+				) : (
+					<ul className="divide-y divide-line">
+						{entries.map((entry) => (
+							<li key={entry.id} className="flex items-center justify-between gap-3 px-4 py-2.5">
+								<span className="min-w-0">
+									<span className="block truncate text-sm text-ink">{entry.reason}</span>
+									<span className="text-xs text-ink-3">
+										{KIND_LABEL[entry.kind] ?? entry.kind} · {new Date(entry.createdAt).toLocaleString("id-ID")}
+									</span>
+								</span>
+								<span className="shrink-0 text-right">
+									<span className="block text-sm font-medium text-ink">
+										{entry.delta > 0 ? `+${entry.delta}` : entry.delta} kredit
+									</span>
+									<span className="text-xs text-ink-3">sisa {entry.balanceAfter}</span>
+								</span>
+							</li>
+						))}
+					</ul>
+				)}
+			</section>
 
 			<div className="mt-6 grid gap-5 md:grid-cols-[minmax(0,1fr)_320px]">
 				<section className="rounded-lg border border-line bg-surface">

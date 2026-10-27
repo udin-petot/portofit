@@ -2155,6 +2155,10 @@ msgstr "Before you submit"
 msgid "Behavioral"
 msgstr "Behavioral"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr "Beli kredit"
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Bengali"
@@ -6057,6 +6061,10 @@ msgstr "Knowledge couldn't load. Try again or switch Knowledge off before sendin
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Korean"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx
@@ -11798,7 +11806,7 @@ msgstr "Tracking"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "Transaksi"
-msgstr "Transactions"
+msgstr "Transaksi"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"

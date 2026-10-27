@@ -2160,6 +2160,10 @@ msgstr "Prieš pateikdami"
 msgid "Behavioral"
 msgstr "Elgsenos"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Bengalų"
@@ -6062,6 +6066,10 @@ msgstr "Nepavyko įkelti Žinių. Bandykite dar kartą arba prieš siųsdami iš
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Korėjiečių"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

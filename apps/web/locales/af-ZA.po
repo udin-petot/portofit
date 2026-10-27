@@ -2160,6 +2160,10 @@ msgstr "Voordat jy indien"
 msgid "Behavioral"
 msgstr "Gedragsgerig"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Bengaals"
@@ -6062,6 +6066,10 @@ msgstr "Kennis kon nie laai nie. Probeer weer of skakel Kennis af voordat jy stu
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Koreaans"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

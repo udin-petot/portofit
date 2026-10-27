@@ -2160,6 +2160,10 @@ msgstr "Topshirishdan oldin"
 msgid "Behavioral"
 msgstr "Xulq-atvor"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Bengal tili"
@@ -6062,6 +6066,10 @@ msgstr "Bilimlar yuklanmadi. Qayta urinib ko'ring yoki yuborishdan oldin Bilimla
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Koreys tili"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

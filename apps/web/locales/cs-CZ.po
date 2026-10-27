@@ -2160,6 +2160,10 @@ msgstr "Než žádost odešlete"
 msgid "Behavioral"
 msgstr "Behaviorální"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Bengálština"
@@ -6062,6 +6066,10 @@ msgstr "Znalosti se nepodařilo načíst. Zkuste to znovu nebo před odesláním
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Korejština"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

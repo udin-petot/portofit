@@ -2160,6 +2160,10 @@ msgstr "సమర్పించే ముందు"
 msgid "Behavioral"
 msgstr "బిహేవియరల్"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "బెంగాలీ"
@@ -6062,6 +6066,10 @@ msgstr "నాలెడ్జ్ లోడ్ కాలేదు. పంపే �
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "కొరియన్"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

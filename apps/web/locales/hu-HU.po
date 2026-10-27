@@ -2160,6 +2160,10 @@ msgstr "Beküldés előtt"
 msgid "Behavioral"
 msgstr "Viselkedési"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "bangla"
@@ -6062,6 +6066,10 @@ msgstr "A Tudástár nem töltődött be. Próbáld újra, vagy küldés előtt 
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "koreai"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

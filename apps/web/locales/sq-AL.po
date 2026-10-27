@@ -2160,6 +2160,10 @@ msgstr "Para se të dërgoni"
 msgid "Behavioral"
 msgstr "Për sjelljen"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Bengalisht"
@@ -6062,6 +6066,10 @@ msgstr "Njohuritë nuk u ngarkuan. Provoni përsëri ose çaktivizoni Njohuritë
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Koreanisht"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

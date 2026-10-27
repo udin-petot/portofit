@@ -2160,6 +2160,10 @@ msgstr "Göndərməzdən əvvəl"
 msgid "Behavioral"
 msgstr "Davranış"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Benqal"
@@ -6062,6 +6066,10 @@ msgstr "Biliklər yüklənmədi. Göndərməzdən əvvəl yenidən cəhd edin v�
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Koreya"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

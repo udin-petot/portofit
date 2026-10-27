@@ -65,6 +65,22 @@ export const billingDto = {
 		}),
 		output: z.object({ ok: z.literal(true), remaining: z.number().int() }),
 	},
+	ledger: {
+		input: z.object({ limit: z.number().int().min(1).max(100).optional().describe("Jumlah baris terakhir (default 30).") }),
+		output: z.object({
+			entries: z.array(
+				z.object({
+					id: z.string(),
+					kind: planKindSchema,
+					delta: z.number().int().describe("+1 saat kredit masuk, -1 saat dipakai."),
+					reason: z.string(),
+					balanceAfter: z.number().int(),
+					orderId: z.string().nullable(),
+					createdAt: z.date(),
+				}),
+			),
+		}),
+	},
 	adminListOrders: {
 		input: z.object({
 			status: orderStatusSchema.optional(),

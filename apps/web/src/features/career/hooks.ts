@@ -2,6 +2,7 @@ import type { RouterOutput } from "@/libs/orpc/client";
 import type { CareerWorkspace, GenerateTask } from "@reactive-resume/schema/career";
 import type { QueryClient } from "@tanstack/react-query";
 import type { SetStateAction } from "react";
+import { ORPCError } from "@orpc/client";
 import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -170,14 +171,28 @@ export function useDefaultProvider() {
 export function useGenerate(applicationId: string) {
 	const { i18n } = useLingui();
 	const queryClient = useQueryClient();
+	const router = useRouter();
 	const connection = useDefaultProvider();
 	const { provider } = connection;
 	const mutation = useMutation({
 		...orpc.career.generate.mutationOptions(),
 		onSuccess: (result) => {
 			if (result.item) void queryClient.invalidateQueries({ queryKey: orpc.career.savedItems.key() });
+			void queryClient.invalidateQueries({ queryKey: orpc.billing.balances.key() });
+			void queryClient.invalidateQueries({ queryKey: orpc.billing.ledger.key() });
 		},
 		onError: (error) => {
+			// Kredit habis: tawarkan jalan keluar, bukan hanya pesan galat.
+			const creditCode = error instanceof ORPCError ? (error.data as { code?: string } | undefined)?.code : undefined;
+			if (creditCode === "CREDIT_REQUIRED") {
+				toast.add({
+					type: "error",
+					description: t`Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara.`,
+					actionProps: { children: t`Beli kredit`, onClick: () => void router.navigate({ to: "/harga" }) },
+				});
+				return;
+			}
+
 			const name = provider?.label ?? t`Your AI connection`;
 			toast.add({
 				type: "error",

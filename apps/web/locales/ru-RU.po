@@ -2160,6 +2160,10 @@ msgstr "Перед отправкой"
 msgid "Behavioral"
 msgstr "Поведенческое"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Бенгальский"
@@ -6062,6 +6066,10 @@ msgstr "Не удалось загрузить Знания. Попробуйт�
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Корейский"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

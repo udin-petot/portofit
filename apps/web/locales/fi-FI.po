@@ -2160,6 +2160,10 @@ msgstr "Ennen l채hett채mist채"
 msgid "Behavioral"
 msgstr "K채ytt채ytymispohjainen"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "bengali"
@@ -6062,6 +6066,10 @@ msgstr "Tietopankkia ei voitu ladata. Yrit채 uudelleen tai poista tietopankki k�
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "korea"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

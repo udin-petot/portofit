@@ -2160,6 +2160,10 @@ msgstr "送信する前に"
 msgid "Behavioral"
 msgstr "行動面接"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "ベンガル語"
@@ -6062,6 +6066,10 @@ msgstr "ナレッジを読み込めませんでした。もう一度試すか、
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "韓国語"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

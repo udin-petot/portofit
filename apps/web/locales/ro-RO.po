@@ -2160,6 +2160,10 @@ msgstr "Înainte de a trimite"
 msgid "Behavioral"
 msgstr "Comportamental"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Bengaleză"
@@ -6062,6 +6066,10 @@ msgstr "Cunoștințele nu s-au putut încărca. Încercați din nou sau dezactiv
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Coreeană"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

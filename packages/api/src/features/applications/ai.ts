@@ -7,6 +7,7 @@ import { generateId, slugify } from "@reactive-resume/utils/string";
 import { protectedProcedure } from "../../context";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
 import { aiProvidersService } from "../ai-providers/service";
+import { billingService } from "../billing/service";
 import { generateJson as sharedGenerateJson } from "../ai/generate-json";
 import { getModel } from "../ai/service";
 import { coverLetterService } from "../cover-letters/service";
@@ -409,6 +410,13 @@ export const aiRouter = {
 			if (!application.jobDescription) {
 				throw new ORPCError("BAD_REQUEST", { message: "Paste the job description into this application first." });
 			}
+
+			// Aksi berbayar: satu kredit lamaran per tailor CV ke lowongan.
+			await billingService.consumeCredit({
+				userId: context.user.id,
+				kind: "application",
+				reason: `Tailor CV — ${application.company} · ${application.role}`.slice(0, 200),
+			});
 
 			const [model, resume] = await Promise.all([
 				resolveModel(context.user.id),

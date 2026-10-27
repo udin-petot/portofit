@@ -18,6 +18,7 @@ import {
 	savedItemSchema,
 } from "../../dto/career";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
+import { billingService } from "../billing/service";
 import { generateCareer } from "./generate";
 import { careerJobs } from "./jobs";
 import { careerService } from "./service";
@@ -278,9 +279,18 @@ export const careerRouter = {
 				answer: z.object({ text: z.string(), factIds: z.array(z.string()) }).nullable(),
 			}),
 		)
-		.handler(({ context, input, signal }) =>
-			generateCareer({ userId: context.user.id, ...input, ...(signal ? { signal } : {}) }),
-		),
+		.handler(async ({ context, input, signal }) => {
+			// Sesi latihan wawancara berbayar: satu kredit wawancara per briefing.
+			if (input.task.task === "briefing") {
+				await billingService.consumeCredit({
+					userId: context.user.id,
+					kind: "interview",
+					reason: "Sesi latihan wawancara — briefing",
+				});
+			}
+
+			return generateCareer({ userId: context.user.id, ...input, ...(signal ? { signal } : {}) });
+		}),
 	applyReply: protectedProcedure
 		.route({
 			method: "POST",

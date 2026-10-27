@@ -2160,6 +2160,10 @@ msgstr "पेस गर्नुअघि"
 msgid "Behavioral"
 msgstr "व्यवहारगत"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "बंगाली"
@@ -6062,6 +6066,10 @@ msgstr "ज्ञानभण्डार लोड भएन। पठाउन
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "कोरियन"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

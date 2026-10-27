@@ -2155,6 +2155,10 @@ msgstr ""
 msgid "Behavioral"
 msgstr ""
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr ""
@@ -6056,6 +6060,10 @@ msgstr ""
 
 #: src/libs/locale.ts
 msgid "Korean"
+msgstr ""
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
 msgstr ""
 
 #. Short field label for custom display text associated with a URL

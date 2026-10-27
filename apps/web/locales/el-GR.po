@@ -2160,6 +2160,10 @@ msgstr "Πριν από την υποβολή"
 msgid "Behavioral"
 msgstr "Συμπεριφορική"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Μπενγκάλι"
@@ -6062,6 +6066,10 @@ msgstr "Η Γνώση δεν φορτώθηκε. Δοκιμάστε ξανά ή 
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Κορεατικά"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

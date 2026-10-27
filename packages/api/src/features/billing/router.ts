@@ -92,6 +92,20 @@ export const billingRouter = {
 		.output(billingDto.consumeCredit.output)
 		.handler(({ context, input }) => billingService.consumeCredit({ ...input, userId: context.user.id })),
 
+	ledger: protectedProcedure
+		.route({
+			method: "GET",
+			path: "/billing/credits/ledger",
+			tags: ["Billing"],
+			operationId: "listBillingLedger",
+			summary: "List my credit history",
+			description: "Returns where the signed-in user's credits came from and what they were spent on, newest first.",
+			successDescription: "Credit ledger entries.",
+		})
+		.input(billingDto.ledger.input)
+		.output(billingDto.ledger.output)
+		.handler(({ context, input }) => billingService.ledger(context.user.id, input.limit)),
+
 	adminSummary: protectedProcedure
 		.route({
 			method: "GET",

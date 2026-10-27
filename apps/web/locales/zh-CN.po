@@ -2160,6 +2160,10 @@ msgstr "提交之前"
 msgid "Behavioral"
 msgstr "行为面试"
 
+#: src/features/career/hooks.ts
+msgid "Beli kredit"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "孟加拉语"
@@ -6062,6 +6066,10 @@ msgstr "知识库无法加载。请重试，或在发送前关闭知识库。"
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "韩语"
+
+#: src/features/career/hooks.ts
+msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx

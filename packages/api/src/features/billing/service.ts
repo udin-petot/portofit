@@ -126,6 +126,28 @@ export const billingService = {
 		return balancesFor(userId);
 	},
 
+	/** Riwayat kredit: dari mana masuk dan untuk apa dipakai. */
+	async ledger(userId: string, limit: number | undefined = 30) {
+		const rows = await db
+			.select()
+			.from(billingCreditLedger)
+			.where(eq(billingCreditLedger.userId, userId))
+			.orderBy(desc(billingCreditLedger.createdAt))
+			.limit(limit);
+
+		return {
+			entries: rows.map((row) => ({
+				id: row.id,
+				kind: row.kind as PlanKind,
+				delta: row.delta,
+				reason: row.reason,
+				balanceAfter: row.balanceAfter,
+				orderId: row.orderId ?? null,
+				createdAt: row.createdAt,
+			})),
+		};
+	},
+
 	async listMyOrders(userId: string, limit: number | undefined = 20) {
 		const orders = await db
 			.select()
