@@ -69,7 +69,7 @@ const healthDependencySchema = {
 const healthResponseSchema = {
 	type: "object",
 	properties: {
-		service: { type: "string", enum: ["reactive-resume"] },
+		service: { type: "string", enum: ["portofit"] },
 		version: { type: "string", description: "The running application's build version." },
 		status: { type: "string", enum: ["healthy", "unhealthy"] },
 		timestamp: { type: "string", format: "date-time" },
