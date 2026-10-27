@@ -11801,6 +11801,10 @@ msgstr "আপনার প্রথম কাজ ট্র্যাক"
 msgid "Tracking"
 msgstr "ট্র্যাকিং"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Transaksi"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
 msgstr "উত্তর ট্রান্সক্রাইবের মাধ্যম"

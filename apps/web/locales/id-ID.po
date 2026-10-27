@@ -11801,6 +11801,10 @@ msgstr "Lacak pekerjaan pertama Anda"
 msgid "Tracking"
 msgstr "Pelacakan"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Transaksi"
+msgstr "Transaksi"
+
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
 msgstr "Transkripsikan jawaban dengan"

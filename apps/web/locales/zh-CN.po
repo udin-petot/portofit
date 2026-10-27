@@ -11801,6 +11801,10 @@ msgstr "追踪你的第一份工作"
 msgid "Tracking"
 msgstr "追踪"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Transaksi"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
 msgstr "转写回答使用"

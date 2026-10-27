@@ -24,7 +24,13 @@ import { UserDropdownMenu } from "@/features/user/dropdown-menu";
 import { orpc } from "@/libs/orpc/client";
 
 type NavItem = {
-	to: "/dashboard" | "/dashboard/applications" | "/dashboard/career" | "/dashboard/trash" | "/dashboard/settings";
+	to:
+		| "/dashboard"
+		| "/dashboard/applications"
+		| "/dashboard/career"
+		| "/dashboard/transaksi"
+		| "/dashboard/trash"
+		| "/dashboard/settings";
 	icon: IconName;
 	label: string;
 	count?: number;
@@ -52,6 +58,7 @@ function useNavItems() {
 	const unread = notifications?.filter((notification) => !notification.readAt).length ?? 0;
 	// Career counts what's waiting for the user (unread notifications), so nothing shows at zero.
 	items.push({ to: "/dashboard/career", icon: "compass", label: t`Career`, ...(unread ? { count: unread } : {}) });
+	items.push({ to: "/dashboard/transaksi", icon: "list-numbers", label: t`Transaksi` });
 	const settings: NavItem = { to: "/dashboard/settings", icon: "gear-six", label: t`Settings` };
 	const trash: NavItem | null = counts?.trash
 		? { to: "/dashboard/trash", icon: "trash", label: t`Trash`, count: counts.trash }

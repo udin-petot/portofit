@@ -11801,6 +11801,10 @@ msgstr "Feu un seguiment del vostre primer treball"
 msgid "Tracking"
 msgstr "Seguiment"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Transaksi"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
 msgstr "Transcriu les respostes amb"

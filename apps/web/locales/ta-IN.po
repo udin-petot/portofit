@@ -11801,6 +11801,10 @@ msgstr "உங்கள் முதல் வேலையைக் கண்க
 msgid "Tracking"
 msgstr "கண்காணிப்பு"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Transaksi"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
 msgstr "பதில்களை எழுத்தாக்கும் சேவை"

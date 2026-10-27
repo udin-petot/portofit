@@ -11801,6 +11801,10 @@ msgstr "첫 번째 직업 추적"
 msgid "Tracking"
 msgstr "추적"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Transaksi"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
 msgstr "답변 텍스트 변환 방식"

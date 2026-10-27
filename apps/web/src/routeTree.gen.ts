@@ -16,6 +16,7 @@ import { Route as DashboardRouteRouteImport } from "./routes/dashboard/route";
 import { Route as UsernameSlugRouteImport } from "./routes/$username/$slug";
 import { Route as HomeIndexRouteImport } from "./routes/_home/index";
 import { Route as HomeAtsCheckerRouteImport } from "./routes/_home/ats-checker";
+import { Route as HomeHargaRouteImport } from "./routes/_home/harga";
 import { Route as AgentIndexRouteImport } from "./routes/agent/index";
 import { Route as AgentThreadIdRouteImport } from "./routes/agent/$threadId";
 import { Route as AgentNewRouteImport } from "./routes/agent/new";
@@ -34,6 +35,7 @@ import { Route as DashboardIndexRouteImport } from "./routes/dashboard/index";
 import { Route as DashboardCareerRouteRouteImport } from "./routes/dashboard/career/route";
 import { Route as DashboardCoverLettersRouteImport } from "./routes/dashboard/cover-letters";
 import { Route as DashboardSettingsRouteRouteImport } from "./routes/dashboard/settings/route";
+import { Route as DashboardTransaksiRouteImport } from "./routes/dashboard/transaksi";
 import { Route as DashboardTrashRouteImport } from "./routes/dashboard/trash";
 import { Route as TemplatesSplatRouteImport } from "./routes/templates/$";
 import { Route as BuilderResumeIdIndexRouteImport } from "./routes/builder/$resumeId/index";
@@ -90,6 +92,11 @@ const HomeIndexRoute = HomeIndexRouteImport.update({
 const HomeAtsCheckerRoute = HomeAtsCheckerRouteImport.update({
   id: "/ats-checker",
   path: "/ats-checker",
+  getParentRoute: () => HomeRouteRoute,
+} as any);
+const HomeHargaRoute = HomeHargaRouteImport.update({
+  id: "/harga",
+  path: "/harga",
   getParentRoute: () => HomeRouteRoute,
 } as any);
 const AgentIndexRoute = AgentIndexRouteImport.update({
@@ -180,6 +187,11 @@ const DashboardCoverLettersRoute = DashboardCoverLettersRouteImport.update({
 const DashboardSettingsRouteRoute = DashboardSettingsRouteRouteImport.update({
   id: "/settings",
   path: "/settings",
+  getParentRoute: () => DashboardRouteRoute,
+} as any);
+const DashboardTransaksiRoute = DashboardTransaksiRouteImport.update({
+  id: "/transaksi",
+  path: "/transaksi",
   getParentRoute: () => DashboardRouteRoute,
 } as any);
 const DashboardTrashRoute = DashboardTrashRouteImport.update({
@@ -323,6 +335,7 @@ export interface FileRoutesByFullPath {
   "/dashboard/settings": typeof DashboardSettingsRouteRouteWithChildren;
   "/$username/$slug": typeof UsernameSlugRoute;
   "/ats-checker": typeof HomeAtsCheckerRoute;
+  "/harga": typeof HomeHargaRoute;
   "/agent/$threadId": typeof AgentThreadIdRoute;
   "/agent/new": typeof AgentNewRoute;
   "/auth/consent": typeof AuthConsentRoute;
@@ -335,6 +348,7 @@ export interface FileRoutesByFullPath {
   "/auth/verify-2fa": typeof AuthVerify2faRoute;
   "/auth/verify-2fa-backup": typeof AuthVerify2faBackupRoute;
   "/dashboard/cover-letters": typeof DashboardCoverLettersRoute;
+  "/dashboard/transaksi": typeof DashboardTransaksiRoute;
   "/dashboard/trash": typeof DashboardTrashRoute;
   "/templates/$": typeof TemplatesSplatRoute;
   "/agent/": typeof AgentIndexRoute;
@@ -365,6 +379,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   "/$username/$slug": typeof UsernameSlugRoute;
   "/ats-checker": typeof HomeAtsCheckerRoute;
+  "/harga": typeof HomeHargaRoute;
   "/agent/$threadId": typeof AgentThreadIdRoute;
   "/agent/new": typeof AgentNewRoute;
   "/auth/consent": typeof AuthConsentRoute;
@@ -377,6 +392,7 @@ export interface FileRoutesByTo {
   "/auth/verify-2fa": typeof AuthVerify2faRoute;
   "/auth/verify-2fa-backup": typeof AuthVerify2faBackupRoute;
   "/dashboard/cover-letters": typeof DashboardCoverLettersRoute;
+  "/dashboard/transaksi": typeof DashboardTransaksiRoute;
   "/dashboard/trash": typeof DashboardTrashRoute;
   "/templates/$": typeof TemplatesSplatRoute;
   "/": typeof HomeIndexRoute;
@@ -416,6 +432,7 @@ export interface FileRoutesById {
   "/dashboard/settings": typeof DashboardSettingsRouteRouteWithChildren;
   "/$username/$slug": typeof UsernameSlugRoute;
   "/_home/ats-checker": typeof HomeAtsCheckerRoute;
+  "/_home/harga": typeof HomeHargaRoute;
   "/agent/$threadId": typeof AgentThreadIdRoute;
   "/agent/new": typeof AgentNewRoute;
   "/auth/consent": typeof AuthConsentRoute;
@@ -428,6 +445,7 @@ export interface FileRoutesById {
   "/auth/verify-2fa": typeof AuthVerify2faRoute;
   "/auth/verify-2fa-backup": typeof AuthVerify2faBackupRoute;
   "/dashboard/cover-letters": typeof DashboardCoverLettersRoute;
+  "/dashboard/transaksi": typeof DashboardTransaksiRoute;
   "/dashboard/trash": typeof DashboardTrashRoute;
   "/templates/$": typeof TemplatesSplatRoute;
   "/_home/": typeof HomeIndexRoute;
@@ -468,6 +486,7 @@ export interface FileRouteTypes {
     | "/dashboard/settings"
     | "/$username/$slug"
     | "/ats-checker"
+    | "/harga"
     | "/agent/$threadId"
     | "/agent/new"
     | "/auth/consent"
@@ -480,6 +499,7 @@ export interface FileRouteTypes {
     | "/auth/verify-2fa"
     | "/auth/verify-2fa-backup"
     | "/dashboard/cover-letters"
+    | "/dashboard/transaksi"
     | "/dashboard/trash"
     | "/templates/$"
     | "/agent/"
@@ -510,6 +530,7 @@ export interface FileRouteTypes {
   to:
     | "/$username/$slug"
     | "/ats-checker"
+    | "/harga"
     | "/agent/$threadId"
     | "/agent/new"
     | "/auth/consent"
@@ -522,6 +543,7 @@ export interface FileRouteTypes {
     | "/auth/verify-2fa"
     | "/auth/verify-2fa-backup"
     | "/dashboard/cover-letters"
+    | "/dashboard/transaksi"
     | "/dashboard/trash"
     | "/templates/$"
     | "/"
@@ -560,6 +582,7 @@ export interface FileRouteTypes {
     | "/dashboard/settings"
     | "/$username/$slug"
     | "/_home/ats-checker"
+    | "/_home/harga"
     | "/agent/$threadId"
     | "/agent/new"
     | "/auth/consent"
@@ -572,6 +595,7 @@ export interface FileRouteTypes {
     | "/auth/verify-2fa"
     | "/auth/verify-2fa-backup"
     | "/dashboard/cover-letters"
+    | "/dashboard/transaksi"
     | "/dashboard/trash"
     | "/templates/$"
     | "/_home/"
@@ -661,6 +685,13 @@ declare module "@tanstack/react-router" {
       path: "/ats-checker";
       fullPath: "/ats-checker";
       preLoaderRoute: typeof HomeAtsCheckerRouteImport;
+      parentRoute: typeof HomeRouteRoute;
+    };
+    "/_home/harga": {
+      id: "/_home/harga";
+      path: "/harga";
+      fullPath: "/harga";
+      preLoaderRoute: typeof HomeHargaRouteImport;
       parentRoute: typeof HomeRouteRoute;
     };
     "/agent/": {
@@ -787,6 +818,13 @@ declare module "@tanstack/react-router" {
       path: "/settings";
       fullPath: "/dashboard/settings";
       preLoaderRoute: typeof DashboardSettingsRouteRouteImport;
+      parentRoute: typeof DashboardRouteRoute;
+    };
+    "/dashboard/transaksi": {
+      id: "/dashboard/transaksi";
+      path: "/transaksi";
+      fullPath: "/dashboard/transaksi";
+      preLoaderRoute: typeof DashboardTransaksiRouteImport;
       parentRoute: typeof DashboardRouteRoute;
     };
     "/dashboard/trash": {
@@ -955,11 +993,13 @@ declare module "@tanstack/react-router" {
 
 interface HomeRouteRouteChildren {
   HomeAtsCheckerRoute: typeof HomeAtsCheckerRoute;
+  HomeHargaRoute: typeof HomeHargaRoute;
   HomeIndexRoute: typeof HomeIndexRoute;
 }
 
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
   HomeAtsCheckerRoute: HomeAtsCheckerRoute,
+  HomeHargaRoute: HomeHargaRoute,
   HomeIndexRoute: HomeIndexRoute,
 };
 
@@ -1088,6 +1128,7 @@ interface DashboardRouteRouteChildren {
   DashboardCareerRouteRoute: typeof DashboardCareerRouteRouteWithChildren;
   DashboardSettingsRouteRoute: typeof DashboardSettingsRouteRouteWithChildren;
   DashboardCoverLettersRoute: typeof DashboardCoverLettersRoute;
+  DashboardTransaksiRoute: typeof DashboardTransaksiRoute;
   DashboardTrashRoute: typeof DashboardTrashRoute;
   DashboardIndexRoute: typeof DashboardIndexRoute;
   DashboardApplicationsIndexRoute: typeof DashboardApplicationsIndexRoute;
@@ -1099,6 +1140,7 @@ const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardCareerRouteRoute: DashboardCareerRouteRouteWithChildren,
   DashboardSettingsRouteRoute: DashboardSettingsRouteRouteWithChildren,
   DashboardCoverLettersRoute: DashboardCoverLettersRoute,
+  DashboardTransaksiRoute: DashboardTransaksiRoute,
   DashboardTrashRoute: DashboardTrashRoute,
   DashboardIndexRoute: DashboardIndexRoute,
   DashboardApplicationsIndexRoute: DashboardApplicationsIndexRoute,

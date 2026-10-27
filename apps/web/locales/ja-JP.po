@@ -11801,6 +11801,10 @@ msgstr "最初のジョブを追跡する"
 msgid "Tracking"
 msgstr "トラッキング"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Transaksi"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
 msgstr "回答の文字起こし"

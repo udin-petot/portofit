@@ -11801,6 +11801,10 @@ msgstr "İlk işinizi takip edin"
 msgid "Tracking"
 msgstr "Takip"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Transaksi"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
 msgstr "Cevapları yazıya döken hizmet"

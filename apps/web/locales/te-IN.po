@@ -11801,6 +11801,10 @@ msgstr "మీ మొదటి ఉద్యోగాన్ని ట్రాక
 msgid "Tracking"
 msgstr "ట్రాకింగ్"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Transaksi"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
 msgstr "సమాధానాలను టెక్స్ట్‌గా మార్చే సేవ"

@@ -11801,6 +11801,10 @@ msgstr "Пратите свој први посао"
 msgid "Tracking"
 msgstr "Праћење"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Transaksi"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
 msgstr "Транскрибуј одговоре помоћу"

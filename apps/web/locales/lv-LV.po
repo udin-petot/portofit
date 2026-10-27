@@ -11801,6 +11801,10 @@ msgstr "Izsekojiet savu pirmo darbu"
 msgid "Tracking"
 msgstr "Izsekošana"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Transaksi"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
 msgstr "Atbildes atšifrēt ar"

@@ -11801,6 +11801,10 @@ msgstr "Проследете първата си работа"
 msgid "Tracking"
 msgstr "Проследяване"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Transaksi"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
 msgstr "Преписване на отговорите с"
