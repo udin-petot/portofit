@@ -75,14 +75,14 @@ const BASE_SECURITY_HEADERS = {
 };
 
 const githubUrl = "https://github.com/udin-petot/portofit";
-// The English copy, for a build without prerendered pages; a prerendered page carries its own locale's title and
+// Fallback copy for a build without prerendered pages; a prerendered page carries its own locale's title and
 // description, and the social cards reuse them.
-const ROOT_TITLE = "PortoFit — Bikin CV Profesional, Gratis";
+const ROOT_TITLE = "PortoFit — Persiapan kerja dari CV sampai wawancara";
 const ROOT_DESCRIPTION =
-	"Free, open-source resume builder. Create, update, and share your resume, with PDF and Word downloads, no ads and no paywall.";
-const ATS_CHECKER_TITLE = "Free ATS resume checker — PortoFit";
+	"PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, cocokkan dengan lowongan, lalu latihan wawancara. Mulai gratis, tanpa iklan.";
+const ATS_CHECKER_TITLE = "Pemeriksa resume ATS gratis — PortoFit";
 const ATS_CHECKER_DESCRIPTION =
-	"Check whether software can read your resume PDF. Runs entirely in your browser, so your file is never uploaded.";
+	"Periksa apakah sistem bisa membaca PDF resume kamu. Berjalan sepenuhnya di browser, jadi berkasmu tidak diunggah.";
 
 type StructuredData = Record<string, unknown>;
 
