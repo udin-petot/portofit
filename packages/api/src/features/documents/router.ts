@@ -183,12 +183,14 @@ export const documentsRouter = {
 		.use(resumeMutationRateLimit)
 		.output(documentsDto.copyForJob.output)
 		.handler(async ({ context, input }) => {
-			// Aksi berbayar: satu kredit lamaran per CV yang disalin untuk satu lowongan.
-			await billingService.consumeCredit({
-				userId: context.user.id,
-				kind: "application",
-				reason: "CV disalin untuk satu lowongan (tailor)",
-			});
+			// Aksi berbayar hanya bila CV benar-benar diikat ke satu lowongan; salinan biasa gratis.
+			if (input.applicationId) {
+				await billingService.consumeCredit({
+					userId: context.user.id,
+					kind: "application",
+					reason: "CV disalin untuk satu lowongan (tailor)",
+				});
+			}
 
 			return documentsService.copyForJob({ ...input, userId: context.user.id });
 		}),
