@@ -6,6 +6,7 @@ import { Trans } from "@lingui/react/macro";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { useEffect, useId, useRef, useState } from "react";
+import { ORPCError } from "@orpc/client";
 import { Button } from "@reactive-resume/ui/components/button";
 import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@reactive-resume/ui/components/dialog";
 import { Icon } from "@reactive-resume/ui/components/icon";
@@ -568,6 +569,7 @@ type CopyForJobProps = {
 /** Pick a resume and a job; the copy is named from both and linked to the application. */
 function CopyForJob({ initialSourceId, initialJobId, onBack, onCreated }: CopyForJobProps) {
 	const { i18n } = useLingui();
+	const navigate = useNavigate();
 	const nameId = useId();
 	const { data: documents } = useQuery(orpc.documents.list.queryOptions({ input: { trashed: false } }));
 	const { data: applications } = useQuery(applicationsListQueryOptions());
@@ -597,6 +599,15 @@ function CopyForJob({ initialSourceId, initialJobId, onBack, onCreated }: CopyFo
 			toast.add({ description: message });
 			onCreated(resumeId, Boolean(job));
 		} catch (error) {
+			const creditCode = error instanceof ORPCError ? (error.data as { code?: string } | undefined)?.code : undefined;
+			if (creditCode === "CREDIT_REQUIRED") {
+				toast.add({
+					type: "error",
+					description: t`Kredit lamaran habis. Beli 1 kredit untuk menyalin CV ke lowongan ini.`,
+					actionProps: { children: t`Beli kredit`, onClick: () => void navigate({ to: "/harga" }) },
+				});
+				return;
+			}
 			toast.add({ type: "error", description: getOrpcErrorMessage(error, { fallback: t`Couldn't copy the resume.` }) });
 		}
 	};

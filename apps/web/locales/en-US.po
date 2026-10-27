@@ -2156,6 +2156,7 @@ msgid "Behavioral"
 msgstr "Behavioral"
 
 #: src/features/career/hooks.ts
+#: src/features/documents/new-document-dialog.tsx
 msgid "Beli kredit"
 msgstr "Beli kredit"
 
@@ -6065,6 +6066,10 @@ msgstr "Korean"
 #: src/features/career/hooks.ts
 msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
 msgstr "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Kredit lamaran habis. Beli 1 kredit untuk menyalin CV ke lowongan ini."
+msgstr "Kredit lamaran habis. Beli 1 kredit untuk menyalin CV ke lowongan ini."
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx
