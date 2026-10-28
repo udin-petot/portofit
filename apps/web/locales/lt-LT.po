@@ -1409,6 +1409,10 @@ msgstr "Adresas"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Jei iki tol negausite atsakymo, skiltyje „Šiandien“ bus pridėtas priminimas."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "Skelbimai"

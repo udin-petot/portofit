@@ -1409,6 +1409,10 @@ msgstr "Adreça"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Afegeix un recordatori a Avui si per aleshores no heu rebut resposta."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "Anuncis"

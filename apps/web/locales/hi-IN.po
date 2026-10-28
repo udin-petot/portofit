@@ -1409,6 +1409,10 @@ msgstr "पता"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "अगर तब तक जवाब नहीं आता, तो \"आज\" में एक रिमाइंडर जोड़ता है।"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "विज्ञापन"

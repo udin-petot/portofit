@@ -1409,6 +1409,10 @@ msgstr "አድራሻ"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "እስከዚያ ድረስ ምላሽ ካልደረሰዎት በዛሬ ውስጥ አስታዋሽ ያክላል።"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "ማስታወቂያዎች"

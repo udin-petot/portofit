@@ -1409,6 +1409,10 @@ msgstr "Adres"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Voeg 'n herinnering by Vandag as jy teen dan nog niks gehoor het nie."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "Advertensies"

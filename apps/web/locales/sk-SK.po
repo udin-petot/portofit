@@ -1409,6 +1409,10 @@ msgstr "Adresa"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Ak sa vám dovtedy neozvú, pridá pripomienku do sekcie Dnes."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "reklamy"

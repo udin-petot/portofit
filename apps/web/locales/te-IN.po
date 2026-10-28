@@ -1409,6 +1409,10 @@ msgstr "చిరునామా"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "అప్పటికి మీకు స్పందన రాకపోతే, ‘ఈరోజు’లో రిమైండర్‌ను జోడిస్తుంది."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "ప్రకటనలు"

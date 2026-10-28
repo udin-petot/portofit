@@ -1409,6 +1409,10 @@ msgstr "വിലാസം"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "അപ്പോഴേക്കും മറുപടി ലഭിച്ചില്ലെങ്കിൽ “ഇന്ന്” എന്നതിൽ ഒരു ഓർമ്മപ്പെടുത്തൽ ചേർക്കുന്നു."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "പരസ്യങ്ങൾ"

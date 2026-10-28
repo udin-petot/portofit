@@ -1409,6 +1409,10 @@ msgstr "ঠিকানা"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "এর মধ্যে উত্তর না পেলে আজ বিভাগে একটি রিমাইন্ডার যোগ করে।"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "বিজ্ঞাপন"

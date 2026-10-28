@@ -188,8 +188,9 @@ export function AdminBillingPage() {
 	};
 
 	const savePlan = async (plan: Plan) => {
-		const value = Number(priceDraft[plan.code] ?? plan.priceIdr);
-		if (!Number.isFinite(value) || value < 0) {
+		const digits = (priceDraft[plan.code] ?? String(plan.priceIdr)).replace(/\D/g, "");
+		const value = Number(digits);
+		if (!digits || !Number.isFinite(value) || value < 0) {
 			toast.add({ type: "error", description: "Harga harus angka nol atau lebih." });
 			return;
 		}
@@ -277,7 +278,7 @@ export function AdminBillingPage() {
 							<Icon name="arrows-clockwise" size={15} />
 							Segarkan
 						</Button>
-						<Button size="sm" loading={exportCsv.isFetching} onClick={() => void downloadCsv()}>
+						<Button size="sm" variant="secondary" loading={exportCsv.isFetching} onClick={() => void downloadCsv()}>
 							<Icon name="download-simple" size={15} />
 							Unduh CSV
 						</Button>
@@ -313,7 +314,7 @@ export function AdminBillingPage() {
 						{summary.isLoading ? (
 							<Skeleton className="mt-4 h-6 w-24" />
 						) : (
-							<p className="mt-3 font-display text-[26px] leading-none tracking-tight tabular-nums text-ink">
+							<p className="mt-3 font-display text-2xl leading-none tracking-tight tabular-nums text-ink">
 								{stat.value}
 							</p>
 						)}
@@ -394,7 +395,7 @@ export function AdminBillingPage() {
 										</td>
 										<td className="px-4 py-2.5">
 											{order.proofPath ? (
-												<Button size="sm" variant="ghost" onClick={() => setProofOrder(order)}>
+												<Button size="sm" variant="secondary" onClick={() => setProofOrder(order)}>
 													<Icon name="eye" size={15} />
 													Lihat bukti
 												</Button>
@@ -406,20 +407,20 @@ export function AdminBillingPage() {
 											<div className="flex items-center justify-end gap-1.5">
 												<Button
 													size="sm"
-													loading={verify.isPending && verify.variables?.orderId === order.id}
-													onClick={() => void verifyNow(order)}
-												>
-													<Icon name="check" size={15} />
-													Verifikasi
-												</Button>
-												<Button
-													size="sm"
 													variant="ghost"
 													className="text-danger-text hover:bg-danger-soft"
 													disabled={reject.isPending}
 													onClick={() => openReject(order)}
 												>
 													Tolak
+												</Button>
+												<Button
+													size="sm"
+													loading={verify.isPending && verify.variables?.orderId === order.id}
+													onClick={() => void verifyNow(order)}
+												>
+													<Icon name="check" size={15} />
+													Verifikasi
 												</Button>
 											</div>
 										</td>
@@ -557,19 +558,13 @@ export function AdminBillingPage() {
 
 			<div className="mt-6 grid items-start gap-4 lg:grid-cols-2">
 				<section className="rounded-xl border border-line bg-surface p-4" aria-labelledby="keuangan-heading">
-					<div className="flex items-start justify-between gap-3">
-						<div>
-							<h2 id="keuangan-heading" className="text-sm font-semibold text-ink">
-								Keuangan
-							</h2>
-							<p className="mt-1 text-xs leading-5 text-ink-3">
-								CSV berisi semua pesanan lunas dan baris TOTAL, siap dilampirkan ke laporan.
-							</p>
-						</div>
-						<Button size="sm" variant="secondary" loading={exportCsv.isFetching} onClick={() => void downloadCsv()}>
-							<Icon name="download-simple" size={15} />
-							CSV
-						</Button>
+					<div>
+						<h2 id="keuangan-heading" className="text-sm font-semibold text-ink">
+							Keuangan
+						</h2>
+						<p className="mt-1 text-xs leading-5 text-ink-3">
+							Tombol Unduh CSV di atas berisi semua pesanan lunas dan baris TOTAL, siap dilampirkan ke laporan.
+						</p>
 					</div>
 
 					<dl className="mt-4 grid grid-cols-2 gap-2">
@@ -632,8 +627,9 @@ export function AdminBillingPage() {
 					) : (
 						<ul className="mt-2 divide-y divide-line">
 							{planList.map((plan) => {
-								const draft = priceDraft[plan.code] ?? String(plan.priceIdr);
-								const dirty = draft.trim() !== String(plan.priceIdr);
+								const digits = (priceDraft[plan.code] ?? String(plan.priceIdr)).replace(/\D/g, "");
+								const display = digits ? Number(digits).toLocaleString("id-ID") : "";
+								const dirty = digits !== String(plan.priceIdr);
 								return (
 									<li key={plan.code} className="grid gap-2 py-3">
 										<div className="flex items-center justify-between gap-2">
@@ -654,9 +650,12 @@ export function AdminBillingPage() {
 													inputMode="numeric"
 													aria-label={`Harga ${plan.name}`}
 													className="tabular-nums"
-													value={draft}
+													value={display}
 													onChange={(event) =>
-														setPriceDraft((previous) => ({ ...previous, [plan.code]: event.currentTarget.value }))
+														setPriceDraft((previous) => ({
+															...previous,
+															[plan.code]: event.currentTarget.value.replace(/\D/g, ""),
+														}))
 													}
 												/>
 											</InputGroup>
@@ -905,7 +904,7 @@ function BalanceChip({ count, kind }: { count: number; kind: PlanKind }) {
 				aria-hidden="true"
 				className={cn(
 					"size-1.5 rounded-full",
-					empty ? "bg-line-2" : kind === "application" ? "bg-stage-applied" : "bg-stage-interview",
+					empty ? "bg-line-2" : kind === "application" ? "bg-accent" : "bg-warn",
 				)}
 			/>
 			{count} {KIND_NOUN[kind]}

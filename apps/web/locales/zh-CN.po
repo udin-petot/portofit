@@ -1409,6 +1409,10 @@ msgstr "地址"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "如果届时仍未收到回复，会在“今天”中添加提醒。"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "广告"

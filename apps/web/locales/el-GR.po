@@ -1409,6 +1409,10 @@ msgstr "Διεύθυνση"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Προσθέτει υπενθύμιση στο Σήμερα, αν δεν έχετε λάβει απάντηση μέχρι τότε."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "Διαφημίσεις"

@@ -1409,6 +1409,10 @@ msgstr "पत्ता"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "तोपर्यंत उत्तर न आल्यास “आज” मध्ये स्मरणपत्र जोडते."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "जाहिराती"

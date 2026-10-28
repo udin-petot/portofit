@@ -1409,6 +1409,10 @@ msgstr "Manzil"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Agar shu vaqtgacha javob bo'lmasa, Bugun bo'limiga eslatma qo'shadi."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "E'lonlar"

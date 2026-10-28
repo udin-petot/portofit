@@ -1409,6 +1409,10 @@ msgstr "住所"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "それまでに返信がなければ、「今日」にリマインダーを追加します。"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "広告"

@@ -1409,6 +1409,10 @@ msgstr "Adrese"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Ja līdz tam atbilde nebūs saņemta, sadaļā “Šodien” tiks pievienots atgādinājums."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "Reklāmas"

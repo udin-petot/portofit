@@ -1409,6 +1409,10 @@ msgstr "Alamat"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Menambahkan pengingat ke Hari ini jika Anda belum mendapat balasan saat itu."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr "Admin"
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "Iklan"

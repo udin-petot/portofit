@@ -1409,6 +1409,10 @@ msgstr "முகவரி"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "அதற்குள் பதில் வரவில்லை என்றால், ‘இன்று’ பக்கத்தில் நினைவூட்டலைச் சேர்க்கும்."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "விளம்பரங்கள்"

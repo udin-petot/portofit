@@ -1409,6 +1409,10 @@ msgstr "Địa chỉ"
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Thêm lời nhắc vào Hôm nay nếu đến lúc đó bạn vẫn chưa nhận được phản hồi."
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Admin"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "Quảng cáo"
