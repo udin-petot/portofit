@@ -133,6 +133,23 @@ export const billingRouter = {
 		.output(billingDto.adminListOrders.output)
 		.handler(({ context, input }) => billingService.adminListOrders({ ...input, role: roleOf(context.user) })),
 
+	adminOrderProof: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/admin/billing/orders/{orderId}/proof",
+			tags: ["Admin"],
+			operationId: "adminGetBillingOrderProof",
+			summary: "Read an order's payment proof",
+			description:
+				"Returns the buyer's uploaded payment proof as a data URL so an admin can check it before verifying. The file is private, so this is the only way to see it. Requires the admin role.",
+			successDescription: "The proof file, base64 encoded.",
+		})
+		.input(billingDto.adminOrderProof.input)
+		.output(billingDto.adminOrderProof.output)
+		.handler(({ context, input }) =>
+			billingService.adminOrderProof({ orderId: input.orderId, role: roleOf(context.user) }),
+		),
+
 	adminVerifyOrder: protectedProcedure
 		.route({
 			method: "POST",

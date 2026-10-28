@@ -2,6 +2,7 @@ import { ORPCError } from "@orpc/server";
 import { and, desc, eq, ilike, or, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import { adminAudit, billingCreditLedger, billingOrder, billingPlan, user } from "@reactive-resume/db/schema";
+import { getStorageService, inferContentType } from "../storage/service";
 
 export type PlanKind = "application" | "interview";
 export type OrderStatus = "menunggu_bayar" | "menunggu_verifikasi" | "lunas" | "ditolak";
@@ -252,6 +253,33 @@ export const billingService = {
 		const query = db.select().from(billingOrder).orderBy(desc(billingOrder.createdAt)).limit(input.limit ?? 50);
 		const orders = where ? await query.where(where) : await query;
 		return { orders: orders.map(toOrderDto) };
+	},
+
+	async adminOrderProof(input: { role?: string | null | undefined; orderId: string }) {
+		assertAdmin(input.role);
+		const [order] = await db.select().from(billingOrder).where(eq(billingOrder.id, input.orderId)).limit(1);
+		if (!order) throw new ORPCError("NOT_FOUND", { message: "Order tidak ditemukan." });
+		if (!order.proofPath) throw new ORPCError("NOT_FOUND", { message: "Pembeli belum mengunggah bukti bayar." });
+
+		// Bukti disimpan sebagai file privat milik pembeli, jadi admin membacanya lewat server: rute /api/uploads
+		// menolak siapa pun selain pemilik file, dan tautan langsung dari panel akan selalu 404.
+		const file = await getStorageService().read(order.proofPath);
+		if (!file) throw new ORPCError("NOT_FOUND", { message: "File bukti tidak ada di penyimpanan." });
+
+		const maxPreviewBytes = 8 * 1024 * 1024;
+		if (file.size > maxPreviewBytes) {
+			throw new ORPCError("BAD_REQUEST", {
+				message: "Bukti lebih dari 8 MB dan tidak bisa dipratinjau di panel. Minta pembeli mengirim ulang lewat WhatsApp.",
+			});
+		}
+
+		const contentType = file.contentType ?? inferContentType(order.proofPath);
+		return {
+			dataUrl: `data:${contentType};base64,${Buffer.from(file.data).toString("base64")}`,
+			contentType,
+			fileName: order.proofPath.split("/").pop() ?? "bukti-bayar",
+			size: file.size,
+		};
 	},
 
 	adminVerifyOrder(input: { role?: string | null | undefined; actorId: string; orderId: string }) {

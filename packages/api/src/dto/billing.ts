@@ -88,6 +88,15 @@ export const billingDto = {
 		}),
 		output: z.object({ orders: z.array(orderOutputSchema) }),
 	},
+	adminOrderProof: {
+		input: z.object({ orderId: z.string().min(1) }),
+		output: z.object({
+			dataUrl: z.string().describe("Bukti bayar sebagai data URL, siap dipasang di <img> atau tautan unduh."),
+			contentType: z.string(),
+			fileName: z.string(),
+			size: z.number().int().describe("Ukuran file bukti dalam byte."),
+		}),
+	},
 	adminVerifyOrder: {
 		input: z.object({ orderId: z.string().min(1) }),
 		output: orderOutputSchema,
