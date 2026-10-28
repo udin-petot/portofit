@@ -108,7 +108,6 @@ const compactNumber = new Intl.NumberFormat("id-ID", { notation: "compact", maxi
 const formatDate = (value: Date | string | number) => dateShort.format(new Date(value));
 const formatTime = (value: Date | string | number) => timeShort.format(new Date(value));
 const formatStamp = (value: Date | string | number) => stampShort.format(new Date(value));
-const formatCompactRupiah = (value: number) => (value > 0 ? `Rp ${compactNumber.format(value)}` : "Rp 0");
 const uniqueCode = (code: number) => String(code).padStart(3, "0");
 const initialOf = (name: string) => name.trim().slice(0, 2).toUpperCase() || "AD";
 
@@ -294,7 +293,7 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 
 			<main className="min-w-0 flex-1">
 				<header className="sticky top-0 z-30 border-b border-line bg-bg/85 backdrop-blur-md">
-					<div className="flex flex-wrap items-center gap-3 px-4 py-3 lg:px-8">
+					<div className="mx-auto flex w-full max-w-[1280px] flex-wrap items-center gap-3 px-4 py-3 lg:px-8">
 						<div className="min-w-0 flex-1">
 							<p className="text-[11px] font-medium tracking-[0.14em] text-ink-3 uppercase">PortoFit · admin</p>
 							<h1 className="mt-0.5 font-display text-xl leading-tight font-medium tracking-tight text-ink">
@@ -322,11 +321,11 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 						</Button>
 						<Button size="sm" variant="secondary" loading={exportCsv.isFetching} onClick={() => void downloadCsv()}>
 							<Icon name="download-simple" size={15} />
-							CSV
+							Unduh CSV
 						</Button>
 					</div>
 
-					<div className="flex gap-1 overflow-x-auto border-t border-line px-3 py-2 [scrollbar-width:none] lg:hidden">
+					<div className="mx-auto flex w-full max-w-[1280px] gap-1 overflow-x-auto border-t border-line px-3 py-2 [scrollbar-width:none] lg:hidden">
 						{NAV.map((item) => (
 							<button
 								key={item.key}
@@ -522,10 +521,12 @@ function OverviewView({
 	}));
 	const topPlans = analytics?.byPlan ?? [];
 	const maxPlanRevenue = Math.max(...topPlans.map((plan) => plan.revenueIdr), 1);
+	const totalOrders = (analytics?.byStatus ?? []).reduce((sum, item) => sum + item.count, 0);
+	const averageOrder = (range?.orders ?? 0) > 0 ? Math.round((range?.revenueIdr ?? 0) / (range?.orders ?? 1)) : 0;
 
 	return (
 		<div className="grid gap-4">
-			<section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="Ringkasan angka">
+			<section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4" aria-label="Ringkasan angka">
 				<StatCard
 					label={`Pendapatan ${days} hari`}
 					value={formatRupiah(range?.revenueIdr ?? 0)}
@@ -594,9 +595,12 @@ function OverviewView({
 								<Delta current={range?.revenueIdr ?? 0} previous={previous?.revenueIdr ?? 0} suffix={`${days} hari sebelumnya`} />
 							</span>
 						</div>
+						<p className="mt-1 text-xs text-ink-3">
+							Rata-rata {formatRupiah(Math.round((range?.revenueIdr ?? 0) / days))} per hari
+						</p>
 					</div>
 					<div className="px-2 pb-3">
-						{loading ? <Skeleton className="m-2 h-44 w-full" /> : <RevenueChart data={revenuePoints} formatValue={formatRupiah} formatAxis={formatCompactRupiah} />}
+						{loading ? <Skeleton className="m-2 h-44 w-full" /> : <RevenueChart data={revenuePoints} formatValue={formatRupiah} formatAxis={(value) => compactNumber.format(value)} />}
 					</div>
 				</Panel>
 
@@ -606,7 +610,19 @@ function OverviewView({
 						{loading ? (
 							<Skeleton className="h-32 w-full" />
 						) : (
-							<StatusDonut segments={donutSegments} caption="Status pesanan" />
+							<>
+								<StatusDonut segments={donutSegments} caption="Status pesanan" />
+								<dl className="mt-4 grid grid-cols-2 gap-2 border-t border-line pt-3">
+									<div>
+										<dt className="text-[11px] tracking-[0.1em] text-ink-3 uppercase">Rata-rata pesanan</dt>
+										<dd className="mt-1 text-sm font-medium tabular-nums text-ink">{formatRupiah(averageOrder)}</dd>
+									</div>
+									<div>
+										<dt className="text-[11px] tracking-[0.1em] text-ink-3 uppercase">Total pesanan</dt>
+										<dd className="mt-1 text-sm font-medium tabular-nums text-ink">{totalOrders}</dd>
+									</div>
+								</dl>
+							</>
 						)}
 					</div>
 				</Panel>
@@ -673,7 +689,7 @@ function OverviewView({
 									<li key={plan.planCode} className="grid gap-1">
 										<div className="flex items-baseline justify-between gap-2 text-xs">
 											<span className="truncate text-ink">{plan.planName}</span>
-											<span className="shrink-0 tabular-nums text-ink-2">{formatCompactRupiah(plan.revenueIdr)}</span>
+											<span className="shrink-0 tabular-nums text-ink-2">{formatRupiah(plan.revenueIdr)}</span>
 										</div>
 										<div className="h-1.5 overflow-hidden rounded-full bg-sunken">
 											<div
@@ -812,7 +828,7 @@ function OrdersTable({
 
 	return (
 		<div className="overflow-x-auto">
-			<table className="w-full min-w-[720px] border-collapse text-left text-sm">
+			<table className="w-full min-w-[720px] border-collapse text-left text-sm [&_td]:align-middle">
 				<caption className="sr-only">Daftar pesanan PortoFit</caption>
 				<thead>
 					<tr className="text-[11px] tracking-[0.1em] text-ink-3 uppercase">
@@ -832,7 +848,7 @@ function OrdersTable({
 							Status
 						</th>
 						<th scope="col" className="px-4 py-2 text-right font-medium">
-							{compact ? "" : "Tindakan"}
+							{compact ? "Bukti" : "Tindakan"}
 						</th>
 					</tr>
 				</thead>
@@ -869,7 +885,7 @@ function OrdersTable({
 											Bukti
 										</Button>
 									) : null}
-									{order.status === "menunggu_verifikasi" ? (
+									{!compact && order.status === "menunggu_verifikasi" ? (
 										<>
 											<Button
 												size="sm"
@@ -945,7 +961,7 @@ function UsersView({
 				/>
 			) : (
 				<div className="overflow-x-auto">
-					<table className="w-full min-w-[720px] border-collapse text-left text-sm">
+					<table className="w-full min-w-[720px] border-collapse text-left text-sm [&_td]:align-middle">
 						<caption className="sr-only">Daftar pengguna beserta saldo kredit</caption>
 						<thead>
 							<tr className="text-[11px] tracking-[0.1em] text-ink-3 uppercase">
@@ -1212,7 +1228,7 @@ function Delta({
 	className?: string;
 }) {
 	if (previous <= 0) {
-		return <span className={cn("text-ink-3", className)}>{current > 0 ? "baru" : "—"}</span>;
+		return <span className={cn("text-ink-3", className)}>{current > 0 ? "tanpa pembanding" : "—"}</span>;
 	}
 	const percent = ((current - previous) / previous) * 100;
 	const up = percent >= 0;

@@ -42,7 +42,7 @@ export function RevenueChart({
 	}
 
 	const width = 720;
-	const padding = { top: 18, right: 10, bottom: 24, left: 44 };
+	const padding = { top: 18, right: 16, bottom: 24, left: 44 };
 	const plotWidth = width - padding.left - padding.right;
 	const plotHeight = height - padding.top - padding.bottom;
 	const max = niceMax(Math.max(...data.map((point) => point.value), 1));
@@ -100,6 +100,7 @@ export function RevenueChart({
 
 			<path d={area} fill={`url(#${gradientId})`} />
 			<path d={line} fill="none" stroke="var(--accent)" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
+			<circle cx={x(count - 1)} cy={y(data[count - 1]?.value ?? 0)} r={3} fill="var(--accent)" />
 
 			{tickIndexes.map((index) => (
 				<text
@@ -195,8 +196,8 @@ export function StatusDonut({ segments, caption }: { segments: DonutSegment[]; c
 	let offset = 0;
 
 	return (
-		<div className="flex items-center gap-5">
-			<svg viewBox="0 0 140 140" className="size-[128px] shrink-0" role="img" aria-label={`${caption}: ${total} pesanan.`}>
+		<div className="flex flex-col items-center gap-4">
+			<svg viewBox="0 0 140 140" className="size-[132px] shrink-0" role="img" aria-label={`${caption}: ${total} pesanan.`}>
 				<circle cx={70} cy={70} r={radius} fill="none" stroke="var(--sunken)" strokeWidth={14} />
 				{total > 0
 					? segments.map((segment) => {
@@ -230,12 +231,12 @@ export function StatusDonut({ segments, caption }: { segments: DonutSegment[]; c
 				</text>
 			</svg>
 
-			<ul className="grid min-w-0 flex-1 gap-2">
+			<ul className="grid w-full gap-2">
 				{segments.map((segment) => (
 					<li key={segment.key} className="flex items-center justify-between gap-2 text-xs">
-						<span className="flex min-w-0 items-center gap-2">
-							<span className="size-2 shrink-0 rounded-full" style={{ background: segment.color }} aria-hidden="true" />
-							<span className="truncate text-ink-2">{segment.label}</span>
+						<span className="flex min-w-0 items-start gap-2">
+							<span className="mt-1 size-2 shrink-0 rounded-full" style={{ background: segment.color }} aria-hidden="true" />
+							<span className="text-ink-2">{segment.label}</span>
 						</span>
 						<span className="shrink-0 tabular-nums text-ink">
 							{segment.value}
