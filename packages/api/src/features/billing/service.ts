@@ -1,5 +1,5 @@
 import { ORPCError } from "@orpc/server";
-import { and, desc, eq, ilike, or, sql } from "drizzle-orm";
+import { and, desc, eq, gte, ilike, lt, or, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import { adminAudit, billingCreditLedger, billingOrder, billingPlan, user } from "@reactive-resume/db/schema";
 import { getStorageService, inferContentType } from "../storage/service";
@@ -250,9 +250,14 @@ export const billingService = {
 	}) {
 		assertAdmin(input.role);
 		const where = input.status ? eq(billingOrder.status, input.status) : undefined;
-		const query = db.select().from(billingOrder).orderBy(desc(billingOrder.createdAt)).limit(input.limit ?? 50);
-		const orders = where ? await query.where(where) : await query;
-		return { orders: orders.map(toOrderDto) };
+		const query = db
+			.select({ order: billingOrder, buyerEmail: user.email })
+			.from(billingOrder)
+			.leftJoin(user, eq(user.id, billingOrder.userId))
+			.orderBy(desc(billingOrder.createdAt))
+			.limit(input.limit ?? 50);
+		const rows = where ? await query.where(where) : await query;
+		return { orders: rows.map((row) => ({ ...toOrderDto(row.order), buyerEmail: row.buyerEmail ?? null })) };
 	},
 
 	async adminOrderProof(input: { role?: string | null | undefined; orderId: string }) {
@@ -444,6 +449,145 @@ export const billingService = {
 			revenueTodayIdr: paid?.today ?? 0,
 			revenueMonthIdr: paid?.month ?? 0,
 			paidOrders: paid?.orders ?? 0,
+		};
+	},
+
+	async adminAnalytics(input: { role?: string | null | undefined; days?: number | undefined }) {
+		assertAdmin(input.role);
+		const days = input.days ?? 30;
+		const start = new Date();
+		start.setUTCHours(0, 0, 0, 0);
+		start.setUTCDate(start.getUTCDate() - (days - 1));
+		const previousStart = new Date(start);
+		previousStart.setUTCDate(previousStart.getUTCDate() - days);
+
+		const dailyResult = await db.execute(sql`
+			with window_days as (
+				select generate_series(${start}::timestamptz, date_trunc('day', now()), interval '1 day') as day
+			),
+			revenue as (
+				select date_trunc('day', verified_at) as day,
+					count(*)::int as orders,
+					coalesce(sum(total_idr), 0)::int as revenue
+				from billing_order
+				where status = 'lunas' and verified_at >= ${start}::timestamptz
+				group by 1
+			),
+			signups as (
+				select date_trunc('day', created_at) as day, count(*)::int as new_users
+				from "user"
+				where created_at >= ${start}::timestamptz
+				group by 1
+			)
+			select to_char(d.day, 'YYYY-MM-DD') as date,
+				coalesce(r.revenue, 0)::int as revenue_idr,
+				coalesce(r.orders, 0)::int as orders,
+				coalesce(s.new_users, 0)::int as new_users
+			from window_days d
+			left join revenue r on r.day = d.day
+			left join signups s on s.day = d.day
+			order by d.day
+		`);
+		const dailyRows = dailyResult.rows as unknown as Array<{
+			date: string;
+			revenue_idr: number | string;
+			orders: number | string;
+			new_users: number | string;
+		}>;
+		const daily = dailyRows.map((row) => ({
+			date: row.date,
+			revenueIdr: Number(row.revenue_idr ?? 0),
+			orders: Number(row.orders ?? 0),
+			newUsers: Number(row.new_users ?? 0),
+		}));
+
+		const [previousOrders] = await db
+			.select({
+				revenueIdr: sql<number>`coalesce(sum(${billingOrder.totalIdr}), 0)::int`,
+				orders: sql<number>`count(*)::int`,
+			})
+			.from(billingOrder)
+			.where(
+				and(
+					eq(billingOrder.status, "lunas"),
+					gte(billingOrder.verifiedAt, previousStart),
+					lt(billingOrder.verifiedAt, start),
+				),
+			);
+		const [previousUsers] = await db
+			.select({ value: sql<number>`count(*)::int` })
+			.from(user)
+			.where(and(gte(user.createdAt, previousStart), lt(user.createdAt, start)));
+
+		const [userCount] = await db.select({ value: sql<number>`count(*)::int` }).from(user);
+		const [paid] = await db
+			.select({
+				orders: sql<number>`count(*)::int`,
+				today: sql<number>`coalesce(sum(case when ${billingOrder.verifiedAt} >= date_trunc('day', now()) then ${billingOrder.totalIdr} else 0 end), 0)::int`,
+				month: sql<number>`coalesce(sum(case when ${billingOrder.verifiedAt} >= date_trunc('month', now()) then ${billingOrder.totalIdr} else 0 end), 0)::int`,
+			})
+			.from(billingOrder)
+			.where(eq(billingOrder.status, "lunas"));
+		const [pending] = await db
+			.select({ value: sql<number>`count(*)::int` })
+			.from(billingOrder)
+			.where(eq(billingOrder.status, "menunggu_verifikasi"));
+
+		const statusRows = await db
+			.select({ status: billingOrder.status, count: sql<number>`count(*)::int` })
+			.from(billingOrder)
+			.groupBy(billingOrder.status);
+		const statusOrder: OrderStatus[] = ["menunggu_bayar", "menunggu_verifikasi", "lunas", "ditolak"];
+		const byStatus = statusOrder.map((status) => ({
+			status,
+			count: Number(statusRows.find((row) => row.status === status)?.count ?? 0),
+		}));
+
+		const planRows = await db
+			.select({
+				planCode: billingOrder.planCode,
+				planName: billingOrder.planName,
+				orders: sql<number>`count(*)::int`,
+				revenueIdr: sql<number>`coalesce(sum(${billingOrder.totalIdr}), 0)::int`,
+			})
+			.from(billingOrder)
+			.where(eq(billingOrder.status, "lunas"))
+			.groupBy(billingOrder.planCode, billingOrder.planName);
+		const byPlan = planRows
+			.map((row) => ({
+				planCode: row.planCode,
+				planName: row.planName,
+				orders: Number(row.orders ?? 0),
+				revenueIdr: Number(row.revenueIdr ?? 0),
+			}))
+			.sort((a, b) => b.revenueIdr - a.revenueIdr);
+
+		const range = daily.reduce(
+			(accumulator, item) => ({
+				revenueIdr: accumulator.revenueIdr + item.revenueIdr,
+				orders: accumulator.orders + item.orders,
+				newUsers: accumulator.newUsers + item.newUsers,
+			}),
+			{ revenueIdr: 0, orders: 0, newUsers: 0 },
+		);
+
+		return {
+			range: { days, ...range },
+			previous: {
+				revenueIdr: Number(previousOrders?.revenueIdr ?? 0),
+				orders: Number(previousOrders?.orders ?? 0),
+				newUsers: Number(previousUsers?.value ?? 0),
+			},
+			totals: {
+				users: Number(userCount?.value ?? 0),
+				pendingVerification: Number(pending?.value ?? 0),
+				revenueTodayIdr: Number(paid?.today ?? 0),
+				revenueMonthIdr: Number(paid?.month ?? 0),
+				paidOrders: Number(paid?.orders ?? 0),
+			},
+			daily,
+			byStatus,
+			byPlan,
 		};
 	},
 

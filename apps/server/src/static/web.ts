@@ -25,7 +25,7 @@ const indexHtmlPath = `${staticRoot}/index.html`;
 // The marketing pages prerendered per locale by the web build (apps/web/vite.config.ts), as <page>/<locale>.html, kept
 // beside dist/ so they're never served at an address of their own.
 const prerenderRoot = `${staticRoot}-prerender`;
-const noindexShellPrefixes = ["/auth", "/dashboard", "/builder", "/agent", "/templates"];
+const noindexShellPrefixes = ["/auth", "/dashboard", "/admin", "/builder", "/agent", "/templates"];
 /**
  * Marketing pages the SPA owns that search engines should index.
  *
@@ -40,6 +40,7 @@ const reservedPublicResumeSegments = new Set([
 	"uploads",
 	"auth",
 	"dashboard",
+	"admin",
 	"builder",
 	"agent",
 	"templates",

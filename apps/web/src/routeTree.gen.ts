@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from "./routes/__root";
 import { Route as HomeRouteRouteImport } from "./routes/_home/route";
+import { Route as AdminRouteImport } from "./routes/admin";
 import { Route as AgentRouteRouteImport } from "./routes/agent/route";
 import { Route as AuthRouteRouteImport } from "./routes/auth/route";
 import { Route as DashboardRouteRouteImport } from "./routes/dashboard/route";
@@ -63,6 +64,11 @@ import { Route as DashboardCareerKnowledgeStoriesChar123StoryIdChar125RouteImpor
 
 const HomeRouteRoute = HomeRouteRouteImport.update({
   id: "/_home",
+  getParentRoute: () => rootRouteImport,
+} as any);
+const AdminRoute = AdminRouteImport.update({
+  id: "/admin",
+  path: "/admin",
   getParentRoute: () => rootRouteImport,
 } as any);
 const AgentRouteRoute = AgentRouteRouteImport.update({
@@ -336,6 +342,7 @@ export interface FileRoutesByFullPath {
   "/agent": typeof AgentRouteRouteWithChildren;
   "/auth": typeof AuthRouteRouteWithChildren;
   "/dashboard": typeof DashboardRouteRouteWithChildren;
+  "/admin": typeof AdminRoute;
   "/builder/$resumeId": typeof BuilderResumeIdRouteRouteWithChildren;
   "/dashboard/career": typeof DashboardCareerRouteRouteWithChildren;
   "/dashboard/settings": typeof DashboardSettingsRouteRouteWithChildren;
@@ -384,6 +391,7 @@ export interface FileRoutesByFullPath {
   "/dashboard/career/knowledge/stories/{-$storyId}": typeof DashboardCareerKnowledgeStoriesChar123StoryIdChar125Route;
 }
 export interface FileRoutesByTo {
+  "/admin": typeof AdminRoute;
   "/$username/$slug": typeof UsernameSlugRoute;
   "/ats-checker": typeof HomeAtsCheckerRoute;
   "/harga": typeof HomeHargaRoute;
@@ -435,6 +443,7 @@ export interface FileRoutesById {
   "/agent": typeof AgentRouteRouteWithChildren;
   "/auth": typeof AuthRouteRouteWithChildren;
   "/dashboard": typeof DashboardRouteRouteWithChildren;
+  "/admin": typeof AdminRoute;
   "/builder/$resumeId": typeof BuilderResumeIdRouteRouteWithChildren;
   "/dashboard/career": typeof DashboardCareerRouteRouteWithChildren;
   "/dashboard/settings": typeof DashboardSettingsRouteRouteWithChildren;
@@ -490,6 +499,7 @@ export interface FileRouteTypes {
     | "/agent"
     | "/auth"
     | "/dashboard"
+    | "/admin"
     | "/builder/$resumeId"
     | "/dashboard/career"
     | "/dashboard/settings"
@@ -538,6 +548,7 @@ export interface FileRouteTypes {
     | "/dashboard/career/knowledge/stories/{-$storyId}";
   fileRoutesByTo: FileRoutesByTo;
   to:
+    | "/admin"
     | "/$username/$slug"
     | "/ats-checker"
     | "/harga"
@@ -588,6 +599,7 @@ export interface FileRouteTypes {
     | "/agent"
     | "/auth"
     | "/dashboard"
+    | "/admin"
     | "/builder/$resumeId"
     | "/dashboard/career"
     | "/dashboard/settings"
@@ -642,6 +654,7 @@ export interface RootRouteChildren {
   AgentRouteRoute: typeof AgentRouteRouteWithChildren;
   AuthRouteRoute: typeof AuthRouteRouteWithChildren;
   DashboardRouteRoute: typeof DashboardRouteRouteWithChildren;
+  AdminRoute: typeof AdminRoute;
   BuilderResumeIdRouteRoute: typeof BuilderResumeIdRouteRouteWithChildren;
   UsernameSlugRoute: typeof UsernameSlugRoute;
   TemplatesSplatRoute: typeof TemplatesSplatRoute;
@@ -655,6 +668,13 @@ declare module "@tanstack/react-router" {
       path: "";
       fullPath: "/";
       preLoaderRoute: typeof HomeRouteRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/admin": {
+      id: "/admin";
+      path: "/admin";
+      fullPath: "/admin";
+      preLoaderRoute: typeof AdminRouteImport;
       parentRoute: typeof rootRouteImport;
     };
     "/agent": {
@@ -1190,6 +1210,7 @@ const rootRouteChildren: RootRouteChildren = {
   AgentRouteRoute: AgentRouteRouteWithChildren,
   AuthRouteRoute: AuthRouteRouteWithChildren,
   DashboardRouteRoute: DashboardRouteRouteWithChildren,
+  AdminRoute: AdminRoute,
   BuilderResumeIdRouteRoute: BuilderResumeIdRouteRouteWithChildren,
   UsernameSlugRoute: UsernameSlugRoute,
   TemplatesSplatRoute: TemplatesSplatRoute,

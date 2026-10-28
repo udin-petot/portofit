@@ -119,6 +119,21 @@ export const billingRouter = {
 		.output(billingDto.adminSummary.output)
 		.handler(({ context }) => billingService.adminSummary(roleOf(context.user))),
 
+	adminAnalytics: protectedProcedure
+		.route({
+			method: "GET",
+			path: "/admin/billing/analytics",
+			tags: ["Admin"],
+			operationId: "adminBillingAnalytics",
+			summary: "Read dashboard analytics",
+			description:
+				"Daily revenue, signups, order status mix and plan performance for the admin console. Requires the admin role.",
+			successDescription: "Analytics for the requested window.",
+		})
+		.input(billingDto.adminAnalytics.input)
+		.output(billingDto.adminAnalytics.output)
+		.handler(({ context, input }) => billingService.adminAnalytics({ ...input, role: roleOf(context.user) })),
+
 	adminOrders: protectedProcedure
 		.route({
 			method: "GET",

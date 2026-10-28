@@ -33,6 +33,10 @@ export const orderOutputSchema = z.object({
 	verifiedAt: z.date().nullable(),
 });
 
+export const adminOrderOutputSchema = orderOutputSchema.extend({
+	buyerEmail: z.string().nullable().describe("Email pembeli, supaya admin tahu siapa yang membayar."),
+});
+
 export const balancesOutputSchema = z.object({
 	application: z.number().int().describe("Sisa kredit untuk CV + cover letter per lamaran."),
 	interview: z.number().int().describe("Sisa kredit untuk sesi latihan wawancara."),
@@ -86,7 +90,7 @@ export const billingDto = {
 			status: orderStatusSchema.optional(),
 			limit: z.number().int().min(1).max(200).optional(),
 		}),
-		output: z.object({ orders: z.array(orderOutputSchema) }),
+		output: z.object({ orders: z.array(adminOrderOutputSchema) }),
 	},
 	adminOrderProof: {
 		input: z.object({ orderId: z.string().min(1) }),
@@ -136,6 +140,46 @@ export const billingDto = {
 			revenueTodayIdr: z.number().int(),
 			revenueMonthIdr: z.number().int(),
 			paidOrders: z.number().int(),
+		}),
+	},
+	adminAnalytics: {
+		input: z.object({ days: z.number().int().min(7).max(90).default(30).describe("Panjang jendela grafik, dalam hari.") }),
+		output: z.object({
+			range: z.object({
+				days: z.number().int(),
+				revenueIdr: z.number().int(),
+				orders: z.number().int(),
+				newUsers: z.number().int(),
+			}),
+			previous: z.object({
+				revenueIdr: z.number().int(),
+				orders: z.number().int(),
+				newUsers: z.number().int(),
+			}),
+			totals: z.object({
+				users: z.number().int(),
+				pendingVerification: z.number().int(),
+				revenueTodayIdr: z.number().int(),
+				revenueMonthIdr: z.number().int(),
+				paidOrders: z.number().int(),
+			}),
+			daily: z.array(
+				z.object({
+					date: z.string().describe("Tanggal UTC dalam bentuk YYYY-MM-DD."),
+					revenueIdr: z.number().int(),
+					orders: z.number().int(),
+					newUsers: z.number().int(),
+				}),
+			),
+			byStatus: z.array(z.object({ status: orderStatusSchema, count: z.number().int() })),
+			byPlan: z.array(
+				z.object({
+					planCode: z.string(),
+					planName: z.string(),
+					orders: z.number().int(),
+					revenueIdr: z.number().int(),
+				}),
+			),
 		}),
 	},
 	adminUpdatePlan: {
