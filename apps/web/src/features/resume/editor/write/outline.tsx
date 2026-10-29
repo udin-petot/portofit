@@ -12,6 +12,7 @@ import { Fragment, useMemo } from "react";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { useEditorStore } from "../store";
 import { addEntryTo } from "./actions";
+import { GithubImportButton } from "./github-import";
 import { EntryCard } from "./entry-card";
 import { getEntries, getOutlineRows, getSectionKind, getSectionType, moveSection } from "./model";
 import { SectionRow } from "./section-row";
@@ -163,14 +164,25 @@ function OutlineSection({ sectionId, locked, page, onMove }: OutlineSectionProps
 				<>
 					<EntryList section={stableSection} locked={locked} page={page} />
 					{!locked && (
-						<button
-							type="button"
-							onClick={() => addEntryTo(stableSection)}
-							className="flex h-9 items-center gap-1.5 rounded-lg px-2 text-sm text-accent-text hover:bg-hover"
-						>
-							<Icon name="plus" size={18} />
-							{i18n._(ADD_LABELS[stableSection.type])}
-						</button>
+						<div className="flex flex-wrap items-center gap-1">
+							<button
+								type="button"
+								onClick={() => addEntryTo(stableSection)}
+								className="flex h-9 items-center gap-1.5 rounded-lg px-2 text-sm text-accent-text hover:bg-hover"
+							>
+								<Icon name="plus" size={18} />
+								{i18n._(ADD_LABELS[stableSection.type])}
+							</button>
+							{stableSection.type === "projects" ? (
+								<GithubImportButton
+									section={stableSection}
+									className="flex h-9 items-center gap-1.5 rounded-lg px-2 text-sm text-ink-2 transition-colors hover:bg-hover hover:text-ink"
+								>
+									<Icon name="github" size={18} />
+									Impor dari GitHub
+								</GithubImportButton>
+							) : null}
+						</div>
 					)}
 				</>
 			)}

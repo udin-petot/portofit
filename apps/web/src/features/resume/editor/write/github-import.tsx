@@ -1,4 +1,6 @@
+import type { ReactNode } from "react";
 import type { RouterOutput } from "@/libs/orpc/client";
+import type { WriteSection } from "./model";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -17,6 +19,8 @@ import { cn } from "@reactive-resume/utils/style";
 import { authClient } from "@/libs/auth/client";
 import { getOrpcErrorMessage } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
+import { addEntriesTo } from "./actions";
+import { projectEntriesFromRepos } from "./github-project";
 
 type Repo = RouterOutput["github"]["repos"]["repos"][number];
 
@@ -206,5 +210,35 @@ export function GithubImportDialog({
 				</DialogFooter>
 			</DialogContent>
 		</Dialog>
+	);
+}
+
+
+/** A plain button that opens the GitHub picker. Used beside "Add project", where the feature is easier to find. */
+export function GithubImportButton({
+	section,
+	className,
+	children,
+}: {
+	section: WriteSection;
+	className?: string;
+	children: ReactNode;
+}) {
+	const [open, setOpen] = useState(false);
+
+	return (
+		<>
+			<button type="button" onClick={() => setOpen(true)} className={className}>
+				{children}
+			</button>
+			<GithubImportDialog
+				open={open}
+				onOpenChange={setOpen}
+				onImport={(repos) => {
+					addEntriesTo(section, projectEntriesFromRepos(repos));
+					toast.add({ type: "success", description: `${repos.length} proyek ditambahkan dari GitHub.` });
+				}}
+			/>
+		</>
 	);
 }
