@@ -41,7 +41,7 @@ export function BankQuestionDialog({
 					</DialogDescription>
 				</DialogHeader>
 
-				<div className="flex gap-1.5 overflow-x-auto border-b border-line px-4 py-3 [scrollbar-width:none]">
+				<div className="flex flex-wrap gap-1.5 border-b border-line px-4 py-3">
 					{[ALL, ...BANK_CATEGORIES].map((category) => {
 						const active = filter === category;
 						return (
@@ -63,7 +63,7 @@ export function BankQuestionDialog({
 					})}
 				</div>
 
-				<ul className="grid max-h-[52vh] gap-0.5 overflow-y-auto p-2">
+				<ul className="grid max-h-[50vh] gap-0.5 overflow-y-auto p-2">
 					{list.map((question) => (
 						<li key={question.id}>
 							<button
@@ -91,7 +91,7 @@ export function BankQuestionDialog({
 
 				<div className="flex items-center gap-2 border-t border-line px-5 py-3 text-xs text-ink-3">
 					<Icon name="info" size={15} />
-					Rubrik dan pertanyaan lanjutan muncul di samping soal setelah kamu memilih.
+					Rubrik dan pertanyaan lanjutan muncul di bawah soal setelah kamu memilih.
 				</div>
 			</DialogContent>
 		</Dialog>
