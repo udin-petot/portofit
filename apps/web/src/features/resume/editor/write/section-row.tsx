@@ -264,6 +264,15 @@ function SectionMenu({ section, title, onMove }: SectionMenuProps) {
 
 	return (
 		<span className="relative">
+			{section.type === "projects" && (
+				<IconButton
+					icon="github"
+					label="Impor dari GitHub"
+					size="icon-sm"
+					className="text-ink-2"
+					onClick={() => setGithubOpen(true)}
+				/>
+			)}
 			<DropdownMenu>
 				<DropdownMenuTrigger
 					render={
