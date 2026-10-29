@@ -32,7 +32,7 @@ const noindexShellPrefixes = ["/auth", "/dashboard", "/admin", "/builder", "/age
  * Without an entry here the fallback below returns 404 for the path in production — the dev Vite
  * server serves the shell for anything, so this failure only ever shows up once deployed.
  */
-const indexableAppPaths = new Set(["/ats-checker", "/harga"]);
+const indexableAppPaths = new Set(["/ats-checker", "/harga", "/syarat", "/privasi", "/refund"]);
 const reservedPublicResumeSegments = new Set([
 	"api",
 	"mcp",
@@ -87,6 +87,15 @@ const ATS_CHECKER_DESCRIPTION =
 const PRICING_TITLE = "Harga — PortoFit";
 const PRICING_DESCRIPTION =
 	"Cek ATS gratis, Rp5.000 per lamaran untuk CV dan cover letter yang disesuaikan, Rp10.000 per sesi latihan wawancara. Bayar QRIS, verifikasi manual.";
+const TERMS_TITLE = "Syarat Layanan — PortoFit";
+const TERMS_DESCRIPTION =
+	"Aturan pemakaian PortoFit: akun, konten, kredit dan pembayaran, batas kemampuan AI, serta tanggung jawab pengguna.";
+const PRIVACY_TITLE = "Kebijakan Privasi — PortoFit";
+const PRIVACY_DESCRIPTION =
+	"Data apa yang dikumpulkan PortoFit, mengapa, siapa yang memprosesnya, berapa lama disimpan, dan cara meminta akses atau penghapusan.";
+const REFUND_TITLE = "Pengembalian Dana — PortoFit";
+const REFUND_DESCRIPTION =
+	"Kapan kredit PortoFit dapat dikembalikan, kapan tidak, dan cara mengajukan pengembalian lewat WhatsApp.";
 
 type StructuredData = Record<string, unknown>;
 
@@ -347,14 +356,35 @@ const prerenderedPages: Record<
 		structuredData: atsCheckerStructuredData,
 		fallback: (shell) => withMeta(shell, { title: ATS_CHECKER_TITLE, description: ATS_CHECKER_DESCRIPTION }),
 	},
-	// No prerendered file yet: the server serves the app shell with the pricing title and description.
-	"/harga": {
-		name: "harga",
-		meta: { title: PRICING_TITLE, description: PRICING_DESCRIPTION },
-		image: "/opengraph/banner.jpg",
-		structuredData: homepageStructuredData,
-		fallback: (shell) => withMeta(shell, { title: PRICING_TITLE, description: PRICING_DESCRIPTION }),
-	},
+	// No prerendered file yet: the server serves the app shell with the page's title and description.
+		"/harga": {
+			name: "harga",
+			meta: { title: PRICING_TITLE, description: PRICING_DESCRIPTION },
+			image: "/opengraph/banner.jpg",
+			structuredData: homepageStructuredData,
+			fallback: (shell) => withMeta(shell, { title: PRICING_TITLE, description: PRICING_DESCRIPTION }),
+		},
+		"/syarat": {
+			name: "syarat",
+			meta: { title: TERMS_TITLE, description: TERMS_DESCRIPTION },
+			image: "/opengraph/banner.jpg",
+			structuredData: homepageStructuredData,
+			fallback: (shell) => withMeta(shell, { title: TERMS_TITLE, description: TERMS_DESCRIPTION }),
+		},
+		"/privasi": {
+			name: "privasi",
+			meta: { title: PRIVACY_TITLE, description: PRIVACY_DESCRIPTION },
+			image: "/opengraph/banner.jpg",
+			structuredData: homepageStructuredData,
+			fallback: (shell) => withMeta(shell, { title: PRIVACY_TITLE, description: PRIVACY_DESCRIPTION }),
+		},
+		"/refund": {
+			name: "refund",
+			meta: { title: REFUND_TITLE, description: REFUND_DESCRIPTION },
+			image: "/opengraph/banner.jpg",
+			structuredData: homepageStructuredData,
+			fallback: (shell) => withMeta(shell, { title: REFUND_TITLE, description: REFUND_DESCRIPTION }),
+		},
 };
 
 // ponytail: GET and HEAD share the same routing logic; method determines body presence
