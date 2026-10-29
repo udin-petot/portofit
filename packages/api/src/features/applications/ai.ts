@@ -372,12 +372,12 @@ export const aiRouter = {
 				? await resumeService.getById({ id: application.resumeId, userId: context.user.id }).catch(() => null)
 				: null;
 
-			const context_ = `ROLE: ${application.role} at ${application.company}${application.location ? ` (${application.location})` : ""}\n${application.jobDescription ? `JOB DESCRIPTION:\n${application.jobDescription}\n` : ""}${resume ? `CANDIDATE RESUME:\n${JSON.stringify(resume.data)}` : ""}`;
+			const context_ = `ROLE: ${application.role} at ${application.company}${application.location ? ` (${application.location})` : ""}\nSENT: ${new Date(application.appliedAt).toISOString().slice(0, 10)}\n${application.jobDescription ? `JOB DESCRIPTION:\n${application.jobDescription}\n` : ""}${resume ? `CANDIDATE RESUME:\n${JSON.stringify(resume.data)}` : ""}`;
 
 			const prompt =
 				input.kind === "cover-letter"
 					? `Write a concise, specific cover letter (250-350 words, no placeholders like [Name]) for this application, drawing on the resume. Return only the letter text.\n\n${context_}`
-					: `Write a short, polite follow-up message (80-120 words) to a recruiter checking in on this application. Warm but not pushy. Return only the message text.\n\n${context_}`;
+					: `Tulis pesan susulan singkat dalam Bahasa Indonesia (60-90 kata, 2-3 kalimat) kepada perekrut untuk menanyakan kabar lamaran ini. Sebut posisi dan perusahaan. Sopan, tidak mendesak, tanpa basa-basi, tanpa menyebut AI, dan tanpa mengarang fakta. Kembalikan hanya teks pesannya.\n\n${context_}`;
 
 			const text = await generatePlainText(model, prompt);
 			if (input.kind === "follow-up") return { text };
