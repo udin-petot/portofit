@@ -49,7 +49,7 @@ export function LandingHeader() {
 				)}
 			/>
 
-			<a href="#top" className="flex items-center gap-2.5 rounded-md">
+			<a href="#top" className="-m-2 flex items-center gap-2.5 rounded-md p-2">
 				<img
 					src="/icon/light.svg"
 					alt=""
@@ -104,7 +104,7 @@ export function LandingHeader() {
 				<button
 					type="button"
 					onClick={() => setMenuOpen(true)}
-					aria-label={t`Menu`}
+					aria-label="Menu"
 					className="font-martian flex h-10 items-center rounded-full border border-line px-3 text-[11px] leading-none font-medium tracking-[.08em] uppercase min-[1240px]:hidden"
 				>
 					Menu

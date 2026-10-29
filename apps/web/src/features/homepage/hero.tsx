@@ -110,7 +110,7 @@ const getFragments = () => [
 	{
 		text: t`Accessibility`,
 		at: ["-13vw", "-33vh", "-2vw", "-10vh", "7deg", 1.1, 1.2],
-		className: cn(fragmentKind.pill, pillAccent),
+		className: cn(fragmentKind.pill, pillAccent, "max-[700px]:hidden"),
 	},
 ];
 
