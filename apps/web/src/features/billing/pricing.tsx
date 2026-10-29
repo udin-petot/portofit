@@ -87,6 +87,17 @@ export function PricingPage({ signedIn }: PricingPageProps) {
 						Kredit dipakai per dokumen: satu kredit lamaran untuk satu CV + cover letter yang disesuaikan, satu kredit wawancara
 						untuk satu sesi latihan. Kredit tidak kedaluwarsa.
 					</p>
+					<p className="mt-3 text-xs leading-5 text-ink-3">
+						Dengan membeli, kamu menyetujui{" "}
+						<a href="/syarat" className="underline underline-offset-4 hover:text-accent-text">
+							Syarat Layanan
+						</a>{" "}
+						dan{" "}
+						<a href="/refund" className="underline underline-offset-4 hover:text-accent-text">
+							Kebijakan Pengembalian Dana
+						</a>
+						.
+					</p>
 				</section>
 			</div>
 		</main>

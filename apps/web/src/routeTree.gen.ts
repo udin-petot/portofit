@@ -18,6 +18,9 @@ import { Route as UsernameSlugRouteImport } from "./routes/$username/$slug";
 import { Route as HomeIndexRouteImport } from "./routes/_home/index";
 import { Route as HomeAtsCheckerRouteImport } from "./routes/_home/ats-checker";
 import { Route as HomeHargaRouteImport } from "./routes/_home/harga";
+import { Route as HomePrivasiRouteImport } from "./routes/_home/privasi";
+import { Route as HomeRefundRouteImport } from "./routes/_home/refund";
+import { Route as HomeSyaratRouteImport } from "./routes/_home/syarat";
 import { Route as AgentIndexRouteImport } from "./routes/agent/index";
 import { Route as AgentThreadIdRouteImport } from "./routes/agent/$threadId";
 import { Route as AgentNewRouteImport } from "./routes/agent/new";
@@ -104,6 +107,21 @@ const HomeAtsCheckerRoute = HomeAtsCheckerRouteImport.update({
 const HomeHargaRoute = HomeHargaRouteImport.update({
   id: "/harga",
   path: "/harga",
+  getParentRoute: () => HomeRouteRoute,
+} as any);
+const HomePrivasiRoute = HomePrivasiRouteImport.update({
+  id: "/privasi",
+  path: "/privasi",
+  getParentRoute: () => HomeRouteRoute,
+} as any);
+const HomeRefundRoute = HomeRefundRouteImport.update({
+  id: "/refund",
+  path: "/refund",
+  getParentRoute: () => HomeRouteRoute,
+} as any);
+const HomeSyaratRoute = HomeSyaratRouteImport.update({
+  id: "/syarat",
+  path: "/syarat",
   getParentRoute: () => HomeRouteRoute,
 } as any);
 const AgentIndexRoute = AgentIndexRouteImport.update({
@@ -349,6 +367,9 @@ export interface FileRoutesByFullPath {
   "/$username/$slug": typeof UsernameSlugRoute;
   "/ats-checker": typeof HomeAtsCheckerRoute;
   "/harga": typeof HomeHargaRoute;
+  "/privasi": typeof HomePrivasiRoute;
+  "/refund": typeof HomeRefundRoute;
+  "/syarat": typeof HomeSyaratRoute;
   "/agent/$threadId": typeof AgentThreadIdRoute;
   "/agent/new": typeof AgentNewRoute;
   "/auth/consent": typeof AuthConsentRoute;
@@ -395,6 +416,9 @@ export interface FileRoutesByTo {
   "/$username/$slug": typeof UsernameSlugRoute;
   "/ats-checker": typeof HomeAtsCheckerRoute;
   "/harga": typeof HomeHargaRoute;
+  "/privasi": typeof HomePrivasiRoute;
+  "/refund": typeof HomeRefundRoute;
+  "/syarat": typeof HomeSyaratRoute;
   "/agent/$threadId": typeof AgentThreadIdRoute;
   "/agent/new": typeof AgentNewRoute;
   "/auth/consent": typeof AuthConsentRoute;
@@ -450,6 +474,9 @@ export interface FileRoutesById {
   "/$username/$slug": typeof UsernameSlugRoute;
   "/_home/ats-checker": typeof HomeAtsCheckerRoute;
   "/_home/harga": typeof HomeHargaRoute;
+  "/_home/privasi": typeof HomePrivasiRoute;
+  "/_home/refund": typeof HomeRefundRoute;
+  "/_home/syarat": typeof HomeSyaratRoute;
   "/agent/$threadId": typeof AgentThreadIdRoute;
   "/agent/new": typeof AgentNewRoute;
   "/auth/consent": typeof AuthConsentRoute;
@@ -506,6 +533,9 @@ export interface FileRouteTypes {
     | "/$username/$slug"
     | "/ats-checker"
     | "/harga"
+    | "/privasi"
+    | "/refund"
+    | "/syarat"
     | "/agent/$threadId"
     | "/agent/new"
     | "/auth/consent"
@@ -552,6 +582,9 @@ export interface FileRouteTypes {
     | "/$username/$slug"
     | "/ats-checker"
     | "/harga"
+    | "/privasi"
+    | "/refund"
+    | "/syarat"
     | "/agent/$threadId"
     | "/agent/new"
     | "/auth/consent"
@@ -606,6 +639,9 @@ export interface FileRouteTypes {
     | "/$username/$slug"
     | "/_home/ats-checker"
     | "/_home/harga"
+    | "/_home/privasi"
+    | "/_home/refund"
+    | "/_home/syarat"
     | "/agent/$threadId"
     | "/agent/new"
     | "/auth/consent"
@@ -724,6 +760,27 @@ declare module "@tanstack/react-router" {
       path: "/harga";
       fullPath: "/harga";
       preLoaderRoute: typeof HomeHargaRouteImport;
+      parentRoute: typeof HomeRouteRoute;
+    };
+    "/_home/privasi": {
+      id: "/_home/privasi";
+      path: "/privasi";
+      fullPath: "/privasi";
+      preLoaderRoute: typeof HomePrivasiRouteImport;
+      parentRoute: typeof HomeRouteRoute;
+    };
+    "/_home/refund": {
+      id: "/_home/refund";
+      path: "/refund";
+      fullPath: "/refund";
+      preLoaderRoute: typeof HomeRefundRouteImport;
+      parentRoute: typeof HomeRouteRoute;
+    };
+    "/_home/syarat": {
+      id: "/_home/syarat";
+      path: "/syarat";
+      fullPath: "/syarat";
+      preLoaderRoute: typeof HomeSyaratRouteImport;
       parentRoute: typeof HomeRouteRoute;
     };
     "/agent/": {
@@ -1033,12 +1090,18 @@ declare module "@tanstack/react-router" {
 interface HomeRouteRouteChildren {
   HomeAtsCheckerRoute: typeof HomeAtsCheckerRoute;
   HomeHargaRoute: typeof HomeHargaRoute;
+  HomePrivasiRoute: typeof HomePrivasiRoute;
+  HomeRefundRoute: typeof HomeRefundRoute;
+  HomeSyaratRoute: typeof HomeSyaratRoute;
   HomeIndexRoute: typeof HomeIndexRoute;
 }
 
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
   HomeAtsCheckerRoute: HomeAtsCheckerRoute,
   HomeHargaRoute: HomeHargaRoute,
+  HomePrivasiRoute: HomePrivasiRoute,
+  HomeRefundRoute: HomeRefundRoute,
+  HomeSyaratRoute: HomeSyaratRoute,
   HomeIndexRoute: HomeIndexRoute,
 };
 

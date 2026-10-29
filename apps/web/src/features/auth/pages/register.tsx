@@ -7,6 +7,7 @@ import { useState } from "react";
 import z from "zod";
 import { Alert, AlertDescription, AlertTitle } from "@reactive-resume/ui/components/alert";
 import { Button } from "@reactive-resume/ui/components/button";
+import { Checkbox } from "@reactive-resume/ui/components/checkbox";
 import { FormControl, FormItem, FormLabel, FormMessage } from "@reactive-resume/ui/components/form";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
@@ -33,6 +34,9 @@ const formSchema = z.object({
 		}),
 	email: z.email().toLowerCase(),
 	password: z.string().min(8).max(64),
+	accepted: z.boolean().refine((value) => value, {
+		message: "Setujui Syarat Layanan dan Kebijakan Privasi untuk melanjutkan.",
+	}),
 });
 
 type Props = {
@@ -45,7 +49,7 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 	const [submitted, setSubmitted] = useState(false);
 
 	const form = useAppForm({
-		defaultValues: { name: "", username: "", email: "", password: "" },
+		defaultValues: { name: "", username: "", email: "", password: "", accepted: false },
 		validators: { onSubmit: formSchema },
 		onSubmit: async ({ value }) => {
 			const toastId = toast.add({ type: "loading", description: t`Signing up...` });
@@ -235,6 +239,34 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 						)}
 					</form.Field>
 
+					<form.Field name="accepted">
+						{(field) => (
+							<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
+								<label className="flex items-start gap-2.5 text-xs leading-5 text-ink-2">
+									<Checkbox
+										name={field.name}
+										checked={field.state.value}
+										onCheckedChange={field.handleChange}
+										aria-label="Setujui Syarat Layanan dan Kebijakan Privasi"
+										className="mt-0.5"
+									/>
+									<span>
+										Saya menyetujui{" "}
+										<a href="/syarat" className="font-medium text-accent-text underline-offset-4 hover:underline">
+											Syarat Layanan
+										</a>{" "}
+										dan{" "}
+										<a href="/privasi" className="font-medium text-accent-text underline-offset-4 hover:underline">
+											Kebijakan Privasi
+										</a>
+										, termasuk pemrosesan data untuk menjalankan layanan.
+									</span>
+								</label>
+								<FormMessage errors={field.state.meta.errors} />
+							</FormItem>
+						)}
+					</form.Field>
+
 					<Button type="submit" className="w-full" disabled={isSubmitting}>
 						<Trans comment="Primary action button label on registration form">Sign up</Trans>
 					</Button>
@@ -242,6 +274,17 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 			)}
 
 			<SocialAuth />
+			<p className="text-center text-xs leading-5 text-ink-3">
+				Dengan mendaftar lewat Google atau GitHub, kamu menyetujui{" "}
+				<a href="/syarat" className="underline underline-offset-4 hover:text-accent-text">
+					Syarat Layanan
+				</a>{" "}
+				dan{" "}
+				<a href="/privasi" className="underline underline-offset-4 hover:text-accent-text">
+					Kebijakan Privasi
+				</a>
+				.
+			</p>
 		</>
 	);
 }
