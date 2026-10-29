@@ -36,7 +36,7 @@ export function WritePanel() {
 	const openDialog = useDialogStore((state) => state.openDialog);
 
 	return (
-		<div className="grid gap-4 p-4">
+		<div className="grid gap-4 p-4 pb-24">
 			{locked && <LockedNote />}
 			<ImportedNote />
 

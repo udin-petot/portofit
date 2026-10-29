@@ -56,9 +56,9 @@ function CareerLayout() {
 				</div>
 				<nav
 					aria-label={t`Career`}
-					className="-mx-4 flex max-w-[100vw] [scrollbar-width:none] overflow-x-auto px-4 md:mx-0 md:px-0"
+					className="-mx-4 flex max-w-[100vw] flex-wrap [scrollbar-width:none] overflow-x-auto px-4 md:mx-0 md:flex-nowrap md:px-0"
 				>
-					<div className="flex shrink-0 gap-0.5 rounded-[9px] bg-sunken p-[3px]">
+					<div className="flex min-w-0 flex-wrap gap-0.5 rounded-[9px] bg-sunken p-[3px]">
 						{places.map((place) => {
 							const selected = place === current;
 							return (

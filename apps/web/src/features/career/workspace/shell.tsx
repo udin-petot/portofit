@@ -230,7 +230,7 @@ export function Workspace({ applicationId, tab: requested, search }: WorkspacePr
 				<Tabs value={tab} onValueChange={(value) => go(value as WorkspaceTab)} className="min-w-0 gap-0">
 					<TabsList
 						variant="line"
-						className="h-[46px] w-full [scrollbar-width:none] justify-start gap-0 overflow-x-auto px-4 md:px-6 [&_[data-slot=tabs-indicator]]:bg-accent"
+						className="h-[46px] w-full [scrollbar-width:none] justify-start gap-0 overflow-x-auto px-4 max-md:[mask-image:linear-gradient(to_right,#000_calc(100%-2rem),transparent)] md:px-6 [&_[data-slot=tabs-indicator]]:bg-accent"
 					>
 						{WORKSPACE_TABS.map((value) => (
 							<TabsTrigger key={value} value={value} className="gap-1.5 px-3 data-active:font-semibold">

@@ -42,14 +42,14 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 	};
 
 	return (
-		<div className="mx-auto w-full max-w-4xl px-5 py-8">
+		<div className="mx-auto w-full max-w-4xl px-5 pt-8 pb-28 md:pb-8">
 			<header className="flex flex-wrap items-end justify-between gap-4">
 				<div>
 					<h1 className="text-2xl font-semibold text-ink">Kredit &amp; transaksi</h1>
 					<p className="mt-1 text-sm text-ink-2">Sisa kredit, riwayat pemakaian, dan pesanan kamu.</p>
 				</div>
 				<div className="flex flex-wrap items-center gap-2">
-					<Button size="sm" variant="secondary" onClick={() => void navigate({ to: "/harga" })}>
+					<Button size="default" variant="secondary" onClick={() => void navigate({ to: "/harga" })}>
 						Beli kredit
 					</Button>
 					{isAdmin ? (
@@ -87,7 +87,7 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 						<p className="mt-2 text-xs text-ink-2">{card.use}</p>
 						<Button
 							className="mt-3"
-							size="sm"
+							size="default"
 							variant={card.balance > 0 ? "secondary" : "primary"}
 							onClick={() => void navigate({ to: "/harga" })}
 						>

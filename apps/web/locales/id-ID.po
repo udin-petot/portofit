@@ -1843,7 +1843,7 @@ msgstr "Diterapkan"
 #. placeholder {0}: date(application.appliedAt)
 #: src/features/career/workspace/shell.tsx
 msgid "Applied {0}"
-msgstr "Dilamar {0}"
+msgstr "Dikirim {0}"
 
 #: src/features/applications/next-step.ts
 msgid "Applied today"
