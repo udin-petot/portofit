@@ -24,7 +24,9 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/com
 import { cn } from "@reactive-resume/utils/style";
 import { useCoachKnowledge } from "../coach-thread";
 import { latest, useDefaultProvider, useGenerate, useSavedItems, useSessionDraft } from "../hooks";
+import { BANK_COUNT, type BankQuestion } from "../practice-bank";
 import { CollapseRow, PrivacyLine, useCareerTime, Working, workingSteps } from "../shared";
+import { BankQuestionDialog } from "./bank-dialog";
 import {
 	acceptAudioFile,
 	canDictate,
@@ -67,20 +69,24 @@ function practiceQuestions(items: SavedItem[] | undefined, interviewId: string |
 }
 
 export function PractiseTab({ application, version, interview, speak, story, now, go }: WorkspaceTabProps) {
+	const [bank, setBank] = useState<BankQuestion | null>(null);
+	const [bankOpen, setBankOpen] = useState(false);
 	const saved = useSavedItems(application.id);
 	const knowledge = useCoachKnowledge(application.id);
 	const voice = useVoiceSettings();
 	const viewing = version && isAttempt(version) ? version : undefined;
 	const attempts = saved.data?.filter(isAttempt) ?? [];
 	const selectedStory = story ? knowledge.stories.find((item) => item.id === story) : undefined;
-	const questions: Question[] = selectedStory
-		? [
-				{
-					text: t`Tell me about “${selectedStory.data.title}”. What was your part, what did you do, and what changed?`,
-					origin: "simulated",
-				},
-			]
-		: practiceQuestions(saved.data, interview?.id, application.company);
+	const questions: Question[] = bank
+		? [{ text: bank.text, origin: "simulated" }]
+		: selectedStory
+			? [
+					{
+						text: t`Tell me about “${selectedStory.data.title}”. What was your part, what did you do, and what changed?`,
+						origin: "simulated",
+					},
+				]
+			: practiceQuestions(saved.data, interview?.id, application.company);
 	if (story && knowledge.isError)
 		return (
 			<Notice icon="warning-circle">
@@ -106,7 +112,24 @@ export function PractiseTab({ application, version, interview, speak, story, now
 		);
 
 	return (
-		<div className="grid items-start gap-5 @3xl:grid-cols-[minmax(0,1fr)_280px]">
+		<div className="grid gap-4">
+			<div className="flex flex-wrap items-center justify-between gap-2">
+				<p className="text-[13px] leading-5 text-ink-3">
+					{bank ? `Bank soal · ${bank.category} · ${bank.level}` : "Latihan dari pertanyaan lamaran atau ceritamu."}
+				</p>
+				<div className="flex items-center gap-2">
+					{bank ? (
+						<Button variant="secondary" size="sm" onClick={() => setBank(null)}>
+							Soal lamaran
+						</Button>
+					) : null}
+					<Button variant="secondary" size="sm" onClick={() => setBankOpen(true)}>
+						<Icon name="books" size={16} />
+						Bank soal ({BANK_COUNT})
+					</Button>
+				</div>
+			</div>
+			<div className="grid items-start gap-5 @3xl:grid-cols-[minmax(0,1fr)_280px]">
 			{viewing ? (
 				<SavedAttempt item={viewing} />
 			) : saved.isPending ? (
@@ -116,7 +139,7 @@ export function PractiseTab({ application, version, interview, speak, story, now
 				</div>
 			) : (
 				<Session
-					key={`${application.id}:${interview?.id ?? "none"}:${story ?? "general"}`}
+					key={`${application.id}:${interview?.id ?? "none"}:${story ?? "general"}:${bank?.id ?? "free"}`}
 					applicationId={application.id}
 					interviewId={interview?.id ?? null}
 					questions={questions}
@@ -124,6 +147,7 @@ export function PractiseTab({ application, version, interview, speak, story, now
 					storyTitle={selectedStory?.data.title}
 					voice={voice}
 					initialMode={speak ? "spoken" : "typed"}
+					bank={bank ?? undefined}
 				/>
 			)}
 			<aside className="grid gap-3 rounded-xl border border-line bg-surface p-4">
@@ -154,6 +178,16 @@ export function PractiseTab({ application, version, interview, speak, story, now
 					</Trans>
 				</p>
 			</aside>
+			</div>
+			<BankQuestionDialog
+				open={bankOpen}
+				onOpenChange={setBankOpen}
+				onPick={(question) => {
+					setBank(question);
+					setBankOpen(false);
+					if (viewing) go("practise");
+				}}
+			/>
 		</div>
 	);
 }
@@ -213,15 +247,16 @@ type SessionProps = {
 	storyTitle: string | undefined;
 	voice: VoiceSettings;
 	initialMode: Mode;
+	bank?: BankQuestion | undefined;
 };
 
-function Session({ applicationId, interviewId, questions, voice, initialMode, storyId, storyTitle }: SessionProps) {
+function Session({ applicationId, interviewId, questions, voice, initialMode, storyId, storyTitle, bank }: SessionProps) {
 	const id = useId();
 	const generate = useGenerate(applicationId);
 	const connection = useDefaultProvider();
 	const { provider } = connection;
 	const draft = useSessionDraft<PracticeDraft>(
-		`practice:${applicationId}:${interviewId ?? "none"}:${storyId ?? "general"}`,
+		`practice:${applicationId}:${interviewId ?? "none"}:${storyId ?? "general"}:${bank?.id ?? "free"}`,
 		{
 			question: questions[0] ?? { text: t`Tell me about a piece of work you're proud of.`, origin: "simulated" },
 			mode: initialMode,
@@ -436,6 +471,26 @@ function Session({ applicationId, interviewId, questions, voice, initialMode, st
 				<h2 className="font-display text-[22px] leading-[29px]">{question.text}</h2>
 				{storyTitle && <p className="text-sm text-ink-2">{t`Practising your story: ${storyTitle}`}</p>}
 			</section>
+
+			{bank && (
+				<section className="grid gap-2.5 rounded-xl border border-line bg-sunken p-4">
+					<div className="flex items-center gap-2 font-mono text-[11px] font-medium tracking-[0.06em] text-ink-3 uppercase">
+						<Icon name="compass" size={15} />
+						Yang dinilai
+					</div>
+					<ul className="grid gap-1.5">
+						{bank.rubric.map((item) => (
+							<li key={item} className="flex gap-2 text-[13px] leading-[19px] text-ink-2">
+								<span className="mt-[7px] size-1 shrink-0 rounded-full bg-accent" />
+								{item}
+							</li>
+						))}
+					</ul>
+					{bank.followUps.length > 0 && (
+						<p className="text-xs leading-5 text-ink-3">Kemungkinan lanjutan: {bank.followUps.join(" · ")}</p>
+					)}
+				</section>
+			)}
 
 			{/* Space starts and stops recording while focus is in this card (the record button handles it natively). */}
 			<section
