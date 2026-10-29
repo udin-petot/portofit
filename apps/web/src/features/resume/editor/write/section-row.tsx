@@ -28,7 +28,9 @@ import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { pendingProposals } from "../proposals/proposals";
 import { useEditorStore } from "../store";
-import { addEntryTo } from "./actions";
+import { addEntriesTo, addEntryTo } from "./actions";
+import { GithubImportDialog } from "./github-import";
+import { projectEntriesFromRepos } from "./github-project";
 import { countEntriesToCheck, getEntries, getSectionObject } from "./model";
 import { IconPicker } from "@/components/input/icon-picker";
 import { useCurrentBuilderResumeSelector, useResumeStore, useUpdateResumeData } from "@/features/resume/builder/draft";
@@ -180,6 +182,7 @@ function SectionMenu({ section, title, onMove }: SectionMenuProps) {
 	const settings = useCurrentBuilderResumeSelector((resume) => getSectionObject(resume.data, section) ?? null);
 	const locale = useCurrentBuilderResumeSelector((resume) => resume.data.metadata.page.locale);
 	const [iconPickerOpen, setIconPickerOpen] = useState(false);
+	const [githubOpen, setGithubOpen] = useState(false);
 	if (!settings) return null;
 
 	const edit = (mutate: (target: NonNullable<ReturnType<typeof getSectionObject>>) => void) =>
@@ -272,6 +275,12 @@ function SectionMenu({ section, title, onMove }: SectionMenuProps) {
 						<DropdownMenuItem onClick={() => addEntryTo(section)}>
 							<Icon name="plus" />
 							<Trans>Add entry</Trans>
+						</DropdownMenuItem>
+					)}
+					{section.type === "projects" && (
+						<DropdownMenuItem onClick={() => setGithubOpen(true)}>
+							<Icon name="github" />
+							Impor dari GitHub
 						</DropdownMenuItem>
 					)}
 					{canSort && (
@@ -407,6 +416,17 @@ function SectionMenu({ section, title, onMove }: SectionMenuProps) {
 				tabIndex={-1}
 				className="pointer-events-none absolute inset-0 size-full opacity-0"
 			/>
+
+			{section.type === "projects" && (
+				<GithubImportDialog
+					open={githubOpen}
+					onOpenChange={setGithubOpen}
+					onImport={(repos) => {
+						addEntriesTo(section, projectEntriesFromRepos(repos));
+						toast.add({ type: "success", description: `${repos.length} proyek ditambahkan dari GitHub.` });
+					}}
+				/>
+			)}
 		</span>
 	);
 }
