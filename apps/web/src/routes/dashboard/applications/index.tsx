@@ -26,6 +26,7 @@ import { ApplicationCalendar } from "@/features/applications/components/calendar
 import { ExportApplicationsSheet } from "@/features/applications/components/export-applications-sheet";
 import { ImportApplicationsSheet } from "@/features/applications/components/import-applications-sheet";
 import { ApplicationInsights, InsightsSkeleton } from "@/features/applications/components/insights-view";
+import { FollowUpDialog } from "@/features/applications/components/follow-up-dialog";
 import { ApplicationList } from "@/features/applications/components/list-view";
 import { getNextStep } from "@/features/applications/next-step";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
@@ -139,7 +140,7 @@ function RouteComponent() {
 				</div>
 			</header>
 
-			{applications && <FollowUpNudge applications={applications} onOpen={setSelectedId} />}
+			{applications && <FollowUpNudge applications={applications} />}
 
 			{isError && (
 				<div
@@ -310,8 +311,9 @@ function readDismissed(): string[] {
  * The follow-up nudge: the application waiting longest without a reply (10+ days since applying). Dismissing it is
  * remembered on this device; it doesn't come back for that application.
  */
-function FollowUpNudge({ applications, onOpen }: { applications: Application[]; onOpen: (id: string) => void }) {
+function FollowUpNudge({ applications }: { applications: Application[] }) {
 	const [dismissed, setDismissed] = useState(readDismissed);
+	const [drafting, setDrafting] = useState<Application | null>(null);
 
 	const dismissedIds = new Set(dismissed);
 	const waiting = applications
@@ -337,27 +339,33 @@ function FollowUpNudge({ applications, onOpen }: { applications: Application[]; 
 	const { days } = waiting;
 
 	return (
-		<div
-			key={waiting.application.id}
-			role="status"
-			className={cn(
-				ENTER_CLASS,
-				"flex flex-wrap items-center gap-2 rounded-xl bg-warn-soft px-3 py-2 text-sm text-warn-text",
+		<>
+			<div
+				key={waiting.application.id}
+				role="status"
+				className={cn(
+					ENTER_CLASS,
+					"flex flex-wrap items-center gap-2 rounded-xl bg-warn-soft px-3 py-2 text-sm text-warn-text",
+				)}
+			>
+				<Icon name="clock" size={20} />
+				<span className="min-w-0 flex-1">
+					<Trans>
+						{company}: no reply for {days} days. A short follow-up is usually fine now.
+					</Trans>
+				</span>
+				<Button size="sm" variant="secondary" onClick={() => setDrafting(waiting.application)}>
+					<Icon name="sparkle" size={16} />
+					Buat pesan susulan
+				</Button>
+				<Button size="icon-sm" variant="ghost" aria-label={t`Dismiss`} onClick={dismiss} className="text-warn-text">
+					<Icon name="x" size={18} />
+				</Button>
+			</div>
+			{drafting && (
+				<FollowUpDialog application={drafting} onOpenChange={(open) => !open && setDrafting(null)} />
 			)}
-		>
-			<Icon name="clock" size={20} />
-			<span className="min-w-0 flex-1">
-				<Trans>
-					{company}: no reply for {days} days. A short follow-up is usually fine now.
-				</Trans>
-			</span>
-			<Button size="sm" variant="secondary" onClick={() => onOpen(waiting.application.id)}>
-				<Trans>Open</Trans>
-			</Button>
-			<Button size="icon-sm" variant="ghost" aria-label={t`Dismiss`} onClick={dismiss} className="text-warn-text">
-				<Icon name="x" size={18} />
-			</Button>
-		</div>
+		</>
 	);
 }
 
