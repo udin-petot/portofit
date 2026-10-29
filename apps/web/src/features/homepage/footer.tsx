@@ -18,6 +18,7 @@ const getColumns = (): { id: string; title: string; links: FooterLink[] }[] => [
 		id: "product",
 		title: t`Product`,
 		links: [
+			{ label: "Harga", href: "/harga" },
 			{ label: t`Templates`, href: "#design" },
 			{ label: t`Features`, href: "#write" },
 			{ label: t`ATS checker`, to: "/ats-checker" },

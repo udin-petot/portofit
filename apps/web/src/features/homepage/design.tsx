@@ -194,7 +194,7 @@ export function Design() {
 						<label key={name} className="contents">
 							<SegmentedControlItem
 								value={index}
-								className="h-8 flex-none rounded-full px-3 font-ui duration-300 min-[900px]:px-[13px] data-checked:bg-ink data-checked:text-bg data-checked:shadow-none"
+								className="h-8 flex-none rounded-full px-2 font-ui duration-300 min-[900px]:px-[13px] data-checked:bg-ink data-checked:text-bg data-checked:shadow-none"
 							>
 								{name}
 							</SegmentedControlItem>

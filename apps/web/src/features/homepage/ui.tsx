@@ -18,7 +18,7 @@ export function CtaLink({ size, className }: CtaLinkProps) {
 			to="/dashboard"
 			className={cn(
 				"inline-flex shrink-0 items-center rounded-full bg-accent font-ui font-semibold text-on-accent transition-[background-color,transform] duration-[160ms] ease-out-strong hover:bg-accent-hover motion-safe:active:[transform:scale(.97)]",
-				size === "header" && "h-[38px] px-4 text-sm",
+				size === "header" && "h-10 px-4 text-sm",
 				size === "hero" && "h-[54px] gap-2.5 px-6 text-base shadow-e2",
 				size === "closing" && "h-14 gap-2.5 px-7 text-[17px] shadow-e2",
 				className,

@@ -60,7 +60,7 @@ const getFragments = () => [
 	{
 		text: t`University of Porto`,
 		at: ["-9vw", "-43vh", "-3vw", "-16vh", "2deg", 1, 0.35],
-		className: cn(fragmentKind.mono, "text-ink-3"),
+		className: cn(fragmentKind.mono, "text-ink-3", "max-[700px]:hidden"),
 	},
 	{
 		text: t`Parcel & Co.`,
@@ -95,7 +95,7 @@ const getFragments = () => [
 	{
 		text: t`Promoted to lead, 2021`,
 		at: ["-38vw", "-38vh", "-5vw", "-13vh", "4deg", 1, 0.5],
-		className: cn(fragmentKind.serif, "text-[1.7vw] text-ink-2"),
+		className: cn(fragmentKind.serif, "text-[1.7vw] text-ink-2", "max-[700px]:hidden"),
 	},
 	{
 		text: t`Spanish, B2`,

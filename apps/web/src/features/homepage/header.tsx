@@ -2,6 +2,12 @@ import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
+import {
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	DialogTitle,
+} from "@reactive-resume/ui/components/dialog";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { cn } from "@reactive-resume/utils/style";
 import { goToScene, prefersReducedMotion, SCENE, useLanding } from "./scroll";
@@ -23,6 +29,7 @@ const getStoryScenes = () => [
 ];
 
 export function LandingHeader() {
+	const [menuOpen, setMenuOpen] = useState(false);
 	const scrolled = useLanding((state) => state.scrolled);
 	const night = useLanding((state) => state.night);
 	const activeScene = useLanding((state) => state.activeScene);
@@ -83,13 +90,58 @@ export function LandingHeader() {
 						</button>
 					);
 				})}
+				<a
+					href="/harga"
+					className="font-martian flex h-[34px] items-center rounded-full px-[11px] text-[11px] leading-none font-medium tracking-[.08em] uppercase font-stretch-[87.5%] opacity-65 transition-opacity duration-300 hover:opacity-100"
+				>
+					Harga
+				</a>
 			</nav>
 
 			<div className="ms-auto flex items-center gap-2">
 				<LocaleToggle className="hidden sm:flex" />
 				<GithubLink />
+				<button
+					type="button"
+					onClick={() => setMenuOpen(true)}
+					aria-label={t`Menu`}
+					className="font-martian flex h-10 items-center rounded-full border border-line px-3 text-[11px] leading-none font-medium tracking-[.08em] uppercase min-[1240px]:hidden"
+				>
+					Menu
+				</button>
 				<CtaLink size="header" />
 			</div>
+
+			<Dialog open={menuOpen} onOpenChange={setMenuOpen}>
+				<DialogContent className="max-w-[340px] gap-4 p-5">
+					<DialogHeader>
+						<DialogTitle className="font-display text-xl">Menu</DialogTitle>
+					</DialogHeader>
+					<nav aria-label={t`Story`} className="grid gap-0.5">
+						{getStoryScenes().map(({ scene, label }) => (
+							<button
+								key={scene}
+								type="button"
+								onClick={() => {
+									setMenuOpen(false);
+									window.setTimeout(() => goToScene(scene, 0.04), 180);
+								}}
+								className="flex h-11 items-center rounded-lg px-3 text-start text-sm text-ink transition-colors hover:bg-hover"
+							>
+								{label}
+							</button>
+						))}
+					</nav>
+					<div className="grid gap-0.5 border-t border-line pt-3">
+						<a href="/harga" className="flex h-11 items-center rounded-lg px-3 text-sm text-ink transition-colors hover:bg-hover">
+							Harga
+						</a>
+						<a href="/ats-checker" className="flex h-11 items-center rounded-lg px-3 text-sm text-ink transition-colors hover:bg-hover">
+							Pemeriksa ATS
+						</a>
+					</div>
+				</DialogContent>
+			</Dialog>
 		</header>
 	);
 }
