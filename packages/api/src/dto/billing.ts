@@ -180,6 +180,13 @@ export const billingDto = {
 					revenueIdr: z.number().int(),
 				}),
 			),
+			funnel: z.object({
+				users: z.number().int(),
+				withResume: z.number().int(),
+				withApplication: z.number().int(),
+				withPractice: z.number().int(),
+				paid: z.number().int(),
+			}),
 		}),
 	},
 	adminUpdatePlan: {

@@ -523,6 +523,14 @@ function OverviewView({
 	const maxPlanRevenue = Math.max(...topPlans.map((plan) => plan.revenueIdr), 1);
 	const totalOrders = (analytics?.byStatus ?? []).reduce((sum, item) => sum + item.count, 0);
 	const averageOrder = (range?.orders ?? 0) > 0 ? Math.round((range?.revenueIdr ?? 0) / (range?.orders ?? 1)) : 0;
+	const funnel = analytics?.funnel ?? { users: 0, withResume: 0, withApplication: 0, withPractice: 0, paid: 0 };
+	const funnelSteps = [
+		{ label: "Akun", value: funnel.users },
+		{ label: "Punya CV", value: funnel.withResume },
+		{ label: "Punya lamaran", value: funnel.withApplication },
+		{ label: "Pernah latihan", value: funnel.withPractice },
+		{ label: "Pernah bayar", value: funnel.paid },
+	];
 
 	return (
 		<div className="grid gap-4">
@@ -624,6 +632,35 @@ function OverviewView({
 								</dl>
 							</>
 						)}
+					</div>
+				</Panel>
+			</section>
+
+			<section>
+				<Panel>
+					<PanelHeader
+						title="Corong penggunaan"
+						description="Berapa akun yang sampai ke tiap langkah, dihitung dari data tersimpan."
+					/>
+					<div className="grid gap-4 p-4 sm:grid-cols-5">
+						{funnelSteps.map((step, index) => {
+							const percent = funnel.users > 0 ? Math.round((step.value / funnel.users) * 100) : 0;
+							return (
+								<div key={step.label} className="grid gap-1.5">
+									<div className="flex items-baseline justify-between gap-2">
+										<span className="text-[11px] tracking-[0.08em] text-ink-3 uppercase">{step.label}</span>
+										<span className="text-sm font-semibold tabular-nums text-ink">{step.value}</span>
+									</div>
+									<div className="h-1.5 overflow-hidden rounded-full bg-sunken">
+										<div
+											className="h-full rounded-full bg-accent"
+											style={{ width: `${Math.max(percent, step.value > 0 ? 3 : 0)}%`, opacity: 1 - index * 0.12 }}
+										/>
+									</div>
+									<p className="text-[11px] text-ink-3">{percent}% dari akun</p>
+								</div>
+							);
+						})}
 					</div>
 				</Panel>
 			</section>

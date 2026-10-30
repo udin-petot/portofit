@@ -62,6 +62,22 @@ type AppOptions = {
 	readWebFile?: ReadWebFile;
 };
 
+// Client errors are logged for the alert cron; the bucket keeps a broken page from flooding the log.
+const clientErrorBuckets = new Map<string, { count: number; resetAt: number }>();
+
+function allowClientError(ip: string): boolean {
+	const now = Date.now();
+	const bucket = clientErrorBuckets.get(ip);
+	if (!bucket || bucket.resetAt <= now) {
+		if (clientErrorBuckets.size > 2000) clientErrorBuckets.clear();
+		clientErrorBuckets.set(ip, { count: 1, resetAt: now + 60_000 });
+		return true;
+	}
+	if (bucket.count >= 30) return false;
+	bucket.count += 1;
+	return true;
+}
+
 export function createApp(options: AppOptions = {}) {
 	prepareMcpDiscovery();
 	const app = new Hono<ServerEnvironment>();
@@ -95,6 +111,26 @@ export function createApp(options: AppOptions = {}) {
 	);
 
 	app.post("/api/storage/stage", (c) => prepareStagedBody(c.req.raw));
+	app.post(
+		"/api/client-error",
+		bodyLimit({ maxSize: 16 * 1024, onError: (c) => c.body(null, 413) }),
+		async (c) => {
+			if (!allowClientError(client(c))) return c.body(null, 429);
+			const payload = (await c.req.json().catch(() => null)) as Record<string, unknown> | null;
+			if (!payload || typeof payload.message !== "string") return c.body(null, 204);
+			const text = (value: unknown, max: number) => (typeof value === "string" ? value.slice(0, max) : "");
+			const entry = {
+				message: text(payload.message, 500),
+				stack: text(payload.stack, 3000),
+				path: text(payload.path, 300),
+				source: payload.source === "unhandledrejection" ? "unhandledrejection" : "error",
+				ua: text(c.req.header("user-agent"), 200),
+				at: new Date().toISOString(),
+			};
+			console.error(`[client-error] ${JSON.stringify(entry)}`);
+			return c.body(null, 204);
+		},
+	);
 	app.all("/api/rpc", (c) => withStagedBody(c.req.raw, (request) => handleRpc(request, client(c))));
 	app.all("/api/rpc/*", (c) => withStagedBody(c.req.raw, (request) => handleRpc(request, client(c))));
 	app.all("/api/openapi", (c) => handleOpenApi(c.req.raw, client(c)));

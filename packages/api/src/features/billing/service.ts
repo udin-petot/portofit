@@ -562,6 +562,24 @@ export const billingService = {
 			}))
 			.sort((a, b) => b.revenueIdr - a.revenueIdr);
 
+		// Satu query corong: berapa akun yang sampai ke tiap langkah, bukan sekadar jumlah objek.
+		const funnelResult = await db.execute(sql`
+			select
+				(select count(*)::int from "user") as users,
+				(select count(distinct user_id)::int from resume) as with_resume,
+				(select count(distinct user_id)::int from application) as with_application,
+				(select count(distinct user_id)::int from career_artifact) as with_practice,
+				(select count(distinct user_id)::int from billing_order where status = 'lunas') as paid
+		`);
+		const funnelRow = (funnelResult.rows[0] ?? {}) as Record<string, number | string>;
+		const funnel = {
+			users: Number(funnelRow.users ?? 0),
+			withResume: Number(funnelRow.with_resume ?? 0),
+			withApplication: Number(funnelRow.with_application ?? 0),
+			withPractice: Number(funnelRow.with_practice ?? 0),
+			paid: Number(funnelRow.paid ?? 0),
+		};
+
 		const range = daily.reduce(
 			(accumulator, item) => ({
 				revenueIdr: accumulator.revenueIdr + item.revenueIdr,
@@ -588,6 +606,7 @@ export const billingService = {
 			daily,
 			byStatus,
 			byPlan,
+			funnel,
 		};
 	},
 
