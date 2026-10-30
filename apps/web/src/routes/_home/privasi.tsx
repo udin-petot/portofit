@@ -57,7 +57,7 @@ function RouteComponent() {
 					items={[
 						"Kamu, melalui akunmu.",
 						"Admin PortoFit, hanya untuk verifikasi pembayaran, dukungan, dan keamanan. Bukti transfer disimpan sebagai berkas privat dan tidak dibuka untuk umum.",
-						"Penyedia infrastruktur: penyedia server, layanan email untuk verifikasi dan pengingat, serta gateway model AI.",
+						"Penyedia infrastruktur: penyedia server, layanan email untuk verifikasi dan pengingat, gateway model AI, serta layanan pesan untuk menyimpan salinan cadangan terenkripsi.",
 						"Pihak lain hanya jika diwajibkan hukum yang berlaku.",
 					]}
 				/>
