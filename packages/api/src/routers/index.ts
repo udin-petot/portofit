@@ -7,6 +7,7 @@ import { billingRouter } from "../features/billing/router";
 import { careerRouter } from "../features/career/router";
 import { coverLettersRouter } from "../features/cover-letters/router";
 import { documentsRouter } from "../features/documents/router";
+import { financeRouter } from "../features/finance/router";
 import { flagsRouter } from "../features/flags/router";
 import { githubRouter } from "../features/github/router";
 import { resumeRouter } from "../features/resume/router";
@@ -24,6 +25,7 @@ export default {
 	career: careerRouter,
 	coverLetters: coverLettersRouter,
 	documents: documentsRouter,
+	finance: financeRouter,
 	flags: flagsRouter,
 	github: githubRouter,
 	resume: resumeRouter,

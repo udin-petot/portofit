@@ -2,6 +2,7 @@ export * from "./agent";
 export * from "./applications";
 export * from "./billing";
 export * from "./career";
+export * from "./finance";
 export * from "./auth";
 export * from "./cover-letter";
 export * from "./resume";

@@ -34,6 +34,7 @@ import { cn } from "@reactive-resume/utils/style";
 import { getOrpcErrorMessage } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
 import { formatRupiah, ORDER_STATUS_LABEL } from "../billing/config";
+import { FinanceView } from "./finance-view";
 import { RevenueChart, SignupBars, Sparkline, StatusDonut } from "./charts";
 
 type Analytics = RouterOutput["billing"]["adminAnalytics"];
@@ -41,12 +42,13 @@ type AdminOrder = RouterOutput["billing"]["adminOrders"]["orders"][number];
 type AdminUser = RouterOutput["billing"]["adminUsers"]["users"][number];
 type Plan = RouterOutput["billing"]["plans"]["plans"][number];
 type PlanKind = "application" | "interview";
-type View = "ringkasan" | "pesanan" | "pengguna" | "paket" | "audit";
+type View = "ringkasan" | "pesanan" | "keuangan" | "pengguna" | "paket" | "audit";
 type Days = 7 | 30 | 90;
 
 const NAV: Array<{ key: View; label: string; icon: IconName }> = [
 	{ key: "ringkasan", label: "Ringkasan", icon: "squares-four" },
 	{ key: "pesanan", label: "Pesanan", icon: "tray" },
+	{ key: "keuangan", label: "Keuangan", icon: "list-dashes" },
 	{ key: "pengguna", label: "Pengguna", icon: "user-circle" },
 	{ key: "paket", label: "Paket & harga", icon: "tag" },
 	{ key: "audit", label: "Audit", icon: "clock-counter-clockwise" },
@@ -60,6 +62,10 @@ const VIEW_COPY: Record<View, { title: string; description: string }> = {
 	pesanan: {
 		title: "Pesanan",
 		description: "Semua pesanan QRIS. Cocokkan nominal, periksa bukti, lalu putuskan.",
+	},
+	keuangan: {
+		title: "Keuangan",
+		description: "Buku kas: pemasukan dari pesanan lunas, pemasukan manual, dan semua pengeluaran.",
 	},
 	pengguna: {
 		title: "Pengguna",
@@ -97,6 +103,9 @@ const ACTION_LABEL: Record<string, string> = {
 	"order.reject": "Penolakan pesanan",
 	"credits.adjust": "Koreksi kredit",
 	"plan.update": "Ubah harga paket",
+	"finance.create": "Catat transaksi",
+	"finance.update": "Koreksi catatan",
+	"finance.delete": "Hapus catatan",
 };
 
 const dateShort = new Intl.DateTimeFormat("id-ID", { day: "2-digit", month: "short" });
@@ -374,6 +383,8 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 							verifyingId={verify.isPending ? verify.variables?.orderId : undefined}
 						/>
 					) : null}
+
+					{view === "keuangan" ? <FinanceView /> : null}
 
 					{view === "pengguna" ? (
 						<UsersView
