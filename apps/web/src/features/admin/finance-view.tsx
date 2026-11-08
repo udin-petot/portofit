@@ -1,6 +1,6 @@
 import type { RouterOutput } from "@/libs/orpc/client";
 import type { IconName } from "@reactive-resume/ui/components/icon";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Badge } from "@reactive-resume/ui/components/badge";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -67,7 +67,7 @@ function rangeFor(period: Period) {
 export function FinanceView() {
 	const queryClient = useQueryClient();
 	const [period, setPeriod] = useState<Period>("bulan");
-	const range = rangeFor(period);
+	const range = useMemo(() => rangeFor(period), [period]);
 	const list = useQuery(orpc.finance.list.queryOptions({ input: { ...range, limit: 300 } }));
 	const create = useMutation(orpc.finance.create.mutationOptions());
 	const remove = useMutation(orpc.finance.remove.mutationOptions());
