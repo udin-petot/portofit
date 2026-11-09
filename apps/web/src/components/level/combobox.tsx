@@ -22,10 +22,12 @@ const getLevelTypeName = (type: LevelType) => {
 };
 
 export function LevelTypeCombobox({ ...props }: LevelTypeComboboxProps) {
-	const options = levelDesignSchema.shape.type.options.map((option) => ({
-		value: option,
-		label: getLevelTypeName(option),
-	}));
+	const options = levelDesignSchema.shape.type.options
+		.filter((option) => option !== "circle")
+		.map((option) => ({
+			value: option,
+			label: getLevelTypeName(option),
+		}));
 
 	return <Combobox options={options} {...props} />;
 }

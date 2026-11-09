@@ -596,7 +596,7 @@ export const sampleResumeData: ResumeData = {
 		design: {
 			level: {
 				icon: "star",
-				type: "icon",
+				type: "hidden",
 			},
 			colors: {
 				primary: "rgba(0, 112, 178, 1)",

@@ -92,7 +92,7 @@ export const defaultResumeData: ResumeData = {
 			},
 			level: {
 				icon: "star",
-				type: "circle",
+				type: "hidden",
 			},
 		},
 		typography: {
