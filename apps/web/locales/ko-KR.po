@@ -779,6 +779,10 @@ msgstr "열 1개, 인라인"
 msgid "1 interview"
 msgstr "인터뷰 1개"
 
+#: src/features/billing/pricing.tsx
+msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "10-minute briefing"
 msgstr "10분 브리핑"
@@ -799,6 +803,10 @@ msgstr "2시간 전"
 #: src/features/resume/editor/write/summary-editor.tsx
 msgid "2–3 sentences reads best"
 msgstr "2~3개의 문장이 가장 잘 읽힙니다."
+
+#: src/features/billing/pricing.tsx
+msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
+msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -825,6 +833,10 @@ msgstr "24시간 전"
 #: src/features/homepage/prepare.tsx
 msgid "3 supported · 1 partly · 1 missing"
 msgstr "3개 뒷받침됨 · 1개 일부 · 1개 없음"
+
+#: src/features/billing/pricing.tsx
+msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "30 days"
@@ -1677,14 +1689,6 @@ msgstr "링크가 있는 사람은 누구나 귀하의 이력서를 볼 수 있�
 msgid "Anything to remember about this job"
 msgstr "이 직업에 대해 기억에 남는 것이 있다면"
 
-#: src/features/homepage/faq.tsx
-msgid "Apakah memakai AI?"
-msgstr ""
-
-#: src/features/homepage/faq.tsx
-msgid "Apakah PortoFit gratis?"
-msgstr ""
-
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -1761,6 +1765,10 @@ msgstr "지원서 답변"
 #: src/features/applications/use-application-actions.ts
 msgid "Application closed"
 msgstr "입사 지원이 마감되었습니다"
+
+#: src/features/billing/pricing.tsx
+msgid "application credit"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -1994,6 +2002,7 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Northwind Labs에서는 대부분의 신규 팀이 설정을 마치기 전에 멈췄습니다."
 
 #: src/features/homepage/footer.tsx
+#: src/features/homepage/header.tsx
 #: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "ATS 체커"
@@ -2164,11 +2173,6 @@ msgstr "제출하기 전에"
 msgid "Behavioral"
 msgstr "인성"
 
-#: src/features/career/hooks.ts
-#: src/features/documents/new-document-dialog.tsx
-msgid "Beli kredit"
-msgstr ""
-
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "벵골어"
@@ -2176,26 +2180,6 @@ msgstr "벵골어"
 #: src/features/resume/share/download-tab.tsx
 msgid "Best for applying"
 msgstr "지원에 가장 적합"
-
-#: src/features/homepage/sections.tsx
-msgid "Bikin CV, cocokkan ke lowongan, latihan wawancara"
-msgstr ""
-
-#: src/features/homepage/faq.tsx
-msgid "Bisa bantu latihan wawancara?"
-msgstr ""
-
-#: src/features/homepage/faq.tsx
-msgid "Bisa impor CV yang sudah ada?"
-msgstr ""
-
-#: src/features/homepage/faq.tsx
-msgid "Bisa. Impor PDF, berkas ekspor data LinkedIn, JSON Resume, atau ekspor PortoFit, lalu lanjutkan dari sana. Berkas Word juga terbaca."
-msgstr ""
-
-#: src/features/homepage/faq.tsx
-msgid "Bisa. Tiap lowongan yang kamu simpan punya ruang kerja sendiri: cek kecocokan dengan iklan, susun jawaban dari cerita yang kamu tulis sekali, rencana singkat sebelum wawancara, latihan bicara dengan umpan balik, lalu catatan setelah wawancara."
-msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
@@ -2272,6 +2256,10 @@ msgstr "브리핑 새로 고침 켜짐 · {0}"
 msgid "Briefing refresh paused"
 msgstr "브리핑 새로 고침 일시 중지됨"
 
+#: src/features/homepage/sections.tsx
+msgid "Build a CV, match it to a job, practise interviews"
+msgstr ""
+
 #: src/features/homepage/ui.tsx
 msgid "Build your resume"
 msgstr "이력서 작성"
@@ -2311,6 +2299,20 @@ msgstr "목록 항목 {n}"
 msgid "Bulleted list"
 msgstr "글머리 기호 목록"
 
+#. placeholder {0}: formatRupiah(plan.priceIdr)
+#: src/features/billing/pricing.tsx
+msgid "Buy {0}"
+msgstr ""
+
+#: src/features/career/hooks.ts
+#: src/features/documents/new-document-dialog.tsx
+msgid "Buy credits"
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "By buying, you agree to the terms below."
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
 msgstr "커뮤니티에 의해, 커뮤니티를 위해."
@@ -2322,6 +2324,14 @@ msgstr "달력"
 #: src/features/homepage/faq.tsx
 msgid "Can I host it myself?"
 msgstr "내가 직접 호스팅할 수 있나요?"
+
+#: src/features/homepage/faq.tsx
+msgid "Can I import an existing CV?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Can it help me practise interviews?"
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Can software read your resume?"
@@ -3603,6 +3613,10 @@ msgstr "“{finalName}”를 만들었습니다."
 msgid "Created and linked to {0}"
 msgstr "{0}를 생성하고 연결했습니다."
 
+#: src/features/billing/pricing.tsx
+msgid "Credits are used per document: one application credit for one tailored CV and cover letter, one interview credit for one practice session. Credits do not expire."
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Crop and Upload"
 msgstr "사진 자르고 업로드"
@@ -4044,6 +4058,10 @@ msgstr "서류"
 msgid "Documents for this job"
 msgstr "이 작업에 대한 문서"
 
+#: src/features/homepage/faq.tsx
+msgid "Does it use AI?"
+msgstr ""
+
 #: src/features/auth/pages/login.tsx
 msgid "Don't have an account? <0/>"
 msgstr "계정이 없으신가요? <0/>"
@@ -4067,6 +4085,11 @@ msgstr "완료"
 #: src/features/career/today.tsx
 msgid "Done · {0}"
 msgstr "완료 · {0}"
+
+#. Hero headline, line 3 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "done,"
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Double-checking"
@@ -4580,10 +4603,19 @@ msgstr "채용 공고에서 강조하는 모든 용어는 이미 존재합니다
 msgid "Every week"
 msgstr "매주"
 
+#. Hero headline, line 1 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "Everything"
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "코치가 {0} 건으로 작성한 모든 내용, 최신순."
+
+#: src/features/homepage/hero.tsx
+msgid "Everything you have done, on one page."
+msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
@@ -5010,6 +5042,10 @@ msgstr "예를 들어 이 이력서를 어느 회사에 보냈는지, 또는 채
 msgid "For example: “{0}: I did … at … in 2024, and it led to …”"
 msgstr "예: “{0}: 2024년에 …에서 …을(를) 했고, 그 결과 …”"
 
+#: src/features/homepage/faq.tsx
+msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs. The flow, examples, and language are made for their needs."
+msgstr ""
+
 #: src/features/resume/share/download-tab.tsx
 msgid "For LibreOffice and other open-source editors. Layout is simplified."
 msgstr "LibreOffice 및 기타 오픈 소스 편집기용. 레이아웃이 단순화되었습니다."
@@ -5075,6 +5111,10 @@ msgstr "오늘 발견"
 #: src/features/career/today.tsx
 msgid "Found yesterday"
 msgstr "어제 발견"
+
+#: src/features/billing/pricing.tsx
+msgid "Free"
+msgstr ""
 
 #: src/libs/seo.ts
 msgid "Free ATS resume checker"
@@ -5456,6 +5496,10 @@ msgstr "휴가는 며칠인가요?"
 msgid "How often"
 msgstr "빈도"
 
+#: src/features/billing/pricing.tsx
+msgid "How to pay"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "How to show the file"
 msgstr "파일을 표시하는 방법"
@@ -5726,6 +5770,10 @@ msgstr "면접이 저장되었습니다"
 msgid "Interview saved · briefing moves to {0}"
 msgstr "면접이 저장되었습니다 · 브리핑 시간: {0}"
 
+#: src/features/billing/pricing.tsx
+msgid "interview session credit"
+msgstr ""
+
 #: src/features/settings/preferences.tsx
 msgid "Interview times, reminders and schedules in Career use it."
 msgstr "커리어의 면접 시간, 알림, 스케줄에 이 설정이 사용됩니다."
@@ -5745,6 +5793,10 @@ msgstr "면접관"
 #: src/features/career/offers.tsx
 msgid "Is equity part of the offer?"
 msgstr "오퍼에 지분이 포함되나요?"
+
+#: src/features/homepage/faq.tsx
+msgid "Is PortoFit free?"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
@@ -5892,6 +5944,14 @@ msgstr "채용 공고 <0>· 선택 사항, 키워드 일치 검사를 추가합�
 msgid "Job posting link"
 msgstr "채용 공고 링크"
 
+#: src/features/homepage/hero.tsx
+msgid "Job preparation for Indonesian job seekers"
+msgstr ""
+
+#: src/libs/seo.ts
+msgid "Job preparation from CV to interview"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Job search failed. Try again or paste a posting link."
 msgstr "채용정보 검색에 실패했습니다. 다시 시도하거나 채용 공고 링크를 붙여넣으세요."
@@ -5925,11 +5985,6 @@ msgstr "JSON 읽기"
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
 msgstr "양쪽 정렬"
-
-#. Hero headline, line 3 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
-#: src/features/homepage/hero.tsx
-msgid "kamu kerjakan,"
-msgstr ""
 
 #: src/libs/locale.ts
 msgid "Kannada"
@@ -6071,14 +6126,6 @@ msgstr "지식을 불러올 수 없습니다. 다시 시도하거나 보내기 �
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "한국어"
-
-#: src/features/career/hooks.ts
-msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
-msgstr ""
-
-#: src/features/documents/new-document-dialog.tsx
-msgid "Kredit lamaran habis. Beli 1 kredit untuk menyalin CV ke lowongan ini."
-msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx
@@ -6504,6 +6551,10 @@ msgstr "연결된 문서 불러오는 중…"
 #: src/features/settings/ai/providers.tsx
 msgid "Loading model suggestions… You can also enter any model ID."
 msgstr "모델 제안 로드 중... 어떤 모델 ID든 입력할 수도 있습니다."
+
+#: src/features/billing/pricing.tsx
+msgid "Loading packages…"
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
@@ -7669,6 +7720,11 @@ msgstr "출근일 명시 안 됨"
 msgid "Offline · saved on this device"
 msgstr "오프라인 · 이 기기에 저장됨"
 
+#. Hero headline, line 4 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "on one page."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "On. Anyone with the link can view. It isn't listed or indexed by search engines."
 msgstr "에. 링크가 있는 사람은 누구나 볼 수 있습니다. 검색 엔진에 나열되거나 색인이 생성되지 않습니다."
@@ -7692,6 +7748,10 @@ msgstr "열 1개"
 #: src/features/homepage/check.tsx
 msgid "one format"
 msgstr "형식 통일"
+
+#: src/features/billing/pricing.tsx
+msgid "One free CV to build and download"
+msgstr ""
 
 #: src/features/auth/pages/consent.tsx
 msgid "Only allow applications you trust. This application will be able to:"
@@ -7747,7 +7807,6 @@ msgstr "대면"
 #: src/features/applications/components/detail/sent-documents.tsx
 #: src/features/career/today.tsx
 #: src/features/documents/document-actions.tsx
-#: src/routes/dashboard/applications/index.tsx
 msgid "Open"
 msgstr "열기"
 
@@ -7763,6 +7822,10 @@ msgstr "AI 설정 열기"
 #: src/features/career/today.tsx
 msgid "Open briefing"
 msgstr "브리핑 열기"
+
+#: src/features/billing/pricing.tsx
+msgid "Open dashboard"
+msgstr ""
 
 #. Button label to open the user's default email app
 #: src/features/auth/pages/forgot-password.tsx
@@ -7924,6 +7987,14 @@ msgstr "기타 문서 · {0}"
 msgid "out of 100"
 msgstr "100점 만점"
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Out of application credits. Buy 1 credit to copy your CV to this job."
+msgstr ""
+
+#: src/features/career/hooks.ts
+msgid "Out of credits. Buy a package to continue the interview practice session."
+msgstr ""
+
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Out of date: the text has changed since."
 msgstr "오래됨: 이후 텍스트가 변경되었습니다."
@@ -8003,6 +8074,10 @@ msgstr "Parcel & Co. · Porto"
 #: src/features/homepage/prepare.tsx
 msgid "Partly supported"
 msgstr "일부 뒷받침됨"
+
+#: src/features/homepage/faq.tsx
+msgid "Partly. Building a CV, checking PDF readability, and saving applications are free. For a CV and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking."
+msgstr ""
 
 #. Authentication provider display name in account settings
 #. Label for passkey sign-in button
@@ -8131,6 +8206,14 @@ msgstr "일시 중지됨 · {line}"
 msgid "Paused schedules keep their settings."
 msgstr "일시 중지된 스케줄도 설정은 유지됩니다."
 
+#: src/features/billing/pricing.tsx
+msgid "Pay by QRIS, verified manually by an admin."
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Pay only for what you use"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Pay period"
 msgstr "지급 주기"
@@ -8158,14 +8241,6 @@ msgstr "모든 것을 영구적으로 제거합니다. 복사본을 원하면 �
 #: src/libs/locale.ts
 msgid "Persian"
 msgstr "페르시아어"
-
-#: src/libs/seo.ts
-msgid "Persiapan kerja dari CV sampai wawancara"
-msgstr ""
-
-#: src/features/homepage/hero.tsx
-msgid "Persiapan kerja untuk pencari kerja Indonesia"
-msgstr ""
 
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
@@ -8274,15 +8349,19 @@ msgid "PortoFit {__APP_VERSION__} · MIT"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
-msgid "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk CV yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacakan."
+msgid "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a CV tailored to one job and interview practice. No ads, no tracking."
 msgstr ""
 
 #: src/libs/seo.ts
-msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara membacanya, cocokkan dengan lowongan, lalu latihan wawancara. Mulai gratis, tanpa iklan."
+msgid "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
-msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara sistem membacanya, cocokkan dengan lowongan yang kamu incar, lalu latihan wawancara. Mulai gratis, tanpa iklan."
+msgid "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to the job you want, then practise interviews. Start free, no ads."
+msgstr ""
+
+#: src/libs/seo.ts
+msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored CV and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
 msgstr ""
 
 #. Preset button for setting picture aspect ratio to portrait orientation
@@ -8423,6 +8502,10 @@ msgstr "{label} 파일 준비 중…"
 msgid "Preparing edits…"
 msgstr "수정 준비 중…"
 
+#: src/features/billing/pricing.tsx
+msgid "Preparing your order…"
+msgstr ""
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Preparing your resume for printing..."
 msgstr "인쇄용 이력서 준비..."
@@ -8453,6 +8536,10 @@ msgstr "<0>{RETURN_KEY}</0> 키를 눌러 현재 키워드를 추가하거나 �
 msgid "Press <0>Enter</0> to open"
 msgstr "<0>Enter</0> 키를 눌러 열기"
 
+#: src/features/billing/pricing.tsx
+msgid "Preview your CV right on the page"
+msgstr ""
+
 #. placeholder {0}: templates[previewTemplate].name
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 #: src/routes/builder/letter/-components/letter-page.tsx
@@ -8471,6 +8558,13 @@ msgstr "문서 세부정보를 포함한 이전 메시지도 전송됩니다."
 msgid "Previous month"
 msgstr "지난달"
 
+#: src/features/billing/pricing.tsx
+#: src/features/homepage/footer.tsx
+#: src/features/homepage/header.tsx
+#: src/libs/seo.ts
+msgid "Pricing"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
 msgstr "기본 색상"
@@ -8486,6 +8580,10 @@ msgstr "보내기 전에 양식을 일반 PDF로 인쇄하거나 내보내세요
 #: src/features/resume/public/public-resume.tsx
 msgid "Printing is turned off for this resume."
 msgstr "이 이력서의 인쇄가 꺼졌습니다."
+
+#: src/features/homepage/footer.tsx
+msgid "Privacy policy"
+msgstr ""
 
 #: src/features/homepage/share.tsx
 msgid "Private"
@@ -8957,6 +9055,14 @@ msgstr "24시간 전에 브리핑 새로 고침"
 #: src/features/career/workspace/prepare.tsx
 msgid "Refresh the briefing on the morning of"
 msgstr "당일 아침에 브리핑 새로 고침"
+
+#: src/features/homepage/footer.tsx
+msgid "Refund policy"
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Refund Policy"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Rehearse aloud"
@@ -9535,11 +9641,6 @@ msgstr "같은 당신, 다시 시작할 일은 줄어듭니다."
 msgid "Sample resume added. Delete it anytime."
 msgstr "샘플 이력서가 추가되었습니다. 언제든지 삭제하세요."
 
-#. Hero headline, line 4 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
-#: src/features/homepage/hero.tsx
-msgid "satu halaman."
-msgstr ""
-
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
@@ -9879,10 +9980,6 @@ msgstr "웹 검색 중"
 msgid "Searching the web…"
 msgstr "웹 검색 중…"
 
-#: src/features/homepage/faq.tsx
-msgid "Sebagian. Membuat CV, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk CV beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan."
-msgstr ""
-
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
 msgstr "비밀 키가 클립보드에 복사되었습니다."
@@ -9943,15 +10040,6 @@ msgstr "선택한 서류"
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Semantic CSS stylesheet"
 msgstr "시맨틱 CSS 스타일시트"
-
-#. Hero headline, line 1 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
-#: src/features/homepage/hero.tsx
-msgid "Semua"
-msgstr ""
-
-#: src/features/homepage/hero.tsx
-msgid "Semua yang sudah kamu kerjakan, dalam satu halaman."
-msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -10650,6 +10738,14 @@ msgstr "시작일은 종료일과 같거나 그 이전이어야 합니다."
 msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "각 항목을 구체적인 동사로 시작하세요: 구축했다, 이끌었다, 줄였다, 이전했다 등."
 
+#: src/features/billing/pricing.tsx
+msgid "Start free"
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Start free to see whether software can read your CV. If you need a CV tailored to one job or interview practice, pay per document. No subscription, no promise of passing a selection."
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from"
 msgstr "다음에서 시작"
@@ -11057,6 +11153,14 @@ msgstr "템플릿 × {templates}"
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "채용 공고의 용어"
+
+#: src/features/homepage/footer.tsx
+msgid "Terms of service"
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Terms of Service"
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Test"
@@ -11772,6 +11876,10 @@ msgstr "제목"
 msgid "To"
 msgstr "에게"
 
+#: src/features/billing/pricing.tsx
+msgid "To try the flow"
+msgstr ""
+
 #: src/features/applications/components/calendar-view.tsx
 #: src/features/resume/share/link-tab.tsx
 #: src/routes/dashboard/career/route.tsx
@@ -12069,6 +12177,10 @@ msgstr "University of Porto"
 msgid "Unknown"
 msgstr "알 수 없음"
 
+#: src/features/billing/pricing.tsx
+msgid "Unlimited ATS checks, no login"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
 msgstr "풀리다"
@@ -12115,14 +12227,6 @@ msgstr "제목 없는 편지"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Untitled resume"
 msgstr "제목 없는 이력서"
-
-#: src/features/homepage/faq.tsx
-msgid "Untuk pencari kerja di Indonesia, terutama mahasiswa tingkat akhir, fresh graduate, dan yang sedang melamar magang atau pekerjaan pertama. Alur, contoh, dan bahasanya dibuat untuk kebutuhan mereka."
-msgstr ""
-
-#: src/features/homepage/faq.tsx
-msgid "Untuk siapa PortoFit?"
-msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Up to 2 minutes. Or <0>choose an audio file</0> up to 2 MB."
@@ -12800,6 +12904,10 @@ msgstr "연금이나 수당 같은 다른 복리후생은 무엇이 있나요?"
 msgid "Who can see my resume?"
 msgstr "내 이력서를 누가 볼 수 있나요?"
 
+#: src/features/homepage/faq.tsx
+msgid "Who is PortoFit for?"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Who owns the design system today? What does success look like in 90 days?"
 msgstr "현재 디자인 시스템은 누가 담당하나요? 90일 후 성공은 어떤 모습인가요?"
@@ -12946,12 +13054,15 @@ msgid "Written offer"
 msgstr "서면 오퍼"
 
 #: src/features/homepage/faq.tsx
-msgid "Ya, untuk menyarankan perbaikan kalimat, menyesuaikan CV ke satu iklan lowongan, dan latihan wawancara. Layanan AI sudah disiapkan PortoFit, jadi kamu tidak perlu kunci API sendiri. Isi lamaranmu hanya dikirim ke layanan AI saat kamu memakai fitur itu."
+msgid "Yes, to suggest sharper wording, tailor a CV to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature."
 msgstr ""
 
-#. Hero headline, line 2 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
-#: src/features/homepage/hero.tsx
-msgid "yang sudah"
+#: src/features/homepage/faq.tsx
+msgid "Yes. Every job you save gets its own workspace: check the match against the posting, draft answers from stories you write once, a short plan before the interview, spoken practice with feedback, and notes after the interview."
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Yes. Import a PDF, a LinkedIn data export, JSON Resume, or a PortoFit export, then continue from there. Word files work too."
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -13003,6 +13114,11 @@ msgstr "아직 복사할 이력서가 없습니다. 먼저 이력서를 가져�
 #: src/features/career/workspace/debrief.tsx
 msgid "You forgot this before, so it wasn't saved again."
 msgstr "이전에 잊은 내용이라 다시 저장하지 않았습니다."
+
+#. Hero headline, line 2 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "you have"
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

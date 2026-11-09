@@ -132,10 +132,10 @@ export function Hero() {
 	}, []);
 
 	const headline = [
-		t({ message: "Semua", comment: "Hero headline, line 1 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”" }),
-		t({ message: "yang sudah", comment: "Hero headline, line 2 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”" }),
-		t({ message: "kamu kerjakan,", comment: "Hero headline, line 3 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”" }),
-		t({ message: "satu halaman.", comment: "Hero headline, line 4 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”" }),
+		t({ message: "Everything", comment: "Hero headline, line 1 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”" }),
+		t({ message: "you have", comment: "Hero headline, line 2 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”" }),
+		t({ message: "done,", comment: "Hero headline, line 3 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”" }),
+		t({ message: "on one page.", comment: "Hero headline, line 4 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”" }),
 	] as const;
 
 	return (
@@ -190,7 +190,7 @@ export function Hero() {
 				/>
 
 				<p className={cn(labelClass, "absolute inset-x-(--gutter) top-[92px] z-2 text-ink-3")}>
-					{t`Persiapan kerja untuk pencari kerja Indonesia`}
+					{t`Job preparation for Indonesian job seekers`}
 				</p>
 
 				<div
@@ -213,7 +213,7 @@ export function Hero() {
 				</div>
 
 				<h1 id="hero-title" className="sr-only">
-					{t`Semua yang sudah kamu kerjakan, dalam satu halaman.`}
+					{t`Everything you have done, on one page.`}
 				</h1>
 
 				{/* The headline, drawn as two halves either side of the page (below 900px, stacked above it). */}
@@ -248,7 +248,7 @@ export function Hero() {
 
 				<div className="absolute inset-x-(--gutter) bottom-[clamp(20px,4vh,40px)] z-2 flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
 					<p className="max-w-full font-display text-base leading-[1.45] text-pretty text-ink-2 min-[900px]:max-w-[min(25em,calc(50vw-var(--pw)/2-5vw))] min-[900px]:text-[clamp(17px,1.3vw,20px)]">
-						{t`PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara sistem membacanya, cocokkan dengan lowongan yang kamu incar, lalu latihan wawancara. Mulai gratis, tanpa iklan.`}
+						{t`PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to the job you want, then practise interviews. Start free, no ads.`}
 					</p>
 					<CtaLink size="hero" />
 				</div>

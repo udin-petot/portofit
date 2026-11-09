@@ -779,6 +779,10 @@ msgstr "1 coluna, embutida"
 msgid "1 interview"
 msgstr "1 entrevista"
 
+#: src/features/billing/pricing.tsx
+msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "10-minute briefing"
 msgstr "Briefing de 10 minutos"
@@ -799,6 +803,10 @@ msgstr "2 horas antes"
 #: src/features/resume/editor/write/summary-editor.tsx
 msgid "2–3 sentences reads best"
 msgstr "2–3 frases são melhor lidas"
+
+#: src/features/billing/pricing.tsx
+msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
+msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -825,6 +833,10 @@ msgstr "24 horas antes"
 #: src/features/homepage/prepare.tsx
 msgid "3 supported · 1 partly · 1 missing"
 msgstr "3 comprovados · 1 parcial · 1 sem evidência"
+
+#: src/features/billing/pricing.tsx
+msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "30 days"
@@ -1677,14 +1689,6 @@ msgstr "Qualquer pessoa com o link poderá visualizar seu currículo."
 msgid "Anything to remember about this job"
 msgstr "Qualquer coisa para lembrar sobre este trabalho"
 
-#: src/features/homepage/faq.tsx
-msgid "Apakah memakai AI?"
-msgstr ""
-
-#: src/features/homepage/faq.tsx
-msgid "Apakah PortoFit gratis?"
-msgstr ""
-
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -1761,6 +1765,10 @@ msgstr "Resposta da candidatura"
 #: src/features/applications/use-application-actions.ts
 msgid "Application closed"
 msgstr "pedido de emprego fechado"
+
+#: src/features/billing/pricing.tsx
+msgid "application credit"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -1994,6 +2002,7 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Na Northwind Labs, a maioria das equipes novas travava antes de concluir a configuração."
 
 #: src/features/homepage/footer.tsx
+#: src/features/homepage/header.tsx
 #: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "Verificador ATS"
@@ -2164,11 +2173,6 @@ msgstr "Antes de enviar"
 msgid "Behavioral"
 msgstr "Comportamental"
 
-#: src/features/career/hooks.ts
-#: src/features/documents/new-document-dialog.tsx
-msgid "Beli kredit"
-msgstr ""
-
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Bengali"
@@ -2176,26 +2180,6 @@ msgstr "Bengali"
 #: src/features/resume/share/download-tab.tsx
 msgid "Best for applying"
 msgstr "Melhor para candidaturas"
-
-#: src/features/homepage/sections.tsx
-msgid "Bikin CV, cocokkan ke lowongan, latihan wawancara"
-msgstr ""
-
-#: src/features/homepage/faq.tsx
-msgid "Bisa bantu latihan wawancara?"
-msgstr ""
-
-#: src/features/homepage/faq.tsx
-msgid "Bisa impor CV yang sudah ada?"
-msgstr ""
-
-#: src/features/homepage/faq.tsx
-msgid "Bisa. Impor PDF, berkas ekspor data LinkedIn, JSON Resume, atau ekspor PortoFit, lalu lanjutkan dari sana. Berkas Word juga terbaca."
-msgstr ""
-
-#: src/features/homepage/faq.tsx
-msgid "Bisa. Tiap lowongan yang kamu simpan punya ruang kerja sendiri: cek kecocokan dengan iklan, susun jawaban dari cerita yang kamu tulis sekali, rencana singkat sebelum wawancara, latihan bicara dengan umpan balik, lalu catatan setelah wawancara."
-msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
@@ -2272,6 +2256,10 @@ msgstr "Atualização do briefing ativada · {0}"
 msgid "Briefing refresh paused"
 msgstr "Atualização do briefing pausada"
 
+#: src/features/homepage/sections.tsx
+msgid "Build a CV, match it to a job, practise interviews"
+msgstr ""
+
 #: src/features/homepage/ui.tsx
 msgid "Build your resume"
 msgstr "Monte seu currículo"
@@ -2311,6 +2299,20 @@ msgstr "entrada da lista {n}"
 msgid "Bulleted list"
 msgstr "Lista com marcadores"
 
+#. placeholder {0}: formatRupiah(plan.priceIdr)
+#: src/features/billing/pricing.tsx
+msgid "Buy {0}"
+msgstr ""
+
+#: src/features/career/hooks.ts
+#: src/features/documents/new-document-dialog.tsx
+msgid "Buy credits"
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "By buying, you agree to the terms below."
+msgstr ""
+
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
 msgstr "Construída pela comunidade para a comunidade."
@@ -2322,6 +2324,14 @@ msgstr "Calendário"
 #: src/features/homepage/faq.tsx
 msgid "Can I host it myself?"
 msgstr "Posso hospedá-lo sozinho?"
+
+#: src/features/homepage/faq.tsx
+msgid "Can I import an existing CV?"
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Can it help me practise interviews?"
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Can software read your resume?"
@@ -3603,6 +3613,10 @@ msgstr "Criado “{finalName}”"
 msgid "Created and linked to {0}"
 msgstr "Criado e vinculado a {0}"
 
+#: src/features/billing/pricing.tsx
+msgid "Credits are used per document: one application credit for one tailored CV and cover letter, one interview credit for one practice session. Credits do not expire."
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Crop and Upload"
 msgstr "Recortar e carregar"
@@ -4044,6 +4058,10 @@ msgstr "Documentos"
 msgid "Documents for this job"
 msgstr "Documentos para este trabalho"
 
+#: src/features/homepage/faq.tsx
+msgid "Does it use AI?"
+msgstr ""
+
 #: src/features/auth/pages/login.tsx
 msgid "Don't have an account? <0/>"
 msgstr "Não tem uma conta? <0/>"
@@ -4067,6 +4085,11 @@ msgstr "Feito"
 #: src/features/career/today.tsx
 msgid "Done · {0}"
 msgstr "Concluído · {0}"
+
+#. Hero headline, line 3 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "done,"
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Double-checking"
@@ -4580,10 +4603,19 @@ msgstr "Todos os termos que o anúncio enfatiza já estão lá."
 msgid "Every week"
 msgstr "Toda semana"
 
+#. Hero headline, line 1 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "Everything"
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
 msgstr "Tudo o que o coach escreveu para {0}, do mais recente ao mais antigo."
+
+#: src/features/homepage/hero.tsx
+msgid "Everything you have done, on one page."
+msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
@@ -5010,6 +5042,10 @@ msgstr "Por exemplo, anote para quais empresas você enviou este currículo, ou 
 msgid "For example: “{0}: I did … at … in 2024, and it led to …”"
 msgstr "Por exemplo: “{0}: Eu fiz … na … em 2024, e isso levou a …”"
 
+#: src/features/homepage/faq.tsx
+msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs. The flow, examples, and language are made for their needs."
+msgstr ""
+
 #: src/features/resume/share/download-tab.tsx
 msgid "For LibreOffice and other open-source editors. Layout is simplified."
 msgstr "Para o LibreOffice e outros editores de código aberto. O layout é simplificado."
@@ -5075,6 +5111,10 @@ msgstr "Encontrada hoje"
 #: src/features/career/today.tsx
 msgid "Found yesterday"
 msgstr "Encontrada ontem"
+
+#: src/features/billing/pricing.tsx
+msgid "Free"
+msgstr ""
 
 #: src/libs/seo.ts
 msgid "Free ATS resume checker"
@@ -5456,6 +5496,10 @@ msgstr "Quantos dias de férias estão incluídos?"
 msgid "How often"
 msgstr "Com que frequência"
 
+#: src/features/billing/pricing.tsx
+msgid "How to pay"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "How to show the file"
 msgstr "Como mostrar o arquivo"
@@ -5726,6 +5770,10 @@ msgstr "Entrevista salva"
 msgid "Interview saved · briefing moves to {0}"
 msgstr "Entrevista salva · briefing movido para {0}"
 
+#: src/features/billing/pricing.tsx
+msgid "interview session credit"
+msgstr ""
+
 #: src/features/settings/preferences.tsx
 msgid "Interview times, reminders and schedules in Career use it."
 msgstr "Horários de entrevista, lembretes e agendamentos em Carreira usam esse fuso."
@@ -5745,6 +5793,10 @@ msgstr "Entrevistador"
 #: src/features/career/offers.tsx
 msgid "Is equity part of the offer?"
 msgstr "A participação acionária faz parte da proposta?"
+
+#: src/features/homepage/faq.tsx
+msgid "Is PortoFit free?"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
@@ -5892,6 +5944,14 @@ msgstr "Anúncio de vaga <0>· opcional, adiciona uma comparação de palavras-c
 msgid "Job posting link"
 msgstr "Link do anúncio de emprego"
 
+#: src/features/homepage/hero.tsx
+msgid "Job preparation for Indonesian job seekers"
+msgstr ""
+
+#: src/libs/seo.ts
+msgid "Job preparation from CV to interview"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Job search failed. Try again or paste a posting link."
 msgstr "A procura de emprego falhou. Tente novamente ou cole um link de anúncio de emprego."
@@ -5925,11 +5985,6 @@ msgstr "JSON lido"
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
 msgstr "Justificar"
-
-#. Hero headline, line 3 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
-#: src/features/homepage/hero.tsx
-msgid "kamu kerjakan,"
-msgstr ""
 
 #: src/libs/locale.ts
 msgid "Kannada"
@@ -6071,14 +6126,6 @@ msgstr "O Conhecimento não carregou. Tente novamente ou desative o Conhecimento
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Coreano"
-
-#: src/features/career/hooks.ts
-msgid "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
-msgstr ""
-
-#: src/features/documents/new-document-dialog.tsx
-msgid "Kredit lamaran habis. Beli 1 kredit untuk menyalin CV ke lowongan ini."
-msgstr ""
 
 #. Short field label for custom display text associated with a URL
 #: src/components/input/url-input.tsx
@@ -6504,6 +6551,10 @@ msgstr "Carregando documentos vinculados…"
 #: src/features/settings/ai/providers.tsx
 msgid "Loading model suggestions… You can also enter any model ID."
 msgstr "Carregando sugestões de modelos… Você também pode inserir qualquer ID de modelo."
+
+#: src/features/billing/pricing.tsx
+msgid "Loading packages…"
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
@@ -7669,6 +7720,11 @@ msgstr "Dias no escritório não informados"
 msgid "Offline · saved on this device"
 msgstr "Off-line · salvo neste dispositivo"
 
+#. Hero headline, line 4 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "on one page."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "On. Anyone with the link can view. It isn't listed or indexed by search engines."
 msgstr "Sobre. Qualquer pessoa com o link pode visualizar. Não está listado ou indexado pelos motores de busca."
@@ -7692,6 +7748,10 @@ msgstr "Uma coluna"
 #: src/features/homepage/check.tsx
 msgid "one format"
 msgstr "um formato"
+
+#: src/features/billing/pricing.tsx
+msgid "One free CV to build and download"
+msgstr ""
 
 #: src/features/auth/pages/consent.tsx
 msgid "Only allow applications you trust. This application will be able to:"
@@ -7747,7 +7807,6 @@ msgstr "Presencial"
 #: src/features/applications/components/detail/sent-documents.tsx
 #: src/features/career/today.tsx
 #: src/features/documents/document-actions.tsx
-#: src/routes/dashboard/applications/index.tsx
 msgid "Open"
 msgstr "Abrir"
 
@@ -7763,6 +7822,10 @@ msgstr "Abra as configurações de IA"
 #: src/features/career/today.tsx
 msgid "Open briefing"
 msgstr "Abrir briefing"
+
+#: src/features/billing/pricing.tsx
+msgid "Open dashboard"
+msgstr ""
 
 #. Button label to open the user's default email app
 #: src/features/auth/pages/forgot-password.tsx
@@ -7924,6 +7987,14 @@ msgstr "Outros documentos · {0}"
 msgid "out of 100"
 msgstr "de 100"
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Out of application credits. Buy 1 credit to copy your CV to this job."
+msgstr ""
+
+#: src/features/career/hooks.ts
+msgid "Out of credits. Buy a package to continue the interview practice session."
+msgstr ""
+
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Out of date: the text has changed since."
 msgstr "Desatualizado: o texto mudou desde então."
@@ -8003,6 +8074,10 @@ msgstr "Parcel & Co. · Porto"
 #: src/features/homepage/prepare.tsx
 msgid "Partly supported"
 msgstr "Parcialmente comprovado"
+
+#: src/features/homepage/faq.tsx
+msgid "Partly. Building a CV, checking PDF readability, and saving applications are free. For a CV and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking."
+msgstr ""
 
 #. Authentication provider display name in account settings
 #. Label for passkey sign-in button
@@ -8131,6 +8206,14 @@ msgstr "Pausado · {line}"
 msgid "Paused schedules keep their settings."
 msgstr "Agendamentos pausados mantêm suas configurações."
 
+#: src/features/billing/pricing.tsx
+msgid "Pay by QRIS, verified manually by an admin."
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Pay only for what you use"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Pay period"
 msgstr "Período de pagamento"
@@ -8158,14 +8241,6 @@ msgstr "Remove tudo permanentemente. Exporte primeiro se quiser uma cópia."
 #: src/libs/locale.ts
 msgid "Persian"
 msgstr "Persa"
-
-#: src/libs/seo.ts
-msgid "Persiapan kerja dari CV sampai wawancara"
-msgstr ""
-
-#: src/features/homepage/hero.tsx
-msgid "Persiapan kerja untuk pencari kerja Indonesia"
-msgstr ""
 
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
@@ -8274,15 +8349,19 @@ msgid "PortoFit {__APP_VERSION__} · MIT"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
-msgid "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk CV yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacakan."
+msgid "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a CV tailored to one job and interview practice. No ads, no tracking."
 msgstr ""
 
 #: src/libs/seo.ts
-msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara membacanya, cocokkan dengan lowongan, lalu latihan wawancara. Mulai gratis, tanpa iklan."
+msgid "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
-msgid "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara sistem membacanya, cocokkan dengan lowongan yang kamu incar, lalu latihan wawancara. Mulai gratis, tanpa iklan."
+msgid "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to the job you want, then practise interviews. Start free, no ads."
+msgstr ""
+
+#: src/libs/seo.ts
+msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored CV and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
 msgstr ""
 
 #. Preset button for setting picture aspect ratio to portrait orientation
@@ -8423,6 +8502,10 @@ msgstr "Preparando arquivo {label}…"
 msgid "Preparing edits…"
 msgstr "Preparando edições…"
 
+#: src/features/billing/pricing.tsx
+msgid "Preparing your order…"
+msgstr ""
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Preparing your resume for printing..."
 msgstr "Preparando seu currículo para impressão..."
@@ -8453,6 +8536,10 @@ msgstr "Pressione <0>{RETURN_KEY}</0> para adicionar ou salvar a palavra-chave a
 msgid "Press <0>Enter</0> to open"
 msgstr "Pressione <0>Enter</0> para abrir"
 
+#: src/features/billing/pricing.tsx
+msgid "Preview your CV right on the page"
+msgstr ""
+
 #. placeholder {0}: templates[previewTemplate].name
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 #: src/routes/builder/letter/-components/letter-page.tsx
@@ -8471,6 +8558,13 @@ msgstr "Mensagens anteriores, incluindo detalhes do documento, também são envi
 msgid "Previous month"
 msgstr "Mês anterior"
 
+#: src/features/billing/pricing.tsx
+#: src/features/homepage/footer.tsx
+#: src/features/homepage/header.tsx
+#: src/libs/seo.ts
+msgid "Pricing"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
 msgstr "Cor primária"
@@ -8486,6 +8580,10 @@ msgstr "Imprima ou exporte o formulário para um PDF plano antes de enviá-lo."
 #: src/features/resume/public/public-resume.tsx
 msgid "Printing is turned off for this resume."
 msgstr "A impressão está desativada para este currículo."
+
+#: src/features/homepage/footer.tsx
+msgid "Privacy policy"
+msgstr ""
 
 #: src/features/homepage/share.tsx
 msgid "Private"
@@ -8957,6 +9055,14 @@ msgstr "Atualizar o briefing 24 horas antes"
 #: src/features/career/workspace/prepare.tsx
 msgid "Refresh the briefing on the morning of"
 msgstr "Atualizar o briefing na manhã do dia"
+
+#: src/features/homepage/footer.tsx
+msgid "Refund policy"
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Refund Policy"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Rehearse aloud"
@@ -9535,11 +9641,6 @@ msgstr "Você de sempre. Menos recomeços."
 msgid "Sample resume added. Delete it anytime."
 msgstr "Exemplo de currículo adicionado. Exclua-o a qualquer momento."
 
-#. Hero headline, line 4 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
-#: src/features/homepage/hero.tsx
-msgid "satu halaman."
-msgstr ""
-
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
@@ -9879,10 +9980,6 @@ msgstr "Pesquisando na web"
 msgid "Searching the web…"
 msgstr "Pesquisando na web…"
 
-#: src/features/homepage/faq.tsx
-msgid "Sebagian. Membuat CV, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk CV beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan."
-msgstr ""
-
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
 msgstr "Segredo copiado para a área de transferência."
@@ -9943,15 +10040,6 @@ msgstr "Documentos selecionados"
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Semantic CSS stylesheet"
 msgstr "Folha de estilo CSS semântica"
-
-#. Hero headline, line 1 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
-#: src/features/homepage/hero.tsx
-msgid "Semua"
-msgstr ""
-
-#: src/features/homepage/hero.tsx
-msgid "Semua yang sudah kamu kerjakan, dalam satu halaman."
-msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -10650,6 +10738,14 @@ msgstr "A data de início deve ser igual ou anterior à data de término."
 msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "Comece cada um com um verbo concreto: construiu, liderou, reduziu, migrou."
 
+#: src/features/billing/pricing.tsx
+msgid "Start free"
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Start free to see whether software can read your CV. If you need a CV tailored to one job or interview practice, pay per document. No subscription, no promise of passing a selection."
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from"
 msgstr "Começar de"
@@ -11057,6 +11153,14 @@ msgstr "Modelos × {templates}"
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "Termos do anúncio de emprego"
+
+#: src/features/homepage/footer.tsx
+msgid "Terms of service"
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Terms of Service"
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Test"
@@ -11772,6 +11876,10 @@ msgstr "Título"
 msgid "To"
 msgstr "Para"
 
+#: src/features/billing/pricing.tsx
+msgid "To try the flow"
+msgstr ""
+
 #: src/features/applications/components/calendar-view.tsx
 #: src/features/resume/share/link-tab.tsx
 #: src/routes/dashboard/career/route.tsx
@@ -12069,6 +12177,10 @@ msgstr "University of Porto"
 msgid "Unknown"
 msgstr "Desconhecido"
 
+#: src/features/billing/pricing.tsx
+msgid "Unlimited ATS checks, no login"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
 msgstr "Desvincular"
@@ -12115,14 +12227,6 @@ msgstr "Carta sem título"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Untitled resume"
 msgstr "Currículo sem título"
-
-#: src/features/homepage/faq.tsx
-msgid "Untuk pencari kerja di Indonesia, terutama mahasiswa tingkat akhir, fresh graduate, dan yang sedang melamar magang atau pekerjaan pertama. Alur, contoh, dan bahasanya dibuat untuk kebutuhan mereka."
-msgstr ""
-
-#: src/features/homepage/faq.tsx
-msgid "Untuk siapa PortoFit?"
-msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Up to 2 minutes. Or <0>choose an audio file</0> up to 2 MB."
@@ -12800,6 +12904,10 @@ msgstr "Quais outros benefícios estão incluídos, como previdência ou auxíli
 msgid "Who can see my resume?"
 msgstr "Quem pode ver meu currículo?"
 
+#: src/features/homepage/faq.tsx
+msgid "Who is PortoFit for?"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Who owns the design system today? What does success look like in 90 days?"
 msgstr "Quem é responsável pelo design system hoje? Como é o sucesso em 90 dias?"
@@ -12946,12 +13054,15 @@ msgid "Written offer"
 msgstr "Proposta por escrito"
 
 #: src/features/homepage/faq.tsx
-msgid "Ya, untuk menyarankan perbaikan kalimat, menyesuaikan CV ke satu iklan lowongan, dan latihan wawancara. Layanan AI sudah disiapkan PortoFit, jadi kamu tidak perlu kunci API sendiri. Isi lamaranmu hanya dikirim ke layanan AI saat kamu memakai fitur itu."
+msgid "Yes, to suggest sharper wording, tailor a CV to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature."
 msgstr ""
 
-#. Hero headline, line 2 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
-#: src/features/homepage/hero.tsx
-msgid "yang sudah"
+#: src/features/homepage/faq.tsx
+msgid "Yes. Every job you save gets its own workspace: check the match against the posting, draft answers from stories you write once, a short plan before the interview, spoken practice with feedback, and notes after the interview."
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Yes. Import a PDF, a LinkedIn data export, JSON Resume, or a PortoFit export, then continue from there. Word files work too."
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -13003,6 +13114,11 @@ msgstr "Você ainda não tem um currículo para copiar. Importe ou crie um curr�
 #: src/features/career/workspace/debrief.tsx
 msgid "You forgot this before, so it wasn't saved again."
 msgstr "Você esqueceu isto antes, então não foi salvo de novo."
+
+#. Hero headline, line 2 of 4: “Semua / yang sudah / kamu kerjakan, / satu halaman.”
+#: src/features/homepage/hero.tsx
+msgid "you have"
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."

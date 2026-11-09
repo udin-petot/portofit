@@ -25,13 +25,13 @@ function useQuestions(): Question[] {
 	return [
 		{
 			id: "who",
-			question: t`Untuk siapa PortoFit?`,
-			answer: t`Untuk pencari kerja di Indonesia, terutama mahasiswa tingkat akhir, fresh graduate, dan yang sedang melamar magang atau pekerjaan pertama. Alur, contoh, dan bahasanya dibuat untuk kebutuhan mereka.`,
+			question: t`Who is PortoFit for?`,
+			answer: t`For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs. The flow, examples, and language are made for their needs.`,
 		},
 		{
 			id: "free",
-			question: t`Apakah PortoFit gratis?`,
-			answer: t`Sebagian. Membuat CV, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk CV beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan.`,
+			question: t`Is PortoFit free?`,
+			answer: t`Partly. Building a CV, checking PDF readability, and saving applications are free. For a CV and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking.`,
 		},
 		{
 			id: "ats",
@@ -46,8 +46,8 @@ function useQuestions(): Question[] {
 		},
 		{
 			id: "import",
-			question: t`Bisa impor CV yang sudah ada?`,
-			answer: t`Bisa. Impor PDF, berkas ekspor data LinkedIn, JSON Resume, atau ekspor PortoFit, lalu lanjutkan dari sana. Berkas Word juga terbaca.`,
+			question: t`Can I import an existing CV?`,
+			answer: t`Yes. Import a PDF, a LinkedIn data export, JSON Resume, or a PortoFit export, then continue from there. Word files work too.`,
 		},
 		{
 			id: "export",
@@ -56,13 +56,13 @@ function useQuestions(): Question[] {
 		},
 		{
 			id: "ai",
-			question: t`Apakah memakai AI?`,
-			answer: t`Ya, untuk menyarankan perbaikan kalimat, menyesuaikan CV ke satu iklan lowongan, dan latihan wawancara. Layanan AI sudah disiapkan PortoFit, jadi kamu tidak perlu kunci API sendiri. Isi lamaranmu hanya dikirim ke layanan AI saat kamu memakai fitur itu.`,
+			question: t`Does it use AI?`,
+			answer: t`Yes, to suggest sharper wording, tailor a CV to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature.`,
 		},
 		{
 			id: "interviews",
-			question: t`Bisa bantu latihan wawancara?`,
-			answer: t`Bisa. Tiap lowongan yang kamu simpan punya ruang kerja sendiri: cek kecocokan dengan iklan, susun jawaban dari cerita yang kamu tulis sekali, rencana singkat sebelum wawancara, latihan bicara dengan umpan balik, lalu catatan setelah wawancara.`,
+			question: t`Can it help me practise interviews?`,
+			answer: t`Yes. Every job you save gets its own workspace: check the match against the posting, draft answers from stories you write once, a short plan before the interview, spoken practice with feedback, and notes after the interview.`,
 		},
 		{
 			id: "self-host",

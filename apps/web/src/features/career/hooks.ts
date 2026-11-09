@@ -187,8 +187,8 @@ export function useGenerate(applicationId: string) {
 			if (creditCode === "CREDIT_REQUIRED") {
 				toast.add({
 					type: "error",
-					description: t`Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara.`,
-					actionProps: { children: t`Beli kredit`, onClick: () => void router.navigate({ to: "/harga" }) },
+					description: t`Out of credits. Buy a package to continue the interview practice session.`,
+					actionProps: { children: t`Buy credits`, onClick: () => void router.navigate({ to: "/harga" }) },
 				});
 				return;
 			}

@@ -5,11 +5,11 @@ export const Route = createFileRoute("/_home/privasi")({
 	component: RouteComponent,
 	head: () => ({
 		meta: [
-			{ title: "Kebijakan Privasi — PortoFit" },
+			{ title: "Privacy Policy — PortoFit" },
 			{
 				name: "description",
 				content:
-					"Data apa yang dikumpulkan PortoFit, mengapa, siapa yang memprosesnya, berapa lama disimpan, dan cara meminta akses atau penghapusan.",
+					"What data PortoFit collects, why, who processes it, how long it is kept, and how to request access or deletion.",
 			},
 		],
 	}),
@@ -18,95 +18,96 @@ export const Route = createFileRoute("/_home/privasi")({
 function RouteComponent() {
 	return (
 		<LegalPage
-			title="Kebijakan Privasi"
-			summary="Kami mengumpulkan data seperlunya untuk menjalankan PortoFit: membuat CV, memeriksa keterbacaan, mencatat lamaran, dan memproses pembayaran. Kami tidak menjual data kamu."
+			title="Privacy Policy"
+			summary="We collect only the data needed to run PortoFit: building a CV, checking readability, tracking applications, and processing payments. We do not sell your data."
 		>
-			<LegalSection title="1. Data yang kami kumpulkan">
+			<LegalSection title="1. Data we collect">
 				<LegalList
 					items={[
-						"Data akun: nama, username, alamat email, dan kata sandi yang disimpan dalam bentuk hash.",
-						"Isi dokumen: CV, cover letter, riwayat lamaran, catatan, jawaban latihan, dan berkas yang kamu unggah.",
-						"Data pembayaran: paket, nominal, kode unik, status pesanan, dan bukti transfer yang kamu unggah. Kami tidak menyimpan nomor kartu atau PIN.",
-						"Data teknis: alamat IP, waktu akses, dan catatan kesalahan secukupnya untuk keamanan dan perbaikan layanan.",
+						"Account data: name, username, email address, and a password stored as a hash.",
+						"Document content: CVs, cover letters, application history, notes, practice answers, and files you upload.",
+						"Payment data: package, amount, unique code, order status, and the transfer proof you upload. We do not store card numbers or PINs.",
+						"Technical data: IP address, access time, and error logs only as needed for security and service fixes.",
 					]}
 				/>
 			</LegalSection>
 
-			<LegalSection title="2. Mengapa data dipakai">
+			<LegalSection title="2. Why we use data">
 				<LegalList
 					items={[
-						"Menyediakan fitur yang kamu minta, termasuk menyimpan dan membuka kembali dokumen.",
-						"Menjalankan pemeriksaan CV, pencocokan lowongan, dan latihan wawancara.",
-						"Memverifikasi pembayaran dan mencatat pemakaian kredit.",
-						"Menjaga layanan dari penyalahgunaan, serta menjawab pertanyaan dukungan.",
+						"To provide the features you ask for, including saving and reopening documents.",
+						"To run CV checks, job matching, and interview practice.",
+						"To verify payments and record credit usage.",
+						"To protect the service from abuse and answer support questions.",
 					]}
 				/>
 			</LegalSection>
 
-			<LegalSection title="3. Pemrosesan oleh AI">
+			<LegalSection title="3. AI processing">
 				<p>
-					Fitur AI mengirim bagian yang relevan — misalnya CV, deskripsi lowongan, atau jawaban latihan — ke penyedia model bahasa melalui
-					gateway yang kami gunakan. Hasilnya berupa draf yang harus kamu periksa. Jangan masukkan data sensitif seperti nomor identitas,
-					nomor rekening, atau data kesehatan ke dalam CV, lamaran, atau jawaban latihan.
+					AI features send the relevant part, such as a CV, a job description, or a practice answer, to a language model
+					provider through the gateway we use. The result is a draft you must check. Do not put sensitive data such as
+					identity numbers, bank account numbers, or health data into a CV, application, or practice answer.
 				</p>
-				<p>Penyedia model dapat memproses data di luar Indonesia sesuai kebijakan mereka sendiri.</p>
+				<p>Model providers may process data outside Indonesia under their own policies.</p>
 			</LegalSection>
 
-			<LegalSection title="4. Siapa yang dapat melihat">
+			<LegalSection title="4. Who can see it">
 				<LegalList
 					items={[
-						"Kamu, melalui akunmu.",
-						"Admin PortoFit, hanya untuk verifikasi pembayaran, dukungan, dan keamanan. Bukti transfer disimpan sebagai berkas privat dan tidak dibuka untuk umum.",
-						"Penyedia infrastruktur: penyedia server, layanan email untuk verifikasi dan pengingat, gateway model AI, serta layanan pesan untuk menyimpan salinan cadangan terenkripsi.",
-						"Pihak lain hanya jika diwajibkan hukum yang berlaku.",
+						"You, through your account.",
+						"PortoFit admins, only for payment verification, support, and security. Transfer proofs are stored as private files and are not public.",
+						"Infrastructure providers: the server provider, the email service for verification and reminders, the AI model gateway, and the messaging service that stores encrypted backup copies.",
+						"Other parties only when applicable law requires it.",
 					]}
 				/>
-				<p>Kami tidak menjual atau menyewakan data pengguna kepada pengiklan.</p>
+				<p>We do not sell or rent user data to advertisers.</p>
 			</LegalSection>
 
-			<LegalSection title="5. Cookie dan penyimpanan lokal">
+			<LegalSection title="5. Cookies and local storage">
 				<p>
-					Kami memakai cookie sesi untuk menjaga kamu tetap masuk dan cookie bahasa untuk mengingat pilihan antarmuka. Draft jawaban latihan
-					dapat tersimpan di penyimpanan lokal browser. Saat ini kami tidak memasang cookie iklan atau pelacak pihak ketiga.
+					We use a session cookie to keep you signed in and a language cookie to remember your interface choice. Practice
+					answer drafts may be stored in your browser's local storage. We do not set advertising cookies or third-party
+					trackers.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="6. Berapa lama disimpan">
+			<LegalSection title="6. How long we keep it">
 				<p>
-					Data akun dan dokumen disimpan selama akun aktif. Saat kamu menghapus akun melalui Pengaturan, data akun dan dokumen dihapus dari
-					sistem utama. Salinan cadangan bergulir maksimal 14 hari sebelum terhapus sendiri. Catatan pembayaran dapat disimpan lebih lama
-					untuk pembukuan dan kewajiban hukum.
+					Account data and documents are kept while the account is active. When you delete your account from Settings, the
+					account and documents are removed from the main system. Rolling backups are kept for at most 14 days before they
+					delete themselves. Payment records may be kept longer for bookkeeping and legal obligations.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="7. Hak kamu">
+			<LegalSection title="7. Your rights">
 				<LegalList
 					items={[
-						"Melihat dan memperbaiki data melalui halaman akun dan dokumen.",
-						"Menghapus akun beserta dokumen melalui Pengaturan → Akun.",
-						"Meminta salinan data atau menjelaskan keberatan atas pemrosesan tertentu melalui WhatsApp di bawah.",
+						"See and correct data through your account and document pages.",
+						"Delete your account and documents through Settings → Account.",
+						"Request a copy of your data or explain an objection to certain processing through WhatsApp below.",
 					]}
 				/>
-				<p>Kami menanggapi permintaan paling lambat 14 hari kerja setelah identitas pemilik akun terverifikasi.</p>
+				<p>We respond within 14 business days after the account owner's identity is verified.</p>
 			</LegalSection>
 
-			<LegalSection title="8. Keamanan">
+			<LegalSection title="8. Security">
 				<p>
-					Koneksi memakai HTTPS, kata sandi disimpan dalam bentuk hash, akses admin dibatasi, dan bukti pembayaran tidak dapat diakses publik.
-					Tidak ada sistem yang sepenuhnya bebas risiko; laporkan dugaan kebocoran melalui WhatsApp agar kami dapat menindaklanjuti.
+					Connections use HTTPS, passwords are hashed, admin access is restricted, and payment proofs are not publicly
+					accessible. No system is completely free of risk. Report a suspected breach on WhatsApp so we can follow up.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="9. Anak dan perubahan">
+			<LegalSection title="9. Children and changes">
 				<p>
-					PortoFit ditujukan untuk pengguna berusia 18 tahun ke atas. Kebijakan ini dapat diperbarui; perubahan penting akan diberitahukan di
-					situs. Versi yang berlaku selalu mencantumkan tanggal di bagian atas halaman.
+					PortoFit is intended for users aged 18 and over. This policy may be updated. Important changes will be announced
+					on the site. The version in force always shows its date at the top of the page.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="10. Kontak">
+			<LegalSection title="10. Contact">
 				<p>
-					Pertanyaan tentang data dan privasi: WhatsApp{" "}
+					Questions about data and privacy: WhatsApp{" "}
 					<a
 						href="https://wa.me/6281939948769"
 						className="font-medium text-accent-text underline-offset-4 hover:underline"
@@ -115,7 +116,7 @@ function RouteComponent() {
 					>
 						0819-3994-8769
 					</a>
-					. Sertakan email akun agar kami dapat menemukan datamu.
+					. Include your account email so we can find your data.
 				</p>
 			</LegalSection>
 		</LegalPage>

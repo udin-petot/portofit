@@ -1,18 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PricingPage } from "@/features/billing/pricing";
+import { getPricingMeta } from "@/libs/seo";
 
 export const Route = createFileRoute("/_home/harga")({
 	component: RouteComponent,
-	head: () => ({
-		meta: [
-			{ title: "Harga — PortoFit" },
-			{
-				name: "description",
-				content:
-					"Harga PortoFit: cek ATS gratis, Rp5.000 per lamaran untuk CV dan cover letter yang disesuaikan, Rp10.000 per sesi latihan wawancara. Bayar QRIS, verifikasi manual.",
-			},
-		],
-	}),
+	head: () => {
+		const { title, description } = getPricingMeta();
+		return { meta: [{ title }, { name: "description", content: description }] };
+	},
 });
 
 function RouteComponent() {

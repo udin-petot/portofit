@@ -18,7 +18,7 @@ const getColumns = (): { id: string; title: string; links: FooterLink[] }[] => [
 		id: "product",
 		title: t`Product`,
 		links: [
-			{ label: "Harga", href: "/harga" },
+			{ label: t`Pricing`, href: "/harga" },
 			{ label: t`Templates`, href: "#design" },
 			{ label: t`Features`, href: "#write" },
 			{ label: t`ATS checker`, to: "/ats-checker" },
@@ -43,9 +43,9 @@ const getColumns = (): { id: string; title: string; links: FooterLink[] }[] => [
 		id: "legal",
 		title: t`Legal`,
 		links: [
-			{ label: "Syarat layanan", href: "/syarat" },
-			{ label: "Kebijakan privasi", href: "/privasi" },
-			{ label: "Pengembalian dana", href: "/refund" },
+			{ label: t`Terms of service`, href: "/syarat" },
+			{ label: t`Privacy policy`, href: "/privasi" },
+			{ label: t`Refund policy`, href: "/refund" },
 			{ label: "WhatsApp", href: "https://wa.me/6281939948769" },
 			{ label: t`MIT License`, href: licenseUrl },
 		],

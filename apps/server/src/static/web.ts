@@ -78,24 +78,24 @@ const BASE_SECURITY_HEADERS = {
 const githubUrl = "https://github.com/udin-petot/portofit";
 // Fallback copy for a build without prerendered pages; a prerendered page carries its own locale's title and
 // description, and the social cards reuse them.
-const ROOT_TITLE = "PortoFit — Persiapan kerja dari CV sampai wawancara";
+const ROOT_TITLE = "PortoFit — Job preparation from CV to interview";
 const ROOT_DESCRIPTION =
-	"PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, cocokkan dengan lowongan, lalu latihan wawancara. Mulai gratis, tanpa iklan.";
-const ATS_CHECKER_TITLE = "Pemeriksa resume ATS gratis — PortoFit";
+	"PortoFit prepares your job application in one flow: build a CV, match it to a job, then practise interviews. Start free, no ads.";
+const ATS_CHECKER_TITLE = "Free ATS resume checker — PortoFit";
 const ATS_CHECKER_DESCRIPTION =
-	"Periksa apakah sistem bisa membaca PDF resume kamu. Berjalan sepenuhnya di browser, jadi berkasmu tidak diunggah.";
-const PRICING_TITLE = "Harga — PortoFit";
+	"Check whether software can read your resume PDF. Runs entirely in your browser, so your file is never uploaded.";
+const PRICING_TITLE = "Pricing — PortoFit";
 const PRICING_DESCRIPTION =
-	"Cek ATS gratis, Rp5.000 per lamaran untuk CV dan cover letter yang disesuaikan, Rp10.000 per sesi latihan wawancara. Bayar QRIS, verifikasi manual.";
-const TERMS_TITLE = "Syarat Layanan — PortoFit";
+	"Free ATS checks, Rp5,000 per application for a tailored CV and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually.";
+const TERMS_TITLE = "Terms of Service — PortoFit";
 const TERMS_DESCRIPTION =
-	"Aturan pemakaian PortoFit: akun, konten, kredit dan pembayaran, batas kemampuan AI, serta tanggung jawab pengguna.";
-const PRIVACY_TITLE = "Kebijakan Privasi — PortoFit";
+	"Rules for using PortoFit: accounts, content, credits and payments, AI limits, and user responsibilities.";
+const PRIVACY_TITLE = "Privacy Policy — PortoFit";
 const PRIVACY_DESCRIPTION =
-	"Data apa yang dikumpulkan PortoFit, mengapa, siapa yang memprosesnya, berapa lama disimpan, dan cara meminta akses atau penghapusan.";
-const REFUND_TITLE = "Pengembalian Dana — PortoFit";
+	"What data PortoFit collects, why, who processes it, how long it is kept, and how to request access or deletion.";
+const REFUND_TITLE = "Refund Policy — PortoFit";
 const REFUND_DESCRIPTION =
-	"Kapan kredit PortoFit dapat dikembalikan, kapan tidak, dan cara mengajukan pengembalian lewat WhatsApp.";
+	"When PortoFit credits can be refunded, when they cannot, and how to request a refund on WhatsApp.";
 
 type StructuredData = Record<string, unknown>;
 
@@ -137,15 +137,15 @@ function homepageStructuredData(origin: string): StructuredData {
 				codeRepository: githubUrl,
 				publisher: { "@id": `${origin}/#organization` },
 				featureList: [
-					"Editor resume dengan pratinjau halaman langsung",
-					`${templateSchema.options.length} template`,
-					"Ekspor PDF, Word (DOCX), Markdown, dan JSON",
-					"Impor dari PDF, LinkedIn, JSON Resume, dan Word",
-					"Pemeriksa keterbacaan ATS",
-					"Tautan berbagi publik atau dengan kata sandi",
-					"Cover letter dan pelacak lamaran kerja",
-					"Asisten AI opsional dengan kunci API sendiri",
-					"Self-hosting dengan Docker",
+					"Resume editor with a live page preview",
+					`${templateSchema.options.length} templates`,
+					"PDF, Word (DOCX), Markdown, and JSON export",
+					"Import from PDF, LinkedIn, JSON Resume, and Word",
+					"ATS readability checker",
+					"Public or password-protected share links",
+					"Cover letters and a job application tracker",
+					"Optional AI assistant with your own API key",
+					"Self-hosting with Docker",
 				],
 			},
 		],

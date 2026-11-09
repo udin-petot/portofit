@@ -5,10 +5,11 @@ export const Route = createFileRoute("/_home/syarat")({
 	component: RouteComponent,
 	head: () => ({
 		meta: [
-			{ title: "Syarat Layanan — PortoFit" },
+			{ title: "Terms of Service — PortoFit" },
 			{
 				name: "description",
-				content: "Aturan pemakaian PortoFit: akun, konten, kredit dan pembayaran, batas kemampuan AI, serta tanggung jawab pengguna.",
+				content:
+					"Rules for using PortoFit: accounts, content, credits and payments, AI limits, and user responsibilities.",
 			},
 		],
 	}),
@@ -17,104 +18,106 @@ export const Route = createFileRoute("/_home/syarat")({
 function RouteComponent() {
 	return (
 		<LegalPage
-			title="Syarat Layanan"
-			summary="Dengan membuat akun atau memakai PortoFit, kamu menyetujui syarat ini. Bacalah bagian kredit, pembayaran, dan batas kemampuan AI sebelum membeli."
+			title="Terms of Service"
+			summary="By creating an account or using PortoFit, you agree to these terms. Read the sections on credits, payments, and AI limits before buying."
 		>
-			<LegalSection title="1. Layanan">
+			<LegalSection title="1. Service">
 				<p>
-					PortoFit membantu menyusun CV, memeriksa keterbacaan CV oleh sistem pelacak lamaran (ATS), mencatat lamaran, menyusun draf pesan, dan
-					berlatih wawancara. PortoFit bukan agen rekrutmen dan tidak menjamin kamu dipanggil atau diterima kerja.
+					PortoFit helps you build a CV, check how applicant tracking systems (ATS) read it, track applications, draft
+					messages, and practise interviews. PortoFit is not a recruitment agency and does not guarantee an interview
+					or a job.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="2. Akun">
+			<LegalSection title="2. Account">
 				<LegalList
 					items={[
-						"Kamu harus berusia 18 tahun ke atas dan memberikan data yang benar.",
-						"Kamu bertanggung jawab menjaga kata sandi, perangkat, dan kode pemulihan akun.",
-						"Satu orang tidak boleh memakai akun bersama untuk menghindari penyalahgunaan kredit.",
-						"Kami dapat menangguhkan akun yang melanggar syarat ini atau merugikan pengguna lain.",
+						"You must be at least 18 years old and provide accurate information.",
+						"You are responsible for keeping your password, devices, and account recovery codes safe.",
+						"One person may not share an account to avoid credit abuse.",
+						"We may suspend accounts that break these terms or harm other users.",
 					]}
 				/>
 			</LegalSection>
 
-			<LegalSection title="3. Penggunaan yang dilarang">
+			<LegalSection title="3. Prohibited use">
 				<LegalList
 					items={[
-						"Mengunggah konten ilegal, menyesatkan, atau milik orang lain tanpa izin.",
-						"Mengirim spam, mencoba menembus sistem, atau mengakses akun orang lain.",
-						"Menyalin layanan secara massal, melakukan scraping otomatis, atau membebani server secara sengaja.",
-						"Memakai PortoFit untuk melamar dengan identitas atau pengalaman yang dipalsukan.",
+						"Uploading illegal, misleading, or other people's content without permission.",
+						"Sending spam, trying to break into the system, or accessing another person's account.",
+						"Copying the service at scale, scraping automatically, or deliberately overloading the server.",
+						"Using PortoFit to apply with a false identity or invented experience.",
 					]}
 				/>
 			</LegalSection>
 
-			<LegalSection title="4. Konten kamu">
+			<LegalSection title="4. Your content">
 				<p>
-					Isi CV, surat, catatan, dan jawaban tetap milikmu. Kamu memberi kami izin terbatas untuk menyimpan, menampilkan, dan memproses konten
-					tersebut semata-mata agar fitur PortoFit dapat berjalan. Kamu bertanggung jawab atas kebenaran isinya.
+					Your CV, letters, notes, and answers remain yours. You give us limited permission to store, display, and process
+					that content only so PortoFit features can work. You are responsible for the accuracy of what you write.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="5. Kredit, harga, dan pembayaran">
+			<LegalSection title="5. Credits, prices, and payments">
 				<LegalList
 					items={[
-						"Kredit lamaran Rp5.000 per kredit; kredit wawancara Rp10.000 per kredit. Harga yang berlaku ditampilkan di halaman Harga sebelum kamu membeli.",
-						"Pembayaran memakai QRIS dengan kode unik tiga digit. Nominal yang harus dibayar adalah total pesanan, bukan harga paket saja.",
-						"Pembayaran diverifikasi manual oleh admin. Kredit masuk setelah bukti bayar sesuai dan diverifikasi.",
-						"Tindakan yang memotong kredit ditandai di antarmuka sebelum dijalankan. Kredit yang sudah terpakai tidak dapat dikembalikan, kecuali tindakan gagal karena kesalahan sistem.",
-						"Kredit tidak memiliki masa kedaluwarsa selama akun aktif.",
+						"Application credits cost Rp5,000 each. Interview credits cost Rp10,000 each. The price shown on the Pricing page applies when you buy.",
+						"Payments use QRIS with a three-digit unique code. You must pay the order total, not only the package price.",
+						"An admin verifies every payment manually. Credits arrive after the proof matches and is verified.",
+						"Actions that spend credits are marked in the interface before they run. Spent credits are not refundable unless the action failed because of a system error.",
+						"Credits do not expire while your account is active.",
 					]}
 				/>
 				<p>
-					Ketentuan pengembalian dana diatur di{" "}
+					Refund terms are set out in the{" "}
 					<a href="/refund" className="font-medium text-accent-text underline-offset-4 hover:underline">
-						Kebijakan Pengembalian Dana
+						Refund Policy
 					</a>
 					.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="6. AI dan hasil otomatis">
+			<LegalSection title="6. AI and automated output">
 				<p>
-					Hasil AI adalah draf, bukan fakta atau jaminan. Model dapat salah, melewatkan sesuatu, atau menghasilkan saran yang tidak cocok. Kamu
-					wajib memeriksa setiap klaim, tanggal, dan angka sebelum mengirim dokumen ke perekrut. PortoFit tidak memberikan nasihat hukum,
-					imigrasi, atau ketenagakerjaan.
+					AI output is a draft, not a fact or a guarantee. A model can be wrong, miss something, or produce advice that
+					does not fit. You must check every claim, date, and number before sending a document to a recruiter. PortoFit
+					does not provide legal, immigration, or employment advice.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="7. Ketersediaan">
+			<LegalSection title="7. Availability">
 				<p>
-					Kami berusaha menjaga layanan tetap berjalan, tetapi dapat menghentikan sementara untuk perawatan, pembaruan, atau keadaan di luar
-					kendali. Tidak ada jaminan ketersediaan tanpa gangguan.
+					We try to keep the service running, but we may pause it for maintenance, updates, or events outside our
+					control. We do not guarantee uninterrupted availability.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="8. Kekayaan intelektual">
+			<LegalSection title="8. Intellectual property">
 				<p>
-					Merek, desain, dan konten situs PortoFit dilindungi hukum yang berlaku. Kode sumber tersedia di repositori publik dengan lisensi MIT;
-					lisensi itu tidak memberi hak untuk memakai merek PortoFit secara menyesatkan.
+					PortoFit's brand, design, and site content are protected by applicable law. The source code is available in a
+					public repository under the MIT License. That licence does not give you the right to use the PortoFit brand in a
+					misleading way.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="9. Batas tanggung jawab">
+			<LegalSection title="9. Limitation of liability">
 				<p>
-					Sejauh diizinkan hukum, PortoFit tidak bertanggung jawab atas kerugian tidak langsung, kehilangan peluang kerja, atau kerugian yang
-					timbul dari keputusan yang kamu ambil berdasarkan hasil AI. Tanggung jawab kami atas kerugian langsung dibatasi pada jumlah yang kamu
-					bayarkan dalam tiga bulan terakhir.
+					To the extent the law allows, PortoFit is not liable for indirect losses, lost job opportunities, or losses
+					arising from decisions you make based on AI output. Our liability for direct losses is limited to the amount you
+					paid in the last three months.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="10. Penghentian dan perubahan">
+			<LegalSection title="10. Termination and changes">
 				<p>
-					Kamu dapat berhenti kapan saja dengan menghapus akun. Kami dapat menutup akun yang melanggar syarat ini. Syarat dapat diperbarui;
-					perubahan penting diberitahukan di situs dan berlaku sejak tanggal yang tercantum.
+					You can stop at any time by deleting your account. We may close accounts that break these terms. These terms may
+					be updated. Important changes are announced on the site and apply from the date shown.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="11. Hukum yang berlaku dan kontak">
+			<LegalSection title="11. Governing law and contact">
 				<p>
-					Syarat ini tunduk pada hukum Republik Indonesia. Pertanyaan atau keberatan: WhatsApp{" "}
+					These terms are governed by the laws of the Republic of Indonesia. Questions or objections: WhatsApp{" "}
 					<a
 						href="https://wa.me/6281939948769"
 						className="font-medium text-accent-text underline-offset-4 hover:underline"

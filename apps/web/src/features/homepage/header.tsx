@@ -94,7 +94,7 @@ export function LandingHeader() {
 					href="/harga"
 					className="font-martian flex h-[34px] items-center rounded-full px-[11px] text-[11px] leading-none font-medium tracking-[.08em] uppercase font-stretch-[87.5%] opacity-65 transition-opacity duration-300 hover:opacity-100"
 				>
-					Harga
+					{t`Pricing`}
 				</a>
 			</nav>
 
@@ -134,10 +134,10 @@ export function LandingHeader() {
 					</nav>
 					<div className="grid gap-0.5 border-t border-line pt-3">
 						<a href="/harga" className="flex h-11 items-center rounded-lg px-3 text-sm text-ink transition-colors hover:bg-hover">
-							Harga
+							{t`Pricing`}
 						</a>
 						<a href="/ats-checker" className="flex h-11 items-center rounded-lg px-3 text-sm text-ink transition-colors hover:bg-hover">
-							Pemeriksa ATS
+							{t`ATS checker`}
 						</a>
 					</div>
 				</DialogContent>
