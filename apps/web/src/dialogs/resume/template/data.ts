@@ -2,14 +2,38 @@ import type { MessageDescriptor } from "@lingui/core";
 import type { Template } from "@reactive-resume/schema/templates";
 import { msg } from "@lingui/core/macro";
 
+export type TemplateStyle = "editorial" | "swiss" | "studio" | "compact" | "technical" | "academic" | "humanist";
+
 export type TemplateMetadata = {
 	name: string;
 	description: MessageDescriptor;
 	imageUrl: string;
 	tags: string[];
+	style?: TemplateStyle;
 };
 
 export const templates = {
+	swiss: {
+		name: "Swiss",
+		description: msg`One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for tech, product and consulting roles.`,
+		imageUrl: "/templates/jpg/swiss.jpg",
+		tags: ["One column", "ATS friendly", "Modern", "Grid", "Tech", "Consulting"],
+		style: "swiss",
+	},
+	compact: {
+		name: "Compact",
+		description: msg`One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems.`,
+		imageUrl: "/templates/jpg/compact.jpg",
+		tags: ["One column", "ATS friendly", "Compact", "Fresh graduate", "Job portal"],
+		style: "compact",
+	},
+	studio: {
+		name: "Studio",
+		description: msg`Two columns with a soft neutral sidebar and a serif name. Visual without the heavy colour blocks, for design, creative and portfolio roles.`,
+		imageUrl: "/templates/jpg/studio.jpg",
+		tags: ["Two columns", "Creative", "Designer", "Portfolio", "Serif", "Soft sidebar"],
+		style: "studio",
+	},
 	azurill: {
 		name: "Azurill",
 		description: msg`Two-column with a bold colored sidebar and skill bars; great for creative or tech roles where visual flair is welcome.`,

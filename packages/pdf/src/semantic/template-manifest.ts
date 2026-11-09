@@ -5,6 +5,7 @@ import type { Template } from "@reactive-resume/schema/templates";
 import { azurillSemanticManifest } from "../templates/azurill/semantic";
 import { bronzorSemanticManifest } from "../templates/bronzor/semantic";
 import { chikoritaSemanticManifest } from "../templates/chikorita/semantic";
+import { compactSemanticManifest } from "../templates/compact/semantic";
 import { ditgarSemanticManifest } from "../templates/ditgar/semantic";
 import { dittoSemanticManifest } from "../templates/ditto/semantic";
 import { gengarSemanticManifest } from "../templates/gengar/semantic";
@@ -20,6 +21,8 @@ import { porygonSemanticManifest } from "../templates/porygon/semantic";
 import { rhyhornSemanticManifest } from "../templates/rhyhorn/semantic";
 import { scizorSemanticManifest } from "../templates/scizor/semantic";
 import { smeargleSemanticManifest } from "../templates/smeargle/semantic";
+import { studioSemanticManifest } from "../templates/studio/semantic";
+import { swissSemanticManifest } from "../templates/swiss/semantic";
 import { SHARED_BINDING_REGISTRY } from "./binding-inventory";
 
 export type TemplateSemanticPlacement = "main" | "sidebar";
@@ -153,6 +156,9 @@ const TEMPLATE_SEMANTIC_MANIFESTS = {
 	rhyhorn: rhyhornSemanticManifest,
 	scizor: scizorSemanticManifest,
 	smeargle: smeargleSemanticManifest,
+	swiss: swissSemanticManifest,
+	compact: compactSemanticManifest,
+	studio: studioSemanticManifest,
 } as const satisfies Readonly<Record<Template, TemplateSemanticManifest>>;
 
 export function getTemplateSemanticManifest(template: Template): TemplateSemanticManifest {

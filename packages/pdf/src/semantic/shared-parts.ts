@@ -25,8 +25,23 @@ export const baseManifest = <const T extends Template, const P extends readonly 
 		...(canonicalBindings ? { canonicalBindings } : {}),
 	}) as const satisfies TemplateSemanticManifest;
 
-/**
- * Sections whose item header is a single title/date row rendered by the shared split-row layout.
+/** One reading order: the sidebar sections print after the main sections, as on every one-column template. */
+export const oneColumnManifest = <const T extends Template, const P extends readonly TemplateSemanticPart[]>(
+	template: T,
+	parts: P,
+) =>
+	({
+		template,
+		regions: [
+			{ name: "header", placement: "main", origins: [] },
+			{ name: "main", placement: "main", origins: ["main", "sidebar"] },
+		],
+		header: { region: "header", placement: "main" },
+		specialSummary: null,
+		parts,
+	}) as const satisfies TemplateSemanticManifest;
+
+/** Sections whose item header is a single title/date row rendered by the shared split-row layout.
  *
  * Experience, education and volunteer are deliberately excluded: they render two stacked rows, and
  * on templates with the `inlineItemHeader` feature their header is owned by the
