@@ -19,6 +19,7 @@ import { PorygonPage } from "./porygon/PorygonPage";
 import { RhyhornPage } from "./rhyhorn/RhyhornPage";
 import { ScizorPage } from "./scizor/ScizorPage";
 import { SmearglePage } from "./smeargle/SmearglePage";
+import { StudioPage } from "./studio/StudioPage";
 import { SwissPage } from "./swiss/SwissPage";
 
 const templatePages: Partial<Record<Template, TemplatePage>> = {
@@ -41,6 +42,7 @@ const templatePages: Partial<Record<Template, TemplatePage>> = {
 	rhyhorn: RhyhornPage,
 	scizor: ScizorPage,
 	smeargle: SmearglePage,
+	studio: StudioPage,
 	swiss: SwissPage,
 };
 
