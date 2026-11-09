@@ -2143,6 +2143,10 @@ msgstr "លេខ​កូដ​បម្រុងទុក​ត្រូវ​
 msgid "Banner"
 msgstr "បដា"
 
+#: src/components/level/combobox.tsx
+msgid "Bar + Percentage"
+msgstr ""
+
 #: src/features/homepage/hero.tsx
 msgid "Barista, 2012"
 msgstr "Barista ឆ្នាំ 2012"
@@ -3612,6 +3616,10 @@ msgstr "បានបង្កើត \"{finalName}\""
 #: src/features/documents/new-document-dialog.tsx
 msgid "Created and linked to {0}"
 msgstr "បានបង្កើត និងភ្ជាប់ទៅ {0}"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
+msgid "Creative only: graphic levels are not ATS-safe. Use Hidden for job portals."
+msgstr ""
 
 #: src/features/billing/pricing.tsx
 msgid "Credits are used per document: one application credit for one tailored CV and cover letter, one interview credit for one practice session. Credits do not expire."
@@ -10720,6 +10728,10 @@ msgstr "ផ្ដល់​ផ្កាយ​ឲ្យ​យើង​លើ GitHu
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
 msgstr "ផ្ដល់​ផ្កាយ​ឲ្យ​យើង​លើ GitHub បច្ចុប្បន្ន​មាន {0} ផ្កាយ (បើក​ក្នុង​ផ្ទាំង​ថ្មី)"
+
+#: src/components/level/combobox.tsx
+msgid "Stars"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Stars on GitHub"

@@ -2143,6 +2143,10 @@ msgstr "백업 코드가 클립보드에 복사되었습니다."
 msgid "Banner"
 msgstr "기치"
 
+#: src/components/level/combobox.tsx
+msgid "Bar + Percentage"
+msgstr ""
+
 #: src/features/homepage/hero.tsx
 msgid "Barista, 2012"
 msgstr "바리스타, 2012"
@@ -3612,6 +3616,10 @@ msgstr "“{finalName}”를 만들었습니다."
 #: src/features/documents/new-document-dialog.tsx
 msgid "Created and linked to {0}"
 msgstr "{0}를 생성하고 연결했습니다."
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
+msgid "Creative only: graphic levels are not ATS-safe. Use Hidden for job portals."
+msgstr ""
 
 #: src/features/billing/pricing.tsx
 msgid "Credits are used per document: one application credit for one tailored CV and cover letter, one interview credit for one practice session. Credits do not expire."
@@ -10720,6 +10728,10 @@ msgstr "GitHub에서 Star 누르기(새 탭에서 열림)"
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
 msgstr "GitHub에서 Star 누르기, 현재 {0}개 스타(새 탭에서 열림)"
+
+#: src/components/level/combobox.tsx
+msgid "Stars"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Stars on GitHub"

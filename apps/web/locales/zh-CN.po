@@ -2143,6 +2143,10 @@ msgstr "备份码已复制到剪贴板。"
 msgid "Banner"
 msgstr "横幅"
 
+#: src/components/level/combobox.tsx
+msgid "Bar + Percentage"
+msgstr ""
+
 #: src/features/homepage/hero.tsx
 msgid "Barista, 2012"
 msgstr "咖啡师，2012"
@@ -3612,6 +3616,10 @@ msgstr "创建“{finalName}”"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Created and linked to {0}"
 msgstr "创建并链接到 {0}"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
+msgid "Creative only: graphic levels are not ATS-safe. Use Hidden for job portals."
+msgstr ""
 
 #: src/features/billing/pricing.tsx
 msgid "Credits are used per document: one application credit for one tailored CV and cover letter, one interview credit for one practice session. Credits do not expire."
@@ -10720,6 +10728,10 @@ msgstr "在 GitHub 上为我们加星（在新标签页中打开）"
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
 msgstr "在 GitHub 上为我们加星，目前有 {0} 颗星（在新标签页中打开）"
+
+#: src/components/level/combobox.tsx
+msgid "Stars"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Stars on GitHub"

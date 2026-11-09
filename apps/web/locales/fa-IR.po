@@ -2143,6 +2143,10 @@ msgstr "کدهای پشتیبان در کلیپ‌بورد کپی شدند."
 msgid "Banner"
 msgstr "بنر"
 
+#: src/components/level/combobox.tsx
+msgid "Bar + Percentage"
+msgstr ""
+
 #: src/features/homepage/hero.tsx
 msgid "Barista, 2012"
 msgstr "باریستا، 2012"
@@ -3612,6 +3616,10 @@ msgstr "ایجاد \"{finalName}\""
 #: src/features/documents/new-document-dialog.tsx
 msgid "Created and linked to {0}"
 msgstr "ایجاد و به {0} پیوند داده شد"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
+msgid "Creative only: graphic levels are not ATS-safe. Use Hidden for job portals."
+msgstr ""
 
 #: src/features/billing/pricing.tsx
 msgid "Credits are used per document: one application credit for one tailored CV and cover letter, one interview credit for one practice session. Credits do not expire."
@@ -10720,6 +10728,10 @@ msgstr "در GitHub برای ما ستاره بگذارید (در زبانهٔ �
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
 msgstr "در GitHub برای ما ستاره بگذارید، در حال حاضر {0} ستاره (در زبانهٔ جدید باز می‌شود)"
+
+#: src/components/level/combobox.tsx
+msgid "Stars"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Stars on GitHub"

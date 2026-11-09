@@ -2364,6 +2364,10 @@ msgstr "Kode cadangan disalin ke papan klip."
 msgid "Banner"
 msgstr "Spanduk"
 
+#: src/components/level/combobox.tsx
+msgid "Bar + Percentage"
+msgstr "Bar + Persentase"
+
 #: src/features/homepage/hero.tsx
 msgid "Barista, 2012"
 msgstr "Barista, 2012"
@@ -3923,6 +3927,13 @@ msgstr "Dibuat “{finalName}”"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Created and linked to {0}"
 msgstr "Dibuat dan ditautkan ke {0}"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
+msgid ""
+"Creative only: graphic levels are not ATS-safe. Use Hidden for job portals."
+msgstr ""
+"Hanya untuk kreatif: level grafik tidak aman untuk ATS. Pilih Hidden untuk "
+"portal kerja."
 
 #: src/features/billing/pricing.tsx
 msgid ""
@@ -11663,6 +11674,10 @@ msgstr "Beri bintang kami di GitHub (terbuka di tab baru)"
 msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
 msgstr ""
 "Beri bintang kami di GitHub, saat ini {0} bintang (terbuka di tab baru)"
+
+#: src/components/level/combobox.tsx
+msgid "Stars"
+msgstr "Bintang"
 
 #: src/features/homepage/sections.tsx
 msgid "Stars on GitHub"

@@ -265,6 +265,12 @@ function LevelSectionForm() {
 				/>
 			</div>
 
+			{previewType !== "hidden" && (
+				<p className="text-muted-foreground text-xs leading-relaxed">
+					<Trans>Creative only: graphic levels are not ATS-safe. Use Hidden for job portals.</Trans>
+				</p>
+			)}
+
 			<div className="flex items-center gap-3">
 				<form.Field name="icon">
 					{(field) => (

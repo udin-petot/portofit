@@ -569,9 +569,19 @@ export const pageSchema = z.object({
 export const levelDesignSchema = z.object({
 	icon: iconSchema,
 	type: z
-		.enum(["hidden", "circle", "square", "rectangle", "rectangle-full", "progress-bar", "icon"])
+		.enum([
+			"hidden",
+			"circle",
+			"square",
+			"rectangle",
+			"rectangle-full",
+			"progress-bar",
+			"progress-bar-percent",
+			"stars",
+			"icon",
+		])
 		.describe(
-			"The type of the level design. 'hidden' will hide the level design, 'circle' will display a circle, 'square' will display a square, 'rectangle' will display a rectangle, 'rectangle-full' will display a full rectangle, 'progress-bar' will display a progress bar, and 'icon' will display an icon. If 'icon' is selected, the icon to display should be specified in the 'icon' field.",
+			"The type of the level design. 'hidden' will hide the level design, 'circle' will display a circle, 'square' will display a square, 'rectangle' will display a rectangle, 'rectangle-full' will display a full rectangle, 'progress-bar' will display a progress bar, 'progress-bar-percent' will display a progress bar with a percentage label, 'stars' will display five stars, and 'icon' will display an icon. If 'icon' is selected, the icon to display should be specified in the 'icon' field.",
 		),
 });
 
