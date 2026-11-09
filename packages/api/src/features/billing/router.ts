@@ -1,4 +1,5 @@
 import type { User } from "better-auth";
+import { z } from "zod";
 import { protectedProcedure, publicProcedure } from "../../context";
 import { billingDto } from "../../dto/billing";
 import { billingService } from "./service";
@@ -18,6 +19,7 @@ export const billingRouter = {
 			description: "Returns every active plan. Public: the pricing page renders before sign-in.",
 			successDescription: "The active plans, cheapest first.",
 		})
+		.input(z.object({}).optional())
 		.output(billingDto.listPlans.output)
 		.handler(() => billingService.listPlans()),
 
@@ -31,6 +33,7 @@ export const billingRouter = {
 			description: "Returns the signed-in user's remaining credits for applications and interviews.",
 			successDescription: "Remaining credits per kind.",
 		})
+		.input(z.object({}).optional())
 		.output(billingDto.balances.output)
 		.handler(({ context }) => billingService.balances(context.user.id)),
 
@@ -85,7 +88,8 @@ export const billingRouter = {
 			tags: ["Billing"],
 			operationId: "consumeBillingCredit",
 			summary: "Consume one credit",
-			description: "Spends one credit of the given kind. Returns 403 with code CREDIT_REQUIRED when the balance is empty.",
+			description:
+				"Spends one credit of the given kind. Returns 403 with code CREDIT_REQUIRED when the balance is empty.",
 			successDescription: "The remaining balance.",
 		})
 		.input(billingDto.consumeCredit.input)
@@ -116,6 +120,7 @@ export const billingRouter = {
 			description: "Counts and revenue for the admin panel. Requires the admin role.",
 			successDescription: "Billing totals.",
 		})
+		.input(z.object({}).optional())
 		.output(billingDto.adminSummary.output)
 		.handler(({ context }) => billingService.adminSummary(roleOf(context.user))),
 
@@ -218,7 +223,8 @@ export const billingRouter = {
 			tags: ["Admin"],
 			operationId: "adminAdjustBillingCredits",
 			summary: "Adjust a user's credits",
-			description: "Adds or removes credits with a mandatory reason; every change lands in the ledger and the audit log.",
+			description:
+				"Adds or removes credits with a mandatory reason; every change lands in the ledger and the audit log.",
 			successDescription: "The updated balances.",
 		})
 		.input(billingDto.adminAdjustCredits.input)
@@ -253,6 +259,7 @@ export const billingRouter = {
 			description: "Returns a CSV string for the finance appendix. Requires the admin role.",
 			successDescription: "The CSV content.",
 		})
+		.input(z.object({}).optional())
 		.output(billingDto.adminExportCsv.output)
 		.handler(({ context }) => billingService.adminExportCsv(roleOf(context.user))),
 
