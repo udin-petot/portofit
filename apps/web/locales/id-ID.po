@@ -8369,6 +8369,22 @@ msgstr ""
 msgid "One column"
 msgstr "Satu kolom"
 
+#: src/dialogs/resume/template/data.ts
+msgid ""
+"One column with a strict grid, right-aligned dates and no icons. A calm, "
+"modern choice for tech, product and consulting roles."
+msgstr ""
+"Satu kolom dengan grid ketat, tanggal rata kanan, dan tanpa ikon. Pilihan "
+"tenang dan modern untuk peran teknologi, produk, dan konsultasi."
+
+#: src/dialogs/resume/template/data.ts
+msgid ""
+"One column with compact spacing and standard headings. Built for fresh "
+"graduates applying through job portals and applicant tracking systems."
+msgstr ""
+"Satu kolom dengan jarak rapat dan judul bagian standar. Dibuat untuk fresh "
+"graduate yang melamar lewat portal kerja dan sistem pelacak lamaran."
+
 #: src/features/homepage/check.tsx
 msgid "one format"
 msgstr "satu format"
@@ -13163,6 +13179,15 @@ msgstr "Aktifkan jadwal ini"
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Two columns"
 msgstr "Dua kolom"
+
+#: src/dialogs/resume/template/data.ts
+msgid ""
+"Two columns with a soft neutral sidebar and a serif name. Visual without the"
+" heavy colour blocks, for design, creative and portfolio roles."
+msgstr ""
+"Dua kolom dengan sidebar netral yang lembut dan nama berhuruf serif. Menarik"
+" secara visual tanpa blok warna berat, untuk peran desain, kreatif, dan "
+"portofolio."
 
 #: src/features/homepage/check.tsx
 msgid "Two date formats found"

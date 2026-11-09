@@ -7745,6 +7745,14 @@ msgstr "몇 개의 입사 지원서를 보내고 나면 지원서의 도달 범�
 msgid "One column"
 msgstr "열 1개"
 
+#: src/dialogs/resume/template/data.ts
+msgid "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for tech, product and consulting roles."
+msgstr ""
+
+#: src/dialogs/resume/template/data.ts
+msgid "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
+msgstr ""
+
 #: src/features/homepage/check.tsx
 msgid "one format"
 msgstr "형식 통일"
@@ -12031,6 +12039,10 @@ msgstr "이 스케줄 켜기"
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Two columns"
 msgstr "두 개의 열"
+
+#: src/dialogs/resume/template/data.ts
+msgid "Two columns with a soft neutral sidebar and a serif name. Visual without the heavy colour blocks, for design, creative and portfolio roles."
+msgstr ""
 
 #: src/features/homepage/check.tsx
 msgid "Two date formats found"

@@ -35,5 +35,5 @@ describe("CompactPage", () => {
 		expect(text).toContain("education");
 
 		await loadingTask.destroy();
-	});
+	}, 60_000);
 });

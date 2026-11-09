@@ -2,7 +2,7 @@ import type { TemplatePageProps } from "../../document";
 import type { Style } from "../../forme/style-types";
 import type { TemplateColorRoles, TemplateStyleSlots } from "../shared/types";
 import { useMemo } from "react";
-import { Page, StyleSheet } from "#react-pdf-renderer";
+import { Page, StyleSheet, View } from "#react-pdf-renderer";
 import { useRender } from "../../context";
 import { useRenderedSectionIds, useResolvedNode } from "../../semantic/context";
 import { semanticNodeKeys } from "../../semantic/node-keys";
@@ -16,7 +16,15 @@ import {
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
-import { Heading, SemanticContactListView, SemanticHeaderView, SemanticRegionView, Text } from "../shared/primitives";
+import { hasTemplatePicture } from "../shared/picture";
+import {
+	Heading,
+	SemanticContactListView,
+	SemanticHeaderPicture,
+	SemanticHeaderView,
+	SemanticRegionView,
+	Text,
+} from "../shared/primitives";
 import { Section } from "../shared/sections";
 import { composeStyles } from "../shared/styles";
 import { useTemplateBase } from "../shared/template-base";
@@ -24,11 +32,13 @@ import { useTemplateBase } from "../shared/template-base";
 type CompactStyles = Omit<TemplateStyleSlots, "page"> & {
 	page: Style;
 	header: Style;
+	headerMain: Style;
 	headerName: Style;
 	headerHeadline: Style;
 	contactList: Style;
 	contactItem: Style;
 	contactText: Style;
+	picture: Style;
 	sections: Style;
 };
 
@@ -76,27 +86,32 @@ export const CompactPage = ({ page, pageSize, pageMinHeightStyle, showHeader, pa
 };
 
 const Header = ({ styles }: CompactHeaderProps) => {
-	const { basics } = useRender();
+	const { basics, picture } = useRender();
+	const hasPicture = hasTemplatePicture(picture);
 
 	return (
 		<SemanticHeaderView style={styles.header}>
-			<Heading style={styles.headerName}>{basics.name}</Heading>
-			{basics.headline && <Text style={styles.headerHeadline}>{basics.headline}</Text>}
+			<View style={styles.headerMain}>
+				<Heading style={styles.headerName}>{basics.name}</Heading>
+				{basics.headline && <Text style={styles.headerHeadline}>{basics.headline}</Text>}
 
-			<SemanticContactListView style={styles.contactList}>
-				<EmailContactItem email={basics.email} style={styles.contactItem} textStyle={styles.contactText} />
-				<PhoneContactItem phone={basics.phone} style={styles.contactItem} textStyle={styles.contactText} />
-				<LocationContactItem location={basics.location} style={styles.contactItem} textStyle={styles.contactText} />
-				<WebsiteContactItem website={basics.website} style={styles.contactItem} textStyle={styles.contactText} />
-				{basics.customFields.map((field) => (
-					<CustomFieldContactItem
-						key={field.id}
-						field={field}
-						style={styles.contactItem}
-						textStyle={styles.contactText}
-					/>
-				))}
-			</SemanticContactListView>
+				<SemanticContactListView style={styles.contactList}>
+					<EmailContactItem email={basics.email} style={styles.contactItem} textStyle={styles.contactText} />
+					<PhoneContactItem phone={basics.phone} style={styles.contactItem} textStyle={styles.contactText} />
+					<LocationContactItem location={basics.location} style={styles.contactItem} textStyle={styles.contactText} />
+					<WebsiteContactItem website={basics.website} style={styles.contactItem} textStyle={styles.contactText} />
+					{basics.customFields.map((field) => (
+						<CustomFieldContactItem
+							key={field.id}
+							field={field}
+							style={styles.contactItem}
+							textStyle={styles.contactText}
+						/>
+					))}
+				</SemanticContactListView>
+			</View>
+
+			{hasPicture && <SemanticHeaderPicture src={picture.url} style={styles.picture} />}
 		</SemanticHeaderView>
 	);
 };
@@ -118,8 +133,13 @@ const useCompactTemplate = (): CompactTemplate => {
 				rowGap: metrics.gapY(1),
 			},
 			header: {
+				flexDirection: r.row,
+				alignItems: "flex-start",
+				columnGap: metrics.gapX(1),
+			},
+			headerMain: {
+				flex: 1,
 				rowGap: metrics.gapY(0.25),
-				paddingBottom: metrics.gapY(0.35),
 			},
 			headerName: {
 				color: foreground,
@@ -144,6 +164,9 @@ const useCompactTemplate = (): CompactTemplate => {
 			contactText: {
 				color: foreground,
 				fontSize: bodySize * 0.82,
+			},
+			picture: {
+				...base.picture,
 			},
 			section: {
 				rowGap: metrics.gapY(0.25),

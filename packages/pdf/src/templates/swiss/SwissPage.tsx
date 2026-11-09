@@ -16,7 +16,15 @@ import {
 import { TemplateProvider } from "../shared/context";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
-import { Heading, SemanticContactListView, SemanticHeaderView, SemanticRegionView, Text } from "../shared/primitives";
+import { hasTemplatePicture } from "../shared/picture";
+import {
+	Heading,
+	SemanticContactListView,
+	SemanticHeaderPicture,
+	SemanticHeaderView,
+	SemanticRegionView,
+	Text,
+} from "../shared/primitives";
 import { Section } from "../shared/sections";
 import { composeStyles } from "../shared/styles";
 import { useTemplateBase } from "../shared/template-base";
@@ -30,6 +38,7 @@ type SwissStyles = Omit<TemplateStyleSlots, "page"> & {
 	headerContactList: Style;
 	contactItem: Style;
 	contactText: Style;
+	picture: Style;
 	sections: Style;
 };
 
@@ -77,7 +86,8 @@ export const SwissPage = ({ page, pageSize, pageMinHeightStyle, showHeader, page
 };
 
 const Header = ({ styles }: SwissHeaderProps) => {
-	const { basics } = useRender();
+	const { basics, picture } = useRender();
+	const hasPicture = hasTemplatePicture(picture);
 
 	return (
 		<SemanticHeaderView style={styles.header}>
@@ -85,6 +95,8 @@ const Header = ({ styles }: SwissHeaderProps) => {
 				<Heading style={styles.headerName}>{basics.name}</Heading>
 				{basics.headline && <Text style={styles.headerHeadline}>{basics.headline}</Text>}
 			</View>
+
+			{hasPicture && <SemanticHeaderPicture src={picture.url} style={styles.picture} />}
 
 			<SemanticContactListView style={styles.headerContactList}>
 				<EmailContactItem email={basics.email} style={styles.contactItem} textStyle={styles.contactText} />
@@ -156,6 +168,9 @@ const useSwissTemplate = (): SwissTemplate => {
 				color: foreground,
 				fontSize: bodySize * 0.82,
 				textAlign: r.rtl ? "left" : "right",
+			},
+			picture: {
+				...base.picture,
 			},
 			section: {
 				borderTopWidth: 0.8,

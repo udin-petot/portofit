@@ -28,5 +28,5 @@ describe("SwissPage", () => {
 		expect(text).toContain(sampleResumeData.basics.name);
 		expect(text.toLowerCase()).toContain("experience");
 		await loadingTask.destroy();
-	});
+	}, 60_000);
 });

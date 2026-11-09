@@ -146,10 +146,7 @@ const useStudioTemplate = (): StudioTemplate => {
 			},
 			picture: {
 				...base.picture,
-				width: 64,
-				height: 64,
 				borderRadius: 999,
-				objectFit: "cover",
 			},
 			headerTitle: {
 				flex: 1,

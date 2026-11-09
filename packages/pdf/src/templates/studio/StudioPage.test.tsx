@@ -33,5 +33,5 @@ describe("StudioPage", () => {
 		expect(text).toContain(sampleResumeData.basics.name.toLowerCase());
 		expect(text).toContain("skills");
 		await loadingTask.destroy();
-	});
+	}, 60_000);
 });

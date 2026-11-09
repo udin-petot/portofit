@@ -7741,6 +7741,14 @@ msgstr "Once you've sent a few applications, this shows how far they get and how
 msgid "One column"
 msgstr "One column"
 
+#: src/dialogs/resume/template/data.ts
+msgid "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for tech, product and consulting roles."
+msgstr "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for tech, product and consulting roles."
+
+#: src/dialogs/resume/template/data.ts
+msgid "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
+msgstr "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
+
 #: src/features/homepage/check.tsx
 msgid "one format"
 msgstr "one format"
@@ -12027,6 +12035,10 @@ msgstr "Turn this schedule on"
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Two columns"
 msgstr "Two columns"
+
+#: src/dialogs/resume/template/data.ts
+msgid "Two columns with a soft neutral sidebar and a serif name. Visual without the heavy colour blocks, for design, creative and portfolio roles."
+msgstr "Two columns with a soft neutral sidebar and a serif name. Visual without the heavy colour blocks, for design, creative and portfolio roles."
 
 #: src/features/homepage/check.tsx
 msgid "Two date formats found"
