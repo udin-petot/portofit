@@ -91,7 +91,7 @@ describe("web app fallback classification", () => {
 
 		// Only known locales name a file, so the parameter can't point anywhere else.
 		const unknown = await handleWebApp(new Request("https://example.com/?locale=../../index"));
-		expect(await unknown.text()).toContain('<div id="app">id-ID</div>');
+		expect(await unknown.text()).toContain('<div id="app">en-US</div>');
 	});
 
 	describe("the ATS checker page", () => {
