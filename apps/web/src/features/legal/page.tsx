@@ -9,25 +9,25 @@ type LegalPageProps = {
 };
 
 const legalLinks = [
-	{ href: "/syarat", label: "Syarat layanan" },
-	{ href: "/privasi", label: "Kebijakan privasi" },
-	{ href: "/refund", label: "Pengembalian dana" },
+	{ href: "/syarat", label: "Terms of service" },
+	{ href: "/privasi", label: "Privacy policy" },
+	{ href: "/refund", label: "Refund policy" },
 ];
 
 /** Shared shell for the public legal pages: readable prose, one column, no app chrome beyond the site header. */
-export function LegalPage({ title, summary, updated = "29 Oktober 2026", children }: LegalPageProps) {
+export function LegalPage({ title, summary, updated = "October 29, 2026", children }: LegalPageProps) {
 	return (
 		<main id="main-content" className="min-h-svh bg-bg pt-28 pb-20">
 			<div className="mx-auto w-full max-w-3xl px-5">
 				<p className="font-mono text-xs tracking-widest text-ink-3 uppercase">Legal</p>
 				<h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{title}</h1>
-				<p className="mt-3 text-sm text-ink-3">Berlaku {updated}</p>
+				<p className="mt-3 text-sm text-ink-3">Effective {updated}</p>
 				<p className="mt-6 text-base leading-relaxed text-ink-2">{summary}</p>
 
 				<div className="mt-10 grid gap-9">{children}</div>
 
 				<footer className="mt-14 border-t border-line pt-6">
-					<nav aria-label="Halaman legal" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+					<nav aria-label="Legal pages" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
 						{legalLinks.map((link) => (
 							<a key={link.href} href={link.href} className="text-ink-2 underline-offset-4 hover:text-accent-text hover:underline">
 								{link.label}
@@ -43,7 +43,8 @@ export function LegalPage({ title, summary, updated = "29 Oktober 2026", childre
 						</a>
 					</nav>
 					<p className="mt-4 text-xs leading-6 text-ink-3">
-						PortoFit adalah layanan dari tim Kelompok 5 KWU, Program Studi Informatika, Universitas Muhammadiyah Purwokerto.
+						PortoFit is a service by Group 5 of the Entrepreneurship course, Informatics Study Programme, Universitas Muhammadiyah
+						Purwokerto.
 					</p>
 				</footer>
 			</div>
