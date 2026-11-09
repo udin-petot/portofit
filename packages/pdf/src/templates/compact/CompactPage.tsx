@@ -136,6 +136,7 @@ const useCompactTemplate = (): CompactTemplate => {
 				flexDirection: r.row,
 				alignItems: "flex-start",
 				columnGap: metrics.gapX(1),
+				paddingBottom: metrics.gapY(0.35),
 			},
 			headerMain: {
 				flex: 1,
