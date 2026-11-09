@@ -18,6 +18,7 @@ import { PorygonPage } from "./porygon/PorygonPage";
 import { RhyhornPage } from "./rhyhorn/RhyhornPage";
 import { ScizorPage } from "./scizor/ScizorPage";
 import { SmearglePage } from "./smeargle/SmearglePage";
+import { SwissPage } from "./swiss/SwissPage";
 
 const templatePages: Partial<Record<Template, TemplatePage>> = {
 	azurill: AzurillPage,
@@ -38,6 +39,7 @@ const templatePages: Partial<Record<Template, TemplatePage>> = {
 	rhyhorn: RhyhornPage,
 	scizor: ScizorPage,
 	smeargle: SmearglePage,
+	swiss: SwissPage,
 };
 
 const defaultTemplatePage = AzurillPage;
