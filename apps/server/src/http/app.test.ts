@@ -279,3 +279,39 @@ it("rejects oversized REST requests before parsing multipart uploads", async () 
 	expect(response.headers.get("cache-control")).toBe("no-store");
 	expect(mocks.handleOpenApi).not.toHaveBeenCalled();
 });
+
+it("drops ResizeObserver loop warnings before logging", async () => {
+	const error = vi.spyOn(console, "error").mockImplementation(() => {});
+	const { createApp } = await import("./app");
+	const response = await createApp().request("http://localhost:3000/api/client-error", {
+		method: "POST",
+		headers: { "content-type": "application/json" },
+		body: JSON.stringify({
+			message: "ResizeObserver loop completed with undelivered notifications.",
+			stack: "",
+			path: "/builder/01a1c08b",
+			source: "error",
+		}),
+	});
+	expect(response.status).toBe(204);
+	expect(error).not.toHaveBeenCalled();
+	error.mockRestore();
+});
+
+it("logs actionable client errors", async () => {
+	const error = vi.spyOn(console, "error").mockImplementation(() => {});
+	const { createApp } = await import("./app");
+	const response = await createApp().request("http://localhost:3000/api/client-error", {
+		method: "POST",
+		headers: { "content-type": "application/json" },
+		body: JSON.stringify({
+			message: "TypeError: cannot read properties of undefined",
+			stack: "at builder.tsx:10",
+			path: "/builder/01a1c08b",
+			source: "error",
+		}),
+	});
+	expect(response.status).toBe(204);
+	expect(error).toHaveBeenCalledWith(expect.stringContaining("[client-error]"));
+	error.mockRestore();
+});

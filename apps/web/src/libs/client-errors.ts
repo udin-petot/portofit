@@ -1,3 +1,5 @@
+import { isIgnorableClientError } from "@reactive-resume/utils/client-errors";
+
 type ClientErrorPayload = {
 	message: string;
 	stack?: string;
@@ -28,7 +30,7 @@ export function trackClientErrors() {
 	if (typeof window === "undefined") return;
 
 	window.addEventListener("error", (event) => {
-		if (!event.message) return;
+		if (!event.message || isIgnorableClientError(event.message)) return;
 		report({
 			message: event.message,
 			...(event.error instanceof Error && event.error.stack ? { stack: event.error.stack } : {}),
@@ -41,6 +43,7 @@ export function trackClientErrors() {
 		const reason: unknown = event.reason;
 		const message =
 			reason instanceof Error ? reason.message : typeof reason === "string" ? reason : "Unhandled promise rejection";
+		if (isIgnorableClientError(message)) return;
 		report({
 			message,
 			...(reason instanceof Error && reason.stack ? { stack: reason.stack } : {}),

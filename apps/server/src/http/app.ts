@@ -9,6 +9,7 @@ import { compress } from "hono/compress";
 import { prepareStagedBody, withStagedBody } from "@reactive-resume/api/features/storage/transport";
 import { env } from "@reactive-resume/env/server";
 import { prepareMcpDiscovery } from "@reactive-resume/mcp";
+import { isIgnorableClientError } from "@reactive-resume/utils/client-errors";
 import { handleMcp } from "../mcp/handler";
 import { handleOpenApi, handleOpenApiDocument } from "../openapi/handler";
 import {
@@ -111,26 +112,24 @@ export function createApp(options: AppOptions = {}) {
 	);
 
 	app.post("/api/storage/stage", (c) => prepareStagedBody(c.req.raw));
-	app.post(
-		"/api/client-error",
-		bodyLimit({ maxSize: 16 * 1024, onError: (c) => c.body(null, 413) }),
-		async (c) => {
-			if (!allowClientError(client(c))) return c.body(null, 429);
-			const payload = (await c.req.json().catch(() => null)) as Record<string, unknown> | null;
-			if (!payload || typeof payload.message !== "string") return c.body(null, 204);
-			const text = (value: unknown, max: number) => (typeof value === "string" ? value.slice(0, max) : "");
-			const entry = {
-				message: text(payload.message, 500),
-				stack: text(payload.stack, 3000),
-				path: text(payload.path, 300),
-				source: payload.source === "unhandledrejection" ? "unhandledrejection" : "error",
-				ua: text(c.req.header("user-agent"), 200),
-				at: new Date().toISOString(),
-			};
-			console.error(`[client-error] ${JSON.stringify(entry)}`);
-			return c.body(null, 204);
-		},
-	);
+	app.post("/api/client-error", bodyLimit({ maxSize: 16 * 1024, onError: (c) => c.body(null, 413) }), async (c) => {
+		if (!allowClientError(client(c))) return c.body(null, 429);
+		const payload = (await c.req.json().catch(() => null)) as Record<string, unknown> | null;
+		if (!payload || typeof payload.message !== "string") return c.body(null, 204);
+		const text = (value: unknown, max: number) => (typeof value === "string" ? value.slice(0, max) : "");
+		const message = text(payload.message, 500);
+		if (isIgnorableClientError(message)) return c.body(null, 204);
+		const entry = {
+			message,
+			stack: text(payload.stack, 3000),
+			path: text(payload.path, 300),
+			source: payload.source === "unhandledrejection" ? "unhandledrejection" : "error",
+			ua: text(c.req.header("user-agent"), 200),
+			at: new Date().toISOString(),
+		};
+		console.error(`[client-error] ${JSON.stringify(entry)}`);
+		return c.body(null, 204);
+	});
 	app.all("/api/rpc", (c) => withStagedBody(c.req.raw, (request) => handleRpc(request, client(c))));
 	app.all("/api/rpc/*", (c) => withStagedBody(c.req.raw, (request) => handleRpc(request, client(c))));
 	app.all("/api/openapi", (c) => handleOpenApi(c.req.raw, client(c)));
