@@ -3,6 +3,7 @@ import type { Template } from "@reactive-resume/schema/templates";
 import { AzurillPage } from "./azurill/AzurillPage";
 import { BronzorPage } from "./bronzor/BronzorPage";
 import { ChikoritaPage } from "./chikorita/ChikoritaPage";
+import { CompactPage } from "./compact/CompactPage";
 import { DitgarPage } from "./ditgar/DitgarPage";
 import { DittoPage } from "./ditto/DittoPage";
 import { GengarPage } from "./gengar/GengarPage";
@@ -24,6 +25,7 @@ const templatePages: Partial<Record<Template, TemplatePage>> = {
 	azurill: AzurillPage,
 	bronzor: BronzorPage,
 	chikorita: ChikoritaPage,
+	compact: CompactPage,
 	ditgar: DitgarPage,
 	ditto: DittoPage,
 	gengar: GengarPage,
