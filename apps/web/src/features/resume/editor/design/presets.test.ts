@@ -1,5 +1,30 @@
 import { describe, expect, it } from "vitest";
-import { fitToPages, nextFitStep } from "./presets";
+import { defaultResumeData } from "@reactive-resume/schema/resume/default";
+import { applyFontPairing, fitToPages, FONT_PAIRINGS, matchFontPairing, nextFitStep } from "./presets";
+
+const PHASE_ONE_PAIRINGS = ["modern", "editorial", "studio", "technical", "humanist", "compact"];
+
+describe("font pairings", () => {
+	it("includes the six Phase 1 pairings", () => {
+		expect(FONT_PAIRINGS.map((pairing) => pairing.id)).toEqual(expect.arrayContaining(PHASE_ONE_PAIRINGS));
+	});
+
+	it.each(PHASE_ONE_PAIRINGS)("applies and matches %s", (id) => {
+		const pairing = FONT_PAIRINGS.find((candidate) => candidate.id === id);
+		expect(pairing).toBeDefined();
+		if (!pairing) return;
+
+		const metadata = structuredClone(defaultResumeData.metadata) as Parameters<typeof applyFontPairing>[0];
+
+		applyFontPairing(metadata, pairing.id);
+
+		expect(metadata.typography.heading.fontFamily).toBe(pairing.heading);
+		expect(metadata.typography.heading.fontWeights).toEqual([pairing.headingWeight]);
+		expect(metadata.typography.body.fontFamily).toBe(pairing.body);
+		expect(metadata.typography.body.fontWeights).toEqual(["400", "700"]);
+		expect(matchFontPairing(metadata)).toBe(pairing.id);
+	});
+});
 
 describe("Fit to one page", () => {
 	it("tightens density, then margins, then size, never below 9 pt", () => {

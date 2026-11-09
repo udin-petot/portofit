@@ -16,6 +16,12 @@ export const FONT_PAIRINGS = [
 	{ id: "balanced", label: "Balanced", heading: "Source Serif 4", body: "Source Sans 3", headingWeight: "600" },
 	{ id: "professional", label: "Professional", heading: "Carlito", body: "Carlito", headingWeight: "700" },
 	{ id: "clean", label: "Clean", heading: "Lato", body: "Lato", headingWeight: "700" },
+	{ id: "modern", label: "Modern", heading: "Inter", body: "Inter", headingWeight: "600" },
+	{ id: "editorial", label: "Editorial", heading: "Fraunces", body: "Inter", headingWeight: "500" },
+	{ id: "studio", label: "Studio", heading: "Instrument Serif", body: "DM Sans", headingWeight: "400" },
+	{ id: "technical", label: "Technical", heading: "IBM Plex Sans", body: "IBM Plex Sans", headingWeight: "600" },
+	{ id: "humanist", label: "Humanist", heading: "Newsreader", body: "DM Sans", headingWeight: "500" },
+	{ id: "compact", label: "Compact", heading: "Source Sans 3", body: "Source Sans 3", headingWeight: "700" },
 ] as const;
 
 export type FontPairingId = (typeof FONT_PAIRINGS)[number]["id"];
