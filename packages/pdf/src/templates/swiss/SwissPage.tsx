@@ -167,7 +167,6 @@ const useSwissTemplate = (): SwissTemplate => {
 				color: foreground,
 				fontSize: headingSize * 0.78,
 				fontWeight: headingWeight,
-				letterSpacing: r.rtl ? 0 : headingSize * 0.1,
 				textTransform: "uppercase",
 			},
 			sectionItems: {
