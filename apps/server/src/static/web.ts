@@ -46,6 +46,20 @@ const dashboardBootShell = (html: string) =>
  * server serves the shell for anything, so this failure only ever shows up once deployed.
  */
 const indexableAppPaths = new Set(["/ats-checker", "/harga", "/syarat", "/privasi", "/refund", "/lisensi"]);
+
+/**
+ * Addresses people and crawlers guess, and the upstream documentation uses. They used to render an
+ * empty shell with a 200, which reads as a broken page. Send them to the real document instead.
+ */
+const legalPathRedirects: Record<string, string> = {
+	"/legal": "/syarat",
+	"/legal/terms": "/syarat",
+	"/legal/privacy": "/privasi",
+	"/legal/license": "/lisensi",
+	"/terms": "/syarat",
+	"/privacy": "/privasi",
+	"/license": "/lisensi",
+};
 const reservedPublicResumeSegments = new Set([
 	"api",
 	"mcp",
@@ -416,6 +430,14 @@ export type ReadWebFile = (path: string) => Promise<string>;
 export async function handleWebApp(request: Request, readFile: ReadWebFile = (path) => fs.readFile(path, "utf-8")) {
 	const isHead = request.method === "HEAD";
 	const pathname = new URL(request.url).pathname;
+
+	const redirectTo = legalPathRedirects[pathname];
+	if (redirectTo) {
+		return new Response(null, {
+			status: 301,
+			headers: { Location: redirectTo, ...BASE_SECURITY_HEADERS },
+		});
+	}
 
 	if (!isNoindexShellPath(pathname) && isAssetPath(pathname)) {
 		return new Response(isHead ? null : "Not Found", { status: 404 });

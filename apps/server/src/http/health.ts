@@ -4,7 +4,6 @@ import { getStorageService } from "@reactive-resume/api/features/storage";
 import { db } from "@reactive-resume/db/client";
 import { getRedis } from "@reactive-resume/db/redis";
 import { env } from "@reactive-resume/env/server";
-import { appVersion } from "../app-version";
 
 const HEALTHCHECK_TIMEOUT_MS = 1_500;
 
@@ -71,10 +70,8 @@ export async function handleHealth() {
 
 	const checks = {
 		service: "portofit",
-		version: appVersion,
 		status,
 		timestamp: new Date().toISOString(),
-		uptime: `${process.uptime().toFixed(2)}s`,
 		database: publicCheck(database, "Database"),
 		storage: publicCheck(storage, "Storage"),
 		...(redis ? { redis: publicCheck(redis, "Redis") } : {}),
