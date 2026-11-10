@@ -119,7 +119,7 @@ export function SupportChatView({
 						}}
 						disabled={!canSend}
 						aria-label="Kirim pesan"
-						className="grid size-[34px] shrink-0 place-items-center rounded-lg bg-ink text-bg transition-[opacity,scale] duration-quick ease-enter enabled:active:scale-[0.97] disabled:opacity-40"
+						className="grid size-[34px] shrink-0 place-items-center rounded-lg bg-accent text-on-accent transition-[background-color,scale] duration-quick ease-enter enabled:active:scale-[0.97] disabled:opacity-40"
 					>
 						<Icon name="arrow-up" size={18} />
 					</button>

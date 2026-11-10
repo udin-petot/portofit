@@ -24,7 +24,7 @@ export function SupportLauncher() {
 					id="support-panel"
 					role="dialog"
 					aria-labelledby="support-title"
-					className="fixed end-4 bottom-20 z-50 flex h-[560px] max-h-[calc(100svh-7rem)] w-[380px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-xl border border-line bg-surface shadow-e2 transition-[opacity,translate] duration-standard ease-enter starting:translate-y-2 starting:opacity-0"
+					className="fixed end-4 bottom-20 z-50 flex h-[560px] max-h-[calc(100svh-7rem)] w-[400px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-xl border border-line bg-surface shadow-e3 transition-[opacity,translate] duration-standard ease-enter starting:translate-y-2 starting:opacity-0"
 				>
 					<header className="flex h-[52px] shrink-0 items-center gap-2 border-b border-line ps-4 pe-2">
 						<div className="min-w-0 flex-1">
@@ -53,7 +53,11 @@ export function SupportLauncher() {
 				onClick={() => setOpen((value) => !value)}
 				aria-expanded={open}
 				aria-controls="support-panel"
-				className="fixed end-4 bottom-5 z-50 flex h-11 items-center gap-2 rounded-full bg-accent px-4 text-sm font-medium text-on-accent shadow-e2 transition-[background-color,scale] duration-quick ease-enter hover:bg-accent-hover active:scale-[0.97]"
+				className={
+					open
+						? "fixed end-4 bottom-5 z-50 hidden h-11 items-center gap-2 rounded-full border border-line-2 bg-raised px-4 text-sm font-medium text-ink shadow-e2 transition-[background-color,scale] duration-quick ease-enter hover:bg-hover active:scale-[0.97] sm:flex"
+						: "fixed end-4 bottom-5 z-50 flex h-11 items-center gap-2 rounded-full border border-line-2 bg-raised px-4 text-sm font-medium text-ink shadow-e2 transition-[background-color,scale] duration-quick ease-enter hover:bg-hover active:scale-[0.97] max-sm:bottom-[76px]"
+				}
 			>
 				<Icon name="chat-text" size={18} />
 				Bantuan
