@@ -8,7 +8,6 @@ import { colorDesignSchema, levelDesignSchema } from "@reactive-resume/schema/re
 import { resolveLevelDisplaySizes } from "@reactive-resume/schema/resume/level-display-sizes";
 import { FormControl, FormItem, FormLabel, FormMessage } from "@reactive-resume/ui/components/form";
 import { Input } from "@reactive-resume/ui/components/input";
-import { Separator } from "@reactive-resume/ui/components/separator";
 import { cn } from "@reactive-resume/utils/style";
 import { SectionBase } from "../shared/section-base";
 import { ColorPicker } from "@/components/input/color-picker";
@@ -24,10 +23,12 @@ export function DesignSectionBuilder() {
 	return (
 		<SectionBase type="design" className="space-y-6">
 			<ColorSectionForm />
-			<Separator />
-			<LevelSectionForm />
 		</SectionBase>
 	);
+}
+
+export function LevelSectionBuilder() {
+	return <LevelSectionForm />;
 }
 
 type ColorValues = z.infer<typeof colorDesignSchema>;

@@ -12,7 +12,7 @@ import { Tabs, TabsList, TabsTrigger } from "@reactive-resume/ui/components/tabs
 import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { CustomStylesSectionBuilder } from "../-sidebar/right/sections/custom-styles";
-import { DesignSectionBuilder } from "../-sidebar/right/sections/design";
+import { DesignSectionBuilder, LevelSectionBuilder } from "../-sidebar/right/sections/design";
 import { LayoutSectionBuilder } from "../-sidebar/right/sections/layout";
 import { PageSectionBuilder } from "../-sidebar/right/sections/page";
 import { TypographySectionBuilder } from "../-sidebar/right/sections/typography";
@@ -27,6 +27,7 @@ import { getSectionTitle } from "@/libs/resume/section";
 const GROUPS = [
 	{ id: "template", label: () => t`Template` },
 	{ id: "type", label: () => t`Type` },
+	{ id: "level", label: () => t`Level` },
 	{ id: "color", label: () => t`Color` },
 	{ id: "page", label: () => t`Page` },
 	{ id: "advanced", label: () => t`Advanced` },
@@ -97,6 +98,9 @@ export function DesignPanel() {
 				<Group id="type" title={<Trans>Type</Trans>}>
 					<TypeGroup onCustomFonts={() => jumpTo(TYPOGRAPHY_ID, advanced, true)} />
 				</Group>
+				<Group id="level" title={<Trans>Level</Trans>}>
+					<LevelSectionBuilder />
+				</Group>
 				<Group id="color" title={<Trans>Color</Trans>}>
 					<ColorGroup />
 				</Group>
@@ -109,7 +113,7 @@ export function DesignPanel() {
 	);
 }
 
-type SheetTab = "template" | "type" | "color" | "page";
+type SheetTab = "template" | "type" | "level" | "color" | "page";
 
 /**
  * Phones: Design is a sheet over the lower half of the page, so every change shows above it. The handle
@@ -161,6 +165,7 @@ export function DesignSheet() {
 							}}
 						/>
 					)}
+					{tab === "level" && <LevelSectionBuilder />}
 					{tab === "color" && <ColorGroup />}
 					{tab === "page" && (
 						<div className="-mx-4 divide-y divide-line">
