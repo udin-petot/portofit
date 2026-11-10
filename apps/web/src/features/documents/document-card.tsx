@@ -143,6 +143,8 @@ export function DocumentCard({
 }: DocumentItemProps) {
 	const openDocument = useOpenDocument();
 	const [renaming, setRenaming] = useState(false);
+	const [menuOpen, setMenuOpen] = useState(false);
+	const [contextOpen, setContextOpen] = useState(false);
 	const isNew = useNewDocumentsStore((state) => state.ids.includes(document.id)) && !document.trashedAt;
 	const meta = useDocumentMeta(document);
 	const menuProps = {
@@ -155,7 +157,7 @@ export function DocumentCard({
 	};
 
 	return (
-		<ContextMenu>
+		<ContextMenu open={contextOpen} onOpenChange={setContextOpen}>
 			<ContextMenuTrigger
 				render={
 					<article
@@ -224,7 +226,7 @@ export function DocumentCard({
 							</span>
 						)}
 					</div>
-					<DropdownMenu>
+					<DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
 						<DropdownMenuTrigger
 							render={
 								<IconButton
@@ -235,11 +237,11 @@ export function DocumentCard({
 								/>
 							}
 						/>
-						<DocumentMenuContent {...menuProps} />
+						{menuOpen && <DocumentMenuContent {...menuProps} />}
 					</DropdownMenu>
 				</div>
 			</ContextMenuTrigger>
-			<DocumentMenuContent {...menuProps} variant="context" />
+			{contextOpen && <DocumentMenuContent {...menuProps} variant="context" />}
 		</ContextMenu>
 	);
 }
@@ -256,6 +258,8 @@ export function DocumentRow({
 	const { i18n } = useLingui();
 	const openDocument = useOpenDocument();
 	const [renaming, setRenaming] = useState(false);
+	const [menuOpen, setMenuOpen] = useState(false);
+	const [contextOpen, setContextOpen] = useState(false);
 	const isNew = useNewDocumentsStore((state) => state.ids.includes(document.id)) && !document.trashedAt;
 	const menuProps = {
 		document,
@@ -266,7 +270,7 @@ export function DocumentRow({
 	};
 
 	return (
-		<ContextMenu>
+		<ContextMenu open={contextOpen} onOpenChange={setContextOpen}>
 			<ContextMenuTrigger
 				render={
 					<tr
@@ -326,7 +330,7 @@ export function DocumentRow({
 					)}
 				</td>
 				<td className="w-10 pe-2 text-end">
-					<DropdownMenu>
+					<DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
 						<DropdownMenuTrigger
 							render={
 								<IconButton
@@ -337,11 +341,11 @@ export function DocumentRow({
 								/>
 							}
 						/>
-						<DocumentMenuContent {...menuProps} />
+						{menuOpen && <DocumentMenuContent {...menuProps} />}
 					</DropdownMenu>
 				</td>
 			</ContextMenuTrigger>
-			<DocumentMenuContent {...menuProps} variant="context" />
+			{contextOpen && <DocumentMenuContent {...menuProps} variant="context" />}
 		</ContextMenu>
 	);
 }
