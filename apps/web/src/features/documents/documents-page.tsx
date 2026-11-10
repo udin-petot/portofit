@@ -125,7 +125,7 @@ export function DocumentsPage({ search, onSearchChange }: DocumentsPageProps) {
 
 	return (
 		<div className="mx-auto grid w-full max-w-[1180px] content-start gap-5 px-8 py-8 max-sm:px-4 max-sm:py-5">
-			<h1 className="font-display text-[30px] leading-9 font-medium">
+			<h1 className="font-display text-[30px] leading-9 font-medium max-sm:text-[46px] max-sm:leading-[54px]">
 				<Trans>Documents</Trans>
 			</h1>
 
@@ -341,13 +341,10 @@ function FirstRun({ onChooseFile }: { onChooseFile: () => void }) {
 	return (
 		<section className="grid max-w-xl gap-4 pt-4 transition-[opacity,translate] duration-emphasized ease-enter starting:translate-y-2 starting:opacity-0">
 			<h2 className="font-display text-[26px] leading-8 font-medium">
-				<Trans>Let's start with what you have</Trans>
+				<Trans>Start with what you have</Trans>
 			</h2>
 			<p className="leading-6 text-ink-2">
-				<Trans>
-					Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your
-					name. Build from there.
-				</Trans>
+				<Trans>Import a resume, or start fresh.</Trans>
 			</p>
 			<div className="flex flex-wrap items-center gap-3 rounded-xl border-[1.5px] border-dashed border-line-2 p-5">
 				<Icon name="file-arrow-up" size={24} className="text-ink-2" />

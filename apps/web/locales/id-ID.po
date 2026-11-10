@@ -14835,3 +14835,9 @@ msgstr "Perkecil"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+
+msgid "Start with what you have"
+msgstr "Mulai dari yang sudah kamu punya"
+
+msgid "Import a resume, or start fresh."
+msgstr "Impor resume, atau mulai dari awal."
