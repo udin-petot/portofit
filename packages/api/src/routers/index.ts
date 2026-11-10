@@ -13,6 +13,7 @@ import { githubRouter } from "../features/github/router";
 import { resumeRouter } from "../features/resume/router";
 import { statisticsRouter } from "../features/statistics/router";
 import { storageRouter } from "../features/storage/router";
+import { supportRouter } from "../features/support/router";
 import { webAccessRouter } from "../features/web-access/router";
 
 export default {
@@ -31,5 +32,6 @@ export default {
 	resume: resumeRouter,
 	statistics: statisticsRouter,
 	storage: storageRouter,
+	support: supportRouter,
 	webAccess: webAccessRouter,
 };
