@@ -114,18 +114,18 @@ const ATS_CHECKER_DESCRIPTION =
 const PRICING_TITLE = "Pricing — PortoFit";
 const PRICING_DESCRIPTION =
 	"Free ATS checks, Rp5,000 per application for a tailored CV and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually.";
-const TERMS_TITLE = "Terms of Service — PortoFit";
+const TERMS_TITLE = "Syarat Layanan PortoFit";
 const TERMS_DESCRIPTION =
-	"Rules for using PortoFit: accounts, content, credits and payments, AI limits, and user responsibilities.";
-const PRIVACY_TITLE = "Privacy Policy — PortoFit";
+	"Aturan pemakaian PortoFit: akun, konten, kredit dan pembayaran, batas pemakaian AI, serta tanggung jawab pengguna.";
+const PRIVACY_TITLE = "Kebijakan Privasi PortoFit";
 const PRIVACY_DESCRIPTION =
-	"What data PortoFit collects, why, who processes it, how long it is kept, and how to request access or deletion.";
-const REFUND_TITLE = "Refund Policy — PortoFit";
+	"Data apa yang dikumpulkan PortoFit, untuk apa, siapa yang memproses, berapa lama disimpan, dan cara meminta akses atau penghapusan.";
+const REFUND_TITLE = "Kebijakan Pengembalian Dana PortoFit";
 const REFUND_DESCRIPTION =
-	"When PortoFit credits can be refunded, when they cannot, and how to request a refund on WhatsApp.";
-const LICENSE_TITLE = "MIT License — PortoFit";
+	"Kapan kredit PortoFit dapat dikembalikan, kapan tidak, dan cara mengajukan pengembalian dana lewat WhatsApp.";
+const LICENSE_TITLE = "Lisensi MIT PortoFit";
 const LICENSE_DESCRIPTION =
-	"The MIT license that covers PortoFit, the upstream Reactive Resume project it is built on, and the attribution both require.";
+	"Lisensi MIT yang berlaku untuk PortoFit, proyek Reactive Resume yang menjadi fondasinya, dan atribusi yang diwajibkan keduanya.";
 
 type StructuredData = Record<string, unknown>;
 

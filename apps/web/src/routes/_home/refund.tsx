@@ -5,10 +5,11 @@ export const Route = createFileRoute("/_home/refund")({
 	component: RouteComponent,
 	head: () => ({
 		meta: [
-			{ title: "Refund Policy — PortoFit" },
+			{ title: "Kebijakan Pengembalian Dana PortoFit" },
 			{
 				name: "description",
-				content: "When PortoFit credits can be refunded, when they cannot, and how to request a refund on WhatsApp.",
+				content:
+					"Kapan kredit PortoFit dapat dikembalikan, kapan tidak, dan cara mengajukan pengembalian dana lewat WhatsApp.",
 			},
 		],
 	}),
@@ -17,72 +18,73 @@ export const Route = createFileRoute("/_home/refund")({
 function RouteComponent() {
 	return (
 		<LegalPage
-			title="Refund Policy"
-			summary="Unused credits can be refunded within 7 days after the payment is verified. Spent credits are not refundable unless the action failed because of a system error."
+			title="Kebijakan Pengembalian Dana"
+			summary="Kredit yang belum terpakai dapat dikembalikan dalam 7 hari setelah pembayaran diverifikasi. Kredit yang sudah terpakai tidak dapat dikembalikan kecuali tindakan gagal karena kesalahan sistem."
 		>
-			<LegalSection title="1. Unused credits">
+			<LegalSection title="1. Kredit yang belum terpakai">
 				<p>
-					If the payment is verified and you have not spent the credits, request a refund within 7 calendar days from
-					verification. Credits already used to copy a CV, prepare a briefing, or run another paid action are not
-					refundable.
+					Jika pembayaran sudah diverifikasi dan kredit belum terpakai, ajukan pengembalian dalam 7 hari kalender sejak
+					verifikasi. Kredit yang sudah dipakai untuk menyalin CV, menyiapkan briefing, atau tindakan berbayar lain tidak
+					dapat dikembalikan.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="2. System errors">
+			<LegalSection title="2. Kesalahan sistem">
 				<LegalList
 					items={[
-						"Credits were spent but the action failed: report the order number and the time it happened. After we check it, the credits return to your balance.",
-						"A payment was clearly made twice for the same order: the extra amount is refunded or turned into credits, whichever you choose.",
-						"You transferred more than the order total: the difference is refunded after the order is verified.",
+						"Kredit terpakai tetapi tindakan gagal: laporkan nomor pesanan dan waktu kejadian. Setelah kami periksa, kredit kembali ke saldo.",
+						"Pembayaran jelas dilakukan dua kali untuk pesanan yang sama: kelebihan dikembalikan atau dijadikan kredit, mana yang kamu pilih.",
+						"Kamu mentransfer lebih dari total pesanan: selisihnya dikembalikan setelah pesanan diverifikasi.",
 					]}
 				/>
 			</LegalSection>
 
-			<LegalSection title="3. What is not covered">
+			<LegalSection title="3. Yang tidak ditanggung">
 				<LegalList
 					items={[
-						"Spent credits, even when the AI output did not meet expectations. AI output is a draft and must be checked before use.",
-						"Applications rejected by a company, invitations that never arrive, or not getting a job.",
-						"Price changes after a purchase.",
-						"Payments that are not verified or proofs that do not match.",
+						"Kredit terpakai meski keluaran AI tidak sesuai harapan. Keluaran AI adalah draf dan harus diperiksa sebelum dipakai.",
+						"Lamaran ditolak perusahaan, undangan yang tidak pernah datang, atau tidak mendapat pekerjaan.",
+						"Perubahan harga setelah pembelian.",
+						"Pembayaran yang tidak terverifikasi atau bukti yang tidak cocok.",
 					]}
 				/>
 			</LegalSection>
 
-			<LegalSection title="4. How to request">
+			<LegalSection title="4. Cara mengajukan">
 				<p>
-					Send a WhatsApp message to{" "}
+					Kirim pesan WhatsApp ke{" "}
 					<a
 						href="https://wa.me/6281939948769"
 						className="font-medium text-accent-text underline-offset-4 hover:underline"
 						rel="noreferrer"
 						target="_blank"
 					>
-						0819-3994-8769
+						081939948769
 					</a>{" "}
-					with your account email, order number or unique code, payment date, and a short reason. Include the transfer
-					proof if asked.
+					dengan email akun, nomor pesanan atau kode unik, tanggal pembayaran, dan alasan singkat. Sertakan bukti transfer
+					bila diminta.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="5. Processing time">
+			<LegalSection title="5. Waktu proses">
 				<p>
-					We reply within 3 business days and complete approved refunds within 7 business days. The money is sent to the
-					bank account or digital wallet you name. Bank transfer fees are on us unless the account details were wrong.
+					Kami membalas dalam 3 hari kerja dan menyelesaikan pengembalian yang disetujui dalam 7 hari kerja. Uang dikirim
+					ke rekening bank atau dompet digital yang kamu sebutkan. Biaya transfer bank kami tanggung kecuali data rekening
+					yang diberikan salah.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="6. Rejected payments">
+			<LegalSection title="6. Pembayaran ditolak">
 				<p>
-					If the payment proof does not match, the order is rejected and no credits are added. You can pay again with the
-					correct amount or contact WhatsApp for a review.
+					Jika bukti pembayaran tidak cocok, pesanan ditolak dan tidak ada kredit yang masuk. Kamu dapat membayar ulang
+					dengan nominal yang benar atau menghubungi WhatsApp untuk peninjauan.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="7. Policy changes">
+			<LegalSection title="7. Perubahan kebijakan">
 				<p>
-					This policy may be updated. Requests made before the change date follow the policy in force when the payment was
-					verified.
+					Kebijakan ini dapat diperbarui. Permintaan yang diajukan sebelum tanggal perubahan mengikuti kebijakan yang
+					berlaku saat pembayaran diverifikasi.
 				</p>
 			</LegalSection>
 		</LegalPage>

@@ -5,11 +5,11 @@ export const Route = createFileRoute("/_home/lisensi")({
 	component: RouteComponent,
 	head: () => ({
 		meta: [
-			{ title: "MIT License — PortoFit" },
+			{ title: "Lisensi MIT PortoFit" },
 			{
 				name: "description",
 				content:
-					"The MIT license that covers PortoFit, the upstream Reactive Resume project it is built on, and the attribution both require.",
+					"Lisensi MIT yang berlaku untuk PortoFit, proyek Reactive Resume yang menjadi fondasinya, dan atribusi yang diwajibkan keduanya.",
 			},
 		],
 	}),
@@ -40,23 +40,24 @@ SOFTWARE.`;
 function RouteComponent() {
 	return (
 		<LegalPage
-			title="MIT License"
-			summary="PortoFit is built on Reactive Resume, an open source project by Amruth Pillai. Both the original and this fork are released under the MIT License."
+			title="Lisensi MIT"
+			summary="PortoFit dibangun di atas Reactive Resume, proyek sumber terbuka karya Amruth Pillai. Karya asli maupun fork ini dirilis dengan Lisensi MIT."
 		>
-			<LegalSection title="What this license allows">
+			<LegalSection title="Apa yang diizinkan lisensi ini">
 				<p>
-					The MIT License lets anyone use, copy, modify, merge, publish, distribute, sublicense, and sell copies of the
-					software. It applies to the source code, not to the PortoFit name or logo.
+					Lisensi MIT mengizinkan siapa pun memakai, menyalin, mengubah, menggabungkan, menerbitkan, mendistribusikan,
+					memberi sublisensi, dan menjual salinan perangkat lunak. Lisensi ini berlaku untuk kode sumber, bukan untuk nama
+					atau logo PortoFit.
 				</p>
 				<p>
-					The only condition is that the copyright notice and this permission notice travel with every copy or
-					substantial portion of the software. The software is provided without warranty.
+					Syaratnya hanya satu: pemberitahuan hak cipta dan izin ini harus ikut di setiap salinan atau bagian penting
+					perangkat lunak. Perangkat lunak disediakan tanpa jaminan.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="Attribution">
+			<LegalSection title="Atribusi">
 				<p>
-					Original work: Reactive Resume, copyright Amruth Pillai,{" "}
+					Karya asli: Reactive Resume, hak cipta Amruth Pillai,{" "}
 					<a
 						href="https://github.com/reactive-resume/reactive-resume"
 						className="font-medium text-accent-text underline-offset-4 hover:underline"
@@ -68,7 +69,7 @@ function RouteComponent() {
 					.
 				</p>
 				<p>
-					This fork:{" "}
+					Fork ini:{" "}
 					<a
 						href="https://github.com/udin-petot/portofit"
 						className="font-medium text-accent-text underline-offset-4 hover:underline"
@@ -77,11 +78,11 @@ function RouteComponent() {
 					>
 						github.com/udin-petot/portofit
 					</a>
-					. The full license file lives in the repository root.
+					. Berkas lisensi lengkap ada di akar repositori.
 				</p>
 			</LegalSection>
 
-			<LegalSection title="License text">
+			<LegalSection title="Teks lisensi">
 				<pre className="overflow-x-auto whitespace-pre-wrap font-mono text-[12.5px] leading-relaxed text-ink-2">
 					{licenseText}
 				</pre>
