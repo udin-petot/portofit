@@ -22,7 +22,7 @@ async function renderRatings({ columns, count, configure }: FixtureOptions) {
 	const data = structuredClone(defaultResumeData);
 	data.metadata.typography.body.fontFamily = "Helvetica";
 	data.metadata.typography.heading.fontFamily = "Helvetica";
-	data.metadata.page.hideIcons = true;
+	data.metadata.page.hideIcons = false;
 	data.metadata.design.colors.primary = "rgba(255, 0, 0, 1)";
 	data.metadata.layout.pages = [{ fullWidth: true, main: ["skills"], sidebar: [] }];
 	data.metadata.stylesheet = { mode: "semantic", source: { languageVersion: 1, text: "@version 1;" } };

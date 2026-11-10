@@ -81,7 +81,7 @@ export const defaultResumeData: ResumeData = {
 			locale: "en-US",
 			dateFormat: "short",
 			hideLinkUnderline: false,
-			hideIcons: false,
+			hideIcons: true,
 			hideSectionIcons: true,
 		},
 		design: {

@@ -12,6 +12,7 @@ const renderLevel = async (level: number) => {
 	data.metadata.typography.heading.fontFamily = "Helvetica";
 	data.metadata.layout.pages = [{ fullWidth: true, main: ["skills"], sidebar: [] }];
 	data.metadata.design.level = { type: "icon", icon: "star" };
+	data.metadata.page.hideIcons = false;
 	data.metadata.stylesheet = { mode: "semantic", source: { languageVersion: 1, text: "@version 1;" } };
 	data.sections.skills.items = [
 		{ id: "skill", hidden: false, name: "Skill", proficiency: "Expert", level, keywords: [], icon: "", iconColor: "" },

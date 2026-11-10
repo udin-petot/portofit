@@ -559,7 +559,7 @@ export const pageSchema = z.object({
 			"How dates print: 'short' (Mar 2022), 'long' (March 2022), 'numeric' (03/2022) or 'iso' (2022-03). When missing, it's read from how the dates were typed.",
 		),
 	hideLinkUnderline: z.boolean().describe("Whether to hide the underlines of the links.").catch(false),
-	hideIcons: z.boolean().describe("Whether to hide the item-level icons (skills, profiles, interests).").catch(false),
+	hideIcons: z.boolean().describe("Whether to hide the item-level icons (skills, profiles, interests).").catch(true),
 	hideSectionIcons: z
 		.boolean()
 		.describe("Whether to hide the section heading icons displayed before section titles.")

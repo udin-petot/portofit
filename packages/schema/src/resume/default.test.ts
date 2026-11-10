@@ -7,4 +7,11 @@ describe("resume level display defaults", () => {
 		expect(defaultResumeData.metadata.design.level.type).toBe("hidden");
 		expect(sampleResumeData.metadata.design.level.type).toBe("hidden");
 	});
+
+	it("tidak menggambar ikon butir dan ikon judul bagian pada resume baru maupun contoh", () => {
+		expect(defaultResumeData.metadata.page.hideIcons).toBe(true);
+		expect(defaultResumeData.metadata.page.hideSectionIcons).toBe(true);
+		expect(sampleResumeData.metadata.page.hideIcons).toBe(true);
+		expect(sampleResumeData.metadata.page.hideSectionIcons).toBe(true);
+	});
 });
