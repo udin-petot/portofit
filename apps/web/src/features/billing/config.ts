@@ -1,6 +1,8 @@
 /** Pengaturan halaman harga dan pembayaran manual. Ganti dua nilai di bawah dengan data asli PortoFit. */
 export const QRIS_IMAGE_PATH = "/qris-portofit.png";
-export const WHATSAPP_NUMBER = "6281939948769";
+import { SUPPORT_WHATSAPP_NUMBER } from "@reactive-resume/utils/support-faq";
+
+export const WHATSAPP_NUMBER = SUPPORT_WHATSAPP_NUMBER;
 
 export const formatRupiah = (amount: number) =>
 	new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(amount);

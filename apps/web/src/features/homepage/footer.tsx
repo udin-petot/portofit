@@ -6,6 +6,7 @@ import { cn } from "@reactive-resume/utils/style";
 import { SCENE } from "./scroll";
 import { labelClass } from "./ui";
 import { LocaleToggle } from "@/features/locale/toggle";
+import { SUPPORT_WHATSAPP_URL } from "@reactive-resume/utils/support-faq";
 
 const githubUrl = "https://github.com/udin-petot/portofit";
 const licenseUrl = "/lisensi";
@@ -47,7 +48,7 @@ const getColumns = (): { id: string; title: string; links: FooterLink[] }[] => [
 			{ label: t`Privacy policy`, href: "/privasi" },
 			{ label: t`Refund policy`, href: "/refund" },
 			{ label: "Bantuan", href: "/bantuan" },
-			{ label: "WhatsApp", href: "https://wa.me/6281939948769" },
+			{ label: "WhatsApp", href: SUPPORT_WHATSAPP_URL },
 			{ label: t`MIT License`, href: licenseUrl },
 		],
 	},

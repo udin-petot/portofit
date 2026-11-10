@@ -6,6 +6,7 @@ import { serveStatic } from "@hono/node-server/serve-static";
 import { env } from "@reactive-resume/env/server";
 import { templateSchema } from "@reactive-resume/schema/templates";
 import { defaultLocale, getLocaleAlternates, isLocale, localizedUrl } from "@reactive-resume/utils/locale";
+import { SUPPORT_FAQ } from "@reactive-resume/utils/support-faq";
 
 function resolveWebDistPath() {
 	const candidates = [
@@ -180,6 +181,28 @@ function homepageStructuredData(origin: string): StructuredData {
 					"Optional AI assistant with your own API key",
 					"Self-hosting with Docker",
 				],
+			},
+		],
+	};
+}
+
+function supportStructuredData(origin: string): StructuredData {
+	const url = `${origin}/bantuan`;
+	return {
+		"@context": "https://schema.org",
+		"@graph": [
+			organization(origin),
+			{
+				"@type": "FAQPage",
+				"@id": `${url}#faq`,
+				url,
+				name: "Pertanyaan yang sering muncul",
+				inLanguage: "id-ID",
+				mainEntity: SUPPORT_FAQ.map((item) => ({
+					"@type": "Question",
+					name: item.question,
+					acceptedAnswer: { "@type": "Answer", text: item.answer },
+				})),
 			},
 		],
 	};
@@ -422,7 +445,7 @@ const prerenderedPages: Record<
 		name: "bantuan",
 		meta: { title: SUPPORT_TITLE, description: SUPPORT_DESCRIPTION },
 		image: "/opengraph/banner.jpg",
-		structuredData: homepageStructuredData,
+		structuredData: supportStructuredData,
 		fallback: (shell) => withMeta(shell, { title: SUPPORT_TITLE, description: SUPPORT_DESCRIPTION }),
 	},
 	"/lisensi": {

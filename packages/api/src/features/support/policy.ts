@@ -1,11 +1,14 @@
-export const CONVERSATION_LIMIT = 40;
+import { SUPPORT_CONVERSATION_LIMIT } from "@reactive-resume/utils/support-faq";
+
+export const CONVERSATION_LIMIT = SUPPORT_CONVERSATION_LIMIT;
 export const MESSAGE_LIMIT = 1000;
 const ESCALATION_EXCERPT_LIMIT = 300;
 
 const EMPTY_COMPLAINT = "Saya butuh bantuan soal pesanan atau refund.";
 
 export function isConversationFull(messageCount: number): boolean {
-	return messageCount >= CONVERSATION_LIMIT;
+	// Sisakan ruang untuk pesan pengguna dan balasan asisten, supaya percakapan tidak pernah melewati 40.
+	return messageCount + 2 > CONVERSATION_LIMIT;
 }
 
 type EscalationInput = {

@@ -3,19 +3,13 @@ import { and, asc, eq } from "drizzle-orm";
 import { generateText } from "ai";
 import { db } from "@reactive-resume/db/client";
 import { supportConversation, supportMessage } from "@reactive-resume/db/schema";
-import { SUPPORT_FAQ } from "@reactive-resume/utils/support-faq";
+import { SUPPORT_FAQ, SUPPORT_WHATSAPP_NUMBER } from "@reactive-resume/utils/support-faq";
 import { getModel } from "../ai/service";
 import { aiProvidersService } from "../ai-providers/service";
 import { billingService } from "../billing/service";
 import { enforceSupportGuard } from "./guard";
 import { buildEscalationText, isConversationFull } from "./policy";
 import { buildSupportPrompt } from "./prompt";
-
-/** Nomor admin. Sama dengan yang dipakai halaman harga di apps/web. */
-const SUPPORT_WHATSAPP_NUMBER = "6281939948769";
-
-const AI_FAILED_REPLY =
-	"Maaf, bantuan otomatis sedang tidak bisa menjawab. Silakan lanjut ke WhatsApp admin di bawah ini.";
 
 const FAQ_TEXT = SUPPORT_FAQ.map((item) => item.answer).join(" ");
 
@@ -45,8 +39,9 @@ async function openConversation(userId: string) {
 		const [row] = await db.insert(supportConversation).values({ userId }).returning();
 		if (!row) throw new Error("SUPPORT_CONVERSATION_CREATE_FAILED");
 		return row;
-	} catch {
-		// Dua tab bisa membuat percakapan bersamaan. Indeks unik menolak yang kedua, jadi baca yang menang.
+	} catch (error) {
+		// Dua tab bisa membuat percakapan bersamaan. Hanya pelanggaran indeks unik yang berarti balapan.
+		if ((error as { code?: string }).code !== "23505") throw error;
 		const raced = await findOpen(userId);
 		if (raced) return raced;
 		throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Gagal membuka percakapan bantuan." });
@@ -154,7 +149,6 @@ export const supportService = {
 			return {
 				messages: userMessage ? [userMessage] : [],
 				aiFailed: true,
-				aiFailedReply: AI_FAILED_REPLY,
 				whatsappUrl: escalation,
 			};
 		}

@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { FaqList } from "@/features/support/faq-list";
 import { formatRupiah } from "@/features/billing/config";
 import { orpc } from "@/libs/orpc/client";
+import { SUPPORT_WHATSAPP_URL } from "@reactive-resume/utils/support-faq";
 
 export const Route = createFileRoute("/_home/bantuan")({
 	component: RouteComponent,
@@ -43,22 +44,22 @@ function RouteComponent() {
 
 			<div className="mt-12 flex flex-wrap items-center gap-3 border-t border-line pt-6">
 				{session ? (
-					<a
-						href="/dashboard/bantuan"
+					<Link
+						to="/dashboard/bantuan"
 						className="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-bg transition-opacity hover:opacity-90"
 					>
 						Buka chat bantuan
-					</a>
+					</Link>
 				) : (
-					<a
-						href="/auth/login"
+					<Link
+						to="/auth/login"
 						className="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-bg transition-opacity hover:opacity-90"
 					>
 						Masuk untuk chat bantuan
-					</a>
+					</Link>
 				)}
 				<a
-					href="https://wa.me/6281939948769"
+					href={SUPPORT_WHATSAPP_URL}
 					target="_blank"
 					rel="noreferrer"
 					className="rounded-full border border-line px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-hover"

@@ -1,5 +1,13 @@
 export type SupportTopic = "refund" | "pembayaran" | "kredit" | "akun";
 
+/** Nomor WhatsApp admin. Satu sumber supaya tautan di halaman dan di balasan AI tidak pernah berbeda. */
+export const SUPPORT_WHATSAPP_NUMBER = "6281939948769";
+
+export const SUPPORT_WHATSAPP_URL = `https://wa.me/${SUPPORT_WHATSAPP_NUMBER}`;
+
+/** Batas pesan per percakapan, termasuk balasan asisten. Dipakai server dan UI supaya angkanya tidak berbeda. */
+export const SUPPORT_CONVERSATION_LIMIT = 40;
+
 export type SupportFaq = {
 	id: string;
 	topic: SupportTopic;

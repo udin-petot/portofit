@@ -1,8 +1,9 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
+import { SUPPORT_CONVERSATION_LIMIT, SUPPORT_WHATSAPP_URL } from "@reactive-resume/utils/support-faq";
 import { orpc } from "@/libs/orpc/client";
 
-const FALLBACK_WHATSAPP = "https://wa.me/6281939948769";
+const FALLBACK_WHATSAPP = SUPPORT_WHATSAPP_URL;
 
 type ChatMessage = { id: string; role: string; content: string };
 
@@ -136,7 +137,7 @@ export function SupportChat() {
 	const invalidate = () => queryClient.invalidateQueries({ queryKey: orpc.support.thread.key() });
 
 	const messages = thread.data?.messages ?? [];
-	const full = messages.length >= 40;
+	const full = messages.length + 2 > SUPPORT_CONVERSATION_LIMIT;
 	const whatsappUrl = escalate.data?.url ?? FALLBACK_WHATSAPP;
 
 	const code = (send.error as { data?: { code?: string } } | null)?.data?.code;

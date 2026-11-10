@@ -2,10 +2,11 @@ import { describe, expect, it } from "vitest";
 import { buildEscalationText, CONVERSATION_LIMIT, isConversationFull, MESSAGE_LIMIT } from "./policy";
 
 describe("support policy", () => {
-	it("membatasi percakapan 40 pesan", () => {
+	it("membatasi percakapan 40 pesan termasuk balasan asisten", () => {
 		expect(CONVERSATION_LIMIT).toBe(40);
-		expect(isConversationFull(39)).toBe(false);
-		expect(isConversationFull(40)).toBe(true);
+		expect(isConversationFull(37)).toBe(false);
+		expect(isConversationFull(38)).toBe(false);
+		expect(isConversationFull(39)).toBe(true);
 	});
 
 	it("membatasi pesan pengguna 1000 karakter", () => {

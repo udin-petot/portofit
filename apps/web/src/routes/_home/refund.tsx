@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalList, LegalPage, LegalSection } from "@/features/legal/page";
+import { SUPPORT_WHATSAPP_URL } from "@reactive-resume/utils/support-faq";
 
 export const Route = createFileRoute("/_home/refund")({
 	component: RouteComponent,
@@ -54,7 +55,7 @@ function RouteComponent() {
 				<p>
 					Kirim pesan WhatsApp ke{" "}
 					<a
-						href="https://wa.me/6281939948769"
+						href={SUPPORT_WHATSAPP_URL}
 						className="font-medium text-accent-text underline-offset-4 hover:underline"
 						rel="noreferrer"
 						target="_blank"
@@ -81,6 +82,13 @@ function RouteComponent() {
 				</p>
 			</LegalSection>
 
+			<LegalSection title="7. Perubahan kebijakan">
+				<p>
+					Kebijakan ini dapat diperbarui. Permintaan yang diajukan sebelum tanggal perubahan mengikuti kebijakan yang
+					berlaku saat pembayaran diverifikasi.
+				</p>
+			</LegalSection>
+
 			<LegalSection title="8. Bantuan lain">
 				<p>
 					Pertanyaan lain soal pembayaran dan kredit ada di halaman{" "}
@@ -88,13 +96,6 @@ function RouteComponent() {
 						Bantuan
 					</a>
 					.
-				</p>
-			</LegalSection>
-
-			<LegalSection title="7. Perubahan kebijakan">
-				<p>
-					Kebijakan ini dapat diperbarui. Permintaan yang diajukan sebelum tanggal perubahan mengikuti kebijakan yang
-					berlaku saat pembayaran diverifikasi.
 				</p>
 			</LegalSection>
 		</LegalPage>

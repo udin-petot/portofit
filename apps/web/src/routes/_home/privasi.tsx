@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalList, LegalPage, LegalSection } from "@/features/legal/page";
+import { SUPPORT_WHATSAPP_URL } from "@reactive-resume/utils/support-faq";
 
 export const Route = createFileRoute("/_home/privasi")({
 	component: RouteComponent,
@@ -112,7 +113,7 @@ function RouteComponent() {
 				<p>
 					Pertanyaan tentang data dan privasi: WhatsApp{" "}
 					<a
-						href="https://wa.me/6281939948769"
+						href={SUPPORT_WHATSAPP_URL}
 						className="font-medium text-accent-text underline-offset-4 hover:underline"
 						rel="noreferrer"
 						target="_blank"
