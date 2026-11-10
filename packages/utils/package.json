@@ -13,6 +13,7 @@
 		"./rate-limit": "./src/rate-limit.ts",
 		"./string": "./src/string.ts",
 		"./style": "./src/style.ts",
+		"./support-faq": "./src/support-faq.ts",
 		"./timezone": "./src/timezone.ts",
 		"./url-security.node": "./src/url-security.node.ts"
 	},

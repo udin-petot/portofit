@@ -43,6 +43,7 @@ const docxParserSystemPrompt = makeParserPrompt({
 
 const assistantSystemPromptTemplate = readPrompt("assistant-system.md");
 export const careerSystemPromptTemplate = readPrompt("career-system.md");
+export const supportSystemPromptTemplate = readPrompt("support-system.md");
 const atsReviewSystemPrompt = readPrompt("ats-review-system.md");
 const atsReviewUserPromptTemplate = readPrompt("ats-review-user.md");
 const docxParserUserPrompt = readPrompt("docx-parser-user.md");
