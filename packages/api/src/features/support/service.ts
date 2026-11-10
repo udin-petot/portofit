@@ -94,10 +94,6 @@ export const supportService = {
 			.values({ conversationId: conversation.id, role: "user", content: input.message })
 			.returning();
 
-		const userAmounts = [...existing, ...(userMessage ? [userMessage] : [])]
-			.filter((row) => row.role === "user")
-			.map((row) => row.content);
-
 		const escalation = whatsappUrl(
 			buildEscalationText({
 				name: input.identity.name,
@@ -112,10 +108,18 @@ export const supportService = {
 
 			const { plans } = await billingService.listPlans();
 			const pricesIdr = plans.map((plan) => plan.priceIdr);
+			// Hanya angka yang masuk ke prompt, bukan teks mentah pengguna, supaya prompt tidak bisa dibajak.
+			const userNumbers = [...existing, ...(userMessage ? [userMessage] : [])]
+				.filter((row) => row.role === "user")
+				.flatMap((row) => row.content.match(/\b\d[\d.]{2,}\b/g) ?? []);
 			const prompt = buildSupportPrompt({
 				prices: plans.map((plan) => ({ code: plan.code, priceIdr: plan.priceIdr })),
-				userAmounts,
+				userAmounts: userNumbers,
 			});
+
+			const transcript = [...existing, ...(userMessage ? [userMessage] : [])]
+				.map((row) => `${row.role === "user" ? "Pengguna" : "Bantuan"}: ${row.content}`)
+				.join("\n");
 
 			const { text } = await generateText({
 				model: getModel({
@@ -125,11 +129,17 @@ export const supportService = {
 					baseURL: provider.baseURL ?? undefined,
 				}),
 				system: prompt,
-				prompt: input.message,
+				prompt: `Riwayat percakapan:\n${transcript}\n\nJawab pesan terakhir pengguna.`,
 				temperature: 0.2,
+				maxOutputTokens: 400,
+				abortSignal: AbortSignal.timeout(20_000),
 			});
 
-			const safe = enforceSupportGuard(text, { faqText: FAQ_TEXT, pricesIdr, userAmounts });
+			const reply = text.trim();
+			if (!reply) throw new Error("SUPPORT_EMPTY_REPLY");
+
+			const safe = enforceSupportGuard(reply, { faqText: FAQ_TEXT, pricesIdr, userAmounts: userNumbers });
+			if (safe.replaced) console.warn("[Support] balasan diganti penjaga", { userId: input.userId });
 			const [assistantMessage] = await db
 				.insert(supportMessage)
 				.values({ conversationId: conversation.id, role: "assistant", content: safe.text })
@@ -161,7 +171,13 @@ export const supportService = {
 
 	async escalate(input: { userId: string; identity: Identity }) {
 		const conversation = await findOpen(input.userId);
-		if (!conversation) throw new ORPCError("BAD_REQUEST", { message: "Belum ada percakapan." });
+		if (!conversation) {
+			return {
+				url: whatsappUrl(
+					buildEscalationText({ name: input.identity.name, email: input.identity.email, lastUserMessage: null }),
+				),
+			};
+		}
 
 		const messages = await messagesOf(conversation.id);
 		const lastUserMessage = [...messages].reverse().find((row) => row.role === "user")?.content ?? null;

@@ -24,6 +24,13 @@ describe("SupportChatView", () => {
 		expect(screen.getByText(/tidak bisa menjawab/i)).toBeTruthy();
 	});
 
+	it("menampilkan pesan error dan menonaktifkan input saat percakapan penuh", () => {
+		render(<SupportChatView {...base} error="Percakapan sudah penuh. Tekan Mulai topik baru." full />);
+		expect(screen.getByText(/percakapan sudah penuh/i)).toBeTruthy();
+		const box = screen.getByPlaceholderText(/tulis pertanyaanmu/i) as HTMLTextAreaElement;
+		expect(box.disabled).toBe(true);
+	});
+
 	it("menampilkan pesan yang sudah ada", () => {
 		render(
 			<SupportChatView

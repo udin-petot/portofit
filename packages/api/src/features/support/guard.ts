@@ -3,10 +3,11 @@ const SAFE_REPLY =
 
 /** Kalimat yang menjanjikan hasil. Tidak boleh lolos, sekalipun model mengarang. */
 const PROMISE_PATTERNS = [
-	/\bpasti\s+(refund|dikembalikan|kembali)\b/i,
-	/\bdijamin\s+(kembali|refund|dikembalikan)\b/i,
+	/\bpasti[^.]{0,40}(dikembalikan|kembali|refund)/i,
+	/\bdijamin[^.]{0,40}(kembali|refund|dikembalikan)/i,
+	/(refund|dana|uang|kredit)[^.]{0,40}\bdijamin\b/i,
 	/\botomatis\s+dikembalikan\b/i,
-	/\b(uang|dana)\s+(kamu|anda)\s+pasti\s+kembali\b/i,
+	/\bakan kami kembalikan\b/i,
 ];
 
 type GuardAllowed = {
@@ -27,8 +28,17 @@ function toAmount(raw: string): number {
 function amountsIn(text: string): number[] {
 	const found: number[] = [];
 
-	for (const match of text.matchAll(/\bRp\s?([\d.]+)/gi)) found.push(toAmount(match[1] ?? ""));
-	for (const match of text.matchAll(/\b([\d.]+)\s?(rb|ribu)\b/gi)) found.push(toAmount(match[1] ?? "") * 1000);
+	for (const match of text.matchAll(/\bRp\.?\s?([\d.,]+)/gi)) found.push(toAmount(match[1] ?? ""));
+	for (const match of text.matchAll(/\b([\d.,]+)\s?(rb|ribu)\b/gi)) found.push(toAmount(match[1] ?? "") * 1000);
+
+	return found.filter((value) => Number.isFinite(value));
+}
+
+/** Angka yang ditulis pengguna, termasuk tanpa penanda rupiah seperti "transfer 50003". */
+function numbersInUserText(text: string): number[] {
+	const found = amountsIn(text);
+
+	for (const match of text.matchAll(/\b\d[\d.]{2,}\b/g)) found.push(toAmount(match[0] ?? ""));
 
 	return found.filter((value) => Number.isFinite(value));
 }
@@ -43,8 +53,8 @@ export function enforceSupportGuard(reply: string, allowed: GuardAllowed): Guard
 
 	const permitted = new Set<number>([
 		...allowed.pricesIdr,
-		...amountsIn(allowed.faqText),
-		...allowed.userAmounts.flatMap(amountsIn),
+		...numbersInUserText(allowed.faqText),
+		...allowed.userAmounts.flatMap(numbersInUserText),
 	]);
 
 	const invented = amountsIn(reply).some((amount) => !permitted.has(amount));

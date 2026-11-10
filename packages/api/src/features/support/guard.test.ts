@@ -15,6 +15,34 @@ describe("enforceSupportGuard", () => {
 		expect(enforceSupportGuard("Dana otomatis dikembalikan dalam sehari.", allowed).replaced).toBe(true);
 	});
 
+	it.each([
+		"Dana Anda pasti akan dikembalikan penuh.",
+		"Kredit Anda akan kami kembalikan hari ini juga.",
+		"Refund penuh dijamin dalam 7 hari.",
+	])("mengganti janji: %s", (reply) => {
+		expect(enforceSupportGuard(reply, allowed).replaced).toBe(true);
+	});
+
+	it("tidak mengganti kalimat kebijakan yang benar", () => {
+		expect(enforceSupportGuard("Kredit yang sudah terpakai tidak dapat dikembalikan.", allowed).replaced).toBe(false);
+	});
+
+	it("membiarkan nominal pengguna yang ditulis tanpa Rp", () => {
+		const result = enforceSupportGuard("Saya catat transfer Rp50.003 Anda.", {
+			...allowed,
+			userAmounts: ["saya transfer 50003 tadi"],
+		});
+		expect(result.replaced).toBe(false);
+	});
+
+	it("membiarkan format Rp. bertitik", () => {
+		const result = enforceSupportGuard("Dana Rp. 250.000 sudah kami terima.", {
+			...allowed,
+			userAmounts: ["tf 250000"],
+		});
+		expect(result.replaced).toBe(false);
+	});
+
 	it("membiarkan nominal yang ditulis pengguna sendiri", () => {
 		const result = enforceSupportGuard("Saya catat transfer Rp50.003 Anda.", {
 			...allowed,
