@@ -568,16 +568,16 @@ export const sampleResumeData: ResumeData = {
 				{
 					fullWidth: false,
 					main: ["summary", "education", "experience"],
-					sidebar: ["profiles", "skills"],
+					sidebar: ["profiles", "languages"],
 				},
 				{
 					fullWidth: false,
-					main: ["019becaf-0b87-769d-98a6-46ccf558c0e8", "awards"],
-					sidebar: ["certifications", "languages", "interests", "references"],
+					main: ["skills", "awards"],
+					sidebar: ["certifications", "interests", "references"],
 				},
 				{
 					fullWidth: true,
-					main: ["projects", "publications", "volunteer"],
+					main: ["019becaf-0b87-769d-98a6-46ccf558c0e8", "projects", "publications", "volunteer"],
 					sidebar: [],
 				},
 			],
