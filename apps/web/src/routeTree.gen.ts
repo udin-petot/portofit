@@ -17,6 +17,7 @@ import { Route as DashboardRouteRouteImport } from "./routes/dashboard/route";
 import { Route as UsernameSlugRouteImport } from "./routes/$username/$slug";
 import { Route as HomeIndexRouteImport } from "./routes/_home/index";
 import { Route as HomeAtsCheckerRouteImport } from "./routes/_home/ats-checker";
+import { Route as HomeBantuanRouteImport } from "./routes/_home/bantuan";
 import { Route as HomeHargaRouteImport } from "./routes/_home/harga";
 import { Route as HomeLisensiRouteImport } from "./routes/_home/lisensi";
 import { Route as HomePrivasiRouteImport } from "./routes/_home/privasi";
@@ -38,6 +39,7 @@ import { Route as AuthVerify2faBackupRouteImport } from "./routes/auth/verify-2f
 import { Route as BuilderResumeIdRouteRouteImport } from "./routes/builder/$resumeId/route";
 import { Route as DashboardIndexRouteImport } from "./routes/dashboard/index";
 import { Route as DashboardAdminRouteImport } from "./routes/dashboard/admin";
+import { Route as DashboardBantuanRouteImport } from "./routes/dashboard/bantuan";
 import { Route as DashboardCareerRouteRouteImport } from "./routes/dashboard/career/route";
 import { Route as DashboardCoverLettersRouteImport } from "./routes/dashboard/cover-letters";
 import { Route as DashboardSettingsRouteRouteImport } from "./routes/dashboard/settings/route";
@@ -103,6 +105,11 @@ const HomeIndexRoute = HomeIndexRouteImport.update({
 const HomeAtsCheckerRoute = HomeAtsCheckerRouteImport.update({
   id: "/ats-checker",
   path: "/ats-checker",
+  getParentRoute: () => HomeRouteRoute,
+} as any);
+const HomeBantuanRoute = HomeBantuanRouteImport.update({
+  id: "/bantuan",
+  path: "/bantuan",
   getParentRoute: () => HomeRouteRoute,
 } as any);
 const HomeHargaRoute = HomeHargaRouteImport.update({
@@ -208,6 +215,11 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
 const DashboardAdminRoute = DashboardAdminRouteImport.update({
   id: "/admin",
   path: "/admin",
+  getParentRoute: () => DashboardRouteRoute,
+} as any);
+const DashboardBantuanRoute = DashboardBantuanRouteImport.update({
+  id: "/bantuan",
+  path: "/bantuan",
   getParentRoute: () => DashboardRouteRoute,
 } as any);
 const DashboardCareerRouteRoute = DashboardCareerRouteRouteImport.update({
@@ -372,6 +384,7 @@ export interface FileRoutesByFullPath {
   "/dashboard/settings": typeof DashboardSettingsRouteRouteWithChildren;
   "/$username/$slug": typeof UsernameSlugRoute;
   "/ats-checker": typeof HomeAtsCheckerRoute;
+  "/bantuan": typeof HomeBantuanRoute;
   "/harga": typeof HomeHargaRoute;
   "/lisensi": typeof HomeLisensiRoute;
   "/privasi": typeof HomePrivasiRoute;
@@ -389,6 +402,7 @@ export interface FileRoutesByFullPath {
   "/auth/verify-2fa": typeof AuthVerify2faRoute;
   "/auth/verify-2fa-backup": typeof AuthVerify2faBackupRoute;
   "/dashboard/admin": typeof DashboardAdminRoute;
+  "/dashboard/bantuan": typeof DashboardBantuanRoute;
   "/dashboard/cover-letters": typeof DashboardCoverLettersRoute;
   "/dashboard/transaksi": typeof DashboardTransaksiRoute;
   "/dashboard/trash": typeof DashboardTrashRoute;
@@ -422,6 +436,7 @@ export interface FileRoutesByTo {
   "/admin": typeof AdminRoute;
   "/$username/$slug": typeof UsernameSlugRoute;
   "/ats-checker": typeof HomeAtsCheckerRoute;
+  "/bantuan": typeof HomeBantuanRoute;
   "/harga": typeof HomeHargaRoute;
   "/lisensi": typeof HomeLisensiRoute;
   "/privasi": typeof HomePrivasiRoute;
@@ -439,6 +454,7 @@ export interface FileRoutesByTo {
   "/auth/verify-2fa": typeof AuthVerify2faRoute;
   "/auth/verify-2fa-backup": typeof AuthVerify2faBackupRoute;
   "/dashboard/admin": typeof DashboardAdminRoute;
+  "/dashboard/bantuan": typeof DashboardBantuanRoute;
   "/dashboard/cover-letters": typeof DashboardCoverLettersRoute;
   "/dashboard/transaksi": typeof DashboardTransaksiRoute;
   "/dashboard/trash": typeof DashboardTrashRoute;
@@ -481,6 +497,7 @@ export interface FileRoutesById {
   "/dashboard/settings": typeof DashboardSettingsRouteRouteWithChildren;
   "/$username/$slug": typeof UsernameSlugRoute;
   "/_home/ats-checker": typeof HomeAtsCheckerRoute;
+  "/_home/bantuan": typeof HomeBantuanRoute;
   "/_home/harga": typeof HomeHargaRoute;
   "/_home/lisensi": typeof HomeLisensiRoute;
   "/_home/privasi": typeof HomePrivasiRoute;
@@ -498,6 +515,7 @@ export interface FileRoutesById {
   "/auth/verify-2fa": typeof AuthVerify2faRoute;
   "/auth/verify-2fa-backup": typeof AuthVerify2faBackupRoute;
   "/dashboard/admin": typeof DashboardAdminRoute;
+  "/dashboard/bantuan": typeof DashboardBantuanRoute;
   "/dashboard/cover-letters": typeof DashboardCoverLettersRoute;
   "/dashboard/transaksi": typeof DashboardTransaksiRoute;
   "/dashboard/trash": typeof DashboardTrashRoute;
@@ -541,6 +559,7 @@ export interface FileRouteTypes {
     | "/dashboard/settings"
     | "/$username/$slug"
     | "/ats-checker"
+    | "/bantuan"
     | "/harga"
     | "/lisensi"
     | "/privasi"
@@ -558,6 +577,7 @@ export interface FileRouteTypes {
     | "/auth/verify-2fa"
     | "/auth/verify-2fa-backup"
     | "/dashboard/admin"
+    | "/dashboard/bantuan"
     | "/dashboard/cover-letters"
     | "/dashboard/transaksi"
     | "/dashboard/trash"
@@ -591,6 +611,7 @@ export interface FileRouteTypes {
     | "/admin"
     | "/$username/$slug"
     | "/ats-checker"
+    | "/bantuan"
     | "/harga"
     | "/lisensi"
     | "/privasi"
@@ -608,6 +629,7 @@ export interface FileRouteTypes {
     | "/auth/verify-2fa"
     | "/auth/verify-2fa-backup"
     | "/dashboard/admin"
+    | "/dashboard/bantuan"
     | "/dashboard/cover-letters"
     | "/dashboard/transaksi"
     | "/dashboard/trash"
@@ -649,6 +671,7 @@ export interface FileRouteTypes {
     | "/dashboard/settings"
     | "/$username/$slug"
     | "/_home/ats-checker"
+    | "/_home/bantuan"
     | "/_home/harga"
     | "/_home/lisensi"
     | "/_home/privasi"
@@ -666,6 +689,7 @@ export interface FileRouteTypes {
     | "/auth/verify-2fa"
     | "/auth/verify-2fa-backup"
     | "/dashboard/admin"
+    | "/dashboard/bantuan"
     | "/dashboard/cover-letters"
     | "/dashboard/transaksi"
     | "/dashboard/trash"
@@ -765,6 +789,13 @@ declare module "@tanstack/react-router" {
       path: "/ats-checker";
       fullPath: "/ats-checker";
       preLoaderRoute: typeof HomeAtsCheckerRouteImport;
+      parentRoute: typeof HomeRouteRoute;
+    };
+    "/_home/bantuan": {
+      id: "/_home/bantuan";
+      path: "/bantuan";
+      fullPath: "/bantuan";
+      preLoaderRoute: typeof HomeBantuanRouteImport;
       parentRoute: typeof HomeRouteRoute;
     };
     "/_home/harga": {
@@ -912,6 +943,13 @@ declare module "@tanstack/react-router" {
       path: "/admin";
       fullPath: "/dashboard/admin";
       preLoaderRoute: typeof DashboardAdminRouteImport;
+      parentRoute: typeof DashboardRouteRoute;
+    };
+    "/dashboard/bantuan": {
+      id: "/dashboard/bantuan";
+      path: "/bantuan";
+      fullPath: "/dashboard/bantuan";
+      preLoaderRoute: typeof DashboardBantuanRouteImport;
       parentRoute: typeof DashboardRouteRoute;
     };
     "/dashboard/career": {
@@ -1108,6 +1146,7 @@ declare module "@tanstack/react-router" {
 
 interface HomeRouteRouteChildren {
   HomeAtsCheckerRoute: typeof HomeAtsCheckerRoute;
+  HomeBantuanRoute: typeof HomeBantuanRoute;
   HomeHargaRoute: typeof HomeHargaRoute;
   HomeLisensiRoute: typeof HomeLisensiRoute;
   HomePrivasiRoute: typeof HomePrivasiRoute;
@@ -1118,6 +1157,7 @@ interface HomeRouteRouteChildren {
 
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
   HomeAtsCheckerRoute: HomeAtsCheckerRoute,
+  HomeBantuanRoute: HomeBantuanRoute,
   HomeHargaRoute: HomeHargaRoute,
   HomeLisensiRoute: HomeLisensiRoute,
   HomePrivasiRoute: HomePrivasiRoute,
@@ -1251,6 +1291,7 @@ interface DashboardRouteRouteChildren {
   DashboardCareerRouteRoute: typeof DashboardCareerRouteRouteWithChildren;
   DashboardSettingsRouteRoute: typeof DashboardSettingsRouteRouteWithChildren;
   DashboardAdminRoute: typeof DashboardAdminRoute;
+  DashboardBantuanRoute: typeof DashboardBantuanRoute;
   DashboardCoverLettersRoute: typeof DashboardCoverLettersRoute;
   DashboardTransaksiRoute: typeof DashboardTransaksiRoute;
   DashboardTrashRoute: typeof DashboardTrashRoute;
@@ -1264,6 +1305,7 @@ const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardCareerRouteRoute: DashboardCareerRouteRouteWithChildren,
   DashboardSettingsRouteRoute: DashboardSettingsRouteRouteWithChildren,
   DashboardAdminRoute: DashboardAdminRoute,
+  DashboardBantuanRoute: DashboardBantuanRoute,
   DashboardCoverLettersRoute: DashboardCoverLettersRoute,
   DashboardTransaksiRoute: DashboardTransaksiRoute,
   DashboardTrashRoute: DashboardTrashRoute,

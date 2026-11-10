@@ -28,6 +28,7 @@ type NavItem = {
 	to:
 		| "/dashboard"
 		| "/dashboard/applications"
+		| "/dashboard/bantuan"
 		| "/dashboard/career"
 		| "/dashboard/transaksi"
 		| "/dashboard/trash"
@@ -63,6 +64,7 @@ function useNavItems() {
 	// Career counts what's waiting for the user (unread notifications), so nothing shows at zero.
 	items.push({ to: "/dashboard/career", icon: "compass", label: t`Career`, ...(unread ? { count: unread } : {}) });
 	items.push({ to: "/dashboard/transaksi", icon: "list-numbers", label: t`Transaksi` });
+	items.push({ to: "/dashboard/bantuan", icon: "chat-text", label: "Bantuan" });
 	if (isAdmin) items.push({ to: "/admin", icon: "key", label: t`Admin` });
 	const settings: NavItem = { to: "/dashboard/settings", icon: "gear-six", label: t`Settings` };
 	const trash: NavItem | null = counts?.trash
