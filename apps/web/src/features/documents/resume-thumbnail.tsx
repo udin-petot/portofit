@@ -23,6 +23,19 @@ const throwIfAborted = (signal: AbortSignal) => {
 };
 
 const THUMBNAIL_CACHE_TIME = 5 * 60 * 1000;
+
+// One thumbnail at a time: each one builds a PDF and rasterizes its first page. Running the whole grid at
+// once pushed the first visible card behind six others and blocked the main thread for most of the load.
+let thumbnailQueue: Promise<unknown> = Promise.resolve();
+const enqueueThumbnail = <T,>(task: () => Promise<T>, signal: AbortSignal): Promise<T> => {
+	const next = thumbnailQueue.then(() => {
+		signal.throwIfAborted();
+		return task();
+	});
+	thumbnailQueue = next.catch(() => undefined);
+	return next;
+};
+
 const createResumeThumbnailUrl = async (data: ResumeData, size: ResumeThumbnailSize, signal: AbortSignal) => {
 	const pdf = await createResumePdfBlob(data);
 	throwIfAborted(signal);
@@ -115,7 +128,7 @@ function useResumeThumbnail(
 		queryKey: ["resume-thumbnail", cacheKey, size.width, size.height],
 		queryFn: ({ signal }) => {
 			if (!data) throw new Error("Resume data is required to generate a thumbnail.");
-			return createResumeThumbnailUrl(data, size, signal);
+			return enqueueThumbnail(() => createResumeThumbnailUrl(data, size, signal), signal);
 		},
 		enabled: Boolean(enabled && data && size.width && size.height),
 		placeholderData: (previous) => previous ?? findLatestThumbnail(queryClient, resumePrefix),
@@ -168,7 +181,7 @@ function useResumeThumbnail(
 /** The resume's first page, rendered once it scrolls near view and cached until it changes. */
 export function ResumeThumbnail({ resume }: ResumeThumbnailProps) {
 	const containerRef = useRef<HTMLDivElement>(null);
-	const isInView = useInView(containerRef, { amount: 0.1, margin: "240px" });
+	const isInView = useInView(containerRef, { amount: 0.6, margin: "0px" });
 	const size = useThumbnailSize(containerRef, isInView);
 	const { data: resumeData, isError: resumeIsError } = useQuery({
 		...orpc.resume.getById.queryOptions({ input: { id: resume.id } }),
