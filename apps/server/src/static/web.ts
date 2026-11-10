@@ -45,7 +45,7 @@ const dashboardBootShell = (html: string) =>
  * Without an entry here the fallback below returns 404 for the path in production — the dev Vite
  * server serves the shell for anything, so this failure only ever shows up once deployed.
  */
-const indexableAppPaths = new Set(["/ats-checker", "/harga", "/syarat", "/privasi", "/refund", "/lisensi"]);
+const indexableAppPaths = new Set(["/ats-checker", "/bantuan", "/harga", "/syarat", "/privasi", "/refund", "/lisensi"]);
 
 /**
  * Addresses people and crawlers guess, and the upstream documentation uses. They used to render an
@@ -123,6 +123,9 @@ const PRIVACY_DESCRIPTION =
 const REFUND_TITLE = "Kebijakan Pengembalian Dana PortoFit";
 const REFUND_DESCRIPTION =
 	"Kapan kredit PortoFit dapat dikembalikan, kapan tidak, dan cara mengajukan pengembalian dana lewat WhatsApp.";
+const SUPPORT_TITLE = "Bantuan PortoFit";
+const SUPPORT_DESCRIPTION =
+	"Pertanyaan umum soal pembayaran, kredit, dan pengembalian dana PortoFit, plus jalan menghubungi admin lewat WhatsApp.";
 const LICENSE_TITLE = "Lisensi MIT PortoFit";
 const LICENSE_DESCRIPTION =
 	"Lisensi MIT yang berlaku untuk PortoFit, proyek Reactive Resume yang menjadi fondasinya, dan atribusi yang diwajibkan keduanya.";
@@ -414,6 +417,13 @@ const prerenderedPages: Record<
 		image: "/opengraph/banner.jpg",
 		structuredData: homepageStructuredData,
 		fallback: (shell) => withMeta(shell, { title: REFUND_TITLE, description: REFUND_DESCRIPTION }),
+	},
+	"/bantuan": {
+		name: "bantuan",
+		meta: { title: SUPPORT_TITLE, description: SUPPORT_DESCRIPTION },
+		image: "/opengraph/banner.jpg",
+		structuredData: homepageStructuredData,
+		fallback: (shell) => withMeta(shell, { title: SUPPORT_TITLE, description: SUPPORT_DESCRIPTION }),
 	},
 	"/lisensi": {
 		name: "lisensi",

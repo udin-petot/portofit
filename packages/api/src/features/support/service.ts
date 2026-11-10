@@ -53,7 +53,7 @@ async function openConversation(userId: string) {
 	}
 }
 
-async function messagesOf(conversationId: string): Promise<MessageRow[]> {
+function messagesOf(conversationId: string): Promise<MessageRow[]> {
 	return db
 		.select({
 			id: supportMessage.id,
