@@ -3,7 +3,6 @@ import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { QueryClient } from "@tanstack/react-query";
 import type { RefObject } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Skeleton } from "@reactive-resume/ui/components/skeleton";
@@ -49,6 +48,34 @@ const createResumeThumbnailUrl = async (data: ResumeData, size: ResumeThumbnailS
 
 	return url;
 };
+
+/** Waits one frame, then observes the real laid-out card. Observing before layout made zero-height cards look visible. */
+function useMostlyInView(containerRef: RefObject<HTMLDivElement | null>) {
+	const [isInView, setIsInView] = useState(false);
+
+	useEffect(() => {
+		const container = containerRef.current;
+		if (!container) return;
+
+		let observer: IntersectionObserver | undefined;
+		const frame = requestAnimationFrame(() => {
+			observer = new IntersectionObserver(
+				([entry]) => {
+					setIsInView(entry?.isIntersecting ?? false);
+				},
+				{ threshold: 0.6 },
+			);
+			observer.observe(container);
+		});
+
+		return () => {
+			cancelAnimationFrame(frame);
+			observer?.disconnect();
+		};
+	}, [containerRef]);
+
+	return isInView;
+}
 
 function useThumbnailSize(containerRef: RefObject<HTMLDivElement | null>, enabled: boolean) {
 	const [size, setSize] = useState<ResumeThumbnailSize>({ width: 0, height: 0 });
@@ -181,7 +208,7 @@ function useResumeThumbnail(
 /** The resume's first page, rendered once it scrolls near view and cached until it changes. */
 export function ResumeThumbnail({ resume }: ResumeThumbnailProps) {
 	const containerRef = useRef<HTMLDivElement>(null);
-	const isInView = useInView(containerRef, { amount: 0.6, margin: "0px" });
+	const isInView = useMostlyInView(containerRef);
 	const size = useThumbnailSize(containerRef, isInView);
 	const { data: resumeData, isError: resumeIsError } = useQuery({
 		...orpc.resume.getById.queryOptions({ input: { id: resume.id } }),
