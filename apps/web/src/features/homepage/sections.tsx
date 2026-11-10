@@ -212,10 +212,8 @@ export function Languages() {
 
 const pillLinkClass =
 	"flex h-10 items-center gap-2 rounded-full border border-line-2 px-3.5 font-medium font-ui text-ink text-sm transition-colors hover:bg-hover";
-const receiptButtonClass =
-	"flex h-[42px] items-center justify-between rounded-md px-3.5 font-semibold text-sm transition-colors";
 
-/** 10 Support: the case for donations, printed as a receipt that totals nothing. */
+/** 10 Support: what the free tier includes, printed as a receipt that totals nothing. */
 export function Support() {
 	const { i18n } = useLingui();
 	// oxlint-disable-next-line react/purity -- The receipt shows the current calendar date on each render, including after midnight.
@@ -309,33 +307,7 @@ export function Support() {
 								<span className="uppercase">{t`Total`}</span>
 								<span>{i18n.number(0, { style: "currency", currency: "USD" })}</span>
 							</p>
-							<p className="mt-2.5 border-t-[1.5px] border-dashed border-[oklch(0.7_0.01_95)] pt-3 text-[oklch(0.4_0.01_95)]">
-								{t`Hosting and development are paid for by people like you. Optional tip:`}
-							</p>
-							<div className="mt-2.5 flex flex-col gap-1.5">
-								<a
-									href="https://github.com/sponsors/AmruthPillai"
-									className={cn(
-										receiptButtonClass,
-										"bg-[oklch(0.22_0.01_95)] text-white hover:bg-[oklch(0.32_0.01_95)]",
-									)}
-								>
-									GitHub Sponsors
-									<Icon name="arrow-up-right" size={19} />
-								</a>
-								<a
-									href="https://opencollective.com/reactive-resume/donate"
-									className={cn(
-										receiptButtonClass,
-										"border border-[oklch(0.82_0.008_95)] text-[oklch(0.22_0.01_95)] hover:bg-[oklch(0.96_0.005_95)]",
-									)}
-								>
-									Open Collective
-									<Icon name="arrow-up-right" size={19} />
-								</a>
-							</div>
 							<div aria-hidden="true" className="receipt-barcode mx-auto mt-[18px] mb-1.5 h-11 w-[78%]" />
-							<p className="text-center text-[oklch(0.5_0.01_95)]">{t`Thank you for keeping it free.`}</p>
 						</div>
 					</div>
 				</div>

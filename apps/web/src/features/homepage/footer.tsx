@@ -8,7 +8,7 @@ import { labelClass } from "./ui";
 import { LocaleToggle } from "@/features/locale/toggle";
 
 const githubUrl = "https://github.com/udin-petot/portofit";
-const licenseUrl = `${githubUrl}/blob/main/LICENSE`;
+const licenseUrl = "/lisensi";
 const linkClass = "text-ink transition-colors hover:text-accent-text";
 
 type FooterLink = { label: string; href: string } | { label: string; to: "/ats-checker" | "/dashboard" };

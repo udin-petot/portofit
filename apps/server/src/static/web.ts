@@ -45,7 +45,7 @@ const dashboardBootShell = (html: string) =>
  * Without an entry here the fallback below returns 404 for the path in production — the dev Vite
  * server serves the shell for anything, so this failure only ever shows up once deployed.
  */
-const indexableAppPaths = new Set(["/ats-checker", "/harga", "/syarat", "/privasi", "/refund"]);
+const indexableAppPaths = new Set(["/ats-checker", "/harga", "/syarat", "/privasi", "/refund", "/lisensi"]);
 const reservedPublicResumeSegments = new Set([
 	"api",
 	"mcp",
@@ -109,6 +109,9 @@ const PRIVACY_DESCRIPTION =
 const REFUND_TITLE = "Refund Policy — PortoFit";
 const REFUND_DESCRIPTION =
 	"When PortoFit credits can be refunded, when they cannot, and how to request a refund on WhatsApp.";
+const LICENSE_TITLE = "MIT License — PortoFit";
+const LICENSE_DESCRIPTION =
+	"The MIT license that covers PortoFit, the upstream Reactive Resume project it is built on, and the attribution both require.";
 
 type StructuredData = Record<string, unknown>;
 
@@ -397,6 +400,13 @@ const prerenderedPages: Record<
 		image: "/opengraph/banner.jpg",
 		structuredData: homepageStructuredData,
 		fallback: (shell) => withMeta(shell, { title: REFUND_TITLE, description: REFUND_DESCRIPTION }),
+	},
+	"/lisensi": {
+		name: "lisensi",
+		meta: { title: LICENSE_TITLE, description: LICENSE_DESCRIPTION },
+		image: "/opengraph/banner.jpg",
+		structuredData: homepageStructuredData,
+		fallback: (shell) => withMeta(shell, { title: LICENSE_TITLE, description: LICENSE_DESCRIPTION }),
 	},
 };
 

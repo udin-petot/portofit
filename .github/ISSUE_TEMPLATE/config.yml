@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Questions and support
-    url: https://github.com/reactive-resume/reactive-resume/discussions/categories/q-a
-    about: Get help with setup, configuration, and using Reactive Resume.
+    url: https://github.com/udin-petot/portofit/issues
+    about: Ask about setup, configuration, or using PortoFit.
   - name: Security vulnerability
-    url: https://github.com/reactive-resume/reactive-resume/security/advisories/new
-    about: Report security vulnerabilities privately.
+    url: https://github.com/udin-petot/portofit/security/advisories/new
+    about: Report a vulnerability in PortoFit privately. Do not open a public issue.

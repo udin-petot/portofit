@@ -64,6 +64,9 @@ RUN mkdir -p /app/apps/server /app/apps/web /app/data && chown node:node /app/da
 
 COPY --from=runtime-deps --chown=node:node /app/node_modules ./node_modules
 COPY --from=pruner --chown=node:node /app/package.json /app/pnpm-lock.yaml /app/pnpm-workspace.yaml ./
+# MIT requires the copyright and permission notice to travel with every copy,
+# and this image is a distributed copy. Keep it at /app/LICENSE.
+COPY --chown=node:node LICENSE ./LICENSE
 COPY --from=runtime-deps --chown=node:node /app/apps/server/package.json ./apps/server/package.json
 COPY --from=runtime-deps --chown=node:node /app/apps/server/node_modules ./apps/server/node_modules
 COPY --from=builder --chown=node:node /app/apps/web/dist ./apps/web/dist

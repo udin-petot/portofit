@@ -18,6 +18,7 @@ import { Route as UsernameSlugRouteImport } from "./routes/$username/$slug";
 import { Route as HomeIndexRouteImport } from "./routes/_home/index";
 import { Route as HomeAtsCheckerRouteImport } from "./routes/_home/ats-checker";
 import { Route as HomeHargaRouteImport } from "./routes/_home/harga";
+import { Route as HomeLisensiRouteImport } from "./routes/_home/lisensi";
 import { Route as HomePrivasiRouteImport } from "./routes/_home/privasi";
 import { Route as HomeRefundRouteImport } from "./routes/_home/refund";
 import { Route as HomeSyaratRouteImport } from "./routes/_home/syarat";
@@ -107,6 +108,11 @@ const HomeAtsCheckerRoute = HomeAtsCheckerRouteImport.update({
 const HomeHargaRoute = HomeHargaRouteImport.update({
   id: "/harga",
   path: "/harga",
+  getParentRoute: () => HomeRouteRoute,
+} as any);
+const HomeLisensiRoute = HomeLisensiRouteImport.update({
+  id: "/lisensi",
+  path: "/lisensi",
   getParentRoute: () => HomeRouteRoute,
 } as any);
 const HomePrivasiRoute = HomePrivasiRouteImport.update({
@@ -367,6 +373,7 @@ export interface FileRoutesByFullPath {
   "/$username/$slug": typeof UsernameSlugRoute;
   "/ats-checker": typeof HomeAtsCheckerRoute;
   "/harga": typeof HomeHargaRoute;
+  "/lisensi": typeof HomeLisensiRoute;
   "/privasi": typeof HomePrivasiRoute;
   "/refund": typeof HomeRefundRoute;
   "/syarat": typeof HomeSyaratRoute;
@@ -416,6 +423,7 @@ export interface FileRoutesByTo {
   "/$username/$slug": typeof UsernameSlugRoute;
   "/ats-checker": typeof HomeAtsCheckerRoute;
   "/harga": typeof HomeHargaRoute;
+  "/lisensi": typeof HomeLisensiRoute;
   "/privasi": typeof HomePrivasiRoute;
   "/refund": typeof HomeRefundRoute;
   "/syarat": typeof HomeSyaratRoute;
@@ -474,6 +482,7 @@ export interface FileRoutesById {
   "/$username/$slug": typeof UsernameSlugRoute;
   "/_home/ats-checker": typeof HomeAtsCheckerRoute;
   "/_home/harga": typeof HomeHargaRoute;
+  "/_home/lisensi": typeof HomeLisensiRoute;
   "/_home/privasi": typeof HomePrivasiRoute;
   "/_home/refund": typeof HomeRefundRoute;
   "/_home/syarat": typeof HomeSyaratRoute;
@@ -533,6 +542,7 @@ export interface FileRouteTypes {
     | "/$username/$slug"
     | "/ats-checker"
     | "/harga"
+    | "/lisensi"
     | "/privasi"
     | "/refund"
     | "/syarat"
@@ -582,6 +592,7 @@ export interface FileRouteTypes {
     | "/$username/$slug"
     | "/ats-checker"
     | "/harga"
+    | "/lisensi"
     | "/privasi"
     | "/refund"
     | "/syarat"
@@ -639,6 +650,7 @@ export interface FileRouteTypes {
     | "/$username/$slug"
     | "/_home/ats-checker"
     | "/_home/harga"
+    | "/_home/lisensi"
     | "/_home/privasi"
     | "/_home/refund"
     | "/_home/syarat"
@@ -760,6 +772,13 @@ declare module "@tanstack/react-router" {
       path: "/harga";
       fullPath: "/harga";
       preLoaderRoute: typeof HomeHargaRouteImport;
+      parentRoute: typeof HomeRouteRoute;
+    };
+    "/_home/lisensi": {
+      id: "/_home/lisensi";
+      path: "/lisensi";
+      fullPath: "/lisensi";
+      preLoaderRoute: typeof HomeLisensiRouteImport;
       parentRoute: typeof HomeRouteRoute;
     };
     "/_home/privasi": {
@@ -1090,6 +1109,7 @@ declare module "@tanstack/react-router" {
 interface HomeRouteRouteChildren {
   HomeAtsCheckerRoute: typeof HomeAtsCheckerRoute;
   HomeHargaRoute: typeof HomeHargaRoute;
+  HomeLisensiRoute: typeof HomeLisensiRoute;
   HomePrivasiRoute: typeof HomePrivasiRoute;
   HomeRefundRoute: typeof HomeRefundRoute;
   HomeSyaratRoute: typeof HomeSyaratRoute;
@@ -1099,6 +1119,7 @@ interface HomeRouteRouteChildren {
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
   HomeAtsCheckerRoute: HomeAtsCheckerRoute,
   HomeHargaRoute: HomeHargaRoute,
+  HomeLisensiRoute: HomeLisensiRoute,
   HomePrivasiRoute: HomePrivasiRoute,
   HomeRefundRoute: HomeRefundRoute,
   HomeSyaratRoute: HomeSyaratRoute,
