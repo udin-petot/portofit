@@ -6,4 +6,5 @@ export * from "./finance";
 export * from "./auth";
 export * from "./cover-letter";
 export * from "./resume";
+export * from "./support";
 export * from "./web-access";
