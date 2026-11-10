@@ -110,6 +110,10 @@ export default defineConfig({
 
 	build: {
 		chunkSizeWarningLimit: 10 * 1024, // 10 MB
+		// TanStack's route tree makes every page a dynamic import. Vite would otherwise emit a modulepreload
+		// for all 50+ route chunks, so opening the dashboard downloaded the builder, settings, auth and admin
+		// pages too. Let the router fetch only the route it is about to render.
+		modulePreload: false,
 		rolldownOptions: {
 			external: ["bcryptjs", "sharp", "@aws-sdk/client-s3", "ioredis", "linkedom"],
 			// Every page loads the libraries the entry imports statically; one file instead of ~100 tiny ones saves
