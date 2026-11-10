@@ -1,6 +1,7 @@
 import type { TemplatePage } from "../document";
 import type { Template } from "@reactive-resume/schema/templates";
 import { AzurillPage } from "./azurill/AzurillPage";
+import { BersihPage } from "./bersih/BersihPage";
 import { BronzorPage } from "./bronzor/BronzorPage";
 import { ChikoritaPage } from "./chikorita/ChikoritaPage";
 import { CompactPage } from "./compact/CompactPage";
@@ -44,6 +45,7 @@ const templatePages: Partial<Record<Template, TemplatePage>> = {
 	smeargle: SmearglePage,
 	studio: StudioPage,
 	swiss: SwissPage,
+	bersih: BersihPage,
 };
 
 const defaultTemplatePage = AzurillPage;

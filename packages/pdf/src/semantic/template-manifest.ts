@@ -3,6 +3,7 @@ import type { SemanticNodeKind } from "@reactive-resume/resume/stylesheet/types"
 import type { CustomSectionType } from "@reactive-resume/schema/resume/data";
 import type { Template } from "@reactive-resume/schema/templates";
 import { azurillSemanticManifest } from "../templates/azurill/semantic";
+import { bersihSemanticManifest } from "../templates/bersih/semantic";
 import { bronzorSemanticManifest } from "../templates/bronzor/semantic";
 import { chikoritaSemanticManifest } from "../templates/chikorita/semantic";
 import { compactSemanticManifest } from "../templates/compact/semantic";
@@ -159,6 +160,7 @@ const TEMPLATE_SEMANTIC_MANIFESTS = {
 	swiss: swissSemanticManifest,
 	compact: compactSemanticManifest,
 	studio: studioSemanticManifest,
+	bersih: bersihSemanticManifest,
 } as const satisfies Readonly<Record<Template, TemplateSemanticManifest>>;
 
 export function getTemplateSemanticManifest(template: Template): TemplateSemanticManifest {

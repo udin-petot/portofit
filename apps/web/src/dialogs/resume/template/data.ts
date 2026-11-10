@@ -27,6 +27,13 @@ export const templates = {
 		tags: ["One column", "ATS friendly", "Compact", "Fresh graduate", "Job portal"],
 		style: "compact",
 	},
+	bersih: {
+		name: "Bersih",
+		description: msg`One column with a plain rule over every section and right-aligned dates. The calmest, most ATS-safe layout here, built for job portals and large companies.`,
+		imageUrl: "/templates/jpg/bersih.jpg",
+		tags: ["One column", "ATS friendly", "Minimal", "Rule", "Job portal", "Large company"],
+		style: "editorial",
+	},
 	studio: {
 		name: "Studio",
 		description: msg`Two columns with a soft neutral sidebar and a serif name. Visual without the heavy colour blocks, for design, creative and portfolio roles.`,
