@@ -27,6 +27,13 @@ export const templates = {
 		tags: ["One column", "ATS friendly", "Compact", "Fresh graduate", "Job portal"],
 		style: "compact",
 	},
+	rapi: {
+		name: "Rapi",
+		description: msg`Two columns with a narrow right rail behind a hairline and no rules between sections. Contact, skills and languages stay out of the way of the experience.`,
+		imageUrl: "/templates/jpg/rapi.jpg",
+		tags: ["Two columns", "Right sidebar", "Minimal", "Skills", "Consulting", "Tech"],
+		style: "swiss",
+	},
 	bersih: {
 		name: "Bersih",
 		description: msg`One column with a plain rule over every section and right-aligned dates. The calmest, most ATS-safe layout here, built for job portals and large companies.`,

@@ -23,6 +23,7 @@ export const templateSchema = z.enum([
 	"compact",
 	"studio",
 	"bersih",
+	"rapi",
 ]);
 
 export type Template = z.infer<typeof templateSchema>;
@@ -66,4 +67,6 @@ export const templateLayouts = {
 	studio: { columns: 2, sidebarSide: "left", headerPlacement: "main-only", atsSafe: false },
 	// Bersih reads as one typed column with a rule over each section.
 	bersih: oneColumn,
+	// Rapi sets a narrow right column behind a hairline, with no rules between sections.
+	rapi: { columns: 2, sidebarSide: "right", headerPlacement: "full-width", atsSafe: false },
 } as const satisfies Record<Template, TemplateLayout>;
