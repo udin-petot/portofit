@@ -1,6 +1,17 @@
 import type { AnyDialogRendererEntry } from "../schemas";
-import { NewDocumentDialog } from "@/features/documents/new-document-dialog";
+import { lazy, Suspense } from "react";
+
+const NewDocumentDialog = lazy(() =>
+	import("@/features/documents/new-document-dialog").then((module) => ({ default: module.NewDocumentDialog })),
+);
 
 export const documentDialogRenderers: readonly AnyDialogRendererEntry[] = [
-	{ type: "document.new", render: ({ data }) => <NewDocumentDialog data={data} /> },
+	{
+		type: "document.new",
+		render: ({ data }) => (
+			<Suspense fallback={null}>
+				<NewDocumentDialog data={data} />
+			</Suspense>
+		),
+	},
 ];

@@ -26,7 +26,7 @@ import { LinkApplicationDialog, TagsDialog, useBatchActions } from "./document-a
 import { DocumentCard, DocumentRow } from "./document-card";
 import { collectTags, filterDocuments } from "./filter";
 import { LibraryError } from "./library-error";
-import { useStartDocument } from "./new-document-dialog";
+import { useStartDocument } from "./use-start-document";
 import { useDialogStore } from "@/dialogs/store";
 import { isEditableElementFocused } from "@/features/resume/builder/draft";
 import { orpc } from "@/libs/orpc/client";

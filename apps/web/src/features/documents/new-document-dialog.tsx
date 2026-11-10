@@ -3,19 +3,19 @@ import type { CSSProperties, Dispatch, SetStateAction } from "react";
 import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
+import { ORPCError } from "@orpc/client";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { useEffect, useId, useRef, useState } from "react";
-import { ORPCError } from "@orpc/client";
 import { Button } from "@reactive-resume/ui/components/button";
 import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@reactive-resume/ui/components/dialog";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { toast } from "@reactive-resume/ui/components/toast";
-import { generateRandomName } from "@reactive-resume/utils/string";
 import { cn } from "@reactive-resume/utils/style";
 import { useNewDocumentsStore } from "./new-documents";
+import { useStartDocument } from "./use-start-document";
 import { useDialogStore } from "@/dialogs/store";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
 import { detectImportKind, ImportError, readResumeFile, summarizeImport } from "@/features/resume/import/read-file";
@@ -268,8 +268,8 @@ export function NewDocumentDialog({ data }: { data?: NewDocumentDialogData | und
 							</span>
 							<span className="text-[13px] leading-[19px] text-ink-2">
 								<Trans>
-									Drop a file here or browse. PDF, Word, PortoFit or JSON Resume. We fill in every section and
-									flag anything we're unsure of.
+									Drop a file here or browse. PDF, Word, PortoFit or JSON Resume. We fill in every section and flag
+									anything we're unsure of.
 								</Trans>
 							</span>
 						</span>
@@ -415,77 +415,6 @@ function ImportStep({ step, creating, onCancel, onStartBlank, onChooseFile, onCl
 			)}
 		</div>
 	);
-}
-
-/** Start blank, try a sample, or a new letter: each creates the document at once and opens it. */
-export function useStartDocument(applicationId?: string) {
-	const navigate = useNavigate();
-	const queryClient = useQueryClient();
-	const closeDialog = useDialogStore((state) => state.closeDialog);
-	const markNew = useNewDocumentsStore((state) => state.markNew);
-	const { mutateAsync: createResume, isPending: creating } = useMutation(orpc.resume.create.mutationOptions());
-	const { mutateAsync: createLetter } = useMutation(orpc.coverLetters.create.mutationOptions());
-
-	const created = async (id: string, type: "resume" | "letter") => {
-		if (applicationId) await client.documents.linkApplication({ type, id, applicationId });
-		markNew(id);
-		void queryClient.invalidateQueries({ queryKey: orpc.documents.key() });
-		if (applicationId) void queryClient.invalidateQueries({ queryKey: orpc.applications.key() });
-		closeDialog();
-	};
-	const failed = (error: unknown) =>
-		toast.add({
-			type: "error",
-			description: getOrpcErrorMessage(error, { fallback: t`Couldn't create the document.` }),
-		});
-
-	return {
-		creating,
-		startBlank: async () => {
-			try {
-				const resumeId = await createResume({
-					name: t`Untitled resume`,
-					tags: [],
-					autoName: true,
-					withSampleData: false,
-				});
-				await created(resumeId, "resume");
-				void navigate({ to: "/builder/$resumeId", params: { resumeId } });
-			} catch (error) {
-				failed(error);
-			}
-		},
-		trySample: async () => {
-			try {
-				const resumeId = await createResume({ name: generateRandomName(), tags: [], withSampleData: true });
-				await created(resumeId, "resume");
-				toast.add({ description: t`Sample resume added. Delete it anytime.` });
-				void navigate({ to: "/builder/$resumeId", params: { resumeId } });
-			} catch (error) {
-				failed(error);
-			}
-		},
-		newLetter: async () => {
-			// A new letter takes its sender details and design from the resume edited most recently.
-			const documents = queryClient.getQueryData(orpc.documents.list.queryKey({ input: { trashed: false } }));
-			const resume = documents
-				?.filter((document) => document.type === "resume")
-				.sort((a, b) => b.updatedAt.getTime() - a.updatedAt.getTime())[0];
-			const input = {
-				name: t`Untitled letter`,
-				recipient: "",
-				content: "",
-				...(resume ? { resumeId: resume.id } : {}),
-			};
-			try {
-				const letter = await createLetter(input);
-				await created(letter.id, "letter");
-				void navigate({ to: "/builder/letter/$coverLetterId", params: { coverLetterId: letter.id } });
-			} catch (error) {
-				failed(error);
-			}
-		},
-	};
 }
 
 type ChoiceTileProps = {
