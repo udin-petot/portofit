@@ -3,6 +3,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 import { SUPPORT_CONVERSATION_LIMIT, SUPPORT_WHATSAPP_URL } from "@reactive-resume/utils/support-faq";
 import { orpc } from "@/libs/orpc/client";
+import { AssistantMarkdown } from "@/features/assistant/markdown";
 
 const FALLBACK_WHATSAPP = SUPPORT_WHATSAPP_URL;
 
@@ -60,15 +61,15 @@ export function SupportChatView({
 								<span className="text-[11px] font-medium text-ink-3">
 									{message.role === "user" ? "Kamu" : "Bantuan PortoFit"}
 								</span>
-								<p
-									className={
-										message.role === "user"
-											? "max-w-[85%] rounded-[12px_12px_4px_12px] bg-sunken px-3 py-2 text-sm whitespace-pre-wrap text-ink"
-											: "text-sm leading-6 whitespace-pre-wrap text-ink"
-									}
-								>
-									{message.content}
-								</p>
+								{message.role === "user" ? (
+									<p className="max-w-[85%] rounded-[12px_12px_4px_12px] bg-sunken px-3 py-2 text-sm whitespace-pre-wrap text-ink">
+										{message.content}
+									</p>
+								) : (
+									<div className="text-sm text-ink">
+										<AssistantMarkdown text={message.content} />
+									</div>
+								)}
 							</li>
 						))}
 					</ul>
