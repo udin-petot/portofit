@@ -47,6 +47,7 @@ const resumePasswordLimiter = createRateLimiter("resumePasswordLimiter", rateLim
 const pdfLimiter = createRateLimiter("pdfLimiter", rateLimitConfig.orpc.pdfExport);
 const resumeDownloadLimiter = createRateLimiter("resumeDownloadLimiter", rateLimitConfig.orpc.pdfExport);
 const aiLimiter = createRateLimiter("aiLimiter", rateLimitConfig.orpc.aiRequest);
+const supportLimiter = createRateLimiter("supportLimiter", rateLimitConfig.orpc.supportRequest);
 const storageUploadLimiter = createRateLimiter("storageUploadLimiter", rateLimitConfig.orpc.storageUpload);
 const storageDeleteLimiter = createRateLimiter("storageDeleteLimiter", rateLimitConfig.orpc.storageDelete);
 const resumeMutationLimiter = createRateLimiter("resumeMutationLimiter", rateLimitConfig.orpc.resumeMutations);
@@ -98,6 +99,11 @@ export const resumeDownloadRateLimit = createRatelimitMiddleware<
 export const aiRequestRateLimit = createRatelimitMiddleware<ContextWithHeaders, unknown>({
 	limiter: productionLimiter(aiLimiter),
 	key: ({ context }, input) => `ai-request:${getUserKey(context)}:${getInputKeyPart(input)}`,
+});
+
+export const supportRequestRateLimit = createRatelimitMiddleware<ContextWithHeaders, unknown>({
+	limiter: productionLimiter(supportLimiter),
+	key: ({ context }) => `support-request:${getUserKey(context)}`,
 });
 
 export const storageUploadRateLimit = createRatelimitMiddleware<ContextWithHeaders, unknown>({
