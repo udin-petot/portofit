@@ -3,9 +3,10 @@ import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { QueryClient } from "@tanstack/react-query";
 import type { RefObject } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Skeleton } from "@reactive-resume/ui/components/skeleton";
+import { cn } from "@reactive-resume/utils/style";
 import { createResumePdfBlob } from "@/features/resume/export/pdf-document";
 import { createPdfFirstPageImageUrl, releaseThumbnailUrls } from "@/features/resume/preview/pdf-thumbnail";
 import { getResumeThumbnailCacheKey, getResumeThumbnailSize } from "@/features/resume/preview/resume-thumbnail.shared";
@@ -14,7 +15,7 @@ import { orpc } from "@/libs/orpc/client";
 type ThumbnailState = { status: "error" | "idle" | "loading" } | { status: "ready"; url: string };
 
 type ResumeThumbnailProps = {
-	resume: { id: string; updatedAt: Date };
+	resume: { id: string; name: string; updatedAt: Date };
 };
 
 const throwIfAborted = (signal: AbortSignal) => {
@@ -205,8 +206,38 @@ function useResumeThumbnail(
 	return { status: "loading" };
 }
 
+/** Mobile cards use a painted page cover: generating a PDF per visible card blocks the phone for seconds. */
+const COMPACT_LIBRARY_QUERY = "(max-width: 640px)";
+const subscribeCompactLibrary = (onChange: () => void) => {
+	const media = window.matchMedia(COMPACT_LIBRARY_QUERY);
+	media.addEventListener("change", onChange);
+	return () => media.removeEventListener("change", onChange);
+};
+const getCompactLibrary = () => window.matchMedia(COMPACT_LIBRARY_QUERY).matches;
+
+function MobileResumeCover({ name }: { name: string }) {
+	return (
+		<div aria-hidden="true" className="flex size-full flex-col gap-1.5 bg-white p-[12%] text-[0]">
+			<span className="mb-1 h-2 w-2/3 rounded-full bg-[#1f2937]" />
+			<span className="h-1 w-1/2 rounded-full bg-[#9ca3af]" />
+			<span className="mt-3 h-1 w-1/3 rounded-full bg-[#6b7280]" />
+			{Array.from({ length: 8 }, (_, index) => (
+				<span key={index} className={cn("h-1 rounded-full bg-[#e5e7eb]", index % 4 === 3 ? "w-4/5" : "w-full")} />
+			))}
+			<span className="mt-auto h-1 w-1/4 rounded-full bg-[#d1d5db]" />
+			<span className="sr-only">{name}</span>
+		</div>
+	);
+}
+
 /** The resume's first page, rendered once it scrolls near view and cached until it changes. */
 export function ResumeThumbnail({ resume }: ResumeThumbnailProps) {
+	const compact = useSyncExternalStore(subscribeCompactLibrary, getCompactLibrary, () => false);
+	if (compact) return <MobileResumeCover name={resume.name} />;
+	return <PdfResumeThumbnail resume={resume} />;
+}
+
+function PdfResumeThumbnail({ resume }: ResumeThumbnailProps) {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const isInView = useMostlyInView(containerRef);
 	const size = useThumbnailSize(containerRef, isInView);
