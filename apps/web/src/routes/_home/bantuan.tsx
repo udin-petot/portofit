@@ -45,7 +45,8 @@ function RouteComponent() {
 			<div className="mt-12 flex flex-wrap items-center gap-3 border-t border-line pt-6">
 				{session ? (
 					<Link
-						to="/dashboard/bantuan"
+						to="/dashboard"
+						hash="bantuan"
 						className="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-bg transition-opacity hover:opacity-90"
 					>
 						Buka chat bantuan

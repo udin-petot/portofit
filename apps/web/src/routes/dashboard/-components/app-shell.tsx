@@ -18,6 +18,7 @@ import { MobileTabIndicator } from "@/components/layout/mobile-tab-indicator";
 import { useDialogStore } from "@/dialogs/store";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
 import { GuestBanner } from "@/features/auth/components/guest-banner";
+import { SupportLauncher } from "@/features/support/support-launcher";
 import { useCommandPaletteStore } from "@/features/command-palette/store";
 import { isEditableElementFocused } from "@/features/resume/builder/draft";
 import { UserDropdownMenu } from "@/features/user/dropdown-menu";
@@ -28,7 +29,6 @@ type NavItem = {
 	to:
 		| "/dashboard"
 		| "/dashboard/applications"
-		| "/dashboard/bantuan"
 		| "/dashboard/career"
 		| "/dashboard/transaksi"
 		| "/dashboard/trash"
@@ -64,7 +64,6 @@ function useNavItems() {
 	// Career counts what's waiting for the user (unread notifications), so nothing shows at zero.
 	items.push({ to: "/dashboard/career", icon: "compass", label: t`Career`, ...(unread ? { count: unread } : {}) });
 	items.push({ to: "/dashboard/transaksi", icon: "list-numbers", label: t`Transaksi` });
-	items.push({ to: "/dashboard/bantuan", icon: "chat-text", label: "Bantuan" });
 	if (isAdmin) items.push({ to: "/admin", icon: "key", label: t`Admin` });
 	const settings: NavItem = { to: "/dashboard/settings", icon: "gear-six", label: t`Settings` };
 	const trash: NavItem | null = counts?.trash
@@ -124,6 +123,7 @@ export function AppShell({ children }: AppShellProps) {
 				{children}
 			</main>
 			{tabs && <MobileTabs />}
+			<SupportLauncher />
 		</div>
 	);
 }
