@@ -26,6 +26,19 @@ const indexHtmlPath = `${staticRoot}/index.html`;
 // beside dist/ so they're never served at an address of their own.
 const prerenderRoot = `${staticRoot}-prerender`;
 const noindexShellPrefixes = ["/auth", "/dashboard", "/admin", "/builder", "/agent", "/templates"];
+
+// The dashboard is client-rendered behind auth, so the first paint would otherwise wait for the session,
+// the documents query and the whole route chunk. Paint the page title immediately; React replaces it on
+// mount. Kept to the exact title block so the swap does not move the rest of the page.
+const dashboardBootShell = (html: string) =>
+	html.replace(
+		'<div id="app"></div>',
+		() => `<div id="app"><style>
+#dashboard-boot { width: 100%; max-width: 1180px; margin: 0 auto; padding: 32px 32px 0; }
+#dashboard-boot h1 { margin: 0; color: var(--ink, #1c1a17); font-family: var(--font-display, ui-serif, Georgia, serif); font-size: 30px; font-weight: 500; line-height: 36px; }
+@media (max-width: 640px) { #dashboard-boot { padding: 20px 16px 0; } #dashboard-boot h1 { font-size: 46px; line-height: 54px; } }
+</style><main id="main-content"><div id="dashboard-boot"><h1>Documents</h1></div></main></div>`,
+	);
 /**
  * Marketing pages the SPA owns that search engines should index.
  *
@@ -357,34 +370,34 @@ const prerenderedPages: Record<
 		fallback: (shell) => withMeta(shell, { title: ATS_CHECKER_TITLE, description: ATS_CHECKER_DESCRIPTION }),
 	},
 	// No prerendered file yet: the server serves the app shell with the page's title and description.
-		"/harga": {
-			name: "harga",
-			meta: { title: PRICING_TITLE, description: PRICING_DESCRIPTION },
-			image: "/opengraph/banner.jpg",
-			structuredData: homepageStructuredData,
-			fallback: (shell) => withMeta(shell, { title: PRICING_TITLE, description: PRICING_DESCRIPTION }),
-		},
-		"/syarat": {
-			name: "syarat",
-			meta: { title: TERMS_TITLE, description: TERMS_DESCRIPTION },
-			image: "/opengraph/banner.jpg",
-			structuredData: homepageStructuredData,
-			fallback: (shell) => withMeta(shell, { title: TERMS_TITLE, description: TERMS_DESCRIPTION }),
-		},
-		"/privasi": {
-			name: "privasi",
-			meta: { title: PRIVACY_TITLE, description: PRIVACY_DESCRIPTION },
-			image: "/opengraph/banner.jpg",
-			structuredData: homepageStructuredData,
-			fallback: (shell) => withMeta(shell, { title: PRIVACY_TITLE, description: PRIVACY_DESCRIPTION }),
-		},
-		"/refund": {
-			name: "refund",
-			meta: { title: REFUND_TITLE, description: REFUND_DESCRIPTION },
-			image: "/opengraph/banner.jpg",
-			structuredData: homepageStructuredData,
-			fallback: (shell) => withMeta(shell, { title: REFUND_TITLE, description: REFUND_DESCRIPTION }),
-		},
+	"/harga": {
+		name: "harga",
+		meta: { title: PRICING_TITLE, description: PRICING_DESCRIPTION },
+		image: "/opengraph/banner.jpg",
+		structuredData: homepageStructuredData,
+		fallback: (shell) => withMeta(shell, { title: PRICING_TITLE, description: PRICING_DESCRIPTION }),
+	},
+	"/syarat": {
+		name: "syarat",
+		meta: { title: TERMS_TITLE, description: TERMS_DESCRIPTION },
+		image: "/opengraph/banner.jpg",
+		structuredData: homepageStructuredData,
+		fallback: (shell) => withMeta(shell, { title: TERMS_TITLE, description: TERMS_DESCRIPTION }),
+	},
+	"/privasi": {
+		name: "privasi",
+		meta: { title: PRIVACY_TITLE, description: PRIVACY_DESCRIPTION },
+		image: "/opengraph/banner.jpg",
+		structuredData: homepageStructuredData,
+		fallback: (shell) => withMeta(shell, { title: PRIVACY_TITLE, description: PRIVACY_DESCRIPTION }),
+	},
+	"/refund": {
+		name: "refund",
+		meta: { title: REFUND_TITLE, description: REFUND_DESCRIPTION },
+		image: "/opengraph/banner.jpg",
+		structuredData: homepageStructuredData,
+		fallback: (shell) => withMeta(shell, { title: REFUND_TITLE, description: REFUND_DESCRIPTION }),
+	},
 };
 
 // ponytail: GET and HEAD share the same routing logic; method determines body presence
@@ -460,6 +473,10 @@ export async function handleWebApp(request: Request, readFile: ReadWebFile = (pa
 				{ headers },
 			);
 		}
+	}
+
+	if (pathname === "/dashboard" || pathname === "/dashboard/") {
+		return new Response(dashboardBootShell(html), { headers });
 	}
 
 	return new Response(html, { headers });

@@ -170,7 +170,7 @@ describe("web app fallback classification", () => {
 		expect(response.headers.get("Content-Security-Policy-Report-Only")).toContain("frame-ancestors 'none'");
 	});
 
-	it.each(["/auth/login", "/dashboard", "/builder/resume-1", "/agent", "/templates", "/templates/azurill.pdf"])(
+	it.each(["/auth/login", "/builder/resume-1", "/agent", "/templates", "/templates/azurill.pdf"])(
 		"serves noindex shell for known app prefix %s",
 		async (pathname) => {
 			const response = await handleWebApp(new Request(`https://example.com${pathname}`));
@@ -181,6 +181,18 @@ describe("web app fallback classification", () => {
 			expect(await response.text()).toBe("<html>app</html>");
 		},
 	);
+
+	it("paints the dashboard title before the client renders", async () => {
+		vi.mocked(fs.readFile).mockResolvedValue("<html><body><div id=\"app\"></div></body></html>");
+		const response = await handleWebApp(new Request("https://example.com/dashboard"));
+
+		expect(response.status).toBe(200);
+		expect(response.headers.get("X-Robots-Tag")).toBe("noindex, follow");
+		const html = await response.text();
+		expect(html).toContain('<div id="app"><style>');
+		expect(html).toContain("<h1>Documents</h1>");
+		expect(html).toContain("font-size: 46px");
+	});
 });
 
 describe("configured root shell", () => {
