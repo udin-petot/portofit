@@ -28,6 +28,7 @@ function RouteComponent() {
 						"Isi dokumen: CV, surat lamaran, riwayat lamaran, catatan, jawaban latihan, dan berkas yang kamu unggah.",
 						"Data pembayaran: paket, nominal, kode unik, status pesanan, dan bukti transfer yang kamu unggah. Kami tidak menyimpan nomor kartu atau PIN.",
 						"Data teknis: alamat IP, waktu akses, dan log kesalahan seperlunya untuk keamanan dan perbaikan layanan.",
+						"Riwayat chat dukungan: pertanyaan dan jawaban di halaman Bantuan, disimpan selama akun aktif.",
 					]}
 				/>
 			</LegalSection>
@@ -76,7 +77,7 @@ function RouteComponent() {
 			<LegalSection title="6. Berapa lama data disimpan">
 				<p>
 					Data akun dan dokumen disimpan selama akun aktif. Saat kamu menghapus akun dari Pengaturan, akun dan dokumen
-					dihapus dari sistem utama. Cadangan bergilir disimpan paling lama 14 hari sebelum terhapus sendiri. Catatan
+					dihapus dari sistem utama. Riwayat chat dukungan ikut terhapus bersama akun. Cadangan bergilir disimpan paling lama 14 hari sebelum terhapus sendiri. Catatan
 					pembayaran dapat disimpan lebih lama untuk pembukuan dan kewajiban hukum.
 				</p>
 			</LegalSection>

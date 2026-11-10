@@ -81,6 +81,16 @@ function RouteComponent() {
 				</p>
 			</LegalSection>
 
+			<LegalSection title="8. Bantuan lain">
+				<p>
+					Pertanyaan lain soal pembayaran dan kredit ada di halaman{" "}
+					<a href="/bantuan" className="font-medium text-accent-text underline-offset-4 hover:underline">
+						Bantuan
+					</a>
+					.
+				</p>
+			</LegalSection>
+
 			<LegalSection title="7. Perubahan kebijakan">
 				<p>
 					Kebijakan ini dapat diperbarui. Permintaan yang diajukan sebelum tanggal perubahan mengikuti kebijakan yang
