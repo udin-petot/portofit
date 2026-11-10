@@ -53,7 +53,7 @@ export function SupportLauncher() {
 				onClick={() => setOpen((value) => !value)}
 				aria-expanded={open}
 				aria-controls="support-panel"
-				className="fixed end-4 bottom-5 z-50 flex h-11 items-center gap-2 rounded-full bg-ink px-4 text-sm font-medium text-bg shadow-e1 transition-[opacity,scale] duration-quick ease-enter hover:opacity-90 active:scale-[0.97]"
+				className="fixed end-4 bottom-5 z-50 flex h-11 items-center gap-2 rounded-full bg-accent px-4 text-sm font-medium text-on-accent shadow-e2 transition-[background-color,scale] duration-quick ease-enter hover:bg-accent-hover active:scale-[0.97]"
 			>
 				<Icon name="chat-text" size={18} />
 				Bantuan
