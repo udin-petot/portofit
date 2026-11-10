@@ -161,7 +161,11 @@ export function DocumentCard({
 			<ContextMenuTrigger
 				render={
 					<article
-						style={introIndex === undefined ? undefined : stagger(introIndex)}
+						style={{
+							...(introIndex === undefined ? {} : stagger(introIndex)),
+							contentVisibility: "auto",
+							containIntrinsicSize: "auto 320px",
+						}}
 						className={cn(
 							"group/card grid gap-2",
 							introIndex !== undefined && ENTER_CLASS,
