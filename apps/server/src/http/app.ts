@@ -9,7 +9,7 @@ import { compress } from "hono/compress";
 import { prepareStagedBody, withStagedBody } from "@reactive-resume/api/features/storage/transport";
 import { env } from "@reactive-resume/env/server";
 import { prepareMcpDiscovery } from "@reactive-resume/mcp";
-import { isIgnorableClientError } from "@reactive-resume/utils/client-errors";
+import { isCrawlerUserAgent, isIgnorableClientError } from "@reactive-resume/utils/client-errors";
 import { handleMcp } from "../mcp/handler";
 import { handleOpenApi, handleOpenApiDocument } from "../openapi/handler";
 import {
@@ -119,12 +119,14 @@ export function createApp(options: AppOptions = {}) {
 		const text = (value: unknown, max: number) => (typeof value === "string" ? value.slice(0, max) : "");
 		const message = text(payload.message, 500);
 		if (isIgnorableClientError(message)) return c.body(null, 204);
+		const userAgent = c.req.header("user-agent");
+		if (isCrawlerUserAgent(userAgent)) return c.body(null, 204);
 		const entry = {
 			message,
 			stack: text(payload.stack, 3000),
 			path: text(payload.path, 300),
 			source: payload.source === "unhandledrejection" ? "unhandledrejection" : "error",
-			ua: text(c.req.header("user-agent"), 200),
+			ua: text(userAgent, 200),
 			at: new Date().toISOString(),
 		};
 		console.error(`[client-error] ${JSON.stringify(entry)}`);

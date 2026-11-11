@@ -298,6 +298,27 @@ it("drops ResizeObserver loop warnings before logging", async () => {
 	error.mockRestore();
 });
 
+it("drops client errors reported by crawlers", async () => {
+	const error = vi.spyOn(console, "error").mockImplementation(() => {});
+	const { createApp } = await import("./app");
+	const response = await createApp().request("http://localhost:3000/api/client-error", {
+		method: "POST",
+		headers: {
+			"content-type": "application/json",
+			"user-agent": "Mozilla/5.0 (compatible; AhrefsBot/7.0; +http://ahrefs.com/robot/)",
+		},
+		body: JSON.stringify({
+			message: "Uncaught TypeError: Failed to fetch",
+			stack: "at vendor.js:1:1",
+			path: "/",
+			source: "error",
+		}),
+	});
+	expect(response.status).toBe(204);
+	expect(error).not.toHaveBeenCalled();
+	error.mockRestore();
+});
+
 it("logs actionable client errors", async () => {
 	const error = vi.spyOn(console, "error").mockImplementation(() => {});
 	const { createApp } = await import("./app");
