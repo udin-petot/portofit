@@ -2,9 +2,10 @@ import type { ResumeData } from "./data";
 import { sampleResumeData } from "./sample";
 
 /**
- * The example a new Indonesian user starts from: every section the editor offers is already filled with
- * ordinary, believable content, so the first thing they do is replace text instead of wondering what a
- * section wants. Names, companies and numbers are invented on purpose.
+ * The example a new Indonesian user starts from: a one-page CV in their own language with the sections a
+ * recruiter expects already filled in, so the first thing they do is replace text instead of working out what a
+ * section wants. Names, companies and numbers are invented on purpose. Short by design: a starter that runs to
+ * two pages teaches the wrong habit.
  */
 const buildIndonesianSample = (): ResumeData => {
 	const data = structuredClone(sampleResumeData);
@@ -12,29 +13,16 @@ const buildIndonesianSample = (): ResumeData => {
 	data.basics = {
 		...data.basics,
 		name: "Rani Puspita",
-		headline: "Analis Data | SQL, Python, dan Power BI",
+		headline: "Analis Data | SQL, Python, Power BI",
 		email: "rani.puspita@email.com",
 		phone: "+62 812-3456-7890",
-		location: "Yogyakarta, Indonesia",
+		location: "Yogyakarta",
 		website: { url: "https://ranipuspita.my.id", label: "ranipuspita.my.id" },
-		customFields: [
-			{
-				id: "019bef5a-0477-77e0-968b-5d0e2ecb34e3",
-				icon: "linkedin-logo",
-				text: "linkedin.com/in/ranipuspita",
-				link: "https://linkedin.com/in/ranipuspita",
-			},
-			{
-				id: "019bef5a-93e4-7746-ad39-3a132360f823",
-				icon: "github-logo",
-				text: "github.com/ranipuspita",
-				link: "https://github.com/ranipuspita",
-			},
-		],
+		customFields: [],
 	};
 
 	data.summary.content =
-		"<p>Analis data dengan tiga tahun pengalaman mengubah data penjualan dan operasional menjadi laporan yang dipakai tim bisnis setiap minggu. Terbiasa menulis SQL untuk data warehouse, merapikan data dengan Python, dan menyusun dasbor Power BI yang dibaca manajer tanpa perlu penjelasan tambahan. Pernah memangkas waktu penyusunan laporan bulanan dari lima hari menjadi satu hari.</p>";
+		"<p>Analis data dengan tiga tahun pengalaman mengubah data penjualan menjadi laporan mingguan yang dipakai tim bisnis. Terbiasa menulis SQL, merapikan data dengan Python, dan menyusun dasbor Power BI.</p>";
 
 	data.sections.profiles.items = [
 		{
@@ -68,7 +56,7 @@ const buildIndonesianSample = (): ResumeData => {
 			website: { url: "", label: "", inlineLink: false },
 			roles: [],
 			description:
-				"<ul><li><p>Menyusun dasbor penjualan mingguan di Power BI yang dipakai 40 staf marketing dan manajer cabang.</p></li><li><p>Menulis kueri SQL untuk mengambil data dari gudang data perusahaan, lalu merapikannya dengan Python sebelum masuk laporan.</p></li><li><p>Memangkas waktu penyusunan laporan bulanan dari lima hari kerja menjadi satu hari dengan skrip otomatis.</p></li><li><p>Menemukan penyebab selisih stok gudang sebesar 4 persen dan mengusulkan pencatatan ulang yang menutup selisih itu.</p></li></ul>",
+				"<ul><li><p>Menyusun dasbor penjualan mingguan di Power BI yang dipakai 40 staf pemasaran dan manajer cabang.</p></li><li><p>Menulis kueri SQL dan skrip Python untuk laporan bulanan, memangkas waktu penyusunan dari lima hari menjadi satu hari.</p></li><li><p>Menemukan penyebab selisih stok gudang 4 persen dan mengusulkan pencatatan ulang yang menutup selisih itu.</p></li></ul>",
 		},
 		{
 			id: "019bef5a-d1fa-7289-a87c-2677688d9e75",
@@ -80,7 +68,7 @@ const buildIndonesianSample = (): ResumeData => {
 			website: { url: "", label: "", inlineLink: false },
 			roles: [],
 			description:
-				"<ul><li><p>Membersihkan data pelanggan dari empat sumber berbeda dan menyatukannya menjadi satu tabel acuan.</p></li><li><p>Membuat laporan mingguan berisi jumlah pengunjung situs, sumber trafik, dan tingkat pendaftaran.</p></li><li><p>Membantu tim produk membaca hasil uji A/B pada halaman pendaftaran.</p></li></ul>",
+				"<ul><li><p>Membersihkan data pelanggan dari empat sumber dan menyatukannya menjadi satu tabel acuan.</p></li><li><p>Membuat laporan mingguan pengunjung situs, sumber trafik, dan tingkat pendaftaran.</p></li></ul>",
 		},
 	];
 
@@ -95,8 +83,7 @@ const buildIndonesianSample = (): ResumeData => {
 			location: "Yogyakarta",
 			period: "2018 - 2022",
 			website: { url: "", label: "", inlineLink: false },
-			description:
-				"<p>Skripsi tentang peramalan permintaan barang ritel dengan model deret waktu. Mengambil mata kuliah analisis regresi, basis data, dan visualisasi data.</p>",
+			description: "",
 		},
 	];
 
@@ -105,23 +92,14 @@ const buildIndonesianSample = (): ResumeData => {
 			id: "019bef5a-93e4-7746-ad39-4d2603fe2801",
 			hidden: false,
 			name: "Dasbor Pemantau Harga Pangan",
-			period: "2023 - Sekarang",
+			period: "2023",
 			website: {
 				url: "https://github.com/ranipuspita/dasbor-harga-pangan",
 				label: "github.com/ranipuspita/dasbor-harga-pangan",
 				inlineLink: false,
 			},
 			description:
-				"<p>Mengumpulkan harga bahan pokok dari situs resmi daerah setiap hari, menyimpannya di PostgreSQL, lalu menampilkannya sebagai grafik tren. Dipakai tiga komunitas untuk memantau kenaikan harga menjelang hari raya.</p>",
-		},
-		{
-			id: "019bef5a-93e4-7746-ad39-524195dd7eff",
-			hidden: false,
-			name: "Model Prediksi Pelanggan Berhenti",
-			period: "2024",
-			website: { url: "", label: "", inlineLink: false },
-			description:
-				"<p>Membuat model sederhana dengan Python untuk menandai pelanggan yang berisiko berhenti berlangganan. Hasilnya dipakai tim layanan pelanggan untuk menghubungi pelanggan lebih dulu.</p>",
+				"<p>Mengumpulkan harga bahan pokok harian dari situs resmi daerah dan menampilkannya sebagai grafik tren.</p>",
 		},
 	];
 
@@ -133,8 +111,8 @@ const buildIndonesianSample = (): ResumeData => {
 			iconColor: "",
 			name: "SQL",
 			proficiency: "Mahir",
-			level: 5,
-			keywords: ["PostgreSQL", "BigQuery", "Window function"],
+			level: 4,
+			keywords: ["PostgreSQL", "BigQuery"],
 		},
 		{
 			id: "019bef5a-93e4-7746-ad39-5e8bb7cacbc8",
@@ -144,7 +122,7 @@ const buildIndonesianSample = (): ResumeData => {
 			name: "Python",
 			proficiency: "Mahir",
 			level: 4,
-			keywords: ["pandas", "scikit-learn", "Requests"],
+			keywords: ["pandas", "scikit-learn"],
 		},
 		{
 			id: "019bef5a-93e4-7746-ad39-622f9d41da55",
@@ -153,8 +131,8 @@ const buildIndonesianSample = (): ResumeData => {
 			iconColor: "",
 			name: "Power BI",
 			proficiency: "Mahir",
-			level: 4,
-			keywords: ["DAX", "Model data", "Dasbor"],
+			level: 3,
+			keywords: ["DAX", "Dasbor"],
 		},
 		{
 			id: "019bef5a-93e4-7746-ad39-6574ab6814bd",
@@ -163,18 +141,8 @@ const buildIndonesianSample = (): ResumeData => {
 			iconColor: "",
 			name: "Excel",
 			proficiency: "Mahir",
-			level: 4,
-			keywords: ["Pivot", "Power Query", "Rumus bersarang"],
-		},
-		{
-			id: "019bef5a-93e4-7746-ad39-6a8e22bec684",
-			hidden: false,
-			icon: "brain",
-			iconColor: "",
-			name: "Komunikasi hasil analisis",
-			proficiency: "Lanjutan",
 			level: 3,
-			keywords: ["Presentasi", "Laporan tertulis"],
+			keywords: ["Power Query"],
 		},
 	];
 
@@ -195,45 +163,11 @@ const buildIndonesianSample = (): ResumeData => {
 		},
 	];
 
-	data.sections.interests.items = [
-		{
-			id: "019bef5a-93e4-7746-ad39-7c79a1ad4a3c",
-			hidden: false,
-			icon: "books",
-			iconColor: "",
-			name: "Membaca buku data",
-			keywords: [],
-		},
-		{
-			id: "019bef5a-93e4-7746-ad39-80a0e5e9c86a",
-			hidden: false,
-			icon: "football",
-			iconColor: "",
-			name: "Bersepeda",
-			keywords: [],
-		},
-		{
-			id: "019bef5a-93e4-7746-ad39-84b1a7f2a7f5",
-			hidden: false,
-			icon: "star",
-			iconColor: "",
-			name: "Fotografi jalanan",
-			keywords: [],
-		},
-	];
-
-	data.sections.awards.items = [
-		{
-			id: "019bef5a-93e4-7746-ad39-8a0f0a1b1e11",
-			hidden: false,
-			title: "Juara 2 Kompetisi Analisis Data Nasional",
-			awarder: "Himpunan Statistik Indonesia",
-			date: "2022",
-			website: { url: "", label: "", inlineLink: false },
-			description: "<p>Menganalisis data transportasi umum untuk mengusulkan rute baru di kota tuan rumah.</p>",
-		},
-	];
-
+	data.sections.awards.items = [];
+	data.sections.interests.items = [];
+	data.sections.publications.items = [];
+	data.sections.volunteer.items = [];
+	data.sections.references.items = [];
 	data.sections.certifications.items = [
 		{
 			id: "019bef5a-93e4-7746-ad39-8c2b3c4d5f22",
@@ -245,19 +179,15 @@ const buildIndonesianSample = (): ResumeData => {
 			description: "",
 		},
 	];
-
-	data.sections.publications.items = [];
-	data.sections.volunteer.items = [];
-	data.sections.references.items = [];
 	data.customSections = [];
 
-	data.metadata.template = "azurill";
-	data.metadata.layout.sidebarWidth = 30;
+	data.metadata.template = "rapi";
+	data.metadata.layout.sidebarWidth = 32;
 	data.metadata.layout.pages = [
 		{
 			fullWidth: false,
 			main: ["summary", "experience", "education", "projects"],
-			sidebar: ["profiles", "skills", "languages", "certifications", "awards", "interests"],
+			sidebar: ["profiles", "skills", "languages", "certifications"],
 		},
 	];
 	data.metadata.page.locale = "id-ID";
