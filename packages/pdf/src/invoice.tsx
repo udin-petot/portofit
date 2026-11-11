@@ -26,12 +26,12 @@ const tanggal = (value: Date | string) =>
 	new Intl.DateTimeFormat("id-ID", { dateStyle: "long", timeZone: "Asia/Jakarta" }).format(new Date(value));
 
 const styles = {
-	page: { paddingVertical: 44, paddingHorizontal: 48, fontFamily: "Helvetica", fontSize: 10, color: "#111111" },
+	page: { paddingVertical: 52, paddingHorizontal: 52, fontFamily: "Helvetica", fontSize: 10, color: "#111111" },
 	header: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start" },
-	brand: { fontSize: 14, fontFamily: "Helvetica-Bold" },
+	brand: { fontSize: 16, fontFamily: "Helvetica-Bold" },
 	site: { fontSize: 9, color: "#555555", marginTop: 2 },
-	title: { fontSize: 24, fontFamily: "Helvetica-Bold" },
-	meta: { flexDirection: "row", justifyContent: "space-between", marginTop: 18 },
+	title: { fontSize: 28, fontFamily: "Helvetica-Bold" },
+	meta: { flexDirection: "row", justifyContent: "space-between", marginTop: 22 },
 	metaLabel: { fontSize: 8, color: "#555555", textTransform: "uppercase", letterSpacing: 0.6 },
 	metaValue: { fontSize: 10, marginTop: 2 },
 	status: { fontSize: 10, fontFamily: "Helvetica-Bold" },
@@ -40,10 +40,10 @@ const styles = {
 	sectionLabel: { fontSize: 8, color: "#555555", textTransform: "uppercase", letterSpacing: 0.6, marginBottom: 4 },
 	name: { fontSize: 11, fontFamily: "Helvetica-Bold" },
 	row: { flexDirection: "row", justifyContent: "space-between", paddingVertical: 6, borderBottomWidth: 0.5, borderBottomColor: "#dddddd" },
-	rowTotal: { flexDirection: "row", justifyContent: "space-between", paddingVertical: 8, borderTopWidth: 0.75, borderTopColor: "#111111", marginTop: 2 },
+	rowTotal: { flexDirection: "row", justifyContent: "space-between", paddingVertical: 10, borderTopWidth: 0.75, borderTopColor: "#111111", marginTop: 4 },
 	label: { fontSize: 10 },
 	value: { fontSize: 10, textAlign: "right" },
-	total: { fontSize: 11, fontFamily: "Helvetica-Bold" },
+	total: { fontSize: 15, fontFamily: "Helvetica-Bold" },
 	footer: { marginTop: 28, fontSize: 8, color: "#555555", lineHeight: 1.5 },
 } satisfies Record<string, Style>;
 
