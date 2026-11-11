@@ -323,7 +323,7 @@ function MobileTabs() {
 		<>
 			{current && <MobileTabIndicator />}
 			<Icon name={icon} size={24} filled={current} />
-			<span className={cn("max-w-full truncate text-[11px]", current ? "font-semibold text-ink" : "text-ink-2")}>{label}</span>
+			<span className={cn("max-w-full truncate text-[10px] leading-tight", current ? "font-semibold text-ink" : "text-ink-2")}>{label}</span>
 		</>
 	);
 
@@ -382,7 +382,7 @@ function MobileTabs() {
 				aria-current={moreCurrent ? "page" : undefined}
 				className="relative flex min-h-[52px] flex-col items-center justify-center gap-0.5 transition-[scale] duration-quick ease-enter active:scale-[0.97]"
 			>
-				{tab("dots-three", t`Lainnya`, moreCurrent)}
+				{tab("dots-three", t`Other`, moreCurrent)}
 			</button>
 
 			{moreOpen ? (
