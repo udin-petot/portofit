@@ -5,7 +5,8 @@ import type { Template } from "@reactive-resume/schema/templates";
 import * as forme from "@formepdf/core";
 import { parseResumeData } from "@reactive-resume/schema/resume/data";
 import { readServerImage } from "./forme/images.node.ts";
-import { assertPdfFonts, renderResume } from "./forme/render";
+import { assertPdfFonts, renderResume, renderResumeElement } from "./forme/render";
+import { InvoiceDocument, type InvoicePdfInput } from "./invoice";
 
 export { configureOwnPictureReader } from "./forme/images.node";
 
@@ -34,4 +35,13 @@ export const createResumePdfFile = async ({
 	// Characters no font can draw print as "?" rather than failing the file; the editor names them.
 	assertPdfFonts(result);
 	return new File([result.pdf as Uint8Array<ArrayBuffer>], filename, { type: "application/pdf" });
+};
+
+/**
+ * Kuitansi memakai font standar PDF dan tidak menyentuh data resume, jadi dirender langsung
+ * lewat jalur elemen, bukan jalur resume.
+ */
+export const createInvoicePdf = async (input: InvoicePdfInput): Promise<Buffer> => {
+	const result = await renderResumeElement(forme, <InvoiceDocument {...input} />);
+	return Buffer.from(result.pdf as Uint8Array<ArrayBuffer>);
 };
