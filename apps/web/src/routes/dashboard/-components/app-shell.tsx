@@ -310,10 +310,9 @@ function RailTip({
 	);
 }
 
-/** Phones: Documents · Applications · New · Career · Settings, with New as an accent pill in the middle. */
+/** Phones: Documents · Applications · Career · Transaksi · Other, with the create action on the Documents page. */
 function MobileTabs() {
 	const isCurrent = useIsCurrent();
-	const openDialog = useDialogStore((state) => state.openDialog);
 	const { data: session } = authClient.useSession();
 	const isAdmin = ((session?.user as { role?: string | null } | undefined)?.role ?? "user") === "admin";
 	const [moreOpen, setMoreOpen] = useState(false);
@@ -330,7 +329,7 @@ function MobileTabs() {
 	return (
 		<nav
 			aria-label={t`App`}
-			className="sticky bottom-0 z-30 grid grid-cols-6 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] [view-transition-name:app-nav]"
+			className="sticky bottom-0 z-30 grid grid-cols-5 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] [view-transition-name:app-nav]"
 		>
 			<Link
 				to="/dashboard"
@@ -348,18 +347,6 @@ function MobileTabs() {
 			>
 				{tab("briefcase", t`Applications`, isCurrent("/dashboard/applications"))}
 			</Link>
-			<button
-				type="button"
-				onClick={() => openDialog("document.new", undefined)}
-				className="flex min-h-[52px] flex-col items-center justify-center gap-0.5 transition-[scale] duration-quick ease-enter active:scale-[0.97]"
-			>
-				<span className="grid h-[26px] w-[34px] place-items-center rounded-full bg-accent text-on-accent">
-					<Icon name="plus" size={20} />
-				</span>
-				<span className="text-[11px] text-ink-2">
-					<Trans>New</Trans>
-				</span>
-			</button>
 			<Link
 				to="/dashboard/career"
 				aria-current={isCurrent("/dashboard/career") ? "page" : undefined}

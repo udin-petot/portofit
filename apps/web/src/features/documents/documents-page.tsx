@@ -193,6 +193,14 @@ export function DocumentsPage({ search, onSearchChange }: DocumentsPageProps) {
 									<Icon name="list-dashes" size={18} />
 								</SegmentedControlItem>
 							</SegmentedControl>
+							<Button
+								size="icon"
+								aria-label={t`New`}
+								onClick={() => openDialog("document.new", undefined)}
+								className="shrink-0 max-sm:ms-auto"
+							>
+								<Icon name="plus" size={18} />
+							</Button>
 						</div>
 					</div>
 
