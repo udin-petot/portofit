@@ -1,6 +1,7 @@
 export * from "./agent";
 export * from "./applications";
 export * from "./billing";
+export * from "./invoice";
 export * from "./career";
 export * from "./finance";
 export * from "./auth";
