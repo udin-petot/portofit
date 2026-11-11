@@ -10,13 +10,8 @@ import { InvoiceSheet } from "./invoice-sheet";
 
 const KIND_LABEL: Record<string, string> = { application: "Lamaran", interview: "Wawancara" };
 
-const STATUS_DOT: Record<string, string> = {
-	lunas: "bg-accent",
-	menunggu_verifikasi: "bg-warn",
-	ditolak: "bg-danger",
-	hangus: "bg-ink-3",
-	menunggu_bayar: "bg-ink-3",
-};
+const statusInk = (status: string) =>
+	status === "lunas" ? "text-ink" : status === "ditolak" ? "text-danger-text" : "text-ink-2";
 
 type TransactionsPageProps = { selectedOrderId?: string | undefined; isAdmin?: boolean };
 
@@ -36,6 +31,7 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 	const running = list.filter((order) => order.status === "menunggu_bayar" || order.status === "menunggu_verifikasi");
 	const history = list.filter((order) => order.status !== "menunggu_bayar" && order.status !== "menunggu_verifikasi");
 	const selected = list.find((order) => order.id === selectedOrderId) ?? running[0] ?? null;
+	const unpaid = running.filter((order) => order.status === "menunggu_bayar").length;
 
 	const kirimBukti = async (file: File) => {
 		if (!selected) return;
@@ -45,82 +41,76 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 	};
 
 	return (
-		<div className="mx-auto w-full max-w-3xl px-5 pt-8 pb-28 md:pb-12">
-			<header>
-				<h1 className="font-display text-[34px] leading-10 font-medium text-ink">Transaksi</h1>
-				<p className="mt-2 text-sm text-ink-2">Kredit yang tersisa, pesanan yang berjalan, dan bukti pembayaran.</p>
+		<div className="mx-auto w-full max-w-[1080px] px-5 pt-7 pb-28 md:pb-12">
+			<header className="flex flex-wrap items-end justify-between gap-3">
+				<div>
+					<h1 className="text-2xl font-semibold text-ink">Transaksi</h1>
+					<p className="mt-1 text-sm text-ink-2">
+						{unpaid > 0 ? `${unpaid} pesanan belum dibayar.` : "Tidak ada pembayaran yang menunggu."}{" "}
+						{(balances.data?.application ?? 0) + (balances.data?.interview ?? 0) === 0
+							? "Saldo kredit habis."
+							: `Sisa ${(balances.data?.application ?? 0) + (balances.data?.interview ?? 0)} kredit.`}
+					</p>
+				</div>
+				<Button variant="secondary" onClick={() => void navigate({ to: "/harga" })}>
+					Beli kredit
+				</Button>
 			</header>
 
-			<section className="mt-10 grid gap-8 sm:grid-cols-2">
-				<div>
+			<section className="mt-6 grid grid-cols-2 divide-x divide-line border-y border-line">
+				<div className="px-0 py-4 pr-5">
 					<p className="text-xs text-ink-3">Kredit lamaran</p>
-					<p className="mt-1 font-display text-5xl leading-none text-ink">{balances.data?.application ?? 0}</p>
-					<p className="mt-2 text-sm text-ink-2">Rp5.000 per kredit, untuk satu lowongan.</p>
-					<Button variant="link" className="mt-2" onClick={() => void navigate({ to: "/harga" })}>
-						Beli kredit
-					</Button>
+					<p className="mt-1 text-[26px] leading-7 font-normal tabular-nums text-ink">{balances.data?.application ?? 0}</p>
+					<p className="mt-1 text-xs text-ink-2">Rp5.000 per lamaran</p>
 				</div>
-				<div>
+				<div className="py-4 pl-5">
 					<p className="text-xs text-ink-3">Kredit wawancara</p>
-					<p className="mt-1 font-display text-5xl leading-none text-ink">{balances.data?.interview ?? 0}</p>
-					<p className="mt-2 text-sm text-ink-2">Rp10.000 per kredit, untuk satu sesi latihan.</p>
-					<Button variant="link" className="mt-2" onClick={() => void navigate({ to: "/harga" })}>
-						Beli kredit
-					</Button>
+					<p className="mt-1 text-[26px] leading-7 font-normal tabular-nums text-ink">{balances.data?.interview ?? 0}</p>
+					<p className="mt-1 text-xs text-ink-2">Rp10.000 per sesi</p>
 				</div>
 			</section>
 
 			{running.length > 0 ? (
-				<section className="mt-12 flex flex-col">
-					<h2 className="text-sm font-medium text-ink">Menunggu pembayaran</h2>
-					<ul className="mt-3 max-sm:order-2">
-						{running.map((order) => (
-							<li key={order.id} className="flex items-center justify-between gap-4 border-b border-line py-4 last:border-0">
-								<div className="min-w-0">
-									<p className="truncate text-sm font-medium text-ink">{order.planName}</p>
-									<p className="mt-1 text-xs text-ink-3">
-										{formatRupiah(order.totalIdr)} · kode {String(order.uniqueCode).padStart(3, "0")}
-										{order.status === "menunggu_bayar" && order.expiresAt ? (
-											<>
-												{" · sisa "}
-												<Countdown expiresAt={new Date(order.expiresAt)} onExpire={() => void orders.refetch()} />
-											</>
-										) : null}
-									</p>
-								</div>
-								<Button
-									size="sm"
-									variant={selected?.id === order.id ? "secondary" : "primary"}
-									onClick={() => void navigate({ to: "/dashboard/transaksi", search: { order: order.id } })}
-								>
-									{order.status === "menunggu_bayar" ? "Bayar" : "Lihat"}
-								</Button>
-							</li>
-						))}
-					</ul>
+				<section className="mt-10">
+					<h2 className="text-sm font-semibold text-ink">Perlu dibayar</h2>
 
 					{selected ? (
-						<div className="mt-6 grid gap-6 max-sm:order-1 sm:grid-cols-[minmax(0,240px)_minmax(0,1fr)]">
+						<div className="mt-3 grid gap-5 border border-line bg-surface p-4 sm:grid-cols-[180px_minmax(0,1fr)]">
 							{selected.status === "menunggu_bayar" || selected.status === "ditolak" ? (
 								<img
 									src={QRIS_IMAGE_PATH}
 									alt="QRIS PortoFit"
-									className="w-full max-w-[240px] bg-white max-sm:max-w-[200px]"
+									className="w-full max-w-[180px] self-start bg-white"
 									onError={(event) => {
 										event.currentTarget.style.display = "none";
 									}}
 								/>
-							) : null}
-							<div>
-								<p className="text-xs text-ink-3">Total bayar</p>
-								<p className="mt-1 font-display text-3xl text-ink">{formatRupiah(selected.totalIdr)}</p>
-								<p className="mt-1 text-sm text-ink-2">
-									{selected.planName} · kode unik {String(selected.uniqueCode).padStart(3, "0")}
+							) : (
+								<p className="text-sm text-ink-2">Bukti sudah masuk. Admin memverifikasi manual.</p>
+							)}
+
+							<div className="min-w-0">
+								<div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+									<p className="text-sm text-ink">{selected.planName}</p>
+									<p className="text-[22px] leading-6 font-semibold tabular-nums text-ink">{formatRupiah(selected.totalIdr)}</p>
+								</div>
+								<p className="mt-1 text-xs tabular-nums text-ink-2">
+									Kode unik {String(selected.uniqueCode).padStart(3, "0")} · {ORDER_STATUS_LABEL[selected.status] ?? selected.status}
+									{selected.status === "menunggu_bayar" && selected.expiresAt ? (
+										<>
+											{" · bayar dalam "}
+											<Countdown expiresAt={new Date(selected.expiresAt)} onExpire={() => void orders.refetch()} />
+										</>
+									) : null}
 								</p>
 
 								{selected.status === "menunggu_bayar" || selected.status === "ditolak" ? (
-									<div className="mt-4 grid gap-2">
+									<div className="mt-3 grid gap-2">
+										<label className="text-xs text-ink-2" htmlFor="bukti-bayar">
+											Unggah bukti bayar
+										</label>
 										<Input
+											id="bukti-bayar"
 											type="file"
 											accept="image/*,application/pdf"
 											disabled={uploadFile.isPending || attachProof.isPending}
@@ -131,7 +121,7 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 										/>
 										<Button
 											variant="link"
-											className="justify-start"
+											className="justify-start text-xs"
 											onClick={() =>
 												window.open(
 													whatsappLink(
@@ -142,18 +132,10 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 												)
 											}
 										>
-											Kirim bukti lewat WhatsApp
+											Atau kirim bukti lewat WhatsApp
 										</Button>
 									</div>
-								) : (
-									<p className="mt-4 text-sm text-ink-2">
-										{selected.status === "menunggu_verifikasi"
-											? "Bukti sudah masuk, menunggu verifikasi admin."
-											: selected.status === "hangus"
-												? "Pesanan ini hangus karena lewat batas waktu."
-												: "Pesanan sudah lunas."}
-									</p>
-								)}
+								) : null}
 
 								{(uploadFile.isPending || attachProof.isPending) && <p className="mt-2 text-xs text-ink-3">Mengunggah bukti…</p>}
 								{(uploadFile.isError || attachProof.isError) && (
@@ -162,48 +144,33 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 							</div>
 						</div>
 					) : null}
-				</section>
-			) : null}
 
-			{history.length > 0 ? (
-				<section className="mt-12">
-					<h2 className="text-sm font-medium text-ink">Riwayat pesanan</h2>
 					<ul className="mt-3">
-						{history.map((order) => (
-							<li key={order.id} className="flex items-center justify-between gap-4 border-b border-line py-3 last:border-0">
-								<div className="min-w-0">
-									<p className="truncate text-sm text-ink">{order.planName}</p>
-									<p className="text-xs text-ink-3">
-										{new Date(order.createdAt).toLocaleDateString("id-ID")} · kode {String(order.uniqueCode).padStart(3, "0")}
-									</p>
-								</div>
-								<div className="flex shrink-0 items-center gap-4">
-									<span className="text-sm text-ink">{formatRupiah(order.totalIdr)}</span>
-									<span className="flex items-center gap-1.5 text-xs text-ink-2">
-										<span className={`size-1.5 rounded-full ${STATUS_DOT[order.status] ?? "bg-ink-3"}`} />
-										{ORDER_STATUS_LABEL[order.status] ?? order.status}
+						{running.map((order) => (
+							<li
+								key={order.id}
+								className="grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 border-b border-line py-3 last:border-0"
+							>
+								<span className="min-w-0">
+									<span className="block truncate text-sm text-ink">{order.planName}</span>
+									<span className="text-xs tabular-nums text-ink-3">Kode {String(order.uniqueCode).padStart(3, "0")}</span>
+								</span>
+								<span className="text-right">
+									<span className="block text-sm tabular-nums text-ink">{formatRupiah(order.totalIdr)}</span>
+									<span className="block text-xs tabular-nums text-ink-3">
+										{order.status === "menunggu_bayar" && order.expiresAt ? (
+											<Countdown expiresAt={new Date(order.expiresAt)} onExpire={() => void orders.refetch()} />
+										) : (
+											ORDER_STATUS_LABEL[order.status]
+										)}
 									</span>
-								</div>
-							</li>
-						))}
-					</ul>
-				</section>
-			) : null}
-
-			{invoices.data && invoices.data.items.length > 0 ? (
-				<section className="mt-12">
-					<h2 className="text-sm font-medium text-ink">Kuitansi</h2>
-					<ul className="mt-3">
-						{invoices.data.items.map((item) => (
-							<li key={item.id} className="flex items-center justify-between gap-4 border-b border-line py-3 last:border-0">
-								<div className="min-w-0">
-									<p className="truncate text-sm text-ink">{item.number}</p>
-									<p className="text-xs text-ink-3">
-										{item.planName} · {new Date(item.issuedAt).toLocaleDateString("id-ID")} · {formatRupiah(item.totalIdr)}
-									</p>
-								</div>
-								<Button variant="link" onClick={() => setInvoiceOpen(item.id)}>
-									Lihat
+								</span>
+								<Button
+									size="sm"
+									variant={selected?.id === order.id ? "secondary" : "ghost"}
+									onClick={() => void navigate({ to: "/dashboard/transaksi", search: { order: order.id } })}
+								>
+									{order.status === "menunggu_bayar" ? "Bayar" : "Lihat"}
 								</Button>
 							</li>
 						))}
@@ -211,35 +178,109 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 				</section>
 			) : null}
 
-			<section className="mt-12">
-				<h2 className="text-sm font-medium text-ink">Riwayat kredit</h2>
+			{history.length > 0 ? (
+				<section className="mt-10">
+					<div className="flex items-baseline justify-between">
+						<h2 className="text-sm font-semibold text-ink">Riwayat pesanan</h2>
+						<span className="text-xs tabular-nums text-ink-3">{history.length} pesanan</span>
+					</div>
+					<table className="mt-2 w-full border-collapse text-sm">
+						<thead>
+							<tr className="text-xs text-ink-3">
+								<th className="py-2 text-left font-normal">Paket</th>
+								<th className="py-2 text-left font-normal max-sm:hidden">Tanggal</th>
+								<th className="py-2 text-right font-normal">Total</th>
+								<th className="py-2 text-right font-normal">Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							{history.map((order) => (
+								<tr key={order.id} className="border-t border-line">
+									<td className="py-2.5 pr-3 text-ink">{order.planName}</td>
+									<td className="py-2.5 pr-3 tabular-nums text-ink-2 max-sm:hidden">
+										{new Date(order.createdAt).toLocaleDateString("id-ID")}
+									</td>
+									<td className="py-2.5 text-right tabular-nums text-ink">{formatRupiah(order.totalIdr)}</td>
+									<td className={`py-2.5 pl-3 text-right text-xs ${statusInk(order.status)}`}>
+										{ORDER_STATUS_LABEL[order.status] ?? order.status}
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</section>
+			) : null}
+
+			{invoices.data && invoices.data.items.length > 0 ? (
+				<section className="mt-10">
+					<h2 className="text-sm font-semibold text-ink">Kuitansi</h2>
+					<table className="mt-2 w-full border-collapse text-sm">
+						<thead>
+							<tr className="text-xs text-ink-3">
+								<th className="py-2 text-left font-normal">Nomor</th>
+								<th className="py-2 text-left font-normal max-sm:hidden">Tanggal</th>
+								<th className="py-2 text-right font-normal">Total</th>
+								<th className="py-2 text-right font-normal"> </th>
+							</tr>
+						</thead>
+						<tbody>
+							{invoices.data.items.map((item) => (
+								<tr key={item.id} className="border-t border-line">
+									<td className="py-2.5 pr-3 text-ink">{item.number}</td>
+									<td className="py-2.5 pr-3 tabular-nums text-ink-2 max-sm:hidden">
+										{new Date(item.issuedAt).toLocaleDateString("id-ID")}
+									</td>
+									<td className="py-2.5 text-right tabular-nums text-ink">{formatRupiah(item.totalIdr)}</td>
+									<td className="py-2.5 pl-3 text-right">
+										<Button variant="link" className="text-xs" onClick={() => setInvoiceOpen(item.id)}>
+											Lihat
+										</Button>
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</section>
+			) : null}
+
+			<section className="mt-10">
+				<h2 className="text-sm font-semibold text-ink">Riwayat kredit</h2>
 				{ledger.isLoading ? (
-					<p className="mt-3 text-sm text-ink-3">Memuat…</p>
+					<p className="mt-2 text-sm text-ink-3">Memuat…</p>
 				) : entries.length === 0 ? (
-					<p className="mt-3 text-sm text-ink-3">Belum ada pemakaian kredit.</p>
+					<p className="mt-2 text-sm text-ink-3">Belum ada pemakaian kredit.</p>
 				) : (
-					<ul className="mt-3">
-						{entries.map((entry) => (
-							<li key={entry.id} className="flex items-center justify-between gap-4 border-b border-line py-3 last:border-0">
-								<div className="min-w-0">
-									<p className="truncate text-sm text-ink">{entry.reason}</p>
-									<p className="text-xs text-ink-3">
-										{KIND_LABEL[entry.kind] ?? entry.kind} · {new Date(entry.createdAt).toLocaleString("id-ID")}
-									</p>
-								</div>
-								<div className="shrink-0 text-right">
-									<p className="text-sm text-ink">{entry.delta > 0 ? `+${entry.delta}` : entry.delta} kredit</p>
-									<p className="text-xs text-ink-3">sisa {entry.balanceAfter}</p>
-								</div>
-							</li>
-						))}
-					</ul>
+					<table className="mt-2 w-full border-collapse text-sm">
+						<thead>
+							<tr className="text-xs text-ink-3">
+								<th className="py-2 text-left font-normal">Keterangan</th>
+								<th className="py-2 text-left font-normal max-sm:hidden">Tanggal</th>
+								<th className="py-2 text-right font-normal">Kredit</th>
+								<th className="py-2 text-right font-normal">Sisa</th>
+							</tr>
+						</thead>
+						<tbody>
+							{entries.map((entry) => (
+								<tr key={entry.id} className="border-t border-line">
+									<td className="py-2.5 pr-3 text-ink">
+										{entry.reason}
+										<span className="block text-xs text-ink-3">{KIND_LABEL[entry.kind] ?? entry.kind}</span>
+									</td>
+									<td className="py-2.5 pr-3 tabular-nums text-ink-2 max-sm:hidden">
+										{new Date(entry.createdAt).toLocaleString("id-ID")}
+									</td>
+									<td className="py-2.5 text-right tabular-nums text-ink">{entry.delta > 0 ? `+${entry.delta}` : entry.delta}</td>
+									<td className="py-2.5 pl-3 text-right tabular-nums text-ink-2">{entry.balanceAfter}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
 				)}
 			</section>
 
 			{isAdmin ? (
-				<div className="mt-10">
-					<Button variant="secondary" size="sm" onClick={() => void navigate({ to: "/admin" })}>
+				<div className="mt-8">
+					<Button variant="ghost" size="sm" onClick={() => void navigate({ to: "/admin" })}>
 						Panel admin
 					</Button>
 				</div>
