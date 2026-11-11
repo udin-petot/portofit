@@ -5,6 +5,7 @@ import { adminAudit, billingCreditLedger, billingOrder, billingOrderEmail, billi
 import { getStorageService, inferContentType } from "../storage/service";
 import { issueInvoice } from "../invoice/service";
 import { canAcceptProof, computeExpiry } from "./expiry";
+import { proofRejection } from "./proof";
 
 export type PlanKind = "application" | "interview";
 export type OrderStatus = "menunggu_bayar" | "menunggu_verifikasi" | "lunas" | "ditolak" | "hangus";
@@ -218,10 +219,20 @@ export const billingService = {
 			throw new ORPCError("BAD_REQUEST", { message: "Waktu pembayaran sudah habis. Buat pesanan baru untuk melanjutkan." });
 		}
 
+		// A transfer receipt is read on a phone by an admin, so only a photo passes: JPG or PNG, nothing else.
+		const proofPath = input.proofPath.trim().replace(/^\/+/, "");
+		const object = await getStorageService().read(proofPath);
+		const rejection = proofRejection({
+			userId: input.userId,
+			path: proofPath,
+			object: object ? { contentType: object.contentType, size: object.size, head: object.data.subarray(0, 8) } : null,
+		});
+		if (rejection) throw new ORPCError("BAD_REQUEST", { message: rejection });
+
 		const [updated] = await db
 			.update(billingOrder)
 			.set({
-				proofPath: input.proofPath,
+				proofPath,
 				proofNote: input.note ?? null,
 				paymentMethod: input.paymentMethod ?? "qris",
 				status: "menunggu_verifikasi",

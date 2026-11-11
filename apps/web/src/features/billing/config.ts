@@ -24,3 +24,7 @@ export const ORDER_STATUS_TONE: Record<string, "neutral" | "warning" | "success"
 };
 
 export const whatsappLink = (message: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+/** Bukti bayar adalah foto atau tangkapan layar, jadi hanya JPG dan PNG yang diterima. Batasnya sama dengan endpoint unggah. */
+export const PROOF_ACCEPT = "image/jpeg,image/png";
+export const MAX_PROOF_BYTES = 10 * 1024 * 1024;

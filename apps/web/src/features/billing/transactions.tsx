@@ -4,7 +4,14 @@ import { useMemo, useRef, useState } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
-import { formatRupiah, ORDER_STATUS_LABEL, QRIS_IMAGE_PATH, whatsappLink } from "./config";
+import {
+	formatRupiah,
+	MAX_PROOF_BYTES,
+	ORDER_STATUS_LABEL,
+	PROOF_ACCEPT,
+	QRIS_IMAGE_PATH,
+	whatsappLink,
+} from "./config";
 import { Countdown } from "./countdown";
 import { InvoiceSheet } from "./invoice-sheet";
 import { orpc } from "@/libs/orpc/client";
@@ -43,6 +50,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 	const [tab, setTab] = useState<Tab>("semua");
 	const [query, setQuery] = useState("");
 	const [fileName, setFileName] = useState<string | null>(null);
+	const [uploadError, setUploadError] = useState<string | null>(null);
 	const fileInput = useRef<HTMLInputElement>(null);
 
 	const list = useMemo(() => orders.data?.orders ?? [], [orders.data]);
@@ -79,6 +87,20 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 
 	const kirimBukti = async (file: File) => {
 		if (!selected) return;
+		const reset = () => {
+			if (fileInput.current) fileInput.current.value = "";
+		};
+		if (file.type !== "image/jpeg" && file.type !== "image/png") {
+			setUploadError("Bukti harus JPG atau PNG. PDF tidak diterima.");
+			reset();
+			return;
+		}
+		if (file.size > MAX_PROOF_BYTES) {
+			setUploadError("Ukuran bukti maksimal 10 MB.");
+			reset();
+			return;
+		}
+		setUploadError(null);
 		setFileName(file.name);
 		try {
 			const uploaded = await uploadFile.mutateAsync(file);
@@ -88,9 +110,11 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 				note: "Bukti dari halaman transaksi",
 			});
 			await queryClient.invalidateQueries();
+		} catch (error) {
+			setUploadError(error instanceof Error ? error.message : "Bukti gagal dikirim. Coba lagi.");
 		} finally {
 			setFileName(null);
-			if (fileInput.current) fileInput.current.value = "";
+			reset();
 		}
 	};
 
@@ -217,7 +241,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 										<input
 											ref={fileInput}
 											type="file"
-											accept="image/*,application/pdf"
+											accept={PROOF_ACCEPT}
 											aria-label="Unggah bukti bayar"
 											className="sr-only"
 											disabled={uploadPending}
@@ -242,7 +266,13 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 											Atau lewat WhatsApp
 										</Button>
 									</div>
-									{fileName ? <p className="mt-2 truncate text-xs text-ink-3">{fileName}</p> : null}
+									<p className="mt-2 text-xs text-ink-3">JPG atau PNG, maksimal 10 MB.</p>
+									{fileName ? <p className="truncate text-xs text-ink-3">{fileName}</p> : null}
+									{uploadError ? (
+										<p role="alert" className="text-xs text-danger-text">
+											{uploadError}
+										</p>
+									) : null}
 								</div>
 							</div>
 						</div>

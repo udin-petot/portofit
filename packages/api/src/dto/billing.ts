@@ -57,7 +57,7 @@ export const billingDto = {
 	attachProof: {
 		input: z.object({
 			orderId: z.string().min(1),
-			proofPath: z.string().min(1).max(512).describe("Path hasil unggah lewat endpoint storage."),
+			proofPath: z.string().min(1).max(512).describe("Path hasil unggah lewat endpoint storage. Harus foto JPG atau PNG, PDF ditolak."),
 			note: z.string().max(500).optional().describe("Catatan pengirim, mis. nama pemilik rekening."),
 			paymentMethod: paymentMethodSchema.optional().describe("Default qris. Pakai wa bila bukti dikirim lewat WhatsApp."),
 		}),

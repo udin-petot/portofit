@@ -74,7 +74,7 @@ export const billingRouter = {
 			operationId: "attachBillingProof",
 			summary: "Attach a payment proof",
 			description:
-				"Attaches an uploaded file to the caller's own order and moves it to waiting-for-verification. Use the storage upload endpoint first.",
+				"Attaches an uploaded image to the caller's own order and moves it to waiting-for-verification. The file must be a JPG or PNG photo; a PDF is rejected. Use the storage upload endpoint first.",
 			successDescription: "The updated order.",
 		})
 		.input(billingDto.attachProof.input)
