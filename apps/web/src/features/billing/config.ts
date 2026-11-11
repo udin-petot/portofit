@@ -12,6 +12,7 @@ export const ORDER_STATUS_LABEL: Record<string, string> = {
 	menunggu_verifikasi: "Menunggu verifikasi",
 	lunas: "Lunas",
 	ditolak: "Ditolak",
+	hangus: "Hangus",
 };
 
 export const ORDER_STATUS_TONE: Record<string, "neutral" | "warning" | "success" | "danger"> = {
@@ -19,6 +20,7 @@ export const ORDER_STATUS_TONE: Record<string, "neutral" | "warning" | "success"
 	menunggu_verifikasi: "warning",
 	lunas: "success",
 	ditolak: "danger",
+	hangus: "neutral",
 };
 
 export const whatsappLink = (message: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
