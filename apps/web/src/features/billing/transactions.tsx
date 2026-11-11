@@ -168,15 +168,15 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 			<div className="flex flex-wrap items-start justify-between gap-3">
 				<div>
 					<h1 className="font-sans text-2xl font-semibold text-ink">Transaksi</h1>
-					<p className="mt-1 text-sm text-ink-2">Semua pesanan dan kuitansimu.</p>
+					<p className="mt-1 hidden text-sm text-ink-2 sm:block">Semua pesanan dan kuitansimu.</p>
 				</div>
-				<Button variant="secondary" size="sm" onClick={() => void navigate({ to: "/harga" })}>
+				<Button variant="secondary" size="sm" className="max-sm:hidden" onClick={() => void navigate({ to: "/harga" })}>
 					<Icon name="tag" size={16} />
 					Beli kredit
 				</Button>
 			</div>
 
-			<div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+			<div className="mt-4 flex flex-wrap items-center justify-between gap-3 sm:mt-6">
 				<Input
 					type="search"
 					value={query}
@@ -188,7 +188,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 				{loading ? null : <p className="text-xs text-ink-3 tabular-nums">{counts.semua} pesanan</p>}
 			</div>
 
-			<div className="mt-4 flex flex-wrap gap-x-1 border-b border-line">
+			<div className="mt-3 flex flex-wrap gap-x-1 border-b border-line sm:mt-4">
 				{TABS.map((item) => {
 					const count = counts[item.id];
 					return (
@@ -223,17 +223,17 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 							/>
 						</span>
 					</header>
-					<div className="grid gap-5 p-4 sm:grid-cols-[152px_minmax(0,1fr)]">
+					<div className="grid gap-4 p-4 sm:grid-cols-[152px_minmax(0,1fr)] sm:gap-5">
 						<div className="grid justify-items-center gap-2 sm:justify-items-start">
 							<img
 								src={QRIS_IMAGE_PATH}
 								alt="Kode QRIS PortoFit"
-								className="w-[min(58vw,220px)] rounded-sm bg-white sm:w-full sm:max-w-[152px]"
+								className="w-[min(44vw,176px)] rounded-sm bg-white sm:w-full sm:max-w-[152px]"
 								onError={(event) => {
 									event.currentTarget.style.display = "none";
 								}}
 							/>
-							<p className="text-center text-xs leading-5 text-ink-3 sm:max-w-[152px] sm:text-left">
+							<p className="text-center text-xs leading-4 text-ink-3 sm:max-w-[152px] sm:text-left sm:leading-5">
 								Pindai dengan aplikasi bank atau dompet digital yang mendukung QRIS.
 							</p>
 						</div>
