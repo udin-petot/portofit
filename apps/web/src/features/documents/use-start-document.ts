@@ -1,4 +1,6 @@
+import type { Locale } from "@reactive-resume/utils/locale";
 import { t } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { toast } from "@reactive-resume/ui/components/toast";
@@ -10,6 +12,10 @@ import { client, orpc } from "@/libs/orpc/client";
 
 /** Start blank, try a sample, or a new letter: each creates the document at once and opens it. */
 export function useStartDocument(applicationId?: string) {
+	// The cookie the server reads can be missing (a phone that never switched language), and then the sample
+	// comes back in English while the app is in Indonesian. Send the language on screen instead.
+	const { i18n } = useLingui();
+	const locale = i18n.locale as Locale;
 	const navigate = useNavigate();
 	const queryClient = useQueryClient();
 	const closeDialog = useDialogStore((state) => state.closeDialog);
@@ -39,6 +45,7 @@ export function useStartDocument(applicationId?: string) {
 					tags: [],
 					autoName: true,
 					withSampleData: false,
+					locale,
 				});
 				await created(resumeId, "resume");
 				void navigate({ to: "/builder/$resumeId", params: { resumeId } });
@@ -48,7 +55,7 @@ export function useStartDocument(applicationId?: string) {
 		},
 		trySample: async () => {
 			try {
-				const resumeId = await createResume({ name: generateRandomName(), tags: [], withSampleData: true });
+				const resumeId = await createResume({ name: generateRandomName(), tags: [], withSampleData: true, locale });
 				await created(resumeId, "resume");
 				toast.add({ description: t`Sample resume added. Delete it anytime.` });
 				void navigate({ to: "/builder/$resumeId", params: { resumeId } });

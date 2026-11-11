@@ -69,21 +69,22 @@ export const crudRouter = {
 				status: 400,
 			},
 		})
-		.handler(({ context, input }) =>
-			resumeService.create({
+		.handler(({ context, input }) => {
+			const locale = input.locale ?? context.locale;
+			return resumeService.create({
 				name: input.name,
 				...(input.slug ? { slug: input.slug } : {}),
 				...(input.autoName ? { autoName: true } : {}),
 				tags: input.tags,
-				locale: context.locale,
+				locale,
 				userId: context.user.id,
 				data: createResumeData({
 					withSampleData: input.withSampleData,
 					name: context.user.name,
-					locale: context.locale,
+					locale,
 				}),
-			}),
-		),
+			});
+		}),
 
 	import: protectedProcedure
 		.route({
