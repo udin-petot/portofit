@@ -5,7 +5,14 @@ import nodemailer from "nodemailer";
 import { render } from "react-email";
 import { env } from "@reactive-resume/env/server";
 
-type SendEmailOptions = { to: string; subject: string; react: ReactElement };
+type SendEmailOptions = {
+	to: string;
+	subject: string;
+	react: ReactElement;
+	attachments?: SendMailOptions["attachments"];
+	/** Antrean kuitansi butuh tahu kegagalan; email auth tetap diam seperti sebelumnya. */
+	throwOnError?: boolean;
+};
 
 let cachedTransport: Transporter | undefined;
 
@@ -26,11 +33,17 @@ const getTransport = () => {
 	return cachedTransport;
 };
 
-export const sendEmail = async ({ to, subject, react }: SendEmailOptions) => {
+export const sendEmail = async ({
+	to,
+	subject,
+	react,
+	attachments,
+	throwOnError,
+}: SendEmailOptions): Promise<boolean> => {
 	const transport = getTransport();
 	if (!transport && process.env.NODE_ENV === "production") {
 		console.info("SMTP not configured; skipping email send.", { to, subject });
-		return;
+		return false;
 	}
 	const payload: SendMailOptions = {
 		to,
@@ -38,6 +51,7 @@ export const sendEmail = async ({ to, subject, react }: SendEmailOptions) => {
 		subject,
 		html: await render(react),
 		text: await render(react, { plainText: true }),
+		...(attachments ? { attachments } : {}),
 	};
 
 	if (!transport) {
@@ -47,14 +61,17 @@ export const sendEmail = async ({ to, subject, react }: SendEmailOptions) => {
 			text: payload.text,
 			html: payload.html,
 		});
-		return;
+		return false;
 	}
 
 	try {
 		await transport.sendMail(payload);
+		return true;
 	} catch {
 		// SMTP errors can contain credentials or authentication links.
 		console.error("There was an error sending mail.");
+		if (throwOnError) throw new Error("Email tidak terkirim.");
+		return false;
 	}
 };
 

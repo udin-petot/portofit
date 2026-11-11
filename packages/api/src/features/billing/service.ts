@@ -3,6 +3,7 @@ import { and, desc, eq, gte, ilike, lt, or, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import { adminAudit, billingCreditLedger, billingOrder, billingPlan, user } from "@reactive-resume/db/schema";
 import { getStorageService, inferContentType } from "../storage/service";
+import { issueInvoice } from "../invoice/service";
 
 export type PlanKind = "application" | "interview";
 export type OrderStatus = "menunggu_bayar" | "menunggu_verifikasi" | "lunas" | "ditolak";
@@ -316,6 +317,17 @@ export const billingService = {
 				.set({ status: "lunas", verifiedBy: input.actorId, verifiedAt: new Date(), rejectionReason: null })
 				.where(eq(billingOrder.id, order.id))
 				.returning();
+			if (!updated) throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Order gagal diperbarui." });
+
+			const [customer] = await tx
+				.select({ name: user.name, email: user.email })
+				.from(user)
+				.where(eq(user.id, order.userId))
+				.limit(1);
+			if (!customer) throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Pembeli order ini tidak ditemukan." });
+
+			await issueInvoice(tx, { order: updated, customer, balanceAfter });
+
 			await tx.insert(adminAudit).values({
 				actorId: input.actorId,
 				action: "order.verify",
@@ -324,7 +336,6 @@ export const billingService = {
 				detail: { totalIdr: order.totalIdr, credits: order.credits, kind, balanceAfter },
 			});
 
-			if (!updated) throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Order gagal diperbarui." });
 			return toOrderDto(updated);
 		});
 	},
