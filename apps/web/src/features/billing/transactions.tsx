@@ -262,7 +262,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 								</li>
 							))}
 						</ul>
-					) : rows.length === 0 ? (
+					) : rows.length === 0 && !selected ? (
 						<div className="mt-2 border-b border-line py-10 text-center">
 							<p className="text-sm text-ink-2">{emptyCopy()}</p>
 							{query.trim() ? (
