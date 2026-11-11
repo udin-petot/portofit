@@ -97,6 +97,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 						description: `${order.planName}: pembayaran dikonfirmasi, kreditmu sudah masuk.`,
 					});
 					void queryClient.invalidateQueries({ queryKey: orpc.billing.balances.key() });
+					void queryClient.invalidateQueries({ queryKey: orpc.invoice.list.key() });
 				}
 			}
 		}
@@ -309,6 +310,32 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 							ini akan memberi tahu begitu statusnya berubah.
 						</p>
 					</div>
+				</section>
+			) : null}
+
+			{selected && selected.status === "lunas" ? (
+				<section className="mt-4 flex flex-wrap items-start justify-between gap-3 rounded-lg border border-line bg-surface p-4">
+					<div className="flex items-start gap-3">
+						<Icon name="check-circle" size={20} className="mt-0.5 shrink-0 text-accent-text" />
+						<div className="grid gap-1">
+							<h2 className="text-sm font-medium text-ink">Pembayaran dikonfirmasi</h2>
+							<p className="text-xs leading-5 text-ink-2">
+								Kredit sudah masuk ke akunmu. Kuitansi tersedia kalau kamu perlu bukti bayar.
+							</p>
+						</div>
+					</div>
+					{invoiceFor(selected.id) ? (
+						<Button
+							variant="secondary"
+							size="sm"
+							onClick={() => {
+								const invoice = invoiceFor(selected.id);
+								if (invoice) setInvoiceOpen(invoice.id);
+							}}
+						>
+							Lihat kuitansi
+						</Button>
+					) : null}
 				</section>
 			) : null}
 
