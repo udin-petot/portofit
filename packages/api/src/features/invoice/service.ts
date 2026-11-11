@@ -1,7 +1,7 @@
 import { and, desc, eq } from "drizzle-orm";
 import { ORPCError } from "@orpc/server";
 import { db } from "@reactive-resume/db/client";
-import { billingOrder, invoice, invoiceEmail, type InvoiceSnapshot } from "@reactive-resume/db/schema";
+import { billingCreditLedger, billingOrder, invoice, invoiceEmail, user, type InvoiceSnapshot } from "@reactive-resume/db/schema";
 import { createInvoicePdf, type InvoicePdfInput } from "@reactive-resume/pdf/server";
 import { nextInvoiceNumber } from "./number";
 
@@ -119,4 +119,64 @@ export async function downloadInvoice(
 	const pdf = await render({ number: row.number, issuedAt: row.issuedAt, snapshot: row.snapshot });
 
 	return { fileName: `kuitansi-${row.number.replaceAll("/", "-")}.pdf`, pdf: pdf.toString("base64") };
+}
+
+type FindOrder = (orderId: string) => Promise<OrderRow | undefined>;
+
+const findOrderRow: FindOrder = async (orderId) => {
+	const [row] = await db.select().from(billingOrder).where(eq(billingOrder.id, orderId)).limit(1);
+	return row;
+};
+
+const findInvoiceByOrder = async (orderId: string): Promise<InvoiceRow | undefined> => {
+	const [row] = await db.select().from(invoice).where(eq(invoice.orderId, orderId)).limit(1);
+	return row;
+};
+
+/**
+ * Menerbitkan kuitansi untuk order lunas yang sudah ada sebelum fitur ini rilis.
+ * Tanggal terbit memakai `verifiedAt` asli, bukan hari ini, tetapi nomornya tetap urutan berikutnya.
+ */
+export async function issueInvoiceForOrder(
+	input: { orderId: string },
+	deps: {
+		findOrder?: FindOrder;
+		findInvoice?: (orderId: string) => Promise<InvoiceRow | undefined>;
+		issue?: typeof issueInvoice;
+	} = {},
+): Promise<InvoiceRow> {
+	const order = await (deps.findOrder ?? findOrderRow)(input.orderId);
+	if (!order) throw new ORPCError("NOT_FOUND", { message: "Order tidak ditemukan." });
+	if (order.status !== "lunas") {
+		throw new ORPCError("BAD_REQUEST", { message: "Kuitansi hanya untuk order yang sudah lunas." });
+	}
+
+	const existing = await (deps.findInvoice ?? findInvoiceByOrder)(order.id);
+	if (existing) return existing;
+
+	return db.transaction(async (tx) => {
+		const [customer] = await tx
+			.select({ name: user.name, email: user.email })
+			.from(user)
+			.where(eq(user.id, order.userId))
+			.limit(1);
+		if (!customer) throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Pembeli order ini tidak ditemukan." });
+
+		const [ledger] = await tx
+			.select({ balanceAfter: billingCreditLedger.balanceAfter })
+			.from(billingCreditLedger)
+			.where(eq(billingCreditLedger.orderId, order.id))
+			.limit(1);
+
+		const issue = deps.issue ?? issueInvoice;
+		return issue(tx, { order, customer, balanceAfter: ledger?.balanceAfter ?? 0 });
+	});
+}
+
+/** Antre ulang email tanpa menyentuh nomor kuitansi. */
+export async function resendInvoiceEmail(invoiceId: string): Promise<void> {
+	const [row] = await db.select().from(invoice).where(eq(invoice.id, invoiceId)).limit(1);
+	if (!row) throw new ORPCError("NOT_FOUND", { message: "Kuitansi tidak ditemukan." });
+
+	await db.insert(invoiceEmail).values({ invoiceId: row.id, toEmail: row.snapshot.customerEmail });
 }
