@@ -185,26 +185,32 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 					className="w-full sm:w-72"
 					onChange={(event) => setQuery(event.target.value)}
 				/>
-				{loading ? null : <p className="text-xs text-ink-3 tabular-nums">{counts.semua} pesanan</p>}
+				{loading ? null : <p className="hidden text-xs text-ink-3 tabular-nums sm:block">{counts.semua} pesanan</p>}
 			</div>
 
-			<div className="mt-3 flex flex-wrap gap-x-1 border-b border-line sm:mt-4">
+			{/* Phones get a scrolling row of pills: two rows of underlined tabs read as a broken bar. */}
+			<div className="-mx-6 mt-3 flex snap-x gap-2 overflow-x-auto px-6 pb-1 sm:mx-0 sm:mt-4 sm:gap-x-1 sm:gap-y-0 sm:overflow-visible sm:border-b sm:border-line sm:px-0 sm:pb-0">
 				{TABS.map((item) => {
 					const count = counts[item.id];
+					const active = tab === item.id;
 					return (
 						<button
 							key={item.id}
 							type="button"
-							aria-pressed={tab === item.id}
+							aria-pressed={active}
 							onClick={() => setTab(item.id)}
-							className={`flex min-h-11 shrink-0 items-center gap-1.5 border-b-2 px-3 text-sm transition-colors ${
-								tab === item.id ? "border-ink font-medium text-ink" : "border-transparent text-ink-2 hover:text-ink"
+							className={`flex min-h-9 shrink-0 snap-start items-center gap-1.5 rounded-full border px-3.5 text-[13px] transition-colors sm:min-h-11 sm:rounded-none sm:border-x-0 sm:border-t-0 sm:border-b-2 sm:px-3 sm:text-sm ${
+								active
+									? "border-ink bg-ink font-medium text-bg sm:bg-transparent sm:text-ink"
+									: "border-line text-ink-2 hover:border-line-2 hover:text-ink sm:border-transparent"
 							}`}
 						>
 							{item.label}
 							{/* A zero on every tab is noise, so a count shows only when it is real or the tab is open. */}
-							{count > 0 || tab === item.id ? (
-								<span className="text-xs text-ink-3 tabular-nums">{loading ? "" : count}</span>
+							{count > 0 || active ? (
+								<span className={`text-xs tabular-nums ${active ? "text-bg/70 sm:text-ink-3" : "text-ink-3"}`}>
+									{loading ? "" : count}
+								</span>
 							) : null}
 						</button>
 					);
