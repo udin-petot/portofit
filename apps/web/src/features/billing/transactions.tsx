@@ -61,12 +61,12 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 				<div className="px-0 py-4 pr-5">
 					<p className="text-xs text-ink-3">Kredit lamaran</p>
 					<p className="mt-1 text-[26px] leading-7 font-normal tabular-nums text-ink">{balances.data?.application ?? 0}</p>
-					<p className="mt-1 text-xs text-ink-2">Rp5.000 per lamaran</p>
+					<p className="mt-1 text-xs text-ink-2">{formatRupiah(5000)} per lamaran</p>
 				</div>
 				<div className="py-4 pl-5">
 					<p className="text-xs text-ink-3">Kredit wawancara</p>
 					<p className="mt-1 text-[26px] leading-7 font-normal tabular-nums text-ink">{balances.data?.interview ?? 0}</p>
-					<p className="mt-1 text-xs text-ink-2">Rp10.000 per sesi</p>
+					<p className="mt-1 text-xs text-ink-2">{formatRupiah(10000)} per sesi</p>
 				</div>
 			</section>
 
