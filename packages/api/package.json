@@ -22,7 +22,8 @@
 		"./pagination": "./src/pagination.ts",
 		"./features/mcp/transport": "./src/features/mcp/transport.ts",
 		"./features/career/jobs": "./src/features/career/jobs.ts",
-		"./features/invoice/mailer": "./src/features/invoice/mailer.ts"
+		"./features/invoice/mailer": "./src/features/invoice/mailer.ts",
+		"./features/billing/sweep": "./src/features/billing/sweep.ts"
 	},
 	"scripts": {
 		"typecheck": "tsgo --noEmit",

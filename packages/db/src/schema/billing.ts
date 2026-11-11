@@ -128,3 +128,32 @@ export const adminAudit = pg.pgTable(
 	},
 	(t) => [pg.index().on(t.createdAt), pg.index().on(t.actorId)],
 );
+
+/**
+ * Antrean email pesanan: dibuat, pengingat, hangus. Unik per pesanan dan jenis
+ * supaya satu titik hanya terkirim sekali walau penyapu berjalan berkali-kali.
+ */
+export const billingOrderEmail = pg.pgTable(
+	"billing_order_email",
+	{
+		id: pg
+			.text("id")
+			.notNull()
+			.primaryKey()
+			.$defaultFn(() => generateId()),
+		orderId: pg
+			.text("order_id")
+			.notNull()
+			.references(() => billingOrder.id, { onDelete: "cascade" }),
+		kind: pg.text("kind").notNull(),
+		status: pg.text("status").notNull().default("pending"),
+		attempts: pg.integer("attempts").notNull().default(0),
+		lastError: pg.text("last_error"),
+		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+		sentAt: pg.timestamp("sent_at", { withTimezone: true }),
+	},
+	(t) => [
+		pg.uniqueIndex("billing_order_email_order_kind_index").on(t.orderId, t.kind),
+		pg.index().on(t.status, t.createdAt),
+	],
+);
