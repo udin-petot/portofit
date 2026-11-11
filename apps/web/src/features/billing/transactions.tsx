@@ -1,9 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
+import { toast } from "@reactive-resume/ui/components/toast";
 import {
 	formatRupiah,
 	MAX_PROOF_BYTES,
@@ -16,7 +17,7 @@ import { Countdown } from "./countdown";
 import { InvoiceSheet } from "./invoice-sheet";
 import { orpc } from "@/libs/orpc/client";
 
-type Tab = "semua" | "menunggu_bayar" | "diproses" | "selesai" | "batal" | "kuitansi";
+type Tab = "semua" | "menunggu_bayar" | "diproses" | "selesai" | "batal";
 
 const TABS: { id: Tab; label: string }[] = [
 	{ id: "semua", label: "Semua" },
@@ -24,7 +25,6 @@ const TABS: { id: Tab; label: string }[] = [
 	{ id: "diproses", label: "Diproses" },
 	{ id: "selesai", label: "Selesai" },
 	{ id: "batal", label: "Dibatalkan" },
-	{ id: "kuitansi", label: "Kuitansi" },
 ];
 
 const statusText = (status: string) => statusTextMap[status] ?? ORDER_STATUS_LABEL[status] ?? status;
@@ -42,7 +42,11 @@ type TransactionsPageProps = { selectedOrderId?: string | undefined; isAdmin?: b
 export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
-	const orders = useQuery(orpc.billing.myOrders.queryOptions({ input: { limit: 100 } }));
+	const orders = useQuery({
+		...orpc.billing.myOrders.queryOptions({ input: { limit: 100 } }),
+		// Admin verifies by hand, so the page watches for the moment an order turns paid and says so.
+		refetchInterval: 20_000,
+	});
 	const invoices = useQuery(orpc.invoice.list.queryOptions());
 	const uploadFile = useMutation(orpc.storage.uploadFile.mutationOptions({ meta: { noInvalidate: true } }));
 	const attachProof = useMutation(orpc.billing.attachProof.mutationOptions());
@@ -52,6 +56,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 	const [fileName, setFileName] = useState<string | null>(null);
 	const [uploadError, setUploadError] = useState<string | null>(null);
 	const fileInput = useRef<HTMLInputElement>(null);
+	const previousStatus = useRef<Record<string, string>>({});
 
 	const list = useMemo(() => orders.data?.orders ?? [], [orders.data]);
 	const loading = orders.isLoading;
@@ -62,9 +67,8 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 			diproses: list.filter((order) => order.status === "menunggu_verifikasi").length,
 			selesai: list.filter((order) => order.status === "lunas").length,
 			batal: list.filter((order) => order.status === "ditolak" || order.status === "hangus").length,
-			kuitansi: invoices.data?.items.length ?? 0,
 		}),
-		[list, invoices.data],
+		[list],
 	);
 
 	const shown = list.filter((order) => {
@@ -80,10 +84,24 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 	});
 
 	const selected = list.find((order) => order.id === selectedOrderId) ?? null;
-	// The open order already has its own panel above, so its row would only repeat the same price twice.
-	const rows = selected ? shown.filter((order) => order.id !== selected.id) : shown;
-
+	const invoiceFor = (orderId: string) => invoices.data?.items.find((item) => item.orderId === orderId);
 	const uploadPending = uploadFile.isPending || attachProof.isPending;
+
+	useEffect(() => {
+		if (!orders.data) return;
+		if (Object.keys(previousStatus.current).length > 0) {
+			for (const order of orders.data.orders) {
+				if (previousStatus.current[order.id] === "menunggu_verifikasi" && order.status === "lunas") {
+					toast.add({
+						type: "success",
+						description: `${order.planName}: pembayaran dikonfirmasi, kreditmu sudah masuk.`,
+					});
+					void queryClient.invalidateQueries({ queryKey: orpc.billing.balances.key() });
+				}
+			}
+		}
+		previousStatus.current = Object.fromEntries(orders.data.orders.map((order) => [order.id, order.status]));
+	}, [orders.data, queryClient]);
 
 	const kirimBukti = async (file: File) => {
 		if (!selected) return;
@@ -91,12 +109,16 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 			if (fileInput.current) fileInput.current.value = "";
 		};
 		if (file.type !== "image/jpeg" && file.type !== "image/png") {
-			setUploadError("Bukti harus JPG atau PNG. PDF tidak diterima.");
+			const message = "Bukti harus JPG atau PNG. PDF tidak diterima.";
+			setUploadError(message);
+			toast.add({ type: "error", description: message });
 			reset();
 			return;
 		}
 		if (file.size > MAX_PROOF_BYTES) {
-			setUploadError("Ukuran bukti maksimal 10 MB.");
+			const message = "Ukuran bukti maksimal 10 MB.";
+			setUploadError(message);
+			toast.add({ type: "error", description: message });
 			reset();
 			return;
 		}
@@ -110,12 +132,28 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 				note: "Bukti dari halaman transaksi",
 			});
 			await queryClient.invalidateQueries();
+			toast.add({
+				type: "success",
+				description: "Bukti terkirim. Admin memverifikasi, lalu kredit masuk otomatis.",
+			});
 		} catch (error) {
-			setUploadError(error instanceof Error ? error.message : "Bukti gagal dikirim. Coba lagi.");
+			const message = error instanceof Error ? error.message : "Bukti gagal dikirim. Coba lagi.";
+			setUploadError(message);
+			toast.add({ type: "error", description: message });
 		} finally {
 			setFileName(null);
 			reset();
 		}
+	};
+
+	const bukaPesanan = (orderId: string) => {
+		const invoice = invoiceFor(orderId);
+		// A paid order already has a receipt, so the eye goes straight to the document instead of a payment screen.
+		if (invoice) {
+			setInvoiceOpen(invoice.id);
+			return;
+		}
+		void navigate({ to: "/dashboard/transaksi", search: { order: orderId } });
 	};
 
 	const emptyCopy = () => {
@@ -172,176 +210,192 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 				})}
 			</div>
 
-			{tab === "kuitansi" ? (
-				<ul className="mt-2">
-					{(invoices.data?.items ?? []).map((item) => (
-						<li
-							key={item.id}
-							className="flex items-center justify-between gap-4 border-b border-line py-3 last:border-0"
-						>
-							<div className="min-w-0">
-								<p className="truncate text-sm text-ink">{item.number}</p>
-								<p className="text-xs text-ink-3 tabular-nums">
-									{item.planName} · {new Date(item.issuedAt).toLocaleDateString("id-ID")}
-								</p>
-							</div>
-							<div className="flex shrink-0 items-center gap-4">
-								<span className="text-sm text-ink tabular-nums">{formatRupiah(item.totalIdr)}</span>
-								<Button variant="ghost" size="sm" onClick={() => setInvoiceOpen(item.id)}>
-									Lihat
+			{selected && selected.status === "menunggu_bayar" ? (
+				<section className="mt-4 overflow-hidden rounded-lg border border-line bg-raised">
+					<header className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-4 py-3">
+						<h2 className="text-sm font-medium text-ink">Selesaikan pembayaran</h2>
+						<span className="rounded-full bg-warn-soft px-2.5 py-1 text-xs text-warn-text">
+							Sisa waktu{" "}
+							<Countdown
+								expiresAt={selected.expiresAt ? new Date(selected.expiresAt) : null}
+								onExpire={() => void orders.refetch()}
+							/>
+						</span>
+					</header>
+					<div className="grid gap-5 p-4 sm:grid-cols-[152px_minmax(0,1fr)]">
+						<div className="grid gap-2">
+							<img
+								src={QRIS_IMAGE_PATH}
+								alt="Kode QRIS PortoFit"
+								className="w-full max-w-[152px] self-start rounded-sm bg-white"
+								onError={(event) => {
+									event.currentTarget.style.display = "none";
+								}}
+							/>
+							<p className="max-w-[152px] text-xs leading-5 text-ink-3">
+								Pindai dengan aplikasi bank atau dompet digital yang mendukung QRIS.
+							</p>
+						</div>
+						<div className="grid content-start gap-1">
+							<p className="text-xs text-ink-3">Total transfer</p>
+							<p className="text-[28px] leading-8 font-semibold text-ink tabular-nums">
+								{formatRupiah(selected.totalIdr)}
+							</p>
+							<p className="text-sm text-ink-2">{selected.planName}</p>
+							<p className="mt-1 text-xs text-ink-2">
+								Kode unik{" "}
+								<span className="font-semibold text-ink tabular-nums">
+									{String(selected.uniqueCode).padStart(3, "0")}
+								</span>
+								. Nominal harus persis sampai tiga digit terakhir.
+							</p>
+							<div className="mt-3 flex flex-wrap items-center gap-2">
+								<Button
+									variant="secondary"
+									size="sm"
+									disabled={uploadPending}
+									onClick={() => fileInput.current?.click()}
+								>
+									<Icon name="upload-simple" size={16} />
+									{uploadPending ? "Mengunggah bukti…" : "Unggah bukti bayar"}
 								</Button>
+								<input
+									ref={fileInput}
+									type="file"
+									accept={PROOF_ACCEPT}
+									aria-label="Unggah bukti bayar"
+									className="sr-only"
+									disabled={uploadPending}
+									onChange={(event) => {
+										const file = event.currentTarget.files?.[0];
+										if (file) void kirimBukti(file);
+									}}
+								/>
+								<Button
+									variant="ghost"
+									size="sm"
+									onClick={() =>
+										window.open(
+											whatsappLink(
+												`Halo PortoFit, saya mau konfirmasi pembayaran ${selected.planName} total ${formatRupiah(selected.totalIdr)} (kode unik ${String(selected.uniqueCode).padStart(3, "0")}).`,
+											),
+											"_blank",
+											"noopener",
+										)
+									}
+								>
+									Atau lewat WhatsApp
+								</Button>
+							</div>
+							<p className="mt-1 text-xs text-ink-3">Foto bukti transfer, JPG atau PNG, maksimal 10 MB.</p>
+							{fileName ? <p className="truncate text-xs text-ink-3">{fileName}</p> : null}
+							{uploadError ? (
+								<p role="alert" className="mt-1 text-xs text-danger-text">
+									{uploadError}
+								</p>
+							) : null}
+						</div>
+					</div>
+				</section>
+			) : null}
+
+			{selected && selected.status === "menunggu_verifikasi" ? (
+				<section className="mt-4 flex items-start gap-3 rounded-lg border border-line bg-surface p-4">
+					<Icon name="clock" size={20} className="mt-0.5 shrink-0 text-warn" />
+					<div className="grid gap-1">
+						<h2 className="text-sm font-medium text-ink">Bukti terkirim, menunggu verifikasi</h2>
+						<p className="text-xs leading-5 text-ink-2">
+							Admin memeriksa bukti transfermu secara manual. Kredit masuk otomatis setelah diverifikasi, dan halaman
+							ini akan memberi tahu begitu statusnya berubah.
+						</p>
+					</div>
+				</section>
+			) : null}
+
+			{selected && (selected.status === "ditolak" || selected.status === "hangus") ? (
+				<section className="mt-4 grid gap-1 rounded-lg border border-line bg-surface p-4">
+					<h2 className="text-sm font-medium text-ink">
+						{selected.status === "hangus" ? "Pesanan hangus" : "Bukti ditolak"}
+					</h2>
+					<p className="text-xs leading-5 text-ink-2">
+						{selected.rejectionReason ??
+							(selected.status === "hangus"
+								? "Batas waktu bayar lewat sebelum bukti masuk. Buat pesanan baru untuk melanjutkan."
+								: "Bukti tidak cocok dengan nominal pesanan ini.")}
+					</p>
+					<Button variant="secondary" size="sm" className="mt-2 w-fit" onClick={() => void navigate({ to: "/harga" })}>
+						Buat pesanan baru
+					</Button>
+				</section>
+			) : null}
+
+			{loading ? (
+				<ul className="mt-2" aria-busy="true" aria-label="Memuat pesanan">
+					{[0, 1, 2].map((row) => (
+						<li key={row} className="border-b border-line py-4 last:border-0">
+							<div className="flex items-start justify-between gap-4">
+								<div className="grid w-full gap-2">
+									<span className="h-3.5 w-48 animate-pulse rounded-sm bg-sunken" />
+									<span className="h-3 w-64 animate-pulse rounded-sm bg-sunken" />
+								</div>
+								<span className="h-3.5 w-20 shrink-0 animate-pulse rounded-sm bg-sunken" />
 							</div>
 						</li>
 					))}
-					{(invoices.data?.items.length ?? 0) === 0 ? (
-						<li className="py-6 text-sm text-ink-3">Belum ada kuitansi.</li>
-					) : null}
 				</ul>
-			) : (
-				<>
-					{selected && selected.status === "menunggu_bayar" ? (
-						<div className="mt-4 rounded-lg border border-line bg-raised p-4">
-							<div className="grid gap-4 sm:grid-cols-[160px_minmax(0,1fr)]">
-								<div className="grid gap-2">
-									<img
-										src={QRIS_IMAGE_PATH}
-										alt="Kode QRIS PortoFit"
-										className="w-full max-w-[160px] self-start rounded-sm bg-white"
-										onError={(event) => {
-											event.currentTarget.style.display = "none";
-										}}
-									/>
-									<p className="max-w-[160px] text-xs leading-5 text-ink-3">
-										Pindai dengan aplikasi bank atau dompet digital yang mendukung QRIS.
-									</p>
-								</div>
-								<div className="min-w-0">
-									<p className="text-sm text-ink">{selected.planName}</p>
-									<p className="mt-1 text-[22px] leading-6 font-semibold text-ink tabular-nums">
-										{formatRupiah(selected.totalIdr)}
-									</p>
-									<p className="mt-1 text-xs text-ink-2 tabular-nums">
-										Kode unik {String(selected.uniqueCode).padStart(3, "0")} · bayar dalam{" "}
-										<Countdown
-											expiresAt={selected.expiresAt ? new Date(selected.expiresAt) : null}
-											onExpire={() => void orders.refetch()}
-										/>
-									</p>
-									<p className="mt-1 text-xs text-ink-3">Nominal harus persis, termasuk tiga digit terakhir.</p>
-									<div className="mt-3 flex flex-wrap items-center gap-2">
-										<Button
-											variant="secondary"
-											size="sm"
-											disabled={uploadPending}
-											onClick={() => fileInput.current?.click()}
-										>
-											<Icon name="upload-simple" size={16} />
-											{uploadPending ? "Mengunggah bukti…" : "Unggah bukti bayar"}
-										</Button>
-										<input
-											ref={fileInput}
-											type="file"
-											accept={PROOF_ACCEPT}
-											aria-label="Unggah bukti bayar"
-											className="sr-only"
-											disabled={uploadPending}
-											onChange={(event) => {
-												const file = event.currentTarget.files?.[0];
-												if (file) void kirimBukti(file);
-											}}
-										/>
-										<Button
-											variant="ghost"
-											size="sm"
-											onClick={() =>
-												window.open(
-													whatsappLink(
-														`Halo PortoFit, saya mau konfirmasi pembayaran ${selected.planName} total ${formatRupiah(selected.totalIdr)} (kode unik ${String(selected.uniqueCode).padStart(3, "0")}).`,
-													),
-													"_blank",
-													"noopener",
-												)
-											}
-										>
-											Atau lewat WhatsApp
-										</Button>
-									</div>
-									<p className="mt-2 text-xs text-ink-3">JPG atau PNG, maksimal 10 MB.</p>
-									{fileName ? <p className="truncate text-xs text-ink-3">{fileName}</p> : null}
-									{uploadError ? (
-										<p role="alert" className="text-xs text-danger-text">
-											{uploadError}
-										</p>
-									) : null}
-								</div>
-							</div>
-						</div>
+			) : shown.length === 0 ? (
+				<div className="mt-2 border-b border-line py-10 text-center">
+					<p className="text-sm text-ink-2">{emptyCopy()}</p>
+					{query.trim() ? (
+						<Button variant="ghost" size="sm" className="mt-3" onClick={() => setQuery("")}>
+							Hapus pencarian
+						</Button>
+					) : counts.semua === 0 ? (
+						<Button variant="secondary" size="sm" className="mt-3" onClick={() => void navigate({ to: "/harga" })}>
+							Lihat paket
+						</Button>
 					) : null}
-
-					{loading ? (
-						<ul className="mt-2" aria-busy="true" aria-label="Memuat pesanan">
-							{[0, 1, 2].map((row) => (
-								<li key={row} className="border-b border-line py-4 last:border-0">
-									<div className="flex items-start justify-between gap-4">
-										<div className="grid w-full gap-2">
-											<span className="h-3.5 w-48 animate-pulse rounded-sm bg-sunken" />
-											<span className="h-3 w-64 animate-pulse rounded-sm bg-sunken" />
-										</div>
-										<span className="h-3.5 w-20 shrink-0 animate-pulse rounded-sm bg-sunken" />
+				</div>
+			) : (
+				<ul className="mt-2">
+					{shown.map((order) => {
+						const invoice = invoiceFor(order.id);
+						const current = order.id === selected?.id;
+						return (
+							<li
+								key={order.id}
+								className={`border-b border-line py-4 last:border-0 ${current ? "bg-hover/40" : ""}`}
+								aria-current={current ? "true" : undefined}
+							>
+								<div className="flex items-start justify-between gap-4">
+									<div className="min-w-0">
+										<p className="truncate text-sm text-ink">{order.planName}</p>
+										<p className="mt-0.5 text-xs text-ink-3 tabular-nums">
+											{order.id.slice(0, 8)} · {new Date(order.createdAt).toLocaleDateString("id-ID")} · kode{" "}
+											{String(order.uniqueCode).padStart(3, "0")}
+										</p>
+										<p className="mt-1 text-xs text-ink-2">
+											{statusText(order.status)}
+											{order.status === "menunggu_bayar" && order.expiresAt ? (
+												<>
+													{" · sisa "}
+													<Countdown expiresAt={new Date(order.expiresAt)} onExpire={() => void orders.refetch()} />
+												</>
+											) : null}
+											{invoice ? ` · ${invoice.number}` : null}
+										</p>
 									</div>
-								</li>
-							))}
-						</ul>
-					) : rows.length === 0 && !selected ? (
-						<div className="mt-2 border-b border-line py-10 text-center">
-							<p className="text-sm text-ink-2">{emptyCopy()}</p>
-							{query.trim() ? (
-								<Button variant="ghost" size="sm" className="mt-3" onClick={() => setQuery("")}>
-									Hapus pencarian
-								</Button>
-							) : counts.semua === 0 ? (
-								<Button variant="secondary" size="sm" className="mt-3" onClick={() => void navigate({ to: "/harga" })}>
-									Lihat paket
-								</Button>
-							) : null}
-						</div>
-					) : (
-						<ul className="mt-2">
-							{rows.map((order) => (
-								<li key={order.id} className="border-b border-line py-4 last:border-0">
-									<div className="flex items-start justify-between gap-4">
-										<div className="min-w-0">
-											<p className="truncate text-sm text-ink">{order.planName}</p>
-											<p className="mt-0.5 text-xs text-ink-3 tabular-nums">
-												{order.id.slice(0, 8)} · {new Date(order.createdAt).toLocaleDateString("id-ID")} · kode{" "}
-												{String(order.uniqueCode).padStart(3, "0")}
-											</p>
-											<p className="mt-1 text-xs text-ink-2">
-												{statusText(order.status)}
-												{order.status === "menunggu_bayar" && order.expiresAt ? (
-													<>
-														{" · sisa "}
-														<Countdown expiresAt={new Date(order.expiresAt)} onExpire={() => void orders.refetch()} />
-													</>
-												) : null}
-											</p>
-										</div>
-										<div className="flex shrink-0 flex-col items-end gap-1">
-											<p className="text-sm text-ink tabular-nums">{formatRupiah(order.totalIdr)}</p>
-											<Button
-												variant="secondary"
-												size="sm"
-												onClick={() => void navigate({ to: "/dashboard/transaksi", search: { order: order.id } })}
-											>
-												{order.status === "menunggu_bayar" ? "Bayar" : "Lihat"}
-											</Button>
-										</div>
+									<div className="flex shrink-0 flex-col items-end gap-1">
+										<p className="text-sm text-ink tabular-nums">{formatRupiah(order.totalIdr)}</p>
+										<Button variant="secondary" size="sm" onClick={() => bukaPesanan(order.id)}>
+											{order.status === "menunggu_bayar" ? "Bayar" : invoice ? "Lihat kuitansi" : "Lihat"}
+										</Button>
 									</div>
-								</li>
-							))}
-						</ul>
-					)}
-				</>
+								</div>
+							</li>
+						);
+					})}
+				</ul>
 			)}
 
 			<InvoiceSheet invoiceId={invoiceOpen} onClose={() => setInvoiceOpen(null)} />

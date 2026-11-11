@@ -26,6 +26,7 @@ export const invoiceRouter = {
 				items: z.array(
 					z.object({
 						id: z.string(),
+						orderId: z.string(),
 						number: z.string(),
 						issuedAt: z.string(),
 						planName: z.string(),

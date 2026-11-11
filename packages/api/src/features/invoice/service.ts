@@ -80,13 +80,14 @@ export async function issueInvoice(
 /** Daftar kuitansi milik pengguna, terbaru dulu. */
 export async function listInvoices(userId: string) {
 	const rows = await db
-		.select({ id: invoice.id, number: invoice.number, issuedAt: invoice.issuedAt, snapshot: invoice.snapshot })
+		.select({ id: invoice.id, orderId: invoice.orderId, number: invoice.number, issuedAt: invoice.issuedAt, snapshot: invoice.snapshot })
 		.from(invoice)
 		.where(eq(invoice.userId, userId))
 		.orderBy(desc(invoice.issuedAt));
 
 	return rows.map((row) => ({
 		id: row.id,
+		orderId: row.orderId,
 		number: row.number,
 		issuedAt: row.issuedAt.toISOString(),
 		planName: row.snapshot.planName,
