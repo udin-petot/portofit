@@ -1,5 +1,5 @@
 import type { IconName } from "@reactive-resume/ui/components/icon";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { useHotkey } from "@tanstack/react-hotkeys";
@@ -314,19 +314,23 @@ function RailTip({
 function MobileTabs() {
 	const isCurrent = useIsCurrent();
 	const openDialog = useDialogStore((state) => state.openDialog);
+	const { data: session } = authClient.useSession();
+	const isAdmin = ((session?.user as { role?: string | null } | undefined)?.role ?? "user") === "admin";
+	const [moreOpen, setMoreOpen] = useState(false);
+	const moreCurrent = isCurrent("/dashboard/settings") || isCurrent("/admin");
 
 	const tab = (icon: IconName, label: string, current: boolean) => (
 		<>
 			{current && <MobileTabIndicator />}
 			<Icon name={icon} size={24} filled={current} />
-			<span className={cn("text-[11px]", current ? "font-semibold text-ink" : "text-ink-2")}>{label}</span>
+			<span className={cn("max-w-full truncate text-[11px]", current ? "font-semibold text-ink" : "text-ink-2")}>{label}</span>
 		</>
 	);
 
 	return (
 		<nav
 			aria-label={t`App`}
-			className="sticky bottom-0 z-30 grid grid-cols-5 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] [view-transition-name:app-nav]"
+			className="sticky bottom-0 z-30 grid grid-cols-6 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] [view-transition-name:app-nav]"
 		>
 			<Link
 				to="/dashboard"
@@ -365,13 +369,52 @@ function MobileTabs() {
 				{tab("compass", t`Career`, isCurrent("/dashboard/career"))}
 			</Link>
 			<Link
-				to="/dashboard/settings"
-				aria-current={isCurrent("/dashboard/settings") ? "page" : undefined}
+				to="/dashboard/transaksi"
+				aria-current={isCurrent("/dashboard/transaksi") ? "page" : undefined}
 				viewTransition={false}
 				className="relative flex min-h-[52px] flex-col items-center justify-center gap-0.5 transition-[scale] duration-quick ease-enter active:scale-[0.97]"
 			>
-				{tab("gear-six", t`Settings`, isCurrent("/dashboard/settings"))}
+				{tab("list-numbers", t`Transaksi`, isCurrent("/dashboard/transaksi"))}
 			</Link>
+			<button
+				type="button"
+				onClick={() => setMoreOpen(true)}
+				aria-current={moreCurrent ? "page" : undefined}
+				className="relative flex min-h-[52px] flex-col items-center justify-center gap-0.5 transition-[scale] duration-quick ease-enter active:scale-[0.97]"
+			>
+				{tab("dots-three", t`Lainnya`, moreCurrent)}
+			</button>
+
+			{moreOpen ? (
+				<>
+					<button
+						type="button"
+						aria-label={t`Tutup menu`}
+						className="fixed inset-0 z-40 bg-black/30"
+						onClick={() => setMoreOpen(false)}
+					/>
+					<div className="fixed inset-x-3 bottom-[calc(56px+env(safe-area-inset-bottom))] z-50 rounded-xl border border-line bg-surface p-2 shadow-lg">
+						<Link
+							to="/dashboard/settings"
+							onClick={() => setMoreOpen(false)}
+							className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm text-ink hover:bg-sunken"
+						>
+							<Icon name="gear-six" size={20} />
+							<Trans>Settings</Trans>
+						</Link>
+						{isAdmin ? (
+							<Link
+								to="/admin"
+								onClick={() => setMoreOpen(false)}
+								className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm text-ink hover:bg-sunken"
+							>
+								<Icon name="key" size={20} />
+								<Trans>Admin</Trans>
+							</Link>
+						) : null}
+					</div>
+				</>
+			) : null}
 		</nav>
 	);
 }
