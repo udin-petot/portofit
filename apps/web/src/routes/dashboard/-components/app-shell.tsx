@@ -34,6 +34,7 @@ type NavItem = {
 		| "/dashboard/trash"
 		| "/dashboard/akun"
 		| "/dashboard/settings"
+		| "/harga"
 		| "/admin";
 	icon: IconName;
 	label: string;
@@ -65,6 +66,7 @@ function useNavItems() {
 	// Career counts what's waiting for the user (unread notifications), so nothing shows at zero.
 	items.push({ to: "/dashboard/career", icon: "compass", label: t`Career`, ...(unread ? { count: unread } : {}) });
 	items.push({ to: "/dashboard/transaksi", icon: "list-numbers", label: t`Transaksi` });
+	items.push({ to: "/harga", icon: "tag", label: t`Buy credits` });
 	if (isAdmin) items.push({ to: "/admin", icon: "key", label: t`Admin` });
 	const settings: NavItem = { to: "/dashboard/akun", icon: "user-circle", label: t`Account` };
 	const trash: NavItem | null = counts?.trash
@@ -389,6 +391,14 @@ function MobileTabs() {
 						>
 							<Icon name="user-circle" size={20} />
 							<Trans>Akun</Trans>
+						</Link>
+						<Link
+							to="/harga"
+							onClick={() => setMoreOpen(false)}
+							className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm text-ink hover:bg-sunken"
+						>
+							<Icon name="tag" size={20} />
+							<Trans>Buy credits</Trans>
 						</Link>
 						{isAdmin ? (
 							<Link
