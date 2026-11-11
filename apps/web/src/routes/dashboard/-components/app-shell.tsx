@@ -32,8 +32,9 @@ type NavItem = {
 		| "/dashboard/career"
 		| "/dashboard/transaksi"
 		| "/dashboard/trash"
-		| "/admin"
-		| "/dashboard/settings";
+		| "/dashboard/akun"
+		| "/dashboard/settings"
+		| "/admin";
 	icon: IconName;
 	label: string;
 	count?: number;
@@ -65,7 +66,7 @@ function useNavItems() {
 	items.push({ to: "/dashboard/career", icon: "compass", label: t`Career`, ...(unread ? { count: unread } : {}) });
 	items.push({ to: "/dashboard/transaksi", icon: "list-numbers", label: t`Transaksi` });
 	if (isAdmin) items.push({ to: "/admin", icon: "key", label: t`Admin` });
-	const settings: NavItem = { to: "/dashboard/settings", icon: "gear-six", label: t`Settings` };
+	const settings: NavItem = { to: "/dashboard/akun", icon: "user-circle", label: t`Akun` };
 	const trash: NavItem | null = counts?.trash
 		? { to: "/dashboard/trash", icon: "trash", label: t`Trash`, count: counts.trash }
 		: null;
@@ -316,7 +317,7 @@ function MobileTabs() {
 	const { data: session } = authClient.useSession();
 	const isAdmin = ((session?.user as { role?: string | null } | undefined)?.role ?? "user") === "admin";
 	const [moreOpen, setMoreOpen] = useState(false);
-	const moreCurrent = isCurrent("/dashboard/settings") || isCurrent("/admin");
+	const moreCurrent = isCurrent("/dashboard/akun") || isCurrent("/dashboard/settings") || isCurrent("/admin");
 
 	const tab = (icon: IconName, label: string, current: boolean) => (
 		<>
@@ -382,12 +383,12 @@ function MobileTabs() {
 					/>
 					<div className="fixed inset-x-3 bottom-[calc(56px+env(safe-area-inset-bottom))] z-50 rounded-xl border border-line bg-surface p-2 shadow-lg">
 						<Link
-							to="/dashboard/settings"
+							to="/dashboard/akun"
 							onClick={() => setMoreOpen(false)}
 							className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm text-ink hover:bg-sunken"
 						>
-							<Icon name="gear-six" size={20} />
-							<Trans>Settings</Trans>
+							<Icon name="user-circle" size={20} />
+							<Trans>Akun</Trans>
 						</Link>
 						{isAdmin ? (
 							<Link
