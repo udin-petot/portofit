@@ -66,7 +66,7 @@ function useNavItems() {
 	items.push({ to: "/dashboard/career", icon: "compass", label: t`Career`, ...(unread ? { count: unread } : {}) });
 	items.push({ to: "/dashboard/transaksi", icon: "list-numbers", label: t`Transaksi` });
 	if (isAdmin) items.push({ to: "/admin", icon: "key", label: t`Admin` });
-	const settings: NavItem = { to: "/dashboard/akun", icon: "user-circle", label: t`Akun` };
+	const settings: NavItem = { to: "/dashboard/akun", icon: "user-circle", label: t`Account` };
 	const trash: NavItem | null = counts?.trash
 		? { to: "/dashboard/trash", icon: "trash", label: t`Trash`, count: counts.trash }
 		: null;

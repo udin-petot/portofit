@@ -10,7 +10,12 @@ export const Route = createFileRoute("/dashboard/akun")({
 	component: AccountPage,
 });
 
-const SETTINGS_LINKS: { to: "/dashboard/settings/account" | "/dashboard/settings/preferences" | "/dashboard/settings/ai"; icon: IconName; title: string; body: string }[] = [
+const SETTINGS_LINKS: {
+	to: "/dashboard/settings/account" | "/dashboard/settings/preferences" | "/dashboard/settings/ai";
+	icon: IconName;
+	title: string;
+	body: string;
+}[] = [
 	{ to: "/dashboard/settings/account", icon: "user-circle", title: "Profil & keamanan", body: "Nama, email, sandi, dan sesi masuk." },
 	{ to: "/dashboard/settings/preferences", icon: "sliders-horizontal", title: "Preferensi", body: "Bahasa, tema, dan tampilan." },
 	{ to: "/dashboard/settings/ai", icon: "sparkle", title: "AI & developer", body: "Penyedia AI, kunci API, dan integrasi." },
@@ -31,43 +36,91 @@ function AccountPage() {
 		: "—";
 
 	return (
-		<div className="mx-auto w-full max-w-[860px] px-5 pt-7 pb-28 md:pb-12">
+		<div className="mx-auto w-full max-w-[1080px] px-6 pt-8 pb-28 md:pb-12">
 			<h1 className="font-sans text-2xl font-semibold text-ink">Akun</h1>
+			<p className="mt-1 text-sm text-ink-2">Profil, kredit, pesanan, dan pengaturanmu.</p>
 
-			<section className="mt-5 flex flex-wrap items-center justify-between gap-4 border-b border-line pb-5">
-				<div className="min-w-0">
-					<p className="truncate text-lg text-ink">{user?.name ?? "Tanpa nama"}</p>
-					<p className="truncate text-sm text-ink-2">{user?.email}</p>
-					<p className="mt-1 text-xs text-ink-3">Bergabung {joined}</p>
-				</div>
-				<Button variant="secondary" size="sm" onClick={() => void authClient.signOut()}>
-					Keluar
-				</Button>
-			</section>
-
-			<section className="mt-8">
-				<div className="flex items-baseline justify-between">
-					<h2 className="text-sm font-semibold text-ink">Kredit</h2>
-					<Link to="/harga" className="text-xs text-ink-2 underline-offset-4 hover:underline">
-						Beli kredit
-					</Link>
-				</div>
-				<div className="mt-2 grid grid-cols-2 divide-x divide-line border-y border-line">
-					<div className="py-4 pr-5">
-						<p className="text-xs text-ink-3">Lamaran</p>
-						<p className="mt-1 text-[26px] leading-7 tabular-nums text-ink">{balances.data?.application ?? 0}</p>
-						<p className="mt-1 text-xs text-ink-2">{formatRupiah(5000)} per lamaran</p>
+			<div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
+				<section className="rounded-lg border border-line bg-surface p-5">
+					<div className="flex flex-wrap items-start justify-between gap-4">
+						<div className="min-w-0">
+							<p className="truncate text-lg text-ink">{user?.name ?? "Tanpa nama"}</p>
+							<p className="truncate text-sm text-ink-2">{user?.email}</p>
+							<p className="mt-1 text-xs text-ink-3">Bergabung {joined}</p>
+						</div>
+						<Button variant="secondary" size="sm" onClick={() => void authClient.signOut()}>
+							Keluar
+						</Button>
 					</div>
-					<div className="py-4 pl-5">
-						<p className="text-xs text-ink-3">Wawancara</p>
-						<p className="mt-1 text-[26px] leading-7 tabular-nums text-ink">{balances.data?.interview ?? 0}</p>
-						<p className="mt-1 text-xs text-ink-2">{formatRupiah(10000)} per sesi</p>
-					</div>
-				</div>
+				</section>
 
+				<section className="rounded-lg border border-line bg-surface p-5">
+					<div className="flex items-baseline justify-between">
+						<h2 className="text-sm font-semibold text-ink">Kredit</h2>
+						<Link to="/harga" className="text-xs text-ink-2 underline-offset-4 hover:underline">
+							Beli
+						</Link>
+					</div>
+					<div className="mt-3 grid grid-cols-2 divide-x divide-line">
+						<div className="pr-4">
+							<p className="text-xs text-ink-3">Lamaran</p>
+							<p className="mt-1 text-[26px] leading-7 tabular-nums text-ink">{balances.data?.application ?? 0}</p>
+							<p className="text-xs text-ink-2">{formatRupiah(5000)} / kredit</p>
+						</div>
+						<div className="pl-4">
+							<p className="text-xs text-ink-3">Wawancara</p>
+							<p className="mt-1 text-[26px] leading-7 tabular-nums text-ink">{balances.data?.interview ?? 0}</p>
+							<p className="text-xs text-ink-2">{formatRupiah(10000)} / kredit</p>
+						</div>
+					</div>
+				</section>
+
+				<section className="rounded-lg border border-line bg-surface p-5">
+					<div className="flex items-baseline justify-between">
+						<h2 className="text-sm font-semibold text-ink">Pesanan</h2>
+						<Link to="/dashboard/transaksi" className="text-xs text-ink-2 underline-offset-4 hover:underline">
+							Lihat semua
+						</Link>
+					</div>
+					<div className="mt-3 grid grid-cols-2 gap-px bg-line sm:grid-cols-4">
+						{[
+							{ label: "Menunggu bayar", value: count(["menunggu_bayar"]) },
+							{ label: "Diproses", value: count(["menunggu_verifikasi"]) },
+							{ label: "Selesai", value: count(["lunas"]) },
+							{ label: "Dibatalkan", value: count(["ditolak", "hangus"]) },
+						].map((cell) => (
+							<Link key={cell.label} to="/dashboard/transaksi" className="bg-surface p-3 hover:bg-hover">
+								<p className="text-xs text-ink-3">{cell.label}</p>
+								<p className="mt-0.5 text-[22px] leading-7 tabular-nums text-ink">{cell.value}</p>
+							</Link>
+						))}
+					</div>
+				</section>
+
+				<section className="rounded-lg border border-line bg-surface p-5 lg:col-span-2">
+					<h2 className="text-sm font-semibold text-ink">Pengaturan</h2>
+					<ul className="mt-1 grid gap-x-6 sm:grid-cols-3">
+						{SETTINGS_LINKS.map((item) => (
+							<li key={item.to}>
+								<Link to={item.to} className="flex items-center gap-3 border-b border-line py-3 hover:bg-hover last:border-0 sm:border-0">
+									<Icon name={item.icon} size={18} className="text-ink-2" />
+									<span className="min-w-0 flex-1">
+										<span className="block text-sm text-ink">{item.title}</span>
+										<span className="block text-xs text-ink-3">{item.body}</span>
+									</span>
+									<Icon name="caret-right" size={16} className="text-ink-3" />
+								</Link>
+							</li>
+						))}
+					</ul>
+				</section>
+			</div>
+
+			<section className="mt-5 rounded-lg border border-line bg-surface p-5">
+				<h2 className="text-sm font-semibold text-ink">Riwayat kredit</h2>
 				{entries.length > 0 ? (
-					<ul className="mt-3">
-						{entries.slice(0, 5).map((entry) => (
+					<ul className="mt-2">
+						{entries.slice(0, 6).map((entry) => (
 							<li key={entry.id} className="flex items-center justify-between gap-3 border-b border-line py-2.5 last:border-0">
 								<span className="min-w-0">
 									<span className="block truncate text-sm text-ink">{entry.reason}</span>
@@ -80,48 +133,8 @@ function AccountPage() {
 						))}
 					</ul>
 				) : (
-					<p className="mt-3 text-sm text-ink-3">Belum ada pemakaian kredit.</p>
+					<p className="mt-2 text-sm text-ink-3">Belum ada pemakaian kredit.</p>
 				)}
-			</section>
-
-			<section className="mt-8">
-				<div className="flex items-baseline justify-between">
-					<h2 className="text-sm font-semibold text-ink">Pesanan</h2>
-					<Link to="/dashboard/transaksi" className="text-xs text-ink-2 underline-offset-4 hover:underline">
-						Lihat semua
-					</Link>
-				</div>
-				<div className="mt-2 grid grid-cols-2 divide-line border-y border-line sm:grid-cols-4 sm:divide-x">
-					{[
-						{ label: "Menunggu bayar", value: count(["menunggu_bayar"]) },
-						{ label: "Diproses", value: count(["menunggu_verifikasi"]) },
-						{ label: "Selesai", value: count(["lunas"]) },
-						{ label: "Dibatalkan", value: count(["ditolak", "hangus"]) },
-					].map((cell) => (
-						<Link key={cell.label} to="/dashboard/transaksi" className="py-3 pr-4 last:pr-0 hover:bg-hover">
-							<p className="text-xs text-ink-3">{cell.label}</p>
-							<p className="mt-0.5 text-[22px] leading-7 tabular-nums text-ink">{cell.value}</p>
-						</Link>
-					))}
-				</div>
-			</section>
-
-			<section className="mt-8">
-				<h2 className="text-sm font-semibold text-ink">Pengaturan</h2>
-				<ul className="mt-2">
-					{SETTINGS_LINKS.map((item) => (
-						<li key={item.to}>
-							<Link to={item.to} className="flex items-center gap-3 border-b border-line py-3 last:border-0 hover:bg-hover">
-								<Icon name={item.icon} size={18} className="text-ink-2" />
-								<span className="min-w-0 flex-1">
-									<span className="block text-sm text-ink">{item.title}</span>
-									<span className="block text-xs text-ink-3">{item.body}</span>
-								</span>
-								<Icon name="caret-right" size={16} className="text-ink-3" />
-							</Link>
-						</li>
-					))}
-				</ul>
 			</section>
 		</div>
 	);

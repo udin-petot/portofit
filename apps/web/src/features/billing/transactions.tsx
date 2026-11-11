@@ -77,11 +77,12 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 	};
 
 	return (
-		<div className="mx-auto w-full max-w-[860px] px-5 pt-7 pb-28 md:pb-12">
+		<div className="mx-auto w-full max-w-[1080px] px-6 pt-8 pb-28 md:pb-12">
 			<h1 className="font-sans text-2xl font-semibold text-ink">Transaksi</h1>
 			<p className="mt-1 text-sm text-ink-2">Semua pesanan dan kuitansimu.</p>
 
-			<div className="mt-5 flex flex-wrap items-center gap-2">
+			<div className="mt-5 rounded-lg border border-line bg-surface p-5">
+			<div className="flex flex-wrap items-center gap-2">
 				<Input
 					type="search"
 					value={query}
@@ -215,6 +216,8 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 					</ul>
 				</>
 			)}
+
+			</div>
 
 			<InvoiceSheet invoiceId={invoiceOpen} onClose={() => setInvoiceOpen(null)} />
 		</div>
