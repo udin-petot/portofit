@@ -995,7 +995,8 @@ msgstr ""
 
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "A backup of this letter. Imports back into PortoFit as a letter."
-msgstr "A backup of this letter. Imports back into PortoFit as a letter."
+msgstr ""
+"Cadangan surat lamaran ini. Bisa diimpor balik ke PortoFit sebagai surat."
 
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
@@ -3050,7 +3051,7 @@ msgstr "Bandingkan resume Anda dengan lowongan pekerjaan"
 #: src/features/resume/share/download-tab.tsx
 msgid "Complete data backup. Imports back into PortoFit or JSON Resume tools."
 msgstr ""
-"Complete data backup. Imports back into PortoFit or JSON Resume tools."
+"Cadangan seluruh data. Bisa diimpor balik ke PortoFit atau alat JSON Resume."
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -4590,8 +4591,8 @@ msgid ""
 "Drop a file here or browse. PDF, Word, PortoFit or JSON Resume. We fill in "
 "every section and flag anything we're unsure of."
 msgstr ""
-"Drop a file here or browse. PDF, Word, PortoFit or JSON Resume. We fill in "
-"every section and flag anything we're unsure of."
+"Letakkan berkas di sini atau pilih berkas. PDF, Word, PortoFit, atau JSON Resume. "
+"Setiap bagian diisi otomatis, bagian yang meragukan ditandai."
 
 #: src/features/ats-checker/checker.tsx
 msgid "Drop a PDF here or choose a file"
@@ -4873,7 +4874,8 @@ msgstr ""
 
 #: src/components/ui/donation-toast.tsx
 msgid "Enjoying PortoFit?"
-msgstr "Enjoying PortoFit?"
+msgstr ""
+"Suka PortoFit?"
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5535,7 +5537,8 @@ msgstr "Format"
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Format stylesheet"
-msgstr "Format stylesheet"
+msgstr ""
+"Format lembar gaya"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Formatting"
@@ -5729,7 +5732,8 @@ msgstr "Pergi ke…"
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Good luck out there. PortoFit stays free because people chip in."
-msgstr "Good luck out there. PortoFit stays free because people chip in."
+msgstr ""
+"Semoga lancar di luar sana. PortoFit tetap gratis karena ada yang ikut mendukung."
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -6125,8 +6129,7 @@ msgid ""
 "Import this file into a free PortoFit. Every issue is waiting for you in "
 "Check."
 msgstr ""
-"Import this file into a free PortoFit. Every issue is waiting for you in "
-"Check."
+"Impor berkas ini ke PortoFit gratis. Semua temuan menantimu di Pemeriksaan."
 
 #: src/features/documents/documents-page.tsx
 msgid ""
@@ -6954,11 +6957,13 @@ msgstr "Tautan"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Link a PortoFit (recommended)"
-msgstr "Link a PortoFit (recommended)"
+msgstr ""
+"Tautkan PortoFit (disarankan)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Link a PortoFit to use AI match scoring and tailoring."
-msgstr "Link a PortoFit to use AI match scoring and tailoring."
+msgstr ""
+"Tautkan akun PortoFit untuk skor kecocokan AI dan penyesuaian CV."
 
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
@@ -7208,7 +7213,8 @@ msgstr "Turunkan lembar desain"
 
 #: src/features/resume/public/public-resume.tsx
 msgid "Made with PortoFit, free and open source"
-msgstr "Made with PortoFit, free and open source"
+msgstr ""
+"Dibuat dengan PortoFit, gratis dan bersumber terbuka"
 
 #. Layout editor column label for the primary content area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -8930,8 +8936,8 @@ msgid ""
 "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any "
 "PortoFit, including one you host yourself, so your data is never locked in."
 msgstr ""
-"PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any "
-"PortoFit, including one you host yourself, so your data is never locked in."
+"PDF, Word (DOCX), Markdown, dan JSON. Ekspor JSON bisa diimpor balik ke PortoFit "
+"mana pun, termasuk yang kamu host sendiri, jadi datamu tidak terkunci."
 
 #: src/features/documents/documents-page.tsx
 msgid "PDF, Word or JSON. We'll build a resume from it."
@@ -11659,11 +11665,13 @@ msgstr "Judul bagian standar"
 
 #: src/features/homepage/header.tsx
 msgid "Star PortoFit on GitHub"
-msgstr "Star PortoFit on GitHub"
+msgstr ""
+"Beri bintang PortoFit di GitHub"
 
 #: src/features/homepage/header.tsx
 msgid "Star PortoFit on GitHub, {count} stars"
-msgstr "Star PortoFit on GitHub, {count} stars"
+msgstr ""
+"Beri bintang PortoFit di GitHub, {count} bintang"
 
 #: src/components/input/github-stars-button.tsx
 msgid "Star us on GitHub (opens in new tab)"
@@ -12813,8 +12821,8 @@ msgid ""
 "This file type can't be imported. Use a PDF, Word, PortoFit or JSON Resume "
 "file, or a LinkedIn export (.zip)."
 msgstr ""
-"This file type can't be imported. Use a PDF, Word, PortoFit or JSON Resume "
-"file, or a LinkedIn export (.zip)."
+"Jenis berkas ini tidak bisa diimpor. Pakai PDF, Word, PortoFit, JSON Resume, atau "
+"ekspor LinkedIn (.zip)."
 
 #: src/features/ats-checker/messages.ts
 msgid "This file uses a lot of different fonts."
@@ -13109,7 +13117,8 @@ msgstr "Transkrip disalin"
 
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages by volunteers."
-msgstr "Translated into {languageCount} languages by volunteers."
+msgstr ""
+"Diterjemahkan ke {languageCount} bahasa oleh sukarelawan."
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
@@ -14383,8 +14392,8 @@ msgid ""
 "Yes. PortoFit is open source under the MIT License and ships as a Docker "
 "image, so it runs on your own server with your own database and storage."
 msgstr ""
-"Yes. PortoFit is open source under the MIT License and ships as a Docker "
-"image, so it runs on your own server with your own database and storage."
+"Ya. PortoFit bersumber terbuka dengan Lisensi MIT dan tersedia sebagai image Docker, "
+"jadi bisa jalan di servermu dengan basis data dan penyimpanan sendiri."
 
 #: src/features/career/coach-thread.tsx
 msgid "Yesterday"
