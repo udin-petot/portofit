@@ -44,6 +44,10 @@ export async function sweepOrders(now: Date = new Date(), deps?: SweepDeps): Pro
 					),
 				);
 
+			if (remindable.length === 0) {
+				return { expired: expiredRows.length, reminded: 0 };
+			}
+
 			const remindedRows = await tx
 				.insert(billingOrderEmail)
 				.values(remindable.map((row) => ({ orderId: row.id, kind: "pengingat" as const })))
