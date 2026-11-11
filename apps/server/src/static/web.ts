@@ -345,13 +345,16 @@ function getFallbackResponseHeaders(pathname: string) {
 			...BASE_SECURITY_HEADERS,
 		};
 	}
+	// A shell that is cached by heuristic freshness keeps pointing at the previous build's hashed assets, which is
+	// how a phone ends up showing an interface weeks after a deploy. Every HTML answer revalidates.
 	if (pathname === "/" || indexableAppPaths.has(pathname)) {
-		return { "Content-Type": "text/html; charset=UTF-8", ...BASE_SECURITY_HEADERS };
+		return { "Content-Type": "text/html; charset=UTF-8", "Cache-Control": "no-cache", ...BASE_SECURITY_HEADERS };
 	}
 	if (isNoindexShellPath(pathname) || isPublicResumePath(pathname)) {
 		return {
 			"Content-Type": "text/html; charset=UTF-8",
 			"X-Robots-Tag": "noindex, follow",
+			"Cache-Control": "no-cache",
 			...BASE_SECURITY_HEADERS,
 		};
 	}

@@ -224,16 +224,16 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 						</span>
 					</header>
 					<div className="grid gap-5 p-4 sm:grid-cols-[152px_minmax(0,1fr)]">
-						<div className="grid gap-2">
+						<div className="grid justify-items-center gap-2 sm:justify-items-start">
 							<img
 								src={QRIS_IMAGE_PATH}
 								alt="Kode QRIS PortoFit"
-								className="w-full max-w-[152px] self-start rounded-sm bg-white"
+								className="w-[min(58vw,220px)] rounded-sm bg-white sm:w-full sm:max-w-[152px]"
 								onError={(event) => {
 									event.currentTarget.style.display = "none";
 								}}
 							/>
-							<p className="max-w-[152px] text-xs leading-5 text-ink-3">
+							<p className="text-center text-xs leading-5 text-ink-3 sm:max-w-[152px] sm:text-left">
 								Pindai dengan aplikasi bank atau dompet digital yang mendukung QRIS.
 							</p>
 						</div>
@@ -250,10 +250,11 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 								</span>
 								. Nominal harus persis sampai tiga digit terakhir.
 							</p>
-							<div className="mt-3 flex flex-wrap items-center gap-2">
+							<div className="mt-3 grid gap-2 sm:flex sm:flex-wrap sm:items-center">
 								<Button
 									variant="secondary"
 									size="sm"
+									className="w-full sm:w-auto"
 									disabled={uploadPending}
 									onClick={() => fileInput.current?.click()}
 								>
@@ -275,6 +276,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 								<Button
 									variant="ghost"
 									size="sm"
+									className="w-full sm:w-auto"
 									onClick={() =>
 										window.open(
 											whatsappLink(
