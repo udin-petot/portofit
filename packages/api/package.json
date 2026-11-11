@@ -23,7 +23,8 @@
 		"./features/mcp/transport": "./src/features/mcp/transport.ts",
 		"./features/career/jobs": "./src/features/career/jobs.ts",
 		"./features/invoice/mailer": "./src/features/invoice/mailer.ts",
-		"./features/billing/sweep": "./src/features/billing/sweep.ts"
+		"./features/billing/sweep": "./src/features/billing/sweep.ts",
+		"./features/billing/order-mailer": "./src/features/billing/order-mailer.ts"
 	},
 	"scripts": {
 		"typecheck": "tsgo --noEmit",

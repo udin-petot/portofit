@@ -7,6 +7,7 @@ const mocks = vi.hoisted(() => ({
 
 vi.mock("@reactive-resume/env/server", () => ({ env: mocks.env }));
 vi.mock("@reactive-resume/api/features/invoice/mailer", () => ({ processInvoiceEmails: mocks.run }));
+vi.mock("@reactive-resume/api/features/billing/order-mailer", () => ({ processOrderEmails: mocks.run }));
 
 beforeEach(() => {
 	mocks.run.mockReset().mockResolvedValue({ sent: 1, failed: 0 });
@@ -49,6 +50,6 @@ describe("invoice mailer authentication", () => {
 		);
 
 		expect(response.status).toBe(200);
-		expect(await response.json()).toEqual({ sent: 1, failed: 0 });
+		expect(await response.json()).toEqual({ invoices: { sent: 1, failed: 0 }, orders: { sent: 1, failed: 0 } });
 	});
 });

@@ -1,9 +1,10 @@
 import { ORPCError } from "@orpc/server";
 import { and, desc, eq, gte, ilike, lt, or, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
-import { adminAudit, billingCreditLedger, billingOrder, billingPlan, user } from "@reactive-resume/db/schema";
+import { adminAudit, billingCreditLedger, billingOrder, billingOrderEmail, billingPlan, user } from "@reactive-resume/db/schema";
 import { getStorageService, inferContentType } from "../storage/service";
 import { issueInvoice } from "../invoice/service";
+import { canAcceptProof, computeExpiry } from "./expiry";
 
 export type PlanKind = "application" | "interview";
 export type OrderStatus = "menunggu_bayar" | "menunggu_verifikasi" | "lunas" | "ditolak";
@@ -169,26 +170,31 @@ export const billingService = {
 		if (!plan) throw new ORPCError("NOT_FOUND", { message: "Paket tidak ditemukan atau sudah tidak dijual." });
 
 		const uniqueCode = await pickUniqueCode(plan.priceIdr);
-		const [order] = await db
-			.insert(billingOrder)
-			.values({
-				userId,
-				planId: plan.id,
-				planCode: plan.code,
-				planName: plan.name,
-				kind: plan.kind,
-				credits: plan.credits,
-				amountIdr: plan.priceIdr,
-				uniqueCode,
-				totalIdr: plan.priceIdr + uniqueCode,
-				status: "menunggu_bayar",
-				paymentMethod: "qris",
-			})
-			.returning();
+		return db.transaction(async (tx) => {
+			const [order] = await tx
+				.insert(billingOrder)
+				.values({
+					userId,
+					planId: plan.id,
+					planCode: plan.code,
+					planName: plan.name,
+					kind: plan.kind,
+					credits: plan.credits,
+					amountIdr: plan.priceIdr,
+					uniqueCode,
+					totalIdr: plan.priceIdr + uniqueCode,
+					status: "menunggu_bayar",
+					paymentMethod: "qris",
+					expiresAt: computeExpiry(new Date()),
+				})
+				.returning();
 
-		if (!order) throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Order gagal dibuat." });
+			if (!order) throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Order gagal dibuat." });
 
-		return toOrderDto(order);
+			await tx.insert(billingOrderEmail).values({ orderId: order.id, kind: "dibuat" });
+
+			return toOrderDto(order);
+		});
 	},
 
 	async attachProof(input: {
@@ -202,6 +208,12 @@ export const billingService = {
 		if (!order || order.userId !== input.userId) throw new ORPCError("NOT_FOUND", { message: "Order tidak ditemukan." });
 		if (order.status === "lunas") throw new ORPCError("BAD_REQUEST", { message: "Order ini sudah lunas." });
 		if (order.status === "menunggu_verifikasi") throw new ORPCError("BAD_REQUEST", { message: "Bukti sudah dikirim dan sedang menunggu verifikasi." });
+		if (order.status === "hangus") {
+			throw new ORPCError("BAD_REQUEST", { message: "Pesanan ini sudah hangus. Buat pesanan baru untuk melanjutkan." });
+		}
+		if (!canAcceptProof(order, new Date())) {
+			throw new ORPCError("BAD_REQUEST", { message: "Waktu pembayaran sudah habis. Buat pesanan baru untuk melanjutkan." });
+		}
 
 		const [updated] = await db
 			.update(billingOrder)
