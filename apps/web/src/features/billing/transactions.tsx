@@ -25,6 +25,19 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 	const orders = useQuery(orpc.billing.myOrders.queryOptions({ input: { limit: 50 } }));
 	const uploadFile = useMutation(orpc.storage.uploadFile.mutationOptions({ meta: { noInvalidate: true } }));
 	const attachProof = useMutation(orpc.billing.attachProof.mutationOptions());
+	const invoices = useQuery(orpc.invoice.list.queryOptions());
+	const downloadInvoice = useMutation(orpc.invoice.download.mutationOptions({ meta: { noInvalidate: true } }));
+
+	const simpanKuitansi = async (invoiceId: string) => {
+		const result = await downloadInvoice.mutateAsync({ invoiceId });
+		const bytes = Uint8Array.from(atob(result.pdf), (char) => char.charCodeAt(0));
+		const url = URL.createObjectURL(new Blob([bytes], { type: "application/pdf" }));
+		const link = document.createElement("a");
+		link.href = url;
+		link.download = result.fileName;
+		link.click();
+		URL.revokeObjectURL(url);
+	};
 
 	const list = orders.data?.orders ?? [];
 	const entries = ledger.data?.entries ?? [];
@@ -129,6 +142,32 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 					</ul>
 				)}
 			</section>
+
+			{invoices.data && invoices.data.items.length > 0 ? (
+				<section className="mt-6 rounded-lg border border-line bg-surface">
+					<h2 className="border-b border-line px-4 py-3 text-sm font-semibold text-ink">Kuitansi</h2>
+					<ul className="divide-y divide-line">
+						{invoices.data.items.map((item) => (
+							<li key={item.id} className="flex items-center justify-between gap-3 px-4 py-2.5">
+								<span className="min-w-0">
+									<span className="block truncate text-sm text-ink">{item.number}</span>
+									<span className="text-xs text-ink-3">
+										{item.planName} · {new Date(item.issuedAt).toLocaleDateString("id-ID")} · {formatRupiah(item.totalIdr)}
+									</span>
+								</span>
+								<Button
+									variant="secondary"
+									size="sm"
+									disabled={downloadInvoice.isPending}
+									onClick={() => void simpanKuitansi(item.id)}
+								>
+									Unduh
+								</Button>
+							</li>
+						))}
+					</ul>
+				</section>
+			) : null}
 
 			<div className="mt-6 grid gap-5 md:grid-cols-[minmax(0,1fr)_320px]">
 				<section className="rounded-lg border border-line bg-surface">

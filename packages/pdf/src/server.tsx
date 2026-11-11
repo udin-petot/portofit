@@ -8,6 +8,8 @@ import { readServerImage } from "./forme/images.node.ts";
 import { assertPdfFonts, renderResume, renderResumeElement } from "./forme/render";
 import { InvoiceDocument, type InvoicePdfInput } from "./invoice";
 
+export type { InvoicePdfInput } from "./invoice";
+
 export { configureOwnPictureReader } from "./forme/images.node";
 
 export type CreateResumePdfFileOptions = {

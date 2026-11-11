@@ -10,6 +10,7 @@ import { documentsRouter } from "../features/documents/router";
 import { financeRouter } from "../features/finance/router";
 import { flagsRouter } from "../features/flags/router";
 import { githubRouter } from "../features/github/router";
+import { invoiceRouter } from "../features/invoice/router";
 import { resumeRouter } from "../features/resume/router";
 import { statisticsRouter } from "../features/statistics/router";
 import { storageRouter } from "../features/storage/router";
@@ -29,6 +30,7 @@ export default {
 	finance: financeRouter,
 	flags: flagsRouter,
 	github: githubRouter,
+	invoice: invoiceRouter,
 	resume: resumeRouter,
 	statistics: statisticsRouter,
 	storage: storageRouter,

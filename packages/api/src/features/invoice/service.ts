@@ -1,6 +1,8 @@
-import { eq } from "drizzle-orm";
+import { and, desc, eq } from "drizzle-orm";
+import { ORPCError } from "@orpc/server";
 import { db } from "@reactive-resume/db/client";
 import { billingOrder, invoice, invoiceEmail, type InvoiceSnapshot } from "@reactive-resume/db/schema";
+import { createInvoicePdf, type InvoicePdfInput } from "@reactive-resume/pdf/server";
 import { nextInvoiceNumber } from "./number";
 
 type Tx = Parameters<Parameters<typeof db.transaction>[0]>[0];
@@ -73,4 +75,48 @@ export async function issueInvoice(
 		}
 		throw error;
 	}
+}
+
+/** Daftar kuitansi milik pengguna, terbaru dulu. */
+export async function listInvoices(userId: string) {
+	const rows = await db
+		.select({ id: invoice.id, number: invoice.number, issuedAt: invoice.issuedAt, snapshot: invoice.snapshot })
+		.from(invoice)
+		.where(eq(invoice.userId, userId))
+		.orderBy(desc(invoice.issuedAt));
+
+	return rows.map((row) => ({
+		id: row.id,
+		number: row.number,
+		issuedAt: row.issuedAt.toISOString(),
+		planName: row.snapshot.planName,
+		totalIdr: row.snapshot.totalIdr,
+	}));
+}
+
+type FindInvoice = (userId: string, invoiceId: string) => Promise<InvoiceRow | undefined>;
+
+const findOwnedInvoice: FindInvoice = async (userId, invoiceId) => {
+	const [row] = await db
+		.select()
+		.from(invoice)
+		.where(and(eq(invoice.id, invoiceId), eq(invoice.userId, userId)))
+		.limit(1);
+	return row;
+};
+
+/** Pemilik saja. Kuitansi orang lain dijawab "tidak ditemukan", bukan "dilarang", supaya id tidak bisa ditebak. */
+export async function downloadInvoice(
+	input: { userId: string; invoiceId: string },
+	deps: { find?: FindInvoice; render?: (input: InvoicePdfInput) => Promise<Buffer> } = {},
+): Promise<{ fileName: string; pdf: string }> {
+	const find = deps.find ?? findOwnedInvoice;
+	const row = await find(input.userId, input.invoiceId);
+
+	if (!row) throw new ORPCError("NOT_FOUND", { message: "Kuitansi tidak ditemukan." });
+
+	const render = deps.render ?? createInvoicePdf;
+	const pdf = await render({ number: row.number, issuedAt: row.issuedAt, snapshot: row.snapshot });
+
+	return { fileName: `kuitansi-${row.number.replaceAll("/", "-")}.pdf`, pdf: pdf.toString("base64") };
 }
