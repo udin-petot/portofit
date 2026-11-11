@@ -71,9 +71,9 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 			</section>
 
 			{running.length > 0 ? (
-				<section className="mt-12">
+				<section className="mt-12 flex flex-col">
 					<h2 className="text-sm font-medium text-ink">Menunggu pembayaran</h2>
-					<ul className="mt-3">
+					<ul className="mt-3 max-sm:order-2">
 						{running.map((order) => (
 							<li key={order.id} className="flex items-center justify-between gap-4 border-b border-line py-4 last:border-0">
 								<div className="min-w-0">
@@ -100,12 +100,12 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 					</ul>
 
 					{selected ? (
-						<div className="mt-6 grid gap-6 sm:grid-cols-[minmax(0,240px)_minmax(0,1fr)]">
+						<div className="mt-6 grid gap-6 max-sm:order-1 sm:grid-cols-[minmax(0,240px)_minmax(0,1fr)]">
 							{selected.status === "menunggu_bayar" || selected.status === "ditolak" ? (
 								<img
 									src={QRIS_IMAGE_PATH}
 									alt="QRIS PortoFit"
-									className="w-full max-w-[240px] bg-white"
+									className="w-full max-w-[240px] bg-white max-sm:max-w-[200px]"
 									onError={(event) => {
 										event.currentTarget.style.display = "none";
 									}}
