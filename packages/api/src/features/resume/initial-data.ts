@@ -9,6 +9,8 @@ type CreateResumeDataOptions = {
 	withSampleData?: boolean;
 	/** The person the resume is for, printed as its name: the account holder's name, not the document's. */
 	name?: string;
+	/** Their address, so the sample does not open on a stranger's email. */
+	email?: string;
 	locale?: Locale;
 };
 
@@ -20,6 +22,8 @@ export function createResumeData(options: CreateResumeDataOptions): ResumeData {
 
 	const name = options.name?.trim();
 	if (name) data.basics.name = name;
+	const email = options.email?.trim();
+	if (email) data.basics.email = email;
 	if (options.locale) data.metadata.page.locale = options.locale;
 	data.metadata.stylesheet = {
 		mode: "semantic",
