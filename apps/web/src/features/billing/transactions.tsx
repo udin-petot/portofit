@@ -427,6 +427,14 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 				</ul>
 			)}
 
+			<p className="mt-8 text-center text-xs text-ink-3 sm:hidden">
+				Butuh bantuan?{" "}
+				<a href="/bantuan" className="underline underline-offset-4">
+					Buka pertanyaan yang sering muncul
+				</a>
+				.
+			</p>
+
 			<InvoiceSheet invoiceId={invoiceOpen} onClose={() => setInvoiceOpen(null)} />
 		</div>
 	);
