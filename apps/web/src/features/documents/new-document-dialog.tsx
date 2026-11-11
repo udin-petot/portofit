@@ -1,4 +1,5 @@
 import type { ImportKind } from "@/features/resume/import/read-file";
+import type { IconName } from "@reactive-resume/ui/components/icon";
 import type { CSSProperties, Dispatch, SetStateAction } from "react";
 import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
@@ -275,12 +276,14 @@ export function NewDocumentDialog({ data }: { data?: NewDocumentDialogData | und
 						</span>
 					</button>
 
-					<div className="grid gap-3 sm:grid-cols-2">
+					<div className="grid gap-3 sm:grid-cols-3">
 						<ChoiceTile
-							icon="copy"
-							title={t`Copy a resume for a job`}
-							description={t`Start from one you have and link the application.`}
-							onClick={() => setStep({ name: "copy" })}
+							icon="sparkle"
+							emphasis
+							title={t`Start from a full example`}
+							description={t`Every section already has content. Replace it with your own.`}
+							disabled={creating}
+							onClick={() => void trySample()}
 						/>
 						<ChoiceTile
 							icon="file-plus"
@@ -288,6 +291,12 @@ export function NewDocumentDialog({ data }: { data?: NewDocumentDialogData | und
 							description={t`Opens the editor on your name. Nothing else to fill in first.`}
 							disabled={creating}
 							onClick={() => void startBlank()}
+						/>
+						<ChoiceTile
+							icon="copy"
+							title={t`Copy a resume for a job`}
+							description={t`Start from one you have and link the application.`}
+							onClick={() => setStep({ name: "copy" })}
 						/>
 					</div>
 
@@ -299,14 +308,6 @@ export function NewDocumentDialog({ data }: { data?: NewDocumentDialogData | und
 						>
 							<Icon name="envelope-simple" size={18} />
 							<Trans>New cover letter instead</Trans>
-						</button>
-						<button
-							type="button"
-							className="text-ink-2 underline underline-offset-2 hover:text-ink"
-							disabled={creating}
-							onClick={() => void trySample()}
-						>
-							<Trans>Try with a sample resume</Trans>
 						</button>
 					</div>
 				</div>
@@ -418,22 +419,27 @@ function ImportStep({ step, creating, onCancel, onStartBlank, onChooseFile, onCl
 }
 
 type ChoiceTileProps = {
-	icon: "copy" | "file-plus";
+	icon: IconName;
 	title: string;
 	description: string;
 	onClick: () => void;
 	disabled?: boolean;
+	/** The recommended way to start: it carries the accent edge so it reads first. */
+	emphasis?: boolean;
 };
 
-function ChoiceTile({ icon, title, description, onClick, disabled }: ChoiceTileProps) {
+function ChoiceTile({ icon, title, description, onClick, disabled, emphasis }: ChoiceTileProps) {
 	return (
 		<button
 			type="button"
 			disabled={disabled}
 			onClick={onClick}
-			className="flex items-start gap-3 rounded-xl border border-line p-4 text-start transition-[background-color,border-color,scale] duration-quick ease-enter hover:border-line-2 hover:bg-hover enabled:active:scale-[0.97] disabled:opacity-60"
+			className={cn(
+				"flex items-start gap-3 rounded-xl border p-4 text-start transition-[background-color,border-color,scale] duration-quick ease-enter hover:bg-hover enabled:active:scale-[0.97] disabled:opacity-60",
+				emphasis ? "border-accent bg-accent-soft hover:border-accent" : "border-line hover:border-line-2",
+			)}
 		>
-			<Icon name={icon} size={22} className="mt-0.5 text-ink-2" />
+			<Icon name={icon} size={22} className={cn("mt-0.5", emphasis ? "text-accent-text" : "text-ink-2")} />
 			<span className="grid gap-0.5">
 				<span className="text-sm font-semibold">{title}</span>
 				<span className="text-[13px] leading-[18px] text-ink-2">{description}</span>

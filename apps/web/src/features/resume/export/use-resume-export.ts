@@ -63,6 +63,23 @@ export function getDefaultFileName(resume: ExportableResume, target: ResumeExpor
 	return [...words(resume.name || resume.slug), ...(target === "cover-letter" ? suffix : [])].join("-") || "Resume";
 }
 
+/** Whether any text would land on the page: name, headline, summary, or an entry in any section. */
+const hasPrintableText = (data: ResumeData) => {
+	const text = (html: string) =>
+		html
+			.replace(/<[^>]*>/g, "")
+			.replace(/&nbsp;/g, " ")
+			.trim();
+	const sections = Object.values(data.sections) as { items: readonly unknown[] }[];
+	return Boolean(
+		data.basics.name.trim() ||
+		data.basics.headline.trim() ||
+		text(data.summary.content) ||
+		data.customSections.some((section) => section.items.length > 0) ||
+		sections.some((section) => section.items.length > 0),
+	);
+};
+
 // The file still downloads, with "?" for each character no font can draw.
 const warnLostCharacters = (characters: string[]) =>
 	toast.add({ type: "warning", id: "pdf-lost-characters", description: getLostCharactersMessage(characters) });
@@ -80,6 +97,9 @@ export async function createExportFile(
 
 	const data = getResumeExportData(resume.data, target);
 	if (format === "pdf") {
+		// A PDF of an untouched document is blank paper with the template's rules and icons: it reads as a broken
+		// download, and the person goes looking for a bug that isn't there.
+		if (!hasPrintableText(data)) throw new Error("This document is still empty.", { cause: "empty-document" });
 		return createResumePdfBlob(data, undefined, target === "cover-letter" ? options : undefined, {
 			onLostCharacters: warnLostCharacters,
 		});

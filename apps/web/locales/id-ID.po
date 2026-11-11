@@ -11701,6 +11701,12 @@ msgstr "Mulai evaluasi"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/new-document-dialog.tsx
+msgid "Start from a full example"
+msgstr "Mulai dari contoh lengkap"
+
+msgid "Every section already has content. Replace it with your own."
+msgstr "Semua bagian sudah ada isinya. Tinggal diganti dengan isimu sendiri."
+
 msgid "Start blank"
 msgstr "Mulai kosong"
 
@@ -12764,7 +12770,10 @@ msgstr ""
 "Deskripsi ini terpotong atau tidak lengkap. Tinjau atau tempelkan deskripsi "
 "lengkap sebelum mempersiapkan."
 
-#: src/features/assistant/assistant-panel.tsx
+#: src/libs/error-message.ts
+msgid "This document is still empty. Fill it in before downloading."
+msgstr "Dokumen ini masih kosong. Isi dulu sebelum mengunduh."
+
 msgid "This document"
 msgstr "Dokumen ini"
 

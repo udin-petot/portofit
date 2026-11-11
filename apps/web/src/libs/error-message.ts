@@ -4,6 +4,9 @@ import { ORPCError } from "@orpc/client";
 export function getReadableErrorMessage(error: unknown, fallback: string): string {
 	// A font download failed (see `assertPdfFonts`).
 	if (error instanceof Error && error.cause === "pdf-text-loss") return t`Fonts could not be loaded. Try again.`;
+	// Nothing typed yet: say so instead of handing over blank paper.
+	if (error instanceof Error && error.cause === "empty-document")
+		return t`This document is still empty. Fill it in before downloading.`;
 	if (error instanceof ORPCError && error.code === "BAD_REQUEST") {
 		const data: unknown = error.data;
 		if (typeof data === "object" && data !== null && "issues" in data && Array.isArray(data.issues)) {
