@@ -2,7 +2,7 @@ import type { User } from "better-auth";
 import { ORPCError } from "@orpc/server";
 import { z } from "zod";
 import { protectedProcedure } from "../../context";
-import { downloadInvoice, issueInvoiceForOrder, listInvoices, resendInvoiceEmail } from "./service";
+import { downloadInvoice, issueInvoiceForOrder, listInvoices, previewInvoice, resendInvoiceEmail } from "./service";
 
 function assertAdmin(user: User | null | undefined) {
 	const role = (user as { role?: string | null } | null | undefined)?.role ?? null;
@@ -67,6 +67,37 @@ export const invoiceRouter = {
 			await resendInvoiceEmail(input.invoiceId);
 			return { ok: true as const };
 		}),
+
+	preview: protectedProcedure
+		.route({
+			method: "GET",
+			path: "/invoices/preview",
+			tags: ["Invoice"],
+			operationId: "previewMyInvoice",
+			summary: "Preview a receipt",
+			description: "Returns the full receipt snapshot for the panel. Another user's receipt is reported as not found.",
+			successDescription: "Receipt number, issue date, and snapshot.",
+		})
+		.input(z.object({ invoiceId: z.string().min(1) }))
+		.output(
+			z.object({
+				number: z.string(),
+				issuedAt: z.string(),
+				snapshot: z.object({
+					customerName: z.string(),
+					customerEmail: z.string(),
+					planName: z.string(),
+					credits: z.number().int(),
+					amountIdr: z.number().int(),
+					uniqueCode: z.number().int(),
+					totalIdr: z.number().int(),
+					paymentMethod: z.string(),
+					paidAt: z.string(),
+					balanceAfter: z.number().int(),
+				}),
+			}),
+		)
+		.handler(({ context, input }) => previewInvoice({ userId: context.user.id, invoiceId: input.invoiceId })),
 
 	adminIssue: protectedProcedure
 		.route({

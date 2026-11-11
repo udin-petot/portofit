@@ -2,7 +2,7 @@ import z from "zod";
 
 export const planKindSchema = z.enum(["application", "interview"]).describe("Jenis kredit yang dibeli: per lamaran atau per sesi wawancara.");
 export const orderStatusSchema = z
-	.enum(["menunggu_bayar", "menunggu_verifikasi", "lunas", "ditolak"])
+	.enum(["menunggu_bayar", "menunggu_verifikasi", "lunas", "ditolak", "hangus"])
 	.describe("Tahap pesanan: dibuat, bukti diunggah, diverifikasi admin, atau ditolak.");
 export const paymentMethodSchema = z.enum(["qris", "wa"]).describe("qris: bukti diunggah di situs. wa: bukti dikirim lewat WhatsApp lalu dicatat admin.");
 
@@ -31,6 +31,7 @@ export const orderOutputSchema = z.object({
 	rejectionReason: z.string().nullable(),
 	createdAt: z.date(),
 	verifiedAt: z.date().nullable(),
+	expiresAt: z.date().nullable().describe("Batas bayar; kosong untuk pesanan yang dibuat sebelum batas waktu berlaku."),
 });
 
 export const adminOrderOutputSchema = orderOutputSchema.extend({

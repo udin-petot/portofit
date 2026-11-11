@@ -7,7 +7,7 @@ import { issueInvoice } from "../invoice/service";
 import { canAcceptProof, computeExpiry } from "./expiry";
 
 export type PlanKind = "application" | "interview";
-export type OrderStatus = "menunggu_bayar" | "menunggu_verifikasi" | "lunas" | "ditolak";
+export type OrderStatus = "menunggu_bayar" | "menunggu_verifikasi" | "lunas" | "ditolak" | "hangus";
 export type PaymentMethod = "qris" | "wa";
 
 const ORDER_STATUS_LABEL: Record<OrderStatus, string> = {
@@ -15,6 +15,7 @@ const ORDER_STATUS_LABEL: Record<OrderStatus, string> = {
 	menunggu_verifikasi: "Menunggu verifikasi",
 	lunas: "Lunas",
 	ditolak: "Ditolak",
+	hangus: "Hangus",
 };
 
 /** Bentuk yang dikirim ke klien, dipangkas supaya cocok dengan kontrak DTO. */
@@ -34,6 +35,7 @@ export type OrderDto = {
 	rejectionReason: string | null;
 	createdAt: Date;
 	verifiedAt: Date | null;
+	expiresAt: Date | null;
 };
 
 type OrderRow = typeof billingOrder.$inferSelect;
@@ -56,6 +58,7 @@ function toOrderDto(order: OrderRow): OrderDto {
 		rejectionReason: order.rejectionReason,
 		createdAt: order.createdAt,
 		verifiedAt: order.verifiedAt,
+		expiresAt: order.expiresAt,
 	};
 }
 

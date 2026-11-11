@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -5,13 +6,8 @@ import { Badge } from "@reactive-resume/ui/components/badge";
 import { Input } from "@reactive-resume/ui/components/input";
 import { orpc } from "@/libs/orpc/client";
 import { formatRupiah, ORDER_STATUS_LABEL, QRIS_IMAGE_PATH, whatsappLink } from "./config";
-
-const STATUS_VARIANT: Record<string, "neutral" | "warn" | "accent" | "danger"> = {
-	menunggu_bayar: "neutral",
-	menunggu_verifikasi: "warn",
-	lunas: "accent",
-	ditolak: "danger",
-};
+import { Countdown } from "./countdown";
+import { InvoiceSheet } from "./invoice-sheet";
 
 const KIND_LABEL: Record<string, string> = { application: "Lamaran", interview: "Wawancara" };
 
@@ -26,18 +22,7 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 	const uploadFile = useMutation(orpc.storage.uploadFile.mutationOptions({ meta: { noInvalidate: true } }));
 	const attachProof = useMutation(orpc.billing.attachProof.mutationOptions());
 	const invoices = useQuery(orpc.invoice.list.queryOptions());
-	const downloadInvoice = useMutation(orpc.invoice.download.mutationOptions({ meta: { noInvalidate: true } }));
-
-	const simpanKuitansi = async (invoiceId: string) => {
-		const result = await downloadInvoice.mutateAsync({ invoiceId });
-		const bytes = Uint8Array.from(atob(result.pdf), (char) => char.charCodeAt(0));
-		const url = URL.createObjectURL(new Blob([bytes], { type: "application/pdf" }));
-		const link = document.createElement("a");
-		link.href = url;
-		link.download = result.fileName;
-		link.click();
-		URL.revokeObjectURL(url);
-	};
+	const [invoiceOpen, setInvoiceOpen] = useState<string | null>(null);
 
 	const list = orders.data?.orders ?? [];
 	const entries = ledger.data?.entries ?? [];
@@ -155,13 +140,8 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 										{item.planName} · {new Date(item.issuedAt).toLocaleDateString("id-ID")} · {formatRupiah(item.totalIdr)}
 									</span>
 								</span>
-								<Button
-									variant="secondary"
-									size="sm"
-									disabled={downloadInvoice.isPending}
-									onClick={() => void simpanKuitansi(item.id)}
-								>
-									Unduh
+								<Button variant="secondary" size="sm" onClick={() => setInvoiceOpen(item.id)}>
+									Lihat
 								</Button>
 							</li>
 						))}
@@ -194,12 +174,30 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 											<span className="block truncate text-sm font-medium text-ink">{order.planName}</span>
 											<span className="mt-0.5 block text-xs text-ink-3">
 												{new Date(order.createdAt).toLocaleDateString("id-ID")} · kode unik {String(order.uniqueCode).padStart(3, "0")}
-											</span>
+												</span>
+												{order.status === "menunggu_bayar" && order.expiresAt ? (
+												<span className="mt-0.5 block text-xs text-ink-3">
+													Sisa <Countdown expiresAt={new Date(order.expiresAt)} onExpire={() => void orders.refetch()} />
+												</span>
+												) : null}
 										</span>
 										<span className="flex shrink-0 items-center gap-2">
-											<span className="text-sm font-medium text-ink">{formatRupiah(order.totalIdr)}</span>
-											<Badge variant={STATUS_VARIANT[order.status] ?? "neutral"}>{ORDER_STATUS_LABEL[order.status] ?? order.status}</Badge>
-										</span>
+																<span className="text-sm font-medium text-ink">{formatRupiah(order.totalIdr)}</span>
+																<span className="flex items-center gap-1.5 text-xs text-ink-2">
+																	<span
+																		className={
+																			order.status === "lunas"
+																				? "size-1.5 rounded-full bg-accent"
+																				: order.status === "menunggu_verifikasi"
+																					? "size-1.5 rounded-full bg-warn"
+																					: order.status === "ditolak"
+																						? "size-1.5 rounded-full bg-danger"
+																						: "size-1.5 rounded-full bg-ink-3"
+																		}
+																	/>
+																	{ORDER_STATUS_LABEL[order.status] ?? order.status}
+																</span>
+															</span>
 									</button>
 								</li>
 							))}
@@ -286,6 +284,8 @@ export function TransactionsPage({ selectedOrderId, isAdmin = false }: Transacti
 					)}
 				</section>
 			</div>
+
+			<InvoiceSheet invoiceId={invoiceOpen} onClose={() => setInvoiceOpen(null)} />
 		</div>
 	);
 }

@@ -180,3 +180,11 @@ export async function resendInvoiceEmail(invoiceId: string): Promise<void> {
 
 	await db.insert(invoiceEmail).values({ invoiceId: row.id, toEmail: row.snapshot.customerEmail });
 }
+
+/** Snapshot lengkap untuk panel pratinjau. Sumbernya sama dengan PDF, jadi angkanya tidak mungkin beda. */
+export async function previewInvoice(input: { userId: string; invoiceId: string }) {
+	const row = await findOwnedInvoice(input.userId, input.invoiceId);
+	if (!row) throw new ORPCError("NOT_FOUND", { message: "Kuitansi tidak ditemukan." });
+
+	return { number: row.number, issuedAt: row.issuedAt.toISOString(), snapshot: row.snapshot };
+}
