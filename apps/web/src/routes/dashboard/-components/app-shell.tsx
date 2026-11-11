@@ -370,7 +370,7 @@ function MobileTabs() {
 				aria-current={moreCurrent ? "page" : undefined}
 				className="relative flex min-h-[52px] flex-col items-center justify-center gap-0.5 transition-[scale] duration-quick ease-enter active:scale-[0.97]"
 			>
-				{tab("dots-three", t`Other`, moreCurrent)}
+				{tab("dots-three", t`Account`, moreCurrent)}
 			</button>
 
 			{moreOpen ? (

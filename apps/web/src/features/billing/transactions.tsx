@@ -78,7 +78,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 
 	return (
 		<div className="mx-auto w-full max-w-[860px] px-5 pt-7 pb-28 md:pb-12">
-			<h1 className="text-2xl font-semibold text-ink">Transaksi</h1>
+			<h1 className="font-sans text-2xl font-semibold text-ink">Transaksi</h1>
 			<p className="mt-1 text-sm text-ink-2">Semua pesanan dan kuitansimu.</p>
 
 			<div className="mt-5 flex flex-wrap items-center gap-2">
@@ -120,7 +120,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 							</div>
 							<div className="flex shrink-0 items-center gap-4">
 								<span className="text-sm tabular-nums text-ink">{formatRupiah(item.totalIdr)}</span>
-								<Button variant="link" className="text-xs" onClick={() => setInvoiceOpen(item.id)}>
+								<Button variant="link" className="text-xs text-ink" onClick={() => setInvoiceOpen(item.id)}>
 									Lihat
 								</Button>
 							</div>
@@ -160,7 +160,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 									/>
 									<Button
 										variant="link"
-										className="justify-start text-xs"
+										className="justify-start text-xs text-ink"
 										onClick={() =>
 											window.open(
 												whatsappLink(
@@ -202,7 +202,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 										<p className="text-sm tabular-nums text-ink">{formatRupiah(order.totalIdr)}</p>
 										<Button
 											variant="link"
-											className="mt-1 text-xs"
+											className="mt-1 text-xs text-ink"
 											onClick={() => void navigate({ to: "/dashboard/transaksi", search: { order: order.id } })}
 										>
 											{order.status === "menunggu_bayar" ? "Bayar" : "Lihat"}

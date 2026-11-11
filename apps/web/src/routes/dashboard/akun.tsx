@@ -32,7 +32,7 @@ function AccountPage() {
 
 	return (
 		<div className="mx-auto w-full max-w-[860px] px-5 pt-7 pb-28 md:pb-12">
-			<h1 className="text-2xl font-semibold text-ink">Akun</h1>
+			<h1 className="font-sans text-2xl font-semibold text-ink">Akun</h1>
 
 			<section className="mt-5 flex flex-wrap items-center justify-between gap-4 border-b border-line pb-5">
 				<div className="min-w-0">
