@@ -188,8 +188,8 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 				{loading ? null : <p className="hidden text-xs text-ink-3 tabular-nums sm:block">{counts.semua} pesanan</p>}
 			</div>
 
-			{/* Phones get a scrolling row of pills: two rows of underlined tabs read as a broken bar. */}
-			<div className="-mx-6 mt-3 flex snap-x gap-2 overflow-x-auto px-6 pb-1 sm:mx-0 sm:mt-4 sm:gap-x-1 sm:gap-y-0 sm:overflow-visible sm:border-b sm:border-line sm:px-0 sm:pb-0">
+			{/* One scrolling row of pills at every width: two rows of underlined tabs read as a broken bar. */}
+			<div className="-mx-6 mt-3 flex snap-x gap-2 overflow-x-auto px-6 pb-1 sm:mx-0 sm:mt-4 sm:flex-wrap sm:overflow-visible sm:px-0">
 				{TABS.map((item) => {
 					const count = counts[item.id];
 					const active = tab === item.id;
@@ -199,16 +199,16 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 							type="button"
 							aria-pressed={active}
 							onClick={() => setTab(item.id)}
-							className={`flex min-h-9 shrink-0 snap-start items-center gap-1.5 rounded-full border px-3.5 text-[13px] transition-colors sm:min-h-11 sm:rounded-none sm:border-x-0 sm:border-t-0 sm:border-b-2 sm:px-3 sm:text-sm ${
+							className={`flex min-h-9 shrink-0 snap-start items-center gap-1.5 rounded-full border px-3.5 text-[13px] transition-colors sm:min-h-10 sm:px-4 sm:text-sm ${
 								active
-									? "border-ink bg-ink font-medium text-bg sm:bg-transparent sm:text-ink"
-									: "border-line text-ink-2 hover:border-line-2 hover:text-ink sm:border-transparent"
+									? "border-ink bg-ink font-medium text-bg"
+									: "border-line text-ink-2 hover:border-line-2 hover:text-ink"
 							}`}
 						>
 							{item.label}
 							{/* A zero on every tab is noise, so a count shows only when it is real or the tab is open. */}
 							{count > 0 || active ? (
-								<span className={`text-xs tabular-nums ${active ? "text-bg/70 sm:text-ink-3" : "text-ink-3"}`}>
+								<span className={`text-xs tabular-nums ${active ? "text-bg/70" : "text-ink-3"}`}>
 									{loading ? "" : count}
 								</span>
 							) : null}
@@ -402,7 +402,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 								className={`border-b border-line py-4 last:border-0 ${current ? "bg-hover/40" : ""}`}
 								aria-current={current ? "true" : undefined}
 							>
-								<div className="flex items-start justify-between gap-4">
+								<div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
 									<div className="min-w-0">
 										<p className="truncate text-sm text-ink">{order.planName}</p>
 										<p className="mt-0.5 text-xs text-ink-3 tabular-nums">
@@ -420,11 +420,12 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 											{invoice ? ` · ${invoice.number}` : null}
 										</p>
 									</div>
-									<div className="flex shrink-0 flex-col items-end gap-1">
-										<p className="text-sm text-ink tabular-nums">{formatRupiah(order.totalIdr)}</p>
+									{/* Phones put the action on the left and the amount on the right, away from the help pill. */}
+									<div className="flex items-center justify-between gap-3 sm:w-auto sm:shrink-0 sm:flex-col-reverse sm:items-end sm:gap-1">
 										<Button variant="secondary" size="sm" onClick={() => bukaPesanan(order.id)}>
 											{order.status === "menunggu_bayar" ? "Bayar" : invoice ? "Lihat kuitansi" : "Lihat"}
 										</Button>
+										<p className="text-sm text-ink tabular-nums">{formatRupiah(order.totalIdr)}</p>
 									</div>
 								</div>
 							</li>
@@ -432,14 +433,6 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 					})}
 				</ul>
 			)}
-
-			<p className="mt-8 text-center text-xs text-ink-3 sm:hidden">
-				Butuh bantuan?{" "}
-				<a href="/bantuan" className="underline underline-offset-4">
-					Buka pertanyaan yang sering muncul
-				</a>
-				.
-			</p>
 
 			<InvoiceSheet invoiceId={invoiceOpen} onClose={() => setInvoiceOpen(null)} />
 		</div>
