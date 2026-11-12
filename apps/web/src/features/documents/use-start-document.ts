@@ -4,7 +4,6 @@ import { useLingui } from "@lingui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { toast } from "@reactive-resume/ui/components/toast";
-import { generateRandomName } from "@reactive-resume/utils/string";
 import { useNewDocumentsStore } from "./new-documents";
 import { useDialogStore } from "@/dialogs/store";
 import { getOrpcErrorMessage } from "@/libs/error-message";
@@ -55,7 +54,7 @@ export function useStartDocument(applicationId?: string) {
 		},
 		trySample: async () => {
 			try {
-				const resumeId = await createResume({ name: generateRandomName(), tags: [], withSampleData: true, locale });
+				const resumeId = await createResume({ name: t`Sample resume`, tags: [], withSampleData: true, locale });
 				await created(resumeId, "resume");
 				toast.add({ description: t`Sample resume added. Delete it anytime.` });
 				void navigate({ to: "/builder/$resumeId", params: { resumeId } });

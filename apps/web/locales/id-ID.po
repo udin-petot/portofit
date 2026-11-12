@@ -10459,6 +10459,9 @@ msgid "Same you. Less starting over."
 msgstr "Tetap Anda. Lebih jarang mulai dari awal."
 
 #: src/features/documents/new-document-dialog.tsx
+msgid "Sample resume"
+msgstr "Contoh CV"
+
 msgid "Sample resume added. Delete it anytime."
 msgstr "Contoh resume ditambahkan. Hapus kapan saja."
 
