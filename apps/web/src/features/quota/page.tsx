@@ -16,8 +16,10 @@ export const QUOTA_LABEL = {
 } as const;
 
 function Meter({ label, used, limit }: { label: string; used: number; limit: number }) {
-	const percent = limit > 0 ? Math.min(100, Math.round((used / limit) * 100)) : 0;
-	const empty = limit - used <= 0;
+	// Bar mengikuti sisa jatah, bukan pemakaian, supaya sejalan dengan angka "2 / 3" di sebelahnya.
+	const remaining = Math.max(0, limit - used);
+	const percent = limit > 0 ? Math.min(100, Math.round((remaining / limit) * 100)) : 0;
+	const empty = remaining <= 0;
 
 	return (
 		<article className="rounded-lg border border-line bg-surface p-4">
