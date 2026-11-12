@@ -14023,10 +14023,6 @@ msgid "Paste the posting"
 msgstr "Paste the posting"
 
 #: src/features/career/workspace/shell.tsx
-msgid "No files for this job yet"
-msgstr "No files for this job yet"
-
-#: src/features/career/workspace/shell.tsx
 msgid "A tailored CV and a cover letter are one click on the Prepare tab."
 msgstr "A tailored CV and a cover letter are one click on the Prepare tab."
 

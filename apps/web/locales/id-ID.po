@@ -14028,10 +14028,6 @@ msgid "Paste the posting"
 msgstr "Tempel lowongan"
 
 #: src/features/career/workspace/shell.tsx
-msgid "No files for this job yet"
-msgstr "Belum ada berkas untuk lowongan ini"
-
-#: src/features/career/workspace/shell.tsx
 msgid "A tailored CV and a cover letter are one click on the Prepare tab."
 msgstr "CV yang disesuaikan dan surat lamaran dibuat sekali klik di tab Persiapan."
 
