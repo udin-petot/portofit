@@ -10798,6 +10798,42 @@ msgstr "Rubrics and follow-up questions appear under a question once you pick on
 msgid "{BANK_COUNT} questions asked in real technical and HR interviews, with what is scored on each. Pick one to start practising."
 msgstr "{BANK_COUNT} questions asked in real technical and HR interviews, with what is scored on each. Pick one to start practising."
 
+msgid "What needs you today, new roles from your saved search, and scheduled runs."
+msgstr "What needs you today, new roles from your saved search, and scheduled runs."
+
+msgid "Ask about your search, a document, or an interview you have coming up."
+msgstr "Ask about your search, a document, or an interview you have coming up."
+
+msgid "Facts, stories and preferences about you. The coach and interview prep read these."
+msgstr "Facts, stories and preferences about you. The coach and interview prep read these."
+
+msgid "Put two offers side by side and compare pay, place and what you give up."
+msgstr "Put two offers side by side and compare pay, place and what you give up."
+
+msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgstr "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+
+msgid "Save one search and it runs every morning. Nothing is applied for until you pick a role."
+msgstr "Save one search and it runs every morning. Nothing is applied for until you pick a role."
+
+msgid "Nothing scheduled. Add a search to find roles each morning, or preparation to get a briefing before an interview."
+msgstr "Nothing scheduled. Add a search to find roles each morning, or preparation to get a briefing before an interview."
+
+msgid "Save a job, then move it along as the company replies: applied, screening, interview, offer. Every stage you update feeds the funnel in Insights."
+msgstr "Save a job, then move it along as the company replies: applied, screening, interview, offer. Every stage you update feeds the funnel in Insights."
+
+msgid "Every application in one table. Sort by what needs attention."
+msgstr "Every application in one table. Sort by what needs attention."
+
+msgid "Drag a card to move an application through the stages."
+msgstr "Drag a card to move an application through the stages."
+
+msgid "Where applications stall, and how quickly companies reply."
+msgstr "Where applications stall, and how quickly companies reply."
+
+msgid "Interviews and follow-ups by date."
+msgstr "Interviews and follow-ups by date."
+
 msgid "Start blank"
 msgstr "Start blank"
 

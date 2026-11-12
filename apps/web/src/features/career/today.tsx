@@ -293,7 +293,9 @@ function NeedsYou({ now, onReview, className }: NeedsYouProps) {
 								<Trans>You're up to date</Trans>
 							</p>
 							<p className="max-w-[300px] text-sm text-ink-2">
-								<Trans>New roles, reminders and finished briefings appear here.</Trans>
+								<Trans>
+									Interview briefings, follow-ups that are due, and finished runs land here when they are ready.
+								</Trans>
 							</p>
 							{read.length > 0 && (
 								<Button
@@ -448,7 +450,7 @@ function NewRoles({ ref, now, deleted, onOpenSchedule, className }: NewRolesProp
 				) : (
 					<div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-dashed border-line-2 px-4 py-3.5">
 						<p className="text-sm text-ink-2">
-							<Trans>Get new roles here every morning</Trans>
+							<Trans>Save one search and it runs every morning. Nothing is applied for until you pick a role.</Trans>
 						</p>
 						<Button
 							variant="secondary"
@@ -813,7 +815,10 @@ function Schedules({ deleted, onOpenSchedule, className }: SchedulesProps) {
 				<Skeleton className="mx-4 mb-3 h-24" />
 			) : rows.length === 0 ? (
 				<p className="border-t border-line px-4 py-3 text-[13px] text-ink-3">
-					<Trans>Nothing scheduled yet.</Trans>
+					<Trans>
+						Nothing scheduled. Add a search to find roles each morning, or preparation to get a briefing before an
+						interview.
+					</Trans>
 				</p>
 			) : (
 				<AnimatePresence initial={false}>

@@ -20,26 +20,42 @@ type Place = {
 	match: string;
 	icon: IconName;
 	label: string;
+	/** One line under the tabs: what this place is for, so a new user does not have to guess. */
+	hint: string;
 };
 
 /** Career: Today, Coach, Knowledge and Offers under one header. The selected place's pill slides between them. */
 function CareerLayout() {
 	const matchRoute = useMatchRoute();
 	const places: Place[] = [
-		{ to: "/dashboard/career", match: "/dashboard/career/", icon: "tray", label: t`Today` },
+		{
+			to: "/dashboard/career",
+			match: "/dashboard/career/",
+			icon: "tray",
+			label: t`Today`,
+			hint: t`What needs you today, new roles from your saved search, and scheduled runs.`,
+		},
 		{
 			to: "/dashboard/career/coach/{-$conversationId}",
 			match: "/dashboard/career/coach",
 			icon: "sparkle",
 			label: t`Coach`,
+			hint: t`Ask about your search, a document, or an interview you have coming up.`,
 		},
 		{
 			to: "/dashboard/career/knowledge/facts",
 			match: "/dashboard/career/knowledge",
 			icon: "books",
 			label: t`Knowledge`,
+			hint: t`Facts, stories and preferences about you. The coach and interview prep read these.`,
 		},
-		{ to: "/dashboard/career/offers", match: "/dashboard/career/offers", icon: "scales", label: t`Offers` },
+		{
+			to: "/dashboard/career/offers",
+			match: "/dashboard/career/offers",
+			icon: "scales",
+			label: t`Offers`,
+			hint: t`Put two offers side by side and compare pay, place and what you give up.`,
+		},
 	];
 	const current = places.find((place) => matchRoute({ to: place.match, fuzzy: place.match !== "/dashboard/career/" }));
 
@@ -85,6 +101,7 @@ function CareerLayout() {
 						})}
 					</div>
 				</nav>
+				{current ? <p className="max-w-[46ch] text-xs leading-[18px] text-ink-2 md:text-end">{current.hint}</p> : null}
 			</header>
 			<Outlet />
 		</div>

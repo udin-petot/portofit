@@ -11749,6 +11749,42 @@ msgstr "Rubrik dan pertanyaan lanjutan muncul di bawah soal setelah kamu memilih
 msgid "{BANK_COUNT} questions asked in real technical and HR interviews, with what is scored on each. Pick one to start practising."
 msgstr "{BANK_COUNT} pertanyaan yang benar-benar ditanyakan di wawancara teknis dan HR, lengkap dengan apa yang dinilai. Pilih satu untuk mulai latihan."
 
+msgid "What needs you today, new roles from your saved search, and scheduled runs."
+msgstr "Apa yang menunggu hari ini, lowongan baru dari pencarian tersimpan, dan jadwal otomatis."
+
+msgid "Ask about your search, a document, or an interview you have coming up."
+msgstr "Tanya soal pencarian kerja, dokumen, atau wawancara yang sudah dekat."
+
+msgid "Facts, stories and preferences about you. The coach and interview prep read these."
+msgstr "Fakta, cerita, dan preferensi tentang kamu. Coach dan persiapan wawancara membacanya."
+
+msgid "Put two offers side by side and compare pay, place and what you give up."
+msgstr "Bandingkan dua tawaran berdampingan: gaji, lokasi, dan apa yang kamu lepaskan."
+
+msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgstr "Briefing wawancara, susulan yang jatuh tempo, dan proses yang selesai muncul di sini saat siap."
+
+msgid "Save one search and it runs every morning. Nothing is applied for until you pick a role."
+msgstr "Simpan satu pencarian, jalan tiap pagi. Tidak ada yang dilamar sampai kamu memilih lowongan."
+
+msgid "Nothing scheduled. Add a search to find roles each morning, or preparation to get a briefing before an interview."
+msgstr "Belum ada jadwal. Tambah pencarian untuk mendapat lowongan tiap pagi, atau persiapan untuk briefing sebelum wawancara."
+
+msgid "Save a job, then move it along as the company replies: applied, screening, interview, offer. Every stage you update feeds the funnel in Insights."
+msgstr "Simpan lowongan, lalu geser tahapnya saat perusahaan membalas: applied, screening, interview, offer. Tiap tahap yang kamu ubah mengisi funnel di Insights."
+
+msgid "Every application in one table. Sort by what needs attention."
+msgstr "Semua lamaran dalam satu tabel. Urutkan menurut yang butuh perhatian."
+
+msgid "Drag a card to move an application through the stages."
+msgstr "Geser kartu untuk memindahkan lamaran antar tahap."
+
+msgid "Where applications stall, and how quickly companies reply."
+msgstr "Di tahap mana lamaran mandek, dan secepat apa perusahaan membalas."
+
+msgid "Interviews and follow-ups by date."
+msgstr "Wawancara dan susulan menurut tanggal."
+
 msgid "Start blank"
 msgstr "Mulai kosong"
 

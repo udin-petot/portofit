@@ -192,7 +192,7 @@ function RouteComponent() {
 							</TabsList>
 						</Tabs>
 
-						<div className="relative basis-full min-w-40 sm:basis-auto sm:max-w-72 sm:flex-1">
+						<div className="relative min-w-40 basis-full sm:max-w-72 sm:flex-1 sm:basis-auto">
 							<Icon
 								name="magnifying-glass"
 								size={18}
@@ -220,6 +220,18 @@ function RouteComponent() {
 							</Button>
 						)}
 					</div>
+
+					<p className="text-xs leading-[18px] text-ink-3">
+						{shown === "list" ? (
+							<Trans>Every application in one table. Sort by what needs attention.</Trans>
+						) : shown === "board" ? (
+							<Trans>Drag a card to move an application through the stages.</Trans>
+						) : shown === "insights" ? (
+							<Trans>Where applications stall, and how quickly companies reply.</Trans>
+						) : (
+							<Trans>Interviews and follow-ups by date.</Trans>
+						)}
+					</p>
 
 					{isPending ? (
 						<ViewSkeleton view={shown} />
@@ -377,7 +389,10 @@ function EmptyState({ onAdd, onImport }: { onAdd: () => void; onImport: () => vo
 				<Trans>Track your first job</Trans>
 			</h2>
 			<p className="max-w-sm text-sm text-ink-2">
-				<Trans>Paste a job link. We'll save the posting so Check, the assistant and your letter can use it.</Trans>
+				<Trans>
+					Save a job, then move it along as the company replies: applied, screening, interview, offer. Every stage you
+					update feeds the funnel in Insights.
+				</Trans>
 			</p>
 			<div className="flex gap-2">
 				<Button onClick={onAdd}>
