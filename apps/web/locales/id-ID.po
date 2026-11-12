@@ -11803,6 +11803,75 @@ msgstr "Kredit sesi wawancara"
 msgid "Go to my documents"
 msgstr "Buka dokumen saya"
 
+msgid "Profile and security"
+msgstr "Profil & keamanan"
+
+msgid "Your name, email, password and signed-in sessions."
+msgstr "Nama, email, sandi, dan sesi masuk."
+
+msgid "Language, theme and display."
+msgstr "Bahasa, tema, dan tampilan."
+
+msgid "AI and developer"
+msgstr "AI & developer"
+
+msgid "AI providers, API keys and integrations."
+msgstr "Penyedia AI, kunci API, dan integrasi."
+
+msgid "Profile, credits, orders and settings."
+msgstr "Profil, kredit, pesanan, dan pengaturan."
+
+msgid "No name"
+msgstr "Tanpa nama"
+
+msgid "Sign out of this account?"
+msgstr "Keluar dari akun ini?"
+
+msgid "You can sign back in at any time."
+msgstr "Kamu bisa masuk lagi kapan saja."
+
+msgid "Credits"
+msgstr "Kredit"
+
+msgid "Buy"
+msgstr "Beli"
+
+msgid "per credit"
+msgstr "per kredit"
+
+msgid "Orders"
+msgstr "Pesanan"
+
+msgid "See all"
+msgstr "Lihat semua"
+
+msgid "Awaiting payment"
+msgstr "Menunggu bayar"
+
+msgid "In review"
+msgstr "Diproses"
+
+msgid "Paid"
+msgstr "Selesai"
+
+msgid "Cancelled"
+msgstr "Dibatalkan"
+
+msgid "No orders yet."
+msgstr "Belum ada pesanan."
+
+msgid "Credit history"
+msgstr "Riwayat kredit"
+
+msgid "Nothing spent yet."
+msgstr "Belum ada pemakaian kredit."
+
+msgid "left"
+msgstr "sisa"
+
+msgid "Joined {joined}"
+msgstr "Bergabung {joined}"
+
 msgid "Start blank"
 msgstr "Mulai kosong"
 

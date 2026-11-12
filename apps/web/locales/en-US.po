@@ -10852,6 +10852,75 @@ msgstr "Interview credits"
 msgid "Go to my documents"
 msgstr "Go to my documents"
 
+msgid "Profile and security"
+msgstr "Profile and security"
+
+msgid "Your name, email, password and signed-in sessions."
+msgstr "Your name, email, password and signed-in sessions."
+
+msgid "Language, theme and display."
+msgstr "Language, theme and display."
+
+msgid "AI and developer"
+msgstr "AI and developer"
+
+msgid "AI providers, API keys and integrations."
+msgstr "AI providers, API keys and integrations."
+
+msgid "Profile, credits, orders and settings."
+msgstr "Profile, credits, orders and settings."
+
+msgid "No name"
+msgstr "No name"
+
+msgid "Sign out of this account?"
+msgstr "Sign out of this account?"
+
+msgid "You can sign back in at any time."
+msgstr "You can sign back in at any time."
+
+msgid "Credits"
+msgstr "Credits"
+
+msgid "Buy"
+msgstr "Buy"
+
+msgid "per credit"
+msgstr "per credit"
+
+msgid "Orders"
+msgstr "Orders"
+
+msgid "See all"
+msgstr "See all"
+
+msgid "Awaiting payment"
+msgstr "Awaiting payment"
+
+msgid "In review"
+msgstr "In review"
+
+msgid "Paid"
+msgstr "Paid"
+
+msgid "Cancelled"
+msgstr "Cancelled"
+
+msgid "No orders yet."
+msgstr "No orders yet."
+
+msgid "Credit history"
+msgstr "Credit history"
+
+msgid "Nothing spent yet."
+msgstr "Nothing spent yet."
+
+msgid "left"
+msgstr "left"
+
+msgid "Joined {joined}"
+msgstr "Joined {joined}"
+
 msgid "Start blank"
 msgstr "Start blank"
 

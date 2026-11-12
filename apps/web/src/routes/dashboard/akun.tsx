@@ -1,8 +1,13 @@
+import type { IconName } from "@reactive-resume/ui/components/icon";
+import { t } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
+import { Trans } from "@lingui/react/macro";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@reactive-resume/ui/components/button";
-import { Icon, type IconName } from "@reactive-resume/ui/components/icon";
+import { Icon } from "@reactive-resume/ui/components/icon";
 import { formatRupiah } from "@/features/billing/config";
+import { useConfirm } from "@/hooks/use-confirm";
 import { authClient } from "@/libs/auth/client";
 import { orpc } from "@/libs/orpc/client";
 
@@ -19,20 +24,20 @@ const SETTINGS_LINKS: {
 	{
 		to: "/dashboard/settings/account",
 		icon: "user-circle",
-		title: "Profil & keamanan",
-		body: "Nama, email, sandi, dan sesi masuk.",
+		title: t`Profile and security`,
+		body: t`Your name, email, password and signed-in sessions.`,
 	},
 	{
 		to: "/dashboard/settings/preferences",
 		icon: "sliders-horizontal",
-		title: "Preferensi",
-		body: "Bahasa, tema, dan tampilan.",
+		title: t`Preferences`,
+		body: t`Language, theme and display.`,
 	},
 	{
 		to: "/dashboard/settings/ai",
 		icon: "sparkle",
-		title: "AI & developer",
-		body: "Penyedia AI, kunci API, dan integrasi.",
+		title: t`AI and developer`,
+		body: t`AI providers, API keys and integrations.`,
 	},
 ];
 
@@ -41,8 +46,11 @@ function Bar({ className }: { className: string }) {
 }
 
 function AccountPage() {
+	const { i18n } = useLingui();
+	const confirm = useConfirm();
 	const { data: session, isPending: sessionLoading } = authClient.useSession();
 	const balances = useQuery(orpc.billing.balances.queryOptions());
+	const plans = useQuery(orpc.billing.plans.queryOptions());
 	const orders = useQuery(orpc.billing.myOrders.queryOptions({ input: { limit: 50 } }));
 	const ledger = useQuery(orpc.billing.ledger.queryOptions({ input: { limit: 20 } }));
 
@@ -51,18 +59,30 @@ function AccountPage() {
 	const entries = ledger.data?.entries ?? [];
 	const count = (status: string[]) => list.filter((order) => status.includes(order.status)).length;
 	const joined = user?.createdAt
-		? new Intl.DateTimeFormat("id-ID", { month: "long", year: "numeric" }).format(new Date(user.createdAt))
+		? new Intl.DateTimeFormat(i18n.locale, { month: "long", year: "numeric" }).format(new Date(user.createdAt))
 		: null;
 
 	// A counter that reads zero on every row is noise, so only a real count earns a cell.
 	const orderCells = [
-		{ label: "Menunggu bayar", value: count(["menunggu_bayar"]) },
-		{ label: "Diproses", value: count(["menunggu_verifikasi"]) },
-		{ label: "Selesai", value: count(["lunas"]) },
-		{ label: "Dibatalkan", value: count(["ditolak", "hangus"]) },
+		{ label: t`Awaiting payment`, value: count(["menunggu_bayar"]) },
+		{ label: t`In review`, value: count(["menunggu_verifikasi"]) },
+		{ label: t`Paid`, value: count(["lunas"]) },
+		{ label: t`Cancelled`, value: count(["ditolak", "hangus"]) },
 	].filter((cell) => cell.value > 0);
 
-	const credit = (value: number | undefined, unit: string, price: number) => (
+	// Prices come from the plans themselves: an admin changing a price must not leave this page quoting the old one.
+	const perCredit = (code: string) => {
+		const plan = plans.data?.plans.find((item) => item.code === code);
+		if (!plan || plan.credits < 1) return null;
+		return formatRupiah(Math.round(plan.priceIdr / plan.credits));
+	};
+
+	const signOut = async () => {
+		const ok = await confirm(t`Sign out of this account?`, { description: t`You can sign back in at any time.` });
+		if (ok) await authClient.signOut();
+	};
+
+	const credit = (value: number | undefined, unit: string, price: string | null) => (
 		<div className="grid gap-1">
 			<p className="text-xs text-ink-3">{unit}</p>
 			{balances.isLoading ? (
@@ -70,14 +90,22 @@ function AccountPage() {
 			) : (
 				<p className="text-[22px] leading-7 text-ink tabular-nums">{value ?? 0}</p>
 			)}
-			<p className="text-xs text-ink-2">{formatRupiah(price)} per kredit</p>
+			{price ? (
+				<p className="text-xs text-ink-2">
+					{price} <Trans>per credit</Trans>
+				</p>
+			) : null}
 		</div>
 	);
 
 	return (
 		<div className="mx-auto w-full max-w-[1080px] px-6 pt-8 pb-28 md:pb-12">
-			<h1 className="font-sans text-2xl font-semibold text-ink">Akun</h1>
-			<p className="mt-1 text-sm text-ink-2">Profil, kredit, pesanan, dan pengaturanmu.</p>
+			<h1 className="font-sans text-2xl font-semibold text-ink">
+				<Trans>Account</Trans>
+			</h1>
+			<p className="mt-1 text-sm text-ink-2">
+				<Trans>Profile, credits, orders and settings.</Trans>
+			</p>
 
 			<div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
 				<section className="rounded-lg border border-line bg-surface p-5">
@@ -90,43 +118,51 @@ function AccountPage() {
 								</>
 							) : (
 								<>
-									<p className="truncate text-lg text-ink">{user?.name || "Tanpa nama"}</p>
+									<p className="truncate text-lg text-ink">{user?.name || t`No name`}</p>
 									<p className="truncate text-sm text-ink-2">{user?.email}</p>
-									{joined ? <p className="text-xs text-ink-3">Bergabung {joined}</p> : null}
+									{joined ? (
+										<p className="text-xs text-ink-3">
+											<Trans>Joined {joined}</Trans>
+										</p>
+									) : null}
 								</>
 							)}
 						</div>
-						<Button variant="secondary" size="sm" onClick={() => void authClient.signOut()}>
-							Keluar
+						<Button variant="secondary" size="sm" onClick={() => void signOut()}>
+							<Trans>Sign out</Trans>
 						</Button>
 					</div>
 				</section>
 
 				<section className="rounded-lg border border-line bg-surface p-5">
 					<div className="flex items-baseline justify-between gap-3">
-						<h2 className="text-sm font-semibold text-ink">Kredit</h2>
+						<h2 className="text-sm font-semibold text-ink">
+							<Trans>Credits</Trans>
+						</h2>
 						<Link
-							to="/harga"
+							to="/dashboard/beli-kredit"
 							className="flex min-h-11 items-center gap-1 text-xs text-ink-2 underline-offset-4 hover:text-ink hover:underline"
 						>
 							<Icon name="tag" size={14} />
-							Beli
+							<Trans>Buy</Trans>
 						</Link>
 					</div>
 					<div className="mt-2 grid grid-cols-2 divide-x divide-line">
-						<div className="pr-4">{credit(balances.data?.application, "Lamaran", 5000)}</div>
-						<div className="pl-4">{credit(balances.data?.interview, "Wawancara", 10000)}</div>
+						<div className="pr-4">{credit(balances.data?.application, t`Application`, perCredit("lamaran"))}</div>
+						<div className="pl-4">{credit(balances.data?.interview, t`Interview`, perCredit("wawancara"))}</div>
 					</div>
 				</section>
 
 				<section className="rounded-lg border border-line bg-surface p-5 lg:col-span-2">
 					<div className="flex items-baseline justify-between gap-3">
-						<h2 className="text-sm font-semibold text-ink">Pesanan</h2>
+						<h2 className="text-sm font-semibold text-ink">
+							<Trans>Orders</Trans>
+						</h2>
 						<Link
 							to="/dashboard/transaksi"
 							className="flex min-h-11 items-center text-xs text-ink-2 underline-offset-4 hover:text-ink hover:underline"
 						>
-							Lihat semua
+							<Trans>See all</Trans>
 						</Link>
 					</div>
 					{orders.isLoading ? (
@@ -148,12 +184,16 @@ function AccountPage() {
 							))}
 						</div>
 					) : (
-						<p className="mt-3 text-sm text-ink-3">Belum ada pesanan.</p>
+						<p className="mt-3 text-sm text-ink-3">
+							<Trans>No orders yet.</Trans>
+						</p>
 					)}
 				</section>
 
 				<section className="rounded-lg border border-line bg-surface p-5 lg:col-span-2">
-					<h2 className="text-sm font-semibold text-ink">Pengaturan</h2>
+					<h2 className="text-sm font-semibold text-ink">
+						<Trans>Settings</Trans>
+					</h2>
 					<ul className="mt-1 grid gap-x-6 sm:grid-cols-3">
 						{SETTINGS_LINKS.map((item) => (
 							<li key={item.to} className="border-b border-line last:border-0 sm:border-0">
@@ -161,7 +201,7 @@ function AccountPage() {
 									<Icon name={item.icon} size={18} className="text-ink-2" />
 									<span className="min-w-0 flex-1">
 										<span className="block text-sm text-ink">{item.title}</span>
-										<span className="block text-xs text-ink-3">{item.body}</span>
+										<span className="block text-xs text-ink-2">{item.body}</span>
 									</span>
 									<Icon name="caret-right" size={16} className="text-ink-3" />
 								</Link>
@@ -172,7 +212,9 @@ function AccountPage() {
 			</div>
 
 			<section className="mt-5 rounded-lg border border-line bg-surface p-5">
-				<h2 className="text-sm font-semibold text-ink">Riwayat kredit</h2>
+				<h2 className="text-sm font-semibold text-ink">
+					<Trans>Credit history</Trans>
+				</h2>
 				{ledger.isLoading ? (
 					<div className="mt-3 grid gap-3">
 						<Bar className="h-4 w-52" />
@@ -180,23 +222,27 @@ function AccountPage() {
 					</div>
 				) : entries.length > 0 ? (
 					<ul className="mt-2">
-						{entries.slice(0, 6).map((entry) => (
+						{entries.map((entry) => (
 							<li
 								key={entry.id}
 								className="flex items-center justify-between gap-3 border-b border-line py-2.5 last:border-0"
 							>
 								<span className="min-w-0">
 									<span className="block truncate text-sm text-ink">{entry.reason}</span>
-									<span className="text-xs text-ink-3">{new Date(entry.createdAt).toLocaleDateString("id-ID")}</span>
+									<span className="text-xs text-ink-3">
+										{new Date(entry.createdAt).toLocaleDateString(i18n.locale)}
+									</span>
 								</span>
 								<span className="shrink-0 text-sm text-ink-2 tabular-nums">
-									{entry.delta > 0 ? `+${entry.delta}` : entry.delta} · sisa {entry.balanceAfter}
+									{entry.delta > 0 ? `+${entry.delta}` : entry.delta} · <Trans>left</Trans> {entry.balanceAfter}
 								</span>
 							</li>
 						))}
 					</ul>
 				) : (
-					<p className="mt-2 text-sm text-ink-3">Belum ada pemakaian kredit.</p>
+					<p className="mt-2 text-sm text-ink-3">
+						<Trans>Nothing spent yet.</Trans>
+					</p>
 				)}
 			</section>
 		</div>
