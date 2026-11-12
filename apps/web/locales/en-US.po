@@ -859,9 +859,10 @@ msgstr "30 days"
 msgid "40% faster reviews"
 msgstr "40% faster reviews"
 
+#. placeholder {0}: questions.length
 #: src/features/homepage/faq.tsx
-msgid "9 short answers to what people ask before they start. Anything else, ask on <0>Discord</0>."
-msgstr "9 short answers to what people ask before they start. Anything else, ask on <0>Discord</0>."
+msgid "{0} short answers to what people ask before they start. Anything else, ask on <0>Discord</0>."
+msgstr "{0} short answers to what people ask before they start. Anything else, ask on <0>Discord</0>."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "90 days"
@@ -2038,10 +2039,6 @@ msgstr "Aspect Ratio"
 msgid "Assistant"
 msgstr "Assistant"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "Assistant (your key)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "Assistant conversations"
@@ -2452,8 +2449,8 @@ msgid "Career"
 msgstr "Career"
 
 #: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "Career coach (your key)"
+msgid "Career coach"
+msgstr "Career coach"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -5919,10 +5916,6 @@ msgstr "Interview now"
 #: src/features/homepage/remember.tsx
 msgid "Interview opening"
 msgstr "Interview opening"
-
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "Interview prep"
 
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
@@ -10484,8 +10477,8 @@ msgid "Sends this resume to {provider} with your key, only when you press send."
 msgstr "Sends this resume to {provider} with your key, only when you press send."
 
 #: src/features/homepage/remember.tsx
-msgid "Sends this story and the facts switched on to your AI connection. Without one, nothing is sent."
-msgstr "Sends this story and the facts switched on to your AI connection. Without one, nothing is sent."
+msgid "Sends this story and the facts switched on to the AI service you use, only when you ask the coach."
+msgstr "Sends this story and the facts switched on to the AI service you use, only when you ask the coach."
 
 #: src/features/assistant/conversation.tsx
 msgid "Sends your message and the posting to {provider} with your key, only when you press send."

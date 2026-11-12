@@ -325,7 +325,7 @@ export function Remember() {
 							</span>
 							<span className="flex items-start gap-1.5">
 								<Icon name="lock" size={15} className="mt-px shrink-0" />
-								{t`Sends this story and the facts switched on to your AI connection. Without one, nothing is sent.`}
+								{t`Sends this story and the facts switched on to the AI service you use, only when you ask the coach.`}
 							</span>
 						</div>
 					</div>

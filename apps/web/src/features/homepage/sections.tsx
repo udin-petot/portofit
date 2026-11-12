@@ -11,6 +11,7 @@ import { localeSchema } from "@reactive-resume/utils/locale";
 import { cn } from "@reactive-resume/utils/style";
 import { prefersReducedMotion, SCENE, useLanding } from "./scroll";
 import { CtaLink, Doodle, labelClass } from "./ui";
+import { formatRupiah } from "@/features/billing/config";
 import { orpc } from "@/libs/orpc/client";
 
 const githubUrl = "https://github.com/udin-petot/portofit";
@@ -218,7 +219,7 @@ export function Support() {
 	const { i18n } = useLingui();
 	// oxlint-disable-next-line react/purity -- The receipt shows the current calendar date on each render, including after midnight.
 	const receiptDate = new Date();
-	const nothing = i18n.number(0, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+	const nothing = formatRupiah(0);
 	const templates = i18n.number(templateSchema.options.length);
 	const none = t({
 		message: "none",
@@ -227,12 +228,10 @@ export function Support() {
 	const lineItems = [
 		[t`Resume builder`, nothing],
 		[t`Templates × ${templates}`, nothing],
-		[t`Assistant (your key)`, nothing],
-		[t`Career coach (your key)`, nothing],
-		[t`Interview prep`, nothing],
+		[t`Assistant`, nothing],
+		[t`Career coach`, nothing],
 		[t`ATS checker`, nothing],
 		[t`Job tracker`, nothing],
-		[t`Cover letters`, nothing],
 		[t`Ads`, none],
 		[t`Tracking`, none],
 	] as const;
@@ -305,7 +304,7 @@ export function Support() {
 							</dl>
 							<p className="mt-2.5 flex justify-between border-t-[1.5px] border-dashed border-[oklch(0.7_0.01_95)] pt-2.5 text-base font-bold">
 								<span className="uppercase">{t`Total`}</span>
-								<span>{i18n.number(0, { style: "currency", currency: "USD" })}</span>
+								<span>{formatRupiah(0)}</span>
 							</p>
 							<div aria-hidden="true" className="receipt-barcode mx-auto mt-[18px] mb-1.5 h-11 w-[78%]" />
 						</div>
