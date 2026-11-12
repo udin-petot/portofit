@@ -11785,6 +11785,21 @@ msgstr "Di tahap mana lamaran mandek, dan secepat apa perusahaan membalas."
 msgid "Interviews and follow-ups by date."
 msgstr "Wawancara dan susulan menurut tanggal."
 
+msgid "Pay per document. No subscription, and credits do not expire."
+msgstr "Bayar per dokumen. Tanpa langganan, dan kredit tidak kedaluwarsa."
+
+msgid "My orders"
+msgstr "Pesanan saya"
+
+msgid "Your balance"
+msgstr "Saldo kamu"
+
+msgid "Application credits"
+msgstr "Kredit lamaran"
+
+msgid "Interview credits"
+msgstr "Kredit sesi wawancara"
+
 msgid "Start blank"
 msgstr "Mulai kosong"
 

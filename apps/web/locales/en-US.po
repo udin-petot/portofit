@@ -10834,6 +10834,21 @@ msgstr "Where applications stall, and how quickly companies reply."
 msgid "Interviews and follow-ups by date."
 msgstr "Interviews and follow-ups by date."
 
+msgid "Pay per document. No subscription, and credits do not expire."
+msgstr "Pay per document. No subscription, and credits do not expire."
+
+msgid "My orders"
+msgstr "My orders"
+
+msgid "Your balance"
+msgstr "Your balance"
+
+msgid "Application credits"
+msgstr "Application credits"
+
+msgid "Interview credits"
+msgstr "Interview credits"
+
 msgid "Start blank"
 msgstr "Start blank"
 

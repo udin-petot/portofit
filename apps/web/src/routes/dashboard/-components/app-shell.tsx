@@ -1,10 +1,10 @@
 import type { IconName } from "@reactive-resume/ui/components/icon";
-import { useState, type ReactNode } from "react";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { useHotkey } from "@tanstack/react-hotkeys";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useMatchRoute } from "@tanstack/react-router";
+import { useState, type ReactNode } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@reactive-resume/ui/components/avatar";
 import { BrandIcon } from "@reactive-resume/ui/components/brand-icon";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -18,9 +18,9 @@ import { MobileTabIndicator } from "@/components/layout/mobile-tab-indicator";
 import { useDialogStore } from "@/dialogs/store";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
 import { GuestBanner } from "@/features/auth/components/guest-banner";
-import { SupportLauncher } from "@/features/support/support-launcher";
 import { useCommandPaletteStore } from "@/features/command-palette/store";
 import { isEditableElementFocused } from "@/features/resume/builder/draft";
+import { SupportLauncher } from "@/features/support/support-launcher";
 import { UserDropdownMenu } from "@/features/user/dropdown-menu";
 import { authClient } from "@/libs/auth/client";
 import { orpc } from "@/libs/orpc/client";
@@ -34,7 +34,7 @@ type NavItem = {
 		| "/dashboard/trash"
 		| "/dashboard/akun"
 		| "/dashboard/settings"
-		| "/harga"
+		| "/dashboard/beli-kredit"
 		| "/admin";
 	icon: IconName;
 	label: string;
@@ -66,7 +66,7 @@ function useNavItems() {
 	// Career counts what's waiting for the user (unread notifications), so nothing shows at zero.
 	items.push({ to: "/dashboard/career", icon: "compass", label: t`Career`, ...(unread ? { count: unread } : {}) });
 	items.push({ to: "/dashboard/transaksi", icon: "list-numbers", label: t`Transaksi` });
-	items.push({ to: "/harga", icon: "tag", label: t`Buy credits` });
+	items.push({ to: "/dashboard/beli-kredit", icon: "tag", label: t`Buy credits` });
 	if (isAdmin) items.push({ to: "/admin", icon: "key", label: t`Admin` });
 	const settings: NavItem = { to: "/dashboard/akun", icon: "user-circle", label: t`Account` };
 	const trash: NavItem | null = counts?.trash
@@ -325,7 +325,14 @@ function MobileTabs() {
 		<>
 			{current && <MobileTabIndicator />}
 			<Icon name={icon} size={24} filled={current} />
-			<span className={cn("max-w-full truncate text-[10px] leading-tight", current ? "font-semibold text-ink" : "text-ink-2")}>{label}</span>
+			<span
+				className={cn(
+					"max-w-full truncate text-[10px] leading-tight",
+					current ? "font-semibold text-ink" : "text-ink-2",
+				)}
+			>
+				{label}
+			</span>
 		</>
 	);
 
@@ -393,7 +400,7 @@ function MobileTabs() {
 							<Trans>Akun</Trans>
 						</Link>
 						<Link
-							to="/harga"
+							to="/dashboard/beli-kredit"
 							onClick={() => setMoreOpen(false)}
 							className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm text-ink hover:bg-sunken"
 						>

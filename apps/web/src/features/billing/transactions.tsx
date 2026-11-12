@@ -170,7 +170,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 					<h1 className="font-sans text-2xl font-semibold text-ink">Transaksi</h1>
 					<p className="mt-1 hidden text-sm text-ink-2 sm:block">Semua pesanan dan kuitansimu.</p>
 				</div>
-				<Button variant="secondary" size="sm" className="max-sm:hidden" onClick={() => void navigate({ to: "/harga" })}>
+				<Button variant="secondary" size="sm" className="max-sm:hidden" onClick={() => void navigate({ to: "/dashboard/beli-kredit" })}>
 					<Icon name="tag" size={16} />
 					Beli kredit
 				</Button>
@@ -358,7 +358,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 								? "Batas waktu bayar lewat sebelum bukti masuk. Buat pesanan baru untuk melanjutkan."
 								: "Bukti tidak cocok dengan nominal pesanan ini.")}
 					</p>
-					<Button variant="secondary" size="sm" className="mt-2 w-fit" onClick={() => void navigate({ to: "/harga" })}>
+					<Button variant="secondary" size="sm" className="mt-2 w-fit" onClick={() => void navigate({ to: "/dashboard/beli-kredit" })}>
 						Buat pesanan baru
 					</Button>
 				</section>
@@ -386,7 +386,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 							Hapus pencarian
 						</Button>
 					) : counts.semua === 0 ? (
-						<Button variant="secondary" size="sm" className="mt-3" onClick={() => void navigate({ to: "/harga" })}>
+						<Button variant="secondary" size="sm" className="mt-3" onClick={() => void navigate({ to: "/dashboard/beli-kredit" })}>
 							Lihat paket
 						</Button>
 					) : null}

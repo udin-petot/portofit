@@ -539,7 +539,7 @@ function CopyForJob({ initialSourceId, initialJobId, onBack, onCreated }: CopyFo
 				toast.add({
 					type: "error",
 					description: t`Out of application credits. Buy 1 credit to copy your CV to this job.`,
-					actionProps: { children: t`Buy credits`, onClick: () => void navigate({ to: "/harga" }) },
+					actionProps: { children: t`Buy credits`, onClick: () => void navigate({ to: "/dashboard/beli-kredit" }) },
 				});
 				return;
 			}
