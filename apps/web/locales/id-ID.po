@@ -11878,6 +11878,9 @@ msgstr "Transaksi"
 msgid "Help"
 msgstr "Bantuan"
 
+msgid "Payment"
+msgstr "Pembayaran"
+
 msgid "Start blank"
 msgstr "Mulai kosong"
 

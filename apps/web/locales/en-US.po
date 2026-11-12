@@ -10927,6 +10927,9 @@ msgstr "Transactions"
 msgid "Help"
 msgstr "Help"
 
+msgid "Payment"
+msgstr "Payment"
+
 msgid "Start blank"
 msgstr "Start blank"
 

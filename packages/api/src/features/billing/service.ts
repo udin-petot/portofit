@@ -1,9 +1,16 @@
 import { ORPCError } from "@orpc/server";
 import { and, desc, eq, gte, ilike, lt, or, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
-import { adminAudit, billingCreditLedger, billingOrder, billingOrderEmail, billingPlan, user } from "@reactive-resume/db/schema";
-import { getStorageService, inferContentType } from "../storage/service";
+import {
+	adminAudit,
+	billingCreditLedger,
+	billingOrder,
+	billingOrderEmail,
+	billingPlan,
+	user,
+} from "@reactive-resume/db/schema";
 import { issueInvoice } from "../invoice/service";
+import { getStorageService, inferContentType } from "../storage/service";
 import { canAcceptProof, computeExpiry } from "./expiry";
 import { proofRejection } from "./proof";
 
@@ -209,14 +216,18 @@ export const billingService = {
 		paymentMethod?: PaymentMethod | undefined;
 	}) {
 		const [order] = await db.select().from(billingOrder).where(eq(billingOrder.id, input.orderId)).limit(1);
-		if (!order || order.userId !== input.userId) throw new ORPCError("NOT_FOUND", { message: "Order tidak ditemukan." });
+		if (!order || order.userId !== input.userId)
+			throw new ORPCError("NOT_FOUND", { message: "Order tidak ditemukan." });
 		if (order.status === "lunas") throw new ORPCError("BAD_REQUEST", { message: "Order ini sudah lunas." });
-		if (order.status === "menunggu_verifikasi") throw new ORPCError("BAD_REQUEST", { message: "Bukti sudah dikirim dan sedang menunggu verifikasi." });
+		if (order.status === "menunggu_verifikasi")
+			throw new ORPCError("BAD_REQUEST", { message: "Bukti sudah dikirim dan sedang menunggu verifikasi." });
 		if (order.status === "hangus") {
 			throw new ORPCError("BAD_REQUEST", { message: "Pesanan ini sudah hangus. Buat pesanan baru untuk melanjutkan." });
 		}
 		if (!canAcceptProof(order, new Date())) {
-			throw new ORPCError("BAD_REQUEST", { message: "Waktu pembayaran sudah habis. Buat pesanan baru untuk melanjutkan." });
+			throw new ORPCError("BAD_REQUEST", {
+				message: "Waktu pembayaran sudah habis. Buat pesanan baru untuk melanjutkan.",
+			});
 		}
 
 		// A transfer receipt is read on a phone by an admin, so only a photo passes: JPG or PNG, nothing else.
@@ -301,7 +312,8 @@ export const billingService = {
 		const maxPreviewBytes = 8 * 1024 * 1024;
 		if (file.size > maxPreviewBytes) {
 			throw new ORPCError("BAD_REQUEST", {
-				message: "Bukti lebih dari 8 MB dan tidak bisa dipratinjau di panel. Minta pembeli mengirim ulang lewat WhatsApp.",
+				message:
+					"Bukti lebih dari 8 MB dan tidak bisa dipratinjau di panel. Minta pembeli mengirim ulang lewat WhatsApp.",
 			});
 		}
 
@@ -321,7 +333,9 @@ export const billingService = {
 			if (!order) throw new ORPCError("NOT_FOUND", { message: "Order tidak ditemukan." });
 			if (order.status === "lunas") throw new ORPCError("BAD_REQUEST", { message: "Order ini sudah lunas." });
 			if (order.status !== "menunggu_verifikasi") {
-				throw new ORPCError("BAD_REQUEST", { message: `Order berstatus ${ORDER_STATUS_LABEL[order.status as OrderStatus]}. Bukti belum diunggah.` });
+				throw new ORPCError("BAD_REQUEST", {
+					message: `Order berstatus ${ORDER_STATUS_LABEL[order.status as OrderStatus]}. Bukti belum diunggah.`,
+				});
 			}
 
 			const kind = order.kind as PlanKind;
@@ -333,7 +347,8 @@ export const billingService = {
 				userId: order.userId,
 				kind,
 				delta: order.credits,
-				reason: `Pembayaran ${order.planName}`,
+				// A code, not a sentence: the ledger outlives the interface language it was written in.
+				reason: `purchase:${order.planCode}`,
 				orderId: order.id,
 				balanceAfter,
 				actorId: input.actorId,
@@ -366,11 +381,19 @@ export const billingService = {
 		});
 	},
 
-	async adminRejectOrder(input: { role?: string | null | undefined; actorId: string; orderId: string; reason: string }) {
+	async adminRejectOrder(input: {
+		role?: string | null | undefined;
+		actorId: string;
+		orderId: string;
+		reason: string;
+	}) {
 		assertAdmin(input.role);
 		const [order] = await db.select().from(billingOrder).where(eq(billingOrder.id, input.orderId)).limit(1);
 		if (!order) throw new ORPCError("NOT_FOUND", { message: "Order tidak ditemukan." });
-		if (order.status === "lunas") throw new ORPCError("BAD_REQUEST", { message: "Order yang sudah lunas tidak bisa ditolak; pakai koreksi kredit." });
+		if (order.status === "lunas")
+			throw new ORPCError("BAD_REQUEST", {
+				message: "Order yang sudah lunas tidak bisa ditolak; pakai koreksi kredit.",
+			});
 
 		const [updated] = await db
 			.update(billingOrder)
@@ -389,7 +412,11 @@ export const billingService = {
 		return toOrderDto(updated);
 	},
 
-	async adminListUsers(input: { role?: string | null | undefined; query?: string | undefined; limit?: number | undefined }) {
+	async adminListUsers(input: {
+		role?: string | null | undefined;
+		query?: string | undefined;
+		limit?: number | undefined;
+	}) {
 		assertAdmin(input.role);
 		const filter = input.query?.trim()
 			? or(ilike(user.email, `%${input.query.trim()}%`), ilike(user.name, `%${input.query.trim()}%`))
@@ -692,8 +719,22 @@ export const billingService = {
 
 	async adminExportCsv(role?: string | null | undefined) {
 		assertAdmin(role);
-		const orders = await db.select().from(billingOrder).where(eq(billingOrder.status, "lunas")).orderBy(billingOrder.verifiedAt);
-		const header = ["tanggal", "kode_order", "paket", "jenis", "nominal", "kode_unik", "total", "metode", "diverifikasi_oleh"];
+		const orders = await db
+			.select()
+			.from(billingOrder)
+			.where(eq(billingOrder.status, "lunas"))
+			.orderBy(billingOrder.verifiedAt);
+		const header = [
+			"tanggal",
+			"kode_order",
+			"paket",
+			"jenis",
+			"nominal",
+			"kode_unik",
+			"total",
+			"metode",
+			"diverifikasi_oleh",
+		];
 		const lines = [header.join(",")];
 		for (const order of orders) {
 			lines.push(

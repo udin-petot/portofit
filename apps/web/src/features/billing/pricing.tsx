@@ -38,7 +38,19 @@ const PLAN_COPY: Record<"en" | "id", Record<string, PlanCopy>> = {
 	},
 };
 
-/** Plans and the payment walkthrough, without the marketing hero: the dashboard page supplies its own header. */
+type PlanLike = { code: string; name: string; description: string | null; kind: string };
+
+/** A plan's reader-facing text, shared by the pricing cards and the credit ledger so both say the same name. */
+export function getPlanCopy(plan: PlanLike, english: boolean): PlanCopy {
+	const localized = PLAN_COPY[english ? "en" : "id"][plan.code];
+	if (localized) return localized;
+	return {
+		name: plan.name,
+		description: plan.description ?? "",
+		unit: plan.kind === "interview" ? t`interview session credit` : t`application credit`,
+	};
+}
+
 export function PricingBody({ signedIn }: PricingPageProps) {
 	const navigate = useNavigate();
 	const { i18n } = useLingui();
@@ -61,15 +73,7 @@ export function PricingBody({ signedIn }: PricingPageProps) {
 		await navigate({ to: "/dashboard/transaksi", search: { order: order.id } });
 	};
 
-	const copyFor = (plan: { code: string; name: string; description: string | null; kind: string }): PlanCopy => {
-		const localized = PLAN_COPY[english ? "en" : "id"][plan.code];
-		if (localized) return localized;
-		return {
-			name: plan.name,
-			description: plan.description ?? "",
-			unit: plan.kind === "interview" ? t`interview session credit` : t`application credit`,
-		};
-	};
+	const copyFor = (plan: PlanLike) => getPlanCopy(plan, english);
 
 	return (
 		<div className="grid gap-4">

@@ -7,6 +7,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { formatRupiah } from "@/features/billing/config";
+import { getPlanCopy } from "@/features/billing/pricing";
 import { useConfirm } from "@/hooks/use-confirm";
 import { authClient } from "@/libs/auth/client";
 import { orpc } from "@/libs/orpc/client";
@@ -71,6 +72,28 @@ function AccountPage() {
 	].filter((cell) => cell.value > 0);
 
 	// Prices come from the plans themselves: an admin changing a price must not leave this page quoting the old one.
+	// The ledger stores what happened, not prose: purchase entries hold a plan code, so they read in the
+	// language of whoever opens the page. Older rows still hold "Pembayaran <nama paket> in Indonesian.
+	const reasonText = (reason: string) => {
+		const english = i18n.locale.startsWith("en");
+		const findPlan = (code: string, name: string) =>
+			plans.data?.plans.find((plan) => plan.code === code || plan.name === name);
+
+		const coded = /^purchase:(.+)$/.exec(reason);
+		if (coded?.[1]) {
+			const plan = findPlan(coded[1], coded[1]);
+			return `${t`Payment`} · ${plan ? getPlanCopy(plan, english).name : coded[1]}`;
+		}
+
+		const legacy = /^Pembayaran (.+)$/.exec(reason);
+		if (legacy?.[1]) {
+			const plan = findPlan("", legacy[1]);
+			return `${t`Payment`} · ${plan ? getPlanCopy(plan, english).name : legacy[1]}`;
+		}
+
+		return reason;
+	};
+
 	const perCredit = (code: string) => {
 		const plan = plans.data?.plans.find((item) => item.code === code);
 		if (!plan || plan.credits < 1) return null;
@@ -228,7 +251,7 @@ function AccountPage() {
 								className="flex items-center justify-between gap-3 border-b border-line py-2.5 last:border-0"
 							>
 								<span className="min-w-0">
-									<span className="block truncate text-sm text-ink">{entry.reason}</span>
+									<span className="block truncate text-sm text-ink">{reasonText(entry.reason)}</span>
 									<span className="text-xs text-ink-3">
 										{new Date(entry.createdAt).toLocaleDateString(i18n.locale)}
 									</span>
