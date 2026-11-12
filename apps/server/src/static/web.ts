@@ -178,7 +178,7 @@ function homepageStructuredData(origin: string): StructuredData {
 					"ATS readability checker",
 					"Public or password-protected share links",
 					"Cover letters and a job application tracker",
-					"Optional AI assistant with your own API key",
+					"AI assistant for writing, job matching, and interview practice",
 					"Self-hosting with Docker",
 				],
 			},
