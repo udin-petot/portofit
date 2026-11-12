@@ -11710,6 +11710,45 @@ msgstr "Mulai dari contoh lengkap"
 msgid "Every section already has content. Replace it with your own."
 msgstr "Semua bagian sudah ada isinya. Tinggal diganti dengan isimu sendiri."
 
+msgid "Write a follow-up"
+msgstr "Buat pesan susulan"
+
+msgid "Interview question bank"
+msgstr "Bank soal wawancara"
+
+msgid "{BANK_COUNT} questions"
+msgstr "{BANK_COUNT} soal"
+
+msgid "Independent practice with rubrics. AI feedback is available on the application page."
+msgstr "Latihan mandiri dengan rubrik. Umpan balik AI tersedia di halaman lamaran."
+
+msgid "Open the question bank"
+msgstr "Buka bank soal"
+
+msgid "IT interview question bank"
+msgstr "Bank soal wawancara IT"
+
+msgid "{BANK_COUNT} technical and HR interview questions with rubrics. Open one to see what is scored and the follow-up questions."
+msgstr "{BANK_COUNT} pertanyaan wawancara teknis dan HR, lengkap dengan rubrik. Klik satu soal untuk melihat apa yang dinilai dan pertanyaan lanjutannya."
+
+msgid "Practice from an application question or your own story."
+msgstr "Latihan dari pertanyaan lamaran atau ceritamu."
+
+msgid "Application questions"
+msgstr "Soal lamaran"
+
+msgid "Question bank ({BANK_COUNT})"
+msgstr "Bank soal ({BANK_COUNT})"
+
+msgid "Question bank"
+msgstr "Bank soal"
+
+msgid "Rubrics and follow-up questions appear under a question once you pick one."
+msgstr "Rubrik dan pertanyaan lanjutan muncul di bawah soal setelah kamu memilih."
+
+msgid "{BANK_COUNT} questions asked in real technical and HR interviews, with what is scored on each. Pick one to start practising."
+msgstr "{BANK_COUNT} pertanyaan yang benar-benar ditanyakan di wawancara teknis dan HR, lengkap dengan apa yang dinilai. Pilih satu untuk mulai latihan."
+
 msgid "Start blank"
 msgstr "Mulai kosong"
 

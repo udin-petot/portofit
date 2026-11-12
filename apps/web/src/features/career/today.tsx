@@ -16,9 +16,9 @@ import { Switch } from "@reactive-resume/ui/components/switch";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { getInitials } from "@reactive-resume/utils/string";
 import { cn } from "@reactive-resume/utils/style";
-import { BANK_COUNT } from "./practice-bank";
 import { BankBrowseDialog } from "./bank-browse";
 import { CareerLoadError } from "./load-state";
+import { BANK_COUNT } from "./practice-bank";
 import { rollForward, ScheduleSheet, scheduleKind } from "./schedule-sheet";
 import { CollapseRow, Eyebrow, flash, InfoChip, Swap, useCareerTime, useNow, withUndo } from "./shared";
 import {
@@ -99,15 +99,19 @@ function PracticeBankCard({ className }: { className?: string }) {
 	return (
 		<section className={cn("rounded-xl border border-line bg-surface p-4", className)}>
 			<div className="flex items-baseline justify-between gap-3">
-				<h2 className="text-sm font-semibold">Bank soal wawancara</h2>
-				<span className="font-mono text-xs font-medium tracking-[0.04em] text-ink-3 uppercase">{BANK_COUNT} soal</span>
+				<h2 className="text-sm font-semibold">
+					<Trans>Interview question bank</Trans>
+				</h2>
+				<span className="font-mono text-xs font-medium tracking-[0.04em] text-ink-3 uppercase">
+					<Trans>{BANK_COUNT} questions</Trans>
+				</span>
 			</div>
 			<p className="mt-1 text-[13px] leading-5 text-ink-2">
-				Latihan mandiri dengan rubrik. Umpan balik AI tersedia di halaman lamaran.
+				<Trans>Independent practice with rubrics. AI feedback is available on the application page.</Trans>
 			</p>
 			<Button size="sm" variant="secondary" className="mt-3" onClick={() => setOpen(true)}>
 				<Icon name="books" size={16} />
-				Buka bank soal
+				<Trans>Open the question bank</Trans>
 			</Button>
 			<BankBrowseDialog open={open} onOpenChange={setOpen} />
 		</section>

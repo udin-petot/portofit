@@ -1,6 +1,7 @@
 import type { BankCategory } from "./practice-bank";
-import { useState } from "react";
+import { Trans } from "@lingui/react/macro";
 import { Link } from "@tanstack/react-router";
+import { useState } from "react";
 import {
 	Dialog,
 	DialogContent,
@@ -28,10 +29,14 @@ export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpen
 		<Dialog open={open} onOpenChange={onOpenChange}>
 			<DialogContent className="max-w-[680px] gap-0 p-0">
 				<DialogHeader className="gap-1.5 border-b border-line p-5">
-					<DialogTitle className="font-display text-xl">Bank soal wawancara IT</DialogTitle>
+					<DialogTitle className="font-display text-xl">
+						<Trans>IT interview question bank</Trans>
+					</DialogTitle>
 					<DialogDescription>
-						{BANK_COUNT} pertanyaan wawancara teknis dan HR, lengkap dengan rubrik. Klik satu soal untuk melihat apa yang
-						dinilai dan pertanyaan lanjutannya.
+						<Trans>
+							{BANK_COUNT} technical and HR interview questions with rubrics. Open one to see what is scored and the
+							follow-up questions.
+						</Trans>
 					</DialogDescription>
 				</DialogHeader>
 
@@ -69,7 +74,9 @@ export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpen
 									className="grid w-full gap-1.5 rounded-lg px-3 py-2.5 text-start transition-colors hover:bg-sunken"
 								>
 									<span className="flex flex-wrap items-center gap-1.5 text-[11px] text-ink-3">
-										<span className="rounded-full bg-sunken px-2 py-0.5 font-medium text-ink-2">{question.category}</span>
+										<span className="rounded-full bg-sunken px-2 py-0.5 font-medium text-ink-2">
+											{question.category}
+										</span>
 										<span
 											className={cn(
 												"rounded-full px-2 py-0.5 font-medium",
@@ -90,7 +97,9 @@ export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpen
 								{isOpen && (
 									<div className="mx-2 mb-1 grid gap-3 rounded-lg border border-line bg-sunken p-3.5">
 										<div>
-											<p className="font-mono text-[10px] font-medium tracking-[0.06em] text-ink-3 uppercase">Yang dinilai</p>
+											<p className="font-mono text-[10px] font-medium tracking-[0.06em] text-ink-3 uppercase">
+												Yang dinilai
+											</p>
 											<ul className="mt-1.5 grid gap-1.5">
 												{question.rubric.map((item) => (
 													<li key={item} className="flex gap-2 text-[13px] leading-[19px] text-ink-2">

@@ -115,69 +115,75 @@ export function PractiseTab({ application, version, interview, speak, story, now
 		<div className="grid gap-4">
 			<div className="flex flex-wrap items-center justify-between gap-2">
 				<p className="text-[13px] leading-5 text-ink-3">
-					{bank ? `Bank soal · ${bank.category} · ${bank.level}` : "Latihan dari pertanyaan lamaran atau ceritamu."}
+					{bank ? (
+						<>
+							<Trans>Question bank</Trans> · {bank.category} · {bank.level}
+						</>
+					) : (
+						<Trans>Practice from an application question or your own story.</Trans>
+					)}
 				</p>
 				<div className="flex items-center gap-2">
 					{bank ? (
 						<Button variant="secondary" size="sm" onClick={() => setBank(null)}>
-							Soal lamaran
+							<Trans>Application questions</Trans>
 						</Button>
 					) : null}
 					<Button variant="secondary" size="sm" onClick={() => setBankOpen(true)}>
 						<Icon name="books" size={16} />
-						Bank soal ({BANK_COUNT})
+						<Trans>Question bank ({BANK_COUNT})</Trans>
 					</Button>
 				</div>
 			</div>
 			<div className="grid items-start gap-5 @3xl:grid-cols-[minmax(0,1fr)_280px]">
-			{viewing ? (
-				<SavedAttempt item={viewing} />
-			) : saved.isPending ? (
-				<div className="grid gap-4">
-					<Skeleton className="h-40 rounded-xl" />
-					<Skeleton className="h-60 rounded-xl" />
-				</div>
-			) : (
-				<Session
-					key={`${application.id}:${interview?.id ?? "none"}:${story ?? "general"}:${bank?.id ?? "free"}`}
-					applicationId={application.id}
-					interviewId={interview?.id ?? null}
-					questions={questions}
-					storyId={selectedStory?.id}
-					storyTitle={selectedStory?.data.title}
-					voice={voice}
-					initialMode={speak ? "spoken" : "typed"}
-					bank={bank ?? undefined}
-				/>
-			)}
-			<aside className="grid gap-3 rounded-xl border border-line bg-surface p-4">
-				<h2 className="border-b border-line pb-3 text-sm font-semibold">
-					<Trans>Your attempts</Trans>
-				</h2>
-				{attempts.length === 0 ? (
-					<p className="text-[13px] leading-[19px] text-ink-3">
-						<Trans>Each answer you get feedback on is kept here, newest first.</Trans>
-					</p>
+				{viewing ? (
+					<SavedAttempt item={viewing} />
+				) : saved.isPending ? (
+					<div className="grid gap-4">
+						<Skeleton className="h-40 rounded-xl" />
+						<Skeleton className="h-60 rounded-xl" />
+					</div>
 				) : (
-					<ul className="-mx-2 grid gap-0.5">
-						{attempts.map((item) => (
-							<li key={item.id}>
-								<AttemptRow
-									item={item}
-									now={now}
-									current={item.id === viewing?.id}
-									onOpen={() => go("practise", { version: item.id })}
-								/>
-							</li>
-						))}
-					</ul>
+					<Session
+						key={`${application.id}:${interview?.id ?? "none"}:${story ?? "general"}:${bank?.id ?? "free"}`}
+						applicationId={application.id}
+						interviewId={interview?.id ?? null}
+						questions={questions}
+						storyId={selectedStory?.id}
+						storyTitle={selectedStory?.data.title}
+						voice={voice}
+						initialMode={speak ? "spoken" : "typed"}
+						bank={bank ?? undefined}
+					/>
 				)}
-				<p className="text-xs leading-[17px] text-ink-3">
-					<Trans>
-						Compare attempts to see what improved. Practice questions are simulated, not from {application.company}.
-					</Trans>
-				</p>
-			</aside>
+				<aside className="grid gap-3 rounded-xl border border-line bg-surface p-4">
+					<h2 className="border-b border-line pb-3 text-sm font-semibold">
+						<Trans>Your attempts</Trans>
+					</h2>
+					{attempts.length === 0 ? (
+						<p className="text-[13px] leading-[19px] text-ink-3">
+							<Trans>Each answer you get feedback on is kept here, newest first.</Trans>
+						</p>
+					) : (
+						<ul className="-mx-2 grid gap-0.5">
+							{attempts.map((item) => (
+								<li key={item.id}>
+									<AttemptRow
+										item={item}
+										now={now}
+										current={item.id === viewing?.id}
+										onOpen={() => go("practise", { version: item.id })}
+									/>
+								</li>
+							))}
+						</ul>
+					)}
+					<p className="text-xs leading-[17px] text-ink-3">
+						<Trans>
+							Compare attempts to see what improved. Practice questions are simulated, not from {application.company}.
+						</Trans>
+					</p>
+				</aside>
 			</div>
 			<BankQuestionDialog
 				open={bankOpen}
@@ -250,7 +256,16 @@ type SessionProps = {
 	bank?: BankQuestion | undefined;
 };
 
-function Session({ applicationId, interviewId, questions, voice, initialMode, storyId, storyTitle, bank }: SessionProps) {
+function Session({
+	applicationId,
+	interviewId,
+	questions,
+	voice,
+	initialMode,
+	storyId,
+	storyTitle,
+	bank,
+}: SessionProps) {
 	const id = useId();
 	const generate = useGenerate(applicationId);
 	const connection = useDefaultProvider();

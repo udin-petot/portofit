@@ -24,9 +24,9 @@ import { ApplicationFormSheet } from "@/features/applications/components/applica
 import { ApplicationBoard } from "@/features/applications/components/board";
 import { ApplicationCalendar } from "@/features/applications/components/calendar-view";
 import { ExportApplicationsSheet } from "@/features/applications/components/export-applications-sheet";
+import { FollowUpDialog } from "@/features/applications/components/follow-up-dialog";
 import { ImportApplicationsSheet } from "@/features/applications/components/import-applications-sheet";
 import { ApplicationInsights, InsightsSkeleton } from "@/features/applications/components/insights-view";
-import { FollowUpDialog } from "@/features/applications/components/follow-up-dialog";
 import { ApplicationList } from "@/features/applications/components/list-view";
 import { getNextStep } from "@/features/applications/next-step";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
@@ -192,7 +192,7 @@ function RouteComponent() {
 							</TabsList>
 						</Tabs>
 
-						<div className="relative max-w-72 min-w-40 flex-1">
+						<div className="relative w-full min-w-40 flex-1 sm:max-w-72">
 							<Icon
 								name="magnifying-glass"
 								size={18}
@@ -356,15 +356,13 @@ function FollowUpNudge({ applications }: { applications: Application[] }) {
 				</span>
 				<Button size="sm" variant="secondary" onClick={() => setDrafting(waiting.application)}>
 					<Icon name="sparkle" size={16} />
-					Buat pesan susulan
+					<Trans>Write a follow-up</Trans>
 				</Button>
 				<Button size="icon-sm" variant="ghost" aria-label={t`Dismiss`} onClick={dismiss} className="text-warn-text">
 					<Icon name="x" size={18} />
 				</Button>
 			</div>
-			{drafting && (
-				<FollowUpDialog application={drafting} onOpenChange={(open) => !open && setDrafting(null)} />
-			)}
+			{drafting && <FollowUpDialog application={drafting} onOpenChange={(open) => !open && setDrafting(null)} />}
 		</>
 	);
 }

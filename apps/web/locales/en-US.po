@@ -10759,6 +10759,45 @@ msgstr "This document is still empty. Fill it in before downloading."
 msgid "Sample resume"
 msgstr "Sample resume"
 
+msgid "Write a follow-up"
+msgstr "Write a follow-up"
+
+msgid "Interview question bank"
+msgstr "Interview question bank"
+
+msgid "{BANK_COUNT} questions"
+msgstr "{BANK_COUNT} questions"
+
+msgid "Independent practice with rubrics. AI feedback is available on the application page."
+msgstr "Independent practice with rubrics. AI feedback is available on the application page."
+
+msgid "Open the question bank"
+msgstr "Open the question bank"
+
+msgid "IT interview question bank"
+msgstr "IT interview question bank"
+
+msgid "{BANK_COUNT} technical and HR interview questions with rubrics. Open one to see what is scored and the follow-up questions."
+msgstr "{BANK_COUNT} technical and HR interview questions with rubrics. Open one to see what is scored and the follow-up questions."
+
+msgid "Practice from an application question or your own story."
+msgstr "Practice from an application question or your own story."
+
+msgid "Application questions"
+msgstr "Application questions"
+
+msgid "Question bank ({BANK_COUNT})"
+msgstr "Question bank ({BANK_COUNT})"
+
+msgid "Question bank"
+msgstr "Question bank"
+
+msgid "Rubrics and follow-up questions appear under a question once you pick one."
+msgstr "Rubrics and follow-up questions appear under a question once you pick one."
+
+msgid "{BANK_COUNT} questions asked in real technical and HR interviews, with what is scored on each. Pick one to start practising."
+msgstr "{BANK_COUNT} questions asked in real technical and HR interviews, with what is scored on each. Pick one to start practising."
+
 msgid "Start blank"
 msgstr "Start blank"
 

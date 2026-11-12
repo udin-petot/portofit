@@ -1,4 +1,5 @@
 import type { BankCategory, BankQuestion } from "../practice-bank";
+import { Trans } from "@lingui/react/macro";
 import { useState } from "react";
 import {
 	Dialog,
@@ -34,10 +35,14 @@ export function BankQuestionDialog({
 		<Dialog open={open} onOpenChange={onOpenChange}>
 			<DialogContent className="max-w-[640px] gap-0 p-0">
 				<DialogHeader className="gap-1.5 border-b border-line p-5">
-					<DialogTitle className="font-display text-xl">Bank soal wawancara IT</DialogTitle>
+					<DialogTitle className="font-display text-xl">
+						<Trans>IT interview question bank</Trans>
+					</DialogTitle>
 					<DialogDescription>
-						{BANK_COUNT} pertanyaan yang benar-benar ditanyakan di wawancara teknis dan HR, lengkap dengan apa yang dinilai.
-						Pilih satu untuk mulai latihan.
+						<Trans>
+							{BANK_COUNT} questions asked in real technical and HR interviews, with what is scored on each. Pick one to
+							start practising.
+						</Trans>
 					</DialogDescription>
 				</DialogHeader>
 
@@ -91,7 +96,7 @@ export function BankQuestionDialog({
 
 				<div className="flex items-center gap-2 border-t border-line px-5 py-3 text-xs text-ink-3">
 					<Icon name="info" size={15} />
-					Rubrik dan pertanyaan lanjutan muncul di bawah soal setelah kamu memilih.
+					<Trans>Rubrics and follow-up questions appear under a question once you pick one.</Trans>
 				</div>
 			</DialogContent>
 		</Dialog>
