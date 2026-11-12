@@ -10849,6 +10849,9 @@ msgstr "Application credits"
 msgid "Interview credits"
 msgstr "Interview credits"
 
+msgid "Go to my documents"
+msgstr "Go to my documents"
+
 msgid "Start blank"
 msgstr "Start blank"
 

@@ -11800,6 +11800,9 @@ msgstr "Kredit lamaran"
 msgid "Interview credits"
 msgstr "Kredit sesi wawancara"
 
+msgid "Go to my documents"
+msgstr "Buka dokumen saya"
+
 msgid "Start blank"
 msgstr "Mulai kosong"
 

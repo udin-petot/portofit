@@ -94,7 +94,7 @@ export function PricingBody({ signedIn }: PricingPageProps) {
 							className="w-full"
 							onClick={() => void navigate({ to: signedIn ? "/dashboard" : "/auth/register" })}
 						>
-							{signedIn ? t`Open dashboard` : t`Start free`}
+							{signedIn ? t`Go to my documents` : t`Start free`}
 						</Button>
 					</div>
 				</section>
