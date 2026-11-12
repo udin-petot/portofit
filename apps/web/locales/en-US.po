@@ -14009,3 +14009,83 @@ msgstr "Show unapplied"
 #: src/features/applications/components/list-view.tsx
 msgid "Only jobs you have applied to are shown."
 msgstr "Only jobs you have applied to are shown."
+
+#: src/features/career/workspace/shell.tsx
+msgid "The job posting is missing"
+msgstr "The job posting is missing"
+
+#: src/features/career/workspace/shell.tsx
+msgid "Matching and practice need the posting you are applying to."
+msgstr "Matching and practice need the posting you are applying to."
+
+#: src/features/career/workspace/shell.tsx
+msgid "Paste the posting"
+msgstr "Paste the posting"
+
+#: src/features/career/workspace/shell.tsx
+msgid "No files for this job yet"
+msgstr "No files for this job yet"
+
+#: src/features/career/workspace/shell.tsx
+msgid "A tailored CV and a cover letter are one click on the Prepare tab."
+msgstr "A tailored CV and a cover letter are one click on the Prepare tab."
+
+#: src/features/career/workspace/shell.tsx
+msgid "Prepare files"
+msgstr "Prepare files"
+
+#: src/features/career/workspace/shell.tsx
+msgid "No interview date yet"
+msgstr "No interview date yet"
+
+#: src/features/career/workspace/shell.tsx
+msgid "With a date, practice has something to aim at."
+msgstr "With a date, practice has something to aim at."
+
+#: src/features/career/workspace/shell.tsx
+msgid "The interview is coming up"
+msgstr "The interview is coming up"
+
+#: src/features/career/workspace/shell.tsx
+msgid "Rehearse the questions most likely to come up."
+msgstr "Rehearse the questions most likely to come up."
+
+#: src/features/career/workspace/shell.tsx
+msgid "The interview is over"
+msgstr "The interview is over"
+
+#: src/features/career/workspace/shell.tsx
+msgid "Write down what they asked while it is still fresh."
+msgstr "Write down what they asked while it is still fresh."
+
+#: src/features/documents/start-guide.tsx
+msgid "Getting started"
+msgstr "Getting started"
+
+#: src/features/documents/start-guide.tsx
+msgid "Your first CV is done. Two steps left."
+msgstr "Your first CV is done. Two steps left."
+
+#: src/features/documents/start-guide.tsx
+msgid "PortoFit tracks each job from the posting to the interview."
+msgstr "PortoFit tracks each job from the posting to the interview."
+
+#: src/features/documents/start-guide.tsx
+msgid "Log an application"
+msgstr "Log an application"
+
+#: src/features/documents/start-guide.tsx
+msgid "You can close this and come back later."
+msgstr "You can close this and come back later."
+
+#: src/features/documents/start-guide.tsx
+msgid "First CV"
+msgstr "First CV"
+
+#: src/features/documents/start-guide.tsx
+msgid "Log an application and paste the posting"
+msgstr "Log an application and paste the posting"
+
+#: src/features/documents/start-guide.tsx
+msgid "Prepare files, then practise the interview"
+msgstr "Prepare files, then practise the interview"

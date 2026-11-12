@@ -25,6 +25,7 @@ import { cn } from "@reactive-resume/utils/style";
 import { LinkApplicationDialog, TagsDialog, useBatchActions } from "./document-actions";
 import { DocumentCard, DocumentRow } from "./document-card";
 import { collectTags, filterDocuments } from "./filter";
+import { StartGuide } from "@/features/documents/start-guide";
 import { LibraryError } from "./library-error";
 import { useStartDocument } from "./use-start-document";
 import { useDialogStore } from "@/dialogs/store";
@@ -135,6 +136,7 @@ export function DocumentsPage({ search, onSearchChange }: DocumentsPageProps) {
 				<FirstRun onChooseFile={() => openDialog("document.new", undefined)} />
 			) : (
 				<>
+					<StartGuide />
 					<div className="flex flex-wrap items-center gap-x-4 gap-y-3">
 						<Tabs value={search.type} onValueChange={(type) => onSearchChange({ type: type as DocumentTypeFilter })}>
 							<TabsList variant="line" aria-label={t`Document type`}>

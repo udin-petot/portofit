@@ -13,7 +13,7 @@ import { m } from "motion/react";
 import { useState } from "react";
 import { WORKSPACE_TABS } from "@reactive-resume/schema/career";
 import { Button, buttonVariants } from "@reactive-resume/ui/components/button";
-import { Icon } from "@reactive-resume/ui/components/icon";
+import { Icon, type IconName } from "@reactive-resume/ui/components/icon";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@reactive-resume/ui/components/tabs";
 import { useBreakpoint } from "@reactive-resume/ui/hooks/use-breakpoint";
@@ -192,6 +192,13 @@ export function Workspace({ applicationId, tab: requested, search }: WorkspacePr
 	return (
 		<div className="flex min-h-svh flex-col">
 			<WorkspaceHeader application={application} onAskCoach={() => openSearch({ coach: true })} />
+			<NextStepBar
+				application={application}
+				interview={interview}
+				now={now}
+				go={go}
+				onAddInterview={() => openSearch({ edit: "interview" })}
+			/>
 			<div
 				className={cn(
 					"grid min-h-0 flex-1",
@@ -390,6 +397,110 @@ const stageDot = {
 } as const;
 
 type WorkspaceHeaderProps = { application: Application; onAskCoach: () => void };
+
+type NextStepBarProps = {
+	application: Application;
+	interview: InterviewTimelineEntry | undefined;
+	now: Date;
+	go: (tab: WorkspaceTab) => void;
+	onAddInterview: () => void;
+};
+
+/**
+ * Satu aksi yang membawa pengguna maju, dipilih dari keadaan lamaran.
+ * Tab lain tetap ada, tapi pengguna baru tidak perlu menebak harus mulai dari mana.
+ */
+function NextStepBar({ application, interview, now, go, onAddInterview }: NextStepBarProps) {
+	if (application.status === "closed") return null;
+
+	if (!application.jobDescription) {
+		return (
+			<Bar
+				icon="text-align-left"
+				title={t`The job posting is missing`}
+				why={t`Matching and practice need the posting you are applying to.`}
+				action={t`Paste the posting`}
+				run={() => go("apply")}
+			/>
+		);
+	}
+
+	if (!application.resumeId) {
+		return (
+			<Bar
+				icon="file-text"
+				title={t`No files for this job yet`}
+				why={t`A tailored CV and a cover letter are one click on the Prepare tab.`}
+				action={t`Prepare files`}
+				run={() => go("prepare")}
+			/>
+		);
+	}
+
+	if (!interview) {
+		return (
+			<Bar
+				icon="calendar-plus"
+				title={t`No interview date yet`}
+				why={t`With a date, practice has something to aim at.`}
+				action={t`Add an interview`}
+				run={onAddInterview}
+			/>
+		);
+	}
+
+	if (new Date(interview.at) > now) {
+		return (
+			<Bar
+				icon="speaker-high"
+				title={t`The interview is coming up`}
+				why={t`Rehearse the questions most likely to come up.`}
+				action={t`Practise`}
+				run={() => go("practise")}
+			/>
+		);
+	}
+
+	return (
+		<Bar
+			icon="note-pencil"
+			title={t`The interview is over`}
+			why={t`Write down what they asked while it is still fresh.`}
+			action={t`Debrief`}
+			run={() => go("debrief")}
+		/>
+	);
+}
+
+function Bar({
+	icon,
+	title,
+	why,
+	action,
+	run,
+}: {
+	icon: IconName;
+	title: string;
+	why: string;
+	action: string;
+	run: () => void;
+}) {
+	return (
+		<section
+			aria-label={t`Next step`}
+			className="flex flex-wrap items-center gap-x-3 gap-y-2 border-b border-line bg-surface px-4 py-2.5 md:px-6"
+		>
+			<Icon name={icon} size={18} className="shrink-0 text-ink-2" />
+			<div className="min-w-0 flex-1">
+				<p className="truncate text-[13px] font-semibold">{title}</p>
+				<p className="text-xs text-ink-3 max-sm:hidden">{why}</p>
+			</div>
+			<Button size="sm" onClick={run}>
+				{action}
+			</Button>
+		</section>
+	);
+}
 
 function WorkspaceHeader({ application, onAskCoach }: WorkspaceHeaderProps) {
 	const { date } = useCareerTime();
