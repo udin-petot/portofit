@@ -120,9 +120,10 @@ function RouteComponent() {
 				<div className="flex items-center gap-2">
 					<DropdownMenu>
 						<DropdownMenuTrigger
-							render={<Button size="icon" variant="secondary" aria-label={t`Import or export CSV`} />}
+							render={<Button variant="secondary" aria-label={t`Import or export CSV`} />}
 						>
-							<Icon name="arrows-down-up" />
+							<Icon name="file-text" />
+							<span className="max-sm:hidden">CSV</span>
 						</DropdownMenuTrigger>
 						<DropdownMenuContent align="end">
 							<DropdownMenuItem onClick={() => setImporting(true)}>

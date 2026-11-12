@@ -4708,7 +4708,7 @@ msgstr "Setiap 3 hari"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Every application in one table. Sort by what needs attention."
-msgstr "Semua lamaran dalam satu tabel. Urutkan menurut yang butuh perhatian."
+msgstr "Semua lamaran, dikelompokkan per tahap. Yang paling perlu ditindak ada di atas."
 
 #: src/features/quota/page.tsx
 msgid "Every ATS scan, issue list and basic job match stays free with no limit. Only actions that call a model use this allowance."
@@ -5856,7 +5856,7 @@ msgstr "sebaris"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Insights"
-msgstr "Insight"
+msgstr "Ringkasan"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Integrations"
@@ -6685,7 +6685,7 @@ msgstr "Lisbon, Portugal"
 #: src/features/documents/documents-page.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "List"
-msgstr "List"
+msgstr "Daftar"
 
 #: src/features/ats-checker/messages.ts
 msgid "List the tools and technologies you use. Recruiters search skills more than any other field."
@@ -7725,7 +7725,7 @@ msgstr "Tidak diterapkan"
 
 #: src/features/applications/next-step.ts
 msgid "Not applied yet"
-msgstr "Belum melamar"
+msgstr "Lamar sekarang"
 
 #: src/features/settings/account/security.tsx
 msgid "Not connected"
@@ -10064,7 +10064,7 @@ msgstr "Simpan wawancara"
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Save job"
-msgstr "Simpan pekerjaan"
+msgstr "Catat lamaran"
 
 #: src/features/career/today.tsx
 msgid "Save one search and it runs every morning. Nothing is applied for until you pick a role."
@@ -10313,7 +10313,7 @@ msgstr "Cari pesanan"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Search role, company or contact"
-msgstr "Cari peran, perusahaan atau kontak"
+msgstr "Cari posisi, perusahaan, atau kontak"
 
 #: src/features/career/coach.tsx
 msgid "Search terms go to your web search service."
@@ -10672,7 +10672,7 @@ msgstr "Tampilkan semua jenis"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Show closed"
-msgstr "Tampilkan yang ditutup"
+msgstr "Tampilkan yang sudah ditutup"
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Show heading"
