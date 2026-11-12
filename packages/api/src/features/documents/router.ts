@@ -3,7 +3,6 @@ import { protectedProcedure } from "../../context";
 import { documentsDto } from "../../dto/documents";
 import { resumeMutationRateLimit } from "../../middleware/rate-limit";
 import { paginate } from "../../pagination";
-import { billingService } from "../billing/service";
 import { documentsService } from "./service";
 
 const route = (
@@ -182,16 +181,8 @@ export const documentsRouter = {
 		.input(documentsDto.copyForJob.input)
 		.use(resumeMutationRateLimit)
 		.output(documentsDto.copyForJob.output)
-		.handler(async ({ context, input }) => {
-			// Aksi berbayar hanya bila CV benar-benar diikat ke satu lowongan; salinan biasa gratis.
-			if (input.applicationId) {
-				await billingService.consumeCredit({
-					userId: context.user.id,
-					kind: "application",
-					reason: "CV disalin untuk satu lowongan (tailor)",
-				});
-			}
-
+		.handler(({ context, input }) => {
+			// Menyalin dokumen tidak pernah berbayar. Yang berbayar adalah pekerjaan AI pada satu lamaran.
 			return documentsService.copyForJob({ ...input, userId: context.user.id });
 		}),
 };

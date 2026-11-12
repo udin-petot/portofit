@@ -18,7 +18,7 @@ import {
 	savedItemSchema,
 } from "../../dto/career";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
-import { billingService } from "../billing/service";
+import { quotaService } from "../quota/service";
 import { generateCareer } from "./generate";
 import { careerJobs } from "./jobs";
 import { careerService } from "./service";
@@ -280,16 +280,25 @@ export const careerRouter = {
 			}),
 		)
 		.handler(async ({ context, input, signal }) => {
-			// Sesi latihan wawancara berbayar: satu kredit wawancara per briefing.
-			if (input.task.task === "briefing") {
-				await billingService.consumeCredit({
+			// Job match mendalam memakai jatah AI. Rencana persiapan tidak lagi menagih kredit.
+			const charged = input.task.task === "fit";
+			if (charged) await quotaService.consume({ userId: context.user.id, feature: "job_match" });
+
+			// Satu kredit wawancara per wawancara, bukan per jawaban: sesi pertama yang membayar, latihan ulang gratis.
+			if (input.task.task === "practice" && input.task.interviewId) {
+				await quotaService.claimInterviewSession({
 					userId: context.user.id,
-					kind: "interview",
-					reason: "Sesi latihan wawancara — briefing",
+					interviewId: input.task.interviewId,
+					reason: "Sesi latihan wawancara",
 				});
 			}
 
-			return generateCareer({ userId: context.user.id, ...input, ...(signal ? { signal } : {}) });
+			try {
+				return await generateCareer({ userId: context.user.id, ...input, ...(signal ? { signal } : {}) });
+			} catch (error) {
+				if (charged) await quotaService.release({ userId: context.user.id, feature: "job_match" }).catch(() => undefined);
+				throw error;
+			}
 		}),
 	applyReply: protectedProcedure
 		.route({

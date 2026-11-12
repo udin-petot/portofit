@@ -11,6 +11,7 @@ import { financeRouter } from "../features/finance/router";
 import { flagsRouter } from "../features/flags/router";
 import { githubRouter } from "../features/github/router";
 import { invoiceRouter } from "../features/invoice/router";
+import { quotaRouter } from "../features/quota/router";
 import { resumeRouter } from "../features/resume/router";
 import { statisticsRouter } from "../features/statistics/router";
 import { storageRouter } from "../features/storage/router";
@@ -31,6 +32,7 @@ export default {
 	flags: flagsRouter,
 	github: githubRouter,
 	invoice: invoiceRouter,
+	quota: quotaRouter,
 	resume: resumeRouter,
 	statistics: statisticsRouter,
 	storage: storageRouter,

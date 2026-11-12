@@ -6,6 +6,7 @@ import { uiMessageSchema } from "../../dto/agent";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
 import { mapAgentEnvironmentError } from "./routing";
 import { agentService } from "./service";
+import { quotaService } from "../quota/service";
 
 export const messagesRouter = {
 	send: protectedProcedure
@@ -51,15 +52,17 @@ export const messagesRouter = {
 		.use(aiRequestRateLimit)
 		.use(mapAgentEnvironmentError)
 		.output(eventIterator(z.string()))
-		.handler(({ context, input }) =>
-			agentService.messages.send({
+		.handler(async ({ context, input }) => {
+			// Pendamping memakai satu jatah per pesan; percakapan terbuka tanpa batas akan menguras biaya kelompok.
+			await quotaService.consume({ userId: context.user.id, feature: "coach" });
+			return agentService.messages.send({
 				userId: context.user.id,
 				threadId: input.threadId,
 				message: input.message,
 				...(input.attachmentIds ? { attachmentIds: input.attachmentIds } : {}),
 				...(input.context ? { context: input.context } : {}),
-			}),
-		),
+			});
+		}),
 
 	stop: protectedProcedure
 		.route({

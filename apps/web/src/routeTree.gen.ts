@@ -44,6 +44,7 @@ import { Route as DashboardBantuanRouteImport } from "./routes/dashboard/bantuan
 import { Route as DashboardBeliKreditRouteImport } from "./routes/dashboard/beli-kredit";
 import { Route as DashboardCareerRouteRouteImport } from "./routes/dashboard/career/route";
 import { Route as DashboardCoverLettersRouteImport } from "./routes/dashboard/cover-letters";
+import { Route as DashboardJatahRouteImport } from "./routes/dashboard/jatah";
 import { Route as DashboardSettingsRouteRouteImport } from "./routes/dashboard/settings/route";
 import { Route as DashboardTransaksiRouteImport } from "./routes/dashboard/transaksi";
 import { Route as DashboardTrashRouteImport } from "./routes/dashboard/trash";
@@ -244,6 +245,11 @@ const DashboardCoverLettersRoute = DashboardCoverLettersRouteImport.update({
   path: "/cover-letters",
   getParentRoute: () => DashboardRouteRoute,
 } as any);
+const DashboardJatahRoute = DashboardJatahRouteImport.update({
+  id: "/jatah",
+  path: "/jatah",
+  getParentRoute: () => DashboardRouteRoute,
+} as any);
 const DashboardSettingsRouteRoute = DashboardSettingsRouteRouteImport.update({
   id: "/settings",
   path: "/settings",
@@ -418,6 +424,7 @@ export interface FileRoutesByFullPath {
   "/dashboard/bantuan": typeof DashboardBantuanRoute;
   "/dashboard/beli-kredit": typeof DashboardBeliKreditRoute;
   "/dashboard/cover-letters": typeof DashboardCoverLettersRoute;
+  "/dashboard/jatah": typeof DashboardJatahRoute;
   "/dashboard/transaksi": typeof DashboardTransaksiRoute;
   "/dashboard/trash": typeof DashboardTrashRoute;
   "/templates/$": typeof TemplatesSplatRoute;
@@ -472,6 +479,7 @@ export interface FileRoutesByTo {
   "/dashboard/bantuan": typeof DashboardBantuanRoute;
   "/dashboard/beli-kredit": typeof DashboardBeliKreditRoute;
   "/dashboard/cover-letters": typeof DashboardCoverLettersRoute;
+  "/dashboard/jatah": typeof DashboardJatahRoute;
   "/dashboard/transaksi": typeof DashboardTransaksiRoute;
   "/dashboard/trash": typeof DashboardTrashRoute;
   "/templates/$": typeof TemplatesSplatRoute;
@@ -535,6 +543,7 @@ export interface FileRoutesById {
   "/dashboard/bantuan": typeof DashboardBantuanRoute;
   "/dashboard/beli-kredit": typeof DashboardBeliKreditRoute;
   "/dashboard/cover-letters": typeof DashboardCoverLettersRoute;
+  "/dashboard/jatah": typeof DashboardJatahRoute;
   "/dashboard/transaksi": typeof DashboardTransaksiRoute;
   "/dashboard/trash": typeof DashboardTrashRoute;
   "/templates/$": typeof TemplatesSplatRoute;
@@ -599,6 +608,7 @@ export interface FileRouteTypes {
     | "/dashboard/bantuan"
     | "/dashboard/beli-kredit"
     | "/dashboard/cover-letters"
+    | "/dashboard/jatah"
     | "/dashboard/transaksi"
     | "/dashboard/trash"
     | "/templates/$"
@@ -653,6 +663,7 @@ export interface FileRouteTypes {
     | "/dashboard/bantuan"
     | "/dashboard/beli-kredit"
     | "/dashboard/cover-letters"
+    | "/dashboard/jatah"
     | "/dashboard/transaksi"
     | "/dashboard/trash"
     | "/templates/$"
@@ -715,6 +726,7 @@ export interface FileRouteTypes {
     | "/dashboard/bantuan"
     | "/dashboard/beli-kredit"
     | "/dashboard/cover-letters"
+    | "/dashboard/jatah"
     | "/dashboard/transaksi"
     | "/dashboard/trash"
     | "/templates/$"
@@ -1002,6 +1014,13 @@ declare module "@tanstack/react-router" {
       path: "/cover-letters";
       fullPath: "/dashboard/cover-letters";
       preLoaderRoute: typeof DashboardCoverLettersRouteImport;
+      parentRoute: typeof DashboardRouteRoute;
+    };
+    "/dashboard/jatah": {
+      id: "/dashboard/jatah";
+      path: "/jatah";
+      fullPath: "/dashboard/jatah";
+      preLoaderRoute: typeof DashboardJatahRouteImport;
       parentRoute: typeof DashboardRouteRoute;
     };
     "/dashboard/settings": {
@@ -1333,6 +1352,7 @@ interface DashboardRouteRouteChildren {
   DashboardBantuanRoute: typeof DashboardBantuanRoute;
   DashboardBeliKreditRoute: typeof DashboardBeliKreditRoute;
   DashboardCoverLettersRoute: typeof DashboardCoverLettersRoute;
+  DashboardJatahRoute: typeof DashboardJatahRoute;
   DashboardTransaksiRoute: typeof DashboardTransaksiRoute;
   DashboardTrashRoute: typeof DashboardTrashRoute;
   DashboardIndexRoute: typeof DashboardIndexRoute;
@@ -1349,6 +1369,7 @@ const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardBantuanRoute: DashboardBantuanRoute,
   DashboardBeliKreditRoute: DashboardBeliKreditRoute,
   DashboardCoverLettersRoute: DashboardCoverLettersRoute,
+  DashboardJatahRoute: DashboardJatahRoute,
   DashboardTransaksiRoute: DashboardTransaksiRoute,
   DashboardTrashRoute: DashboardTrashRoute,
   DashboardIndexRoute: DashboardIndexRoute,

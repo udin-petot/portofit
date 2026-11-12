@@ -281,6 +281,27 @@ export const billingService = {
 		});
 	},
 
+	/**
+	 * Mengembalikan kredit yang sudah dipotong ketika pekerjaan yang dibayar gagal di tengah jalan.
+	 * Tetap tercatat di buku besar supaya selisihnya bisa diaudit, bukan diedit diam diam.
+	 */
+	refundCredit(input: { userId: string; kind: PlanKind; reason: string }) {
+		return db.transaction(async (tx) => {
+			await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`${input.userId}:${input.kind}`}))`);
+			const current = await sumCredits(tx, input.userId, input.kind);
+			const balance = current + 1;
+			await tx.insert(billingCreditLedger).values({
+				userId: input.userId,
+				kind: input.kind,
+				delta: 1,
+				reason: input.reason,
+				balanceAfter: balance,
+				actorId: input.userId,
+			});
+			return { ok: true as const, balance };
+		});
+	},
+
 	async adminListOrders(input: {
 		role?: string | null | undefined;
 		status?: OrderStatus | undefined;

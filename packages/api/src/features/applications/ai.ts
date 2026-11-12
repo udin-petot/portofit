@@ -5,6 +5,7 @@ import { coverLetterTextToHtml } from "@reactive-resume/resume/cover-letter";
 import { postingSourceSchema } from "@reactive-resume/schema/applications/data";
 import { generateId, slugify } from "@reactive-resume/utils/string";
 import { protectedProcedure } from "../../context";
+import type { Locale } from "@reactive-resume/utils/locale";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
 import { aiProvidersService } from "../ai-providers/service";
 import { billingService } from "../billing/service";
@@ -155,6 +156,101 @@ const aiErrors = {
 	BAD_GATEWAY: { message: "The AI provider returned an error or is unreachable.", status: 502 },
 	BAD_REQUEST: { message: "Invalid application or AI request.", status: 400 },
 };
+
+type LoadedApplication = Awaited<ReturnType<typeof applicationService.getById>>;
+
+/**
+ * Syarat setiap aksi AI per lamaran: CV terikat dan lowongan tertempel. Diperiksa lebih awal
+ * supaya kredit tidak terpotong untuk pekerjaan yang tidak mungkin dijalankan.
+ */
+async function loadForAi(userId: string, application: LoadedApplication) {
+	if (!application.resumeId) throw new ORPCError("BAD_REQUEST", { message: "Link a resume to this application first." });
+	if (!application.jobDescription)
+		throw new ORPCError("BAD_REQUEST", { message: "Paste the job description into this application first." });
+
+	const [model, resume] = await Promise.all([
+		resolveModel(userId),
+		resumeService.getById({ id: application.resumeId, userId }),
+	]);
+	return { model, resume };
+}
+
+/** Skor kecocokan CV terhadap lowongan, disimpan pada lamarannya. */
+async function scoreMatch(userId: string, application: LoadedApplication) {
+	const { model, resume } = await loadForAi(userId, application);
+	const result = await generateJson(
+		model,
+		{
+			prompt: `Compare this resume against the job description. Return ONLY JSON with keys score (integer 0-100 fit), gaps (array of short missing-qualification strings), strengths (array of short matching-strength strings).\n\nRESUME:\n${JSON.stringify(resume.data)}\n\nJOB DESCRIPTION:\n${application.jobDescription}`,
+		},
+		matchScoreOutput,
+	);
+
+	await applicationService.setAiResult({
+		id: application.id,
+		userId,
+		matchScore: result.score,
+		aiMetadata: { matchScore: result },
+	});
+
+	return result;
+}
+
+/** Salinan CV dengan ringkasan yang diarahkan ke satu lowongan, lalu diikat ke lamaran itu. */
+async function tailorResumeFor(userId: string, application: LoadedApplication, locale: Locale) {
+	const { model, resume } = await loadForAi(userId, application);
+
+	const { summary } = await generateJson(
+		model,
+		{
+			prompt: `Rewrite this candidate's professional summary to target the job below. Return ONLY JSON { "summary": "<one to two sentence HTML paragraph, e.g. <p>…</p>>" }. Keep it truthful to the resume.\n\nRESUME:\n${JSON.stringify(resume.data)}\n\nJOB:\n${application.role} at ${application.company}\n${application.jobDescription}`,
+		},
+		z.object({ summary: z.string() }),
+	);
+
+	const name = `Tailored — ${application.company} · ${application.role}`.slice(0, 60);
+	const tailoredData = { ...resume.data, summary: { ...resume.data.summary, content: summary } };
+
+	const resumeId = await resumeService.create({
+		userId,
+		name,
+		slug: `${slugify(name)}-${generateId().slice(0, 6)}`,
+		tags: [...resume.tags, "tailored"],
+		data: tailoredData,
+		locale,
+	});
+
+	// Point the application at the tailored copy and log it on the timeline.
+	await applicationService.update({ id: application.id, userId, resumeId });
+	await applicationService.addNote({ id: application.id, userId, text: `AI tailored a resume: ${name}` });
+
+	return { resumeId, name };
+}
+
+/** Surat lamaran dari lamaran dan CV yang terikat, disimpan sebagai dokumen tersendiri. */
+async function writeCoverLetter(userId: string, application: LoadedApplication, resumeId: string | null) {
+	const model = await resolveModel(userId);
+	const resume = resumeId
+		? await resumeService.getById({ id: resumeId, userId }).catch(() => null)
+		: null;
+
+	const context_ = `ROLE: ${application.role} at ${application.company}${application.location ? ` (${application.location})` : ""}\nSENT: ${new Date(application.appliedAt).toISOString().slice(0, 10)}\n${application.jobDescription ? `JOB DESCRIPTION:\n${application.jobDescription}\n` : ""}${resume ? `CANDIDATE RESUME:\n${JSON.stringify(resume.data)}` : ""}`;
+
+	const text = await generatePlainText(
+		model,
+		`Write a concise, specific cover letter (250-350 words, no placeholders like [Name]) for this application, drawing on the resume. Return only the letter text.\n\n${context_}`,
+	);
+
+	const letter = await coverLetterService.create({
+		userId,
+		name: `${application.company} — ${application.role}`.slice(0, 100),
+		content: coverLetterTextToHtml(text),
+		applicationId: application.id,
+		...(resume ? { resumeId: resume.id } : {}),
+	});
+
+	return { text, coverLetterId: letter.id };
+}
 
 export const aiRouter = {
 	searchPostings: protectedProcedure
@@ -324,33 +420,7 @@ export const aiRouter = {
 		.errors(aiErrors)
 		.handler(async ({ context, input }) => {
 			const application = await applicationService.getById({ id: input.id, userId: context.user.id });
-			if (!application.resumeId)
-				throw new ORPCError("BAD_REQUEST", { message: "Link a resume to this application first." });
-			if (!application.jobDescription) {
-				throw new ORPCError("BAD_REQUEST", { message: "Paste the job description into this application first." });
-			}
-
-			const [model, resume] = await Promise.all([
-				resolveModel(context.user.id),
-				resumeService.getById({ id: application.resumeId, userId: context.user.id }),
-			]);
-
-			const result = await generateJson(
-				model,
-				{
-					prompt: `Compare this resume against the job description. Return ONLY JSON with keys score (integer 0-100 fit), gaps (array of short missing-qualification strings), strengths (array of short matching-strength strings).\n\nRESUME:\n${JSON.stringify(resume.data)}\n\nJOB DESCRIPTION:\n${application.jobDescription}`,
-				},
-				matchScoreOutput,
-			);
-
-			await applicationService.setAiResult({
-				id: input.id,
-				userId: context.user.id,
-				matchScore: result.score,
-				aiMetadata: { matchScore: result },
-			});
-
-			return result;
+			return scoreMatch(context.user.id, application);
 		}),
 
 	// Generate a cover letter or recruiter follow-up from the application + resume context.
@@ -367,6 +437,8 @@ export const aiRouter = {
 		.errors(aiErrors)
 		.handler(async ({ context, input }) => {
 			const application = await applicationService.getById({ id: input.id, userId: context.user.id });
+			if (input.kind === "cover-letter") return writeCoverLetter(context.user.id, application, application.resumeId);
+
 			const model = await resolveModel(context.user.id);
 			const resume = application.resumeId
 				? await resumeService.getById({ id: application.resumeId, userId: context.user.id }).catch(() => null)
@@ -374,21 +446,11 @@ export const aiRouter = {
 
 			const context_ = `ROLE: ${application.role} at ${application.company}${application.location ? ` (${application.location})` : ""}\nSENT: ${new Date(application.appliedAt).toISOString().slice(0, 10)}\n${application.jobDescription ? `JOB DESCRIPTION:\n${application.jobDescription}\n` : ""}${resume ? `CANDIDATE RESUME:\n${JSON.stringify(resume.data)}` : ""}`;
 
-			const prompt =
-				input.kind === "cover-letter"
-					? `Write a concise, specific cover letter (250-350 words, no placeholders like [Name]) for this application, drawing on the resume. Return only the letter text.\n\n${context_}`
-					: `Tulis pesan susulan singkat dalam Bahasa Indonesia (60-90 kata, 2-3 kalimat) kepada perekrut untuk menanyakan kabar lamaran ini. Sebut posisi dan perusahaan. Sopan, tidak mendesak, tanpa basa-basi, tanpa menyebut AI, dan tanpa mengarang fakta. Kembalikan hanya teks pesannya.\n\n${context_}`;
-
-			const text = await generatePlainText(model, prompt);
-			if (input.kind === "follow-up") return { text };
-			const letter = await coverLetterService.create({
-				userId: context.user.id,
-				name: `${application.company} — ${application.role}`.slice(0, 100),
-				content: coverLetterTextToHtml(text),
-				applicationId: input.id,
-				...(resume ? { resumeId: resume.id } : {}),
-			});
-			return { text, coverLetterId: letter.id };
+			const text = await generatePlainText(
+				model,
+				`Tulis pesan susulan singkat dalam Bahasa Indonesia (60-90 kata, 2-3 kalimat) kepada perekrut untuk menanyakan kabar lamaran ini. Sebut posisi dan perusahaan. Sopan, tidak mendesak, tanpa basa-basi, tanpa menyebut AI, dan tanpa mengarang fakta. Kembalikan hanya teks pesannya.\n\n${context_}`,
+			);
+			return { text };
 		}),
 
 	// Create a tailored copy of the linked resume (job-specific summary) and link it to the application.
@@ -405,11 +467,7 @@ export const aiRouter = {
 		.errors(aiErrors)
 		.handler(async ({ context, input }) => {
 			const application = await applicationService.getById({ id: input.id, userId: context.user.id });
-			if (!application.resumeId)
-				throw new ORPCError("BAD_REQUEST", { message: "Link a resume to this application first." });
-			if (!application.jobDescription) {
-				throw new ORPCError("BAD_REQUEST", { message: "Paste the job description into this application first." });
-			}
+			await loadForAi(context.user.id, application);
 
 			// Aksi berbayar: satu kredit lamaran per tailor CV ke lowongan.
 			await billingService.consumeCredit({
@@ -418,39 +476,66 @@ export const aiRouter = {
 				reason: `Tailor CV — ${application.company} · ${application.role}`.slice(0, 200),
 			});
 
-			const [model, resume] = await Promise.all([
-				resolveModel(context.user.id),
-				resumeService.getById({ id: application.resumeId, userId: context.user.id }),
-			]);
+			return tailorResumeFor(context.user.id, application, context.locale);
+		}),
 
-			const { summary } = await generateJson(
-				model,
-				{
-					prompt: `Rewrite this candidate's professional summary to target the job below. Return ONLY JSON { "summary": "<one to two sentence HTML paragraph, e.g. <p>…</p>>" }. Keep it truthful to the resume.\n\nRESUME:\n${JSON.stringify(resume.data)}\n\nJOB:\n${application.role} at ${application.company}\n${application.jobDescription}`,
-				},
-				z.object({ summary: z.string() }),
-			);
+	// Satu tombol, satu kredit: CV disesuaikan, surat lamaran, dan skor kecocokan untuk satu lowongan.
+	prepare: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/applications/{id}/ai/prepare",
+			operationId: "aiPrepareApplication",
+			...reserved,
+		})
+		.input(z.object({ id: z.string() }))
+		.use(aiRequestRateLimit)
+		.output(
+			z.object({
+				resumeId: z.string(),
+				resumeName: z.string(),
+				coverLetterId: z.string(),
+				score: z.number().int().describe("Skor kecocokan 0 sampai 100 untuk lowongan ini."),
+				gaps: z.array(z.string()),
+				strengths: z.array(z.string()),
+			}),
+		)
+		.errors(aiErrors)
+		.handler(async ({ context, input }) => {
+			const application = await applicationService.getById({ id: input.id, userId: context.user.id });
+			// Syarat diperiksa sebelum kredit dipotong, supaya tidak ada pembayaran untuk pekerjaan yang tidak bisa jalan.
+			await loadForAi(context.user.id, application);
 
-			const name = `Tailored — ${application.company} · ${application.role}`.slice(0, 60);
-			const tailoredData = { ...resume.data, summary: { ...resume.data.summary, content: summary } };
-
-			const newResumeId = await resumeService.create({
+			await billingService.consumeCredit({
 				userId: context.user.id,
-				name,
-				slug: `${slugify(name)}-${generateId().slice(0, 6)}`,
-				tags: [...resume.tags, "tailored"],
-				data: tailoredData,
-				locale: context.locale,
+				kind: "application",
+				reason: `Paket lamaran — ${application.company} · ${application.role}`.slice(0, 200),
 			});
 
-			// Point the application at the tailored copy and log it on the timeline.
-			await applicationService.update({ id: input.id, userId: context.user.id, resumeId: newResumeId });
-			await applicationService.addNote({
-				id: input.id,
-				userId: context.user.id,
-				text: `AI tailored a resume: ${name}`,
-			});
+			try {
+				const tailored = await tailorResumeFor(context.user.id, application, context.locale);
+				const letter = await writeCoverLetter(context.user.id, application, tailored.resumeId);
+				// Dibaca ulang: tailorResumeFor sudah memindahkan resume lamaran ke salinan yang disesuaikan.
+				const refreshed = await applicationService.getById({ id: input.id, userId: context.user.id });
+				const score = await scoreMatch(context.user.id, refreshed);
 
-			return { resumeId: newResumeId, name };
+				return {
+					resumeId: tailored.resumeId,
+					resumeName: tailored.name,
+					coverLetterId: letter.coverLetterId,
+					score: score.score,
+					gaps: score.gaps,
+					strengths: score.strengths,
+				};
+			} catch (error) {
+				// Pekerjaan gagal bukan pemakaian: kredit dikembalikan sebelum galat diteruskan ke pengguna.
+				await billingService
+					.refundCredit({
+						userId: context.user.id,
+						kind: "application",
+						reason: `Paket lamaran gagal — ${application.company} · ${application.role}`.slice(0, 200),
+					})
+					.catch(() => undefined);
+				throw error;
+			}
 		}),
 };

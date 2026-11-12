@@ -28,6 +28,7 @@ import { DebriefTab } from "./debrief";
 import { FitTab } from "./fit";
 import { MessagesTab } from "./messages";
 import { PractiseTab } from "./practise";
+import { PrepareBar } from "./prepare-bar";
 import { PrepareTab } from "./prepare";
 import { SavedTab } from "./saved";
 import { ApplicationNotes } from "@/features/applications/components/application-notes";
@@ -247,6 +248,9 @@ export function Workspace({ applicationId, tab: requested, search }: WorkspacePr
 							</TabsTrigger>
 						))}
 					</TabsList>
+					{application.resumeId && application.jobDescription ? (
+						<PrepareBar application={application} />
+					) : null}
 					{WORKSPACE_TABS.map((value) => (
 						<TabsContent key={value} value={value} className="@container min-w-0 px-4 py-6 md:px-7">
 							{value === tab && (

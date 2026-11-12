@@ -8,6 +8,7 @@ import { aiProvidersService } from "../ai-providers/service";
 import { atsReviewInputSchema, atsReviewOutputSchema, reviewResumeText } from "./ats-review";
 import { improveInputSchema, improveLine, improveOutputSchema } from "./improve";
 import { aiService, fileInputSchema } from "./service";
+import { quotaService } from "../quota/service";
 
 /**
  * Every AI procedure fails the same ways: no ENCRYPTION_SECRET, a bad base URL, the provider erroring (its cause kept
@@ -129,6 +130,8 @@ export const aiRouter = {
 		.output(atsReviewOutputSchema)
 		.errors(aiErrors)
 		.handler(async ({ context, input }) => {
+			// Jatah mingguan dipotong lebih dulu, sebelum model dipanggil. Kalau modelnya gagal, jatah dikembalikan.
+			await quotaService.consume({ userId: context.user.id, feature: "review" });
 			try {
 				const provider = await getRunnableProvider(context.user.id, input.aiProviderId);
 
@@ -140,6 +143,7 @@ export const aiRouter = {
 					baseURL: provider.baseURL ?? "",
 				});
 			} catch (error) {
+				await quotaService.release({ userId: context.user.id, feature: "review" }).catch(() => undefined);
 				rethrowAiError(error, "Invalid ATS review structure");
 			}
 		}),
@@ -160,6 +164,7 @@ export const aiRouter = {
 		.output(improveOutputSchema)
 		.errors(aiErrors)
 		.handler(async ({ context, input }) => {
+			await quotaService.consume({ userId: context.user.id, feature: "improve" });
 			try {
 				const provider = await getRunnableProvider(context.user.id, input.aiProviderId);
 
@@ -171,6 +176,7 @@ export const aiRouter = {
 					baseURL: provider.baseURL ?? "",
 				});
 			} catch (error) {
+				await quotaService.release({ userId: context.user.id, feature: "improve" }).catch(() => undefined);
 				rethrowAiError(error, "Invalid suggestion structure");
 			}
 		}),

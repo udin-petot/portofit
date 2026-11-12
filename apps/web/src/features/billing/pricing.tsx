@@ -19,7 +19,8 @@ export function PricingBody({ signedIn }: PricingPageProps) {
 	const freeFeatures = [
 		t`Unlimited ATS checks, no login`,
 		t`One free CV to build and download`,
-		t`Preview your CV right on the page`,
+		t`Weekly AI allowance, back every Monday`,
+		t`Free issue list and basic job match`,
 	];
 
 	const buy = async (planCode: string) => {
@@ -94,7 +95,12 @@ export function PricingBody({ signedIn }: PricingPageProps) {
 					<li>{t`3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately.`}</li>
 				</ol>
 				<p className="mt-3 text-xs text-ink-3">
-					{t`Credits are used per document: one application credit for one tailored CV and cover letter, one interview credit for one practice session. Credits do not expire.`}
+					{t`One application credit covers one Prepare this application: a tailored CV, a cover letter and a match score for one job. One interview credit covers one practice session for one interview. Credits do not expire.`}
+				</p>
+				<p className="mt-2 text-xs text-ink-3">
+					<a href="/dashboard/jatah" className="underline underline-offset-4 hover:text-accent-text">
+						{t`See what is left of this week's AI allowance`}
+					</a>
 				</p>
 				<p className="mt-3 text-xs leading-5 text-ink-3">{t`By buying, you agree to the terms below.`}</p>
 				<p className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-ink-3">

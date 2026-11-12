@@ -385,18 +385,34 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 							</p>
 						</div>
 					</div>
-					{invoiceFor(selected.id) ? (
+					<div className="flex flex-wrap items-center gap-2">
 						<Button
-							variant="secondary"
 							size="sm"
-							onClick={() => {
-								const invoice = invoiceFor(selected.id);
-								if (invoice) setInvoiceOpen(invoice.id);
-							}}
+							onClick={() =>
+								void navigate({
+									to: selected.kind === "interview" ? "/dashboard/career" : "/dashboard/applications",
+								})
+							}
 						>
-							<Trans>View receipt</Trans>
+							{selected.kind === "interview" ? (
+								<Trans>Open an application to practise</Trans>
+							) : (
+								<Trans>Open an application to use it</Trans>
+							)}
 						</Button>
-					) : null}
+						{invoiceFor(selected.id) ? (
+							<Button
+								variant="secondary"
+								size="sm"
+								onClick={() => {
+									const invoice = invoiceFor(selected.id);
+									if (invoice) setInvoiceOpen(invoice.id);
+								}}
+							>
+								<Trans>View receipt</Trans>
+							</Button>
+						) : null}
+					</div>
 				</section>
 			) : null}
 

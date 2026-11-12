@@ -7,24 +7,28 @@ const PLAN_COPY: Record<"en" | "id", Record<string, PlanCopy>> = {
 	en: {
 		lamaran: {
 			name: "CV + Cover Letter per Application",
-			description: "CV and cover letter tailored to one job, plus a match score.",
+			description:
+				"A tailored CV, a cover letter, and a match score for one job. Start it from the application itself, with Prepare this application.",
 			unit: "application credit",
 		},
 		wawancara: {
 			name: "Interview Practice Session",
-			description: "One interview practice session with questions for your field and feedback.",
+			description:
+				"One practice session with questions for your field and feedback. Start it from Practise in the application workspace.",
 			unit: "interview session credit",
 		},
 	},
 	id: {
 		lamaran: {
-			name: "CV + Cover Letter per Lamaran",
-			description: "CV dan cover letter disesuaikan ke satu lowongan, plus skor kecocokan.",
+			name: "CV + Surat Lamaran per Lamaran",
+			description:
+				"CV disesuaikan, surat lamaran, dan skor kecocokan untuk satu lowongan. Dimulai dari halaman lamaran, lewat tombol Siapkan berkas lamaran.",
 			unit: "kredit lamaran",
 		},
 		wawancara: {
 			name: "Sesi Latihan Wawancara",
-			description: "Satu sesi simulasi wawancara dengan pertanyaan sesuai bidang dan umpan balik.",
+			description:
+				"Satu sesi latihan dengan pertanyaan sesuai bidang dan umpan balik. Dimulai dari tab Latihan di halaman lamaran.",
 			unit: "kredit sesi wawancara",
 		},
 	},
