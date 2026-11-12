@@ -413,6 +413,19 @@ type NextStepBarProps = {
 function NextStepBar({ application, interview, now, go, onAddInterview }: NextStepBarProps) {
 	if (application.status === "closed") return null;
 
+	// Di tahap tawaran, langkah berikutnya bukan melamar lagi, tapi membaca balasan dan memutuskan.
+	if (application.status === "offer") {
+		return (
+			<Bar
+				icon="seal-check"
+				title={t`The offer is in`}
+				why={t`Read the reply and decide what to ask for.`}
+				action={t`Open messages`}
+				run={() => go("messages")}
+			/>
+		);
+	}
+
 	if (!application.jobDescription) {
 		return (
 			<Bar

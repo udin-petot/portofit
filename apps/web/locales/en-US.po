@@ -14085,3 +14085,15 @@ msgstr "Log an application and paste the posting"
 #: src/features/documents/start-guide.tsx
 msgid "Prepare files, then practise the interview"
 msgstr "Prepare files, then practise the interview"
+
+#: src/features/career/workspace/shell.tsx
+msgid "The offer is in"
+msgstr "The offer is in"
+
+#: src/features/career/workspace/shell.tsx
+msgid "Read the reply and decide what to ask for."
+msgstr "Read the reply and decide what to ask for."
+
+#: src/features/career/workspace/shell.tsx
+msgid "Open messages"
+msgstr "Open messages"

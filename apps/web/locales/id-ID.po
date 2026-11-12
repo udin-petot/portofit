@@ -14090,3 +14090,15 @@ msgstr "Catat lamaran dan tempel lowongan"
 #: src/features/documents/start-guide.tsx
 msgid "Prepare files, then practise the interview"
 msgstr "Siapkan berkas, lalu latihan wawancara"
+
+#: src/features/career/workspace/shell.tsx
+msgid "The offer is in"
+msgstr "Tawaran sudah masuk"
+
+#: src/features/career/workspace/shell.tsx
+msgid "Read the reply and decide what to ask for."
+msgstr "Baca balasannya lalu putuskan apa yang mau diminta."
+
+#: src/features/career/workspace/shell.tsx
+msgid "Open messages"
+msgstr "Buka pesan"
