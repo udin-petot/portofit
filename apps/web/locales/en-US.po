@@ -10743,6 +10743,22 @@ msgstr "Start a debrief"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/documents/new-document-dialog.tsx
+msgid "Every section already has content. Replace it with your own."
+msgstr "Every section already has content. Replace it with your own."
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Start from a full example"
+msgstr "Start from a full example"
+
+#: src/libs/error-message.ts
+msgid "This document is still empty. Fill it in before downloading."
+msgstr "This document is still empty. Fill it in before downloading."
+
+#: src/features/documents/use-start-document.ts
+msgid "Sample resume"
+msgstr "Sample resume"
+
 msgid "Start blank"
 msgstr "Start blank"
 
