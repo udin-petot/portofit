@@ -52,6 +52,11 @@ export type WhatsAppConfig = {
 	webhookUrl?: string | undefined;
 };
 
+/** Saluran pemberitahuan admin. WhatsApp dan Telegram memakai bentuk permintaan berbeda. */
+export type AlertConfig =
+	| ({ channel: "whatsapp" } & WhatsAppConfig)
+	| { channel: "telegram"; chatId: string; token: string };
+
 /** Nomor Indonesia ditulis 08xx oleh manusia dan 628xx oleh penyedia. Samakan sebelum dikirim. */
 export function normalizePhone(raw: string): string {
 	const digits = raw.replace(/\D/g, "");
@@ -119,6 +124,38 @@ export function buildWhatsAppRequest(
 	};
 }
 
+/** Pilih saluran: ADMIN_CHANNEL menang, kalau kosong pakai Telegram bila kredensialnya lengkap. */
+export function readAlertConfig(): AlertConfig | null {
+	const channel = env.ADMIN_CHANNEL ?? (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID ? "telegram" : "whatsapp");
+
+	if (channel === "telegram") {
+		if (!env.TELEGRAM_BOT_TOKEN || !env.TELEGRAM_CHAT_ID) return null;
+		return { channel: "telegram", chatId: env.TELEGRAM_CHAT_ID, token: env.TELEGRAM_BOT_TOKEN };
+	}
+
+	const whatsapp = readWhatsAppConfig();
+	return whatsapp ? { channel: "whatsapp", ...whatsapp } : null;
+}
+
+/** Bentuk permintaan per saluran. Dipisah supaya bisa diuji tanpa jaringan. */
+export function buildAlertRequest(
+	config: AlertConfig,
+	message: string,
+): { url: string; init: { method: string; headers: Record<string, string>; body: string | URLSearchParams } } {
+	if (config.channel === "telegram") {
+		return {
+			url: `https://api.telegram.org/bot${config.token}/sendMessage`,
+			init: {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ chat_id: config.chatId, text: message, disable_web_page_preview: true }),
+			},
+		};
+	}
+
+	return buildWhatsAppRequest(config, message);
+}
+
 type PendingAlert = {
 	id: string;
 	attempts: number;
@@ -148,7 +185,7 @@ export async function sendAdminAlerts(now: Date = new Date(), deps?: AdminAlertD
 	if (deps) {
 		realDeps = deps;
 	} else {
-		const config = readWhatsAppConfig();
+		const config = readAlertConfig();
 		if (!config) return { configured: false, sent: 0, failed: 0 };
 
 		realDeps = {
@@ -172,9 +209,9 @@ export async function sendAdminAlerts(now: Date = new Date(), deps?: AdminAlertD
 				return rows;
 			},
 			send: async (message) => {
-				const { url, init } = buildWhatsAppRequest(config, message);
+				const { url, init } = buildAlertRequest(config, message);
 				const response = await fetch(url, { ...init, signal: AbortSignal.timeout(15_000) });
-				if (!response.ok) throw new Error(`${config.provider} membalas ${response.status}`);
+				if (!response.ok) throw new Error(`${config.channel === "telegram" ? "telegram" : config.provider} membalas ${response.status}`);
 			},
 			markSent: async (id, at) => {
 				await db

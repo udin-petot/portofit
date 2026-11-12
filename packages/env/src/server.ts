@@ -142,6 +142,11 @@ export const env = createEnv({
 		WHATSAPP_PHONE_ID: z.string().min(1).optional(),
 		WHATSAPP_WEBHOOK_URL: z.url({ protocol: /https?/ }).optional(),
 
+		// Admin alerts can go to Telegram instead, which needs no sender phone.
+		ADMIN_CHANNEL: z.enum(["whatsapp", "telegram"]).optional(),
+		TELEGRAM_BOT_TOKEN: z.string().min(1).optional(),
+		TELEGRAM_CHAT_ID: z.string().min(1).optional(),
+
 		// Storage (Optional)
 		STORAGE_BACKEND: z.enum(["local", "s3", "blob", "r2"]),
 		STORAGE_HEALTHCHECK_TIMEOUT_MS: z.coerce.number().int().positive().max(2_147_483_647).default(5_000),

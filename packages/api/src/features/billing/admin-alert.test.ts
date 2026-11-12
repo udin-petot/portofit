@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildWhatsAppRequest, formatAdminAlert, normalizePhone, sendAdminAlerts } from "./admin-alert";
+import { buildAlertRequest, buildWhatsAppRequest, formatAdminAlert, normalizePhone, sendAdminAlerts } from "./admin-alert";
 
 const order = {
 	email: "bagus@example.invalid",
@@ -66,6 +66,26 @@ describe("buildWhatsAppRequest", () => {
 
 		expect(request.url).toBe("https://contoh.invalid/wa");
 		expect(JSON.parse(String(request.init.body))).toEqual({ to: "62812", message: "halo" });
+	});
+});
+
+describe("buildAlertRequest", () => {
+	it("memakai sendMessage Telegram untuk saluran telegram", () => {
+		const request = buildAlertRequest({ channel: "telegram", chatId: "12345", token: "tok" }, "halo");
+
+		expect(request.url).toBe("https://api.telegram.org/bottok/sendMessage");
+		const body = JSON.parse(String(request.init.body));
+		expect(body.chat_id).toBe("12345");
+		expect(body.text).toBe("halo");
+	});
+
+	it("meneruskan ke penyedia WhatsApp untuk saluran whatsapp", () => {
+		const request = buildAlertRequest(
+			{ channel: "whatsapp", provider: "fonnte", to: "62812", token: "rahasia" },
+			"halo",
+		);
+
+		expect(request.url).toBe("https://api.fonnte.com/send");
 	});
 });
 
