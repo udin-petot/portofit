@@ -10930,6 +10930,117 @@ msgstr "Help"
 msgid "Payment"
 msgstr "Payment"
 
+msgid "All your orders and receipts."
+msgstr "All your orders and receipts."
+
+msgid "Search a plan or order number"
+msgstr "Search a plan or order number"
+
+msgid "Search orders"
+msgstr "Search orders"
+
+msgid "orders"
+msgstr "orders"
+
+msgid "Finish the payment"
+msgstr "Finish the payment"
+
+msgid "Time left"
+msgstr "Time left"
+
+msgid "PortoFit QRIS code"
+msgstr "PortoFit QRIS code"
+
+msgid "Scan it with any bank or wallet app that supports QRIS."
+msgstr "Scan it with any bank or wallet app that supports QRIS."
+
+msgid "Total to transfer"
+msgstr "Total to transfer"
+
+msgid "Unique code"
+msgstr "Unique code"
+
+msgid "The amount has to match down to the last three digits."
+msgstr "The amount has to match down to the last three digits."
+
+msgid "Uploading the proof…"
+msgstr "Uploading the proof…"
+
+msgid "Upload payment proof"
+msgstr "Upload payment proof"
+
+msgid "Or through WhatsApp"
+msgstr "Or through WhatsApp"
+
+msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
+msgstr "A photo of the transfer proof, JPG or PNG, at most 10 MB."
+
+msgid "Proof sent, waiting for a check"
+msgstr "Proof sent, waiting for a check"
+
+msgid "Payment confirmed"
+msgstr "Payment confirmed"
+
+msgid "The credits are in your account. A receipt is there if you need proof of payment."
+msgstr "The credits are in your account. A receipt is there if you need proof of payment."
+
+msgid "View receipt"
+msgstr "View receipt"
+
+msgid "Order expired"
+msgstr "Order expired"
+
+msgid "Proof rejected"
+msgstr "Proof rejected"
+
+msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
+msgstr "The payment deadline passed before the proof arrived. Create a new order to continue."
+
+msgid "The proof did not match the amount on this order."
+msgstr "The proof did not match the amount on this order."
+
+msgid "Create a new order"
+msgstr "Create a new order"
+
+msgid "Loading orders"
+msgstr "Loading orders"
+
+msgid "No orders in this tab."
+msgstr "No orders in this tab."
+
+msgid "Clear the search"
+msgstr "Clear the search"
+
+msgid "See the plans"
+msgstr "See the plans"
+
+msgid "code"
+msgstr "code"
+
+msgid "Pay"
+msgstr "Pay"
+
+msgid "The proof must be a JPG or PNG. PDF is not accepted."
+msgstr "The proof must be a JPG or PNG. PDF is not accepted."
+
+msgid "The proof can be at most 10 MB."
+msgstr "The proof can be at most 10 MB."
+
+msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
+msgstr "Proof sent. An admin checks it by hand, then the credits arrive automatically."
+
+msgid "The proof could not be sent. Try again."
+msgstr "The proof could not be sent. Try again."
+
+msgid "payment confirmed, your credits are in"
+msgstr "payment confirmed, your credits are in"
+
+msgid "No order matches \"{term}\"."
+msgstr "No order matches \"{term}\"."
+
+msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
+msgstr "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
+
 msgid "Start blank"
 msgstr "Start blank"
 

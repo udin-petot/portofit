@@ -11881,6 +11881,117 @@ msgstr "Bantuan"
 msgid "Payment"
 msgstr "Pembayaran"
 
+msgid "All your orders and receipts."
+msgstr "Semua pesanan dan kuitansimu."
+
+msgid "Search a plan or order number"
+msgstr "Cari paket atau nomor pesanan"
+
+msgid "Search orders"
+msgstr "Cari pesanan"
+
+msgid "orders"
+msgstr "pesanan"
+
+msgid "Finish the payment"
+msgstr "Selesaikan pembayaran"
+
+msgid "Time left"
+msgstr "Sisa waktu"
+
+msgid "PortoFit QRIS code"
+msgstr "Kode QRIS PortoFit"
+
+msgid "Scan it with any bank or wallet app that supports QRIS."
+msgstr "Pindai dengan aplikasi bank atau dompet digital yang mendukung QRIS."
+
+msgid "Total to transfer"
+msgstr "Total transfer"
+
+msgid "Unique code"
+msgstr "Kode unik"
+
+msgid "The amount has to match down to the last three digits."
+msgstr "Nominal harus persis sampai tiga digit terakhir."
+
+msgid "Uploading the proof…"
+msgstr "Mengunggah bukti…"
+
+msgid "Upload payment proof"
+msgstr "Unggah bukti bayar"
+
+msgid "Or through WhatsApp"
+msgstr "Atau lewat WhatsApp"
+
+msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
+msgstr "Foto bukti transfer, JPG atau PNG, maksimal 10 MB."
+
+msgid "Proof sent, waiting for a check"
+msgstr "Bukti terkirim, menunggu verifikasi"
+
+msgid "Payment confirmed"
+msgstr "Pembayaran dikonfirmasi"
+
+msgid "The credits are in your account. A receipt is there if you need proof of payment."
+msgstr "Kredit sudah masuk ke akunmu. Kuitansi tersedia kalau kamu perlu bukti bayar."
+
+msgid "View receipt"
+msgstr "Lihat kuitansi"
+
+msgid "Order expired"
+msgstr "Pesanan hangus"
+
+msgid "Proof rejected"
+msgstr "Bukti ditolak"
+
+msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
+msgstr "Batas waktu bayar lewat sebelum bukti masuk. Buat pesanan baru untuk melanjutkan."
+
+msgid "The proof did not match the amount on this order."
+msgstr "Bukti tidak cocok dengan nominal pesanan ini."
+
+msgid "Create a new order"
+msgstr "Buat pesanan baru"
+
+msgid "Loading orders"
+msgstr "Memuat pesanan"
+
+msgid "No orders in this tab."
+msgstr "Belum ada pesanan di tab ini."
+
+msgid "Clear the search"
+msgstr "Hapus pencarian"
+
+msgid "See the plans"
+msgstr "Lihat paket"
+
+msgid "code"
+msgstr "kode"
+
+msgid "Pay"
+msgstr "Bayar"
+
+msgid "The proof must be a JPG or PNG. PDF is not accepted."
+msgstr "Bukti harus JPG atau PNG. PDF tidak diterima."
+
+msgid "The proof can be at most 10 MB."
+msgstr "Ukuran bukti maksimal 10 MB."
+
+msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
+msgstr "Bukti terkirim. Admin memverifikasi manual, lalu kredit masuk otomatis."
+
+msgid "The proof could not be sent. Try again."
+msgstr "Bukti gagal dikirim. Coba lagi."
+
+msgid "payment confirmed, your credits are in"
+msgstr "pembayaran dikonfirmasi, kreditmu sudah masuk"
+
+msgid "No order matches \"{term}\"."
+msgstr "Tidak ada pesanan yang cocok dengan \"{term}\"."
+
+msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
+msgstr "Admin memeriksa bukti transfermu secara manual. Kredit masuk otomatis setelah lolos, dan halaman ini memberi tahu begitu statusnya berubah."
+
 msgid "Start blank"
 msgstr "Mulai kosong"
 
