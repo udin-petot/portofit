@@ -1,5 +1,5 @@
+import type { db } from "@reactive-resume/db/client";
 import { sql } from "drizzle-orm";
-import { db } from "@reactive-resume/db/client";
 
 type Tx = Parameters<Parameters<typeof db.transaction>[0]>[0];
 

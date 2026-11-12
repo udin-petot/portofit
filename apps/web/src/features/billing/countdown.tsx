@@ -12,18 +12,18 @@ type CountdownProps = { expiresAt: Date | null; onExpire?: () => void; className
 
 /** Hitung mundur dari jam perangkat; server tetap yang menentukan hangus. */
 export function Countdown({ expiresAt, onExpire, className }: CountdownProps) {
-	const [left, setLeft] = useState(() => (expiresAt ? expiresAt.getTime() - Date.now() : 0));
+	// The clock is the external system; the remaining time is derived from it during render.
+	const [now, setNow] = useState(() => Date.now());
 	const fired = useRef(false);
 
 	useEffect(() => {
 		if (!expiresAt) return;
 		fired.current = false;
-		setLeft(expiresAt.getTime() - Date.now());
 
 		const timer = setInterval(() => {
-			const next = expiresAt.getTime() - Date.now();
-			setLeft(next);
-			if (next <= 0 && !fired.current) {
+			const tick = Date.now();
+			setNow(tick);
+			if (expiresAt.getTime() - tick <= 0 && !fired.current) {
 				fired.current = true;
 				onExpire?.();
 			}
@@ -34,6 +34,7 @@ export function Countdown({ expiresAt, onExpire, className }: CountdownProps) {
 
 	if (!expiresAt) return null;
 
+	const left = Math.max(0, expiresAt.getTime() - now);
 	const urgent = left > 0 && left <= 2 * 60_000;
 
 	return (
