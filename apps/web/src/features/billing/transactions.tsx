@@ -3,7 +3,7 @@ import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
@@ -18,6 +18,7 @@ import {
 } from "./config";
 import { Countdown } from "./countdown";
 import { InvoiceSheet } from "./invoice-sheet";
+import { getPlanCopy } from "./plan-copy";
 import { orpc } from "@/libs/orpc/client";
 
 type Tab = "semua" | "menunggu_bayar" | "diproses" | "selesai" | "batal";
@@ -78,6 +79,14 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 		}
 	};
 
+	const english = i18n.locale.startsWith("en");
+	// Order rows carry the plan name frozen at purchase time, so the display name comes from the plan copy instead.
+	const planLabel = useCallback(
+		(order: { planCode: string; planName: string; kind: string }) =>
+			getPlanCopy({ code: order.planCode, name: order.planName, description: null, kind: order.kind }, english).name,
+		[english],
+	);
+
 	const term = query.trim();
 	const list = useMemo(() => orders.data?.orders ?? [], [orders.data]);
 	const loading = orders.isLoading;
@@ -100,7 +109,11 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 			(tab === "batal" && (order.status === "ditolak" || order.status === "hangus")) ||
 			tab === order.status;
 		const q = query.trim().toLowerCase();
-		const matchQuery = !q || order.id.toLowerCase().includes(q) || order.planName.toLowerCase().includes(q);
+		const matchQuery =
+			!q ||
+			order.id.toLowerCase().includes(q) ||
+			order.planName.toLowerCase().includes(q) ||
+			planLabel(order).toLowerCase().includes(q);
 		return matchTab && matchQuery;
 	});
 
@@ -115,7 +128,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 				if (previousStatus.current[order.id] === "menunggu_verifikasi" && order.status === "lunas") {
 					toast.add({
 						type: "success",
-						description: `${order.planName}: ${t`payment confirmed, your credits are in`}.`,
+						description: `${planLabel(order)}: ${t`payment confirmed, your credits are in`}.`,
 					});
 					void queryClient.invalidateQueries({ queryKey: orpc.billing.balances.key() });
 					void queryClient.invalidateQueries({ queryKey: orpc.invoice.list.key() });
@@ -123,7 +136,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 			}
 		}
 		previousStatus.current = Object.fromEntries(orders.data.orders.map((order) => [order.id, order.status]));
-	}, [orders.data, queryClient]);
+	}, [orders.data, queryClient, planLabel]);
 
 	const kirimBukti = async (file: File) => {
 		if (!selected) return;
@@ -280,7 +293,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 							<p className="text-[28px] leading-8 font-semibold text-ink tabular-nums">
 								{formatRupiah(selected.totalIdr)}
 							</p>
-							<p className="text-sm text-ink-2">{selected.planName}</p>
+							<p className="text-sm text-ink-2">{planLabel(selected)}</p>
 							<p className="mt-1 text-xs text-ink-2">
 								<Trans>Unique code</Trans>{" "}
 								<span className="font-semibold text-ink tabular-nums">
@@ -464,7 +477,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 							>
 								<div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
 									<div className="min-w-0">
-										<p className="truncate text-sm text-ink">{order.planName}</p>
+										<p className="truncate text-sm text-ink">{planLabel(order)}</p>
 										<p className="mt-0.5 text-xs text-ink-3 tabular-nums">
 											{order.id.slice(0, 8)} · {new Date(order.createdAt).toLocaleDateString(i18n.locale)} ·{" "}
 											<Trans>code</Trans> {String(order.uniqueCode).padStart(3, "0")}

@@ -7,7 +7,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { formatRupiah } from "@/features/billing/config";
-import { getPlanCopy } from "@/features/billing/pricing";
+import { getPlanCopy } from "@/features/billing/plan-copy";
 import { useConfirm } from "@/hooks/use-confirm";
 import { authClient } from "@/libs/auth/client";
 import { orpc } from "@/libs/orpc/client";
