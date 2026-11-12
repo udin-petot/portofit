@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import { useEffect, useState } from "react";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { SupportChat } from "./chat-panel";
@@ -27,7 +28,7 @@ export function SupportLauncher() {
 					<header className="flex h-[52px] shrink-0 items-center gap-2 border-b border-line ps-4 pe-2">
 						<div className="min-w-0 flex-1">
 							<h2 id="support-title" className="text-sm font-semibold text-ink">
-								Bantuan
+								<Trans>Help</Trans>
 							</h2>
 							<p className="truncate text-xs text-ink-3">Dijawab otomatis, bisa dilanjutkan ke admin</p>
 						</div>
@@ -58,7 +59,7 @@ export function SupportLauncher() {
 				}
 			>
 				<Icon name="chat-text" size={18} />
-				Bantuan
+				<Trans>Help</Trans>
 			</button>
 		</>
 	);

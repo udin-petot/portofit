@@ -11872,6 +11872,12 @@ msgstr "sisa"
 msgid "Joined {joined}"
 msgstr "Bergabung {joined}"
 
+msgid "Transactions"
+msgstr "Transaksi"
+
+msgid "Help"
+msgstr "Bantuan"
+
 msgid "Start blank"
 msgstr "Mulai kosong"
 

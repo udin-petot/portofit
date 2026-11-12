@@ -10921,6 +10921,12 @@ msgstr "left"
 msgid "Joined {joined}"
 msgstr "Joined {joined}"
 
+msgid "Transactions"
+msgstr "Transactions"
+
+msgid "Help"
+msgstr "Help"
+
 msgid "Start blank"
 msgstr "Start blank"
 

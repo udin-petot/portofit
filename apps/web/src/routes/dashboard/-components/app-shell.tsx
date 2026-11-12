@@ -65,7 +65,7 @@ function useNavItems() {
 	const unread = notifications?.filter((notification) => !notification.readAt).length ?? 0;
 	// Career counts what's waiting for the user (unread notifications), so nothing shows at zero.
 	items.push({ to: "/dashboard/career", icon: "compass", label: t`Career`, ...(unread ? { count: unread } : {}) });
-	items.push({ to: "/dashboard/transaksi", icon: "list-numbers", label: t`Transaksi` });
+	items.push({ to: "/dashboard/transaksi", icon: "list-numbers", label: t`Transactions` });
 	items.push({ to: "/dashboard/beli-kredit", icon: "tag", label: t`Buy credits` });
 	if (isAdmin) items.push({ to: "/admin", icon: "key", label: t`Admin` });
 	const settings: NavItem = { to: "/dashboard/akun", icon: "user-circle", label: t`Account` };
@@ -371,7 +371,7 @@ function MobileTabs() {
 				viewTransition={false}
 				className="relative flex min-h-[52px] flex-col items-center justify-center gap-0.5 transition-[scale] duration-quick ease-enter active:scale-[0.97]"
 			>
-				{tab("list-numbers", t`Transaksi`, isCurrent("/dashboard/transaksi"))}
+				{tab("list-numbers", t`Transactions`, isCurrent("/dashboard/transaksi"))}
 			</Link>
 			<button
 				type="button"
@@ -397,7 +397,7 @@ function MobileTabs() {
 							className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm text-ink hover:bg-sunken"
 						>
 							<Icon name="user-circle" size={20} />
-							<Trans>Akun</Trans>
+							<Trans>Account</Trans>
 						</Link>
 						<Link
 							to="/dashboard/beli-kredit"
