@@ -321,7 +321,12 @@ function MobileTabs() {
 	const { data: session } = authClient.useSession();
 	const isAdmin = ((session?.user as { role?: string | null } | undefined)?.role ?? "user") === "admin";
 	const [moreOpen, setMoreOpen] = useState(false);
-	const moreCurrent = isCurrent("/dashboard/akun") || isCurrent("/dashboard/settings") || isCurrent("/admin");
+	const moreCurrent =
+		isCurrent("/dashboard/akun") ||
+		isCurrent("/dashboard/settings") ||
+		isCurrent("/dashboard/jatah") ||
+		isCurrent("/dashboard/beli-kredit") ||
+		isCurrent("/admin");
 
 	const tab = (icon: IconName, label: string, current: boolean) => (
 		<>
@@ -381,7 +386,7 @@ function MobileTabs() {
 				aria-current={moreCurrent ? "page" : undefined}
 				className="relative flex min-h-[52px] flex-col items-center justify-center gap-0.5 transition-[scale] duration-quick ease-enter active:scale-[0.97]"
 			>
-				{tab("dots-three", t`Account`, moreCurrent)}
+				{tab("dots-three", t`Other`, moreCurrent)}
 			</button>
 
 			{moreOpen ? (
@@ -393,6 +398,14 @@ function MobileTabs() {
 						onClick={() => setMoreOpen(false)}
 					/>
 					<div className="fixed inset-x-3 bottom-[calc(56px+env(safe-area-inset-bottom))] z-50 rounded-xl border border-line bg-surface p-2 shadow-lg">
+						<Link
+							to="/dashboard/jatah"
+							onClick={() => setMoreOpen(false)}
+							className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm text-ink hover:bg-sunken"
+						>
+							<Icon name="chart-line-up" size={20} />
+							<Trans>AI allowance</Trans>
+						</Link>
 						<Link
 							to="/dashboard/akun"
 							onClick={() => setMoreOpen(false)}
