@@ -30,7 +30,9 @@ export function formatAdminAlert(input: AdminAlertInput): string {
 		year: "numeric",
 		hour: "2-digit",
 		minute: "2-digit",
-	}).format(input.at);
+	})
+		.format(input.at)
+		.replace(/,\s*/g, " ");
 
 	return [
 		"PortoFit: bukti bayar baru masuk",
