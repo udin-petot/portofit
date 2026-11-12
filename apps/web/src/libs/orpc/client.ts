@@ -43,6 +43,13 @@ export const client: RouterClient<typeof router> = createORPCClient(
 					notifyQuotaExhausted();
 					return;
 				}
+				if (error instanceof ORPCError && (error.data as { code?: string } | undefined)?.code === "AI_PAUSED") {
+					toast.add({
+						type: "error",
+						description: t`The AI features are paused for a moment. Try again shortly.`,
+					});
+					return;
+				}
 				console.warn("[oRPC client]", error);
 			}),
 		],

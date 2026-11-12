@@ -34,6 +34,14 @@ export const quotaService = {
 	 * supaya panggilan langsung ke endpoint tidak bisa melewati batas.
 	 */
 	consume(input: { userId: string; feature: AiFeature; cost?: number; now?: Date }) {
+		// Tombol mati: menghentikan biaya model tanpa deploy ulang. Dibaca dari process.env supaya
+		// bisa dinyalakan hanya dengan mengganti env container, tanpa menyentuh skema env.
+		if (process.env.AI_PAUSED === "true" || process.env.AI_PAUSED === "1") {
+			throw new ORPCError("SERVICE_UNAVAILABLE", {
+				message: "Layanan AI sedang dijeda sebentar. Coba lagi nanti.",
+				data: { code: "AI_PAUSED" },
+			});
+		}
 		const cost = input.cost ?? 1;
 		const limit = WEEKLY_AI_LIMITS[input.feature];
 		const periodStart = quotaPeriodStart(input.now);

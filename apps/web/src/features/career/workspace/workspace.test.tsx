@@ -39,7 +39,7 @@ vi.mock("@/libs/orpc/client", () => {
 	return {
 		orpc: {
 			applications: { ai: { prepare: endpoint("prepare") } },
-			billing: { balances: endpoint("balances", async () => ({ application: 0, interview: 0 })) },
+			billing: { balances: endpoint("balances") },
 			career: {
 				workspace: endpoint("workspace"),
 				savedItems: endpoint("savedItems"),

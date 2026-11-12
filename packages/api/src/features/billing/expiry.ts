@@ -1,4 +1,6 @@
-export const PAYMENT_WINDOW_MS = 10 * 60_000;
+// Sepuluh menit terlalu pendek untuk pembayaran QRIS manual: orang harus pindah ke aplikasi bank,
+// membayar, lalu kembali mengunggah bukti. Data 12 November 2026 menunjukkan 8 dari 16 pesanan hangus.
+export const PAYMENT_WINDOW_MS = 60 * 60_000;
 export const REMINDER_MS = 5 * 60_000;
 
 type ExpiryOrder = { status: string; expiresAt: Date | null };

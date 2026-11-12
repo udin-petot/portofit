@@ -11703,6 +11703,10 @@ msgstr "The {label} file couldn't be generated. Try again, or download PDF inste
 msgid "The 13-point activation lift. Your Knowledge has the before and after."
 msgstr "The 13-point activation lift. Your Knowledge has the before and after."
 
+#: src/libs/orpc/client.ts
+msgid "The AI features are paused for a moment. Try again shortly."
+msgstr "The AI features are paused for a moment. Try again shortly."
+
 #: src/features/billing/transactions.tsx
 msgid "The amount has to match down to the last three digits."
 msgstr "The amount has to match down to the last three digits."

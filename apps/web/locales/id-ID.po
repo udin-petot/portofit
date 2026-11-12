@@ -11708,6 +11708,10 @@ msgstr "File {label} tidak dapat dibuat. Coba lagi, atau unduh PDF."
 msgid "The 13-point activation lift. Your Knowledge has the before and after."
 msgstr "Kenaikan aktivasi 13 poin. Pengetahuan Anda memiliki data sebelum dan sesudahnya."
 
+#: src/libs/orpc/client.ts
+msgid "The AI features are paused for a moment. Try again shortly."
+msgstr "Fitur AI sedang dijeda sebentar. Coba lagi nanti."
+
 #: src/features/billing/transactions.tsx
 msgid "The amount has to match down to the last three digits."
 msgstr "Nominal harus persis sampai tiga digit terakhir."
