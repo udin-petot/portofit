@@ -192,7 +192,7 @@ function RouteComponent() {
 							</TabsList>
 						</Tabs>
 
-						<div className="relative w-full min-w-40 flex-1 sm:max-w-72">
+						<div className="relative basis-full min-w-40 sm:basis-auto sm:max-w-72 sm:flex-1">
 							<Icon
 								name="magnifying-glass"
 								size={18}
