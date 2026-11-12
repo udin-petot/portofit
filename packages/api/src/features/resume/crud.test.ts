@@ -54,12 +54,12 @@ describe("resume write route validation", () => {
 		expect(mocks.snapshot).not.toHaveBeenCalled();
 	});
 
-	it.each([false, true])("puts the account holder's name on a new resume (sample data: %s)", async (withSampleData) => {
+	it("puts the account holder's name on a blank resume", async () => {
 		const client = createRouterClient(crudRouter, {
 			context: { locale: "en-US", reqHeaders: new Headers(), user: { id: "user-id", name: "Sam Taylor" } } as never,
 		});
 
-		await client.create({ name: "Outstanding Blue Whale", tags: [], withSampleData });
+		await client.create({ name: "Outstanding Blue Whale", tags: [], withSampleData: false });
 
 		expect(mocks.create).toHaveBeenCalledWith(
 			expect.objectContaining({
@@ -67,5 +67,17 @@ describe("resume write route validation", () => {
 				data: expect.objectContaining({ basics: expect.objectContaining({ name: "Sam Taylor" }) }),
 			}),
 		);
+	});
+
+	it("keeps the example's own persona on a resume started from the example", async () => {
+		const client = createRouterClient(crudRouter, {
+			context: { locale: "en-US", reqHeaders: new Headers(), user: { id: "user-id", name: "Sam Taylor" } } as never,
+		});
+
+		await client.create({ name: "Outstanding Blue Whale", tags: [], withSampleData: true });
+
+		const created = mocks.create.mock.calls.at(-1)?.[0] as { data: { basics: { name: string } } };
+		expect(created.data.basics.name).not.toBe("Sam Taylor");
+		expect(created.data.basics.name.length).toBeGreaterThan(0);
 	});
 });

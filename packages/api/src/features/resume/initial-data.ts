@@ -1,7 +1,6 @@
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { Locale } from "@reactive-resume/utils/locale";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
-import { sampleResumeData } from "@reactive-resume/schema/resume/sample";
 import { indonesianSampleResumeData } from "@reactive-resume/schema/resume/sample-id";
 import { EMPTY_SEMANTIC_CSS_SOURCE } from "@reactive-resume/schema/resume/stylesheet";
 
@@ -14,11 +13,14 @@ type CreateResumeDataOptions = {
 	locale?: Locale;
 };
 
-/** A filled example in the reader's own language: the English sample reads as foreign to an Indonesian user. */
-const sampleFor = (locale?: Locale) => (locale === "id-ID" ? indonesianSampleResumeData : sampleResumeData);
+/**
+ * One reference CV for every new document, whatever the interface language: it is the document the product team
+ * keeps as its own example, and a second, older example in English only ever reached users by accident.
+ */
+const starterSample = indonesianSampleResumeData;
 
 export function createResumeData(options: CreateResumeDataOptions): ResumeData {
-	const data = structuredClone(options.withSampleData ? sampleFor(options.locale) : defaultResumeData);
+	const data = structuredClone(options.withSampleData ? starterSample : defaultResumeData);
 
 	// The example carries its own invented persona: putting the account holder's name on it makes a stranger's CV
 	// look like theirs, and they upload it before noticing.
@@ -28,7 +30,7 @@ export function createResumeData(options: CreateResumeDataOptions): ResumeData {
 		const email = options.email?.trim();
 		if (email) data.basics.email = email;
 	}
-	if (options.locale) data.metadata.page.locale = options.locale;
+	if (!options.withSampleData && options.locale) data.metadata.page.locale = options.locale;
 	data.metadata.stylesheet = {
 		mode: "semantic",
 		source: { languageVersion: 1, text: EMPTY_SEMANTIC_CSS_SOURCE },
