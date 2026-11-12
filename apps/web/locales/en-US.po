@@ -14097,3 +14097,23 @@ msgstr "Read the reply and decide what to ask for."
 #: src/features/career/workspace/shell.tsx
 msgid "Open messages"
 msgstr "Open messages"
+
+#: src/features/billing/credit-dialog.tsx
+msgid "Interview credits used up"
+msgstr "Interview credits used up"
+
+#: src/features/billing/credit-dialog.tsx
+msgid "Application credits used up"
+msgstr "Application credits used up"
+
+#: src/features/billing/credit-dialog.tsx
+msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
+msgstr "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
+
+#: src/features/billing/credit-dialog.tsx
+msgid "One application package covers one set of files: a tailored CV, a cover letter, and a match score."
+msgstr "One application package covers one set of files: a tailored CV, a cover letter, and a match score."
+
+#: src/features/billing/credit-dialog.tsx
+msgid "Buy credits to continue."
+msgstr "Buy credits to continue."

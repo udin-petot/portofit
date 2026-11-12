@@ -18,6 +18,7 @@ import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { domMax, LazyMotion, MotionConfig } from "motion/react";
 import { useEffect } from "react";
 import { Toaster } from "@reactive-resume/ui/components/toast";
+import { CreditDialog } from "@/features/billing/credit-dialog";
 import { TooltipProvider } from "@reactive-resume/ui/components/tooltip";
 import { isRTL } from "@reactive-resume/utils/locale";
 import { BreakpointIndicator } from "@/components/layout/breakpoint-indicator";
@@ -88,6 +89,7 @@ function RootComponent() {
 													<DialogManager />
 													<CommandPalette />
 													<Toaster />
+											<CreditDialog />
 
 													{import.meta.env.DEV && <BreakpointIndicator />}
 													{import.meta.env.DEV && (

@@ -12,6 +12,28 @@ function line(feature: AiFeature, used: number) {
 	return quotaLine(feature, used);
 }
 
+async function claimInterviewSession(input: { userId: string; interviewId: string; reason: string }) {
+	const [session] = await db
+		.insert(interviewSession)
+		.values({ userId: input.userId, interviewId: input.interviewId })
+		.onConflictDoNothing({ target: [interviewSession.userId, interviewSession.interviewId] })
+		.returning({ id: interviewSession.id });
+
+	if (!session) return { charged: false as const };
+
+	try {
+		await billingService.consumeCredit({
+			userId: input.userId,
+			kind: "interview",
+			reason: input.reason,
+		});
+		return { charged: true as const };
+	} catch (error) {
+		await db.delete(interviewSession).where(eq(interviewSession.id, session.id));
+		throw error;
+	}
+}
+
 export const quotaService = {
 	/** Pemakaian pekan berjalan untuk halaman jatah. Fitur yang belum dipakai tetap muncul dengan angka nol. */
 	async status(userId: string, now: Date = new Date()) {
@@ -112,28 +134,24 @@ export const quotaService = {
 	},
 
 	/**
-	 * Satu kredit wawancara dipakai sekali per wawancara, bukan per jawaban.
-	 * Baris sesi dibuat lebih dulu sebagai penanda; kalau kreditnya tidak ada, penanda dihapus lagi.
+	 * Latihan tanpa jadwal wawancara: sesi pertama per lamaran gratis, sesudahnya satu kredit
+	 * per lamaran. Penandanya memakai tabel sesi yang sama supaya tidak perlu tabel baru.
 	 */
-	async claimInterviewSession(input: { userId: string; interviewId: string; reason: string }) {
-		const [session] = await db
+	async claimPracticeSession(input: { userId: string; applicationId: string; reason: string }) {
+		const free = await db
 			.insert(interviewSession)
-			.values({ userId: input.userId, interviewId: input.interviewId })
+			.values({ userId: input.userId, interviewId: `free-practice:${input.applicationId}` })
 			.onConflictDoNothing({ target: [interviewSession.userId, interviewSession.interviewId] })
 			.returning({ id: interviewSession.id });
 
-		if (!session) return { charged: false as const };
+		if (free.length > 0) return { charged: false as const };
 
-		try {
-			await billingService.consumeCredit({
-				userId: input.userId,
-				kind: "interview",
-				reason: input.reason,
-			});
-			return { charged: true as const };
-		} catch (error) {
-			await db.delete(interviewSession).where(eq(interviewSession.id, session.id));
-			throw error;
-		}
+		return claimInterviewSession({
+			userId: input.userId,
+			interviewId: `practice:${input.applicationId}`,
+			reason: input.reason,
+		});
 	},
+
+	claimInterviewSession,
 };

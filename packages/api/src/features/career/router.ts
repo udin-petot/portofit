@@ -285,12 +285,21 @@ export const careerRouter = {
 			if (charged) await quotaService.consume({ userId: context.user.id, feature: "job_match" });
 
 			// Satu kredit wawancara per wawancara, bukan per jawaban: sesi pertama yang membayar, latihan ulang gratis.
-			if (input.task.task === "practice" && input.task.interviewId) {
-				await quotaService.claimInterviewSession({
-					userId: context.user.id,
-					interviewId: input.task.interviewId,
-					reason: "Sesi latihan wawancara",
-				});
+			if (input.task.task === "practice") {
+				if (input.task.interviewId) {
+					await quotaService.claimInterviewSession({
+						userId: context.user.id,
+						interviewId: input.task.interviewId,
+						reason: "Sesi latihan wawancara",
+					});
+				} else {
+					// Tanpa jadwal, latihan tetap ditagih: satu sesi gratis per lamaran, selebihnya kredit.
+					await quotaService.claimPracticeSession({
+						userId: context.user.id,
+						applicationId: input.applicationId,
+						reason: "Sesi latihan wawancara",
+					});
+				}
 			}
 
 			try {

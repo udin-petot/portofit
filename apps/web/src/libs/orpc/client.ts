@@ -6,6 +6,7 @@ import { BatchLinkPlugin } from "@orpc/client/plugins";
 import { createTanstackQueryUtils } from "@orpc/tanstack-query";
 import { t } from "@lingui/core/macro";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { notifyCreditRequired } from "@/features/billing/credit-gate";
 import { rpcFetch } from "./fetch";
 
 const getRpcUrl = () => `${window.location.origin}/api/rpc`;
@@ -39,6 +40,14 @@ export const client: RouterClient<typeof router> = createORPCClient(
 		interceptors: [
 			onError((error) => {
 				if (error instanceof DOMException && error.name === "AbortError") return;
+				if (
+					error instanceof ORPCError &&
+					(error.data as { code?: string; kind?: string } | undefined)?.code === "CREDIT_REQUIRED"
+				) {
+					const kind = (error.data as { kind?: string }).kind === "interview" ? "interview" : "application";
+					notifyCreditRequired(kind);
+					return;
+				}
 				if (error instanceof ORPCError && (error.data as { code?: string } | undefined)?.code === "QUOTA_EXHAUSTED") {
 					notifyQuotaExhausted();
 					return;

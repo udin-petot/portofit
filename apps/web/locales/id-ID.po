@@ -14102,3 +14102,23 @@ msgstr "Baca balasannya lalu putuskan apa yang mau diminta."
 #: src/features/career/workspace/shell.tsx
 msgid "Open messages"
 msgstr "Buka pesan"
+
+#: src/features/billing/credit-dialog.tsx
+msgid "Interview credits used up"
+msgstr "Kredit wawancara habis"
+
+#: src/features/billing/credit-dialog.tsx
+msgid "Application credits used up"
+msgstr "Kredit lamaran habis"
+
+#: src/features/billing/credit-dialog.tsx
+msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
+msgstr "Satu paket wawancara berisi satu sesi latihan dengan masukan AI. Latihan ulang pada wawancara yang sama gratis."
+
+#: src/features/billing/credit-dialog.tsx
+msgid "One application package covers one set of files: a tailored CV, a cover letter, and a match score."
+msgstr "Satu paket lamaran berisi satu set berkas: CV yang disesuaikan, surat lamaran, dan skor kecocokan."
+
+#: src/features/billing/credit-dialog.tsx
+msgid "Buy credits to continue."
+msgstr "Beli kredit untuk melanjutkan."
