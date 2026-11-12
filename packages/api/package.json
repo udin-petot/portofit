@@ -24,7 +24,8 @@
 		"./features/career/jobs": "./src/features/career/jobs.ts",
 		"./features/invoice/mailer": "./src/features/invoice/mailer.ts",
 		"./features/billing/sweep": "./src/features/billing/sweep.ts",
-		"./features/billing/order-mailer": "./src/features/billing/order-mailer.ts"
+		"./features/billing/order-mailer": "./src/features/billing/order-mailer.ts",
+		"./features/billing/admin-alert": "./src/features/billing/admin-alert.ts"
 	},
 	"scripts": {
 		"typecheck": "tsgo --noEmit",

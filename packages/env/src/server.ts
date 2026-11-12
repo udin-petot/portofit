@@ -135,6 +135,13 @@ export const env = createEnv({
 		SMTP_FROM: z.string().min(1).optional(),
 		SMTP_SECURE: z.stringbool().default(false),
 
+		// Admin alerts (optional): a WhatsApp message when a buyer uploads a payment proof.
+		ADMIN_WHATSAPP_NUMBER: z.string().min(6).optional(),
+		WHATSAPP_PROVIDER: z.enum(["fonnte", "meta", "webhook"]).optional(),
+		WHATSAPP_TOKEN: z.string().min(1).optional(),
+		WHATSAPP_PHONE_ID: z.string().min(1).optional(),
+		WHATSAPP_WEBHOOK_URL: z.url({ protocol: /https?/ }).optional(),
+
 		// Storage (Optional)
 		STORAGE_BACKEND: z.enum(["local", "s3", "blob", "r2"]),
 		STORAGE_HEALTHCHECK_TIMEOUT_MS: z.coerce.number().int().positive().max(2_147_483_647).default(5_000),

@@ -157,3 +157,32 @@ export const billingOrderEmail = pg.pgTable(
 		pg.index().on(t.status, t.createdAt),
 	],
 );
+
+/**
+ * Antrean pemberitahuan admin: satu baris per kejadian yang harus dilihat manusia.
+ * Dipakai untuk memberi tahu admin lewat WhatsApp begitu pembeli mengunggah bukti bayar.
+ */
+export const billingAdminAlert = pg.pgTable(
+	"billing_admin_alert",
+	{
+		id: pg
+			.text("id")
+			.notNull()
+			.primaryKey()
+			.$defaultFn(() => generateId()),
+		orderId: pg
+			.text("order_id")
+			.notNull()
+			.references(() => billingOrder.id, { onDelete: "cascade" }),
+		kind: pg.text("kind").notNull(),
+		status: pg.text("status").notNull().default("pending"),
+		attempts: pg.integer("attempts").notNull().default(0),
+		lastError: pg.text("last_error"),
+		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+		sentAt: pg.timestamp("sent_at", { withTimezone: true }),
+	},
+	(t) => [
+		pg.uniqueIndex("billing_admin_alert_order_kind_index").on(t.orderId, t.kind),
+		pg.index().on(t.status, t.createdAt),
+	],
+);

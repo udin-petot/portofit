@@ -3,6 +3,7 @@ import { and, desc, eq, gte, ilike, lt, or, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import {
 	adminAudit,
+	billingAdminAlert,
 	billingCreditLedger,
 	billingOrder,
 	billingOrderEmail,
@@ -253,6 +254,16 @@ export const billingService = {
 			.returning();
 
 		if (!updated) throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Bukti gagal disimpan." });
+
+		// Masukkan ke antrean WhatsApp admin. Pengirimannya lewat cron, bukan di request ini,
+		// supaya pembeli tidak menunggu penyedia pesan yang bisa lambat atau mati.
+		await db
+			.insert(billingAdminAlert)
+			.values({ orderId: order.id, kind: "bukti_bayar" })
+			.onConflictDoUpdate({
+				target: [billingAdminAlert.orderId, billingAdminAlert.kind],
+				set: { status: "pending", attempts: 0, lastError: null, sentAt: null, createdAt: new Date() },
+			});
 
 		return toOrderDto(updated);
 	},
