@@ -7762,7 +7762,7 @@ msgstr "Tidak ada dalam resume Anda · tambahkan hanya jika benar"
 
 #: src/features/career/shared.tsx
 msgid "Not now"
-msgstr "Jangan sekarang"
+msgstr "Nanti"
 
 #: src/features/career/knowledge/stories.tsx
 msgid "Not recorded yet. Leave it blank until you can support it."
