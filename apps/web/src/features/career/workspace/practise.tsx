@@ -44,6 +44,7 @@ import { useHasUsableAiProvider } from "@/features/settings/integrations/hooks/u
 import { getOrpcErrorMessage } from "@/libs/error-message";
 import { D2, EASE, ENTER_CLASS } from "@/libs/motion";
 import { client } from "@/libs/orpc/client";
+import { BANK_CATEGORIES, PRACTICE_BANK } from "../practice-bank";
 
 type Practice = SavedData<"practice">;
 type Attempt = SavedItem & { data: Practice };
@@ -61,11 +62,18 @@ function practiceQuestions(items: SavedItem[] | undefined, interviewId: string |
 		...[...new Set(recalled)].map((text) => ({ text, origin: "recalled" as const })),
 	];
 	if (questions.length > 0) return questions;
+
+	// Tanpa briefing, ambil satu soal Dasar dari tiap kategori bank supaya layar pertama tidak kosong.
+	const starters = BANK_CATEGORIES.map(
+		(category) =>
+			PRACTICE_BANK.find((item) => item.category === category && item.level === "Dasar") ??
+			PRACTICE_BANK.find((item) => item.category === category),
+	).filter((item) => item !== undefined);
+
 	return [
-		t`Tell me about a piece of work you're proud of. What was your part in it, and how did you measure success?`,
-		t`Tell me about a time you disagreed with a colleague. How did you resolve it?`,
-		t`Why do you want this role at ${company}?`,
-	].map((text) => ({ text, origin: "simulated" as const }));
+		{ text: t`Why do you want this role at ${company}?`, origin: "simulated" as const },
+		...starters.slice(0, 5).map((item) => ({ text: item.text, origin: "simulated" as const })),
+	];
 }
 
 export function PractiseTab({ application, version, interview, speak, story, now, go }: WorkspaceTabProps) {
