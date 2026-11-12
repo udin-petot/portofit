@@ -13989,3 +13989,23 @@ msgstr "Zoom out"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+
+#: src/features/applications/components/list-view.tsx
+msgid "Files"
+msgstr "Files"
+
+#: src/features/applications/components/list-view.tsx
+msgid "No files yet"
+msgstr "No files yet"
+
+#: src/features/applications/components/list-view.tsx
+msgid "Unapplied"
+msgstr "Unapplied"
+
+#: src/features/applications/components/list-view.tsx
+msgid "Show unapplied"
+msgstr "Show unapplied"
+
+#: src/features/applications/components/list-view.tsx
+msgid "Only jobs you have applied to are shown."
+msgstr "Only jobs you have applied to are shown."

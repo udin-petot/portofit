@@ -140,7 +140,7 @@ export function ApplicationList({ applications, showClosed, selectedId, onOpen }
 								<Trans>Stage</Trans>
 							</th>
 							<th scope="col" className="px-2 text-start font-medium">
-								<Trans>Sent</Trans>
+								<Trans>Files</Trans>
 							</th>
 							{header("updated", t`Updated`, "max-md:hidden")}
 						</tr>
@@ -305,7 +305,7 @@ function ApplicationRow({ application, phone, selected, checked, onCheck, onOpen
 					</span>
 				) : (
 					<span className={cn("text-xs", sent ? "text-warn-text" : "text-ink-3")}>
-						<Trans>None</Trans>
+						<Trans>No files yet</Trans>
 					</span>
 				)}
 			</td>

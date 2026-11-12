@@ -39,12 +39,14 @@ const searchSchema = z.object({
 	q: z.string().default("").catch(""),
 	view: z.enum(VIEWS).default("list").catch("list"),
 	closed: z.boolean().default(false).catch(false),
+	// Lowongan yang disimpan tapi belum dilamar disembunyikan sampai diminta.
+	saved: z.boolean().default(false).catch(false),
 	// Deep links: open Add, or one application.
 	create: z.boolean().default(false).catch(false),
 	applicationId: z.string().optional().catch(undefined),
 });
 type Search = z.output<typeof searchSchema>;
-const defaultSearch: Search = { q: "", view: "list", closed: false, create: false };
+const defaultSearch: Search = { q: "", view: "list", closed: false, saved: false, create: false };
 
 export const Route = createFileRoute("/dashboard/applications/")({
 	component: RouteComponent,
@@ -68,7 +70,7 @@ function matches(application: Application, query: string) {
 }
 
 function RouteComponent() {
-	const { q, view, closed, create, applicationId } = Route.useSearch();
+	const { q, view, closed, saved, create, applicationId } = Route.useSearch();
 	const navigate = useNavigate({ from: Route.fullPath });
 	const phone = useBreakpoint() === "mobile";
 	// Typing filters at once; the URL only seeds the search.
@@ -104,12 +106,16 @@ function RouteComponent() {
 	}, [applicationId, applications, navigate]);
 
 	const text = query.trim().toLowerCase();
-	const filtered = (applications ?? []).filter((application) => matches(application, text));
+	const savedCount = (applications ?? []).filter((application) => application.status === "saved").length;
+	// Yang belum dilamar bukan lamaran. Sembunyikan dulu, tampilkan lewat tombol di toolbar.
+	const visible = (applications ?? []).filter((application) => saved || application.status !== "saved");
+	const filtered = visible.filter((application) => matches(application, text));
 	const selected = applications?.find((application) => application.id === selectedId) ?? null;
 	// The board needs room to drag: phones get the list instead.
 	const shown: View = phone && (view === "board" || view === "calendar") ? "list" : view;
 	const empty = !!applications && applications.length === 0;
 	const noMatches = !!applications && !empty && text && filtered.length === 0;
+	const allHidden = !!applications && !empty && !text && !saved && savedCount > 0 && filtered.length === 0;
 
 	return (
 		<div className="mx-auto grid w-full max-w-[1180px] content-start gap-5 px-8 py-8 max-sm:px-4 max-sm:py-5">
@@ -209,6 +215,19 @@ function RouteComponent() {
 							/>
 						</div>
 
+						{savedCount > 0 && (
+							<Button
+								variant="secondary"
+								aria-pressed={saved}
+								onClick={() => setSearch({ saved: !saved })}
+								className={cn(saved && "bg-sunken")}
+							>
+								<Icon name={saved ? "check-square" : "square"} size={18} />
+								<Trans>Unapplied</Trans>
+								<span className="font-mono text-xs text-ink-3">{savedCount}</span>
+							</Button>
+						)}
+
 						{shown !== "insights" && (
 							<Button
 								variant="secondary"
@@ -236,7 +255,16 @@ function RouteComponent() {
 
 					{isPending ? (
 						<ViewSkeleton view={shown} />
-					) : noMatches ? (
+					) : allHidden ? (
+					<div className="grid justify-items-center gap-2 py-16 text-center">
+						<p className="text-sm font-medium">
+							<Trans>Only jobs you have applied to are shown.</Trans>
+						</p>
+						<Button size="sm" variant="secondary" onClick={() => setSearch({ saved: true })}>
+							<Trans>Show unapplied</Trans>
+						</Button>
+					</div>
+				) : noMatches ? (
 						<div className="grid justify-items-center gap-2 py-16 text-center">
 							<p className="text-sm font-medium">
 								<Trans>No applications match “{query.trim()}”.</Trans>
