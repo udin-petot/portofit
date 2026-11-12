@@ -1,198 +1,377 @@
 import type { ResumeData } from "./data";
-import { sampleResumeData } from "./sample";
 
 /**
- * The example a new Indonesian user starts from: a one-page CV in their own language with the sections a
- * recruiter expects already filled in, so the first thing they do is replace text instead of working out what a
- * section wants. Names, companies and numbers are invented on purpose. Short by design: a starter that runs to
- * two pages teaches the wrong habit.
+ * The example a new Indonesian user starts from: one page, already filled, in their own language. It is the
+ * backend-engineer CV the product team keeps as its reference document, so the first screen of the editor shows
+ * what a finished CV looks like instead of an empty form. The persona is invented; nobody's own name is used.
  */
-const buildIndonesianSample = (): ResumeData => {
-	const data = structuredClone(sampleResumeData);
-
-	data.basics = {
-		...data.basics,
-		name: "Rani Puspita",
-		headline: "Analis Data | SQL, Python, Power BI",
-		email: "rani.puspita@email.com",
+export const indonesianSampleResumeData: ResumeData = {
+	picture: {
+		hidden: true,
+		fit: "cover",
+		url: "/photos/sample-picture.jpg",
+		size: 80,
+		rotation: 0,
+		aspectRatio: 1,
+		borderRadius: 0,
+		borderColor: "rgba(0, 0, 0, 0.5)",
+		borderWidth: 0,
+		shadowColor: "rgba(0, 0, 0, 0.5)",
+		shadowWidth: 0,
+	},
+	basics: {
+		name: "Rizky Pratama",
+		headline: "Backend Engineer",
+		email: "rizky.pratama@example.com",
 		phone: "+62 812-3456-7890",
-		location: "Yogyakarta",
-		website: { url: "https://ranipuspita.my.id", label: "ranipuspita.my.id" },
+		location: "Yogyakarta, Indonesia",
+		website: {
+			url: "",
+			label: "github.com/rizkypratama",
+		},
 		customFields: [],
-	};
-
-	data.summary.content =
-		"<p>Analis data dengan tiga tahun pengalaman mengubah data penjualan menjadi laporan mingguan yang dipakai tim bisnis. Terbiasa menulis SQL, merapikan data dengan Python, dan menyusun dasbor Power BI.</p>";
-
-	data.sections.profiles.items = [
-		{
-			id: "019bef5a-93e4-7746-ad39-3d42ddc9b4d8",
+	},
+	summary: {
+		title: "",
+		icon: "article",
+		columns: 1,
+		hidden: false,
+		showHeading: true,
+		keepTogether: false,
+		startOnNewPage: false,
+		content:
+			"<p>Backend engineer dengan 3 tahun pengalaman membangun layanan pembayaran dan API berlatensi rendah. Fokus pada keandalan, observabilitas, dan dokumentasi yang jelas.</p>",
+	},
+	sections: {
+		profiles: {
+			title: "",
+			icon: "messenger-logo",
+			columns: 1,
 			hidden: false,
-			icon: "linkedin-logo",
-			iconColor: "",
-			network: "LinkedIn",
-			username: "ranipuspita",
-			website: { url: "https://linkedin.com/in/ranipuspita", label: "linkedin.com/in/ranipuspita", inlineLink: false },
+			showHeading: true,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [],
 		},
-		{
-			id: "019bef5a-93e4-7746-ad39-43c470b77f4a",
+		experience: {
+			title: "",
+			icon: "briefcase",
+			columns: 1,
 			hidden: false,
-			icon: "github-logo",
-			iconColor: "",
-			network: "GitHub",
-			username: "ranipuspita",
-			website: { url: "https://github.com/ranipuspita", label: "github.com/ranipuspita", inlineLink: false },
+			showHeading: true,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [
+				{
+					id: "706ae6dd-d639-4c76-8aee-10b24071d0ba",
+					hidden: false,
+					company: "Nusantara Digital",
+					position: "Backend Engineer",
+					location: "Yogyakarta (hybrid)",
+					period: "Januari 2024 – Sekarang",
+					dates: {
+						start: "2024-01",
+						end: null,
+						present: true,
+					},
+					website: {
+						url: "",
+						label: "",
+						inlineLink: false,
+					},
+					description:
+						"<ul><li>Membangun layanan pembayaran dengan idempotency key dan status transaksi eksplisit; tagihan ganda turun menjadi nol.</li><li>Menulis rekonsiliasi harian dan alert untuk transaksi tertahan.</li></ul>",
+					roles: [],
+				},
+				{
+					id: "371dfcd7-df2a-445a-ac8f-8885fe59e270",
+					hidden: false,
+					company: "Loket Kreatif",
+					position: "Junior Backend Developer",
+					location: "Yogyakarta",
+					period: "Juli 2022 – Desember 2023",
+					dates: {
+						start: "2022-07",
+						end: "2023-12",
+						present: false,
+					},
+					website: {
+						url: "",
+						label: "",
+						inlineLink: false,
+					},
+					description:
+						"<ul><li>Mengembangkan API tiket acara dengan PostgreSQL dan Redis; menangani 1.200 pesanan pada acara terbesar.</li></ul>",
+					roles: [],
+				},
+			],
 		},
-	];
-
-	data.sections.experience.items = [
-		{
-			id: "019bef5a-93e4-7746-ad39-44d8cec98ca4",
+		education: {
+			title: "",
+			icon: "graduation-cap",
+			columns: 1,
 			hidden: false,
-			company: "PT Sinar Digital Nusantara",
-			position: "Analis Data",
-			location: "Yogyakarta",
-			period: "Juli 2023 - Sekarang",
-			website: { url: "", label: "", inlineLink: false },
-			roles: [],
-			description:
-				"<ul><li><p>Menyusun dasbor penjualan mingguan di Power BI yang dipakai 40 staf pemasaran dan manajer cabang.</p></li><li><p>Menulis kueri SQL dan skrip Python untuk laporan bulanan, memangkas waktu penyusunan dari lima hari menjadi satu hari.</p></li><li><p>Menemukan penyebab selisih stok gudang 4 persen dan mengusulkan pencatatan ulang yang menutup selisih itu.</p></li></ul>",
+			showHeading: true,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [
+				{
+					id: "20a14aef-82d6-435e-babf-b808dcb058fd",
+					hidden: false,
+					school: "Universitas Gadjah Mada",
+					degree: "S1",
+					area: "Ilmu Komputer",
+					grade: "IPK 3.62/4.00",
+					location: "Yogyakarta",
+					period: "Agustus 2018 – Juni 2022",
+					dates: {
+						start: "2018-08",
+						end: "2022-06",
+						present: false,
+					},
+					website: {
+						url: "",
+						label: "",
+						inlineLink: false,
+					},
+					description: "",
+				},
+			],
 		},
-		{
-			id: "019bef5a-d1fa-7289-a87c-2677688d9e75",
+		projects: {
+			title: "",
+			icon: "code-simple",
+			columns: 1,
 			hidden: false,
-			company: "CV Kreasi Media",
-			position: "Magang Analis Data",
-			location: "Yogyakarta",
-			period: "Agustus 2022 - Juni 2023",
-			website: { url: "", label: "", inlineLink: false },
-			roles: [],
-			description:
-				"<ul><li><p>Membersihkan data pelanggan dari empat sumber dan menyatukannya menjadi satu tabel acuan.</p></li><li><p>Membuat laporan mingguan pengunjung situs, sumber trafik, dan tingkat pendaftaran.</p></li></ul>",
+			showHeading: true,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [
+				{
+					id: "c13282a2-04e8-4f8a-9068-dc9bc9ae26c4",
+					hidden: false,
+					name: "PortoFit — pemeriksa ATS",
+					period: "Agustus 2026 – Oktober 2026",
+					dates: {
+						start: "2026-08",
+						end: "2026-10",
+						present: false,
+					},
+					website: {
+						url: "https://github.com/rizkypratama/portofit",
+						label: "",
+						inlineLink: false,
+					},
+					description:
+						"<p>Alat pemeriksa keterbacaan CV untuk ATS: ekstraksi teks, skor, dan saran perbaikan (TypeScript, PostgreSQL).</p>",
+				},
+				{
+					id: "e1aed0fe-8a4c-4e36-be27-eea96cb4b5da",
+					hidden: false,
+					name: "qris-reconcile",
+					period: "Februari 2026 – April 2026",
+					dates: {
+						start: "2026-02",
+						end: "2026-04",
+						present: false,
+					},
+					website: {
+						url: "https://github.com/rizkypratama/qris-reconcile",
+						label: "",
+						inlineLink: false,
+					},
+					description:
+						"<p>Skrip rekonsiliasi pembayaran QRIS: mencocokkan mutasi bank dengan order dan mengirim ringkasan harian.</p>",
+				},
+			],
 		},
-	];
-
-	data.sections.education.items = [
-		{
-			id: "019bef5a-93e4-7746-ad39-48455f6cef9e",
+		skills: {
+			title: "",
+			icon: "compass-tool",
+			columns: 1,
 			hidden: false,
-			school: "Universitas Gadjah Mada",
-			degree: "Sarjana",
-			area: "Statistika",
-			grade: "IPK 3,62 dari 4,00",
-			location: "Yogyakarta",
-			period: "2018 - 2022",
-			website: { url: "", label: "", inlineLink: false },
-			description: "",
+			showHeading: true,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [
+				{
+					id: "ebb6b17b-8309-4cb7-81a3-3d1b9c3a0e45",
+					hidden: false,
+					icon: "code",
+					iconColor: "",
+					name: "Backend",
+					proficiency: "Advanced",
+					level: 4,
+					keywords: ["Node.js", "TypeScript", "REST", "Idempotency"],
+				},
+				{
+					id: "24c6df67-6cfd-4bc6-ba95-0403bb99680a",
+					hidden: false,
+					icon: "database",
+					iconColor: "",
+					name: "Data",
+					proficiency: "Advanced",
+					level: 4,
+					keywords: ["PostgreSQL", "Redis", "SQL tuning"],
+				},
+				{
+					id: "c01ff4c9-9a0d-451f-98d6-849a71191bd4",
+					hidden: false,
+					icon: "cloud",
+					iconColor: "",
+					name: "Infrastruktur",
+					proficiency: "Intermediate",
+					level: 3,
+					keywords: ["Docker", "GitHub Actions", "Observability"],
+				},
+			],
+			keywordLayout: "inline",
+			layout: "default",
 		},
-	];
-
-	data.sections.projects.items = [
-		{
-			id: "019bef5a-93e4-7746-ad39-4d2603fe2801",
+		languages: {
+			title: "",
+			icon: "translate",
+			columns: 1,
 			hidden: false,
-			name: "Dasbor Pemantau Harga Pangan",
-			period: "2023",
-			website: {
-				url: "https://github.com/ranipuspita/dasbor-harga-pangan",
-				label: "github.com/ranipuspita/dasbor-harga-pangan",
-				inlineLink: false,
+			showHeading: true,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [
+				{
+					id: "41214c69-5ad6-41b0-9800-b2a2792e7e74",
+					hidden: false,
+					language: "Indonesia",
+					fluency: "Native",
+					level: 5,
+				},
+				{
+					id: "67fb6a37-59c1-49c2-a9a4-7822ceaa9d8d",
+					hidden: false,
+					language: "Inggris",
+					fluency: "Professional",
+					level: 5,
+				},
+			],
+		},
+		interests: {
+			title: "",
+			icon: "football",
+			columns: 1,
+			hidden: false,
+			showHeading: true,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [],
+		},
+		awards: {
+			title: "",
+			icon: "trophy",
+			columns: 1,
+			hidden: false,
+			showHeading: true,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [],
+		},
+		certifications: {
+			title: "",
+			icon: "certificate",
+			columns: 1,
+			hidden: false,
+			showHeading: true,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [],
+		},
+		publications: {
+			title: "",
+			icon: "books",
+			columns: 1,
+			hidden: false,
+			showHeading: true,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [],
+		},
+		volunteer: {
+			title: "",
+			icon: "hand-heart",
+			columns: 1,
+			hidden: false,
+			showHeading: true,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [],
+		},
+		references: {
+			title: "",
+			icon: "phone",
+			columns: 1,
+			hidden: false,
+			showHeading: true,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [],
+		},
+	},
+	customSections: [],
+	metadata: {
+		template: "porygon",
+		layout: {
+			sidebarWidth: 35,
+			pages: [
+				{
+					fullWidth: false,
+					main: ["summary", "experience", "education", "projects"],
+					sidebar: ["skills", "languages"],
+				},
+			],
+		},
+		page: {
+			gapX: 4,
+			gapY: 4,
+			marginX: 14,
+			marginY: 10,
+			format: "a4",
+			locale: "id-ID",
+			dateFormat: "long",
+			hideLinkUnderline: false,
+			hideIcons: false,
+			hideSectionIcons: true,
+		},
+		design: {
+			level: {
+				icon: "star",
+				type: "hidden",
 			},
-			description:
-				"<p>Mengumpulkan harga bahan pokok harian dari situs resmi daerah dan menampilkannya sebagai grafik tren.</p>",
+			colors: {
+				primary: "rgba(59, 63, 69, 1)",
+				text: "rgba(0, 0, 0, 1)",
+				background: "rgba(255, 255, 255, 1)",
+			},
 		},
-	];
-
-	data.sections.skills.items = [
-		{
-			id: "019bef5a-93e4-7746-ad39-5a52dcf50ed4",
-			hidden: false,
-			icon: "code",
-			iconColor: "",
-			name: "SQL",
-			proficiency: "Mahir",
-			level: 4,
-			keywords: ["PostgreSQL", "BigQuery"],
+		typography: {
+			body: {
+				fontFamily: "IBM Plex Serif",
+				fontWeights: ["400", "500"],
+				fontSize: 10,
+				lineHeight: 1.35,
+			},
+			heading: {
+				fontFamily: "IBM Plex Serif",
+				fontWeights: ["600"],
+				fontSize: 14,
+				lineHeight: 1.5,
+			},
 		},
-		{
-			id: "019bef5a-93e4-7746-ad39-5e8bb7cacbc8",
-			hidden: false,
-			icon: "brackets-curly",
-			iconColor: "",
-			name: "Python",
-			proficiency: "Mahir",
-			level: 4,
-			keywords: ["pandas", "scikit-learn"],
+		notes: "",
+		styleRules: [],
+		stylesheet: {
+			mode: "semantic",
+			source: {
+				languageVersion: 1,
+				text: "",
+			},
 		},
-		{
-			id: "019bef5a-93e4-7746-ad39-622f9d41da55",
-			hidden: false,
-			icon: "chart-line-up",
-			iconColor: "",
-			name: "Power BI",
-			proficiency: "Mahir",
-			level: 3,
-			keywords: ["DAX", "Dasbor"],
-		},
-		{
-			id: "019bef5a-93e4-7746-ad39-6574ab6814bd",
-			hidden: false,
-			icon: "cpu",
-			iconColor: "",
-			name: "Excel",
-			proficiency: "Mahir",
-			level: 3,
-			keywords: ["Power Query"],
-		},
-	];
-
-	data.sections.languages.items = [
-		{
-			id: "019bef5a-93e4-7746-ad39-73807ccc48b5",
-			hidden: false,
-			language: "Bahasa Indonesia",
-			fluency: "Penutur asli",
-			level: 5,
-		},
-		{
-			id: "019bef5a-93e4-7746-ad39-768670459358",
-			hidden: false,
-			language: "Inggris",
-			fluency: "Profesional",
-			level: 4,
-		},
-	];
-
-	data.sections.awards.items = [];
-	data.sections.interests.items = [];
-	data.sections.publications.items = [];
-	data.sections.volunteer.items = [];
-	data.sections.references.items = [];
-	data.sections.certifications.items = [
-		{
-			id: "019bef5a-93e4-7746-ad39-8c2b3c4d5f22",
-			hidden: false,
-			title: "Google Data Analytics",
-			issuer: "Google",
-			date: "2023",
-			website: { url: "", label: "", inlineLink: false },
-			description: "",
-		},
-	];
-	data.customSections = [];
-
-	data.metadata.template = "rapi";
-	data.metadata.layout.sidebarWidth = 32;
-	data.metadata.layout.pages = [
-		{
-			fullWidth: false,
-			main: ["summary", "experience", "education", "projects"],
-			sidebar: ["profiles", "skills", "languages", "certifications"],
-		},
-	];
-	data.metadata.page.locale = "id-ID";
-
-	return data;
-};
-
-export const indonesianSampleResumeData: ResumeData = buildIndonesianSample();
+	},
+} as ResumeData;

@@ -20,10 +20,14 @@ const sampleFor = (locale?: Locale) => (locale === "id-ID" ? indonesianSampleRes
 export function createResumeData(options: CreateResumeDataOptions): ResumeData {
 	const data = structuredClone(options.withSampleData ? sampleFor(options.locale) : defaultResumeData);
 
-	const name = options.name?.trim();
-	if (name) data.basics.name = name;
-	const email = options.email?.trim();
-	if (email) data.basics.email = email;
+	// The example carries its own invented persona: putting the account holder's name on it makes a stranger's CV
+	// look like theirs, and they upload it before noticing.
+	if (!options.withSampleData) {
+		const name = options.name?.trim();
+		if (name) data.basics.name = name;
+		const email = options.email?.trim();
+		if (email) data.basics.email = email;
+	}
 	if (options.locale) data.metadata.page.locale = options.locale;
 	data.metadata.stylesheet = {
 		mode: "semantic",
