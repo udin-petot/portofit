@@ -45,7 +45,7 @@ function CareerLayout() {
 
 	return (
 		<div className="flex min-h-svh flex-col gap-6 px-4 py-5 md:px-10 md:py-7">
-			<header className="flex flex-wrap items-end justify-between gap-x-6 gap-y-4 [view-transition-name:career-header]">
+			<header className="relative z-10 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 [view-transition-name:career-header]">
 				<div className="grid min-w-0 gap-1">
 					<h1 className="font-display text-[30px] leading-9 font-medium">
 						<Trans>Career</Trans>
