@@ -29,7 +29,7 @@ export function PaidMark({ className }: { className?: string | undefined }) {
 				aria-hidden="true"
 				className="size-11 sm:size-[46px]"
 			>
-				<path d="M4.5 12.8 9.6 17.9 19.5 7" pathLength={1} strokeDasharray={1} className="animate-mark-draw" />
+				<path d="M4.5 12.35 9.6 17.45 19.5 6.55" pathLength={1} strokeDasharray={1} className="animate-mark-draw" />
 			</svg>
 		</MarkShell>
 	);

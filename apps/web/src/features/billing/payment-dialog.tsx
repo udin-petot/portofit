@@ -288,10 +288,12 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 				{credits} {creditUnit} <Trans>added to your account.</Trans>
 				{balances ? (
 					<>
-						{" "}
-						<Trans>Balance now</Trans>{" "}
-						<span className="font-medium text-ink">
-							{order?.kind === "interview" ? balances.interview : balances.application}.
+						<br />
+						<span className="text-ink-3">
+							<Trans>Balance now</Trans>{" "}
+							<span className="font-medium text-ink">
+								{order?.kind === "interview" ? balances.interview : balances.application}.
+							</span>
 						</span>
 					</>
 				) : null}
