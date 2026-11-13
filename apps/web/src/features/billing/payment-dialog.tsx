@@ -174,7 +174,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 	const planRow = { key: "plan", label: <Trans>Plan</Trans>, value: plan?.name };
 	const amountRow = {
 		key: "amount",
-		label: <Trans>Paid</Trans>,
+		label: phase === "ditolak" ? <Trans>Total</Trans> : <Trans>Paid</Trans>,
 		value: <span className="tabular-nums">{formatRupiah(order?.totalIdr ?? 0)}</span>,
 	};
 
@@ -321,7 +321,11 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 				]}
 			/>
 			<div className="grid gap-2">
+				<Button className="h-11 w-full" onClick={onClose}>
+					<Trans>Done</Trans>
+				</Button>
 				<Button
+					variant="secondary"
 					className="h-11 w-full"
 					disabled={!invoiceId || downloadInvoice.isPending}
 					onClick={async () => {
@@ -331,9 +335,6 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 					}}
 				>
 					<Trans>Download invoice</Trans>
-				</Button>
-				<Button variant="secondary" className="h-11 w-full" onClick={onClose}>
-					<Trans>Done</Trans>
 				</Button>
 			</div>
 			<p className="text-center text-[11px] text-ink-3">
