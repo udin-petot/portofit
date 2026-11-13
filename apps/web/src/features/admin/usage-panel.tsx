@@ -8,6 +8,13 @@ import { orpc } from "@/libs/orpc/client";
 
 const RANGES = ["7", "30", "90"] as const;
 
+/** 2026-11-13 menjadi 13 Nov 2026, sama seperti tanggal di grafik admin. */
+function formatDay(isoDate: string) {
+	const date = new Date(`${isoDate}T00:00:00`);
+	if (Number.isNaN(date.getTime())) return isoDate;
+	return date.toLocaleDateString("id-ID", { day: "2-digit", month: "short", year: "numeric" });
+}
+
 /**
  * Angka pemakaian fitur. Sengaja tanpa nama akun dan tanpa surel: yang disimpan di basis data hanya
  * nama fitur dan waktunya, jadi halaman ini memang tidak bisa menunjukkan siapa memakai apa.
@@ -23,7 +30,7 @@ export function UsagePanel() {
 	const busiest = used[0];
 	const busiestShare = busiest && data && data.total > 0 ? Math.round((busiest.count / data.total) * 100) : 0;
 	const perDay = data && data.daily.length > 0 ? Math.round((data.total / data.daily.length) * 10) / 10 : 0;
-	const maxCount = Math.max(...used.map((feature) => feature.count), 1);
+
 
 	return (
 		<div className="grid gap-4">
@@ -101,7 +108,9 @@ export function UsagePanel() {
 									<div className="h-1.5 w-32 overflow-hidden rounded-full bg-sunken">
 										<div
 											className="h-full rounded-full bg-accent"
-											style={{ width: `${Math.max(4, Math.round((feature.count / maxCount) * 100))}%` }}
+											// Batang memakai angka yang sama dengan persentase di sebelahnya, bukan skala
+											// terhadap fitur tersering, supaya 50 persen tidak tampil sebagai batang penuh.
+											style={{ width: `${Math.max(2, Math.round(feature.share * 100))}%` }}
 										/>
 									</div>
 									<span className="w-12 text-end text-sm tabular-nums text-ink">{feature.count}</span>
@@ -132,7 +141,7 @@ export function UsagePanel() {
 					<ul className="max-h-80 overflow-y-auto divide-y divide-line">
 						{[...(data?.daily ?? [])].reverse().map((day) => (
 							<li key={day.date} className="flex items-center justify-between gap-3 px-4 py-2 text-sm">
-								<span className="tabular-nums text-ink-2">{day.date}</span>
+								<span className="tabular-nums text-ink-2">{formatDay(day.date)}</span>
 								<span className="tabular-nums text-ink">{day.count}</span>
 							</li>
 						))}

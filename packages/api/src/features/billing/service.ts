@@ -633,7 +633,7 @@ export const billingService = {
 			.select({ status: billingOrder.status, count: sql<number>`count(*)::int` })
 			.from(billingOrder)
 			.groupBy(billingOrder.status);
-		const statusOrder: OrderStatus[] = ["menunggu_bayar", "menunggu_verifikasi", "lunas", "ditolak"];
+		const statusOrder: OrderStatus[] = ["menunggu_bayar", "menunggu_verifikasi", "lunas", "ditolak", "hangus"];
 		const byStatus = statusOrder.map((status) => ({
 			status,
 			count: Number(statusRows.find((row) => row.status === status)?.count ?? 0),

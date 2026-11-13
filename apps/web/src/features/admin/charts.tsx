@@ -240,7 +240,7 @@ export function StatusDonut({ segments, caption }: { segments: DonutSegment[]; c
 						</span>
 						<span className="shrink-0 tabular-nums text-ink">
 							{segment.value}
-							<span className="ms-1 text-ink-3">{total > 0 ? `${Math.round((segment.value / total) * 100)}%` : "0%"}</span>
+							<span className="ms-1 text-ink-3">{total > 0 ? `· ${Math.round((segment.value / total) * 100)}%` : "· 0%"}</span>
 						</span>
 					</li>
 				))}

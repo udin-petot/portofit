@@ -75,7 +75,7 @@ const VIEW_COPY: Record<View, { title: string; description: string }> = {
 	},
 	pengguna: {
 		title: "Pengguna",
-		description: "Saldo kredit, riwayat bergabung, and koreksi manual.",
+		description: "Saldo kredit, riwayat bergabung, dan koreksi manual.",
 	},
 	paket: {
 		title: "Paket & harga",
@@ -92,6 +92,7 @@ const STATUS_VARIANT: Record<string, "neutral" | "warn" | "accent" | "danger"> =
 	menunggu_verifikasi: "warn",
 	lunas: "accent",
 	ditolak: "danger",
+	hangus: "neutral",
 };
 
 const STATUS_COLOR: Record<string, string> = {
@@ -99,6 +100,7 @@ const STATUS_COLOR: Record<string, string> = {
 	menunggu_verifikasi: "var(--warn)",
 	lunas: "var(--accent)",
 	ditolak: "var(--danger)",
+	hangus: "var(--ink-3)",
 };
 
 const KIND_LABEL: Record<PlanKind, string> = { application: "CV + cover letter", interview: "Latihan wawancara" };
@@ -132,6 +134,7 @@ const FILTERS: Array<{ key: "semua" | keyof typeof STATUS_VARIANT; label: string
 	{ key: "menunggu_bayar", label: "Menunggu bayar" },
 	{ key: "lunas", label: "Lunas" },
 	{ key: "ditolak", label: "Ditolak" },
+	{ key: "hangus", label: "Hangus" },
 ];
 
 /**
@@ -316,28 +319,37 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 							</h1>
 							<p className="mt-0.5 hidden text-xs text-ink-3 sm:block">{copy.description}</p>
 						</div>
-						<InputGroup className="hidden w-56 md:flex">
-							<InputGroupAddon align="inline-start">
-								<Icon name="magnifying-glass" size={15} />
-							</InputGroupAddon>
-							<InputGroupInput
-								placeholder="Cari pengguna…"
-								aria-label="Cari pengguna"
-								value={headerQuery}
-								onChange={(event) => setHeaderQuery(event.currentTarget.value)}
-								onKeyDown={(event) => {
-									if (event.key === "Enter") goToUsers(event.currentTarget.value);
-								}}
-							/>
-						</InputGroup>
-						<Button size="sm" variant="secondary" loading={analytics.isFetching || orders.isFetching} onClick={() => void refresh()}>
-							<Icon name="arrows-clockwise" size={15} />
-							Segarkan
-						</Button>
-						<Button size="sm" variant="secondary" loading={exportCsv.isFetching} onClick={() => void downloadCsv()}>
-							<Icon name="download-simple" size={15} />
-							Unduh CSV
-						</Button>
+						{view === "pemakaian" ? null : (
+							<>
+								<InputGroup className="hidden w-56 md:flex">
+									<InputGroupAddon align="inline-start">
+										<Icon name="magnifying-glass" size={15} />
+									</InputGroupAddon>
+									<InputGroupInput
+										placeholder="Cari pengguna…"
+										aria-label="Cari pengguna"
+										value={headerQuery}
+										onChange={(event) => setHeaderQuery(event.currentTarget.value)}
+										onKeyDown={(event) => {
+											if (event.key === "Enter") goToUsers(event.currentTarget.value);
+										}}
+									/>
+								</InputGroup>
+								<Button
+									size="sm"
+									variant="secondary"
+									loading={analytics.isFetching || orders.isFetching}
+									onClick={() => void refresh()}
+								>
+									<Icon name="arrows-clockwise" size={15} />
+									Segarkan
+								</Button>
+								<Button size="sm" variant="secondary" loading={exportCsv.isFetching} onClick={() => void downloadCsv()}>
+									<Icon name="download-simple" size={15} />
+									Unduh CSV
+								</Button>
+							</>
+						)}
 					</div>
 
 					<div className="mx-auto flex w-full max-w-[1280px] gap-1 overflow-x-auto border-t border-line px-3 py-2 [scrollbar-width:none] lg:hidden">
