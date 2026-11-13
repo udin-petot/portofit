@@ -2586,8 +2586,8 @@ msgid "Check the details"
 msgstr "Periksa detailnya"
 
 #: src/features/ats-checker/messages.ts
-msgid "Check the exported file contains everything you expect, and that all of it is selectable text."
-msgstr "Periksa bahwa file yang diekspor memuat semua yang Anda harapkan, dan semuanya berupa teks yang dapat dipilih."
+msgid "Under 150 words were found. Add what the role needed, what you did, and what changed. Aim for 200 words or more."
+msgstr "Isinya di bawah 150 kata. Tambahkan apa yang dibutuhkan peran itu, apa yang kamu kerjakan, dan apa yang berubah. Incar 200 kata atau lebih."
 
 #: src/features/career/workspace/fit.tsx
 msgid "Check this role against your evidence"
@@ -13013,8 +13013,8 @@ msgid "Versions"
 msgstr "Versi"
 
 #: src/features/ats-checker/messages.ts
-msgid "Very few words were recovered for a resume."
-msgstr "Hanya sedikit kata yang berhasil dipulihkan untuk sebuah resume."
+msgid "This resume is short."
+msgstr "CV ini masih pendek."
 
 #: src/features/ats-checker/messages.ts
 msgid "Very little text was recovered for this many pages."
@@ -14110,3 +14110,39 @@ msgstr "Satu paket lamaran berisi satu set berkas: resume yang disesuaikan, sura
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."
 msgstr "Beli kredit untuk melanjutkan."
+
+#: src/routes/templates/$.tsx
+msgid "Every template, on one page."
+msgstr "Semua templat, dalam satu halaman."
+
+#: src/routes/templates/$.tsx
+msgid "{0} layouts, all exporting a text-based PDF with the words in reading order. Open one, then pick it in the editor."
+msgstr "{0} tata letak, semuanya mengekspor PDF berbasis teks dengan urutan kata yang benar. Buka satu, lalu pilih di editor."
+
+#: src/routes/templates/$.tsx
+msgid "Preview"
+msgstr "Pratinjau"
+
+#: src/routes/templates/$.tsx
+msgid "Free to browse. No account needed to look around."
+msgstr "Bebas dilihat. Tidak perlu akun untuk melihat."
+
+#: src/routes/templates/$.tsx
+msgid "Template not found"
+msgstr "Templat tidak ditemukan"
+
+#: src/routes/templates/$.tsx
+msgid "This address only shows template previews. Pick one from the list, or start from your own document."
+msgstr "Alamat ini hanya menampilkan pratinjau templat. Pilih satu dari daftar, atau mulai dari dokumenmu sendiri."
+
+#: src/routes/templates/$.tsx
+msgid "All templates"
+msgstr "Semua templat"
+
+#: src/routes/templates/$.tsx
+msgid "Open dashboard"
+msgstr "Buka dasbor"
+
+#: src/routes/templates/$.tsx
+msgid "Use this template"
+msgstr "Pakai templat ini"

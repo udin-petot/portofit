@@ -2581,8 +2581,8 @@ msgid "Check the details"
 msgstr "Check the details"
 
 #: src/features/ats-checker/messages.ts
-msgid "Check the exported file contains everything you expect, and that all of it is selectable text."
-msgstr "Check the exported file contains everything you expect, and that all of it is selectable text."
+msgid "Under 150 words were found. Add what the role needed, what you did, and what changed. Aim for 200 words or more."
+msgstr "Under 150 words were found. Add what the role needed, what you did, and what changed. Aim for 200 words or more."
 
 #: src/features/career/workspace/fit.tsx
 msgid "Check this role against your evidence"
@@ -13008,8 +13008,8 @@ msgid "Versions"
 msgstr "Versions"
 
 #: src/features/ats-checker/messages.ts
-msgid "Very few words were recovered for a resume."
-msgstr "Very few words were recovered for a resume."
+msgid "This resume is short."
+msgstr "This resume is short."
 
 #: src/features/ats-checker/messages.ts
 msgid "Very little text was recovered for this many pages."
@@ -14105,3 +14105,39 @@ msgstr "One application package covers one set of files: a tailored resume, a co
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."
 msgstr "Buy credits to continue."
+
+#: src/routes/templates/$.tsx
+msgid "Every template, on one page."
+msgstr "Every template, on one page."
+
+#: src/routes/templates/$.tsx
+msgid "{0} layouts, all exporting a text-based PDF with the words in reading order. Open one, then pick it in the editor."
+msgstr "{0} layouts, all exporting a text-based PDF with the words in reading order. Open one, then pick it in the editor."
+
+#: src/routes/templates/$.tsx
+msgid "Preview"
+msgstr "Preview"
+
+#: src/routes/templates/$.tsx
+msgid "Free to browse. No account needed to look around."
+msgstr "Free to browse. No account needed to look around."
+
+#: src/routes/templates/$.tsx
+msgid "Template not found"
+msgstr "Template not found"
+
+#: src/routes/templates/$.tsx
+msgid "This address only shows template previews. Pick one from the list, or start from your own document."
+msgstr "This address only shows template previews. Pick one from the list, or start from your own document."
+
+#: src/routes/templates/$.tsx
+msgid "All templates"
+msgstr "All templates"
+
+#: src/routes/templates/$.tsx
+msgid "Open dashboard"
+msgstr "Open dashboard"
+
+#: src/routes/templates/$.tsx
+msgid "Use this template"
+msgstr "Use this template"

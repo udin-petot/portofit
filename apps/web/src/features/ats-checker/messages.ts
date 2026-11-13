@@ -215,8 +215,8 @@ export function getPdfFindingMessage(code: PdfRuleCode): PdfFindingMessage {
 				action: t`Make them visibly larger, bolder or capitalised.`,
 			}))
 			.with("VERY_SHORT_DOCUMENT", () => ({
-				title: t`Very few words were recovered for a resume.`,
-				action: t`Check the exported file contains everything you expect, and that all of it is selectable text.`,
+				title: t`This resume is short.`,
+				action: t`Under 150 words were found. Add what the role needed, what you did, and what changed. Aim for 200 words or more.`,
 			}))
 			.with("NO_BULLET_POINTS", () => ({
 				title: t`No bullet lists were found.`,
