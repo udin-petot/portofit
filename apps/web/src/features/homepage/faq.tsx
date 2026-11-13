@@ -187,16 +187,7 @@ export function Faq() {
 					</Trans>
 				</h2>
 				<p className="max-w-[24em] font-display text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
-					<Trans>
-						{questions.length} short answers to what people ask before they start. Anything else, ask on{" "}
-						<a
-							href="https://discord.gg/aSyA5ZSxpb"
-							className="text-accent-text italic underline underline-offset-[3px] transition-colors hover:text-accent-hover"
-						>
-							Discord
-						</a>
-						.
-					</Trans>
+					<Trans>{questions.length} short answers to what people ask before they start.</Trans>
 				</p>
 			</div>
 

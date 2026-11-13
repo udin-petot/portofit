@@ -866,8 +866,8 @@ msgstr "40% lebih cepat ditinjau"
 
 #. placeholder {0}: questions.length
 #: src/features/homepage/faq.tsx
-msgid "{0} short answers to what people ask before they start. Anything else, ask on <0>Discord</0>."
-msgstr "{0} jawaban singkat untuk pertanyaan yang sering diajukan sebelum mulai. Ada hal lain? Tanyakan di <0>Discord</0>."
+msgid "{0} short answers to what people ask before they start."
+msgstr "{0} jawaban singkat untuk pertanyaan yang sering diajukan sebelum mulai."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "90 days"
