@@ -807,8 +807,12 @@ msgid "1 interview"
 msgstr "1টি সাক্ষাৎকার"
 
 #: src/features/billing/pricing.tsx
-msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
+msgid "1. Choose a package. The order opens straight away in a payment window."
 msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
+#~ msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "10-minute briefing"
@@ -832,8 +836,12 @@ msgid "2–3 sentences reads best"
 msgstr "2-3 বাক্য সবচেয়ে ভাল পড়া"
 
 #: src/features/billing/pricing.tsx
-msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
+msgid "2. Scan the QRIS and pay the exact amount down to the last three digits."
 msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
+#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -862,8 +870,12 @@ msgid "3 supported · 1 partly · 1 missing"
 msgstr "3টি সমর্থিত · 1টি আংশিক · 1টি অনুপস্থিত"
 
 #: src/features/billing/pricing.tsx
-msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
+msgid "3. Upload the proof in the same window. Credits land once an admin checks it."
 msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
+#~ msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "30 days"
@@ -978,8 +990,8 @@ msgid "A pasted posting can be saved as an application afterwards."
 msgstr "একটি আটকানো চাকরির পোস্টিং পরে চাকরির আবেদন হিসাবে সংরক্ষণ করা যেতে পারে।"
 
 #: src/features/billing/transactions.tsx
-msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
-msgstr ""
+#~ msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
+#~ msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
@@ -1445,6 +1457,10 @@ msgstr "অভিজ্ঞতা হিসেবে জ্ঞানভান্�
 msgid "Added to Prepare"
 msgstr "প্রস্তুতিতে যোগ করা হয়েছে"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "added to your account."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Address"
 msgstr "ঠিকানা"
@@ -1660,6 +1676,10 @@ msgstr "আমহারিক"
 msgid "Amount"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
+msgstr ""
+
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
 msgstr ""
@@ -1826,6 +1846,10 @@ msgstr "চাকরির আবেদন বন্ধ"
 
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "application credits"
 msgstr ""
 
 #: src/routes/dashboard/beli-kredit.tsx
@@ -2220,6 +2244,10 @@ msgstr "ব্যাকআপ কোডগুলো ক্লিপবোর্�
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 msgid "Bagus Maulana"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Balance now"
 msgstr ""
 
 #: src/features/homepage/sheet.tsx
@@ -2773,6 +2801,7 @@ msgstr "ক্লায়েন্ট আইডি"
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/coach-sheet.tsx
@@ -3005,6 +3034,14 @@ msgstr "সংযুক্ত অ্যাপ্লিকেশন"
 msgid "Connecting the dots"
 msgstr "সূত্রগুলো মেলানো হচ্ছে"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Connection problem"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Connection problem. Your order is still saved, try loading its status again."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Connection saved"
 msgstr "সংযোগ সংরক্ষিত"
@@ -3080,6 +3117,11 @@ msgstr "চালিয়ে যান"
 msgid "Continue as guest"
 msgstr "অতিথি হিসেবে চালিয়ে যান"
 
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Continue payment"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
 msgstr "অবদান স্পষ্ট"
@@ -3119,6 +3161,7 @@ msgstr "একটি চাকরি নিয়ে কথোপকথনগু
 msgid "Cooking"
 msgstr "রান্না হচ্ছে"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
 #: src/features/settings/ai/api-keys.tsx
@@ -3192,6 +3235,10 @@ msgstr "গোপন অনুলিপি"
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Copy stylesheet"
 msgstr "স্টাইলশিট কপি করুন"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Copy the amount"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
@@ -3702,6 +3749,7 @@ msgstr "তৈরি করুন"
 msgid "Create a new account"
 msgstr "নতুন অ্যাকাউন্ট তৈরি করুন"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Create a new order"
 msgstr ""
@@ -4230,6 +4278,7 @@ msgstr "{0} পাঠাবেন না"
 msgid "Donate"
 msgstr "দান করুন"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
 #: src/features/settings/ai/api-keys.tsx
 msgid "Done"
@@ -4276,6 +4325,10 @@ msgstr "CSV ডাউনলোড করুন"
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Download failed."
 msgstr "ডাউনলোড ব্যর্থ হয়েছে৷"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Download invoice"
+msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -4639,6 +4692,11 @@ msgstr "দ্বি-স্তর প্রমাণীকরণ সক্রি
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "শেষ"
+
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Ends in"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "English"
@@ -5079,7 +5137,7 @@ msgstr "বিভাগ খোঁজা"
 msgid "Finding what works"
 msgstr "কী কাজ করে তা খোঁজা হচ্ছে"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Finish the payment"
 msgstr ""
 
@@ -5304,8 +5362,8 @@ msgid "Found yesterday"
 msgstr "গতকাল পাওয়া গেছে"
 
 #: src/features/billing/pricing.tsx
-msgid "Free"
-msgstr ""
+#~ msgid "Free"
+#~ msgstr ""
 
 #: src/features/quota/page.tsx
 msgid "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
@@ -5316,8 +5374,8 @@ msgid "Free ATS resume checker"
 msgstr "বিনামূল্যে ATS জীবনবৃত্তান্ত পরীক্ষক"
 
 #: src/features/billing/pricing.tsx
-msgid "Free issue list and basic job match"
-msgstr ""
+#~ msgid "Free issue list and basic job match"
+#~ msgstr ""
 
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
@@ -5461,8 +5519,8 @@ msgid "Go to dashboard"
 msgstr "ড্যাশবোর্ডে যান"
 
 #: src/features/billing/pricing.tsx
-msgid "Go to my documents"
-msgstr ""
+#~ msgid "Go to my documents"
+#~ msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
@@ -5946,6 +6004,10 @@ msgstr "ইন্টারভিউ"
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credits"
+msgstr ""
+
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Interview credits"
 msgstr ""
@@ -6030,6 +6092,7 @@ msgid "Interviews and follow-ups by date."
 msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Invoice"
 msgstr ""
 
@@ -6524,7 +6587,6 @@ msgstr "নতুন ব্যবহারকারীদের শুরুর 
 msgid "Led research for the onboarding redesign; activation rose from 31% to 44%."
 msgstr "অনবোর্ডিং রিডিজাইনের গবেষণায় নেতৃত্ব দিয়েছি; অ্যাক্টিভেশন 31% থেকে বেড়ে 44% হয়েছে।"
 
-#: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "left"
 msgstr ""
@@ -7173,6 +7235,10 @@ msgstr "মডেল: {label}"
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
 msgstr "মনো"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "more"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -7882,6 +7948,10 @@ msgstr "নির্বাচিত হয়নি"
 msgid "Not set up"
 msgstr "সেট আপ করা হয়নি"
 
+#: src/features/billing/pricing.tsx
+msgid "Not sure yet?"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "আমার জন্য সত্য না, এটা লুকান"
@@ -8093,8 +8163,8 @@ msgid "one format"
 msgstr "একটি ফরম্যাট"
 
 #: src/features/billing/pricing.tsx
-msgid "One free resume to build and download"
-msgstr ""
+#~ msgid "One free resume to build and download"
+#~ msgstr ""
 
 #: src/features/billing/credit-dialog.tsx
 msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
@@ -8216,6 +8286,10 @@ msgstr "খোলা সমস্যা"
 msgid "Open messages"
 msgstr ""
 
+#: src/features/billing/pricing.tsx
+msgid "Open my documents"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 msgid "Open Preferences"
 msgstr "পছন্দসমূহ খুলুন"
@@ -8314,8 +8388,8 @@ msgid "Or in your own words…"
 msgstr "অথবা আপনার নিজের ভাষায়..."
 
 #: src/features/billing/transactions.tsx
-msgid "Or through WhatsApp"
-msgstr ""
+#~ msgid "Or through WhatsApp"
+#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Or upload a resume PDF"
@@ -8325,8 +8399,13 @@ msgstr "অথবা একটি জীবনবৃত্তান্ত PDF �
 msgid "Orange"
 msgstr "কমলা"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Order expired"
+msgstr ""
+
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Order waiting for payment"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
@@ -8436,6 +8515,7 @@ msgstr "পাতা পড়া শেষ হয়নি."
 msgid "Page view"
 msgstr "পেজ ভিউ"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Paid"
@@ -8608,12 +8688,16 @@ msgid "Paused schedules keep their settings."
 msgstr "বিরতিতে থাকা সময়সূচির সেটিংস অপরিবর্তিত থাকে।"
 
 #: src/features/billing/transactions.tsx
-msgid "Pay"
+#~ msgid "Pay"
+#~ msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Pay by QRIS, checked by an admin, credits land once it passes."
 msgstr ""
 
 #: src/features/billing/pricing.tsx
-msgid "Pay by QRIS, verified manually by an admin."
-msgstr ""
+#~ msgid "Pay by QRIS, verified manually by an admin."
+#~ msgstr ""
 
 #: src/features/billing/pricing.tsx
 msgid "Pay only for what you use"
@@ -8627,6 +8711,10 @@ msgstr ""
 msgid "Pay period"
 msgstr "বেতনের মেয়াদ"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Pay the exact amount down to the last three digits. Scan it with any bank or wallet app that supports QRIS."
+msgstr ""
+
 #: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
@@ -8638,6 +8726,10 @@ msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "payment confirmed, your credits are in"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Payment received"
 msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
@@ -8730,6 +8822,10 @@ msgstr "সাধারণ টেক্সট (.txt)"
 msgid "Plain text with headings. Paste into application forms and notes."
 msgstr "শিরোনাম সহ সরল পাঠ্য। চাকরির আবেদনপত্র এবং নোটে পেস্ট করুন।"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Plan"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Plan again"
 msgstr "আবার পরিকল্পনা করুন"
@@ -8795,8 +8891,8 @@ msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "PortoFit QRIS code"
-msgstr ""
+#~ msgid "PortoFit QRIS code"
+#~ msgstr ""
 
 #: src/features/documents/start-guide.tsx
 msgid "PortoFit tracks each job from the posting to the interview."
@@ -8961,10 +9057,15 @@ msgstr "সম্পাদনা প্রস্তুত করা হচ্ছ
 msgid "Preparing your order…"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Preparing your payment…"
+msgstr ""
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Preparing your resume for printing..."
 msgstr "আপনার জীবনবৃত্তান্ত মুদ্রণের জন্য প্রস্তুত করা হচ্ছে..."
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/workspace/prepare-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -9113,15 +9214,24 @@ msgstr "প্রকল্প"
 msgid "Promoted to lead, 2021"
 msgstr "নেতৃত্বে উন্নীত, 2021"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof did not match"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Proof rejected"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof sent"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "Proof sent, waiting for a check"
 msgstr ""
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
 msgstr ""
 
@@ -10358,8 +10468,8 @@ msgid "Say it aloud"
 msgstr "জোরে বলুন"
 
 #: src/features/billing/transactions.tsx
-msgid "Scan it with any bank or wallet app that supports QRIS."
-msgstr ""
+#~ msgid "Scan it with any bank or wallet app that supports QRIS."
+#~ msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
@@ -10614,6 +10724,10 @@ msgstr ""
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Send Password Reset Email"
 msgstr "পাসওয়ার্ড রিসেটের ইমেইল পাঠান"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Send the proof on WhatsApp"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Send the resume itself rather than a portfolio wrapper."
@@ -11396,6 +11510,10 @@ msgstr "পরিসংখ্যান"
 msgid "Status"
 msgstr "অবস্থা"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Status could not be read"
+msgstr ""
+
 #: src/hooks/use-form-blocker.tsx
 msgid "Stay"
 msgstr "থাকুন"
@@ -11879,7 +11997,11 @@ msgid "The AI features are paused for a moment. Try again shortly."
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "The amount has to match down to the last three digits."
+#~ msgid "The amount has to match down to the last three digits."
+#~ msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "The amount or the proof does not match this order."
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -11936,6 +12058,10 @@ msgstr "অনুলিপিটি চাকরির আবেদনের স
 
 #: src/features/billing/transactions.tsx
 msgid "The credits are in your account. An invoice is there if you need proof of payment."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "The deadline passed before the proof arrived. This order is closed and cannot be paid again."
 msgstr ""
 
 #: src/features/resume/editor/write/dates-field.tsx
@@ -12063,11 +12189,11 @@ msgstr "চাকরির পোস্টিং পড়া যায়নি
 msgid "The posting saved with this application."
 msgstr "চাকরির পোস্টিং এই চাকরির আবেদনের সাথে সংরক্ষণ করা হয়েছে।"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof can be at most 10 MB."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof could not be sent. Try again."
 msgstr ""
 
@@ -12075,7 +12201,7 @@ msgstr ""
 msgid "The proof did not match the amount on this order."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof must be a JPG or PNG. PDF is not accepted."
 msgstr ""
 
@@ -12503,9 +12629,13 @@ msgstr "সময় · {0}"
 msgid "Time · {timeZone}"
 msgstr "সময় · {timeZone}"
 
-#: src/features/billing/transactions.tsx
-msgid "Time left"
+#: src/features/billing/payment-dialog.tsx
+msgid "Time is up"
 msgstr ""
+
+#: src/features/billing/transactions.tsx
+#~ msgid "Time left"
+#~ msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
@@ -12537,8 +12667,8 @@ msgid "To"
 msgstr "প্রতি"
 
 #: src/features/billing/pricing.tsx
-msgid "To try the flow"
-msgstr ""
+#~ msgid "To try the flow"
+#~ msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 #: src/features/resume/share/link-tab.tsx
@@ -12574,9 +12704,13 @@ msgstr "মোট"
 msgid "TOTAL PAID"
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-msgid "Total to transfer"
+#: src/features/billing/payment-dialog.tsx
+msgid "Total to pay"
 msgstr ""
+
+#: src/features/billing/transactions.tsx
+#~ msgid "Total to transfer"
+#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -12647,6 +12781,7 @@ msgid "Try a sample"
 msgstr "একটি নমুনা চেষ্টা করুন"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
@@ -12669,6 +12804,10 @@ msgstr "এটি দিয়ে আবার চেষ্টা করুন"
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"
 msgstr "ATS চেকার ব্যবহার করে দেখুন"
+
+#: src/features/billing/pricing.tsx
+msgid "Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Try this opening"
@@ -12853,13 +12992,14 @@ msgstr "পূর্বাবস্থায় ফেরান"
 msgid "Undo resume change"
 msgstr "সারসংকলন পরিবর্তন পূর্বাবস্থায় ফেরান"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Unique code"
 msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
-msgid "Unique transfer code"
-msgstr ""
+#~ msgid "Unique transfer code"
+#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
@@ -12872,8 +13012,8 @@ msgid "Unknown"
 msgstr "অজানা"
 
 #: src/features/billing/pricing.tsx
-msgid "Unlimited ATS checks, no login"
-msgstr ""
+#~ msgid "Unlimited ATS checks, no login"
+#~ msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
@@ -12984,7 +13124,11 @@ msgstr ".csv ফাইল আপলোড করুন"
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "একটি PDF আপলোড করুন এবং একটি আবেদনকারী ট্র্যাকিং সিস্টেম যে পাঠ্যটি বের করে তা দেখুন: কী অনুপস্থিত, কী অর্ডারের বাইরে, এবং কীভাবে এটি ঠিক করা যায়৷ বিনামূল্যে, কোনো অ্যাকাউন্টের প্রয়োজন নেই।"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
+msgid "Upload another proof"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
 msgid "Upload payment proof"
 msgstr ""
 
@@ -12996,7 +13140,7 @@ msgstr "ছবি আপলোড করুন"
 msgid "Uploading picture…"
 msgstr "ছবি আপলোড করা হচ্ছে…"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Uploading the proof…"
 msgstr ""
 
@@ -13179,6 +13323,10 @@ msgstr "আপনার ব্রাউজারের কণ্ঠ ব্যব
 msgid "Uzbek"
 msgstr "উজবেক"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Valid for"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Valuation and dilution uncertain"
 msgstr "মূল্যায়ন ও ডাইলিউশন অনিশ্চিত"
@@ -13319,6 +13467,10 @@ msgstr "কণ্ঠের সেটিংস"
 msgid "Volunteer"
 msgstr "স্বেচ্ছাসেবী"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Waiting for a check"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"
 msgstr "আপনার অপেক্ষায়"
@@ -13351,6 +13503,10 @@ msgstr "আমরা \"{0}\" পড়তে পারিনি। তারি�
 #: src/features/auth/pages/error.tsx
 msgid "We couldn't read your profile from the provider."
 msgstr "আমরা প্রদানকারীর কাছ থেকে আপনার প্রোফাইল পড়তে পারিনি।"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "We email you the moment it is verified."
+msgstr ""
 
 #. placeholder {0}: dates.raw
 #: src/features/resume/editor/write/dates-field.tsx
@@ -13396,8 +13552,8 @@ msgid "Website"
 msgstr "ওয়েবসাইট"
 
 #: src/features/billing/pricing.tsx
-msgid "Weekly AI allowance, back every Monday"
-msgstr ""
+#~ msgid "Weekly AI allowance, back every Monday"
+#~ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Weekly at {clock} · next {next}"
@@ -13840,6 +13996,10 @@ msgstr "আপনি আপনার ইউজারনেম দিয়েও
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "You can close this any time; the order stays in Transactions."
 msgstr ""
 
 #: src/features/resume/editor/save-status.tsx

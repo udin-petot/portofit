@@ -807,8 +807,12 @@ msgid "1 interview"
 msgstr "面接1回"
 
 #: src/features/billing/pricing.tsx
-msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
+msgid "1. Choose a package. The order opens straight away in a payment window."
 msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
+#~ msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "10-minute briefing"
@@ -832,8 +836,12 @@ msgid "2–3 sentences reads best"
 msgstr "2 ～ 3 文が最もよく読まれます"
 
 #: src/features/billing/pricing.tsx
-msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
+msgid "2. Scan the QRIS and pay the exact amount down to the last three digits."
 msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
+#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -862,8 +870,12 @@ msgid "3 supported · 1 partly · 1 missing"
 msgstr "裏付けあり 3 · 一部 1 · 不足 1"
 
 #: src/features/billing/pricing.tsx
-msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
+msgid "3. Upload the proof in the same window. Credits land once an admin checks it."
 msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
+#~ msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "30 days"
@@ -978,8 +990,8 @@ msgid "A pasted posting can be saved as an application afterwards."
 msgstr "貼り付けた求人情報は、後から求人応募書として保存することができます。"
 
 #: src/features/billing/transactions.tsx
-msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
-msgstr ""
+#~ msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
+#~ msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
@@ -1445,6 +1457,10 @@ msgstr "ナレッジに経験として追加しました。"
 msgid "Added to Prepare"
 msgstr "「準備」に追加しました"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "added to your account."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Address"
 msgstr "住所"
@@ -1660,6 +1676,10 @@ msgstr "アムハラ語"
 msgid "Amount"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
+msgstr ""
+
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
 msgstr ""
@@ -1826,6 +1846,10 @@ msgstr "求人応募は締め切りました"
 
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "application credits"
 msgstr ""
 
 #: src/routes/dashboard/beli-kredit.tsx
@@ -2220,6 +2244,10 @@ msgstr "バックアップコードをクリップボードにコピーしまし
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 msgid "Bagus Maulana"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Balance now"
 msgstr ""
 
 #: src/features/homepage/sheet.tsx
@@ -2773,6 +2801,7 @@ msgstr "クライアント ID"
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/coach-sheet.tsx
@@ -3005,6 +3034,14 @@ msgstr "接続されたアプリケーション"
 msgid "Connecting the dots"
 msgstr "点と点をつないでいます"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Connection problem"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Connection problem. Your order is still saved, try loading its status again."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Connection saved"
 msgstr "接続が保存されました"
@@ -3080,6 +3117,11 @@ msgstr "続行"
 msgid "Continue as guest"
 msgstr "ゲストとして続ける"
 
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Continue payment"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
 msgstr "貢献が明確"
@@ -3119,6 +3161,7 @@ msgstr "1つの求人に関する会話は、その求人のワークスペー�
 msgid "Cooking"
 msgstr "仕込み中"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
 #: src/features/settings/ai/api-keys.tsx
@@ -3192,6 +3235,10 @@ msgstr "コピーシークレット"
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Copy stylesheet"
 msgstr "スタイルシートをコピー"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Copy the amount"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
@@ -3702,6 +3749,7 @@ msgstr "作成"
 msgid "Create a new account"
 msgstr "新しいアカウントを作成"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Create a new order"
 msgstr ""
@@ -4230,6 +4278,7 @@ msgstr "{0} を送信しないでください"
 msgid "Donate"
 msgstr "寄付する"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
 #: src/features/settings/ai/api-keys.tsx
 msgid "Done"
@@ -4276,6 +4325,10 @@ msgstr "CSV をダウンロード"
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Download failed."
 msgstr "ダウンロードに失敗しました。"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Download invoice"
+msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -4639,6 +4692,11 @@ msgstr "二段階認証を有効にする…"
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "終わり"
+
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Ends in"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "English"
@@ -5079,7 +5137,7 @@ msgstr "セクションの検索"
 msgid "Finding what works"
 msgstr "うまくいく方法を探しています"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Finish the payment"
 msgstr ""
 
@@ -5304,8 +5362,8 @@ msgid "Found yesterday"
 msgstr "昨日見つかりました"
 
 #: src/features/billing/pricing.tsx
-msgid "Free"
-msgstr ""
+#~ msgid "Free"
+#~ msgstr ""
 
 #: src/features/quota/page.tsx
 msgid "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
@@ -5316,8 +5374,8 @@ msgid "Free ATS resume checker"
 msgstr "無料のATS履歴書チェッカー"
 
 #: src/features/billing/pricing.tsx
-msgid "Free issue list and basic job match"
-msgstr ""
+#~ msgid "Free issue list and basic job match"
+#~ msgstr ""
 
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
@@ -5461,8 +5519,8 @@ msgid "Go to dashboard"
 msgstr "ダッシュボードへ移動"
 
 #: src/features/billing/pricing.tsx
-msgid "Go to my documents"
-msgstr ""
+#~ msgid "Go to my documents"
+#~ msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
@@ -5946,6 +6004,10 @@ msgstr "面接"
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credits"
+msgstr ""
+
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Interview credits"
 msgstr ""
@@ -6030,6 +6092,7 @@ msgid "Interviews and follow-ups by date."
 msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Invoice"
 msgstr ""
 
@@ -6524,7 +6587,6 @@ msgstr "新規ユーザー向けの初期体験の再設計に向けて<0>ユー
 msgid "Led research for the onboarding redesign; activation rose from 31% to 44%."
 msgstr "オンボーディング刷新のリサーチを主導し、アクティベーション率が31%から44%に上昇。"
 
-#: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "left"
 msgstr ""
@@ -7173,6 +7235,10 @@ msgstr "モデル: {label}"
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
 msgstr "単核症"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "more"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -7882,6 +7948,10 @@ msgstr "未選択"
 msgid "Not set up"
 msgstr "セットアップされていません"
 
+#: src/features/billing/pricing.tsx
+msgid "Not sure yet?"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "私にとっては真実ではありません、それを隠してください"
@@ -8093,8 +8163,8 @@ msgid "one format"
 msgstr "1つの形式"
 
 #: src/features/billing/pricing.tsx
-msgid "One free resume to build and download"
-msgstr ""
+#~ msgid "One free resume to build and download"
+#~ msgstr ""
 
 #: src/features/billing/credit-dialog.tsx
 msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
@@ -8216,6 +8286,10 @@ msgstr "未解決の問題"
 msgid "Open messages"
 msgstr ""
 
+#: src/features/billing/pricing.tsx
+msgid "Open my documents"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 msgid "Open Preferences"
 msgstr "希望条件を開く"
@@ -8314,8 +8388,8 @@ msgid "Or in your own words…"
 msgstr "あるいはあなた自身の言葉で…"
 
 #: src/features/billing/transactions.tsx
-msgid "Or through WhatsApp"
-msgstr ""
+#~ msgid "Or through WhatsApp"
+#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Or upload a resume PDF"
@@ -8325,8 +8399,13 @@ msgstr "または履歴書 PDF をアップロード"
 msgid "Orange"
 msgstr "オレンジ"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Order expired"
+msgstr ""
+
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Order waiting for payment"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
@@ -8436,6 +8515,7 @@ msgstr "ページの読み取りが完了しませんでした。"
 msgid "Page view"
 msgstr "ページビュー"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Paid"
@@ -8608,12 +8688,16 @@ msgid "Paused schedules keep their settings."
 msgstr "一時停止したスケジュールの設定は保持されます。"
 
 #: src/features/billing/transactions.tsx
-msgid "Pay"
+#~ msgid "Pay"
+#~ msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Pay by QRIS, checked by an admin, credits land once it passes."
 msgstr ""
 
 #: src/features/billing/pricing.tsx
-msgid "Pay by QRIS, verified manually by an admin."
-msgstr ""
+#~ msgid "Pay by QRIS, verified manually by an admin."
+#~ msgstr ""
 
 #: src/features/billing/pricing.tsx
 msgid "Pay only for what you use"
@@ -8627,6 +8711,10 @@ msgstr ""
 msgid "Pay period"
 msgstr "支払い期間"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Pay the exact amount down to the last three digits. Scan it with any bank or wallet app that supports QRIS."
+msgstr ""
+
 #: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
@@ -8638,6 +8726,10 @@ msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "payment confirmed, your credits are in"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Payment received"
 msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
@@ -8730,6 +8822,10 @@ msgstr "プレーンテキスト (.txt)"
 msgid "Plain text with headings. Paste into application forms and notes."
 msgstr "見出し付きのプレーンテキスト。求人応募フォームやメモに貼り付けます。"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Plan"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Plan again"
 msgstr "もう一度計画"
@@ -8795,8 +8891,8 @@ msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "PortoFit QRIS code"
-msgstr ""
+#~ msgid "PortoFit QRIS code"
+#~ msgstr ""
 
 #: src/features/documents/start-guide.tsx
 msgid "PortoFit tracks each job from the posting to the interview."
@@ -8961,10 +9057,15 @@ msgstr "編集を準備しています…"
 msgid "Preparing your order…"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Preparing your payment…"
+msgstr ""
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Preparing your resume for printing..."
 msgstr "履歴書を印刷用に準備する…"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/workspace/prepare-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -9113,15 +9214,24 @@ msgstr "プロジェクト"
 msgid "Promoted to lead, 2021"
 msgstr "2021 年にリーダーに昇進"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof did not match"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Proof rejected"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof sent"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "Proof sent, waiting for a check"
 msgstr ""
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
 msgstr ""
 
@@ -10358,8 +10468,8 @@ msgid "Say it aloud"
 msgstr "声に出して言う"
 
 #: src/features/billing/transactions.tsx
-msgid "Scan it with any bank or wallet app that supports QRIS."
-msgstr ""
+#~ msgid "Scan it with any bank or wallet app that supports QRIS."
+#~ msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
@@ -10614,6 +10724,10 @@ msgstr ""
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Send Password Reset Email"
 msgstr "パスワードリセットメールを送信"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Send the proof on WhatsApp"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Send the resume itself rather than a portfolio wrapper."
@@ -11396,6 +11510,10 @@ msgstr "統計"
 msgid "Status"
 msgstr "ステータス"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Status could not be read"
+msgstr ""
+
 #: src/hooks/use-form-blocker.tsx
 msgid "Stay"
 msgstr "このまま"
@@ -11879,7 +11997,11 @@ msgid "The AI features are paused for a moment. Try again shortly."
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "The amount has to match down to the last three digits."
+#~ msgid "The amount has to match down to the last three digits."
+#~ msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "The amount or the proof does not match this order."
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -11936,6 +12058,10 @@ msgstr "コピーは求人応募にリンクされているため、Check とア
 
 #: src/features/billing/transactions.tsx
 msgid "The credits are in your account. An invoice is there if you need proof of payment."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "The deadline passed before the proof arrived. This order is closed and cannot be paid again."
 msgstr ""
 
 #: src/features/resume/editor/write/dates-field.tsx
@@ -12063,11 +12189,11 @@ msgstr "求人情報が読めませんでした。役割と会社名を入力し
 msgid "The posting saved with this application."
 msgstr "この求人応募とともに保存された求人情報。"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof can be at most 10 MB."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof could not be sent. Try again."
 msgstr ""
 
@@ -12075,7 +12201,7 @@ msgstr ""
 msgid "The proof did not match the amount on this order."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof must be a JPG or PNG. PDF is not accepted."
 msgstr ""
 
@@ -12503,9 +12629,13 @@ msgstr "時刻 · {0}"
 msgid "Time · {timeZone}"
 msgstr "時刻 · {timeZone}"
 
-#: src/features/billing/transactions.tsx
-msgid "Time left"
+#: src/features/billing/payment-dialog.tsx
+msgid "Time is up"
 msgstr ""
+
+#: src/features/billing/transactions.tsx
+#~ msgid "Time left"
+#~ msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
@@ -12537,8 +12667,8 @@ msgid "To"
 msgstr "に"
 
 #: src/features/billing/pricing.tsx
-msgid "To try the flow"
-msgstr ""
+#~ msgid "To try the flow"
+#~ msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 #: src/features/resume/share/link-tab.tsx
@@ -12574,9 +12704,13 @@ msgstr "合計"
 msgid "TOTAL PAID"
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-msgid "Total to transfer"
+#: src/features/billing/payment-dialog.tsx
+msgid "Total to pay"
 msgstr ""
+
+#: src/features/billing/transactions.tsx
+#~ msgid "Total to transfer"
+#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -12647,6 +12781,7 @@ msgid "Try a sample"
 msgstr "サンプルを試してみる"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
@@ -12669,6 +12804,10 @@ msgstr "これでもう一度試す"
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"
 msgstr "ATS チェッカーを試してみる"
+
+#: src/features/billing/pricing.tsx
+msgid "Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Try this opening"
@@ -12853,13 +12992,14 @@ msgstr "元に戻す"
 msgid "Undo resume change"
 msgstr "履歴書の変更を元に戻す"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Unique code"
 msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
-msgid "Unique transfer code"
-msgstr ""
+#~ msgid "Unique transfer code"
+#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
@@ -12872,8 +13012,8 @@ msgid "Unknown"
 msgstr "不明"
 
 #: src/features/billing/pricing.tsx
-msgid "Unlimited ATS checks, no login"
-msgstr ""
+#~ msgid "Unlimited ATS checks, no login"
+#~ msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
@@ -12984,7 +13124,11 @@ msgstr ".csv をアップロード"
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "PDF をアップロードすると、申請者追跡システムが抽出したテキスト (不足しているもの、順序が間違っているもの、およびその修正方法) が表示されます。無料、アカウントは必要ありません。"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
+msgid "Upload another proof"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
 msgid "Upload payment proof"
 msgstr ""
 
@@ -12996,7 +13140,7 @@ msgstr "画像のアップロード"
 msgid "Uploading picture…"
 msgstr "画像をアップロード中…"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Uploading the proof…"
 msgstr ""
 
@@ -13179,6 +13323,10 @@ msgstr "ブラウザーの音声を使用"
 msgid "Uzbek"
 msgstr "ウズベク語"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Valid for"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Valuation and dilution uncertain"
 msgstr "評価額と希薄化は不確実"
@@ -13319,6 +13467,10 @@ msgstr "音声設定"
 msgid "Volunteer"
 msgstr "ボランティア"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Waiting for a check"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"
 msgstr "あなたの対応待ち"
@@ -13351,6 +13503,10 @@ msgstr "「{0}」は読めませんでした。日付を入力すると、並べ
 #: src/features/auth/pages/error.tsx
 msgid "We couldn't read your profile from the provider."
 msgstr "プロバイダーからプロフィールを読み取れませんでした。"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "We email you the moment it is verified."
+msgstr ""
 
 #. placeholder {0}: dates.raw
 #: src/features/resume/editor/write/dates-field.tsx
@@ -13396,8 +13552,8 @@ msgid "Website"
 msgstr "Webサイト"
 
 #: src/features/billing/pricing.tsx
-msgid "Weekly AI allowance, back every Monday"
-msgstr ""
+#~ msgid "Weekly AI allowance, back every Monday"
+#~ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Weekly at {clock} · next {next}"
@@ -13840,6 +13996,10 @@ msgstr "ユーザー名でサインインすることもできます。"
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "You can close this any time; the order stays in Transactions."
 msgstr ""
 
 #: src/features/resume/editor/save-status.tsx

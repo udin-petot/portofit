@@ -807,8 +807,12 @@ msgid "1 interview"
 msgstr "1 次面試"
 
 #: src/features/billing/pricing.tsx
-msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
+msgid "1. Choose a package. The order opens straight away in a payment window."
 msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
+#~ msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "10-minute briefing"
@@ -832,8 +836,12 @@ msgid "2–3 sentences reads best"
 msgstr "2-3 句話閱讀效果最佳"
 
 #: src/features/billing/pricing.tsx
-msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
+msgid "2. Scan the QRIS and pay the exact amount down to the last three digits."
 msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
+#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -862,8 +870,12 @@ msgid "3 supported · 1 partly · 1 missing"
 msgstr "3 項有證據 · 1 項部分 · 1 項缺少"
 
 #: src/features/billing/pricing.tsx
-msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
+msgid "3. Upload the proof in the same window. Credits land once an admin checks it."
 msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
+#~ msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "30 days"
@@ -978,8 +990,8 @@ msgid "A pasted posting can be saved as an application afterwards."
 msgstr "貼上的職位發布之後可以保存為職位申請。"
 
 #: src/features/billing/transactions.tsx
-msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
-msgstr ""
+#~ msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
+#~ msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
@@ -1445,6 +1457,10 @@ msgstr "已作為經歷加入知識庫。"
 msgid "Added to Prepare"
 msgstr "已加入「準備」"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "added to your account."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Address"
 msgstr "地址"
@@ -1660,6 +1676,10 @@ msgstr "阿姆哈拉語"
 msgid "Amount"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
+msgstr ""
+
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
 msgstr ""
@@ -1826,6 +1846,10 @@ msgstr "工作申請已關閉"
 
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "application credits"
 msgstr ""
 
 #: src/routes/dashboard/beli-kredit.tsx
@@ -2220,6 +2244,10 @@ msgstr "備份代碼已複製到剪貼簿。"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 msgid "Bagus Maulana"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Balance now"
 msgstr ""
 
 #: src/features/homepage/sheet.tsx
@@ -2773,6 +2801,7 @@ msgstr "用戶端 ID"
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/coach-sheet.tsx
@@ -3005,6 +3034,14 @@ msgstr "已連結的應用程式"
 msgid "Connecting the dots"
 msgstr "正在串起線索"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Connection problem"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Connection problem. Your order is still saved, try loading its status again."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Connection saved"
 msgstr "連線已儲存"
@@ -3080,6 +3117,11 @@ msgstr "繼續"
 msgid "Continue as guest"
 msgstr "以訪客身分繼續"
 
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Continue payment"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
 msgstr "貢獻清楚"
@@ -3119,6 +3161,7 @@ msgstr "關於某個職缺的對話會保存在其工作區中。"
 msgid "Cooking"
 msgstr "正在醞釀"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
 #: src/features/settings/ai/api-keys.tsx
@@ -3192,6 +3235,10 @@ msgstr "複製秘密"
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Copy stylesheet"
 msgstr "複製樣式表"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Copy the amount"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
@@ -3702,6 +3749,7 @@ msgstr "建立"
 msgid "Create a new account"
 msgstr "建立一個新帳戶"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Create a new order"
 msgstr ""
@@ -4230,6 +4278,7 @@ msgstr "不要發送 {0}"
 msgid "Donate"
 msgstr "捐"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
 #: src/features/settings/ai/api-keys.tsx
 msgid "Done"
@@ -4276,6 +4325,10 @@ msgstr "下載 CSV"
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Download failed."
 msgstr "下載失敗。"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Download invoice"
+msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -4639,6 +4692,11 @@ msgstr "啟用雙重認證…"
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "結尾"
+
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Ends in"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "English"
@@ -5079,7 +5137,7 @@ msgstr "查找部分"
 msgid "Finding what works"
 msgstr "正在找出亮點"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Finish the payment"
 msgstr ""
 
@@ -5304,8 +5362,8 @@ msgid "Found yesterday"
 msgstr "昨天找到"
 
 #: src/features/billing/pricing.tsx
-msgid "Free"
-msgstr ""
+#~ msgid "Free"
+#~ msgstr ""
 
 #: src/features/quota/page.tsx
 msgid "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
@@ -5316,8 +5374,8 @@ msgid "Free ATS resume checker"
 msgstr "免費 ATS 履歷檢查器"
 
 #: src/features/billing/pricing.tsx
-msgid "Free issue list and basic job match"
-msgstr ""
+#~ msgid "Free issue list and basic job match"
+#~ msgstr ""
 
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
@@ -5461,8 +5519,8 @@ msgid "Go to dashboard"
 msgstr "前往儀表板"
 
 #: src/features/billing/pricing.tsx
-msgid "Go to my documents"
-msgstr ""
+#~ msgid "Go to my documents"
+#~ msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
@@ -5946,6 +6004,10 @@ msgstr "面試"
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credits"
+msgstr ""
+
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Interview credits"
 msgstr ""
@@ -6030,6 +6092,7 @@ msgid "Interviews and follow-ups by date."
 msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Invoice"
 msgstr ""
 
@@ -6524,7 +6587,6 @@ msgstr "為新使用者入門體驗的重新設計主導<0>使用者研究</0>�
 msgid "Led research for the onboarding redesign; activation rose from 31% to 44%."
 msgstr "主導了新手引導改版的使用者研究；啟用率從 31% 提升到 44%。"
 
-#: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "left"
 msgstr ""
@@ -7173,6 +7235,10 @@ msgstr "型號：{label}"
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
 msgstr "單核白血球增多症"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "more"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -7882,6 +7948,10 @@ msgstr "未選擇"
 msgid "Not set up"
 msgstr "未設定"
 
+#: src/features/billing/pricing.tsx
+msgid "Not sure yet?"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "對我來說不真實，隱藏它"
@@ -8093,8 +8163,8 @@ msgid "one format"
 msgstr "格式一致"
 
 #: src/features/billing/pricing.tsx
-msgid "One free resume to build and download"
-msgstr ""
+#~ msgid "One free resume to build and download"
+#~ msgstr ""
 
 #: src/features/billing/credit-dialog.tsx
 msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
@@ -8216,6 +8286,10 @@ msgstr "未解決的問題"
 msgid "Open messages"
 msgstr ""
 
+#: src/features/billing/pricing.tsx
+msgid "Open my documents"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 msgid "Open Preferences"
 msgstr "開啟偏好"
@@ -8314,8 +8388,8 @@ msgid "Or in your own words…"
 msgstr "或用自己的話說..."
 
 #: src/features/billing/transactions.tsx
-msgid "Or through WhatsApp"
-msgstr ""
+#~ msgid "Or through WhatsApp"
+#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Or upload a resume PDF"
@@ -8325,8 +8399,13 @@ msgstr "或上傳履歷 PDF"
 msgid "Orange"
 msgstr "橘色"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Order expired"
+msgstr ""
+
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Order waiting for payment"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
@@ -8436,6 +8515,7 @@ msgstr "頁面閱讀未完成。"
 msgid "Page view"
 msgstr "頁面瀏覽量"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Paid"
@@ -8608,12 +8688,16 @@ msgid "Paused schedules keep their settings."
 msgstr "暫停的排程會保留其設定。"
 
 #: src/features/billing/transactions.tsx
-msgid "Pay"
+#~ msgid "Pay"
+#~ msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Pay by QRIS, checked by an admin, credits land once it passes."
 msgstr ""
 
 #: src/features/billing/pricing.tsx
-msgid "Pay by QRIS, verified manually by an admin."
-msgstr ""
+#~ msgid "Pay by QRIS, verified manually by an admin."
+#~ msgstr ""
 
 #: src/features/billing/pricing.tsx
 msgid "Pay only for what you use"
@@ -8627,6 +8711,10 @@ msgstr ""
 msgid "Pay period"
 msgstr "發薪週期"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Pay the exact amount down to the last three digits. Scan it with any bank or wallet app that supports QRIS."
+msgstr ""
+
 #: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
@@ -8638,6 +8726,10 @@ msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "payment confirmed, your credits are in"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Payment received"
 msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
@@ -8730,6 +8822,10 @@ msgstr "純文字 (.txt)"
 msgid "Plain text with headings. Paste into application forms and notes."
 msgstr "帶有標題的純文字。貼到工作申請表和註釋中。"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Plan"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Plan again"
 msgstr "重新規劃"
@@ -8795,8 +8891,8 @@ msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "PortoFit QRIS code"
-msgstr ""
+#~ msgid "PortoFit QRIS code"
+#~ msgstr ""
 
 #: src/features/documents/start-guide.tsx
 msgid "PortoFit tracks each job from the posting to the interview."
@@ -8961,10 +9057,15 @@ msgstr "準備編輯..."
 msgid "Preparing your order…"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Preparing your payment…"
+msgstr ""
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Preparing your resume for printing..."
 msgstr "準備列印履歷…"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/workspace/prepare-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -9113,15 +9214,24 @@ msgstr "專案"
 msgid "Promoted to lead, 2021"
 msgstr "2021 年晉升領導"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof did not match"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Proof rejected"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof sent"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "Proof sent, waiting for a check"
 msgstr ""
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
 msgstr ""
 
@@ -10358,8 +10468,8 @@ msgid "Say it aloud"
 msgstr "大聲說出來"
 
 #: src/features/billing/transactions.tsx
-msgid "Scan it with any bank or wallet app that supports QRIS."
-msgstr ""
+#~ msgid "Scan it with any bank or wallet app that supports QRIS."
+#~ msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
@@ -10614,6 +10724,10 @@ msgstr ""
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Send Password Reset Email"
 msgstr "傳送重設密碼電子郵件"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Send the proof on WhatsApp"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Send the resume itself rather than a portfolio wrapper."
@@ -11396,6 +11510,10 @@ msgstr "統計資料"
 msgid "Status"
 msgstr "狀態"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Status could not be read"
+msgstr ""
+
 #: src/hooks/use-form-blocker.tsx
 msgid "Stay"
 msgstr "留下"
@@ -11879,7 +11997,11 @@ msgid "The AI features are paused for a moment. Try again shortly."
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "The amount has to match down to the last three digits."
+#~ msgid "The amount has to match down to the last three digits."
+#~ msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "The amount or the proof does not match this order."
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -11936,6 +12058,10 @@ msgstr "該副本連結到職位申請，因此 Check 和助理可以使用其�
 
 #: src/features/billing/transactions.tsx
 msgid "The credits are in your account. An invoice is there if you need proof of payment."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "The deadline passed before the proof arrived. This order is closed and cannot be paid again."
 msgstr ""
 
 #: src/features/resume/editor/write/dates-field.tsx
@@ -12063,11 +12189,11 @@ msgstr "無法閱讀招募資訊。填寫角色和公司。"
 msgid "The posting saved with this application."
 msgstr "職位發布與此職位申請一起保存。"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof can be at most 10 MB."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof could not be sent. Try again."
 msgstr ""
 
@@ -12075,7 +12201,7 @@ msgstr ""
 msgid "The proof did not match the amount on this order."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof must be a JPG or PNG. PDF is not accepted."
 msgstr ""
 
@@ -12503,9 +12629,13 @@ msgstr "時間 · {0}"
 msgid "Time · {timeZone}"
 msgstr "時間 · {timeZone}"
 
-#: src/features/billing/transactions.tsx
-msgid "Time left"
+#: src/features/billing/payment-dialog.tsx
+msgid "Time is up"
 msgstr ""
+
+#: src/features/billing/transactions.tsx
+#~ msgid "Time left"
+#~ msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
@@ -12537,8 +12667,8 @@ msgid "To"
 msgstr "到"
 
 #: src/features/billing/pricing.tsx
-msgid "To try the flow"
-msgstr ""
+#~ msgid "To try the flow"
+#~ msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 #: src/features/resume/share/link-tab.tsx
@@ -12574,9 +12704,13 @@ msgstr "全部的"
 msgid "TOTAL PAID"
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-msgid "Total to transfer"
+#: src/features/billing/payment-dialog.tsx
+msgid "Total to pay"
 msgstr ""
+
+#: src/features/billing/transactions.tsx
+#~ msgid "Total to transfer"
+#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -12647,6 +12781,7 @@ msgid "Try a sample"
 msgstr "嘗試樣品"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
@@ -12669,6 +12804,10 @@ msgstr "用這個再試一次"
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"
 msgstr "試試 ATS 檢查器"
+
+#: src/features/billing/pricing.tsx
+msgid "Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Try this opening"
@@ -12853,13 +12992,14 @@ msgstr "撤銷"
 msgid "Undo resume change"
 msgstr "撤銷履歷更改"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Unique code"
 msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
-msgid "Unique transfer code"
-msgstr ""
+#~ msgid "Unique transfer code"
+#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
@@ -12872,8 +13012,8 @@ msgid "Unknown"
 msgstr "未知"
 
 #: src/features/billing/pricing.tsx
-msgid "Unlimited ATS checks, no login"
-msgstr ""
+#~ msgid "Unlimited ATS checks, no login"
+#~ msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
@@ -12984,7 +13124,11 @@ msgstr "上傳 .csv"
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "上傳 PDF 並查看申請人追蹤系統提取的文字：缺少什麼、有什麼問題以及如何修復。免費，無需帳戶。"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
+msgid "Upload another proof"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
 msgid "Upload payment proof"
 msgstr ""
 
@@ -12996,7 +13140,7 @@ msgstr "上傳圖片"
 msgid "Uploading picture…"
 msgstr "正在上傳圖片…"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Uploading the proof…"
 msgstr ""
 
@@ -13179,6 +13323,10 @@ msgstr "使用瀏覽器語音"
 msgid "Uzbek"
 msgstr "烏茲別克語"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Valid for"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Valuation and dilution uncertain"
 msgstr "估值與稀釋情況不確定"
@@ -13319,6 +13467,10 @@ msgstr "語音設定"
 msgid "Volunteer"
 msgstr "志工服務"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Waiting for a check"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"
 msgstr "等待您處理"
@@ -13351,6 +13503,10 @@ msgstr "我們無法讀取“{0}”。輸入日期，以便它們一致地排序
 #: src/features/auth/pages/error.tsx
 msgid "We couldn't read your profile from the provider."
 msgstr "我們無法從提供者讀取您的個人資料。"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "We email you the moment it is verified."
+msgstr ""
 
 #. placeholder {0}: dates.raw
 #: src/features/resume/editor/write/dates-field.tsx
@@ -13396,8 +13552,8 @@ msgid "Website"
 msgstr "個人網站"
 
 #: src/features/billing/pricing.tsx
-msgid "Weekly AI allowance, back every Monday"
-msgstr ""
+#~ msgid "Weekly AI allowance, back every Monday"
+#~ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Weekly at {clock} · next {next}"
@@ -13840,6 +13996,10 @@ msgstr "您也可以用使用者名稱登入。"
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "You can close this any time; the order stays in Transactions."
 msgstr ""
 
 #: src/features/resume/editor/save-status.tsx

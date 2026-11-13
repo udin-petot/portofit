@@ -807,8 +807,12 @@ msgid "1 interview"
 msgstr "1 ಸಂದರ್ಶನ"
 
 #: src/features/billing/pricing.tsx
-msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
+msgid "1. Choose a package. The order opens straight away in a payment window."
 msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
+#~ msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "10-minute briefing"
@@ -832,8 +836,12 @@ msgid "2–3 sentences reads best"
 msgstr "2-3 ವಾಕ್ಯಗಳು ಉತ್ತಮವಾಗಿ ಓದುತ್ತವೆ"
 
 #: src/features/billing/pricing.tsx
-msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
+msgid "2. Scan the QRIS and pay the exact amount down to the last three digits."
 msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
+#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -862,8 +870,12 @@ msgid "3 supported · 1 partly · 1 missing"
 msgstr "3 ಬೆಂಬಲಿತ · 1 ಭಾಗಶಃ · 1 ಇಲ್ಲ"
 
 #: src/features/billing/pricing.tsx
-msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
+msgid "3. Upload the proof in the same window. Credits land once an admin checks it."
 msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
+#~ msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "30 days"
@@ -978,8 +990,8 @@ msgid "A pasted posting can be saved as an application afterwards."
 msgstr "ಅಂಟಿಸಿದ ಉದ್ಯೋಗ ಪೋಸ್ಟ್ ಅನ್ನು ನಂತರ ಉದ್ಯೋಗ ಅರ್ಜಿಯಾಗಿ ಉಳಿಸಬಹುದು."
 
 #: src/features/billing/transactions.tsx
-msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
-msgstr ""
+#~ msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
+#~ msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
@@ -1445,6 +1457,10 @@ msgstr "ಜ್ಞಾನಕ್ಕೆ ಅನುಭವವಾಗಿ ಸೇರಿಸ�
 msgid "Added to Prepare"
 msgstr "“ಸಿದ್ಧತೆ” ಗೆ ಸೇರಿಸಲಾಗಿದೆ"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "added to your account."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Address"
 msgstr "ವಿಳಾಸ"
@@ -1660,6 +1676,10 @@ msgstr "ಅಂಹಾರಿಕ್"
 msgid "Amount"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
+msgstr ""
+
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
 msgstr ""
@@ -1826,6 +1846,10 @@ msgstr "ಉದ್ಯೋಗ ಅರ್ಜಿಯನ್ನು ಮುಚ್ಚಲಾ�
 
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "application credits"
 msgstr ""
 
 #: src/routes/dashboard/beli-kredit.tsx
@@ -2220,6 +2244,10 @@ msgstr "ಬ್ಯಾಕಪ್ ಕೋಡ್‌ಗಳನ್ನು ಕ್ಲಿಪ�
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 msgid "Bagus Maulana"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Balance now"
 msgstr ""
 
 #: src/features/homepage/sheet.tsx
@@ -2773,6 +2801,7 @@ msgstr "ಗ್ರಾಹಕ ID"
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/coach-sheet.tsx
@@ -3005,6 +3034,14 @@ msgstr "ಸಂಪರ್ಕಿತ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು"
 msgid "Connecting the dots"
 msgstr "ಚುಕ್ಕೆಗಳನ್ನು ಜೋಡಿಸಲಾಗುತ್ತಿದೆ"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Connection problem"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Connection problem. Your order is still saved, try loading its status again."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Connection saved"
 msgstr "ಸಂಪರ್ಕವನ್ನು ಉಳಿಸಲಾಗಿದೆ"
@@ -3080,6 +3117,11 @@ msgstr "ಮುಂದುವರಿಸಿ"
 msgid "Continue as guest"
 msgstr "ಅತಿಥಿಯಾಗಿ ಮುಂದುವರಿಯಿರಿ"
 
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Continue payment"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
 msgstr "ಕೊಡುಗೆ ಸ್ಪಷ್ಟವಾಗಿದೆ"
@@ -3119,6 +3161,7 @@ msgstr "ಒಂದು ಉದ್ಯೋಗದ ಕುರಿತ ಸಂಭಾಷಣೆ
 msgid "Cooking"
 msgstr "ಅಡುಗೆ ನಡೆಯುತ್ತಿದೆ"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
 #: src/features/settings/ai/api-keys.tsx
@@ -3192,6 +3235,10 @@ msgstr "ರಹಸ್ಯವನ್ನು ನಕಲಿಸಿ"
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Copy stylesheet"
 msgstr "ಸ್ಟೈಲ್‌ಶೀಟ್ ನಕಲಿಸಿ"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Copy the amount"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
@@ -3702,6 +3749,7 @@ msgstr "ರಚಿಸಿ"
 msgid "Create a new account"
 msgstr "ಹೊಸ ಖಾತೆಯನ್ನು ರಚಿಸಿ"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Create a new order"
 msgstr ""
@@ -4230,6 +4278,7 @@ msgstr "{0} ಕಳುಹಿಸಬೇಡಿ"
 msgid "Donate"
 msgstr "ದಾನ ಮಾಡಿ"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
 #: src/features/settings/ai/api-keys.tsx
 msgid "Done"
@@ -4276,6 +4325,10 @@ msgstr "CSV ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ"
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Download failed."
 msgstr "ಡೌನ್‌ಲೋಡ್ ವಿಫಲವಾಗಿದೆ."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Download invoice"
+msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -4639,6 +4692,11 @@ msgstr "ಎರಡು-ಅಂಶದ ದೃಢೀಕರಣವನ್ನು ಸಕ್
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "ಅಂತ್ಯ"
+
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Ends in"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "English"
@@ -5079,7 +5137,7 @@ msgstr "ವಿಭಾಗಗಳನ್ನು ಹುಡುಕಲಾಗುತ್ತ�
 msgid "Finding what works"
 msgstr "ಯಾವುದು ಕೆಲಸ ಮಾಡುತ್ತದೆ ಎಂದು ಹುಡುಕಲಾಗುತ್ತಿದೆ"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Finish the payment"
 msgstr ""
 
@@ -5304,8 +5362,8 @@ msgid "Found yesterday"
 msgstr "ನಿನ್ನೆ ಕಂಡುಬಂದಿದೆ"
 
 #: src/features/billing/pricing.tsx
-msgid "Free"
-msgstr ""
+#~ msgid "Free"
+#~ msgstr ""
 
 #: src/features/quota/page.tsx
 msgid "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
@@ -5316,8 +5374,8 @@ msgid "Free ATS resume checker"
 msgstr "ಉಚಿತ ATS ರೆಸ್ಯೂಮ್ ಪರೀಕ್ಷಕ"
 
 #: src/features/billing/pricing.tsx
-msgid "Free issue list and basic job match"
-msgstr ""
+#~ msgid "Free issue list and basic job match"
+#~ msgstr ""
 
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
@@ -5461,8 +5519,8 @@ msgid "Go to dashboard"
 msgstr "ಡ್ಯಾಶ್ಬೋರ್ಡ್ಗೆ ಹೋಗಿ"
 
 #: src/features/billing/pricing.tsx
-msgid "Go to my documents"
-msgstr ""
+#~ msgid "Go to my documents"
+#~ msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
@@ -5946,6 +6004,10 @@ msgstr "ಸಂದರ್ಶನ"
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credits"
+msgstr ""
+
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Interview credits"
 msgstr ""
@@ -6030,6 +6092,7 @@ msgid "Interviews and follow-ups by date."
 msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Invoice"
 msgstr ""
 
@@ -6524,7 +6587,6 @@ msgstr "ಹೊಸ ಬಳಕೆದಾರರ ಆರಂಭಿಕ ಅನುಭವದ
 msgid "Led research for the onboarding redesign; activation rose from 31% to 44%."
 msgstr "ಆನ್‌ಬೋರ್ಡಿಂಗ್ ಮರುವಿನ್ಯಾಸಕ್ಕಾಗಿ ಸಂಶೋಧನೆಯನ್ನು ಮುನ್ನಡೆಸಿದೆ; ಆಕ್ಟಿವೇಶನ್ 31% ರಿಂದ 44% ಕ್ಕೆ ಏರಿತು."
 
-#: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "left"
 msgstr ""
@@ -7173,6 +7235,10 @@ msgstr "ಮಾದರಿ: {label}"
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
 msgstr "ಮೊನೊ"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "more"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -7882,6 +7948,10 @@ msgstr "ಆಯ್ಕೆಯಾಗಿಲ್ಲ"
 msgid "Not set up"
 msgstr "ಹೊಂದಿಸಲಾಗಿಲ್ಲ"
 
+#: src/features/billing/pricing.tsx
+msgid "Not sure yet?"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "ನನಗೆ ನಿಜವಲ್ಲ, ಅದನ್ನು ಮರೆಮಾಡಿ"
@@ -8093,8 +8163,8 @@ msgid "one format"
 msgstr "ಒಂದೇ ಸ್ವರೂಪ"
 
 #: src/features/billing/pricing.tsx
-msgid "One free resume to build and download"
-msgstr ""
+#~ msgid "One free resume to build and download"
+#~ msgstr ""
 
 #: src/features/billing/credit-dialog.tsx
 msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
@@ -8216,6 +8286,10 @@ msgstr "ಮುಕ್ತ ಸಮಸ್ಯೆಗಳು"
 msgid "Open messages"
 msgstr ""
 
+#: src/features/billing/pricing.tsx
+msgid "Open my documents"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 msgid "Open Preferences"
 msgstr "ಆದ್ಯತೆಗಳನ್ನು ತೆರೆಯಿರಿ"
@@ -8314,8 +8388,8 @@ msgid "Or in your own words…"
 msgstr "ಅಥವಾ ನಿಮ್ಮ ಮಾತಿನಲ್ಲಿ..."
 
 #: src/features/billing/transactions.tsx
-msgid "Or through WhatsApp"
-msgstr ""
+#~ msgid "Or through WhatsApp"
+#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Or upload a resume PDF"
@@ -8325,8 +8399,13 @@ msgstr "ಅಥವಾ ರೆಸ್ಯೂಮ್ PDF ಅಪ್‌ಲೋಡ್ ಮ�
 msgid "Orange"
 msgstr "ಕಿತ್ತಳೆ"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Order expired"
+msgstr ""
+
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Order waiting for payment"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
@@ -8436,6 +8515,7 @@ msgstr "ಪುಟ ಓದುವಿಕೆ ಮುಗಿಯಲಿಲ್ಲ."
 msgid "Page view"
 msgstr "ಪುಟ ವೀಕ್ಷಣೆ"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Paid"
@@ -8608,12 +8688,16 @@ msgid "Paused schedules keep their settings."
 msgstr "ವಿರಾಮಗೊಳಿಸಿದ ವೇಳಾಪಟ್ಟಿಗಳು ತಮ್ಮ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಉಳಿಸಿಕೊಳ್ಳುತ್ತವೆ."
 
 #: src/features/billing/transactions.tsx
-msgid "Pay"
+#~ msgid "Pay"
+#~ msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Pay by QRIS, checked by an admin, credits land once it passes."
 msgstr ""
 
 #: src/features/billing/pricing.tsx
-msgid "Pay by QRIS, verified manually by an admin."
-msgstr ""
+#~ msgid "Pay by QRIS, verified manually by an admin."
+#~ msgstr ""
 
 #: src/features/billing/pricing.tsx
 msgid "Pay only for what you use"
@@ -8627,6 +8711,10 @@ msgstr ""
 msgid "Pay period"
 msgstr "ವೇತನ ಅವಧಿ"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Pay the exact amount down to the last three digits. Scan it with any bank or wallet app that supports QRIS."
+msgstr ""
+
 #: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
@@ -8638,6 +8726,10 @@ msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "payment confirmed, your credits are in"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Payment received"
 msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
@@ -8730,6 +8822,10 @@ msgstr "ಸರಳ ಪಠ್ಯ (.txt)"
 msgid "Plain text with headings. Paste into application forms and notes."
 msgstr "ಶೀರ್ಷಿಕೆಗಳೊಂದಿಗೆ ಸರಳ ಪಠ್ಯ. ಉದ್ಯೋಗ ಅರ್ಜಿ ನಮೂನೆಗಳು ಮತ್ತು ಟಿಪ್ಪಣಿಗಳಲ್ಲಿ ಅಂಟಿಸಿ."
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Plan"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Plan again"
 msgstr "ಮತ್ತೆ ಯೋಜಿಸಿ"
@@ -8795,8 +8891,8 @@ msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "PortoFit QRIS code"
-msgstr ""
+#~ msgid "PortoFit QRIS code"
+#~ msgstr ""
 
 #: src/features/documents/start-guide.tsx
 msgid "PortoFit tracks each job from the posting to the interview."
@@ -8961,10 +9057,15 @@ msgstr "ಸಂಪಾದನೆಗಳನ್ನು ಸಿದ್ಧಪಡಿಸಲ�
 msgid "Preparing your order…"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Preparing your payment…"
+msgstr ""
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Preparing your resume for printing..."
 msgstr "ನಿಮ್ಮ ರೆಸ್ಯೂಮ್ ಅನ್ನು ಮುದ್ರಣಕ್ಕಾಗಿ ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ..."
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/workspace/prepare-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -9113,15 +9214,24 @@ msgstr "ಯೋಜನೆಗಳು"
 msgid "Promoted to lead, 2021"
 msgstr "2021 ರಲ್ಲಿ ಲೀಡ್‌ಗೆ ಬಡ್ತಿ ನೀಡಲಾಗಿದೆ"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof did not match"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Proof rejected"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof sent"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "Proof sent, waiting for a check"
 msgstr ""
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
 msgstr ""
 
@@ -10358,8 +10468,8 @@ msgid "Say it aloud"
 msgstr "ಗಟ್ಟಿಯಾಗಿ ಹೇಳಿ"
 
 #: src/features/billing/transactions.tsx
-msgid "Scan it with any bank or wallet app that supports QRIS."
-msgstr ""
+#~ msgid "Scan it with any bank or wallet app that supports QRIS."
+#~ msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
@@ -10614,6 +10724,10 @@ msgstr ""
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Send Password Reset Email"
 msgstr "ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಇಮೇಲ್ ಕಳುಹಿಸಿ"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Send the proof on WhatsApp"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Send the resume itself rather than a portfolio wrapper."
@@ -11396,6 +11510,10 @@ msgstr "ಅಂಕಿಅಂಶಗಳು"
 msgid "Status"
 msgstr "ಸ್ಥಿತಿ"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Status could not be read"
+msgstr ""
+
 #: src/hooks/use-form-blocker.tsx
 msgid "Stay"
 msgstr "ಇರಿ"
@@ -11879,7 +11997,11 @@ msgid "The AI features are paused for a moment. Try again shortly."
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "The amount has to match down to the last three digits."
+#~ msgid "The amount has to match down to the last three digits."
+#~ msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "The amount or the proof does not match this order."
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -11936,6 +12058,10 @@ msgstr "ನಕಲನ್ನು ಉದ್ಯೋಗ ಅರ್ಜಿಗೆ ಲಿಂ
 
 #: src/features/billing/transactions.tsx
 msgid "The credits are in your account. An invoice is there if you need proof of payment."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "The deadline passed before the proof arrived. This order is closed and cannot be paid again."
 msgstr ""
 
 #: src/features/resume/editor/write/dates-field.tsx
@@ -12063,11 +12189,11 @@ msgstr "ಉದ್ಯೋಗ ಪೋಸ್ಟ್ ಅನ್ನು ಓದಲಾಗಲ
 msgid "The posting saved with this application."
 msgstr "ಈ ಉದ್ಯೋಗ ಅರ್ಜಿಯೊಂದಿಗೆ ಉಳಿಸಲಾದ ಉದ್ಯೋಗ ಪೋಸ್ಟ್."
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof can be at most 10 MB."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof could not be sent. Try again."
 msgstr ""
 
@@ -12075,7 +12201,7 @@ msgstr ""
 msgid "The proof did not match the amount on this order."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof must be a JPG or PNG. PDF is not accepted."
 msgstr ""
 
@@ -12503,9 +12629,13 @@ msgstr "ಸಮಯ · {0}"
 msgid "Time · {timeZone}"
 msgstr "ಸಮಯ · {timeZone}"
 
-#: src/features/billing/transactions.tsx
-msgid "Time left"
+#: src/features/billing/payment-dialog.tsx
+msgid "Time is up"
 msgstr ""
+
+#: src/features/billing/transactions.tsx
+#~ msgid "Time left"
+#~ msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
@@ -12537,8 +12667,8 @@ msgid "To"
 msgstr "ಗೆ"
 
 #: src/features/billing/pricing.tsx
-msgid "To try the flow"
-msgstr ""
+#~ msgid "To try the flow"
+#~ msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 #: src/features/resume/share/link-tab.tsx
@@ -12574,9 +12704,13 @@ msgstr "ಒಟ್ಟು"
 msgid "TOTAL PAID"
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-msgid "Total to transfer"
+#: src/features/billing/payment-dialog.tsx
+msgid "Total to pay"
 msgstr ""
+
+#: src/features/billing/transactions.tsx
+#~ msgid "Total to transfer"
+#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -12647,6 +12781,7 @@ msgid "Try a sample"
 msgstr "ಮಾದರಿಯನ್ನು ಪ್ರಯತ್ನಿಸಿ"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
@@ -12669,6 +12804,10 @@ msgstr "ಇದರೊಂದಿಗೆ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸ�
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"
 msgstr "ATS ಪರೀಕ್ಷಕವನ್ನು ಪ್ರಯತ್ನಿಸಿ"
+
+#: src/features/billing/pricing.tsx
+msgid "Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Try this opening"
@@ -12853,13 +12992,14 @@ msgstr "ರದ್ದುಗೊಳಿಸಿ"
 msgid "Undo resume change"
 msgstr "ರೆಸ್ಯೂಮೆ ಬದಲಾವಣೆಯನ್ನು ರದ್ದುಗೊಳಿಸಿ"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Unique code"
 msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
-msgid "Unique transfer code"
-msgstr ""
+#~ msgid "Unique transfer code"
+#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
@@ -12872,8 +13012,8 @@ msgid "Unknown"
 msgstr "ತಿಳಿದಿಲ್ಲ"
 
 #: src/features/billing/pricing.tsx
-msgid "Unlimited ATS checks, no login"
-msgstr ""
+#~ msgid "Unlimited ATS checks, no login"
+#~ msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
@@ -12984,7 +13124,11 @@ msgstr ".csv ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "PDF ಅನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ ಮತ್ತು ಅರ್ಜಿದಾರರ ಟ್ರ್ಯಾಕಿಂಗ್ ಸಿಸ್ಟಮ್ ಹೊರತೆಗೆಯುವ ಪಠ್ಯವನ್ನು ನೋಡಿ: ಏನು ಕಾಣೆಯಾಗಿದೆ, ಯಾವುದು ಕ್ರಮಬದ್ಧವಾಗಿಲ್ಲ ಮತ್ತು ಅದನ್ನು ಹೇಗೆ ಸರಿಪಡಿಸುವುದು. ಉಚಿತ, ಯಾವುದೇ ಖಾತೆಯ ಅಗತ್ಯವಿಲ್ಲ."
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
+msgid "Upload another proof"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
 msgid "Upload payment proof"
 msgstr ""
 
@@ -12996,7 +13140,7 @@ msgstr "ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
 msgid "Uploading picture…"
 msgstr "… ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Uploading the proof…"
 msgstr ""
 
@@ -13179,6 +13323,10 @@ msgstr "ನಿಮ್ಮ ಬ್ರೌಸರ್‌ನ ಧ್ವನಿಯನ್ನ�
 msgid "Uzbek"
 msgstr "ಉಜ್ಬೇಕ್"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Valid for"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Valuation and dilution uncertain"
 msgstr "ಮೌಲ್ಯಮಾಪನ ಮತ್ತು ಡೈಲ್ಯೂಷನ್ ಅನಿಶ್ಚಿತ"
@@ -13319,6 +13467,10 @@ msgstr "ಧ್ವನಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
 msgid "Volunteer"
 msgstr "ಸ್ವಯಂಸೇವಕ"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Waiting for a check"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"
 msgstr "ನಿಮಗಾಗಿ ಕಾಯುತ್ತಿದೆ"
@@ -13351,6 +13503,10 @@ msgstr "ನಮಗೆ \"{0}\" ಅನ್ನು ಓದಲಾಗಲಿಲ್ಲ. ದ
 #: src/features/auth/pages/error.tsx
 msgid "We couldn't read your profile from the provider."
 msgstr "ಪೂರೈಕೆದಾರರಿಂದ ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಅನ್ನು ನಾವು ಓದಲಾಗಲಿಲ್ಲ."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "We email you the moment it is verified."
+msgstr ""
 
 #. placeholder {0}: dates.raw
 #: src/features/resume/editor/write/dates-field.tsx
@@ -13396,8 +13552,8 @@ msgid "Website"
 msgstr "ಜಾಲತಾಣ"
 
 #: src/features/billing/pricing.tsx
-msgid "Weekly AI allowance, back every Monday"
-msgstr ""
+#~ msgid "Weekly AI allowance, back every Monday"
+#~ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Weekly at {clock} · next {next}"
@@ -13840,6 +13996,10 @@ msgstr "ನಿಮ್ಮ ಬಳಕೆದಾರರ ಹೆಸರಿನಿಂದಲ�
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "You can close this any time; the order stays in Transactions."
 msgstr ""
 
 #: src/features/resume/editor/save-status.tsx

@@ -808,8 +808,12 @@ msgid "1 interview"
 msgstr "1 wawancara"
 
 #: src/features/billing/pricing.tsx
-msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
-msgstr "1. Pilih paket. Sistem membuat pesanan dengan kode unik tiga digit, misalnya Rp5.000 menjadi Rp5.003."
+msgid "1. Choose a package. The order opens straight away in a payment window."
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
+#~ msgstr "1. Pilih paket. Sistem membuat pesanan dengan kode unik tiga digit, misalnya Rp5.000 menjadi Rp5.003."
 
 #: src/features/career/workspace/prepare.tsx
 msgid "10-minute briefing"
@@ -833,8 +837,12 @@ msgid "2–3 sentences reads best"
 msgstr "2–3 kalimat paling baik dibaca"
 
 #: src/features/billing/pricing.tsx
-msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
-msgstr "2. Pindai QRIS di halaman pesanan dan bayar tepat sampai digit terakhir kode unik."
+msgid "2. Scan the QRIS and pay the exact amount down to the last three digits."
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
+#~ msgstr "2. Pindai QRIS di halaman pesanan dan bayar tepat sampai digit terakhir kode unik."
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -863,8 +871,12 @@ msgid "3 supported · 1 partly · 1 missing"
 msgstr "3 didukung · 1 sebagian · 1 kurang"
 
 #: src/features/billing/pricing.tsx
-msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
-msgstr "3. Unggah bukti bayar atau kirim lewat WhatsApp. Admin memverifikasi dan kredit langsung masuk."
+msgid "3. Upload the proof in the same window. Credits land once an admin checks it."
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
+#~ msgstr "3. Unggah bukti bayar atau kirim lewat WhatsApp. Admin memverifikasi dan kredit langsung masuk."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "30 days"
@@ -979,8 +991,8 @@ msgid "A pasted posting can be saved as an application afterwards."
 msgstr "Postingan pekerjaan yang ditempel dapat disimpan sebagai lamaran pekerjaan setelahnya."
 
 #: src/features/billing/transactions.tsx
-msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
-msgstr "Foto bukti transfer, JPG atau PNG, maksimal 10 MB."
+#~ msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
+#~ msgstr "Foto bukti transfer, JPG atau PNG, maksimal 10 MB."
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
@@ -1446,6 +1458,10 @@ msgstr "Ditambahkan ke Pengetahuan sebagai pengalaman."
 msgid "Added to Prepare"
 msgstr "Ditambahkan ke Persiapan"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "added to your account."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Address"
 msgstr "Alamat"
@@ -1661,6 +1677,10 @@ msgstr "Amharik"
 msgid "Amount"
 msgstr "Jumlah"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
+msgstr ""
+
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
 msgstr "Admin memeriksa bukti transfermu secara manual. Kredit masuk otomatis setelah lolos, dan halaman ini memberi tahu begitu statusnya berubah."
@@ -1828,6 +1848,10 @@ msgstr "lamaran pekerjaan ditutup"
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
 msgstr "kredit lamaran"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "application credits"
+msgstr ""
 
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Application credits"
@@ -2222,6 +2246,10 @@ msgstr "Kode cadangan disalin ke papan klip."
 #: src/features/homepage/sheet.tsx
 msgid "Bagus Maulana"
 msgstr "Bagus Maulana"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Balance now"
+msgstr ""
 
 #: src/features/homepage/sheet.tsx
 msgid "Banner"
@@ -2774,6 +2802,7 @@ msgstr "ID Klien"
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/coach-sheet.tsx
@@ -3006,6 +3035,14 @@ msgstr "Aplikasi yang terhubung"
 msgid "Connecting the dots"
 msgstr "Menghubungkan titik-titik"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Connection problem"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Connection problem. Your order is still saved, try loading its status again."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Connection saved"
 msgstr "Koneksi disimpan"
@@ -3081,6 +3118,11 @@ msgstr "Lanjutkan"
 msgid "Continue as guest"
 msgstr "Lanjutkan sebagai tamu"
 
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Continue payment"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
 msgstr "Kontribusi jelas"
@@ -3120,6 +3162,7 @@ msgstr "Percakapan tentang satu pekerjaan ada di ruang kerjanya."
 msgid "Cooking"
 msgstr "Memasak"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
 #: src/features/settings/ai/api-keys.tsx
@@ -3193,6 +3236,10 @@ msgstr "Salin rahasia"
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Copy stylesheet"
 msgstr "Salin stylesheet"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Copy the amount"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
@@ -3703,6 +3750,7 @@ msgstr "Buat"
 msgid "Create a new account"
 msgstr "Buat akun baru"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Create a new order"
 msgstr "Buat pesanan baru"
@@ -4231,6 +4279,7 @@ msgstr "Jangan kirim {0}"
 msgid "Donate"
 msgstr "Donasi"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
 #: src/features/settings/ai/api-keys.tsx
 msgid "Done"
@@ -4277,6 +4326,10 @@ msgstr "Unduh CSV"
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Download failed."
 msgstr "Pengunduhan gagal."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Download invoice"
+msgstr ""
 
 #: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -4640,6 +4693,11 @@ msgstr "Mengaktifkan otentikasi dua faktor…"
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "End"
 msgstr "Akhir"
+
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Ends in"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "English"
@@ -5080,7 +5138,7 @@ msgstr "Menemukan bagian"
 msgid "Finding what works"
 msgstr "Mencari yang berhasil"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Finish the payment"
 msgstr "Selesaikan pembayaran"
 
@@ -5305,8 +5363,8 @@ msgid "Found yesterday"
 msgstr "Ditemukan kemarin"
 
 #: src/features/billing/pricing.tsx
-msgid "Free"
-msgstr "Gratis"
+#~ msgid "Free"
+#~ msgstr "Gratis"
 
 #: src/features/quota/page.tsx
 msgid "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
@@ -5317,8 +5375,8 @@ msgid "Free ATS resume checker"
 msgstr "Pemeriksa resume ATS gratis"
 
 #: src/features/billing/pricing.tsx
-msgid "Free issue list and basic job match"
-msgstr "Daftar temuan dan pencocokan lowongan dasar gratis"
+#~ msgid "Free issue list and basic job match"
+#~ msgstr "Daftar temuan dan pencocokan lowongan dasar gratis"
 
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
@@ -5462,8 +5520,8 @@ msgid "Go to dashboard"
 msgstr "Pergi ke dasbor"
 
 #: src/features/billing/pricing.tsx
-msgid "Go to my documents"
-msgstr "Buka dokumen saya"
+#~ msgid "Go to my documents"
+#~ msgstr "Buka dokumen saya"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
@@ -5947,6 +6005,10 @@ msgstr "Wawancara"
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
 msgstr "Briefing wawancara, susulan yang jatuh tempo, dan proses yang selesai muncul di sini saat siap."
 
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credits"
+msgstr ""
+
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Interview credits"
 msgstr "Kredit sesi wawancara"
@@ -6031,6 +6093,7 @@ msgid "Interviews and follow-ups by date."
 msgstr "Wawancara dan susulan menurut tanggal."
 
 #: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Invoice"
 msgstr "Invoice"
 
@@ -6525,7 +6588,6 @@ msgstr "Memimpin <0>riset pengguna</0> untuk merancang ulang pengalaman awal pen
 msgid "Led research for the onboarding redesign; activation rose from 31% to 44%."
 msgstr "Memimpin riset untuk desain ulang onboarding; aktivasi naik dari 31% ke 44%."
 
-#: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "left"
 msgstr "sisa"
@@ -7174,6 +7236,10 @@ msgstr "Model: {label}"
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
 msgstr "Mono"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "more"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -7883,6 +7949,10 @@ msgstr "Tidak dipilih"
 msgid "Not set up"
 msgstr "Tidak diatur"
 
+#: src/features/billing/pricing.tsx
+msgid "Not sure yet?"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "Bagi saya itu tidak benar, sembunyikan saja"
@@ -8094,8 +8164,8 @@ msgid "one format"
 msgstr "satu format"
 
 #: src/features/billing/pricing.tsx
-msgid "One free resume to build and download"
-msgstr "1 resume gratis untuk dibangun dan diunduh"
+#~ msgid "One free resume to build and download"
+#~ msgstr "1 resume gratis untuk dibangun dan diunduh"
 
 #: src/features/billing/credit-dialog.tsx
 msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
@@ -8217,6 +8287,10 @@ msgstr "temuan terbuka"
 msgid "Open messages"
 msgstr "Buka pesan"
 
+#: src/features/billing/pricing.tsx
+msgid "Open my documents"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 msgid "Open Preferences"
 msgstr "Buka Preferensi"
@@ -8315,8 +8389,8 @@ msgid "Or in your own words…"
 msgstr "Atau dengan kata-kata Anda sendiri…"
 
 #: src/features/billing/transactions.tsx
-msgid "Or through WhatsApp"
-msgstr "Atau lewat WhatsApp"
+#~ msgid "Or through WhatsApp"
+#~ msgstr "Atau lewat WhatsApp"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Or upload a resume PDF"
@@ -8326,9 +8400,14 @@ msgstr "Atau unggah PDF resume"
 msgid "Orange"
 msgstr "Oranye"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Order expired"
 msgstr "Pesanan hangus"
+
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Order waiting for payment"
+msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "orders"
@@ -8437,6 +8516,7 @@ msgstr "Pembacaan halaman belum selesai."
 msgid "Page view"
 msgstr "Tampilan halaman"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Paid"
@@ -8609,12 +8689,16 @@ msgid "Paused schedules keep their settings."
 msgstr "Jadwal yang dijeda tetap menyimpan pengaturannya."
 
 #: src/features/billing/transactions.tsx
-msgid "Pay"
-msgstr "Bayar"
+#~ msgid "Pay"
+#~ msgstr "Bayar"
 
 #: src/features/billing/pricing.tsx
-msgid "Pay by QRIS, verified manually by an admin."
-msgstr "Bayar QRIS, diverifikasi manual oleh admin."
+msgid "Pay by QRIS, checked by an admin, credits land once it passes."
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+#~ msgid "Pay by QRIS, verified manually by an admin."
+#~ msgstr "Bayar QRIS, diverifikasi manual oleh admin."
 
 #: src/features/billing/pricing.tsx
 msgid "Pay only for what you use"
@@ -8628,6 +8712,10 @@ msgstr "Bayar per dokumen. Tanpa langganan, dan kredit tidak kedaluwarsa."
 msgid "Pay period"
 msgstr "Periode pembayaran"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Pay the exact amount down to the last three digits. Scan it with any bank or wallet app that supports QRIS."
+msgstr ""
+
 #: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
@@ -8640,6 +8728,10 @@ msgstr "Pembayaran dikonfirmasi"
 #: src/features/billing/transactions.tsx
 msgid "payment confirmed, your credits are in"
 msgstr "pembayaran dikonfirmasi, kreditmu sudah masuk"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Payment received"
+msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
 msgid "PDF styles support a subset of CSS. Rotation, dashed and dotted borders, and some layout properties are ignored."
@@ -8731,6 +8823,10 @@ msgstr "Teks biasa (.txt)"
 msgid "Plain text with headings. Paste into application forms and notes."
 msgstr "Teks biasa dengan judul. Tempelkan ke formulir dan catatan lamaran pekerjaan."
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Plan"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Plan again"
 msgstr "Rencanakan ulang"
@@ -8796,8 +8892,8 @@ msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored
 msgstr "Harga PortoFit: cek ATS gratis, Rp5.000 per lamaran untuk resume dan cover letter yang disesuaikan, Rp10.000 per sesi latihan wawancara. Bayar QRIS, verifikasi manual."
 
 #: src/features/billing/transactions.tsx
-msgid "PortoFit QRIS code"
-msgstr "Kode QRIS PortoFit"
+#~ msgid "PortoFit QRIS code"
+#~ msgstr "Kode QRIS PortoFit"
 
 #: src/features/documents/start-guide.tsx
 msgid "PortoFit tracks each job from the posting to the interview."
@@ -8962,10 +9058,15 @@ msgstr "Mempersiapkan pengeditan…"
 msgid "Preparing your order…"
 msgstr "Menyiapkan pesanan…"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Preparing your payment…"
+msgstr ""
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Preparing your resume for printing..."
 msgstr "Mempersiapkan resume Anda untuk dicetak..."
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/workspace/prepare-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -9114,15 +9215,24 @@ msgstr "Proyek"
 msgid "Promoted to lead, 2021"
 msgstr "Dipromosikan untuk memimpin, 2021"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof did not match"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 msgid "Proof rejected"
 msgstr "Bukti ditolak"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof sent"
+msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "Proof sent, waiting for a check"
 msgstr "Bukti terkirim, menunggu verifikasi"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
 msgstr "Bukti terkirim. Admin memverifikasi manual, lalu kredit masuk otomatis."
 
@@ -10359,8 +10469,8 @@ msgid "Say it aloud"
 msgstr "Ucapkan dengan bersuara"
 
 #: src/features/billing/transactions.tsx
-msgid "Scan it with any bank or wallet app that supports QRIS."
-msgstr "Pindai dengan aplikasi bank atau dompet digital yang mendukung QRIS."
+#~ msgid "Scan it with any bank or wallet app that supports QRIS."
+#~ msgstr "Pindai dengan aplikasi bank atau dompet digital yang mendukung QRIS."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
@@ -10615,6 +10725,10 @@ msgstr "Kirim ulang"
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Send Password Reset Email"
 msgstr "Kirim Email Atur Ulang Kata Sandi"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Send the proof on WhatsApp"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Send the resume itself rather than a portfolio wrapper."
@@ -11397,6 +11511,10 @@ msgstr "Statistik"
 msgid "Status"
 msgstr "Status"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Status could not be read"
+msgstr ""
+
 #: src/hooks/use-form-blocker.tsx
 msgid "Stay"
 msgstr "Tetap"
@@ -11880,8 +11998,12 @@ msgid "The AI features are paused for a moment. Try again shortly."
 msgstr "Fitur AI sedang dijeda sebentar. Coba lagi nanti."
 
 #: src/features/billing/transactions.tsx
-msgid "The amount has to match down to the last three digits."
-msgstr "Nominal harus persis sampai tiga digit terakhir."
+#~ msgid "The amount has to match down to the last three digits."
+#~ msgstr "Nominal harus persis sampai tiga digit terakhir."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "The amount or the proof does not match this order."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "The app is translated into {languages} languages by volunteers, and a resume can be written in any language, including right-to-left scripts like Arabic and Hebrew."
@@ -11938,6 +12060,10 @@ msgstr "Salinannya ditautkan ke lamaran pekerjaan, jadi Periksa dan asisten meng
 #: src/features/billing/transactions.tsx
 msgid "The credits are in your account. An invoice is there if you need proof of payment."
 msgstr "Kredit sudah masuk ke akunmu. Invoice tersedia kalau kamu perlu bukti bayar."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "The deadline passed before the proof arrived. This order is closed and cannot be paid again."
+msgstr ""
 
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
@@ -12064,11 +12190,11 @@ msgstr "Postingan pekerjaan tidak dapat dibaca. Isi peran dan perusahaan."
 msgid "The posting saved with this application."
 msgstr "Postingan pekerjaan disimpan dengan lamaran pekerjaan ini."
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof can be at most 10 MB."
 msgstr "Ukuran bukti maksimal 10 MB."
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof could not be sent. Try again."
 msgstr "Bukti gagal dikirim. Coba lagi."
 
@@ -12076,7 +12202,7 @@ msgstr "Bukti gagal dikirim. Coba lagi."
 msgid "The proof did not match the amount on this order."
 msgstr "Bukti tidak cocok dengan nominal pesanan ini."
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/use-proof-upload.ts
 msgid "The proof must be a JPG or PNG. PDF is not accepted."
 msgstr "Bukti harus JPG atau PNG. PDF tidak diterima."
 
@@ -12504,9 +12630,13 @@ msgstr "Waktu · {0}"
 msgid "Time · {timeZone}"
 msgstr "Waktu · {timeZone}"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Time is up"
+msgstr ""
+
 #: src/features/billing/transactions.tsx
-msgid "Time left"
-msgstr "Sisa waktu"
+#~ msgid "Time left"
+#~ msgstr "Sisa waktu"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
@@ -12538,8 +12668,8 @@ msgid "To"
 msgstr "Ke"
 
 #: src/features/billing/pricing.tsx
-msgid "To try the flow"
-msgstr "Untuk mencoba alurnya"
+#~ msgid "To try the flow"
+#~ msgstr "Untuk mencoba alurnya"
 
 #: src/features/applications/components/calendar-view.tsx
 #: src/features/resume/share/link-tab.tsx
@@ -12575,9 +12705,13 @@ msgstr "Total"
 msgid "TOTAL PAID"
 msgstr "TOTAL DIBAYAR"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Total to pay"
+msgstr ""
+
 #: src/features/billing/transactions.tsx
-msgid "Total to transfer"
-msgstr "Total transfer"
+#~ msgid "Total to transfer"
+#~ msgstr "Total transfer"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -12648,6 +12782,7 @@ msgid "Try a sample"
 msgstr "Coba sampel"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
@@ -12670,6 +12805,10 @@ msgstr "Coba lagi dengan ini"
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"
 msgstr "Coba pemeriksa ATS"
+
+#: src/features/billing/pricing.tsx
+msgid "Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Try this opening"
@@ -12854,13 +12993,14 @@ msgstr "Urungkan"
 msgid "Undo resume change"
 msgstr "Membatalkan perubahan resume"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/invoice-sheet.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Unique code"
 msgstr "Kode unik"
 
 #: src/features/billing/invoice-sheet.tsx
-msgid "Unique transfer code"
-msgstr "Kode unik transfer"
+#~ msgid "Unique transfer code"
+#~ msgstr "Kode unik transfer"
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
@@ -12873,8 +13013,8 @@ msgid "Unknown"
 msgstr "Tidak diketahui"
 
 #: src/features/billing/pricing.tsx
-msgid "Unlimited ATS checks, no login"
-msgstr "Cek ATS tanpa batas, tanpa login"
+#~ msgid "Unlimited ATS checks, no login"
+#~ msgstr "Cek ATS tanpa batas, tanpa login"
 
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
@@ -12985,7 +13125,11 @@ msgstr "Unggah .csv"
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "Unggah PDF dan lihat teks yang diekstraksi oleh sistem pelacakan pelamar: apa yang hilang, apa yang rusak, dan cara memperbaikinya. Gratis, tidak perlu akun."
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
+msgid "Upload another proof"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
 msgid "Upload payment proof"
 msgstr "Unggah bukti bayar"
 
@@ -12997,7 +13141,7 @@ msgstr "Unggah gambar"
 msgid "Uploading picture…"
 msgstr "Mengunggah gambar…"
 
-#: src/features/billing/transactions.tsx
+#: src/features/billing/payment-dialog.tsx
 msgid "Uploading the proof…"
 msgstr "Mengunggah bukti…"
 
@@ -13180,6 +13324,10 @@ msgstr "Memakai suara browser Anda"
 msgid "Uzbek"
 msgstr "Uzbek"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Valid for"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Valuation and dilution uncertain"
 msgstr "Valuasi dan dilusi tidak pasti"
@@ -13320,6 +13468,10 @@ msgstr "Pengaturan suara"
 msgid "Volunteer"
 msgstr "Relawan"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Waiting for a check"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"
 msgstr "Menunggu Anda"
@@ -13352,6 +13504,10 @@ msgstr "Kami tidak dapat membaca \"{0}\". Masukkan tanggal agar terurut dan dice
 #: src/features/auth/pages/error.tsx
 msgid "We couldn't read your profile from the provider."
 msgstr "Kami tidak dapat membaca profil Anda dari penyedia."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "We email you the moment it is verified."
+msgstr ""
 
 #. placeholder {0}: dates.raw
 #: src/features/resume/editor/write/dates-field.tsx
@@ -13397,8 +13553,8 @@ msgid "Website"
 msgstr "Situs Web"
 
 #: src/features/billing/pricing.tsx
-msgid "Weekly AI allowance, back every Monday"
-msgstr "Penggunaan AI mingguan, kembali tiap Senin"
+#~ msgid "Weekly AI allowance, back every Monday"
+#~ msgstr "Penggunaan AI mingguan, kembali tiap Senin"
 
 #: src/features/career/today.tsx
 msgid "Weekly at {clock} · next {next}"
@@ -13842,6 +13998,10 @@ msgstr "Anda juga dapat masuk dengan nama pengguna Anda."
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."
 msgstr "Boleh ditutup, bisa dibuka lagi nanti."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "You can close this any time; the order stays in Transactions."
+msgstr ""
 
 #: src/features/resume/editor/save-status.tsx
 msgid "You can keep editing. Changes sync when you're back online. Download and Share need a connection."
