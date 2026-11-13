@@ -1,16 +1,19 @@
 import { cn } from "@reactive-resume/utils/style";
 
-/** Detik ke berapa sekarang, dipakai untuk memulai jarum di posisi yang benar. */
-export function secondOffset(date: Date): number {
-	return date.getSeconds();
+/** Satu putaran jarum panjang. 12 detik cukup cepat untuk terbaca hidup, belum sampai mengganggu. */
+export const SWEEP_SECONDS = 12;
+
+/** Posisi awal jarum, supaya tidak selalu mulai dari arah yang sama tiap popup dibuka. */
+export function startOffset(date: Date, periodSeconds: number = SWEEP_SECONDS): number {
+	return date.getSeconds() % periodSeconds;
 }
 
 /**
  * Ikon jam yang sama dengan yang dipakai di seluruh aplikasi, hanya jarum panjangnya berputar.
- * Satu putaran per menit, linear, dan berhenti di posisi sekarang kalau pengguna meminta gerak dikurangi.
+ * Satu putaran per 12 detik, linear, dan berhenti di posisi sekarang kalau pengguna meminta gerak dikurangi.
  */
 export function WaitingClock({ className }: { className?: string }) {
-	const seconds = secondOffset(new Date());
+	const delay = startOffset(new Date());
 
 	return (
 		<span
@@ -33,8 +36,8 @@ export function WaitingClock({ className }: { className?: string }) {
 					y1="128"
 					x2="192"
 					y2="128"
-					className="origin-[128px_128px] animate-[spin_60s_linear_infinite] motion-reduce:animate-none"
-					style={{ animationDelay: `-${seconds}s` }}
+					className="origin-[128px_128px] animate-[spin_12s_linear_infinite] motion-reduce:animate-none"
+					style={{ animationDelay: `-${delay}s` }}
 				/>
 			</svg>
 		</span>
