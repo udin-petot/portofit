@@ -1603,7 +1603,7 @@ msgid "All templates"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "All your orders and receipts."
+msgid "All your orders and invoices."
 msgstr ""
 
 #: src/features/auth/pages/consent.tsx
@@ -1655,6 +1655,10 @@ msgstr "또한 기술, 프로필 및 관심 분야에 대한 아이콘도 표시
 #: src/libs/locale.ts
 msgid "Amharic"
 msgstr "암하라어"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Amount"
+msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
@@ -2626,6 +2630,10 @@ msgstr "비밀번호를 재설정할 수 있는 링크가 이메일로 전송되
 msgid "Check your email for a link to verify your account."
 msgstr "계정을 인증할 수 있는 링크가 이메일로 전송되었습니다."
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Checked by hand"
+msgstr ""
+
 #. placeholder {0}: file.name
 #: src/features/ats-checker/checker.tsx
 msgid "Checking {0}"
@@ -2764,6 +2772,7 @@ msgstr "클라이언트 ID"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/coach-sheet.tsx
@@ -2786,6 +2795,10 @@ msgstr "채용 지원서를 닫습니다"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Close application…"
 msgstr "채용 지원서를 닫습니다…"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Close invoice"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Close the assistant"
@@ -3746,6 +3759,7 @@ msgstr ""
 msgid "Credit history"
 msgstr ""
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Credits"
 msgstr ""
@@ -3842,6 +3856,7 @@ msgstr "다크 테마"
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/editor/write/dates-field.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Date"
@@ -4072,6 +4087,7 @@ msgstr "각 직무를 짧은 글머리 기호로 설명하세요. 긴 문단은 
 msgid "Describe the role"
 msgstr "역할 설명"
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Description"
 msgstr "설명"
@@ -4261,6 +4277,7 @@ msgstr "CSV 다운로드"
 msgid "Download failed."
 msgstr "다운로드에 실패했습니다."
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/public/public-resume.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -6012,6 +6029,10 @@ msgstr "면접관"
 msgid "Interviews and follow-ups by date."
 msgstr ""
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Invoice"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Is equity part of the offer?"
 msgstr "오퍼에 지분이 포함되나요?"
@@ -6058,6 +6079,15 @@ msgstr "문제 {0}: {1}"
 #: src/features/resume/editor/check/actions.ts
 msgid "Issue ignored"
 msgstr "문제가 무시되었습니다."
+
+#. placeholder {0}: tanggal(data.issuedAt)
+#: src/features/billing/invoice-sheet.tsx
+msgid "Issued {0}"
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Issued to"
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Issuer"
@@ -6254,6 +6284,10 @@ msgstr "휴지통에 보관"
 #: src/features/homepage/sections.tsx
 msgid "Keep it <0>free.</0>"
 msgstr "계속 <0>무료로</0> 이용할 수 있도록 도와주세요."
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Keep it as proof of payment. The number is issued once an admin checks the payment, and it does not change when a package price changes later."
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -6790,6 +6824,10 @@ msgstr "대화 로드 중…"
 #: src/features/career/knowledge/stories.tsx
 msgid "Loading interviews…"
 msgstr "면접 불러오는 중…"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Loading invoice…"
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "Loading Knowledge before you send…"
@@ -8358,6 +8396,11 @@ msgstr "내어쓰기"
 msgid "Own and evolve a design system"
 msgstr "디자인 시스템 운영 및 발전"
 
+#. placeholder {0}: data.snapshot.planName
+#: src/features/billing/invoice-sheet.tsx
+msgid "Package {0}"
+msgstr ""
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -8401,6 +8444,15 @@ msgstr "페이지 조회수"
 #: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Paid"
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "PAID"
+msgstr ""
+
+#. placeholder {0}: tanggal(data.snapshot.paidAt)
+#: src/features/billing/invoice-sheet.tsx
+msgid "Paid {0}"
 msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
@@ -8580,6 +8632,7 @@ msgstr ""
 msgid "Pay period"
 msgstr "지급 주기"
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
 msgstr ""
@@ -9192,6 +9245,10 @@ msgstr "질문이 제거되었습니다"
 #: src/features/homepage/faq.tsx
 msgid "Questions"
 msgstr "질문"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Questions about a charge: Help in the dashboard, or WhatsApp 081939948769."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Questions copied"
@@ -10554,6 +10611,10 @@ msgstr "시맨틱 CSS 스타일시트"
 msgid "Send"
 msgstr "보내다"
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Send again"
+msgstr ""
+
 #. Primary action button label on forgot-password form
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Send Password Reset Email"
@@ -11879,7 +11940,7 @@ msgid "The copy is linked to the application, so Check and the assistant use its
 msgstr "사본은 채용 지원서에 연결되므로 Check와 보조자는 해당 채용 공고를 사용합니다."
 
 #: src/features/billing/transactions.tsx
-msgid "The credits are in your account. A receipt is there if you need proof of payment."
+msgid "The credits are in your account. An invoice is there if you need proof of payment."
 msgstr ""
 
 #: src/features/resume/editor/write/dates-field.tsx
@@ -12274,6 +12335,14 @@ msgstr "이 파일이 매우 다양한 폰트를 사용하고 있습니다."
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "이 파일은 문자 대신 그림 정보를 담는 Type 3 폰트를 사용하고 있습니다."
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "This invoice has not been issued yet."
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "This invoice is not a tax invoice."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This is a PDF Portfolio: the visible page is only a cover."
 msgstr "이 파일은 PDF 포트폴리오입니다. 보이는 페이지는 표지일 뿐입니다."
@@ -12505,6 +12574,10 @@ msgstr "요청이 너무 많습니다. 나중에 다시 시도하세요."
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "총"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "TOTAL PAID"
+msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "Total to transfer"
@@ -12787,6 +12860,10 @@ msgstr "이력서 변경 취소"
 
 #: src/features/billing/transactions.tsx
 msgid "Unique code"
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Unique transfer code"
 msgstr ""
 
 #: src/features/homepage/check.tsx
@@ -13198,15 +13275,15 @@ msgstr "보다"
 msgid "View application"
 msgstr "지원서 보기"
 
+#: src/features/billing/transactions.tsx
+msgid "View invoice"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/career/workspace/shell.tsx
 msgid "View posting"
 msgstr "채용 공고 보기"
-
-#: src/features/billing/transactions.tsx
-msgid "View receipt"
-msgstr ""
 
 #. placeholder {0}: formatVersionTime(viewing.createdAt, i18n.locale)
 #. placeholder {0}: when(selected)

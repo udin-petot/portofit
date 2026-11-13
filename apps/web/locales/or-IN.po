@@ -1603,7 +1603,7 @@ msgid "All templates"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "All your orders and receipts."
+msgid "All your orders and invoices."
 msgstr ""
 
 #: src/features/auth/pages/consent.tsx
@@ -1655,6 +1655,10 @@ msgstr "କ skills ଶଳ, ପ୍ରୋଫାଇଲ୍ ଏବଂ ଆଗ୍ରହ
 #: src/libs/locale.ts
 msgid "Amharic"
 msgstr "ଆମହାରିକ୍"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Amount"
+msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
@@ -2626,6 +2630,10 @@ msgstr "ଆପଣଙ୍କ ପାସୱାର୍ଡ ପୁନଃସେଟ୍ କ
 msgid "Check your email for a link to verify your account."
 msgstr "ଆପଣଙ୍କ ଆକାଉଣ୍ଟ ସତ୍ୟାପନ କରିବା ପାଇଁ ଲିଙ୍କ ପାଇଁ ଆପଣଙ୍କ ଇମେଲ୍ ଯାଞ୍ଚ କରନ୍ତୁ।"
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Checked by hand"
+msgstr ""
+
 #. placeholder {0}: file.name
 #: src/features/ats-checker/checker.tsx
 msgid "Checking {0}"
@@ -2764,6 +2772,7 @@ msgstr "କ୍ଲାଏଣ୍ଟ ID"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/coach-sheet.tsx
@@ -2786,6 +2795,10 @@ msgstr "ଚାକିରି ଆବେଦନ ବନ୍ଦ କରନ୍ତୁ |"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Close application…"
 msgstr "ଚାକିରି ଆବେଦନ ବନ୍ଦ କରନ୍ତୁ…"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Close invoice"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Close the assistant"
@@ -3746,6 +3759,7 @@ msgstr ""
 msgid "Credit history"
 msgstr ""
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Credits"
 msgstr ""
@@ -3842,6 +3856,7 @@ msgstr "ଡାର୍କ ଥିମ୍"
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/editor/write/dates-field.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Date"
@@ -4072,6 +4087,7 @@ msgstr "ପ୍ରତ୍ୟେକ ଭୂମିକାକୁ ଛୋଟ ବୁଲେ
 msgid "Describe the role"
 msgstr "ଭୂମିକା ବର୍ଣ୍ଣନା କର |"
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Description"
 msgstr "ବର୍ଣ୍ଣନା"
@@ -4261,6 +4277,7 @@ msgstr "CSV ଡାଉନଲୋଡ୍ କରନ୍ତୁ |"
 msgid "Download failed."
 msgstr "ଡାଉନଲୋଡ୍ ବିଫଳ ହେଲା |"
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/public/public-resume.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -6012,6 +6029,10 @@ msgstr "ସାକ୍ଷାତକାର"
 msgid "Interviews and follow-ups by date."
 msgstr ""
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Invoice"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Is equity part of the offer?"
 msgstr "ଇକ୍ୱିଟି ଅଫରର ଅଂଶ କି?"
@@ -6058,6 +6079,15 @@ msgstr "{0} ଇସ୍ୟୁ: {1} |"
 #: src/features/resume/editor/check/actions.ts
 msgid "Issue ignored"
 msgstr "ଇସୁ ଅଣଦେଖା |"
+
+#. placeholder {0}: tanggal(data.issuedAt)
+#: src/features/billing/invoice-sheet.tsx
+msgid "Issued {0}"
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Issued to"
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Issuer"
@@ -6254,6 +6284,10 @@ msgstr "ଆବର୍ଜନାରେ ରଖନ୍ତୁ |"
 #: src/features/homepage/sections.tsx
 msgid "Keep it <0>free.</0>"
 msgstr "ଏହାକୁ <0>ମାଗଣା</0> ରଖିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ।"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Keep it as proof of payment. The number is issued once an admin checks the payment, and it does not change when a package price changes later."
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -6790,6 +6824,10 @@ msgstr "ବାର୍ତ୍ତାଳାପ ଲୋଡିଂ…"
 #: src/features/career/knowledge/stories.tsx
 msgid "Loading interviews…"
 msgstr "ସାକ୍ଷାତକାର ଲୋଡ୍ ହେଉଛି…"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Loading invoice…"
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "Loading Knowledge before you send…"
@@ -8358,6 +8396,11 @@ msgstr "ଇଣ୍ଡେଣ୍ଟ କମାନ୍ତୁ"
 msgid "Own and evolve a design system"
 msgstr "ଏକ ଡିଜାଇନ୍ ସିଷ୍ଟମ୍‌ର ଦାୟିତ୍ୱ ନେଇ ଏହାକୁ ବିକଶିତ କରିବା"
 
+#. placeholder {0}: data.snapshot.planName
+#: src/features/billing/invoice-sheet.tsx
+msgid "Package {0}"
+msgstr ""
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -8401,6 +8444,15 @@ msgstr "ପୃଷ୍ଠା ଦୃଶ୍ୟ |"
 #: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Paid"
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "PAID"
+msgstr ""
+
+#. placeholder {0}: tanggal(data.snapshot.paidAt)
+#: src/features/billing/invoice-sheet.tsx
+msgid "Paid {0}"
 msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
@@ -8580,6 +8632,7 @@ msgstr ""
 msgid "Pay period"
 msgstr "ଦେୟ ଅବଧି"
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
 msgstr ""
@@ -9192,6 +9245,10 @@ msgstr "ପ୍ରଶ୍ନ ହଟାଗଲା"
 #: src/features/homepage/faq.tsx
 msgid "Questions"
 msgstr "ପ୍ରଶ୍ନଗୁଡିକ"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Questions about a charge: Help in the dashboard, or WhatsApp 081939948769."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Questions copied"
@@ -10554,6 +10611,10 @@ msgstr "ଅର୍ଥଗତ CSS ଷ୍ଟାଇଲସିଟ୍"
 msgid "Send"
 msgstr "ପଠାନ୍ତୁ |"
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Send again"
+msgstr ""
+
 #. Primary action button label on forgot-password form
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Send Password Reset Email"
@@ -11879,7 +11940,7 @@ msgid "The copy is linked to the application, so Check and the assistant use its
 msgstr "କପି ଚାକିରି ଆବେଦନ ସହିତ ଲିଙ୍କ୍ ହୋଇଛି, ତେଣୁ ଚେକ୍ ଏବଂ ଆସିଷ୍ଟାଣ୍ଟ ଏହାର ଚାକିରି ପୋଷ୍ଟିଂ ବ୍ୟବହାର କରନ୍ତି |"
 
 #: src/features/billing/transactions.tsx
-msgid "The credits are in your account. A receipt is there if you need proof of payment."
+msgid "The credits are in your account. An invoice is there if you need proof of payment."
 msgstr ""
 
 #: src/features/resume/editor/write/dates-field.tsx
@@ -12274,6 +12335,14 @@ msgstr "ଏହି ଫାଇଲ୍ ଅନେକ ଭିନ୍ନ ଫଣ୍ଟ ବ�
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "ଏହି ଫାଇଲ୍ Type 3 ଫଣ୍ଟ ବ୍ୟବହାର କରେ, ଯାହା ଅକ୍ଷର ପରିବର୍ତ୍ତେ ଚିତ୍ର ବହନ କରେ।"
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "This invoice has not been issued yet."
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "This invoice is not a tax invoice."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This is a PDF Portfolio: the visible page is only a cover."
 msgstr "ଏହା ଏକ PDF ପୋର୍ଟଫୋଲିଓ: ଦୃଶ୍ୟମାନ ପୃଷ୍ଠା କେବଳ ଏକ କଭର।"
@@ -12505,6 +12574,10 @@ msgstr "ବହୁତ ଅନୁରୋଧ | ପରେ ପୁନର୍ବାର ଚ
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "ସମୁଦାୟ"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "TOTAL PAID"
+msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "Total to transfer"
@@ -12787,6 +12860,10 @@ msgstr "ରେଜୁମ୍ ପରିବର୍ତ୍ତନକୁ ପୂର୍ବ�
 
 #: src/features/billing/transactions.tsx
 msgid "Unique code"
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Unique transfer code"
 msgstr ""
 
 #: src/features/homepage/check.tsx
@@ -13198,15 +13275,15 @@ msgstr "ଦର୍ଶନ କରନ୍ତୁ |"
 msgid "View application"
 msgstr "ଚାକିରି ଆବେଦନ ଦେଖନ୍ତୁ |"
 
+#: src/features/billing/transactions.tsx
+msgid "View invoice"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/career/workspace/shell.tsx
 msgid "View posting"
 msgstr "ଚାକିରି ପୋଷ୍ଟିଂ ଦେଖନ୍ତୁ |"
-
-#: src/features/billing/transactions.tsx
-msgid "View receipt"
-msgstr ""
 
 #. placeholder {0}: formatVersionTime(viewing.createdAt, i18n.locale)
 #. placeholder {0}: when(selected)

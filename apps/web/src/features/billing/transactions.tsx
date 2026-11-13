@@ -199,7 +199,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 						<Trans>Transactions</Trans>
 					</h1>
 					<p className="mt-1 hidden text-sm text-ink-2 sm:block">
-						<Trans>All your orders and receipts.</Trans>
+						<Trans>All your orders and invoices.</Trans>
 					</p>
 				</div>
 				<Button
@@ -381,7 +381,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 								<Trans>Payment confirmed</Trans>
 							</h2>
 							<p className="text-xs leading-5 text-ink-2">
-								<Trans>The credits are in your account. A receipt is there if you need proof of payment.</Trans>
+								<Trans>The credits are in your account. An invoice is there if you need proof of payment.</Trans>
 							</p>
 						</div>
 					</div>
@@ -409,7 +409,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 									if (invoice) setInvoiceOpen(invoice.id);
 								}}
 							>
-								<Trans>View receipt</Trans>
+								<Trans>View invoice</Trans>
 							</Button>
 						) : null}
 					</div>
@@ -516,7 +516,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 											{order.status === "menunggu_bayar" ? (
 												<Trans>Pay</Trans>
 											) : invoice ? (
-												<Trans>View receipt</Trans>
+												<Trans>View invoice</Trans>
 											) : (
 												<Trans>View</Trans>
 											)}

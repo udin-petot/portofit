@@ -1603,7 +1603,7 @@ msgid "All templates"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "All your orders and receipts."
+msgid "All your orders and invoices."
 msgstr ""
 
 #: src/features/auth/pages/consent.tsx
@@ -1655,6 +1655,10 @@ msgstr "Такође приказује иконе о вештинама, про
 #: src/libs/locale.ts
 msgid "Amharic"
 msgstr "Амхарски"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Amount"
+msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
@@ -2626,6 +2630,10 @@ msgstr "Проверите е-пошту за везу за ресетовање
 msgid "Check your email for a link to verify your account."
 msgstr "Проверите е-пошту за везу да верификујете налог."
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Checked by hand"
+msgstr ""
+
 #. placeholder {0}: file.name
 #: src/features/ats-checker/checker.tsx
 msgid "Checking {0}"
@@ -2764,6 +2772,7 @@ msgstr "ИД клијента"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/coach-sheet.tsx
@@ -2786,6 +2795,10 @@ msgstr "Затворите пријаву за посао"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Close application…"
 msgstr "Затворите пријаву за посао…"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Close invoice"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Close the assistant"
@@ -3746,6 +3759,7 @@ msgstr ""
 msgid "Credit history"
 msgstr ""
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Credits"
 msgstr ""
@@ -3842,6 +3856,7 @@ msgstr "Тамна тема"
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/editor/write/dates-field.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Date"
@@ -4072,6 +4087,7 @@ msgstr "Опишите сваку улогу кратким ставкама. З
 msgid "Describe the role"
 msgstr "Опишите улогу"
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Description"
 msgstr "Опис"
@@ -4261,6 +4277,7 @@ msgstr "Преузмите ЦСВ"
 msgid "Download failed."
 msgstr "Преузимање није успело."
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/public/public-resume.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -6012,6 +6029,10 @@ msgstr "Анкетар"
 msgid "Interviews and follow-ups by date."
 msgstr ""
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Invoice"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Is equity part of the offer?"
 msgstr "Да ли је власнички удео део понуде?"
@@ -6058,6 +6079,15 @@ msgstr "Издање {0}: {1}"
 #: src/features/resume/editor/check/actions.ts
 msgid "Issue ignored"
 msgstr "Проблем је занемарен"
+
+#. placeholder {0}: tanggal(data.issuedAt)
+#: src/features/billing/invoice-sheet.tsx
+msgid "Issued {0}"
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Issued to"
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Issuer"
@@ -6254,6 +6284,10 @@ msgstr "Чувај у Отпаду"
 #: src/features/homepage/sections.tsx
 msgid "Keep it <0>free.</0>"
 msgstr "Чувајте га <0>бесплатно.</0>"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Keep it as proof of payment. The number is issued once an admin checks the payment, and it does not change when a package price changes later."
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -6790,6 +6824,10 @@ msgstr "Учитавање разговора…"
 #: src/features/career/knowledge/stories.tsx
 msgid "Loading interviews…"
 msgstr "Учитавање интервјуа…"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Loading invoice…"
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "Loading Knowledge before you send…"
@@ -8358,6 +8396,11 @@ msgstr "Смањи увлачење"
 msgid "Own and evolve a design system"
 msgstr "Вођење и развој дизајн система"
 
+#. placeholder {0}: data.snapshot.planName
+#: src/features/billing/invoice-sheet.tsx
+msgid "Package {0}"
+msgstr ""
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -8401,6 +8444,15 @@ msgstr "Приказ странице"
 #: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Paid"
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "PAID"
+msgstr ""
+
+#. placeholder {0}: tanggal(data.snapshot.paidAt)
+#: src/features/billing/invoice-sheet.tsx
+msgid "Paid {0}"
 msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
@@ -8580,6 +8632,7 @@ msgstr ""
 msgid "Pay period"
 msgstr "Период исплате"
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
 msgstr ""
@@ -9192,6 +9245,10 @@ msgstr "Питање уклоњено"
 #: src/features/homepage/faq.tsx
 msgid "Questions"
 msgstr "Питања"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Questions about a charge: Help in the dashboard, or WhatsApp 081939948769."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Questions copied"
@@ -10554,6 +10611,10 @@ msgstr "Семантички CSS стилски лист"
 msgid "Send"
 msgstr "Пошаљи"
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Send again"
+msgstr ""
+
 #. Primary action button label on forgot-password form
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Send Password Reset Email"
@@ -11879,7 +11940,7 @@ msgid "The copy is linked to the application, so Check and the assistant use its
 msgstr "Копија је повезана са пријавом за посао, тако да Чек и асистент користе њен оглас за посао."
 
 #: src/features/billing/transactions.tsx
-msgid "The credits are in your account. A receipt is there if you need proof of payment."
+msgid "The credits are in your account. An invoice is there if you need proof of payment."
 msgstr ""
 
 #: src/features/resume/editor/write/dates-field.tsx
@@ -12274,6 +12335,14 @@ msgstr "Ова датотека користи много различитих �
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "Ова датотека користи Type 3 фонтове, који носе цртеже уместо знакова."
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "This invoice has not been issued yet."
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "This invoice is not a tax invoice."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This is a PDF Portfolio: the visible page is only a cover."
 msgstr "Ово је PDF портфолио: видљива страница је само насловна."
@@ -12505,6 +12574,10 @@ msgstr "Превише захтева. Покушајте поново касн�
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "Укупно"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "TOTAL PAID"
+msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "Total to transfer"
@@ -12787,6 +12860,10 @@ msgstr "Поништите промену резимеа"
 
 #: src/features/billing/transactions.tsx
 msgid "Unique code"
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Unique transfer code"
 msgstr ""
 
 #: src/features/homepage/check.tsx
@@ -13198,15 +13275,15 @@ msgstr "Виев"
 msgid "View application"
 msgstr "Погледајте пријаву за посао"
 
+#: src/features/billing/transactions.tsx
+msgid "View invoice"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/career/workspace/shell.tsx
 msgid "View posting"
 msgstr "Погледајте оглас за посао"
-
-#: src/features/billing/transactions.tsx
-msgid "View receipt"
-msgstr ""
 
 #. placeholder {0}: formatVersionTime(viewing.createdAt, i18n.locale)
 #. placeholder {0}: when(selected)

@@ -1604,8 +1604,8 @@ msgid "All templates"
 msgstr "Semua templat"
 
 #: src/features/billing/transactions.tsx
-msgid "All your orders and receipts."
-msgstr "Semua pesanan dan kuitansimu."
+msgid "All your orders and invoices."
+msgstr "Semua pesanan dan invoice kamu."
 
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
@@ -1656,6 +1656,10 @@ msgstr "Juga menunjukkan ikon keterampilan, profil, dan minat."
 #: src/libs/locale.ts
 msgid "Amharic"
 msgstr "Amharik"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Amount"
+msgstr "Jumlah"
 
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
@@ -2627,6 +2631,10 @@ msgstr "Periksa email Anda untuk tautan mengatur ulang kata sandi."
 msgid "Check your email for a link to verify your account."
 msgstr "Periksa email Anda untuk tautan memverifikasi akun Anda."
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Checked by hand"
+msgstr "Diperiksa manual"
+
 #. placeholder {0}: file.name
 #: src/features/ats-checker/checker.tsx
 msgid "Checking {0}"
@@ -2765,6 +2773,7 @@ msgstr "ID Klien"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/coach-sheet.tsx
@@ -2787,6 +2796,10 @@ msgstr "Tutup lamaran pekerjaan"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Close application…"
 msgstr "Tutup lamaran pekerjaan…"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Close invoice"
+msgstr "Tutup invoice"
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Close the assistant"
@@ -3747,6 +3760,7 @@ msgstr "Hanya untuk kreatif: level grafik tidak aman untuk ATS. Pilih Hidden unt
 msgid "Credit history"
 msgstr "Riwayat kredit"
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Credits"
 msgstr "Kredit"
@@ -3843,6 +3857,7 @@ msgstr "Tema gelap"
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/editor/write/dates-field.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Date"
@@ -4073,6 +4088,7 @@ msgstr "Jelaskan setiap peran dengan poin-poin singkat. Paragraf padat lebih sul
 msgid "Describe the role"
 msgstr "Jelaskan perannya"
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Description"
 msgstr "Deskripsi"
@@ -4262,6 +4278,7 @@ msgstr "Unduh CSV"
 msgid "Download failed."
 msgstr "Pengunduhan gagal."
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/public/public-resume.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -6013,6 +6030,10 @@ msgstr "Pewawancara"
 msgid "Interviews and follow-ups by date."
 msgstr "Wawancara dan susulan menurut tanggal."
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Invoice"
+msgstr "Invoice"
+
 #: src/features/career/offers.tsx
 msgid "Is equity part of the offer?"
 msgstr "Apakah ekuitas termasuk dalam penawaran?"
@@ -6059,6 +6080,15 @@ msgstr "Temuan {0}: {1}"
 #: src/features/resume/editor/check/actions.ts
 msgid "Issue ignored"
 msgstr "Temuan diabaikan"
+
+#. placeholder {0}: tanggal(data.issuedAt)
+#: src/features/billing/invoice-sheet.tsx
+msgid "Issued {0}"
+msgstr "Terbit {0}"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Issued to"
+msgstr "Ditagihkan kepada"
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Issuer"
@@ -6255,6 +6285,10 @@ msgstr "Simpan di Sampah"
 #: src/features/homepage/sections.tsx
 msgid "Keep it <0>free.</0>"
 msgstr "Bantu agar tetap <0>gratis.</0>"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Keep it as proof of payment. The number is issued once an admin checks the payment, and it does not change when a package price changes later."
+msgstr "Simpan sebagai bukti pembayaran yang sah. Nomor terbit setelah admin memeriksa pembayaran, dan tidak berubah kalau harga paket disesuaikan kemudian."
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -6791,6 +6825,10 @@ msgstr "Memuat percakapan…"
 #: src/features/career/knowledge/stories.tsx
 msgid "Loading interviews…"
 msgstr "Memuat wawancara…"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Loading invoice…"
+msgstr "Memuat invoice…"
 
 #: src/features/career/coach.tsx
 msgid "Loading Knowledge before you send…"
@@ -8359,6 +8397,11 @@ msgstr "Kurangi indentasi"
 msgid "Own and evolve a design system"
 msgstr "Memiliki dan mengembangkan design system"
 
+#. placeholder {0}: data.snapshot.planName
+#: src/features/billing/invoice-sheet.tsx
+msgid "Package {0}"
+msgstr "Paket {0}"
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -8403,6 +8446,15 @@ msgstr "Tampilan halaman"
 #: src/routes/dashboard/akun.tsx
 msgid "Paid"
 msgstr "Selesai"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "PAID"
+msgstr "LUNAS"
+
+#. placeholder {0}: tanggal(data.snapshot.paidAt)
+#: src/features/billing/invoice-sheet.tsx
+msgid "Paid {0}"
+msgstr "Dibayar {0}"
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
@@ -8581,6 +8633,7 @@ msgstr "Bayar per dokumen. Tanpa langganan, dan kredit tidak kedaluwarsa."
 msgid "Pay period"
 msgstr "Periode pembayaran"
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
 msgstr "Pembayaran"
@@ -9193,6 +9246,10 @@ msgstr "Pertanyaan dihapus"
 #: src/features/homepage/faq.tsx
 msgid "Questions"
 msgstr "Pertanyaan"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Questions about a charge: Help in the dashboard, or WhatsApp 081939948769."
+msgstr "Pertanyaan soal tagihan: Bantuan di dasbor, atau WhatsApp 081939948769."
 
 #: src/features/career/offers.tsx
 msgid "Questions copied"
@@ -10555,6 +10612,10 @@ msgstr "Lembar gaya CSS semantik"
 msgid "Send"
 msgstr "Kirim"
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Send again"
+msgstr "Kirim ulang"
+
 #. Primary action button label on forgot-password form
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Send Password Reset Email"
@@ -11880,8 +11941,8 @@ msgid "The copy is linked to the application, so Check and the assistant use its
 msgstr "Salinannya ditautkan ke lamaran pekerjaan, jadi Periksa dan asisten menggunakan postingan pekerjaannya."
 
 #: src/features/billing/transactions.tsx
-msgid "The credits are in your account. A receipt is there if you need proof of payment."
-msgstr "Kredit sudah masuk ke akunmu. Kuitansi tersedia kalau kamu perlu bukti bayar."
+msgid "The credits are in your account. An invoice is there if you need proof of payment."
+msgstr "Kredit sudah masuk ke akunmu. Invoice tersedia kalau kamu perlu bukti bayar."
 
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
@@ -12275,6 +12336,14 @@ msgstr "File ini menggunakan banyak font yang berbeda."
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "File ini menggunakan font Type 3, yang memuat gambar, bukan karakter."
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "This invoice has not been issued yet."
+msgstr "Invoice ini belum terbit."
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "This invoice is not a tax invoice."
+msgstr "Invoice ini bukan faktur pajak."
+
 #: src/features/ats-checker/messages.ts
 msgid "This is a PDF Portfolio: the visible page is only a cover."
 msgstr "Ini adalah PDF Portfolio: halaman yang terlihat hanyalah sampul."
@@ -12506,6 +12575,10 @@ msgstr "Terlalu banyak permintaan. Coba lagi nanti."
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "Total"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "TOTAL PAID"
+msgstr "TOTAL DIBAYAR"
 
 #: src/features/billing/transactions.tsx
 msgid "Total to transfer"
@@ -12789,6 +12862,10 @@ msgstr "Membatalkan perubahan resume"
 #: src/features/billing/transactions.tsx
 msgid "Unique code"
 msgstr "Kode unik"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Unique transfer code"
+msgstr "Kode unik transfer"
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
@@ -13199,15 +13276,15 @@ msgstr "Lihat"
 msgid "View application"
 msgstr "Lihat lamaran kerja"
 
+#: src/features/billing/transactions.tsx
+msgid "View invoice"
+msgstr "Lihat invoice"
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/career/workspace/shell.tsx
 msgid "View posting"
 msgstr "Lihat postingan pekerjaan"
-
-#: src/features/billing/transactions.tsx
-msgid "View receipt"
-msgstr "Lihat kuitansi"
 
 #. placeholder {0}: formatVersionTime(viewing.createdAt, i18n.locale)
 #. placeholder {0}: when(selected)

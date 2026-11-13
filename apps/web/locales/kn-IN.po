@@ -1603,7 +1603,7 @@ msgid "All templates"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "All your orders and receipts."
+msgid "All your orders and invoices."
 msgstr ""
 
 #: src/features/auth/pages/consent.tsx
@@ -1655,6 +1655,10 @@ msgstr "ಕೌಶಲ್ಯಗಳು, ಪ್ರೊಫೈಲ್‌ಗಳು ಮತ
 #: src/libs/locale.ts
 msgid "Amharic"
 msgstr "ಅಂಹಾರಿಕ್"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Amount"
+msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
@@ -2626,6 +2630,10 @@ msgstr "ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ರೀಸೆಟ್ ಮಾ
 msgid "Check your email for a link to verify your account."
 msgstr "ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಪರಿಶೀಲಿಸಲು ಲಿಂಕ್‌ಗಾಗಿ ನಿಮ್ಮ ಇಮೇಲ್ ಪರಿಶೀಲಿಸಿ."
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Checked by hand"
+msgstr ""
+
 #. placeholder {0}: file.name
 #: src/features/ats-checker/checker.tsx
 msgid "Checking {0}"
@@ -2764,6 +2772,7 @@ msgstr "ಗ್ರಾಹಕ ID"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/coach-sheet.tsx
@@ -2786,6 +2795,10 @@ msgstr "ಉದ್ಯೋಗ ಅರ್ಜಿಯನ್ನು ಮುಚ್ಚಿ"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Close application…"
 msgstr "ಉದ್ಯೋಗ ಅರ್ಜಿಯನ್ನು ಮುಚ್ಚಿ..."
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Close invoice"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Close the assistant"
@@ -3746,6 +3759,7 @@ msgstr ""
 msgid "Credit history"
 msgstr ""
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Credits"
 msgstr ""
@@ -3842,6 +3856,7 @@ msgstr "ಡಾರ್ಕ್ ಥೀಮ್"
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/editor/write/dates-field.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Date"
@@ -4072,6 +4087,7 @@ msgstr "ಪ್ರತಿ ಪಾತ್ರವನ್ನು ಚಿಕ್ಕ ಬುಲ
 msgid "Describe the role"
 msgstr "ಪಾತ್ರವನ್ನು ವಿವರಿಸಿ"
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Description"
 msgstr "ವಿವರಣೆ"
@@ -4261,6 +4277,7 @@ msgstr "CSV ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ"
 msgid "Download failed."
 msgstr "ಡೌನ್‌ಲೋಡ್ ವಿಫಲವಾಗಿದೆ."
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/features/resume/public/public-resume.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -6012,6 +6029,10 @@ msgstr "ಸಂದರ್ಶಕ"
 msgid "Interviews and follow-ups by date."
 msgstr ""
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Invoice"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Is equity part of the offer?"
 msgstr "ಈಕ್ವಿಟಿ ಆಫರ್‌ನ ಭಾಗವೇ?"
@@ -6058,6 +6079,15 @@ msgstr "ಸಂಚಿಕೆ {0}: {1}"
 #: src/features/resume/editor/check/actions.ts
 msgid "Issue ignored"
 msgstr "ಸಮಸ್ಯೆಯನ್ನು ನಿರ್ಲಕ್ಷಿಸಲಾಗಿದೆ"
+
+#. placeholder {0}: tanggal(data.issuedAt)
+#: src/features/billing/invoice-sheet.tsx
+msgid "Issued {0}"
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Issued to"
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Issuer"
@@ -6254,6 +6284,10 @@ msgstr "ಅನುಪಯುಕ್ತದಲ್ಲಿ ಇರಿಸಿ"
 #: src/features/homepage/sections.tsx
 msgid "Keep it <0>free.</0>"
 msgstr "ಇದನ್ನು <0>ಉಚಿತವಾಗಿ</0> ಉಳಿಸಿಕೊಳ್ಳಲು ನೆರವಾಗಿ."
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Keep it as proof of payment. The number is issued once an admin checks the payment, and it does not change when a package price changes later."
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -6790,6 +6824,10 @@ msgstr "ಸಂಭಾಷಣೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗ�
 #: src/features/career/knowledge/stories.tsx
 msgid "Loading interviews…"
 msgstr "ಸಂದರ್ಶನಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Loading invoice…"
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "Loading Knowledge before you send…"
@@ -8358,6 +8396,11 @@ msgstr "ಇಂಡೆಂಟ್ ಕಡಿಮೆ ಮಾಡಿ"
 msgid "Own and evolve a design system"
 msgstr "ವಿನ್ಯಾಸ ವ್ಯವಸ್ಥೆಯನ್ನು ನಿರ್ವಹಿಸಿ ಮತ್ತು ಬೆಳೆಸಿ"
 
+#. placeholder {0}: data.snapshot.planName
+#: src/features/billing/invoice-sheet.tsx
+msgid "Package {0}"
+msgstr ""
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -8401,6 +8444,15 @@ msgstr "ಪುಟ ವೀಕ್ಷಣೆ"
 #: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Paid"
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "PAID"
+msgstr ""
+
+#. placeholder {0}: tanggal(data.snapshot.paidAt)
+#: src/features/billing/invoice-sheet.tsx
+msgid "Paid {0}"
 msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
@@ -8580,6 +8632,7 @@ msgstr ""
 msgid "Pay period"
 msgstr "ವೇತನ ಅವಧಿ"
 
+#: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
 msgstr ""
@@ -9192,6 +9245,10 @@ msgstr "ಪ್ರಶ್ನೆಯನ್ನು ತೆಗೆದುಹಾಕಲಾ�
 #: src/features/homepage/faq.tsx
 msgid "Questions"
 msgstr "ಪ್ರಶ್ನೆಗಳು"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Questions about a charge: Help in the dashboard, or WhatsApp 081939948769."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Questions copied"
@@ -10554,6 +10611,10 @@ msgstr "ಲಾಕ್ಷಣಿಕ CSS ಶೈಲಿ ಹಾಳೆ"
 msgid "Send"
 msgstr "ಕಳುಹಿಸು"
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "Send again"
+msgstr ""
+
 #. Primary action button label on forgot-password form
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Send Password Reset Email"
@@ -11879,7 +11940,7 @@ msgid "The copy is linked to the application, so Check and the assistant use its
 msgstr "ನಕಲನ್ನು ಉದ್ಯೋಗ ಅರ್ಜಿಗೆ ಲಿಂಕ್ ಮಾಡಲಾಗಿದೆ, ಆದ್ದರಿಂದ ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಹಾಯಕ ಅದರ ಉದ್ಯೋಗ ಪೋಸ್ಟ್ ಅನ್ನು ಬಳಸುತ್ತಾರೆ."
 
 #: src/features/billing/transactions.tsx
-msgid "The credits are in your account. A receipt is there if you need proof of payment."
+msgid "The credits are in your account. An invoice is there if you need proof of payment."
 msgstr ""
 
 #: src/features/resume/editor/write/dates-field.tsx
@@ -12274,6 +12335,14 @@ msgstr "ಈ ಫೈಲ್ ಹಲವಾರು ವಿಭಿನ್ನ ಫಾಂಟ�
 msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
 msgstr "ಈ ಫೈಲ್ Type 3 ಫಾಂಟ್‌ಗಳನ್ನು ಬಳಸುತ್ತದೆ, ಇವು ಅಕ್ಷರಗಳ ಬದಲು ಚಿತ್ರಗಳನ್ನು ಹೊಂದಿರುತ್ತವೆ."
 
+#: src/features/billing/invoice-sheet.tsx
+msgid "This invoice has not been issued yet."
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "This invoice is not a tax invoice."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This is a PDF Portfolio: the visible page is only a cover."
 msgstr "ಇದು PDF ಪೋರ್ಟ್‌ಫೋಲಿಯೊ: ಗೋಚರ ಪುಟ ಕೇವಲ ಮುಖಪುಟ."
@@ -12505,6 +12574,10 @@ msgstr "ಹಲವಾರು ವಿನಂತಿಗಳು. ನಂತರ ಮತ್�
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "ಒಟ್ಟು"
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "TOTAL PAID"
+msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "Total to transfer"
@@ -12787,6 +12860,10 @@ msgstr "ರೆಸ್ಯೂಮೆ ಬದಲಾವಣೆಯನ್ನು ರದ್�
 
 #: src/features/billing/transactions.tsx
 msgid "Unique code"
+msgstr ""
+
+#: src/features/billing/invoice-sheet.tsx
+msgid "Unique transfer code"
 msgstr ""
 
 #: src/features/homepage/check.tsx
@@ -13198,15 +13275,15 @@ msgstr "ವೀಕ್ಷಿಸಿ"
 msgid "View application"
 msgstr "ಉದ್ಯೋಗ ಅರ್ಜಿಯನ್ನು ವೀಕ್ಷಿಸಿ"
 
+#: src/features/billing/transactions.tsx
+msgid "View invoice"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/career/workspace/shell.tsx
 msgid "View posting"
 msgstr "ಉದ್ಯೋಗ ಪೋಸ್ಟ್ ಅನ್ನು ವೀಕ್ಷಿಸಿ"
-
-#: src/features/billing/transactions.tsx
-msgid "View receipt"
-msgstr ""
 
 #. placeholder {0}: formatVersionTime(viewing.createdAt, i18n.locale)
 #. placeholder {0}: when(selected)

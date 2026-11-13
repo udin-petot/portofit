@@ -53,6 +53,11 @@ export async function processInvoiceEmails(limit = BATCH_SIZE): Promise<{ sent: 
 				number: row.number,
 				total: rupiah(row.snapshot.totalIdr),
 				url: new URL("/dashboard/transaksi", env.APP_URL).toString(),
+				detail: `${row.snapshot.planName} · ${row.snapshot.credits} kredit`,
+				method: row.snapshot.paymentMethod.toUpperCase(),
+				paidAt: new Intl.DateTimeFormat("id-ID", { dateStyle: "long", timeZone: "Asia/Jakarta" }).format(
+					new Date(row.snapshot.paidAt),
+				),
 				pdf,
 			});
 

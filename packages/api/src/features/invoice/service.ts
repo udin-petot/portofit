@@ -119,7 +119,7 @@ export async function downloadInvoice(
 	const render = deps.render ?? createInvoicePdf;
 	const pdf = await render({ number: row.number, issuedAt: row.issuedAt, snapshot: row.snapshot });
 
-	return { fileName: `kuitansi-${row.number.replaceAll("/", "-")}.pdf`, pdf: pdf.toString("base64") };
+	return { fileName: `invoice-${row.number.replaceAll("/", "-")}.pdf`, pdf: pdf.toString("base64") };
 }
 
 type FindOrder = (orderId: string) => Promise<OrderRow | undefined>;
