@@ -52,12 +52,15 @@ export function OrderEmail({ kind, name, planName, total, uniqueCode, deadline, 
 						<Text className="mt-3 text-sm leading-6 text-muted">Halo {name}, {copy.intro}</Text>
 						<Section className="mt-6 border border-solid border-line px-4 py-3">
 							<Text className="m-0 text-xs uppercase tracking-[0.12em] text-muted">Total</Text>
-							<Text className="m-0 mt-1 text-lg font-semibold text-ink">{total}</Text>
-							<Text className="m-0 mt-2 text-sm text-muted">
-								{planName} · kode unik {uniqueCode}
-							</Text>
+							<Text className="m-0 mt-1 text-[28px] leading-8 font-semibold text-ink">{total}</Text>
+							<Text className="m-0 mt-2 text-sm text-muted">{planName}</Text>
 							{kind === "hangus" ? null : (
-								<Text className="m-0 mt-1 text-sm text-muted">Batas bayar {deadline}</Text>
+								<>
+									<Text className="m-0 mt-1 text-sm text-muted">
+										Kode unik <strong>{String(uniqueCode).padStart(3, "0")}</strong>
+									</Text>
+									<Text className="m-0 mt-1 text-sm text-muted">Batas bayar {deadline}</Text>
+								</>
 							)}
 						</Section>
 						<Button href={url} className="mt-6 bg-ink px-4 py-2 text-sm text-white no-underline">

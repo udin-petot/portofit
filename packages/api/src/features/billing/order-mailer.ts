@@ -64,7 +64,7 @@ export async function processOrderEmails(limit = 20): Promise<{ sent: number; fa
 				total: rupiah(row.totalIdr),
 				uniqueCode: row.uniqueCode,
 				deadline: deadlineText(row.expiresAt),
-				url: new URL("/dashboard/transaksi", env.APP_URL).toString(),
+				url: new URL(`/dashboard/transaksi?order=${row.orderId}`, env.APP_URL).toString(),
 			});
 
 			await db

@@ -97,18 +97,6 @@ const styles = {
 	colDesc: { flex: 1 },
 	colCredits: { width: 64, textAlign: "right" },
 	colAmount: { width: 100, textAlign: "right" },
-	totalRow: {
-		flexDirection: "row",
-		alignItems: "center",
-		justifyContent: "space-between",
-		borderTopWidth: 0.75,
-		borderTopColor: INK,
-		marginTop: 6,
-		paddingTop: 8,
-		paddingHorizontal: 10,
-	},
-	totalLabel: { fontSize: 9.5, fontFamily: "Helvetica-Bold", letterSpacing: 0.5 },
-	totalValue: { fontSize: 13, fontFamily: "Helvetica-Bold" },
 	guide: { flexDirection: "row", marginTop: 26, backgroundColor: PAPER, borderRadius: 7, paddingVertical: 13, paddingHorizontal: 14 },
 	guideLeft: { flex: 1.45, paddingRight: 20 },
 	guideRight: { flex: 1, borderLeftWidth: 0.75, borderLeftColor: LINE, paddingLeft: 16 },
@@ -132,9 +120,6 @@ const styles = {
 	notesRight: { flex: 1, alignItems: "flex-end" },
 	notesLabel: { fontSize: 7.5, color: MUTED, letterSpacing: 1, marginBottom: 5 },
 	notesText: { fontSize: 8, color: MUTED, lineHeight: 1.6 },
-	signature: { marginTop: 26, borderBottomWidth: 0.75, borderBottomColor: INK, width: 150 },
-	signatureName: { fontSize: 9.5, fontFamily: "Helvetica-Bold", marginTop: 6 },
-	signatureRole: { fontSize: 8, color: MUTED, marginTop: 1 },
 	footer: { marginTop: 26, flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
 	footerText: { fontSize: 7.5, color: MUTED },
 } satisfies Record<string, Style>;
@@ -175,6 +160,7 @@ export function InvoiceDocument({ number, issuedAt, snapshot }: InvoicePdfInput)
 						<Text style={styles.summaryMeta}>Dibayar {tanggal(snapshot.paidAt)}</Text>
 						<Text style={styles.summaryMeta}>
 							{snapshot.credits} kredit masuk ke akun
+							{snapshot.uniqueCode > 0 ? ` · kode ${String(snapshot.uniqueCode).padStart(3, "0")}` : ""}
 						</Text>
 					</View>
 				</View>
@@ -209,21 +195,10 @@ export function InvoiceDocument({ number, issuedAt, snapshot }: InvoicePdfInput)
 					<Text style={[styles.cell, styles.colAmount]}>{rupiah(snapshot.amountIdr)}</Text>
 				</View>
 
-				<View style={styles.row}>
-					<Text style={[styles.cell, styles.colDesc]}>Kode unik transfer</Text>
-					<Text style={[styles.cell, styles.colCredits]}>—</Text>
-					<Text style={[styles.cell, styles.colAmount]}>{snapshot.uniqueCode}</Text>
-				</View>
-
 				<View style={styles.rowLast}>
 					<Text style={[styles.cell, styles.colDesc]}>Sisa kredit setelah pembayaran ini</Text>
 					<Text style={[styles.cell, styles.colCredits]}>—</Text>
 					<Text style={[styles.cell, styles.colAmount]}>{snapshot.balanceAfter}</Text>
-				</View>
-
-				<View style={styles.totalRow}>
-					<Text style={styles.totalLabel}>Total dibayar</Text>
-					<Text style={styles.totalValue}>{rupiah(snapshot.totalIdr)}</Text>
 				</View>
 
 				<View style={styles.guide}>
@@ -261,10 +236,8 @@ export function InvoiceDocument({ number, issuedAt, snapshot }: InvoicePdfInput)
 						</Text>
 					</View>
 					<View style={styles.notesRight}>
-						<Text style={styles.notesLabel}>DIVERIFIKASI</Text>
-						<View style={styles.signature} />
-						<Text style={styles.signatureName}>PortoFit</Text>
-						<Text style={styles.signatureRole}>Tim penagihan</Text>
+						<Text style={styles.notesLabel}>VERIFIKASI</Text>
+						<Text style={styles.notesText}>Diverifikasi admin pada {tanggal(snapshot.paidAt)}</Text>
 					</View>
 				</View>
 

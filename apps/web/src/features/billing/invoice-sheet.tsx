@@ -110,6 +110,11 @@ export function InvoiceSheet({ invoiceId, onClose, onResend }: InvoiceSheetProps
 									<p className="text-[11px] text-[#6B6A60]">
 										<Trans>Paid {tanggal(data.snapshot.paidAt)}</Trans>
 									</p>
+									{data.snapshot.uniqueCode > 0 ? (
+										<p className="text-[11px] text-[#6B6A60]">
+											<Trans>Unique code</Trans> {String(data.snapshot.uniqueCode).padStart(3, "0")}
+										</p>
+									) : null}
 								</div>
 								<div className="min-w-0">
 									<p className="text-[9px] uppercase tracking-[0.12em] text-[#6B6A60]">
@@ -141,14 +146,6 @@ export function InvoiceSheet({ invoiceId, onClose, onResend }: InvoiceSheetProps
 									</span>
 									<span className="w-16 text-right">{data.snapshot.credits}</span>
 									<span className="w-24 text-right">{rupiah(data.snapshot.amountIdr)}</span>
-								</div>
-
-								<div className="flex items-center border-b border-[#E4E1D8] px-3 py-2.5 text-[12px]">
-									<span className="flex-1">
-										<Trans>Unique transfer code</Trans>
-									</span>
-									<span className="w-16 text-right text-[#6B6A60]">—</span>
-									<span className="w-24 text-right">{data.snapshot.uniqueCode}</span>
 								</div>
 
 								<div className="flex items-center rounded-b-md bg-[#DCF2DF] px-3 py-3">
