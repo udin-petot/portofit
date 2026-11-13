@@ -101,7 +101,7 @@ export function LandingFooter() {
 									MIT
 								</a>
 							</Trans>
-							<span className="ms-1.5">· v{__APP_VERSION__}</span>
+							<span>{" · v"}{__APP_VERSION__}</span>
 						</p>
 						<div className="mt-1 flex items-center gap-3">
 							<span className={labelClass}>{t`Language`}</span>
@@ -132,7 +132,7 @@ export function LandingFooter() {
 
 			{/* It fades in by sliding up out of the mask's faded bottom; an opacity fade would fail contrast checks.
 			    One line on phones so the wordmark is not cropped from both sides, two lines from sm up. */}
-			<div aria-hidden="true" className="@container mx-auto mt-14 max-w-[1440px] px-(--gutter)">
+			<div aria-hidden="true" className="@container mx-auto mt-14 max-w-[1440px] px-(--gutter) max-sm:mt-10">
 				<div className="h-[19.5cqw] overflow-hidden sm:h-[27cqw] sm:[mask-image:linear-gradient(to_bottom,#000_35%,transparent_100%)]">
 					<div className="font-anybody [transform:translateY(calc((1-clamp(0,(var(--p)-.1)/.8,1))*60%))] pt-[.12em] pb-[.06em] text-[19cqw] leading-[.84] font-extrabold tracking-[-.035em] whitespace-nowrap text-ink font-stretch-[78%] select-none [transition:transform_.35s_var(--ease)] sm:text-[17.5cqw]">
 						<span className="block max-sm:inline">Porto</span>
