@@ -49,6 +49,63 @@ const checklistItems = () => [
 	t`Mark the application as applied to keep the versions you sent.`,
 ];
 
+/**
+ * Tanpa teks lowongan, kecocokan dan persiapan tidak bisa jalan.
+ * Bilah langkah berikutnya mengarah ke tab ini, jadi kolom tempelnya ada di sini.
+ */
+function PostingMissing({ application }: { application: WorkspaceTabProps["application"] }) {
+	const invalidate = useInvalidateApplications();
+	const [text, setText] = useState(application.jobDescription ?? "");
+	const save = useMutation(
+		orpc.applications.update.mutationOptions({
+			onSuccess: () => {
+				invalidate();
+				toast.add({ type: "success", description: t`Posting saved. Fit and preparation can run now.` });
+			},
+			onError: (error) =>
+				toast.add({
+					type: "error",
+					description: getOrpcErrorMessage(error, { fallback: t`Couldn't save the posting.` }),
+				}),
+		}),
+	);
+
+	const ready = text.trim().length >= 120;
+
+	return (
+		<section className="grid gap-2 rounded-xl border border-dashed border-line px-4 py-3">
+			<p className="text-sm font-medium">
+				<Trans>The job posting is missing</Trans>
+			</p>
+			<p className="text-[13px] leading-5 text-ink-3">
+				<Trans>
+					Paste the posting text below. Fit, the assistant and the letter read it, so without it they can only
+					guess.
+				</Trans>
+			</p>
+			<Textarea
+				rows={6}
+				value={text}
+				onChange={(event) => setText(event.target.value)}
+				placeholder={t`Paste the full job description from the posting…`}
+			/>
+			<div className="flex items-center justify-between gap-2">
+				<p className="text-[11px] text-ink-3">
+					<Trans>Copy it from the employer's page, including the requirements.</Trans>
+				</p>
+				<Button
+					size="sm"
+					loading={save.isPending}
+					disabled={!ready}
+					onClick={() => save.mutate({ id: application.id, jobDescription: text.trim() })}
+				>
+					<Trans>Save posting</Trans>
+				</Button>
+			</div>
+		</section>
+	);
+}
+
 /** W4–W5: the written answers for the employer's form, and a checklist before submitting there yourself. */
 export function ApplyTab({ application, version }: WorkspaceTabProps) {
 	const { day } = useCareerTime();
@@ -108,6 +165,7 @@ export function ApplyTab({ application, version }: WorkspaceTabProps) {
 	return (
 		<div className="grid items-start gap-5 @3xl:grid-cols-[minmax(0,1fr)_280px] @5xl:grid-cols-[minmax(0,1fr)_320px]">
 			<div className="grid gap-4">
+				{!application.jobDescription && <PostingMissing application={application} />}
 				{application.status !== "saved" && (
 					<p className="flex gap-2.5 rounded-xl bg-accent-soft px-4 py-3 text-[13px] leading-[18px] text-accent-text">
 						<Icon name="check-circle" size={18} className="mt-px shrink-0" />

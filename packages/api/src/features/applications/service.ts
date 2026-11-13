@@ -552,7 +552,7 @@ export const applicationService = {
 				fields.coverLetterId !== undefined &&
 				fields.coverLetterId !== existing.coverLetterId)
 		) {
-			throw new ORPCError("BAD_REQUEST", {
+			throw new ORPCError("PRECONDITION_FAILED", {
 				message:
 					"Recorded submitted documents cannot be replaced. Prepare a copy to keep the submitted versions intact.",
 			});
@@ -590,7 +590,7 @@ export const applicationService = {
 						fields.coverLetterId !== undefined &&
 						fields.coverLetterId !== current.coverLetterId)
 				)
-					throw new ORPCError("BAD_REQUEST", {
+					throw new ORPCError("PRECONDITION_FAILED", {
 						message:
 							"Recorded submitted documents cannot be replaced. Prepare a copy to keep the submitted versions intact.",
 					});

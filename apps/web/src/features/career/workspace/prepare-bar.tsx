@@ -49,7 +49,15 @@ export function PrepareBar({ application }: PrepareBarProps) {
 				});
 				return;
 			}
-			toast.add({ type: "error", description: getOrpcErrorMessage(error, { fallback: t`Couldn't prepare the documents.` }) });
+			toast.add({
+				type: "error",
+				description: getOrpcErrorMessage(error, {
+					fallback: t`Couldn't prepare the documents.`,
+					byCode: {
+						PRECONDITION_FAILED: t`This application is already marked as applied, so the version you sent can't be replaced. Prepare from an application you haven't sent yet.`,
+					},
+				}),
+			});
 		}
 	};
 

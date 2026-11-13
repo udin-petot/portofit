@@ -303,6 +303,16 @@ msgstr "{0} ใน {1} คือ {2} ในเขตเวลาของคุ�
 msgid "{0} interview"
 msgstr "สัมภาษณ์ {0}"
 
+#. placeholder {0}: entries.length
+#: src/routes/templates/$.tsx
+msgid "{0} layouts, all exporting a text-based PDF with the words in reading order. Open one, then pick it in the editor."
+msgstr ""
+
+#. placeholder {0}: limit - used
+#: src/features/quota/page.tsx
+msgid "{0} left this week."
+msgstr ""
+
 #. placeholder {0}: i18n.number(row.minutes)
 #. placeholder {0}: row.minutes
 #: src/features/career/workspace/prepare.tsx
@@ -382,6 +392,11 @@ msgstr "ส่วน {0}"
 msgid "{0} sections and {1} entries found."
 msgstr "พบส่วน {0} และรายการ {1}"
 
+#. placeholder {0}: questions.length
+#: src/features/homepage/faq.tsx
+msgid "{0} short answers to what people ask before they start."
+msgstr ""
+
 #. placeholder {0}: report.skippedChecks
 #: src/features/ats-checker/report/score-header.tsx
 msgid "{0} skipped"
@@ -424,6 +439,18 @@ msgstr "ปรับใช้แล้ว {accepted} จาก {0}"
 #: src/features/settings/account/data.tsx
 msgid "{applicationCount, plural, one {# application} other {# applications}}"
 msgstr "{applicationCount, plural, one {สมัครงาน #} other {สมัครงาน #}}"
+
+#: src/features/career/today.tsx
+msgid "{BANK_COUNT} questions"
+msgstr ""
+
+#: src/features/career/workspace/bank-dialog.tsx
+msgid "{BANK_COUNT} questions asked in real technical and HR interviews, with what is scored on each. Pick one to start practising."
+msgstr ""
+
+#: src/features/career/bank-browse.tsx
+msgid "{BANK_COUNT} technical and HR interview questions with rubrics. Open one to see what is scored and the follow-up questions."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "{base} (copy)"
@@ -846,10 +873,6 @@ msgstr "30 วัน"
 msgid "40% faster reviews"
 msgstr "รีวิวเร็วขึ้น 40%"
 
-#: src/features/homepage/faq.tsx
-msgid "9 short answers to what people ask before they start. Anything else, ask on <0>Discord</0>."
-msgstr "9 คำตอบสั้นๆ สำหรับคำถามที่ผู้คนถามก่อนเริ่มใช้ มีคำถามอื่น ถามได้ที่ <0>Discord</0>"
-
 #: src/features/settings/ai/api-keys.tsx
 msgid "90 days"
 msgstr "90 วัน"
@@ -954,6 +977,10 @@ msgstr "หน้านี้ถูกหมุน"
 msgid "A pasted posting can be saved as an application afterwards."
 msgstr "ประกาศรับสมัครงานที่วางไว้สามารถบันทึกเป็นการสมัครงานได้ในภายหลัง"
 
+#: src/features/billing/transactions.tsx
+msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
+msgstr ""
+
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
 msgstr "การแจ้งเตือนให้เช็คอิน ซึ่งจะแสดงเป็นขั้นตอนถัดไปจนกว่าคุณจะเช็คอิน"
@@ -981,6 +1008,10 @@ msgstr "เรื่องราวที่คุณลบไปแล้ว"
 #: src/features/homepage/prepare.tsx
 msgid "A strong match, with one question to resolve"
 msgstr "เหมาะสมมาก แต่มีคำถามหนึ่งข้อที่ต้องเคลียร์"
+
+#: src/features/career/workspace/shell.tsx
+msgid "A tailored resume and a cover letter are one click on the Prepare tab."
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "A timed plan, your opening, the stories to bring and questions to ask. It becomes your checklist 10 minutes before the call."
@@ -1045,6 +1076,7 @@ msgstr "ความสำเร็จ"
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/root.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Account"
 msgstr "บัญชี"
@@ -1480,6 +1512,15 @@ msgstr "เทียบกับข้อกำหนดของคุณ"
 msgid "AI & developer"
 msgstr "AI และนักพัฒนา"
 
+#: src/features/quota/page.tsx
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "AI allowance"
+msgstr ""
+
+#: src/routes/dashboard/akun.tsx
+msgid "AI and developer"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
 msgstr "การเชื่อมต่อ AI"
@@ -1517,14 +1558,13 @@ msgstr "ผู้ให้บริการ AI จะไม่พร้อม�
 msgid "AI providers couldn't be loaded. Reload to try again."
 msgstr "ไม่สามารถโหลดผู้ให้บริการ AI ได้ โหลดซ้ำเพื่อลองอีกครั้ง"
 
+#: src/routes/dashboard/akun.tsx
+msgid "AI providers, API keys and integrations."
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Albanian"
 msgstr "แอลเบเนีย"
-
-#: src/features/homepage/check.tsx
-#: src/features/homepage/sheet.tsx
-msgid "Alex Morgan"
-msgstr "Alex Morgan"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Align centre"
@@ -1538,6 +1578,7 @@ msgstr "จัดชิดซ้าย"
 msgid "Align right"
 msgstr "จัดชิดขวา"
 
+#: src/features/billing/transactions.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/workspace/saved.tsx
 #: src/features/documents/documents-page.tsx
@@ -1556,6 +1597,14 @@ msgstr "การสมัครงานทั้งหมด (รวมถึ�
 #: src/features/settings/account/data.tsx
 msgid "All documents and applications as JSON, in one zip"
 msgstr "เอกสารและสมัครงานทั้งหมดเป็น JSON ใน zip เดียว"
+
+#: src/routes/templates/$.tsx
+msgid "All templates"
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "All your orders and receipts."
+msgstr ""
 
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
@@ -1606,6 +1655,10 @@ msgstr "ยังแสดงไอคอนทักษะ โปรไฟล�
 #: src/libs/locale.ts
 msgid "Amharic"
 msgstr "อัมฮาริค"
+
+#: src/features/billing/transactions.tsx
+msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
@@ -1751,6 +1804,7 @@ msgstr "ระบบติดตามผู้สมัครจะเปลี
 #: src/features/career/schedule-sheet.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/trash-page.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "Application"
 msgstr "ใบสมัคร"
 
@@ -1766,8 +1820,20 @@ msgstr "คำตอบในใบสมัคร"
 msgid "Application closed"
 msgstr "ปิดรับสมัครงาน"
 
-#: src/features/billing/pricing.tsx
+#: src/features/billing/plan-copy.ts
 msgid "application credit"
+msgstr ""
+
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Application credits"
+msgstr ""
+
+#: src/features/career/workspace/prepare-bar.tsx
+msgid "Application credits left: {credits}."
+msgstr ""
+
+#: src/features/billing/credit-dialog.tsx
+msgid "Application credits used up"
 msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
@@ -1794,6 +1860,10 @@ msgstr "รายละเอียดใบสมัคร"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Application options"
 msgstr "ตัวเลือกการสมัครงาน"
+
+#: src/features/career/workspace/practise.tsx
+msgid "Application questions"
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "application summaries"
@@ -1917,6 +1987,10 @@ msgstr "ถามเกี่ยวกับใบสมัครนี้…"
 msgid "Ask about your next career step…"
 msgstr "ถามเกี่ยวกับก้าวต่อไปในอาชีพของคุณ…"
 
+#: src/routes/dashboard/career/route.tsx
+msgid "Ask about your search, a document, or an interview you have coming up."
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "Ask about your search, or bring an accomplishment you want to explain better. Answers use what's switched on below and say what they relied on."
 msgstr "ถามเกี่ยวกับการหางานของคุณ หรือนำผลงานที่คุณอยากอธิบายให้ดีขึ้นมาคุยกัน คำตอบจะใช้สิ่งที่เปิดไว้ด้านล่าง และบอกว่าอ้างอิงจากอะไร"
@@ -1977,13 +2051,10 @@ msgstr "อัตราส่วนภาพ"
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/command-palette/pages/resumes.tsx
+#: src/features/homepage/sections.tsx
 #: src/features/homepage/write.tsx
 msgid "Assistant"
 msgstr "ผู้ช่วย"
-
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "ผู้ช่วย (กุญแจของคุณ)"
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
@@ -1994,12 +2065,12 @@ msgid "Assistant."
 msgstr "ผู้ช่วย."
 
 #: src/features/homepage/prepare.tsx
-msgid "At Northwind Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
-msgstr "ที่ Northwind Labs ฉันเป็นผู้นำการวิจัยสำหรับการออกแบบออนบอร์ดดิ้งใหม่ ฉันสัมภาษณ์ลูกค้า 14 ราย พบจุดที่ผู้ใช้หลุดออกสามจุด และเราเปิดตัวขั้นตอนตั้งค่าที่สั้นลง อัตราการเปิดใช้งานเพิ่มจาก 31% เป็น 44%"
+msgid "At Sinarpagi Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
-msgid "At Northwind Labs, most new teams stalled before they finished setup."
-msgstr "ที่ Northwind Labs ทีมใหม่ส่วนใหญ่ติดค้างก่อนตั้งค่าเสร็จ"
+msgid "At Sinarpagi Labs, most new teams stalled before they finished setup."
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx
@@ -2065,6 +2136,11 @@ msgstr "การบันทึกอัตโนมัติจะถูกจ
 msgid "Avoid heavy letter-spacing effects, then re-export."
 msgstr "หลีกเลี่ยงเอฟเฟกต์ระยะห่างตัวอักษรที่มากเกินไป แล้วส่งออกใหม่"
 
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/akun.tsx
+msgid "Awaiting payment"
+msgstr ""
+
 #: src/features/resume/editor/write/entries.tsx
 msgid "Awarder"
 msgstr "ผู้ได้รับรางวัล"
@@ -2077,12 +2153,6 @@ msgstr "รางวัล"
 #: src/libs/locale.ts
 msgid "Azerbaijani"
 msgstr "อาเซอร์ไบจาน"
-
-#: src/features/homepage/check.tsx
-#: src/features/homepage/hero.tsx
-#: src/features/homepage/sheet.tsx
-msgid "BA, Communication Design"
-msgstr "ปริญญาตรีสาขาการออกแบบการสื่อสาร"
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Back"
@@ -2105,6 +2175,10 @@ msgstr "กลับไปที่ปัจจุบัน"
 #: src/features/resume/editor/chrome.tsx
 msgid "Back to documents"
 msgstr "กลับไปที่เอกสาร"
+
+#: src/features/quota/page.tsx
+msgid "Back to full on {resetLabel}."
+msgstr ""
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Back to now"
@@ -2138,6 +2212,11 @@ msgstr "รหัสสำรอง"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Backup codes copied to clipboard."
 msgstr "รหัสสำรองถูกคัดลอกไปยังคลิปบอร์ดแล้ว"
+
+#: src/features/homepage/check.tsx
+#: src/features/homepage/sheet.tsx
+msgid "Bagus Maulana"
+msgstr ""
 
 #: src/features/homepage/sheet.tsx
 msgid "Banner"
@@ -2261,10 +2340,11 @@ msgid "Briefing refresh paused"
 msgstr "หยุดการรีเฟรชสรุปย่อชั่วคราว"
 
 #: src/features/homepage/sections.tsx
-msgid "Build a CV, match it to a job, practise interviews"
+msgid "Build a resume, match it to a job, practise interviews"
 msgstr ""
 
 #: src/features/homepage/ui.tsx
+#: src/routes/templates/$.tsx
 msgid "Build your resume"
 msgstr "สร้างเรซูเม่ของคุณ"
 
@@ -2282,8 +2362,8 @@ msgid "Built a shared design system used by six product teams."
 msgstr "สร้างระบบการออกแบบที่ใช้ร่วมกันโดยทีมผลิตภัณฑ์หกทีม"
 
 #: src/features/homepage/prepare.tsx
-msgid "Built from the posting, Sam’s message and your two strongest stories."
-msgstr "สร้างจากประกาศงาน ข้อความของ Sam และเรื่องราวที่แข็งแกร่งที่สุดสองเรื่องของคุณ"
+msgid "Built from the posting, Sari’s message and your two strongest stories."
+msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
@@ -2303,14 +2383,30 @@ msgstr "รายการ {n}"
 msgid "Bulleted list"
 msgstr "รายการหัวข้อย่อย"
 
+#: src/routes/dashboard/akun.tsx
+msgid "Buy"
+msgstr ""
+
 #. placeholder {0}: formatRupiah(plan.priceIdr)
 #: src/features/billing/pricing.tsx
 msgid "Buy {0}"
 msgstr ""
 
+#: src/features/career/workspace/prepare-bar.tsx
+msgid "Buy a credit"
+msgstr ""
+
+#: src/features/billing/credit-dialog.tsx
+#: src/features/billing/transactions.tsx
 #: src/features/career/hooks.ts
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/beli-kredit.tsx
 msgid "Buy credits"
+msgstr ""
+
+#: src/features/billing/credit-dialog.tsx
+msgid "Buy credits to continue."
 msgstr ""
 
 #: src/features/billing/pricing.tsx
@@ -2330,7 +2426,7 @@ msgid "Can I host it myself?"
 msgstr "ฉันสามารถโฮสต์มันเองได้หรือไม่?"
 
 #: src/features/homepage/faq.tsx
-msgid "Can I import an existing CV?"
+msgid "Can I import an existing resume?"
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -2364,14 +2460,19 @@ msgstr "ซอฟต์แวร์สามารถอ่านเรซูเ
 msgid "Cancel"
 msgstr "ยกเลิก"
 
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/akun.tsx
+msgid "Cancelled"
+msgstr ""
+
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "อาชีพ"
 
 #: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "โค้ชอาชีพ (คีย์ของคุณ)"
+msgid "Career coach"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -2500,10 +2601,6 @@ msgstr "คุณสมบัติ ตรวจสอบ อ่านเรซ�
 #: src/features/career/workspace/prepare.tsx
 msgid "Check the details"
 msgstr "ตรวจสอบรายละเอียด"
-
-#: src/features/ats-checker/messages.ts
-msgid "Check the exported file contains everything you expect, and that all of it is selectable text."
-msgstr "ตรวจสอบว่าไฟล์ที่ส่งออกมีข้อมูลครบตามที่คาดไว้ และทั้งหมดเป็นข้อความที่เลือกได้"
 
 #: src/features/career/workspace/fit.tsx
 msgid "Check this role against your evidence"
@@ -2653,6 +2750,10 @@ msgstr "การเลือกที่ชัดเจน"
 msgid "Clear the greeting or sign-off to omit it. Clearing the sign-off also removes the automatic signature."
 msgstr "ล้างคำขึ้นต้นหรือคำลงท้ายเพื่อละไว้ การล้างคำลงท้ายจะลบลายเซ็นอัตโนมัติด้วย"
 
+#: src/features/billing/transactions.tsx
+msgid "Clear the search"
+msgstr ""
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Click anything on the page to style it. The rule you're in is outlined on the page."
 msgstr "คลิกอะไรก็ได้บนหน้าเพื่อจัดสไตล์ กฎที่คุณอยู่มีระบุไว้ในหน้านี้"
@@ -2709,6 +2810,14 @@ msgstr "ปิด"
 #: src/routes/dashboard/career/route.tsx
 msgid "Coach"
 msgstr "โค้ช"
+
+#: src/features/quota/page.tsx
+msgid "Coach messages"
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "code"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Code"
@@ -3037,6 +3146,10 @@ msgstr "คัดลอกการสนทนา"
 msgid "Copy for a job…"
 msgstr "คัดลอกสำหรับงาน..."
 
+#: src/features/career/workspace/apply.tsx
+msgid "Copy it from the employer's page, including the requirements."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Copy it now. For your security, it won't be shown again."
 msgstr "คัดลอกเลย เพื่อความปลอดภัยของคุณ มันจะไม่แสดงอีก"
@@ -3202,7 +3315,7 @@ msgstr "ไม่สามารถคัดลอกข้อความถอ
 msgid "Couldn't copy to the clipboard."
 msgstr "คัดลอกไปยังคลิปบอร์ดไม่ได้"
 
-#: src/features/documents/new-document-dialog.tsx
+#: src/features/documents/use-start-document.ts
 msgid "Couldn't create the document."
 msgstr "ไม่สามารถสร้างเอกสารได้"
 
@@ -3314,6 +3427,10 @@ msgstr "ทำเครื่องหมายว่าสมัครแล้
 msgid "Couldn't mark this as read."
 msgstr "ทำเครื่องหมายว่าอ่านแล้วไม่ได้"
 
+#: src/features/career/workspace/prepare-bar.tsx
+msgid "Couldn't prepare the documents."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't propose these edits: {0}"
@@ -3396,6 +3513,7 @@ msgstr "ไม่สามารถบันทึกการติดตาม
 msgid "Couldn't save the notes."
 msgstr "ไม่สามารถบันทึกบันทึกย่อได้"
 
+#: src/features/career/workspace/apply.tsx
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Couldn't save the posting."
 msgstr "ไม่สามารถบันทึกประกาศรับสมัครงานได้"
@@ -3560,7 +3678,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "ส่งจดหมายปะหน้า (ไม่บังคับ)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "จดหมายสมัครงาน"
 
@@ -3571,6 +3688,10 @@ msgstr "สร้าง"
 #: src/features/auth/pages/register.tsx
 msgid "Create a new account"
 msgstr "สร้างบัญชีใหม่"
+
+#: src/features/billing/transactions.tsx
+msgid "Create a new order"
+msgstr ""
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Create a new resume"
@@ -3621,8 +3742,12 @@ msgstr "สร้างและเชื่อมโยงกับ {0}"
 msgid "Creative only: graphic levels are not ATS-safe. Use Hidden for job portals."
 msgstr ""
 
-#: src/features/billing/pricing.tsx
-msgid "Credits are used per document: one application credit for one tailored CV and cover letter, one interview credit for one practice session. Credits do not expire."
+#: src/routes/dashboard/akun.tsx
+msgid "Credit history"
+msgstr ""
+
+#: src/routes/dashboard/akun.tsx
+msgid "Credits"
 msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
@@ -3763,6 +3888,7 @@ msgstr "เรียน ทีมงานผู้จ้างงาน"
 
 #: src/features/career/shared.tsx
 #: src/features/career/workspace/saved.tsx
+#: src/features/career/workspace/shell.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Debrief"
 msgstr "สรุปผล"
@@ -3770,6 +3896,10 @@ msgstr "สรุปผล"
 #: src/features/homepage/prepare.tsx
 msgid "Deep breath."
 msgstr "หายใจลึกๆ"
+
+#: src/features/quota/page.tsx
+msgid "Deep job match"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 #: src/features/settings/ai/providers.tsx
@@ -4041,6 +4171,7 @@ msgstr "ละทิ้งการเปลี่ยนแปลง?"
 msgid "Disconnect"
 msgstr "ตัดการเชื่อมต่อ"
 
+#: src/features/documents/start-guide.tsx
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -4079,7 +4210,6 @@ msgstr "ยังไม่มีบัญชี? <0/>"
 msgid "Don't send {0}"
 msgstr "อย่าส่ง {0}"
 
-#: src/components/ui/donation-toast.tsx
 #: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "บริจาค"
@@ -4243,6 +4373,10 @@ msgstr "กำลังร่าง…"
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "drag · ⌥↑↓"
 msgstr "ลาก · ⌥↑↓"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Drag a card to move an application through the stages."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Drag and drop sections here to move them between columns"
@@ -4495,12 +4629,16 @@ msgstr "ภาษาอังกฤษ"
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
-msgid "English (native)"
-msgstr "อังกฤษ (เจ้าของภาษา)"
+msgid "English (B2)"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "English (United Kingdom)"
 msgstr "อังกฤษ (สหราชอาณาจักร)"
+
+#: src/features/homepage/hero.tsx
+msgid "English, B2"
+msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Enhanced reading failed"
@@ -4513,10 +4651,6 @@ msgstr "การอ่านขั้นสูงไม่พร้อมใช
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Enhanced reading was unavailable. The built-in reader retrieved this posting."
 msgstr "การอ่านขั้นสูงไม่พร้อมใช้งาน โปรแกรมอ่านในตัวดึงข้อมูลประกาศรับสมัครงานนี้"
-
-#: src/components/ui/donation-toast.tsx
-msgid "Enjoying PortoFit?"
-msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -4587,6 +4721,14 @@ msgstr "ทุก {days} วัน เวลา {clock} · ครั้งถั
 msgid "Every 3 days"
 msgstr "ทุก 3 วัน"
 
+#: src/routes/dashboard/applications/index.tsx
+msgid "Every application in one table. Sort by what needs attention."
+msgstr ""
+
+#: src/features/quota/page.tsx
+msgid "Every ATS scan, issue list and basic job match stays free with no limit. Only actions that call a model use this allowance."
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Every day"
 msgstr "ทุกวัน"
@@ -4599,9 +4741,17 @@ msgstr "ทุกๆ รายการจะมีวันที่ในร�
 msgid "Every role says what you did. Opinions on wording live in the Writing tab."
 msgstr "ทุกบทบาทบ่งบอกสิ่งที่คุณทำ ความคิดเห็นเกี่ยวกับการใช้ถ้อยคำอยู่ในแท็บการเขียน"
 
+#: src/features/documents/new-document-dialog.tsx
+msgid "Every section already has content. Replace it with your own."
+msgstr ""
+
 #: src/features/homepage/faq.tsx
 msgid "Every template exports a text-based PDF with the words in reading order, which is what applicant tracking systems (ATS) need to parse a resume. To test any PDF, including one made elsewhere, the free ATS checker shows the text software extracts and what to fix."
 msgstr "ทุกเทมเพลตจะส่งออก PDF แบบข้อความโดยมีคำตามลำดับการอ่าน ซึ่งเป็นสิ่งที่ระบบติดตามผู้สมัคร (ATS) จำเป็นต้องแยกวิเคราะห์ประวัติย่อ หากต้องการทดสอบ PDF ใดๆ รวมถึงรุ่นที่ผลิตที่อื่น ตัวตรวจสอบ ATS ฟรีจะแสดงซอฟต์แวร์ข้อความที่แยกออกมาและสิ่งที่ต้องแก้ไข"
+
+#: src/routes/templates/$.tsx
+msgid "Every template, on one page."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Every term the posting stresses is already there."
@@ -4725,6 +4875,10 @@ msgstr "ประเภทข้อเท็จจริง"
 msgid "Facts"
 msgstr "ข้อเท็จจริง"
 
+#: src/routes/dashboard/career/route.tsx
+msgid "Facts, stories and preferences about you. The coach and interview prep read these."
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "Facts, stories and preferences that are switched on in Knowledge"
 msgstr "ข้อเท็จจริง เรื่องราว และความต้องการที่เปิดใช้ในคลังความรู้"
@@ -4835,8 +4989,8 @@ msgid "Fieldnote"
 msgstr "Fieldnote"
 
 #: src/features/homepage/tailor.tsx
-msgid "Fieldnote · Remote, EU"
-msgstr "Fieldnote · รีโมท EU"
+msgid "Fieldnote · Jakarta"
+msgstr ""
 
 #: src/features/homepage/hero.tsx
 msgid "Figma"
@@ -4855,6 +5009,10 @@ msgstr "ชื่อไฟล์"
 #: src/features/resume/import/read-file.ts
 msgid "file read"
 msgstr "อ่านไฟล์"
+
+#: src/features/applications/components/list-view.tsx
+msgid "Files"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Fill fields"
@@ -4904,9 +5062,17 @@ msgstr "การค้นหาส่วนต่างๆ"
 msgid "Finding what works"
 msgstr "กำลังหาสิ่งที่ได้ผล"
 
+#: src/features/billing/transactions.tsx
+msgid "Finish the payment"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Finnish"
 msgstr "ฟินแลนด์"
+
+#: src/features/documents/start-guide.tsx
+msgid "First resume"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "First run"
@@ -4969,8 +5135,8 @@ msgid "Fix these values in the CSV, or leave their columns out, before importing
 msgstr "แก้ไขค่าเหล่านี้ใน CSV หรือเว้นคอลัมน์เหล่านั้นไว้ ก่อนนำเข้า"
 
 #: src/features/homepage/remember.tsx
-msgid "Fixing onboarding drop-off at Northwind Labs"
-msgstr "แก้ปัญหาผู้ใช้หลุดระหว่างออนบอร์ดดิ้งที่ Northwind Labs"
+msgid "Fixing onboarding drop-off at Sinarpagi Labs"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Flatten the form so the text is part of the page."
@@ -5051,7 +5217,7 @@ msgid "For example: “{0}: I did … at … in 2024, and it led to …”"
 msgstr "ตัวอย่างเช่น: “{0}: ฉันทำ … ที่ … ในปี 2024 และส่งผลให้ …”"
 
 #: src/features/homepage/faq.tsx
-msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs. The flow, examples, and language are made for their needs."
+msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
 msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
@@ -5124,9 +5290,21 @@ msgstr "พบเมื่อวาน"
 msgid "Free"
 msgstr ""
 
+#: src/features/quota/page.tsx
+msgid "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
+msgstr ""
+
 #: src/libs/seo.ts
 msgid "Free ATS resume checker"
 msgstr "เครื่องมือตรวจสอบเรซูเม่ ATS ฟรี"
+
+#: src/features/billing/pricing.tsx
+msgid "Free issue list and basic job match"
+msgstr ""
+
+#: src/routes/templates/$.tsx
+msgid "Free to browse. No account needed to look around."
+msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
@@ -5219,10 +5397,6 @@ msgstr "รับคำติชม"
 msgid "Get feedback sends the question, your answer, this posting and your stories to {providerName}."
 msgstr "“รับคำติชม” จะส่งคำถาม คำตอบของคุณ ประกาศงานนี้ และเรื่องราวของคุณไปยัง {providerName}"
 
-#: src/features/career/today.tsx
-msgid "Get new roles here every morning"
-msgstr "รับตำแหน่งงานใหม่ที่นี่ทุกเช้า"
-
 #: src/features/homepage/footer.tsx
 msgid "Get started"
 msgstr "เริ่มต้นเลย"
@@ -5230,6 +5404,10 @@ msgstr "เริ่มต้นเลย"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Getting long. Try “Shorter”, or cut the least specific paragraph."
 msgstr "เริ่มยาว. ลอง \"สั้นลง\" หรือตัดย่อหน้าที่เฉพาะเจาะจงน้อยที่สุด"
+
+#: src/features/documents/start-guide.tsx
+msgid "Getting started"
+msgstr ""
 
 #. Authentication provider display name in account settings
 #. Brand name label for GitHub social sign-in button
@@ -5264,6 +5442,10 @@ msgstr "กลับบ้าน"
 #: src/routes/_home/-sections/header.tsx
 msgid "Go to dashboard"
 msgstr "ไปที่แดชบอร์ด"
+
+#: src/features/billing/pricing.tsx
+msgid "Go to my documents"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
@@ -5359,6 +5541,11 @@ msgstr "ได้ยินกลับมา"
 msgid "Hebrew"
 msgstr "ฮิบรู"
 
+#: src/features/homepage/footer.tsx
+#: src/features/support/support-launcher.tsx
+msgid "Help"
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "Help me turn an accomplishment into a Situation, Task, Action, Result and Reflection story."
 msgstr "ช่วยฉันเปลี่ยนความสำเร็จให้เป็นเรื่องราวแบบสถานการณ์ หน้าที่ การกระทำ ผลลัพธ์ และการสะท้อนคิด"
@@ -5368,8 +5555,8 @@ msgid "Help translate"
 msgstr "ช่วยแปลด้วย"
 
 #: src/features/homepage/prepare.tsx
-msgid "Hi Alex, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
-msgstr "สวัสดี Alex ขอยืนยันนัดหมาย: คุณจะได้พบทีมออกแบบของเราวันนี้เวลา {time} ผ่านวิดีโอ ช่วยนำตัวอย่างงานออนบอร์ดดิ้งของคุณมาด้วยได้ไหม?"
+msgid "Hi Bagus, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
+msgstr ""
 
 #: src/components/level/combobox.tsx
 #: src/features/resume/editor/write/entries.tsx
@@ -5470,10 +5657,6 @@ msgstr "หน้าแรก"
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Horizontal line"
 msgstr "เส้นแนวนอน"
-
-#: src/features/homepage/sections.tsx
-msgid "Hosting and development are paid for by people like you. Optional tip:"
-msgstr "โฮสติ้งและการพัฒนาได้รับค่าตอบแทนจากคนเช่นคุณ เคล็ดลับเพิ่มเติม:"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "How did it go?"
@@ -5598,6 +5781,10 @@ msgstr "นำเข้าเรซูเม่"
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "นำเข้าเรซูเม่ คัดลอกงาน หรือเริ่มว่างเปล่า"
 
+#: src/features/documents/documents-page.tsx
+msgid "Import a resume, or start fresh."
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Import failed. Check the CSV and try again."
 msgstr "นำเข้าไม่สำเร็จ ตรวจสอบ CSV แล้วลองอีกครั้ง"
@@ -5630,10 +5817,6 @@ msgstr "ขั้นตอนการนำเข้า"
 #: src/features/ats-checker/checker.tsx
 msgid "Import this file into a free PortoFit. Every issue is waiting for you in Check."
 msgstr ""
-
-#: src/features/documents/documents-page.tsx
-msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
-msgstr "นำเข้าเรซูเม่ปัจจุบันของคุณ แล้วเราจะจัดวางทุกส่วนเพื่อให้คุณปรับแต่ง หรือเริ่มต้นใหม่ เริ่มต้นด้วยชื่อของคุณ สร้างจากที่นั่น"
 
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/share/format.ts
@@ -5678,6 +5861,11 @@ msgstr "กำลังปรับปรุง..."
 msgid "In good company"
 msgstr "ในบริษัทที่ดี"
 
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/akun.tsx
+msgid "In review"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Increase line spacing so two lines are not merged into one."
 msgstr "เพิ่มระยะห่างบรรทัดเพื่อไม่ให้สองบรรทัดรวมกันเป็นบรรทัดเดียว"
@@ -5686,9 +5874,18 @@ msgstr "เพิ่มระยะห่างบรรทัดเพื่อ
 msgid "Indent"
 msgstr "เพิ่มการเยื้อง"
 
+#: src/features/career/today.tsx
+msgid "Independent practice with rubrics. AI feedback is available on the application page."
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Indonesian"
 msgstr "อินโดนีเซีย"
+
+#: src/features/homepage/check.tsx
+#: src/features/homepage/sheet.tsx
+msgid "Indonesian (native)"
+msgstr ""
 
 #: src/features/career/workspace/fit.tsx
 msgid "Inferred"
@@ -5724,8 +5921,21 @@ msgstr "อินเทอร์เฟซเท่านั้น แต่ล�
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/sections.tsx
 #: src/features/homepage/tailor.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "Interview"
 msgstr "การสัมภาษณ์"
+
+#: src/features/career/today.tsx
+msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgstr ""
+
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Interview credits"
+msgstr ""
+
+#: src/features/billing/credit-dialog.tsx
+msgid "Interview credits used up"
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Interview debrief"
@@ -5760,14 +5970,14 @@ msgstr "สัมภาษณ์ตอนนี้"
 msgid "Interview opening"
 msgstr "การเปิดตัวในการสัมภาษณ์"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "เตรียมสัมภาษณ์"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
 msgstr "การเตรียมตัวสัมภาษณ์"
+
+#: src/features/career/today.tsx
+msgid "Interview question bank"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Interview saved"
@@ -5778,7 +5988,7 @@ msgstr "บันทึกการสัมภาษณ์แล้ว"
 msgid "Interview saved · briefing moves to {0}"
 msgstr "บันทึกการสัมภาษณ์แล้ว · สรุปย่อเลื่อนไปเป็น {0}"
 
-#: src/features/billing/pricing.tsx
+#: src/features/billing/plan-copy.ts
 msgid "interview session credit"
 msgstr ""
 
@@ -5797,6 +6007,10 @@ msgstr "สัมภาษณ์ลูกค้า 14 ราย ระบุจ�
 #: src/features/applications/components/detail/contacts.tsx
 msgid "Interviewer"
 msgstr "ผู้สัมภาษณ์"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Interviews and follow-ups by date."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Is equity part of the offer?"
@@ -5861,6 +6075,11 @@ msgstr "ปัญหาและการจับคู่งานยังค
 msgid "It has entries but isn't placed on a page."
 msgstr "มีรายการแต่ไม่ได้วางไว้บนหน้า"
 
+#: src/features/career/bank-browse.tsx
+#: src/features/career/workspace/bank-dialog.tsx
+msgid "IT interview question bank"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "It may have been deleted. Choose another story or add a new one."
 msgstr "อาจถูกลบไปแล้ว เลือกเรื่องราวอื่นหรือเพิ่มเรื่องใหม่"
@@ -5876,10 +6095,6 @@ msgstr "มันจะไม่ลงชื่อเข้าใช้ให้
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
 msgstr "โดยจะแสดงบนไทม์ไลน์การสมัครงานและในปฏิทิน"
-
-#: src/components/ui/donation-toast.tsx
-msgid "It's free and open source, kept going by donations from the people who use it. If it has helped you, consider chipping in."
-msgstr "ใช้ฟรีและเป็นโอเพนซอร์ส ดำเนินต่อไปได้ด้วยเงินบริจาคจากผู้ใช้ หากช่วยคุณได้ ลองพิจารณาร่วมสนับสนุน"
 
 #: src/features/applications/components/detail/activity.tsx
 msgid "It's removed from the timeline for good."
@@ -5917,6 +6132,15 @@ msgstr "การออกแบบของตัวเอง ({summary})"
 #: src/features/settings/ai/providers.tsx
 msgid "Its saved key is deleted. Conversations using it need another provider."
 msgstr "คีย์ที่บันทึกไว้จะถูกลบออก การสนทนาที่ใช้มันจำเป็นต้องมีผู้ให้บริการรายอื่น"
+
+#: src/features/homepage/hero.tsx
+msgid "Jakarta"
+msgstr ""
+
+#: src/features/homepage/check.tsx
+#: src/features/homepage/sheet.tsx
+msgid "Jakarta, Indonesia"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Japanese"
@@ -5957,7 +6181,7 @@ msgid "Job preparation for Indonesian job seekers"
 msgstr ""
 
 #: src/libs/seo.ts
-msgid "Job preparation from CV to interview"
+msgid "Job preparation from resume to interview"
 msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
@@ -5985,6 +6209,10 @@ msgstr "จอห์น โด"
 #: src/features/auth/pages/register.tsx
 msgid "john.doe"
 msgstr "จอห์น.โด"
+
+#: src/routes/dashboard/akun.tsx
+msgid "Joined {joined}"
+msgstr ""
 
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
@@ -6085,6 +6313,16 @@ msgstr "อยู่ด้วยกันต่อไป"
 msgid "Keeps the most specific parts"
 msgstr "เก็บส่วนที่เฉพาะเจาะจงที่สุด"
 
+#: src/features/homepage/check.tsx
+#: src/features/homepage/hero.tsx
+msgid "Kelana"
+msgstr ""
+
+#: src/features/homepage/sheet.tsx
+#: src/features/homepage/write.tsx
+msgid "Kelana · Bandung"
+msgstr ""
+
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
 msgstr "เก็บไว้เหมือนเดิม"
@@ -6161,6 +6399,10 @@ msgstr "แนวนอน"
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Language"
 msgstr "ภาษา"
+
+#: src/routes/dashboard/akun.tsx
+msgid "Language, theme and display."
+msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -6253,6 +6495,11 @@ msgstr "นำ<0>การวิจัยผู้ใช้</0>เพื่อ�
 msgid "Led research for the onboarding redesign; activation rose from 31% to 44%."
 msgstr "นำการวิจัยสำหรับการออกแบบออนบอร์ดดิ้งใหม่ อัตราการเปิดใช้งานเพิ่มจาก 31% เป็น 44%"
 
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/akun.tsx
+msgid "left"
+msgstr ""
+
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Left"
 msgstr "ซ้าย"
@@ -6264,6 +6511,10 @@ msgstr "ไม่รองรับไฟล์ Word รุ่นเก่า �
 #: src/features/homepage/footer.tsx
 msgid "Legal"
 msgstr "ด้านกฎหมาย"
+
+#: src/features/legal/page.tsx
+msgid "Legal documents are only available in Indonesian."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
@@ -6285,10 +6536,6 @@ msgstr "ความยาวไม่ใช่ข้อบกพร่อง �
 #: src/features/settings/ai/mcp.tsx
 msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
 msgstr "ให้ไคลเอนต์ AI เช่น Claude หรือ Cursor อ่านและแก้ไขเรซูเม่ของคุณ โดยใช้คีย์ API ด้านบน"
-
-#: src/features/documents/documents-page.tsx
-msgid "Let's start with what you have"
-msgstr "เริ่มจากสิ่งที่คุณมี"
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6336,6 +6583,7 @@ msgid "Letters"
 msgstr "จดหมาย"
 
 #: src/features/resume/editor/write/entries.tsx
+#: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Level"
 msgstr "ระดับ"
@@ -6374,6 +6622,10 @@ msgstr "ความสูงของเส้น"
 #: src/features/resume/editor/check/issues.ts
 msgid "Line height set to {minimum}"
 msgstr "ตั้งค่าความสูงของบรรทัดเป็น {minimum}"
+
+#: src/features/quota/page.tsx
+msgid "Line rewrites"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Lines are packed tightly"
@@ -6481,15 +6733,6 @@ msgstr "กำลังลิงก์..."
 msgid "Links"
 msgstr "ลิงค์"
 
-#: src/features/homepage/hero.tsx
-msgid "Lisbon"
-msgstr "Lisbon"
-
-#: src/features/homepage/check.tsx
-#: src/features/homepage/sheet.tsx
-msgid "Lisbon, Portugal"
-msgstr "Lisbon, Portugal"
-
 #: src/features/documents/documents-page.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "List"
@@ -6560,6 +6803,10 @@ msgstr "กำลังโหลดเอกสารที่ลิงก์ไ
 msgid "Loading model suggestions… You can also enter any model ID."
 msgstr "กำลังโหลดคำแนะนำโมเดล... คุณยังสามารถป้อนรหัสโมเดลใดก็ได้"
 
+#: src/features/billing/transactions.tsx
+msgid "Loading orders"
+msgstr ""
+
 #: src/features/billing/pricing.tsx
 msgid "Loading packages…"
 msgstr ""
@@ -6576,10 +6823,6 @@ msgstr "กำลังโหลดต่อ…"
 #: src/features/career/workspace/shell.tsx
 msgid "Loading saved version…"
 msgstr "กำลังโหลดเวอร์ชันที่บันทึกไว้…"
-
-#: src/features/homepage/sections.tsx
-msgid "Loading the total"
-msgstr "กำลังโหลดยอดรวม"
 
 #: src/features/career/workspace/shell.tsx
 msgid "Loading workspace…"
@@ -6613,6 +6856,14 @@ msgstr "ล็อคแล้ว"
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Locked. Unlock to edit."
 msgstr "ล็อคแล้ว ปลดล็อคเพื่อแก้ไข"
+
+#: src/features/documents/start-guide.tsx
+msgid "Log an application"
+msgstr ""
+
+#: src/features/documents/start-guide.tsx
+msgid "Log an application and paste the posting"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Long stretches are set in capitals."
@@ -6791,6 +7042,10 @@ msgstr "ตรงกับประกาศรับสมัครงานน
 msgid "Matches the resume ({summary})."
 msgstr "ตรงกับเรซูเม่ ({summary})"
 
+#: src/features/career/workspace/shell.tsx
+msgid "Matching and practice need the posting you are applying to."
+msgstr ""
+
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Matching the resume"
 msgstr "การจับคู่ประวัติย่อ"
@@ -6798,10 +7053,6 @@ msgstr "การจับคู่ประวัติย่อ"
 #: src/features/career/shared.tsx
 msgid "Matching your facts"
 msgstr "กำลังจับคู่ข้อเท็จจริงของคุณ"
-
-#: src/components/ui/donation-toast.tsx
-msgid "Maybe later"
-msgstr "ไว้ทีหลัง"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "MCP"
@@ -6841,8 +7092,8 @@ msgid "Messages · Pasted from your email"
 msgstr "ข้อความ · วางจากอีเมลของคุณ"
 
 #: src/features/homepage/remember.tsx
-msgid "Messages · Reply to Sam at Fieldnote"
-msgstr "ข้อความ · ตอบกลับ Sam ที่ Fieldnote"
+msgid "Messages · Reply to Sari at Fieldnote"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
@@ -6933,8 +7184,8 @@ msgid "Most entries have no dates."
 msgstr "รายการส่วนใหญ่ไม่มีวันที่"
 
 #: src/features/homepage/remember.tsx
-msgid "Most new teams at Northwind Labs stalled during setup and never reached activation."
-msgstr "ทีมใหม่ส่วนใหญ่ที่ Northwind Labs ติดค้างระหว่างตั้งค่าและไม่เคยไปถึงการเปิดใช้งาน"
+msgid "Most new teams at Sinarpagi Labs stalled during setup and never reached activation."
+msgstr ""
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Most recruiters read 180–320 words. The shaded band shows the range."
@@ -7041,6 +7292,11 @@ msgstr "ย้ายใบสมัครจาก {0}"
 msgid "My job was to find out why, without adding support work."
 msgstr "หน้าที่ของฉันคือหาสาเหตุ โดยไม่เพิ่มงานซัพพอร์ต"
 
+#: src/features/quota/page.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "My orders"
+msgstr ""
+
 #. Label for full name input on registration form
 #: src/dialogs/resume/index.tsx
 #: src/features/applications/components/detail/contacts.tsx
@@ -7137,6 +7393,7 @@ msgid "Never"
 msgstr "ไม่เคย"
 
 #: src/features/documents/document-card.tsx
+#: src/features/documents/documents-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
 msgstr "ใหม่"
@@ -7196,10 +7453,6 @@ msgstr "รหัสผ่านใหม่"
 msgid "New roles from your search"
 msgstr "ตำแหน่งงานใหม่จากการค้นหาของคุณ"
 
-#: src/features/career/today.tsx
-msgid "New roles, reminders and finished briefings appear here."
-msgstr "ตำแหน่งงานใหม่ การแจ้งเตือน และสรุปย่อที่เสร็จแล้วจะแสดงที่นี่"
-
 #: src/features/career/schedule-sheet.tsx
 msgid "New schedule"
 msgstr "กำหนดการใหม่"
@@ -7209,8 +7462,8 @@ msgid "New section"
 msgstr "ส่วนใหม่"
 
 #: src/features/homepage/remember.tsx
-msgid "New teams at Northwind were stalling in setup; most never got through."
-msgstr "ทีมใหม่ที่ Northwind ติดค้างในขั้นตั้งค่า ส่วนใหญ่ไปไม่ถึงปลายทาง"
+msgid "New teams at Sinarpagi were stalling in setup; most never got through."
+msgstr ""
 
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Next issue"
@@ -7251,6 +7504,10 @@ msgstr "ไม่มีการสมัครงานที่กำลัง
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "No application"
 msgstr "ไม่มีการสมัครงาน"
+
+#: src/features/career/workspace/prepare-bar.tsx
+msgid "No application credit left. One credit covers this whole package."
+msgstr ""
 
 #. placeholder {0}: query.trim()
 #: src/routes/dashboard/applications/index.tsx
@@ -7337,6 +7594,15 @@ msgstr "ยังไม่มีข้อเท็จจริงให้ลิ
 msgid "No facts yet. Add one above."
 msgstr "ยังไม่มีข้อเท็จจริง เพิ่มด้านบน"
 
+#: src/features/applications/components/list-view.tsx
+#: src/features/career/workspace/shell.tsx
+msgid "No files yet"
+msgstr ""
+
+#: src/features/career/workspace/shell.tsx
+msgid "No interview date yet"
+msgstr ""
+
 #: src/features/applications/components/calendar-view.tsx
 msgid "No interviews"
 msgstr "ไม่มีการสัมภาษณ์"
@@ -7356,6 +7622,10 @@ msgstr "ไม่มีบรรทัดใดที่ดูเหมือน
 #: src/features/resume/editor/check/issues.ts
 msgid "No location"
 msgstr "ไม่มีที่ตั้ง"
+
+#: src/routes/dashboard/akun.tsx
+msgid "No name"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "No new roles. Discovery is paused."
@@ -7381,6 +7651,19 @@ msgstr "ยังไม่มีข้อเสนอให้เปรียบ
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 msgid "No open issues"
 msgstr "ไม่มีปัญหาที่เปิดอยู่"
+
+#: src/features/billing/transactions.tsx
+msgid "No order matches \"{term}\"."
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "No orders in this tab."
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/akun.tsx
+msgid "No orders yet."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "No phone number"
@@ -7474,7 +7757,6 @@ msgstr "ไม่มี"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/applications/components/list-view.tsx
 msgid "None"
 msgstr "ไม่มี"
 
@@ -7486,15 +7768,6 @@ msgstr "ปกติ"
 #: src/features/resume/editor/design/fit.ts
 msgid "normal margins"
 msgstr "อัตรากำไรขั้นต้นปกติ"
-
-#: src/features/homepage/check.tsx
-msgid "Northwind Labs"
-msgstr "Northwind Labs"
-
-#: src/features/homepage/sheet.tsx
-#: src/features/homepage/write.tsx
-msgid "Northwind Labs · Lisbon"
-msgstr "Northwind Labs · Lisbon"
 
 #: src/libs/locale.ts
 msgid "Norwegian"
@@ -7541,6 +7814,7 @@ msgstr "ไม่มีในเรซูเม่ของคุณ"
 msgid "Not in your resume · add only if true"
 msgstr "ไม่อยู่ในประวัติย่อของคุณ · เพิ่มเฉพาะในกรณีที่เป็นจริงเท่านั้น"
 
+#: src/features/billing/credit-dialog.tsx
 #: src/features/career/shared.tsx
 msgid "Not now"
 msgstr "ไม่ใช่ตอนนี้"
@@ -7638,8 +7912,12 @@ msgid "Nothing scheduled yet"
 msgstr "ยังไม่มีกำหนดการใดๆ"
 
 #: src/features/career/today.tsx
-msgid "Nothing scheduled yet."
-msgstr "ยังไม่มีอะไรในกำหนดการ"
+msgid "Nothing scheduled. Add a search to find roles each morning, or preparation to get a briefing before an interview."
+msgstr ""
+
+#: src/routes/dashboard/akun.tsx
+msgid "Nothing spent yet."
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Nothing to apply"
@@ -7749,9 +8027,21 @@ msgstr "เมื่อมีการนัดรอบสัมภาษณ์
 msgid "Once you've sent a few applications, this shows how far they get and how quickly people reply."
 msgstr "เมื่อคุณส่งใบสมัครงานไปบ้างแล้ว สิ่งนี้จะแสดงว่าพวกเขาไปได้ไกลแค่ไหนและผู้คนตอบกลับเร็วแค่ไหน"
 
+#: src/features/billing/pricing.tsx
+msgid "One application credit covers one Prepare this application: a tailored resume, a cover letter and a match score for one job. One interview credit covers one practice session for one interview. Credits do not expire."
+msgstr ""
+
+#: src/features/billing/credit-dialog.tsx
+msgid "One application package covers one set of files: a tailored resume, a cover letter, and a match score."
+msgstr ""
+
 #: src/features/resume/editor/design/template-group.tsx
 msgid "One column"
 msgstr "หนึ่งคอลัมน์"
+
+#: src/dialogs/resume/template/data.ts
+msgid "One column with a plain rule over every section and right-aligned dates. The calmest, most ATS-safe layout here, built for job portals and large companies."
+msgstr ""
 
 #: src/dialogs/resume/template/data.ts
 msgid "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for tech, product and consulting roles."
@@ -7761,12 +8051,20 @@ msgstr ""
 msgid "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
 msgstr ""
 
+#: src/features/career/workspace/prepare-bar.tsx
+msgid "One credit: a tailored resume, a cover letter, and a match score for this job."
+msgstr ""
+
 #: src/features/homepage/check.tsx
 msgid "one format"
 msgstr "รูปแบบเดียว"
 
 #: src/features/billing/pricing.tsx
-msgid "One free CV to build and download"
+msgid "One free resume to build and download"
+msgstr ""
+
+#: src/features/billing/credit-dialog.tsx
+msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
 msgstr ""
 
 #: src/features/auth/pages/consent.tsx
@@ -7777,6 +8075,10 @@ msgstr "อนุญาตเฉพาะแอปพลิเคชันที
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Only applies when the section fits on a single page."
 msgstr "ใช้ได้เฉพาะเมื่อส่วนนั้นพอดีกับหน้าเดียวเท่านั้น"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Only jobs you have applied to are shown."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Only one recognisable section heading was found."
@@ -7835,11 +8137,19 @@ msgstr "เปิด {title}"
 msgid "Open AI settings"
 msgstr "เปิดการตั้งค่า AI"
 
+#: src/features/billing/transactions.tsx
+msgid "Open an application to practise"
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "Open an application to use it"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Open briefing"
 msgstr "เปิดสรุปย่อ"
 
-#: src/features/billing/pricing.tsx
+#: src/routes/templates/$.tsx
 msgid "Open dashboard"
 msgstr ""
 
@@ -7869,6 +8179,10 @@ msgstr "เปิดในข้อเสนองาน"
 msgid "open issues"
 msgstr "ปัญหาที่เปิดอยู่"
 
+#: src/features/career/workspace/shell.tsx
+msgid "Open messages"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 msgid "Open Preferences"
 msgstr "เปิดการตั้งค่าที่ต้องการ"
@@ -7884,6 +8198,10 @@ msgstr "เปิดเรื่องราว"
 #: src/features/ats-checker/messages.ts
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "เปิดไฟล์ที่ส่งออกแล้วยืนยันว่าคุณสามารถเลือกและคัดลอกได้ทุกส่วน"
+
+#: src/features/career/today.tsx
+msgid "Open the question bank"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Open the schedule"
@@ -7962,6 +8280,10 @@ msgstr "หรือดำเนินการต่อด้วย"
 msgid "Or in your own words…"
 msgstr "หรือคำพูดของคุณเอง…"
 
+#: src/features/billing/transactions.tsx
+msgid "Or through WhatsApp"
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Or upload a resume PDF"
 msgstr "หรืออัปโหลดเรซูเม่ PDF"
@@ -7969,6 +8291,18 @@ msgstr "หรืออัปโหลดเรซูเม่ PDF"
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Orange"
 msgstr "ส้ม"
+
+#: src/features/billing/transactions.tsx
+msgid "Order expired"
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "orders"
+msgstr ""
+
+#: src/routes/dashboard/akun.tsx
+msgid "Orders"
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Organization"
@@ -7983,6 +8317,7 @@ msgid "Original table formatting is preserved. This content is read-only because
 msgstr "การจัดรูปแบบตารางดั้งเดิมจะยังคงอยู่ เนื้อหานี้เป็นแบบอ่านอย่างเดียวเนื่องจากไม่สามารถแก้ไขได้อย่างปลอดภัย"
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/routes/dashboard/-components/app-shell.tsx
 msgid "Other"
 msgstr "อื่นๆ"
 
@@ -8004,7 +8339,7 @@ msgid "out of 100"
 msgstr "จาก 100"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "Out of application credits. Buy 1 credit to copy your CV to this job."
+msgid "Out of application credits. Buy 1 credit to copy your resume to this job."
 msgstr ""
 
 #: src/features/career/hooks.ts
@@ -8063,6 +8398,11 @@ msgstr "อ่านหน้าไม่จบ"
 msgid "Page view"
 msgstr "การดูหน้า"
 
+#: src/features/billing/transactions.tsx
+#: src/routes/dashboard/akun.tsx
+msgid "Paid"
+msgstr ""
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "กระดาษ"
@@ -8076,23 +8416,13 @@ msgstr "ย่อหน้า"
 msgid "paragraph {n}"
 msgstr "ย่อหน้า {n}"
 
-#: src/features/homepage/check.tsx
-#: src/features/homepage/hero.tsx
-msgid "Parcel & Co."
-msgstr "Parcel & Co."
-
-#: src/features/homepage/sheet.tsx
-#: src/features/homepage/write.tsx
-msgid "Parcel & Co. · Porto"
-msgstr "Parcel & Co. · Porto"
-
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Partly supported"
 msgstr "มีหลักฐานบางส่วน"
 
 #: src/features/homepage/faq.tsx
-msgid "Partly. Building a CV, checking PDF readability, and saving applications are free. For a CV and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking."
+msgid "Partly. Building a resume, checking PDF readability, and saving applications are free. For a resume and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no third-party trackers."
 msgstr ""
 
 #. Authentication provider display name in account settings
@@ -8148,10 +8478,6 @@ msgstr "บทสนทนาที่ผ่านมา"
 msgid "Paste a job link or posting, then check the role and company."
 msgstr "วางลิงค์รับสมัครงานหรือประกาศรับสมัครงาน จากนั้นตรวจสอบตำแหน่งงานและบริษัท"
 
-#: src/routes/dashboard/applications/index.tsx
-msgid "Paste a job link. We'll save the posting so Check, the assistant and your letter can use it."
-msgstr "วางลิงค์งาน เราจะบันทึกประกาศรับสมัครงานเพื่อให้เช็ค ผู้ช่วย และจดหมายของคุณสามารถใช้งานได้"
-
 #: src/features/homepage/tailor.tsx
 msgid "Paste a job posting once. It feeds a tailored copy of your resume, a match score, a cover letter draft and a place to track the role."
 msgstr "วางประกาศงานเพียงครั้งเดียว แล้วจะได้สำเนาเรซูเม่ที่ปรับให้เข้ากับงาน คะแนนความเหมาะสม ร่างจดหมายสมัครงาน และที่สำหรับติดตามตำแหน่งงานนั้น"
@@ -8181,9 +8507,21 @@ msgstr "วางแถวหรืออัปโหลด .csv คอลัม
 msgid "Paste the email or message, without the signature."
 msgstr "วางอีเมลหรือข้อความ โดยไม่รวมลายเซ็น"
 
+#: src/features/career/workspace/apply.tsx
+msgid "Paste the full job description from the posting…"
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Paste the full job description here…"
 msgstr "วางคำอธิบายงานทั้งหมดที่นี่…"
+
+#: src/features/career/workspace/shell.tsx
+msgid "Paste the posting"
+msgstr ""
+
+#: src/features/career/workspace/apply.tsx
+msgid "Paste the posting text below. Fit, the assistant and the letter read it, so without it they can only guess."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Paste the posting to see which of its terms your resume already has."
@@ -8222,6 +8560,10 @@ msgstr "หยุดชั่วคราว · {line}"
 msgid "Paused schedules keep their settings."
 msgstr "กำหนดการที่หยุดชั่วคราวจะเก็บการตั้งค่าไว้"
 
+#: src/features/billing/transactions.tsx
+msgid "Pay"
+msgstr ""
+
 #: src/features/billing/pricing.tsx
 msgid "Pay by QRIS, verified manually by an admin."
 msgstr ""
@@ -8230,9 +8572,25 @@ msgstr ""
 msgid "Pay only for what you use"
 msgstr ""
 
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Pay per document. No subscription, and credits do not expire."
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Pay period"
 msgstr "รอบการจ่าย"
+
+#: src/routes/dashboard/akun.tsx
+msgid "Payment"
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "Payment confirmed"
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "payment confirmed, your credits are in"
+msgstr ""
 
 #: src/features/resume/stylesheet/editor.tsx
 msgid "PDF styles support a subset of CSS. Rotation, dashed and dotted borders, and some layout properties are ignored."
@@ -8249,6 +8607,10 @@ msgstr "PDF, Word หรือ JSON เราจะสร้างเรซู�
 #: src/features/homepage/sections.tsx
 msgid "People using it"
 msgstr "คนใช้มัน"
+
+#: src/routes/dashboard/akun.tsx
+msgid "per credit"
+msgstr ""
 
 #: src/features/settings/account/data.tsx
 msgid "Permanently removes everything. Export first if you want a copy."
@@ -8365,19 +8727,31 @@ msgid "PortoFit {__APP_VERSION__} · MIT"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
-msgid "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a CV tailored to one job and interview practice. No ads, no tracking."
+msgid "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a resume tailored to one job and interview practice. No ads, no third-party trackers."
+msgstr ""
+
+#: src/features/homepage/header.tsx
+msgid "PortoFit on GitHub"
 msgstr ""
 
 #: src/libs/seo.ts
-msgid "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
+msgid "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
-msgid "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to the job you want, then practise interviews. Start free, no ads."
+msgid "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to the job you want, then practise interviews. Start free, no ads."
 msgstr ""
 
 #: src/libs/seo.ts
-msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored CV and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
+msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored resume and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "PortoFit QRIS code"
+msgstr ""
+
+#: src/features/documents/start-guide.tsx
+msgid "PortoFit tracks each job from the posting to the interview."
 msgstr ""
 
 #. Preset button for setting picture aspect ratio to portrait orientation
@@ -8388,11 +8762,6 @@ msgstr "แนวตั้ง"
 #: src/libs/locale.ts
 msgid "Portuguese (Brazil)"
 msgstr "โปรตุเกส (บราซิล)"
-
-#: src/features/homepage/check.tsx
-#: src/features/homepage/sheet.tsx
-msgid "Portuguese (native)"
-msgstr "โปรตุเกส (พื้นเมือง)"
 
 #: src/libs/locale.ts
 msgid "Portuguese (Portugal)"
@@ -8416,6 +8785,10 @@ msgstr "ประกาศรับสมัครงาน"
 msgid "Posting from the linked application"
 msgstr "ประกาศรับสมัครงานจากการสมัครงานที่เชื่อมโยง"
 
+#: src/features/career/workspace/apply.tsx
+msgid "Posting saved. Fit and preparation can run now."
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Posting source"
 msgstr "แหล่งประกาศรับสมัครงาน"
@@ -8432,6 +8805,10 @@ msgstr "ฝึกซ้อม"
 #: src/features/career/workspace/debrief.tsx
 msgid "Practice for your {company} interviews."
 msgstr "ฝึกซ้อมสำหรับการสัมภาษณ์กับ {company}"
+
+#: src/features/career/workspace/practise.tsx
+msgid "Practice from an application question or your own story."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 #: src/features/homepage/prepare.tsx
@@ -8450,6 +8827,7 @@ msgstr "คำถามฝึกซ้อมเป็นการจำลอง
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/shared.tsx
 #: src/features/career/workspace/prepare.tsx
+#: src/features/career/workspace/shell.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Practise"
 msgstr "ฝึกซ้อม"
@@ -8481,6 +8859,7 @@ msgstr "ความต้องการ"
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/index.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Preferences"
 msgstr "การตั้งค่าที่ต้องการ"
@@ -8506,9 +8885,21 @@ msgstr "เตรียมสรุปย่อ"
 msgid "Prepare a resume"
 msgstr "เตรียมเรซูเม่"
 
+#: src/features/career/workspace/shell.tsx
+msgid "Prepare files"
+msgstr ""
+
+#: src/features/documents/start-guide.tsx
+msgid "Prepare files, then practise the interview"
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "Prepare me for the interview"
 msgstr "เตรียมฉันให้พร้อมสำหรับการสัมภาษณ์"
+
+#: src/features/career/workspace/prepare-bar.tsx
+msgid "Prepare this application"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Preparing {label} file…"
@@ -8526,6 +8917,7 @@ msgstr ""
 msgid "Preparing your resume for printing..."
 msgstr "เตรียมเรซูเม่ของคุณให้พร้อมสำหรับการพิมพ์..."
 
+#: src/features/career/workspace/prepare-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Preparing…"
@@ -8552,8 +8944,8 @@ msgstr "กด <0>{RETURN_KEY}</0> เพื่อเพิ่มหรือบ
 msgid "Press <0>Enter</0> to open"
 msgstr "กด<0>Enter</0>เพื่อเปิด"
 
-#: src/features/billing/pricing.tsx
-msgid "Preview your CV right on the page"
+#: src/routes/templates/$.tsx
+msgid "Preview"
 msgstr ""
 
 #. placeholder {0}: templates[previewTemplate].name
@@ -8634,6 +9026,10 @@ msgstr "ความชำนาญ"
 msgid "Profile"
 msgstr "โปรไฟล์"
 
+#: src/routes/dashboard/akun.tsx
+msgid "Profile and security"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile link (optional)"
 msgstr "ลิงก์โปรไฟล์ (ไม่บังคับ)"
@@ -8646,6 +9042,10 @@ msgstr "ลิงก์โปรไฟล์ของบุคคลที่ {0
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile links must be public HTTPS addresses."
 msgstr "ลิงก์โปรไฟล์ต้องเป็นที่อยู่ HTTPS สาธารณะ"
+
+#: src/routes/dashboard/akun.tsx
+msgid "Profile, credits, orders and settings."
+msgstr ""
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -8664,6 +9064,18 @@ msgstr "โปรเจกต์"
 #: src/features/homepage/hero.tsx
 msgid "Promoted to lead, 2021"
 msgstr "ได้รับการเลื่อนตำแหน่งให้เป็นผู้นำในปี 2021"
+
+#: src/features/billing/transactions.tsx
+msgid "Proof rejected"
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "Proof sent, waiting for a check"
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"
@@ -8737,6 +9149,10 @@ msgstr "จัดทุกอย่างให้อยู่ใน<0>หน้
 msgid "Put the caret in a line to improve it"
 msgstr "ใส่เครื่องหมายรูปหมวกในบรรทัดเพื่อปรับปรุง"
 
+#: src/routes/dashboard/career/route.tsx
+msgid "Put two offers side by side and compare pay, place and what you give up."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "QR code"
 msgstr "รหัส QR"
@@ -8752,6 +9168,14 @@ msgstr "คำถาม {position} จาก {total}"
 #: src/features/homepage/prepare.tsx
 msgid "Question 1 of 4 · Practice"
 msgstr "คำถาม 1 จาก 4 · ฝึกซ้อม"
+
+#: src/features/career/workspace/practise.tsx
+msgid "Question bank"
+msgstr ""
+
+#: src/features/career/workspace/practise.tsx
+msgid "Question bank ({BANK_COUNT})"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Question from the form"
@@ -8861,6 +9285,10 @@ msgstr "อ่านจดหมาย"
 msgid "Read the page"
 msgstr "อ่านหน้า"
 
+#: src/features/career/workspace/shell.tsx
+msgid "Read the reply and decide what to ask for."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 msgid "Read the resume"
 msgstr "อ่านเรซูเม่แล้ว"
@@ -8965,6 +9393,12 @@ msgstr "อ่านหน้างานสาธารณะที่รอง
 #: src/features/settings/ai/providers.tsx
 msgid "Ready"
 msgstr "พร้อม"
+
+#. placeholder {0}: result.resumeName
+#. placeholder {1}: result.score
+#: src/features/career/workspace/prepare-bar.tsx
+msgid "Ready: {0}, one cover letter, and a match score of {1}."
+msgstr ""
 
 #: src/features/applications/components/detail/close-dialog.tsx
 msgid "Reason"
@@ -9091,6 +9525,10 @@ msgstr "ซ้อมพูดคำตอบหนึ่งข้อออกเ
 #: src/features/homepage/prepare.tsx
 msgid "Rehearse one disagreement with engineering and how it ended."
 msgstr "ซ้อมเล่าเรื่องที่คุณเห็นต่างกับทีมวิศวกรรมหนึ่งครั้ง และผลลัพธ์เป็นอย่างไร"
+
+#: src/features/career/workspace/shell.tsx
+msgid "Rehearse the questions most likely to come up."
+msgstr ""
 
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Reject"
@@ -9329,10 +9767,6 @@ msgstr "รีเซ็ตรหัสผ่านของคุณ"
 #: src/features/auth/pages/reset-password.tsx
 msgid "Resetting your password..."
 msgstr "กำลังรีเซ็ตรหัสผ่านของคุณ..."
-
-#: src/features/homepage/footer.tsx
-msgid "Resources"
-msgstr "ทรัพยากร"
 
 #: src/features/career/offers.tsx
 msgid "Respond by"
@@ -9607,6 +10041,10 @@ msgstr "การเรนเดอร์ PDF ไม่รองรับกา�
 msgid "Row {row}, {0}: “{value}” is invalid."
 msgstr "แถว {row}, {0}: “{value}” ไม่ถูกต้อง"
 
+#: src/features/career/workspace/bank-dialog.tsx
+msgid "Rubrics and follow-up questions appear under a question once you pick one."
+msgstr ""
+
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Run again"
 msgstr "รันอีกครั้ง"
@@ -9627,6 +10065,12 @@ msgstr "รัสเซีย"
 msgid "S"
 msgstr "S"
 
+#: src/features/homepage/check.tsx
+#: src/features/homepage/hero.tsx
+#: src/features/homepage/sheet.tsx
+msgid "S1 Sistem Informasi"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -9641,21 +10085,25 @@ msgstr "ไม่ระบุเงินเดือน"
 msgid "Salary range"
 msgstr "ช่วงเงินเดือน"
 
-#: src/features/homepage/prepare.tsx
-msgid "Sam"
-msgstr "Sam"
-
-#: src/features/homepage/prepare.tsx
-msgid "Sam, Fieldnote"
-msgstr "Sam, Fieldnote"
-
 #: src/features/homepage/remember.tsx
 msgid "Same you. Less starting over."
 msgstr "ยังเป็นคุณคนเดิม แต่ไม่ต้องเริ่มใหม่บ่อยๆ"
 
-#: src/features/documents/new-document-dialog.tsx
+#: src/features/documents/use-start-document.ts
+msgid "Sample resume"
+msgstr ""
+
+#: src/features/documents/use-start-document.ts
 msgid "Sample resume added. Delete it anytime."
 msgstr "เพิ่มตัวอย่างประวัติย่อแล้ว ลบมันได้ตลอดเวลา"
+
+#: src/features/homepage/prepare.tsx
+msgid "Sari"
+msgstr ""
+
+#: src/features/homepage/prepare.tsx
+msgid "Sari, Fieldnote"
+msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
@@ -9668,6 +10116,10 @@ msgstr "บันทึก"
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save a job"
 msgstr "บันทึกงาน"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Save a job, then move it along as the company replies: applied, screening, interview, offer. Every stage you update feeds the funnel in Insights."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
@@ -9721,6 +10173,14 @@ msgstr "บันทึกการสัมภาษณ์"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Save job"
 msgstr "บันทึกงาน"
+
+#: src/features/career/today.tsx
+msgid "Save one search and it runs every morning. Nothing is applied for until you pick a role."
+msgstr ""
+
+#: src/features/career/workspace/apply.tsx
+msgid "Save posting"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Save schedule"
@@ -9845,6 +10305,10 @@ msgstr "กำลังบันทึก…"
 msgid "Say it aloud"
 msgstr "พูดออกเสียง"
 
+#: src/features/billing/transactions.tsx
+msgid "Scan it with any bank or wallet app that supports QRIS."
+msgstr ""
+
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
 msgstr "สแกนรหัส QR ด้านล่างด้วยแอปยืนยันตัวตนที่คุณชื่นชอบ คุณยังสามารถคัดลอกรหัสลับด้านล่างไปวางในแอปของคุณได้"
@@ -9895,6 +10359,10 @@ msgstr "การคัดกรอง"
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "Search"
 msgstr "ค้นหา"
+
+#: src/features/billing/transactions.tsx
+msgid "Search a plan or order number"
+msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Search and enhanced reading"
@@ -9950,6 +10418,10 @@ msgstr "ค้นหาประกาศรับสมัครงาน"
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "Search or run…"
 msgstr "ค้นหาหรือเรียกใช้..."
+
+#: src/features/billing/transactions.tsx
+msgid "Search orders"
+msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Search role, company or contact"
@@ -10017,9 +10489,29 @@ msgstr "ส่วน·สั่งพิมพ์"
 msgid "Sections use headings systems recognise, and work experience shows."
 msgstr "ส่วนต่างๆ ใช้ระบบการจดจำหัวเรื่อง และแสดงประสบการณ์การทำงาน"
 
+#: src/routes/dashboard/akun.tsx
+msgid "See all"
+msgstr ""
+
+#: src/libs/orpc/client.ts
+msgid "See allowance"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "See below"
 msgstr "ดูด้านล่าง"
+
+#: src/features/quota/page.tsx
+msgid "See packages"
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "See the plans"
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "See what is left of this week's AI allowance"
+msgstr ""
 
 #: src/features/applications/components/list-view.tsx
 #: src/features/documents/document-actions.tsx
@@ -10109,8 +10601,8 @@ msgid "Sends this resume to {provider} with your key, only when you press send."
 msgstr "ส่งประวัตินี้ไปที่ {provider} ด้วยรหัสของคุณ เฉพาะเมื่อคุณกดส่งเท่านั้น"
 
 #: src/features/homepage/remember.tsx
-msgid "Sends this story and the facts switched on to your AI connection. Without one, nothing is sent."
-msgstr "ส่งเรื่องราวนี้และข้อเท็จจริงที่เปิดใช้ไปยังการเชื่อมต่อ AI ของคุณ หากไม่มีการเชื่อมต่อ จะไม่มีการส่งอะไร"
+msgid "Sends this story and the facts switched on to the AI service you use, only when you ask the coach."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Sends your message and the posting to {provider} with your key, only when you press send."
@@ -10136,7 +10628,6 @@ msgstr "ส่งข้อความประวัติของคุณไ
 msgid "Senior Product Designer"
 msgstr "นักออกแบบผลิตภัณฑ์อาวุโส"
 
-#: src/features/applications/components/list-view.tsx
 #: src/features/resume/share/format.ts
 msgid "Sent"
 msgstr "ส่งแล้ว"
@@ -10177,7 +10668,7 @@ msgstr "ตั้งค่าการค้นหาเว็บในการ
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/root.tsx
 #: src/features/user/dropdown-menu.tsx
-#: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Settings"
 msgstr "การตั้งค่า"
@@ -10329,6 +10820,10 @@ msgstr "แสดงเทมเพลต"
 msgid "Show them again"
 msgstr "แสดงให้พวกเขาอีกครั้ง"
 
+#: src/routes/dashboard/applications/index.tsx
+msgid "Show unapplied"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Shown in your timezone."
 msgstr "แสดงตามเขตเวลาของคุณ"
@@ -10386,12 +10881,17 @@ msgstr "ลงชื่อเข้าใช้ด้วยลายนิ้ว
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
 #: src/features/user/dropdown-menu.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "Sign out"
 msgstr "ออกจากระบบ"
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Sign out from all other devices"
 msgstr "ออกจากระบบในอุปกรณ์อื่นทั้งหมด"
+
+#: src/routes/dashboard/akun.tsx
+msgid "Sign out of this account?"
+msgstr ""
 
 #. Primary action button label on registration form
 #: src/features/auth/pages/register.tsx
@@ -10427,6 +10927,15 @@ msgstr "กำลังออกจากระบบ..."
 #: src/features/auth/pages/register.tsx
 msgid "Signing up..."
 msgstr "กำลังลงทะเบียน..."
+
+#: src/features/homepage/check.tsx
+msgid "Sinarpagi Labs"
+msgstr ""
+
+#: src/features/homepage/sheet.tsx
+#: src/features/homepage/write.tsx
+msgid "Sinarpagi Labs · Jakarta"
+msgstr ""
 
 #: src/features/resume/share/link-tab.tsx
 msgid "since last view"
@@ -10649,15 +11158,6 @@ msgstr "ระยะห่าง (แนวตั้ง)"
 msgid "Spanish"
 msgstr "สเปน"
 
-#: src/features/homepage/check.tsx
-#: src/features/homepage/sheet.tsx
-msgid "Spanish (B2)"
-msgstr "สเปน (B2)"
-
-#: src/features/homepage/hero.tsx
-msgid "Spanish, B2"
-msgstr "สเปน, B2"
-
 #: src/features/career/workspace/practise.tsx
 msgid "Speak"
 msgstr "พูด"
@@ -10713,10 +11213,6 @@ msgid "Standard section headings"
 msgstr "ส่วนหัวของส่วนมาตรฐาน"
 
 #: src/features/homepage/header.tsx
-msgid "Star PortoFit on GitHub"
-msgstr ""
-
-#: src/features/homepage/header.tsx
 msgid "Star PortoFit on GitHub, {count} stars"
 msgstr ""
 
@@ -10763,12 +11259,16 @@ msgid "Start free"
 msgstr ""
 
 #: src/features/billing/pricing.tsx
-msgid "Start free to see whether software can read your CV. If you need a CV tailored to one job or interview practice, pay per document. No subscription, no promise of passing a selection."
+msgid "Start free to see whether software can read your resume. If you need a resume tailored to one job or interview practice, pay per document. No subscription, no promise of passing a selection."
 msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from"
 msgstr "เริ่มจาก"
+
+#: src/features/documents/new-document-dialog.tsx
+msgid "Start from a full example"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from one you have and link the application."
@@ -10810,6 +11310,10 @@ msgstr "เริ่มพิมพ์ หากต้องการร่า�
 #: src/features/resume/editor/write/add-section.tsx
 msgid "Start with the sections most resumes have."
 msgstr "เริ่มต้นด้วยส่วนต่างๆ ที่เรซูเม่ส่วนใหญ่มี"
+
+#: src/features/documents/documents-page.tsx
+msgid "Start with what you have"
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Started"
@@ -11129,17 +11633,9 @@ msgstr "เล่าเกี่ยวกับ “{0}” คุณมีส่�
 msgid "Tell me about a piece of work you're proud of."
 msgstr "เล่าถึงผลงานที่คุณภูมิใจ"
 
-#: src/features/career/workspace/practise.tsx
-msgid "Tell me about a piece of work you're proud of. What was your part in it, and how did you measure success?"
-msgstr "เล่าถึงผลงานที่คุณภูมิใจ คุณมีส่วนอะไรในงานนั้น และวัดความสำเร็จอย่างไร?"
-
 #: src/features/homepage/prepare.tsx
 msgid "Tell me about a product improvement you led. What was your contribution, and how did you measure success?"
 msgstr "เล่าถึงการปรับปรุงผลิตภัณฑ์ที่คุณเป็นผู้นำ คุณมีส่วนร่วมอะไร และวัดความสำเร็จอย่างไร?"
-
-#: src/features/career/workspace/practise.tsx
-msgid "Tell me about a time you disagreed with a colleague. How did you resolve it?"
-msgstr "เล่าถึงครั้งที่คุณเห็นต่างกับเพื่อนร่วมงาน คุณแก้ไขอย่างไร?"
 
 #: src/libs/locale.ts
 msgid "Telugu"
@@ -11157,12 +11653,19 @@ msgstr "เทมเพลต"
 msgid "Template changed to {0}"
 msgstr "เทมเพลตเปลี่ยนเป็น {0}"
 
+#: src/routes/templates/$.tsx
+msgid "Template not found"
+msgstr ""
+
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Template, type and colors follow the resume, so the pair always matches."
 msgstr "เทมเพลต ประเภท และสีเป็นไปตามเรซูเม่ ดังนั้นทั้งคู่จึงเข้ากันเสมอ"
 
 #: src/features/homepage/design.tsx
 #: src/features/homepage/footer.tsx
+#: src/features/homepage/header.tsx
+#: src/routes/_home/-sections/header.tsx
+#: src/routes/templates/$.tsx
 msgid "Templates"
 msgstr "เทมเพลต"
 
@@ -11271,13 +11774,9 @@ msgstr "ข้อความภายใต้ {minimum} pt อาจถูก�
 msgid "Thai"
 msgstr "ไทย"
 
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "ขอบคุณที่เก็บไว้ให้ฟรีๆ"
-
 #: src/features/homepage/remember.tsx
-msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
-msgstr "ขอบคุณ Sam นี่คือตัวอย่างหนึ่ง: ที่ Northwind Labs ฉันเป็นผู้นำการออกแบบออนบอร์ดดิ้งใหม่ ตั้งแต่สัมภาษณ์ลูกค้า 14 รายจนได้ขั้นตอนตั้งค่าที่สั้นลง"
+msgid "Thanks, Sari. Here’s one: at Sinarpagi Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "That file couldn't be read as a PDF."
@@ -11318,6 +11817,14 @@ msgstr "ไม่สามารถสร้างไฟล์ {label} ได้
 #: src/features/homepage/prepare.tsx
 msgid "The 13-point activation lift. Your Knowledge has the before and after."
 msgstr "อัตราการเปิดใช้งานเพิ่มขึ้น 13 จุด คลังความรู้ของคุณมีตัวเลขก่อนและหลัง"
+
+#: src/libs/orpc/client.ts
+msgid "The AI features are paused for a moment. Try again shortly."
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "The amount has to match down to the last three digits."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "The app is translated into {languages} languages by volunteers, and a resume can be written in any language, including right-to-left scripts like Arabic and Hebrew."
@@ -11371,6 +11878,10 @@ msgstr "โค้ชจะบันทึกข้อเท็จจริงท
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "สำเนาเชื่อมโยงกับการสมัครงาน ดังนั้นเช็คและผู้ช่วยจึงใช้ประกาศรับสมัครงาน"
 
+#: src/features/billing/transactions.tsx
+msgid "The credits are in your account. A receipt is there if you need proof of payment."
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
 msgstr "จุดสิ้นสุดอยู่ก่อนที่จะเริ่มต้น"
@@ -11390,6 +11901,19 @@ msgstr "ไม่สามารถอ่านไฟล์เป็นเรซ
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "The greeting follows the name."
 msgstr "คำทักทายตามชื่อ"
+
+#: src/features/career/workspace/shell.tsx
+msgid "The interview is coming up"
+msgstr ""
+
+#: src/features/career/workspace/shell.tsx
+msgid "The interview is over"
+msgstr ""
+
+#: src/features/career/workspace/apply.tsx
+#: src/features/career/workspace/shell.tsx
+msgid "The job posting is missing"
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "the key"
@@ -11427,6 +11951,10 @@ msgstr "ข้อความ"
 msgid "The morning of the interview has passed, so the briefing runs now."
 msgstr "เลยเช้าวันสัมภาษณ์แล้ว สรุปย่อจึงทำงานตอนนี้"
 
+#: src/features/career/workspace/shell.tsx
+msgid "The offer is in"
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "The offers you chose to compare, with their terms"
 msgstr "ข้อเสนอที่คุณเลือกเปรียบเทียบ พร้อมเงื่อนไข"
@@ -11463,6 +11991,10 @@ msgstr "หน้าเหล่านี้เป็นรูปภาพ ไ�
 msgid "The password you entered is incorrect"
 msgstr "รหัสผ่านที่คุณกรอกไม่ถูกต้อง"
 
+#: src/features/billing/transactions.tsx
+msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
 msgstr "ประกาศรับสมัครงานขอ “{label}” หากมันเป็นเรื่องจริงสำหรับฉัน ให้เขียนลงในเรซูเม่ของฉันในตำแหน่งที่พอดี ถามฉันก่อน"
@@ -11474,6 +12006,22 @@ msgstr "ไม่สามารถอ่านประกาศรับสม
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "The posting saved with this application."
 msgstr "ประกาศรับสมัครงานที่บันทึกไว้พร้อมกับการสมัครงานนี้"
+
+#: src/features/billing/transactions.tsx
+msgid "The proof can be at most 10 MB."
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "The proof could not be sent. Try again."
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "The proof did not match the amount on this order."
+msgstr ""
+
+#: src/features/billing/transactions.tsx
+msgid "The proof must be a JPG or PNG. PDF is not accepted."
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "The provider didn't answer."
@@ -11621,6 +12169,10 @@ msgstr "กำลังคิด"
 msgid "Thinking…"
 msgstr "กำลังคิด..."
 
+#: src/routes/templates/$.tsx
+msgid "This address only shows template previews. Pick one from the list, or start from your own document."
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "This application couldn't be opened."
 msgstr "เปิดใบสมัครนี้ไม่ได้"
@@ -11628,6 +12180,10 @@ msgstr "เปิดใบสมัครนี้ไม่ได้"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "This application has no posting saved yet. Paste it to match against it."
 msgstr "การสมัครงานนี้ยังไม่มีการบันทึกประกาศรับสมัครงาน วางเพื่อให้ตรงกับมัน"
+
+#: src/features/career/workspace/prepare-bar.tsx
+msgid "This application is already marked as applied, so the version you sent can't be replaced. Prepare from an application you haven't sent yet."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "This browser can't record here. Choose an audio file, or type your answer."
@@ -11661,6 +12217,10 @@ msgstr "เอกสารฉบับนี้"
 #: src/features/assistant/assistant-panel.tsx
 msgid "This document is locked. Unlock it to get suggestions."
 msgstr "เอกสารนี้ถูกล็อค ปลดล็อกเพื่อรับคำแนะนำ"
+
+#: src/libs/error-message.ts
+msgid "This document is still empty. Fill it in before downloading."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "This entry"
@@ -11782,6 +12342,10 @@ msgstr "เรซูเม่นี้มีความยาวมาก"
 msgid "This resume is password protected"
 msgstr "เรซูเม่นี้ถูกป้องกันด้วยรหัสผ่าน"
 
+#: src/features/ats-checker/messages.ts
+msgid "This resume is short."
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "This resume isn't linked to an application yet."
 msgstr "ประวัติย่อนี้ยังไม่ได้เชื่อมโยงกับการสมัครงาน"
@@ -11834,9 +12398,17 @@ msgstr "เวลานี้ไม่มีอยู่ในเขตเวล
 msgid "This time does not exist in your timezone. Choose another time."
 msgstr "เวลานี้ไม่มีอยู่ในเขตเวลาของคุณ เลือกเวลาอื่น"
 
+#: src/features/quota/page.tsx
+msgid "This week"
+msgstr ""
+
 #: src/features/career/workspace/debrief.tsx
 msgid "This week: make your evidence easier to follow"
 msgstr "สัปดาห์นี้: ทำให้หลักฐานของคุณเข้าใจง่ายขึ้น"
+
+#: src/libs/orpc/client.ts
+msgid "This week's free AI allowance is used up. It comes back every Monday."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "This workspace couldn't be loaded."
@@ -11866,6 +12438,10 @@ msgstr "เวลา · {0}"
 #: src/features/career/schedule-sheet.tsx
 msgid "Time · {timeZone}"
 msgstr "เวลา · {timeZone}"
+
+#: src/features/billing/transactions.tsx
+msgid "Time left"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
@@ -11930,6 +12506,10 @@ msgstr "คำขอมากเกินไป ลองอีกครั้�
 msgid "Total"
 msgstr "ทั้งหมด"
 
+#: src/features/billing/transactions.tsx
+msgid "Total to transfer"
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "ติดตามงานที่คุณกำลังสมัครและเชื่อมโยงเรซูเม่ที่ส่งไป"
@@ -11946,8 +12526,9 @@ msgstr "ติดตามงานแรกของคุณ"
 msgid "Tracking"
 msgstr "การติดตาม"
 
+#: src/features/billing/transactions.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
-msgid "Transaksi"
+msgid "Transactions"
 msgstr ""
 
 #: src/features/career/workspace/practise.tsx
@@ -12003,6 +12584,7 @@ msgstr "ลองตัวอย่าง"
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
 #: src/features/documents/library-error.tsx
+#: src/features/quota/page.tsx
 #: src/features/resume/editor/write/improve.tsx
 #: src/features/resume/preview/preview.browser.tsx
 #: src/features/resume/share/download-tab.tsx
@@ -12024,10 +12606,6 @@ msgstr "ลองใช้ตัวตรวจสอบ ATS"
 msgid "Try this opening"
 msgstr "ลองเปิดแบบนี้"
 
-#: src/features/documents/new-document-dialog.tsx
-msgid "Try with a sample resume"
-msgstr "ลองกับตัวอย่างเรซูเม่"
-
 #: src/libs/locale.ts
 msgid "Turkish"
 msgstr "ตุรกี"
@@ -12048,9 +12626,17 @@ msgstr "เปิดลิงก์สาธารณะเพื่อนับ
 msgid "Turn this schedule on"
 msgstr "เปิดกำหนดการนี้"
 
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Tutup menu"
+msgstr ""
+
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Two columns"
 msgstr "สองคอลัมน์"
+
+#: src/dialogs/resume/template/data.ts
+msgid "Two columns with a narrow right rail behind a hairline and no rules between sections. Contact, skills and languages stay out of the way of the experience."
+msgstr ""
 
 #: src/dialogs/resume/template/data.ts
 msgid "Two columns with a soft neutral sidebar and a serif name. Visual without the heavy colour blocks, for design, creative and portfolio roles."
@@ -12158,6 +12744,14 @@ msgstr "แบบอักษร"
 msgid "Ukrainian"
 msgstr "ยูเครน"
 
+#: src/routes/dashboard/applications/index.tsx
+msgid "Unapplied"
+msgstr ""
+
+#: src/features/ats-checker/messages.ts
+msgid "Under 150 words were found. Add what the role needed, what you did, and what changed. Aim for 200 words or more."
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Underline"
 msgstr "ขีดเส้นใต้"
@@ -12191,11 +12785,15 @@ msgstr "เลิกทำ"
 msgid "Undo resume change"
 msgstr "เลิกทำการเปลี่ยนแปลงประวัติย่อ"
 
+#: src/features/billing/transactions.tsx
+msgid "Unique code"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
 #: src/features/homepage/sheet.tsx
-msgid "University of Porto"
-msgstr "University of Porto"
+msgid "Universitas Indonesia"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Unknown"
@@ -12244,11 +12842,11 @@ msgstr "พาสคีย์ที่ไม่ระบุชื่อ"
 msgid "Untitled"
 msgstr "ไม่มีชื่อ"
 
-#: src/features/documents/new-document-dialog.tsx
+#: src/features/documents/use-start-document.ts
 msgid "Untitled letter"
 msgstr "จดหมายไม่มีชื่อ"
 
-#: src/features/documents/new-document-dialog.tsx
+#: src/features/documents/use-start-document.ts
 msgid "Untitled resume"
 msgstr "ประวัติย่อที่ไม่มีชื่อ"
 
@@ -12314,6 +12912,10 @@ msgstr "อัปโหลด .csv"
 msgid "Upload a PDF and see the text an applicant tracking system extracts: what's missing, what's out of order, and how to fix it. Free, no account needed."
 msgstr "อัปโหลด PDF และดูข้อความที่ระบบติดตามผู้สมัครแยกออกมา: มีอะไรขาดหายไป มีอะไรผิดปกติ และวิธีแก้ไข ฟรี ไม่ต้องใช้บัญชี"
 
+#: src/features/billing/transactions.tsx
+msgid "Upload payment proof"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Upload picture"
 msgstr "อัปโหลดรูปภาพ"
@@ -12321,6 +12923,10 @@ msgstr "อัปโหลดรูปภาพ"
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Uploading picture…"
 msgstr "กำลังอัปโหลดรูปภาพ…"
+
+#: src/features/billing/transactions.tsx
+msgid "Uploading the proof…"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "URL"
@@ -12432,6 +13038,10 @@ msgstr "ใช้เขตเวลาของอุปกรณ์นี้ ({
 msgid "Use this provider"
 msgstr "ใช้ผู้ให้บริการรายนี้"
 
+#: src/routes/templates/$.tsx
+msgid "Use this template"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "ใช้รายการหัวข้อย่อยปกติของโปรแกรมแก้ไข เพื่อไม่ให้มีอักขระหลงเหลืออยู่กลางประโยค"
@@ -12452,6 +13062,10 @@ msgstr "ใช้ในการโค้ช"
 #: src/features/career/knowledge/preferences.tsx
 msgid "Used to check roles and offers. Each is a number, so the coach can compare without guessing."
 msgstr "ใช้ตรวจสอบตำแหน่งงานและข้อเสนอ แต่ละค่าเป็นตัวเลข โค้ชจึงเปรียบเทียบได้โดยไม่ต้องเดา"
+
+#: src/features/quota/page.tsx
+msgid "Used up. It comes back on Monday."
+msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Used when {connectedProvider} can't read a page. No account needed."
@@ -12562,10 +13176,6 @@ msgid "Versions"
 msgstr "รุ่นต่างๆ"
 
 #: src/features/ats-checker/messages.ts
-msgid "Very few words were recovered for a resume."
-msgstr "กู้คืนคำได้น้อยมากสำหรับเรซูเม่ฉบับนี้"
-
-#: src/features/ats-checker/messages.ts
 msgid "Very little text was recovered for this many pages."
 msgstr "กู้คืนข้อความได้น้อยมากเมื่อเทียบกับจำนวนหน้าเท่านี้"
 
@@ -12577,6 +13187,7 @@ msgstr "ลิงก์วิดีโอ ที่อยู่สำนัก�
 msgid "Vietnamese"
 msgstr "เวียดนาม"
 
+#: src/features/billing/transactions.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -12592,6 +13203,10 @@ msgstr "ดูการสมัครงาน"
 #: src/features/career/workspace/shell.tsx
 msgid "View posting"
 msgstr "ดูประกาศรับสมัครงาน"
+
+#: src/features/billing/transactions.tsx
+msgid "View receipt"
+msgstr ""
 
 #. placeholder {0}: formatVersionTime(viewing.createdAt, i18n.locale)
 #. placeholder {0}: when(selected)
@@ -12708,6 +13323,10 @@ msgstr "การค้นหาเว็บล้มเหลว: {0}"
 msgid "Website"
 msgstr "เว็บไซต์"
 
+#: src/features/billing/pricing.tsx
+msgid "Weekly AI allowance, back every Monday"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Weekly at {clock} · next {next}"
 msgstr "ทุกสัปดาห์เวลา {clock} · ครั้งถัดไป {next}"
@@ -12794,6 +13413,10 @@ msgstr "สิ่งที่สำคัญ"
 msgid "What matters to you"
 msgstr "สิ่งที่สำคัญสำหรับคุณ"
 
+#: src/routes/dashboard/career/route.tsx
+msgid "What needs you today, new roles from your saved search, and scheduled runs."
+msgstr ""
+
 #: src/features/resume/editor/write/improve.tsx
 msgid "What should change?"
 msgstr "สิ่งที่ควรเปลี่ยนแปลง?"
@@ -12809,6 +13432,10 @@ msgstr "เราควรทำงานอะไร?"
 #: src/features/homepage/check.tsx
 msgid "What software reads"
 msgstr "ซอฟต์แวร์อะไรอ่าน"
+
+#: src/features/quota/page.tsx
+msgid "What stays free"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "What success looks like, which challenge matters most, and the next step."
@@ -12879,6 +13506,10 @@ msgstr "เมื่อคุณกดส่ง {shared} จะถูกส่�
 #: src/features/applications/components/insights-view.tsx
 msgid "Where applications come from"
 msgstr "แหล่งที่มาของใบสมัคร"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Where applications stall, and how quickly companies reply."
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Where you want to work"
@@ -12961,6 +13592,10 @@ msgstr "ความกว้าง"
 msgid "Will my resume get past applicant tracking systems?"
 msgstr "ประวัติย่อของฉันจะผ่านระบบติดตามผู้สมัครหรือไม่"
 
+#: src/features/career/workspace/shell.tsx
+msgid "With a date, practice has something to aim at."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Within a quarter, activation went from 31% to 44%."
 msgstr "ภายในหนึ่งไตรมาส อัตราการเปิดใช้งานเพิ่มจาก 31% เป็น 44%"
@@ -12999,6 +13634,10 @@ msgstr "เขียน"
 msgid "Write \"Present\" as the end date of your current role."
 msgstr "เขียน \"Present\" เป็นวันที่สิ้นสุดของตำแหน่งปัจจุบันของคุณ"
 
+#: src/routes/dashboard/applications/index.tsx
+msgid "Write a follow-up"
+msgstr ""
+
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Write a letter"
 msgstr "เขียนจดหมาย"
@@ -13010,6 +13649,10 @@ msgstr "เขียนเรื่องราวครั้งเดียว
 #: src/features/homepage/write.tsx
 msgid "Write beside a live page. It saves as you type and keeps every version. Ask the assistant for a sharper line: it suggests, you decide."
 msgstr "เขียนข้างๆ หน้าเพจที่แสดงผลจริง บันทึกให้ขณะพิมพ์และเก็บทุกเวอร์ชัน ขอให้ผู้ช่วยช่วยเกลาประโยคให้คมขึ้น: ผู้ช่วยแนะนำ คุณเป็นคนตัดสินใจ"
+
+#: src/features/career/workspace/shell.tsx
+msgid "Write down what they asked while it is still fresh."
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Write down what they asked while it's fresh. The coach compares your answers with your stories."
@@ -13069,6 +13712,10 @@ msgstr "กำลังเขียนคำตอบ…"
 msgid "Writing help, tailored suggestions and the assistant. The default provider is used wherever you don't pick one. Your keys stay encrypted."
 msgstr "ความช่วยเหลือในการเขียน คำแนะนำที่ปรับให้เหมาะ และผู้ช่วย จะใช้ผู้ให้บริการเริ่มต้นในทุกที่ที่คุณไม่ได้เลือก คีย์ของคุณถูกเข้ารหัสไว้เสมอ"
 
+#: src/features/quota/page.tsx
+msgid "Writing review"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "writing, tailoring and sending"
 msgstr "การเขียน การปรับตัว และการส่ง"
@@ -13078,7 +13725,7 @@ msgid "Written offer"
 msgstr "ข้อเสนอเป็นลายลักษณ์อักษร"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes, to suggest sharper wording, tailor a CV to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature."
+msgid "Yes, to suggest sharper wording, tailor a resume to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature."
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -13119,6 +13766,10 @@ msgstr "คุณตอบ: {answer}"
 msgid "You can also sign in with your username."
 msgstr "คุณสามารถเข้าสู่ระบบด้วยชื่อผู้ใช้ได้เช่นกัน"
 
+#: src/features/documents/start-guide.tsx
+msgid "You can close this and come back later."
+msgstr ""
+
 #: src/features/resume/editor/save-status.tsx
 msgid "You can keep editing. Changes sync when you're back online. Download and Share need a connection."
 msgstr "คุณสามารถแก้ไขต่อได้ เปลี่ยนการซิงค์เมื่อคุณกลับมาออนไลน์ ดาวน์โหลดและแบ่งปันจำเป็นต้องมีการเชื่อมต่อ"
@@ -13126,6 +13777,10 @@ msgstr "คุณสามารถแก้ไขต่อได้ เปล�
 #: src/features/career/workspace/apply.tsx
 msgid "You can keep up to 30 application questions."
 msgstr "คุณเก็บคำถามในใบสมัครได้สูงสุด 30 ข้อ"
+
+#: src/routes/dashboard/akun.tsx
+msgid "You can sign back in at any time."
+msgstr ""
 
 #: src/features/auth/pages/error.tsx
 msgid "You cancelled the sign-in before it finished."
@@ -13219,6 +13874,10 @@ msgstr "การเชื่อมต่อ AI ของคุณ"
 msgid "Your AI connection"
 msgstr "การเชื่อมต่อ AI ของคุณ"
 
+#: src/features/quota/page.tsx
+msgid "Your allowance couldn't be loaded."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Your answer"
 msgstr "คำตอบของคุณ"
@@ -13227,6 +13886,10 @@ msgstr "คำตอบของคุณ"
 #: src/features/homepage/prepare.tsx
 msgid "Your attempts"
 msgstr "ความพยายามของคุณ"
+
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Your balance"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Your body text is very small."
@@ -13309,6 +13972,10 @@ msgstr "หลักฐานของคุณ"
 msgid "Your file"
 msgstr "ไฟล์ของคุณ"
 
+#: src/features/documents/start-guide.tsx
+msgid "Your first resume is done. Two steps left."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Your focus"
 msgstr "โฟกัสของคุณ"
@@ -13364,6 +14031,10 @@ msgstr "ชื่อของคุณเปลี่ยนไปในเรซ
 #: src/features/resume/editor/check/issues.ts
 msgid "Your name is missing"
 msgstr "ชื่อของคุณหายไป"
+
+#: src/routes/dashboard/akun.tsx
+msgid "Your name, email, password and signed-in sessions."
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "your notes"
