@@ -127,7 +127,7 @@ export function InvoiceSheet({ invoiceId, onClose, onResend }: InvoiceSheetProps
 									<span className="flex-1">
 										<Trans>Description</Trans>
 									</span>
-									<span className="w-16 text-center">
+									<span className="w-16 text-right">
 										<Trans>Credits</Trans>
 									</span>
 									<span className="w-24 text-right">
@@ -139,7 +139,7 @@ export function InvoiceSheet({ invoiceId, onClose, onResend }: InvoiceSheetProps
 									<span className="flex-1">
 										<Trans>Package {data.snapshot.planName}</Trans>
 									</span>
-									<span className="w-16 text-center">{data.snapshot.credits}</span>
+									<span className="w-16 text-right">{data.snapshot.credits}</span>
 									<span className="w-24 text-right">{rupiah(data.snapshot.amountIdr)}</span>
 								</div>
 
@@ -147,7 +147,7 @@ export function InvoiceSheet({ invoiceId, onClose, onResend }: InvoiceSheetProps
 									<span className="flex-1">
 										<Trans>Unique transfer code</Trans>
 									</span>
-									<span className="w-16 text-center text-[#6B6A60]">—</span>
+									<span className="w-16 text-right text-[#6B6A60]">—</span>
 									<span className="w-24 text-right">{data.snapshot.uniqueCode}</span>
 								</div>
 
