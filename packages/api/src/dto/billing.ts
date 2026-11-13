@@ -54,6 +54,20 @@ export const billingDto = {
 		input: z.object({ planCode: z.string().min(1).max(64).describe("Kode paket dari daftar paket aktif.") }),
 		output: orderOutputSchema,
 	},
+	activeOrder: {
+		output: z.object({
+			order: orderOutputSchema.nullable().describe("Pesanan yang masih menunggu bayar dan paling cepat kedaluwarsa."),
+		}),
+	},
+	orderStatus: {
+		input: z.object({ orderId: z.string().min(1) }),
+		output: z.object({
+			order: orderOutputSchema,
+			invoiceId: z.string().nullable().describe("Id invoice bila pesanan sudah lunas."),
+			invoiceNumber: z.string().nullable().describe("Nomor invoice bila pesanan sudah lunas."),
+			balances: balancesOutputSchema,
+		}),
+	},
 	attachProof: {
 		input: z.object({
 			orderId: z.string().min(1),

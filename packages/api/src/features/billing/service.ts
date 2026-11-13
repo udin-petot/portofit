@@ -1,5 +1,5 @@
 import { ORPCError } from "@orpc/server";
-import { and, desc, eq, gte, ilike, lt, or, sql } from "drizzle-orm";
+import { and, asc, desc, eq, gt, gte, ilike, lt, or, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import {
 	adminAudit,
@@ -8,6 +8,7 @@ import {
 	billingOrder,
 	billingOrderEmail,
 	billingPlan,
+	invoice,
 	user,
 } from "@reactive-resume/db/schema";
 import { issueInvoice } from "../invoice/service";
@@ -182,6 +183,42 @@ export const billingService = {
 		return { orders: orders.map(toOrderDto) };
 	},
 
+	/** Pesanan yang paling cepat kedaluwarsa, dipakai strip "lanjutkan bayar" di halaman beli kredit. */
+	async activeOrder(userId: string) {
+		const [order] = await db
+			.select()
+			.from(billingOrder)
+			.where(
+				and(
+					eq(billingOrder.userId, userId),
+					eq(billingOrder.status, "menunggu_bayar"),
+					gt(billingOrder.expiresAt, new Date()),
+				),
+			)
+			.orderBy(asc(billingOrder.expiresAt))
+			.limit(1);
+		return { order: order ? toOrderDto(order) : null };
+	},
+
+	/** Status satu pesanan untuk popup. Pesanan akun lain dibalas 404, sama seperti invoice. */
+	async orderStatus(userId: string, orderId: string) {
+		const [order] = await db.select().from(billingOrder).where(eq(billingOrder.id, orderId)).limit(1);
+		if (!order || order.userId !== userId) throw new ORPCError("NOT_FOUND", { message: "Order tidak ditemukan." });
+
+		const [issued] = await db
+			.select({ id: invoice.id, number: invoice.number })
+			.from(invoice)
+			.where(eq(invoice.orderId, order.id))
+			.limit(1);
+
+		return {
+			order: toOrderDto(order),
+			invoiceId: issued?.id ?? null,
+			invoiceNumber: issued?.number ?? null,
+			balances: await balancesFor(userId),
+		};
+	},
+
 	async createOrder(userId: string, planCode: string) {
 		const [plan] = await db
 			.select()
@@ -189,6 +226,22 @@ export const billingService = {
 			.where(and(eq(billingPlan.code, planCode), eq(billingPlan.active, true)))
 			.limit(1);
 		if (!plan) throw new ORPCError("NOT_FOUND", { message: "Paket tidak ditemukan atau sudah tidak dijual." });
+
+		// Menekan beli dua kali tidak boleh melahirkan dua pesanan. Yang masih hidup dipakai ulang.
+		const [active] = await db
+			.select()
+			.from(billingOrder)
+			.where(
+				and(
+					eq(billingOrder.userId, userId),
+					eq(billingOrder.planCode, planCode),
+					eq(billingOrder.status, "menunggu_bayar"),
+					gt(billingOrder.expiresAt, new Date()),
+				),
+			)
+			.orderBy(asc(billingOrder.expiresAt))
+			.limit(1);
+		if (active) return toOrderDto(active);
 
 		const uniqueCode = await pickUniqueCode(plan.priceIdr);
 		return db.transaction(async (tx) => {

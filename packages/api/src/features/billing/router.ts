@@ -66,6 +66,35 @@ export const billingRouter = {
 		.output(billingDto.createOrder.output)
 		.handler(({ context, input }) => billingService.createOrder(context.user.id, input.planCode)),
 
+	activeOrder: protectedProcedure
+		.route({
+			method: "GET",
+			path: "/billing/orders/active",
+			tags: ["Billing"],
+			operationId: "getActiveBillingOrder",
+			summary: "Get the order waiting for payment",
+			description:
+				"Returns the pending order that expires first, so the buy page can offer to finish it instead of creating another.",
+			successDescription: "The pending order, or null.",
+		})
+		.input(z.object({}).optional())
+		.output(billingDto.activeOrder.output)
+		.handler(({ context }) => billingService.activeOrder(context.user.id)),
+
+	orderStatus: protectedProcedure
+		.route({
+			method: "GET",
+			path: "/billing/orders/{orderId}/status",
+			tags: ["Billing"],
+			operationId: "getBillingOrderStatus",
+			summary: "Get one order status",
+			description: "Polled by the payment dialog to flip the quiet QR into a review state, a tick, or a cross.",
+			successDescription: "The order, its invoice number, and current balances.",
+		})
+		.input(billingDto.orderStatus.input)
+		.output(billingDto.orderStatus.output)
+		.handler(({ context, input }) => billingService.orderStatus(context.user.id, input.orderId)),
+
 	attachProof: protectedProcedure
 		.route({
 			method: "POST",
