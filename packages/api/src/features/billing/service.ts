@@ -71,6 +71,15 @@ function toOrderDto(order: OrderRow): OrderDto {
 	};
 }
 
+const WIB_OFFSET_MS = 7 * 60 * 60 * 1000;
+
+/** Tengah malam WIB pada tanggal kalender WIB yang memuat `date`, dikembalikan sebagai waktu UTC. */
+function startOfWibDay(date: Date) {
+	const wib = new Date(date.getTime() + WIB_OFFSET_MS);
+	wib.setUTCHours(0, 0, 0, 0);
+	return new Date(wib.getTime() - WIB_OFFSET_MS);
+}
+
 function assertAdmin(role: string | null | undefined) {
 	if (role !== "admin") throw new ORPCError("FORBIDDEN", { message: "Butuh peran admin untuk tindakan ini." });
 }
@@ -529,8 +538,8 @@ export const billingService = {
 		const [paid] = await db
 			.select({
 				orders: sql<number>`count(*)::int`,
-				today: sql<number>`coalesce(sum(case when ${billingOrder.verifiedAt} >= date_trunc('day', now()) then ${billingOrder.totalIdr} else 0 end), 0)::int`,
-				month: sql<number>`coalesce(sum(case when ${billingOrder.verifiedAt} >= date_trunc('month', now()) then ${billingOrder.totalIdr} else 0 end), 0)::int`,
+				today: sql<number>`coalesce(sum(case when ${billingOrder.verifiedAt} >= date_trunc('day', now() at time zone 'Asia/Jakarta') at time zone 'Asia/Jakarta' then ${billingOrder.totalIdr} else 0 end), 0)::int`,
+				month: sql<number>`coalesce(sum(case when ${billingOrder.verifiedAt} >= date_trunc('month', now() at time zone 'Asia/Jakarta') at time zone 'Asia/Jakarta' then ${billingOrder.totalIdr} else 0 end), 0)::int`,
 			})
 			.from(billingOrder)
 			.where(eq(billingOrder.status, "lunas"));
@@ -551,18 +560,21 @@ export const billingService = {
 	async adminAnalytics(input: { role?: string | null | undefined; days?: number | undefined }) {
 		assertAdmin(input.role);
 		const days = input.days ?? 30;
-		const start = new Date();
-		start.setUTCHours(0, 0, 0, 0);
-		start.setUTCDate(start.getUTCDate() - (days - 1));
-		const previousStart = new Date(start);
-		previousStart.setUTCDate(previousStart.getUTCDate() - days);
+		// Hari mengikuti WIB, bukan UTC: pesanan masuk lewat QRIS orang Indonesia, dan pesanan pukul 00.30 WIB
+		// tidak seharusnya jatuh ke tanggal kemarin.
+		const start = startOfWibDay(new Date(Date.now() - (days - 1) * 24 * 60 * 60 * 1000));
+		const previousStart = new Date(start.getTime() - days * 24 * 60 * 60 * 1000);
 
 		const dailyResult = await db.execute(sql`
 			with window_days as (
-				select generate_series(${start}::timestamptz, date_trunc('day', now()), interval '1 day') as day
+				select generate_series(
+					date_trunc('day', ${start}::timestamptz at time zone 'Asia/Jakarta'),
+					date_trunc('day', now() at time zone 'Asia/Jakarta'),
+					interval '1 day'
+				) as day
 			),
 			revenue as (
-				select date_trunc('day', verified_at) as day,
+				select date_trunc('day', verified_at at time zone 'Asia/Jakarta') as day,
 					count(*)::int as orders,
 					coalesce(sum(total_idr), 0)::int as revenue
 				from billing_order
@@ -570,7 +582,7 @@ export const billingService = {
 				group by 1
 			),
 			signups as (
-				select date_trunc('day', created_at) as day, count(*)::int as new_users
+				select date_trunc('day', created_at at time zone 'Asia/Jakarta') as day, count(*)::int as new_users
 				from "user"
 				where created_at >= ${start}::timestamptz
 				group by 1
@@ -619,8 +631,8 @@ export const billingService = {
 		const [paid] = await db
 			.select({
 				orders: sql<number>`count(*)::int`,
-				today: sql<number>`coalesce(sum(case when ${billingOrder.verifiedAt} >= date_trunc('day', now()) then ${billingOrder.totalIdr} else 0 end), 0)::int`,
-				month: sql<number>`coalesce(sum(case when ${billingOrder.verifiedAt} >= date_trunc('month', now()) then ${billingOrder.totalIdr} else 0 end), 0)::int`,
+				today: sql<number>`coalesce(sum(case when ${billingOrder.verifiedAt} >= date_trunc('day', now() at time zone 'Asia/Jakarta') at time zone 'Asia/Jakarta' then ${billingOrder.totalIdr} else 0 end), 0)::int`,
+				month: sql<number>`coalesce(sum(case when ${billingOrder.verifiedAt} >= date_trunc('month', now() at time zone 'Asia/Jakarta') at time zone 'Asia/Jakarta' then ${billingOrder.totalIdr} else 0 end), 0)::int`,
 			})
 			.from(billingOrder)
 			.where(eq(billingOrder.status, "lunas"));

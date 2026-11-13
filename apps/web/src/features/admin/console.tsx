@@ -606,7 +606,7 @@ function OverviewView({
 				<Panel>
 					<PanelHeader
 						title="Pendapatan"
-						description="Pesanan lunas per hari. Hari dihitung UTC."
+						description="Pesanan lunas per hari. Hari dihitung WIB."
 						action={
 							<SegmentedControl
 								value={String(days)}
