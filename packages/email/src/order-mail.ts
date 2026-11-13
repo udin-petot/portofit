@@ -1,5 +1,5 @@
 import { createElement } from "react";
-import { OrderEmail, type OrderEmailKind } from "./templates/order";
+import { ORDER_SUBJECT, OrderEmail, type OrderEmailKind } from "./templates/order";
 import { sendEmail } from "./transport";
 
 export type SendOrderEmailInput = {
@@ -15,22 +15,12 @@ export type SendOrderEmailInput = {
 	remaining?: string | undefined;
 };
 
-/**
- * Subjek membawa nominal dan batas waktu, karena itu yang dicari orang di kotak masuk.
- * Subjek lama ("Pesanan PortoFit menunggu kamu") tidak memberi tahu apa yang harus dilakukan.
- */
-const subjectFor = ({ kind, total, deadline, remaining }: SendOrderEmailInput): string => {
-	if (kind === "dibuat") return `Bayar ${total} sebelum ${deadline}`;
-	if (kind === "pengingat") return `Sisa ${remaining ?? "waktu"} untuk bayar ${total}`;
-	return `Pesanan ${total} hangus`;
-};
-
 /** Dipakai antrean di paket api, yang tidak membawa React sendiri. */
 export async function sendOrderEmail(input: SendOrderEmailInput): Promise<void> {
 	const { kind, to, ...props } = input;
 	await sendEmail({
 		to,
-		subject: subjectFor(input),
+		subject: ORDER_SUBJECT[kind],
 		react: createElement(OrderEmail, { kind, ...props }),
 		throwOnError: true,
 	});

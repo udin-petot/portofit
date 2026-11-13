@@ -30,6 +30,16 @@ export interface OrderEmailProps {
 	remaining?: string | undefined;
 }
 
+/**
+ * Subjek pendek tanpa nominal. Nominal dan batas waktu ada di dalam email,
+ * subjek yang penuh angka terbaca seperti tagihan dan tidak perlu dibuka.
+ */
+export const ORDER_SUBJECT: Record<OrderEmailKind, string> = {
+	dibuat: "Selesaikan pembayaran",
+	pengingat: "Waktu hampir habis",
+	hangus: "Pesanan hangus",
+};
+
 type Copy = {
 	preview: string;
 	heading: string;
