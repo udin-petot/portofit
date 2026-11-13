@@ -185,6 +185,15 @@ export function OrderEmail({ kind, name, planName, total, uniqueCode, deadline, 
 							</Section>
 						</Section>
 
+						<Section className="px-8 pt-6">
+							<Button
+								href={url}
+								className="rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white no-underline"
+							>
+								{copy.action}
+							</Button>
+						</Section>
+
 						<Section className="mt-6 px-8"><Section className="border-t border-solid border-line">
 							{rows.map((row) => (
 								<Row key={row.label} className="border-b border-solid border-line">
@@ -199,15 +208,6 @@ export function OrderEmail({ kind, name, planName, total, uniqueCode, deadline, 
 								</Row>
 							))}
 							</Section>
-						</Section>
-
-						<Section className="px-8 pt-6">
-							<Button
-								href={url}
-								className="rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white no-underline"
-							>
-								{copy.action}
-							</Button>
 						</Section>
 
 						<Section className="px-8 pb-8 pt-6">
