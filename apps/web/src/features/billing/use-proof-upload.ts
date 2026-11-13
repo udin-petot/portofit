@@ -16,8 +16,8 @@ export function useProofUpload(orderId: string | null, note: string) {
 	const [fileName, setFileName] = useState<string | null>(null);
 	const [error, setError] = useState<string | null>(null);
 
-	const upload = async (file: File) => {
-		if (!orderId) return;
+	const upload = async (file: File): Promise<boolean> => {
+		if (!orderId) return false;
 
 		const problem = proofFileProblem(file);
 		if (problem) {
@@ -25,7 +25,7 @@ export function useProofUpload(orderId: string | null, note: string) {
 				problem === "type" ? t`The proof must be a JPG or PNG. PDF is not accepted.` : t`The proof can be at most 10 MB.`;
 			setError(message);
 			toast.add({ type: "error", description: message });
-			return;
+			return false;
 		}
 
 		setError(null);
@@ -38,10 +38,12 @@ export function useProofUpload(orderId: string | null, note: string) {
 				type: "success",
 				description: t`Proof sent. An admin checks it by hand, then the credits arrive automatically.`,
 			});
+			return true;
 		} catch (err) {
 			const message = err instanceof Error ? err.message : t`The proof could not be sent. Try again.`;
 			setError(message);
 			toast.add({ type: "error", description: message });
+			return false;
 		} finally {
 			setFileName(null);
 		}
