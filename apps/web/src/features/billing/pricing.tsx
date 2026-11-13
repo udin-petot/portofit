@@ -52,12 +52,12 @@ export function PlanList({ signedIn, onOrder }: PricingPageProps) {
 						key={plan.code}
 						className="flex flex-col gap-3 p-5 sm:min-h-[108px] sm:flex-row sm:items-center sm:justify-between sm:gap-6"
 					>
-						<div className="grid min-w-0 gap-0.5">
+						<div className="grid min-w-0 flex-1 gap-0.5">
 							<h2 className="text-[15px] font-semibold text-ink">{copy.name}</h2>
 							<p className="text-xs text-ink-3">
 								{plan.credits} {copy.unit}
 							</p>
-							<p className="mt-1 line-clamp-2 text-[13px] leading-snug text-ink-2 sm:max-w-[430px]">
+							<p className="mt-1 line-clamp-2 text-[13px] leading-snug text-ink-2">
 								{copy.description}
 							</p>
 						</div>
@@ -85,7 +85,7 @@ export function FreeNote({ signedIn }: { signedIn: boolean }) {
 	const navigate = useNavigate();
 
 	return (
-		<div className="mt-3 flex items-center justify-between gap-4 rounded-lg border border-dashed border-line px-4 py-3 sm:h-14 sm:py-0">
+		<div className="mt-4 flex items-center justify-between gap-4 rounded-lg border border-dashed border-line px-4 py-3 sm:h-14 sm:py-0">
 			<p className="text-[13px] leading-5 text-ink-2">
 				<Trans>Not sure yet?</Trans>{" "}
 				<span className="text-ink-3">

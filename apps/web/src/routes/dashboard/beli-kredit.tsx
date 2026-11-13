@@ -83,16 +83,16 @@ function BuyCreditsPage() {
 			</div>
 
 			{/* Ponsel: saldo di atas paket, karena yang dibaca pertama adalah sisa kredit. */}
-			<div className="mt-5 lg:hidden">
+			<div className="mt-5 xl:hidden">
 				<BalanceTiles data={balances.data} />
 			</div>
 
-			<div className="mt-4 grid gap-6 lg:mt-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+			<div className="mt-4 grid gap-6 xl:mt-6 xl:grid-cols-[minmax(0,1fr)_320px] xl:items-start">
 				<div className="min-w-0">
 					{pending ? (
 						<section
 							aria-label={t`Order waiting for payment`}
-							className="mb-3 flex flex-col gap-2.5 rounded-lg border border-warn-soft bg-warn-soft/30 p-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+							className="mb-3 flex flex-col gap-2.5 rounded-lg border border-warn-soft bg-warn-soft/30 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
 						>
 							<div className="min-w-0">
 								<p className="text-[11px] font-medium tracking-[0.06em] text-warn-text uppercase">
@@ -125,14 +125,14 @@ function BuyCreditsPage() {
 					<FreeNote signedIn />
 				</div>
 
-				<aside className="hidden gap-3 lg:sticky lg:top-6 lg:grid">
+				<aside className="hidden gap-3 xl:sticky xl:top-6 xl:grid">
 					<BalanceTiles data={balances.data} />
 					<HowToPay collapsible />
 				</aside>
 			</div>
 
 			{/* Ponsel: cara bayar di bawah paket, tertutup supaya tidak menutup halaman. */}
-			<div className="mt-4 lg:hidden">
+			<div className="mt-4 xl:hidden">
 				<HowToPay collapsible />
 			</div>
 

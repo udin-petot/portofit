@@ -33,7 +33,7 @@ Tiga hal yang salah dari angka itu:
 - Blok cara bayar pindah ke kolom kanan di desktop, dan jadi lipatan tertutup di ponsel.
 - Halaman publik `/harga` tidak ikut dua kolom. Ia memakai potongan yang sama, ditumpuk seperti sekarang.
 
-## Desktop, 1024px ke atas
+## Desktop, 1280px ke atas
 
 ```
 Buy credits                                    [My orders]
@@ -80,7 +80,7 @@ Buy credits                                    [My orders]
 ## Uji
 
 - 1440px: tidak ada takik. Tepi kanan baris paket, baris gratis, dan kolom kanan sejajar dalam 1px.
-- 1024px: dua kolom masih muat, kolom kanan tidak mendorong isi keluar.
-- 768px: jatuh ke satu kolom, tanpa gulir mendatar.
+- 1024px: satu kolom penuh. Dua kolom baru muncul di 1280px karena di bawah itu kolom kiri tinggal 392px dan baris paket jadi sempit.
+- 768px: satu kolom, tanpa gulir mendatar.
 - 390px: tombol beli 44px, lipatan cara bayar tertutup, halaman tidak lebih dari sekitar 1100px sebelum blok cara bayar dibuka.
 - Dengan dan tanpa pesanan aktif, posisi dua baris paket tidak melompat lebih dari tinggi strip.
