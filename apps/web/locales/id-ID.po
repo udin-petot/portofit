@@ -9735,7 +9735,7 @@ msgstr "Resume dilampirkan"
 
 #: src/features/homepage/sections.tsx
 msgid "Resume builder"
-msgstr "pembuat resume"
+msgstr "Pembuat resume"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
