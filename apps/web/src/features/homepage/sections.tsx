@@ -66,15 +66,17 @@ function RollingNumber({ value, roll, delay }: RollingNumberProps) {
 /** 08 Numbers: the live community totals, side by side, each figure over what it counts. */
 export function Numbers() {
 	const inView = useLanding((state) => state.numbersInView);
-	const { data } = useQuery(orpc.statistics.getTotals.queryOptions({ staleTime: statisticsStaleTime }));
-	const { data: stars } = useQuery(
-		orpc.statistics.github.getStarCount.queryOptions({ staleTime: statisticsStaleTime }),
-	);
+	const totals = useQuery(orpc.statistics.getTotals.queryOptions({ staleTime: statisticsStaleTime }));
+	const stars = useQuery(orpc.statistics.github.getStarCount.queryOptions({ staleTime: statisticsStaleTime }));
+	// Both totals arrive after the page loads. Drawing the section before they land leaves the server HTML with
+	// "Stars on GitHub" and an em dash, which crawlers and link previews quote even though the visitor, whose
+	// client filters the small totals out, never sees it. So nothing is drawn until both answers are in.
+	if (totals.data == null || stars.data == null) return null;
 	const rows = [
-		{ label: t`People using it`, detail: t`writing, tailoring and sending`, value: data?.users },
-		{ label: t`Resumes created`, detail: t`and counting`, value: data?.resumes },
-		{ label: t`Stars on GitHub`, detail: t`from developers who back it`, value: stars },
-	].filter((row) => row.value == null || row.value >= smallestTotalShown);
+		{ label: t`People using it`, detail: t`writing, tailoring and sending`, value: totals.data.users },
+		{ label: t`Resumes created`, detail: t`and counting`, value: totals.data.resumes },
+		{ label: t`Stars on GitHub`, detail: t`from developers who back it`, value: stars.data },
+	].filter((row) => row.value >= smallestTotalShown);
 	if (rows.length === 0) return null;
 
 	return (
@@ -102,14 +104,7 @@ export function Numbers() {
 							</span>
 						</dt>
 						<dd className="font-anybody text-[clamp(44px,14cqi,80px)] leading-none font-light tracking-[-.03em] text-ink tabular-nums min-[900px]:text-[clamp(40px,calc(15cqi/var(--count)),80px)]">
-							{row.value == null ? (
-								<span className="text-ink-3">
-									<span aria-hidden="true">—</span>
-									<span className="sr-only">{t`Loading the total`}</span>
-								</span>
-							) : (
-								<RollingNumber value={row.value} roll={inView} delay={index * 150} />
-							)}
+							<RollingNumber value={row.value} roll={inView} delay={index * 150} />
 						</dd>
 					</div>
 				))}

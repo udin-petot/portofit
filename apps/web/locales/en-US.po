@@ -6761,10 +6761,6 @@ msgstr "Loading resumes…"
 msgid "Loading saved version…"
 msgstr "Loading saved version…"
 
-#: src/features/homepage/sections.tsx
-msgid "Loading the total"
-msgstr "Loading the total"
-
 #: src/features/career/workspace/shell.tsx
 msgid "Loading workspace…"
 msgstr "Loading workspace…"
@@ -8639,6 +8635,10 @@ msgstr "PortoFit {__APP_VERSION__} · MIT"
 #: src/features/homepage/sections.tsx
 msgid "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a CV tailored to one job and interview practice. No ads, no tracking."
 msgstr "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a CV tailored to one job and interview practice. No ads, no tracking."
+
+#: src/features/homepage/header.tsx
+msgid "PortoFit on GitHub"
+msgstr "PortoFit on GitHub"
 
 #: src/libs/seo.ts
 msgid "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
@@ -11084,10 +11084,6 @@ msgstr "Stages"
 #: src/features/homepage/check.tsx
 msgid "Standard section headings"
 msgstr "Standard section headings"
-
-#: src/features/homepage/header.tsx
-msgid "Star PortoFit on GitHub"
-msgstr "Star PortoFit on GitHub"
 
 #: src/features/homepage/header.tsx
 msgid "Star PortoFit on GitHub, {count} stars"
