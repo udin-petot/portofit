@@ -95,25 +95,23 @@ export function InvoiceSheet({ invoiceId, onClose, onResend }: InvoiceSheetProps
 							<div className="mx-7 mt-5 border-t border-[#E4E1D8]" />
 
 							<div className="grid grid-cols-3 gap-4 px-7 py-5">
-								<div>
+								<div className="min-w-0">
 									<p className="text-[9px] uppercase tracking-[0.12em] text-[#6B6A60]">
 										<Trans>Issued to</Trans>
 									</p>
-									<p className="mt-1 text-[12px] font-semibold">{data.snapshot.customerName}</p>
-									<p className="text-[11px] text-[#6B6A60]">{data.snapshot.customerEmail}</p>
+									<p className="mt-1 text-[12px] font-semibold break-words">{data.snapshot.customerName}</p>
+									<p className="text-[11px] break-all text-[#6B6A60]">{data.snapshot.customerEmail}</p>
 								</div>
-								<div>
+								<div className="min-w-0">
 									<p className="text-[9px] uppercase tracking-[0.12em] text-[#6B6A60]">
 										<Trans>Date</Trans>
 									</p>
-									<p className="mt-1 text-[12px] font-semibold">
-										<Trans>Issued {tanggal(data.issuedAt)}</Trans>
-									</p>
+									<p className="mt-1 text-[12px] font-semibold">{tanggal(data.issuedAt)}</p>
 									<p className="text-[11px] text-[#6B6A60]">
 										<Trans>Paid {tanggal(data.snapshot.paidAt)}</Trans>
 									</p>
 								</div>
-								<div>
+								<div className="min-w-0">
 									<p className="text-[9px] uppercase tracking-[0.12em] text-[#6B6A60]">
 										<Trans>Payment</Trans>
 									</p>

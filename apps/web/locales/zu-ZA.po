@@ -6075,11 +6075,6 @@ msgstr ""
 msgid "Issue ignored"
 msgstr ""
 
-#. placeholder {0}: tanggal(data.issuedAt)
-#: src/features/billing/invoice-sheet.tsx
-msgid "Issued {0}"
-msgstr ""
-
 #: src/features/billing/invoice-sheet.tsx
 msgid "Issued to"
 msgstr ""

@@ -6080,11 +6080,6 @@ msgstr "ಸಂಚಿಕೆ {0}: {1}"
 msgid "Issue ignored"
 msgstr "ಸಮಸ್ಯೆಯನ್ನು ನಿರ್ಲಕ್ಷಿಸಲಾಗಿದೆ"
 
-#. placeholder {0}: tanggal(data.issuedAt)
-#: src/features/billing/invoice-sheet.tsx
-msgid "Issued {0}"
-msgstr ""
-
 #: src/features/billing/invoice-sheet.tsx
 msgid "Issued to"
 msgstr ""
