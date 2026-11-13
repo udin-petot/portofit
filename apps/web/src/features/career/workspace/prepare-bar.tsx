@@ -56,7 +56,7 @@ export function PrepareBar({ application }: PrepareBarProps) {
 	return (
 		<div className="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-sunken px-4 py-2.5 md:px-6">
 			<p className="text-xs leading-5 text-ink-2">
-				<Trans>One credit: a tailored CV, a cover letter, and a match score for this job.</Trans>
+				<Trans>One credit: a tailored resume, a cover letter, and a match score for this job.</Trans>
 				{typeof credits === "number" ? (
 					<>
 						{" "}

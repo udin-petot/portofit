@@ -443,7 +443,7 @@ function NextStepBar({ application, interview, now, go, onAddInterview }: NextSt
 			<Bar
 				icon="file-text"
 				title={t`No files yet`}
-				why={t`A tailored CV and a cover letter are one click on the Prepare tab.`}
+				why={t`A tailored resume and a cover letter are one click on the Prepare tab.`}
 				action={t`Prepare files`}
 				run={() => go("prepare")}
 			/>

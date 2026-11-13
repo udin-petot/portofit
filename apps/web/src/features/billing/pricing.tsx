@@ -18,7 +18,7 @@ export function PricingBody({ signedIn }: PricingPageProps) {
 
 	const freeFeatures = [
 		t`Unlimited ATS checks, no login`,
-		t`One free CV to build and download`,
+		t`One free resume to build and download`,
 		t`Weekly AI allowance, back every Monday`,
 		t`Free issue list and basic job match`,
 	];
@@ -95,7 +95,7 @@ export function PricingBody({ signedIn }: PricingPageProps) {
 					<li>{t`3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately.`}</li>
 				</ol>
 				<p className="mt-3 text-xs text-ink-3">
-					{t`One application credit covers one Prepare this application: a tailored CV, a cover letter and a match score for one job. One interview credit covers one practice session for one interview. Credits do not expire.`}
+					{t`One application credit covers one Prepare this application: a tailored resume, a cover letter and a match score for one job. One interview credit covers one practice session for one interview. Credits do not expire.`}
 				</p>
 				<p className="mt-2 text-xs text-ink-3">
 					<a href="/dashboard/jatah" className="underline underline-offset-4 hover:text-accent-text">
@@ -125,7 +125,7 @@ export function PricingPage({ signedIn }: PricingPageProps) {
 					<p className="font-mono text-xs tracking-widest text-ink-3 uppercase">{t`Pricing`}</p>
 					<h1 className="mt-3 text-4xl font-semibold tracking-tight text-ink">{t`Pay only for what you use`}</h1>
 					<p className="mt-4 text-base leading-relaxed text-ink-2">
-						{t`Start free to see whether software can read your CV. If you need a CV tailored to one job or interview practice, pay per document. No subscription, no promise of passing a selection.`}
+						{t`Start free to see whether software can read your resume. If you need a resume tailored to one job or interview practice, pay per document. No subscription, no promise of passing a selection.`}
 					</p>
 				</header>
 				<div className="mt-10">

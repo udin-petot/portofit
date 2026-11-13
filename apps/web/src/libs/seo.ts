@@ -31,8 +31,8 @@ export const serializeJsonLd = (data: Record<string, unknown>) =>
 
 /** The homepage's title and description in the active locale. The prerendered page and the route share them. */
 export const getHomepageMeta = () => ({
-	title: `${appName} — ${t`Job preparation from CV to interview`}`,
-	description: t`PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to a job, then practise interviews. Start free, no ads.`,
+	title: `${appName} — ${t`Job preparation from resume to interview`}`,
+	description: t`PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to a job, then practise interviews. Start free, no ads.`,
 });
 
 /** The ATS checker's title and description in the active locale. The prerendered page and the route share them. */
@@ -45,5 +45,5 @@ export const getAtsCheckerMeta = () => ({
 /** The pricing page's title and description in the active locale. */
 export const getPricingMeta = () => ({
 	title: `${t`Pricing`} — ${appName}`,
-	description: t`PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored CV and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually.`,
+	description: t`PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored resume and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually.`,
 });

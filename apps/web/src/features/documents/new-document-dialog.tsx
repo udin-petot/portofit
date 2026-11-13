@@ -538,7 +538,7 @@ function CopyForJob({ initialSourceId, initialJobId, onBack, onCreated }: CopyFo
 			if (creditCode === "CREDIT_REQUIRED") {
 				toast.add({
 					type: "error",
-					description: t`Out of application credits. Buy 1 credit to copy your CV to this job.`,
+					description: t`Out of application credits. Buy 1 credit to copy your resume to this job.`,
 					actionProps: { children: t`Buy credits`, onClick: () => void navigate({ to: "/dashboard/beli-kredit" }) },
 				});
 				return;

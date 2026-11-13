@@ -6,9 +6,9 @@ type PlanCopy = { name: string; description: string; unit: string };
 const PLAN_COPY: Record<"en" | "id", Record<string, PlanCopy>> = {
 	en: {
 		lamaran: {
-			name: "CV + Cover Letter per Application",
+			name: "Resume + Cover Letter per Application",
 			description:
-				"A tailored CV, a cover letter, and a match score for one job. Start it from the application itself, with Prepare this application.",
+				"A tailored resume, a cover letter, and a match score for one job. Start it from the application itself, with Prepare this application.",
 			unit: "application credit",
 		},
 		wawancara: {
@@ -20,9 +20,9 @@ const PLAN_COPY: Record<"en" | "id", Record<string, PlanCopy>> = {
 	},
 	id: {
 		lamaran: {
-			name: "CV + Surat Lamaran per Lamaran",
+			name: "Resume + Surat Lamaran per Lamaran",
 			description:
-				"CV disesuaikan, surat lamaran, dan skor kecocokan untuk satu lowongan. Dimulai dari halaman lamaran, lewat tombol Siapkan berkas lamaran.",
+				"Resume disesuaikan, surat lamaran, dan skor kecocokan untuk satu lowongan. Dimulai dari halaman lamaran, lewat tombol Siapkan berkas lamaran.",
 			unit: "kredit lamaran",
 		},
 		wawancara: {

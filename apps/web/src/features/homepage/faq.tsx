@@ -26,12 +26,12 @@ function useQuestions(): Question[] {
 		{
 			id: "who",
 			question: t`Who is PortoFit for?`,
-			answer: t`For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs. The flow, examples, and language are made for their needs.`,
+			answer: t`For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs.`,
 		},
 		{
 			id: "free",
 			question: t`Is PortoFit free?`,
-			answer: t`Partly. Building a CV, checking PDF readability, and saving applications are free. For a CV and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking.`,
+			answer: t`Partly. Building a resume, checking PDF readability, and saving applications are free. For a resume and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking.`,
 		},
 		{
 			id: "ats",
@@ -46,7 +46,7 @@ function useQuestions(): Question[] {
 		},
 		{
 			id: "import",
-			question: t`Can I import an existing CV?`,
+			question: t`Can I import an existing resume?`,
 			answer: t`Yes. Import a PDF, a LinkedIn data export, JSON Resume, or a PortoFit export, then continue from there. Word files work too.`,
 		},
 		{
@@ -57,7 +57,7 @@ function useQuestions(): Question[] {
 		{
 			id: "ai",
 			question: t`Does it use AI?`,
-			answer: t`Yes, to suggest sharper wording, tailor a CV to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature.`,
+			answer: t`Yes, to suggest sharper wording, tailor a resume to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature.`,
 		},
 		{
 			id: "interviews",

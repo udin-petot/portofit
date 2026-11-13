@@ -2324,8 +2324,8 @@ msgid "Briefing refresh paused"
 msgstr "Briefing refresh paused"
 
 #: src/features/homepage/sections.tsx
-msgid "Build a CV, match it to a job, practise interviews"
-msgstr "Build a CV, match it to a job, practise interviews"
+msgid "Build a resume, match it to a job, practise interviews"
+msgstr "Build a resume, match it to a job, practise interviews"
 
 #: src/features/homepage/ui.tsx
 msgid "Build your resume"
@@ -2404,8 +2404,8 @@ msgid "Can I host it myself?"
 msgstr "Can I host it myself?"
 
 #: src/features/homepage/faq.tsx
-msgid "Can I import an existing CV?"
-msgstr "Can I import an existing CV?"
+msgid "Can I import an existing resume?"
+msgstr "Can I import an existing resume?"
 
 #: src/features/homepage/faq.tsx
 msgid "Can it help me practise interviews?"
@@ -5182,8 +5182,8 @@ msgid "For example: “{0}: I did … at … in 2024, and it led to …”"
 msgstr "For example: “{0}: I did … at … in 2024, and it led to …”"
 
 #: src/features/homepage/faq.tsx
-msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs. The flow, examples, and language are made for their needs."
-msgstr "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs. The flow, examples, and language are made for their needs."
+msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
+msgstr "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
 
 #: src/features/resume/share/download-tab.tsx
 msgid "For LibreOffice and other open-source editors. Layout is simplified."
@@ -6123,8 +6123,8 @@ msgid "Job preparation for Indonesian job seekers"
 msgstr "Job preparation for Indonesian job seekers"
 
 #: src/libs/seo.ts
-msgid "Job preparation from CV to interview"
-msgstr "Job preparation from CV to interview"
+msgid "Job preparation from resume to interview"
+msgstr "Job preparation from resume to interview"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Job search failed. Try again or paste a posting link."
@@ -7961,8 +7961,8 @@ msgid "Once you've sent a few applications, this shows how far they get and how 
 msgstr "Once you've sent a few applications, this shows how far they get and how quickly people reply."
 
 #: src/features/billing/pricing.tsx
-msgid "One application credit covers one Prepare this application: a tailored CV, a cover letter and a match score for one job. One interview credit covers one practice session for one interview. Credits do not expire."
-msgstr "One application credit covers one Prepare this application: a tailored CV, a cover letter and a match score for one job. One interview credit covers one practice session for one interview. Credits do not expire."
+msgid "One application credit covers one Prepare this application: a tailored resume, a cover letter and a match score for one job. One interview credit covers one practice session for one interview. Credits do not expire."
+msgstr "One application credit covers one Prepare this application: a tailored resume, a cover letter and a match score for one job. One interview credit covers one practice session for one interview. Credits do not expire."
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "One column"
@@ -7981,16 +7981,16 @@ msgid "One column with compact spacing and standard headings. Built for fresh gr
 msgstr "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
 
 #: src/features/career/workspace/prepare-bar.tsx
-msgid "One credit: a tailored CV, a cover letter, and a match score for this job."
-msgstr "One credit: a tailored CV, a cover letter, and a match score for this job."
+msgid "One credit: a tailored resume, a cover letter, and a match score for this job."
+msgstr "One credit: a tailored resume, a cover letter, and a match score for this job."
 
 #: src/features/homepage/check.tsx
 msgid "one format"
 msgstr "one format"
 
 #: src/features/billing/pricing.tsx
-msgid "One free CV to build and download"
-msgstr "One free CV to build and download"
+msgid "One free resume to build and download"
+msgstr "One free resume to build and download"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Only allow applications you trust. This application will be able to:"
@@ -8251,8 +8251,8 @@ msgid "out of 100"
 msgstr "out of 100"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "Out of application credits. Buy 1 credit to copy your CV to this job."
-msgstr "Out of application credits. Buy 1 credit to copy your CV to this job."
+msgid "Out of application credits. Buy 1 credit to copy your resume to this job."
+msgstr "Out of application credits. Buy 1 credit to copy your resume to this job."
 
 #: src/features/career/hooks.ts
 msgid "Out of credits. Buy a package to continue the interview practice session."
@@ -8344,8 +8344,8 @@ msgid "Partly supported"
 msgstr "Partly supported"
 
 #: src/features/homepage/faq.tsx
-msgid "Partly. Building a CV, checking PDF readability, and saving applications are free. For a CV and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking."
-msgstr "Partly. Building a CV, checking PDF readability, and saving applications are free. For a CV and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking."
+msgid "Partly. Building a resume, checking PDF readability, and saving applications are free. For a resume and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking."
+msgstr "Partly. Building a resume, checking PDF readability, and saving applications are free. For a resume and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking."
 
 #. Authentication provider display name in account settings
 #. Label for passkey sign-in button
@@ -8637,24 +8637,24 @@ msgid "PortoFit {__APP_VERSION__} · MIT"
 msgstr "PortoFit {__APP_VERSION__} · MIT"
 
 #: src/features/homepage/sections.tsx
-msgid "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a CV tailored to one job and interview practice. No ads, no tracking."
-msgstr "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a CV tailored to one job and interview practice. No ads, no tracking."
+msgid "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a resume tailored to one job and interview practice. No ads, no tracking."
+msgstr "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a resume tailored to one job and interview practice. No ads, no tracking."
 
 #: src/features/homepage/header.tsx
 msgid "PortoFit on GitHub"
 msgstr "PortoFit on GitHub"
 
 #: src/libs/seo.ts
-msgid "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
-msgstr "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
+msgid "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
+msgstr "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
 
 #: src/features/homepage/hero.tsx
-msgid "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to the job you want, then practise interviews. Start free, no ads."
-msgstr "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to the job you want, then practise interviews. Start free, no ads."
+msgid "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to the job you want, then practise interviews. Start free, no ads."
+msgstr "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to the job you want, then practise interviews. Start free, no ads."
 
 #: src/libs/seo.ts
-msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored CV and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
-msgstr "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored CV and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
+msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored resume and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
+msgstr "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored resume and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
 
 #: src/features/billing/transactions.tsx
 msgid "PortoFit QRIS code"
@@ -11136,8 +11136,8 @@ msgid "Start free"
 msgstr "Start free"
 
 #: src/features/billing/pricing.tsx
-msgid "Start free to see whether software can read your CV. If you need a CV tailored to one job or interview practice, pay per document. No subscription, no promise of passing a selection."
-msgstr "Start free to see whether software can read your CV. If you need a CV tailored to one job or interview practice, pay per document. No subscription, no promise of passing a selection."
+msgid "Start free to see whether software can read your resume. If you need a resume tailored to one job or interview practice, pay per document. No subscription, no promise of passing a selection."
+msgstr "Start free to see whether software can read your resume. If you need a resume tailored to one job or interview practice, pay per document. No subscription, no promise of passing a selection."
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from"
@@ -13558,8 +13558,8 @@ msgid "Written offer"
 msgstr "Written offer"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes, to suggest sharper wording, tailor a CV to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature."
-msgstr "Yes, to suggest sharper wording, tailor a CV to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature."
+msgid "Yes, to suggest sharper wording, tailor a resume to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature."
+msgstr "Yes, to suggest sharper wording, tailor a resume to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature."
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you save gets its own workspace: check the match against the posting, draft answers from stories you write once, a short plan before the interview, spoken practice with feedback, and notes after the interview."
@@ -14016,8 +14016,8 @@ msgid "Paste the posting"
 msgstr "Paste the posting"
 
 #: src/features/career/workspace/shell.tsx
-msgid "A tailored CV and a cover letter are one click on the Prepare tab."
-msgstr "A tailored CV and a cover letter are one click on the Prepare tab."
+msgid "A tailored resume and a cover letter are one click on the Prepare tab."
+msgstr "A tailored resume and a cover letter are one click on the Prepare tab."
 
 #: src/features/career/workspace/shell.tsx
 msgid "Prepare files"
@@ -14052,8 +14052,8 @@ msgid "Getting started"
 msgstr "Getting started"
 
 #: src/features/documents/start-guide.tsx
-msgid "Your first CV is done. Two steps left."
-msgstr "Your first CV is done. Two steps left."
+msgid "Your first resume is done. Two steps left."
+msgstr "Your first resume is done. Two steps left."
 
 #: src/features/documents/start-guide.tsx
 msgid "PortoFit tracks each job from the posting to the interview."
@@ -14068,8 +14068,8 @@ msgid "You can close this and come back later."
 msgstr "You can close this and come back later."
 
 #: src/features/documents/start-guide.tsx
-msgid "First CV"
-msgstr "First CV"
+msgid "First resume"
+msgstr "First resume"
 
 #: src/features/documents/start-guide.tsx
 msgid "Log an application and paste the posting"
@@ -14104,8 +14104,8 @@ msgid "One interview package covers one practice session with AI feedback. Pract
 msgstr "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
 
 #: src/features/billing/credit-dialog.tsx
-msgid "One application package covers one set of files: a tailored CV, a cover letter, and a match score."
-msgstr "One application package covers one set of files: a tailored CV, a cover letter, and a match score."
+msgid "One application package covers one set of files: a tailored resume, a cover letter, and a match score."
+msgstr "One application package covers one set of files: a tailored resume, a cover letter, and a match score."
 
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."

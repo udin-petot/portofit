@@ -258,7 +258,7 @@ export function Support() {
 					</Trans>
 				</h2>
 				<p className="max-w-[28em] font-display text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
-					{t`PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a CV tailored to one job and interview practice. No ads, no tracking.`}
+					{t`PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a resume tailored to one job and interview practice. No ads, no tracking.`}
 				</p>
 				<ul className="flex flex-wrap gap-2">
 					{pills.map((pill) => (
@@ -284,7 +284,7 @@ export function Support() {
 						<div className="receipt-paper font-receipt bg-[#fdfcf8] px-[26px] pt-[30px] pb-[46px] text-[14px] leading-[1.75] font-medium text-[oklch(0.25_0.01_95)]">
 							<div className="mb-4 flex flex-col gap-0.5 text-center">
 								<b className="text-[18px] leading-[1.1] font-bold tracking-[-.01em]">PortoFit</b>
-								<span className="text-[oklch(0.5_0.01_95)]">{t`Build a CV, match it to a job, practise interviews`}</span>
+								<span className="text-[oklch(0.5_0.01_95)]">{t`Build a resume, match it to a job, practise interviews`}</span>
 								<span className="text-[oklch(0.5_0.01_95)] uppercase">
 									{i18n.date(receiptDate, { day: "2-digit", month: "short", year: "numeric" })}
 								</span>

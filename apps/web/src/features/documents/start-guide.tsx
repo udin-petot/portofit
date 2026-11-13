@@ -30,7 +30,7 @@ export function StartGuide() {
 	};
 
 	const steps = [
-		{ label: t`First CV`, done: true },
+		{ label: t`First resume`, done: true },
 		{ label: t`Log an application and paste the posting`, done: false },
 		{ label: t`Prepare files, then practise the interview`, done: false },
 	];
@@ -40,7 +40,7 @@ export function StartGuide() {
 			<div className="flex items-start justify-between gap-3">
 				<div className="grid gap-0.5">
 					<p className="text-sm font-semibold">
-						<Trans>Your first CV is done. Two steps left.</Trans>
+						<Trans>Your first resume is done. Two steps left.</Trans>
 					</p>
 					<p className="text-xs text-ink-3">
 						<Trans>PortoFit tracks each job from the posting to the interview.</Trans>

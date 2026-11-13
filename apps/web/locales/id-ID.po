@@ -2329,8 +2329,8 @@ msgid "Briefing refresh paused"
 msgstr "Penyegaran briefing dijeda"
 
 #: src/features/homepage/sections.tsx
-msgid "Build a CV, match it to a job, practise interviews"
-msgstr "Bikin CV, cocokkan ke lowongan, latihan wawancara"
+msgid "Build a resume, match it to a job, practise interviews"
+msgstr "Bikin resume, cocokkan ke lowongan, latihan wawancara"
 
 #: src/features/homepage/ui.tsx
 msgid "Build your resume"
@@ -2409,8 +2409,8 @@ msgid "Can I host it myself?"
 msgstr "Bisakah saya menyimpannya sendiri?"
 
 #: src/features/homepage/faq.tsx
-msgid "Can I import an existing CV?"
-msgstr "Bisa impor CV yang sudah ada?"
+msgid "Can I import an existing resume?"
+msgstr "Bisa impor resume yang sudah ada?"
 
 #: src/features/homepage/faq.tsx
 msgid "Can it help me practise interviews?"
@@ -2916,7 +2916,7 @@ msgstr "Konfirmasi waktunya dengan {contact} sebelum menambahkan wawancara baru.
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Confirm the time, link and who you'll meet. Glance at the resume and letter you sent."
-msgstr "Konfirmasi waktu, tautan, dan siapa yang akan Anda temui. Lihat sekilas CV dan surat yang Anda kirim."
+msgstr "Konfirmasi waktu, tautan, dan siapa yang akan Anda temui. Lihat sekilas resume dan surat yang Anda kirim."
 
 #: src/features/homepage/prepare.tsx
 msgid "Confirms {time} today, by video."
@@ -5187,8 +5187,8 @@ msgid "For example: “{0}: I did … at … in 2024, and it led to …”"
 msgstr "Contoh: “{0}: Saya melakukan … di … pada 2024, dan hasilnya …”"
 
 #: src/features/homepage/faq.tsx
-msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs. The flow, examples, and language are made for their needs."
-msgstr "Untuk pencari kerja di Indonesia, terutama mahasiswa tingkat akhir, fresh graduate, dan yang sedang melamar magang atau pekerjaan pertama. Alur, contoh, dan bahasanya dibuat untuk kebutuhan mereka."
+msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
+msgstr "Untuk pencari kerja di Indonesia, terutama mahasiswa tingkat akhir, fresh graduate, dan yang sedang melamar magang atau pekerjaan pertama."
 
 #: src/features/resume/share/download-tab.tsx
 msgid "For LibreOffice and other open-source editors. Layout is simplified."
@@ -5322,7 +5322,7 @@ msgstr "Dari pesan Anda"
 
 #: src/features/career/knowledge/facts.tsx
 msgid "From your resume"
-msgstr "Dari CV Anda"
+msgstr "Dari resume Anda"
 
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Full name"
@@ -6128,8 +6128,8 @@ msgid "Job preparation for Indonesian job seekers"
 msgstr "Persiapan kerja untuk pencari kerja Indonesia"
 
 #: src/libs/seo.ts
-msgid "Job preparation from CV to interview"
-msgstr "Persiapan kerja dari CV sampai wawancara"
+msgid "Job preparation from resume to interview"
+msgstr "Persiapan kerja dari resume sampai wawancara"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Job search failed. Try again or paste a posting link."
@@ -6585,7 +6585,7 @@ msgstr "Tautkan PortoFit (disarankan)"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Link a PortoFit to use AI match scoring and tailoring."
-msgstr "Tautkan akun PortoFit untuk skor kecocokan AI dan penyesuaian CV."
+msgstr "Tautkan akun PortoFit untuk skor kecocokan AI dan penyesuaian resume."
 
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
@@ -7966,8 +7966,8 @@ msgid "Once you've sent a few applications, this shows how far they get and how 
 msgstr "Setelah Anda mengirimkan beberapa lamaran pekerjaan, ini menunjukkan seberapa jauh kemajuan mereka dan seberapa cepat orang membalas."
 
 #: src/features/billing/pricing.tsx
-msgid "One application credit covers one Prepare this application: a tailored CV, a cover letter and a match score for one job. One interview credit covers one practice session for one interview. Credits do not expire."
-msgstr "Satu kredit lamaran menutup satu tombol Siapkan berkas lamaran: CV disesuaikan, surat lamaran, dan skor kecocokan untuk satu lowongan. Satu kredit wawancara menutup satu sesi latihan untuk satu wawancara. Kredit tidak kedaluwarsa."
+msgid "One application credit covers one Prepare this application: a tailored resume, a cover letter and a match score for one job. One interview credit covers one practice session for one interview. Credits do not expire."
+msgstr "Satu kredit lamaran menutup satu tombol Siapkan berkas lamaran: resume disesuaikan, surat lamaran, dan skor kecocokan untuk satu lowongan. Satu kredit wawancara menutup satu sesi latihan untuk satu wawancara. Kredit tidak kedaluwarsa."
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "One column"
@@ -7986,16 +7986,16 @@ msgid "One column with compact spacing and standard headings. Built for fresh gr
 msgstr "Satu kolom dengan jarak rapat dan judul bagian standar. Dibuat untuk fresh graduate yang melamar lewat portal kerja dan sistem pelacak lamaran."
 
 #: src/features/career/workspace/prepare-bar.tsx
-msgid "One credit: a tailored CV, a cover letter, and a match score for this job."
-msgstr "Satu kredit: CV disesuaikan, surat lamaran, dan skor kecocokan untuk lowongan ini."
+msgid "One credit: a tailored resume, a cover letter, and a match score for this job."
+msgstr "Satu kredit: resume disesuaikan, surat lamaran, dan skor kecocokan untuk lowongan ini."
 
 #: src/features/homepage/check.tsx
 msgid "one format"
 msgstr "satu format"
 
 #: src/features/billing/pricing.tsx
-msgid "One free CV to build and download"
-msgstr "1 CV gratis untuk dibangun dan diunduh"
+msgid "One free resume to build and download"
+msgstr "1 resume gratis untuk dibangun dan diunduh"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Only allow applications you trust. This application will be able to:"
@@ -8256,8 +8256,8 @@ msgid "out of 100"
 msgstr "dari 100"
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "Out of application credits. Buy 1 credit to copy your CV to this job."
-msgstr "Kredit lamaran habis. Beli 1 kredit untuk menyalin CV ke lowongan ini."
+msgid "Out of application credits. Buy 1 credit to copy your resume to this job."
+msgstr "Kredit lamaran habis. Beli 1 kredit untuk menyalin resume ke lowongan ini."
 
 #: src/features/career/hooks.ts
 msgid "Out of credits. Buy a package to continue the interview practice session."
@@ -8349,8 +8349,8 @@ msgid "Partly supported"
 msgstr "Didukung sebagian"
 
 #: src/features/homepage/faq.tsx
-msgid "Partly. Building a CV, checking PDF readability, and saving applications are free. For a CV and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking."
-msgstr "Sebagian. Membuat CV, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk CV beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan."
+msgid "Partly. Building a resume, checking PDF readability, and saving applications are free. For a resume and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking."
+msgstr "Sebagian. Membuat resume, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk resume beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan."
 
 #. Authentication provider display name in account settings
 #. Label for passkey sign-in button
@@ -8407,7 +8407,7 @@ msgstr "Tempelkan tautan pekerjaan atau postingan pekerjaan, lalu periksa peran 
 
 #: src/features/homepage/tailor.tsx
 msgid "Paste a job posting once. It feeds a tailored copy of your resume, a match score, a cover letter draft and a place to track the role."
-msgstr "Tempel lowongan kerja sekali saja. Dari situ tersedia salinan CV yang disesuaikan, skor kecocokan, draf surat lamaran, dan tempat untuk melacak posisi tersebut."
+msgstr "Tempel lowongan kerja sekali saja. Dari situ tersedia salinan resume yang disesuaikan, skor kecocokan, draf surat lamaran, dan tempat untuk melacak posisi tersebut."
 
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Paste a job posting…"
@@ -8642,24 +8642,24 @@ msgid "PortoFit {__APP_VERSION__} · MIT"
 msgstr "PortoFit {__APP_VERSION__} · MIT"
 
 #: src/features/homepage/sections.tsx
-msgid "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a CV tailored to one job and interview practice. No ads, no tracking."
-msgstr "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk CV yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacakan."
+msgid "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a resume tailored to one job and interview practice. No ads, no tracking."
+msgstr "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk resume yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacakan."
 
 #: src/features/homepage/header.tsx
 msgid "PortoFit on GitHub"
 msgstr "PortoFit di GitHub"
 
 #: src/libs/seo.ts
-msgid "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
-msgstr "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara membacanya, cocokkan dengan lowongan, lalu latihan wawancara. Mulai gratis, tanpa iklan."
+msgid "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
+msgstr "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin resume, periksa cara membacanya, cocokkan dengan lowongan, lalu latihan wawancara. Mulai gratis, tanpa iklan."
 
 #: src/features/homepage/hero.tsx
-msgid "PortoFit prepares your job application in one flow: build a CV, check how systems read it, match it to the job you want, then practise interviews. Start free, no ads."
-msgstr "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin CV, periksa cara sistem membacanya, cocokkan dengan lowongan yang kamu incar, lalu latihan wawancara. Mulai gratis, tanpa iklan."
+msgid "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to the job you want, then practise interviews. Start free, no ads."
+msgstr "PortoFit menyiapkan lamaran kerjamu dalam satu alur: bikin resume, periksa cara sistem membacanya, cocokkan dengan lowongan yang kamu incar, lalu latihan wawancara. Mulai gratis, tanpa iklan."
 
 #: src/libs/seo.ts
-msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored CV and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
-msgstr "Harga PortoFit: cek ATS gratis, Rp5.000 per lamaran untuk CV dan cover letter yang disesuaikan, Rp10.000 per sesi latihan wawancara. Bayar QRIS, verifikasi manual."
+msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored resume and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
+msgstr "Harga PortoFit: cek ATS gratis, Rp5.000 per lamaran untuk resume dan cover letter yang disesuaikan, Rp10.000 per sesi latihan wawancara. Bayar QRIS, verifikasi manual."
 
 #: src/features/billing/transactions.tsx
 msgid "PortoFit QRIS code"
@@ -9715,15 +9715,15 @@ msgstr "Lanjutkan"
 #: src/features/documents/document-card.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Resume"
-msgstr "CV"
+msgstr "resume"
 
 #: src/features/career/workspace/shell.tsx
 msgid "Resume · not sent yet"
-msgstr "CV · belum dikirim"
+msgstr "resume · belum dikirim"
 
 #: src/features/career/workspace/shell.tsx
 msgid "Resume · version sent"
-msgstr "CV · versi terkirim"
+msgstr "resume · versi terkirim"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Resume (optional)"
@@ -9766,7 +9766,7 @@ msgstr "resume dikirimkan (opsional)"
 #: src/features/command-palette/pages/resumes.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Resumes"
-msgstr "CV"
+msgstr "resume"
 
 #: src/features/settings/preferences.tsx
 msgid "Resumes always render on white paper, whatever the theme."
@@ -9837,7 +9837,7 @@ msgstr "Tinjau jawaban formulir yang wajib dan hapus klaim yang tidak didukung."
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review the selected resume and cover letter in their editors."
-msgstr "Tinjau CV dan surat lamaran yang dipilih di editornya masing-masing."
+msgstr "Tinjau resume dan surat lamaran yang dipilih di editornya masing-masing."
 
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Review writing"
@@ -9988,7 +9988,7 @@ msgstr "Tetap Anda. Lebih jarang mulai dari awal."
 
 #: src/features/documents/use-start-document.ts
 msgid "Sample resume"
-msgstr "Contoh CV"
+msgstr "Contoh resume"
 
 #: src/features/documents/use-start-document.ts
 msgid "Sample resume added. Delete it anytime."
@@ -11141,8 +11141,8 @@ msgid "Start free"
 msgstr "Mulai gratis"
 
 #: src/features/billing/pricing.tsx
-msgid "Start free to see whether software can read your CV. If you need a CV tailored to one job or interview practice, pay per document. No subscription, no promise of passing a selection."
-msgstr "Mulai gratis untuk melihat apakah CV-mu terbaca sistem. Kalau butuh CV yang disesuaikan ke satu lowongan atau latihan wawancara, bayar per dokumen. Tidak ada langganan, tidak ada janji lolos seleksi."
+msgid "Start free to see whether software can read your resume. If you need a resume tailored to one job or interview practice, pay per document. No subscription, no promise of passing a selection."
+msgstr "Mulai gratis untuk melihat apakah resume-mu terbaca sistem. Kalau butuh resume yang disesuaikan ke satu lowongan atau latihan wawancara, bayar per dokumen. Tidak ada langganan, tidak ada janji lolos seleksi."
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Start from"
@@ -13563,8 +13563,8 @@ msgid "Written offer"
 msgstr "Penawaran tertulis"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes, to suggest sharper wording, tailor a CV to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature."
-msgstr "Ya, untuk menyarankan perbaikan kalimat, menyesuaikan CV ke satu iklan lowongan, dan latihan wawancara. Layanan AI sudah disiapkan PortoFit, jadi kamu tidak perlu kunci API sendiri. Isi lamaranmu hanya dikirim ke layanan AI saat kamu memakai fitur itu."
+msgid "Yes, to suggest sharper wording, tailor a resume to one job posting, and practise interviews. PortoFit provides the AI service, so you do not need your own API key. Your application is only sent to the AI service when you use that feature."
+msgstr "Ya, untuk menyarankan perbaikan kalimat, menyesuaikan resume ke satu iklan lowongan, dan latihan wawancara. Layanan AI sudah disiapkan PortoFit, jadi kamu tidak perlu kunci API sendiri. Isi lamaranmu hanya dikirim ke layanan AI saat kamu memakai fitur itu."
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you save gets its own workspace: check the match against the posting, draft answers from stories you write once, a short plan before the interview, spoken practice with feedback, and notes after the interview."
@@ -13751,7 +13751,7 @@ msgstr "Agen AI di browser Anda mengedit surat ini."
 
 #: src/features/resume/editor/webmcp.ts
 msgid "Your browser's AI agent edited this resume."
-msgstr "Agen AI di browser Anda mengedit CV ini."
+msgstr "Agen AI di browser Anda mengedit resume ini."
 
 #: src/features/career/workspace/practise.tsx
 msgid "Your browser's dictation stopped. Try again, or type your answer."
@@ -14021,8 +14021,8 @@ msgid "Paste the posting"
 msgstr "Tempel lowongan"
 
 #: src/features/career/workspace/shell.tsx
-msgid "A tailored CV and a cover letter are one click on the Prepare tab."
-msgstr "CV yang disesuaikan dan surat lamaran dibuat sekali klik di tab Persiapan."
+msgid "A tailored resume and a cover letter are one click on the Prepare tab."
+msgstr "resume yang disesuaikan dan surat lamaran dibuat sekali klik di tab Persiapan."
 
 #: src/features/career/workspace/shell.tsx
 msgid "Prepare files"
@@ -14057,8 +14057,8 @@ msgid "Getting started"
 msgstr "Panduan"
 
 #: src/features/documents/start-guide.tsx
-msgid "Your first CV is done. Two steps left."
-msgstr "CV pertama sudah jadi. Dua langkah lagi."
+msgid "Your first resume is done. Two steps left."
+msgstr "resume pertama sudah jadi. Dua langkah lagi."
 
 #: src/features/documents/start-guide.tsx
 msgid "PortoFit tracks each job from the posting to the interview."
@@ -14073,8 +14073,8 @@ msgid "You can close this and come back later."
 msgstr "Boleh ditutup, bisa dibuka lagi nanti."
 
 #: src/features/documents/start-guide.tsx
-msgid "First CV"
-msgstr "CV pertama"
+msgid "First resume"
+msgstr "resume pertama"
 
 #: src/features/documents/start-guide.tsx
 msgid "Log an application and paste the posting"
@@ -14109,8 +14109,8 @@ msgid "One interview package covers one practice session with AI feedback. Pract
 msgstr "Satu paket wawancara berisi satu sesi latihan dengan masukan AI. Latihan ulang pada wawancara yang sama gratis."
 
 #: src/features/billing/credit-dialog.tsx
-msgid "One application package covers one set of files: a tailored CV, a cover letter, and a match score."
-msgstr "Satu paket lamaran berisi satu set berkas: CV yang disesuaikan, surat lamaran, dan skor kecocokan."
+msgid "One application package covers one set of files: a tailored resume, a cover letter, and a match score."
+msgstr "Satu paket lamaran berisi satu set berkas: resume yang disesuaikan, surat lamaran, dan skor kecocokan."
 
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."

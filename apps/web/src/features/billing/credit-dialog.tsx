@@ -44,7 +44,7 @@ export function CreditDialog() {
 							</Trans>
 						) : (
 							<Trans>
-								One application package covers one set of files: a tailored CV, a cover letter, and a match score.
+								One application package covers one set of files: a tailored resume, a cover letter, and a match score.
 							</Trans>
 						)}
 					</DialogDescription>
