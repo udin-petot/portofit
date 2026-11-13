@@ -9231,8 +9231,8 @@ msgid "Promoted to lead, 2021"
 msgstr "नेतृत्व के लिए पदोन्नत, 2021"
 
 #: src/features/billing/payment-dialog.tsx
-msgid "Proof did not match"
-msgstr ""
+#~ msgid "Proof did not match"
+#~ msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
@@ -9716,6 +9716,7 @@ msgstr ""
 msgid "Reject"
 msgstr "अस्वीकार करना"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Rejected"
 msgstr "अस्वीकार कर दिया"
@@ -12113,6 +12114,10 @@ msgstr ""
 msgid "The interview is over"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "The invoice is attached to the email we just sent."
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 #: src/features/career/workspace/shell.tsx
 msgid "The job posting is missing"
@@ -14031,6 +14036,10 @@ msgstr "आप संपादन जारी रख सकते हैं. �
 #: src/features/career/workspace/apply.tsx
 msgid "You can keep up to 30 application questions."
 msgstr "आप 30 तक आवेदन सवाल रख सकते हैं।"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "You can send another proof while this order is still open."
+msgstr ""
 
 #: src/routes/dashboard/akun.tsx
 msgid "You can sign back in at any time."

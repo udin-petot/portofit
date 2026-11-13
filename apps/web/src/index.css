@@ -47,6 +47,26 @@
 			scale: 0.96;
 		}
 	}
+
+	/*
+	 * Tanda keadaan di popup pembayaran: centang dan silang menggambar dirinya sekali,
+	 * lalu diam. Durasi memakai token --d3, jadi reduced motion memendekkannya jadi 1ms.
+	 */
+	--animate-mark-draw: mark-draw var(--d3) var(--ease) backwards;
+	--animate-mark-settle: mark-settle var(--d2) var(--ease) backwards;
+
+	@keyframes mark-draw {
+		from {
+			stroke-dashoffset: 1;
+		}
+	}
+
+	@keyframes mark-settle {
+		from {
+			opacity: 0;
+			scale: 0.92;
+		}
+	}
 }
 
 /* A wavy warn underline under a line of the page that has a Check issue. */

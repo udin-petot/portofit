@@ -9231,8 +9231,8 @@ msgid "Promoted to lead, 2021"
 msgstr "Forfremmet til leder, 2021"
 
 #: src/features/billing/payment-dialog.tsx
-msgid "Proof did not match"
-msgstr ""
+#~ msgid "Proof did not match"
+#~ msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
@@ -9716,6 +9716,7 @@ msgstr ""
 msgid "Reject"
 msgstr "Afvise"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Rejected"
 msgstr "Afvist"
@@ -12113,6 +12114,10 @@ msgstr ""
 msgid "The interview is over"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "The invoice is attached to the email we just sent."
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 #: src/features/career/workspace/shell.tsx
 msgid "The job posting is missing"
@@ -14031,6 +14036,10 @@ msgstr "Du kan fortsætte med at redigere. Ændringer synkroniseres, når du er 
 #: src/features/career/workspace/apply.tsx
 msgid "You can keep up to 30 application questions."
 msgstr "Du kan have op til 30 ansøgningsspørgsmål."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "You can send another proof while this order is still open."
+msgstr ""
 
 #: src/routes/dashboard/akun.tsx
 msgid "You can sign back in at any time."

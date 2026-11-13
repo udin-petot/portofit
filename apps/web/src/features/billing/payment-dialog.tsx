@@ -2,11 +2,12 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { useLingui } from "@lingui/react";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Dialog, DialogContent, DialogTitle } from "@reactive-resume/ui/components/dialog";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@reactive-resume/ui/components/sheet";
+import { cn } from "@reactive-resume/utils/style";
 import { formatRupiah, PROOF_ACCEPT, whatsappLink } from "./config";
 import { Countdown } from "./countdown";
 import { savePdf } from "./invoice-sheet";
@@ -23,6 +24,41 @@ type PaymentDialogProps = {
 	/** Dipanggil setelah pesanan baru dibuat dari keadaan hangus atau ditolak. */
 	onRestart?: ((orderId: string) => void) | undefined;
 };
+
+const CHIP = {
+	warn: "bg-warn-soft text-warn-text",
+	accent: "bg-accent-soft text-accent-text",
+	danger: "bg-danger-soft text-danger-text",
+} as const;
+
+/** Satu chip status. Titiknya menandai keadaan yang nyata, bukan hiasan. */
+function StatusChip({ tone, children }: { tone: keyof typeof CHIP; children: ReactNode }) {
+	return (
+		<span
+			className={cn(
+				"inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-medium",
+				CHIP[tone],
+			)}
+		>
+			<span className="size-1.5 rounded-full bg-current" />
+			{children}
+		</span>
+	);
+}
+
+/** Rincian pesanan dalam satu kotak, dipakai semua keadaan akhir supaya bentuknya sama. */
+function Detail({ rows }: { rows: Array<{ key: string; label: ReactNode; value: ReactNode }> }) {
+	return (
+		<dl className="divide-y divide-line rounded-lg border border-line">
+			{rows.map((row) => (
+				<div key={row.key} className="flex items-center justify-between gap-3 px-3 py-2.5">
+					<dt className="shrink-0 text-xs text-ink-3">{row.label}</dt>
+					<dd className="min-w-0 truncate text-right text-[13px] text-ink">{row.value}</dd>
+				</div>
+			))}
+		</dl>
+	);
+}
 
 /**
  * Pembayaran manual di satu popup. Ponsel memakai lembar bawah, desktop memakai dialog tengah.
@@ -135,6 +171,13 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 		</div>
 	);
 
+	const planRow = { key: "plan", label: <Trans>Plan</Trans>, value: plan?.name };
+	const amountRow = {
+		key: "amount",
+		label: <Trans>Paid</Trans>,
+		value: <span className="tabular-nums">{formatRupiah(order?.totalIdr ?? 0)}</span>,
+	};
+
 	const waiting = (
 		<>
 			<div className="flex items-center justify-between gap-3 rounded-lg border border-line bg-sunken px-3 py-2.5">
@@ -166,20 +209,6 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 					QRIS.
 				</Trans>
 			</p>
-
-			<input
-				ref={fileInput}
-				type="file"
-				accept={PROOF_ACCEPT}
-				aria-label={t`Upload payment proof`}
-				className="sr-only"
-				disabled={proof.isPending}
-				onChange={(event) => {
-					const file = event.currentTarget.files?.[0];
-					event.currentTarget.value = "";
-					if (file) void handleFile(file);
-				}}
-			/>
 
 			<div className="grid gap-2">
 				<Button className="h-11 w-full" disabled={proof.isPending} onClick={() => fileInput.current?.click()}>
@@ -228,31 +257,21 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 					<Trans>Credits land in your account the moment it passes.</Trans>
 				</span>
 			</p>
-			<dl className="divide-y divide-line rounded-lg border border-line">
-				<div className="flex items-center justify-between gap-3 px-3 py-2.5">
-					<dt className="text-xs text-ink-3">
-						<Trans>Plan</Trans>
-					</dt>
-					<dd className="max-w-[230px] truncate text-[13px] text-ink">{plan?.name}</dd>
-				</div>
-				<div className="flex items-center justify-between gap-3 px-3 py-2.5">
-					<dt className="text-xs text-ink-3">
-						<Trans>Paid</Trans>
-					</dt>
-					<dd className="text-[13px] text-ink tabular-nums">{formatRupiah(order?.totalIdr ?? 0)}</dd>
-				</div>
-				<div className="flex items-center justify-between gap-3 px-3 py-2.5">
-					<dt className="text-xs text-ink-3">
-						<Trans>Status</Trans>
-					</dt>
-					<dd>
-						<span className="inline-flex items-center gap-1.5 rounded-full bg-warn-soft px-2.5 py-0.5 text-[11px] font-medium text-warn-text">
-							<span className="size-1.5 rounded-full bg-current" />
-							<Trans>In review</Trans>
-						</span>
-					</dd>
-				</div>
-			</dl>
+			<Detail
+				rows={[
+					planRow,
+					amountRow,
+					{
+						key: "status",
+						label: <Trans>Status</Trans>,
+						value: (
+							<StatusChip tone="warn">
+								<Trans>In review</Trans>
+							</StatusChip>
+						),
+					},
+				]}
+			/>
 			<Button variant="secondary" className="h-11 w-full" onClick={onClose}>
 				<Trans>Close</Trans>
 			</Button>
@@ -265,29 +284,42 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 	const paid = (
 		<>
 			<QrMorph phase={phase} />
-			<div className="grid gap-1 text-center">
-				<p className="text-[17px] font-semibold text-ink">
-					<Trans>Payment received</Trans>
-				</p>
-				<p className="text-[13px] leading-5 text-ink-2">
-					{credits} {creditUnit} <Trans>added to your account.</Trans>
-					{balances ? (
-						<>
-							{" "}
-							<Trans>Balance now</Trans>{" "}
+			<p className="mx-auto max-w-[330px] text-center text-[13px] leading-5 text-ink-2">
+				{credits} {creditUnit} <Trans>added to your account.</Trans>
+				{balances ? (
+					<>
+						{" "}
+						<Trans>Balance now</Trans>{" "}
+						<span className="font-medium text-ink">
 							{order?.kind === "interview" ? balances.interview : balances.application}.
-						</>
-					) : null}
-				</p>
-			</div>
-			{invoiceNumber ? (
-				<div className="flex items-center justify-between rounded-lg border border-line bg-sunken px-3 py-2.5 text-[13px]">
-					<span className="text-ink-3">
-						<Trans>Invoice</Trans>
-					</span>
-					<span className="font-medium text-ink tabular-nums">{invoiceNumber}</span>
-				</div>
-			) : null}
+						</span>
+					</>
+				) : null}
+			</p>
+			<Detail
+				rows={[
+					planRow,
+					amountRow,
+					...(invoiceNumber
+						? [
+								{
+									key: "invoice",
+									label: <Trans>Invoice</Trans>,
+									value: <span className="font-medium tabular-nums">{invoiceNumber}</span>,
+								},
+							]
+						: []),
+					{
+						key: "status",
+						label: <Trans>Status</Trans>,
+						value: (
+							<StatusChip tone="accent">
+								<Trans>Paid</Trans>
+							</StatusChip>
+						),
+					},
+				]}
+			/>
 			<div className="grid gap-2">
 				<Button
 					className="h-11 w-full"
@@ -304,6 +336,9 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 					<Trans>Done</Trans>
 				</Button>
 			</div>
+			<p className="text-center text-[11px] text-ink-3">
+				<Trans>The invoice is attached to the email we just sent.</Trans>
+			</p>
 		</>
 	);
 
@@ -332,19 +367,34 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 	const rejected = (
 		<>
 			<QrMorph phase={phase} />
-			<div className="grid gap-1 text-center">
-				<p className="text-[17px] font-semibold text-ink">
-					<Trans>Proof did not match</Trans>
-				</p>
-				<p className="text-[13px] leading-5 text-ink-2">
-					{order?.rejectionReason ?? <Trans>The amount or the proof does not match this order.</Trans>}
-				</p>
-			</div>
+			<p className="rounded-lg bg-danger-soft px-3 py-2.5 text-center text-[13px] leading-5 text-danger-text">
+				{order?.rejectionReason ?? <Trans>The amount or the proof does not match this order.</Trans>}
+			</p>
+			<Detail
+				rows={[
+					planRow,
+					amountRow,
+					{
+						key: "status",
+						label: <Trans>Status</Trans>,
+						value: (
+							<StatusChip tone="danger">
+								<Trans>Rejected</Trans>
+							</StatusChip>
+						),
+					},
+				]}
+			/>
 			<div className="grid gap-2">
 				<Button className="h-11 w-full" disabled={proof.isPending} onClick={() => fileInput.current?.click()}>
 					{proof.isPending ? <Trans>Uploading the proof…</Trans> : <Trans>Upload another proof</Trans>}
 				</Button>
-				<Button variant="secondary" className="h-11 w-full" disabled={createOrder.isPending} onClick={() => void restart()}>
+				<Button
+					variant="secondary"
+					className="h-11 w-full"
+					disabled={createOrder.isPending}
+					onClick={() => void restart()}
+				>
 					<Trans>Create a new order</Trans>
 				</Button>
 			</div>
@@ -353,6 +403,9 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 					{proof.error}
 				</p>
 			) : null}
+			<p className="text-center text-[11px] text-ink-3">
+				<Trans>You can send another proof while this order is still open.</Trans>
+			</p>
 		</>
 	);
 
@@ -373,8 +426,24 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 		</>
 	);
 
+	/** Keadaan yang punya kotak rincian sendiri tidak perlu ringkasan nominal di atas. */
+	const showsSummary = phase === "menunggu" || phase === "mengunggah" || phase === "kedaluwarsa" || phase === "galat";
+
 	const body = (
 		<div className="grid gap-4">
+			<input
+				ref={fileInput}
+				type="file"
+				accept={PROOF_ACCEPT}
+				aria-label={t`Upload payment proof`}
+				className="sr-only"
+				disabled={proof.isPending}
+				onChange={(event) => {
+					const file = event.currentTarget.files?.[0];
+					event.currentTarget.value = "";
+					if (file) void handleFile(file);
+				}}
+			/>
 			{phase === "menyiapkan" ? (
 				<>
 					<div className="mx-auto size-[240px] animate-pulse rounded-xl bg-sunken" />
@@ -384,7 +453,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 				</>
 			) : (
 				<>
-					{phase === "menunggu_dicek" ? null : summary}
+					{showsSummary ? summary : null}
 					{phase === "menunggu" || phase === "mengunggah" ? waiting : null}
 					{phase === "menunggu_dicek" ? reviewing : null}
 					{phase === "lunas" ? paid : null}

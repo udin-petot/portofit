@@ -9232,8 +9232,8 @@ msgid "Promoted to lead, 2021"
 msgstr "Dipromosikan untuk memimpin, 2021"
 
 #: src/features/billing/payment-dialog.tsx
-msgid "Proof did not match"
-msgstr ""
+#~ msgid "Proof did not match"
+#~ msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
@@ -9717,6 +9717,7 @@ msgstr "Latih pertanyaan yang paling mungkin keluar."
 msgid "Reject"
 msgstr "Tolak"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Rejected"
 msgstr "Ditolak"
@@ -12114,6 +12115,10 @@ msgstr "Wawancara sudah dekat"
 msgid "The interview is over"
 msgstr "Wawancara sudah lewat"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "The invoice is attached to the email we just sent."
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 #: src/features/career/workspace/shell.tsx
 msgid "The job posting is missing"
@@ -14032,6 +14037,10 @@ msgstr "Anda dapat terus mengedit. Mengubah sinkronisasi saat Anda kembali onlin
 #: src/features/career/workspace/apply.tsx
 msgid "You can keep up to 30 application questions."
 msgstr "Anda dapat menyimpan hingga 30 pertanyaan lamaran."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "You can send another proof while this order is still open."
+msgstr ""
 
 #: src/routes/dashboard/akun.tsx
 msgid "You can sign back in at any time."
