@@ -34,6 +34,23 @@ const MAX_POSTING_CHARS = 20_000;
 
 const isLink = (value: string) => /^https?:\/\/\S+$/i.test(value.trim());
 
+/**
+ * Hasil pencarian datang sebagai judul "Role in Location | ... at Company".
+ * Diisi lebih dulu supaya orang tidak mengetik ulang tiga kolom yang sudah terlihat di kartunya.
+ */
+function splitSearchTitle(title: string) {
+	const clean = title.replace(/\s+/g, " ").trim();
+	const atIndex = clean.lastIndexOf(" at ");
+	const head = atIndex > 0 ? clean.slice(0, atIndex) : clean;
+	const company = atIndex > 0 ? clean.slice(atIndex + 4).trim() : "";
+	const place = head.includes(" | ") ? head.slice(0, head.indexOf(" | ")) : head;
+	const inIndex = place.indexOf(" in ");
+	const role = inIndex > 0 ? place.slice(0, inIndex).trim() : "";
+	const location = inIndex > 0 ? place.slice(inIndex + 4).trim() : "";
+	const usable = (value: string) => (value.length > 0 && value.length <= 80 ? value : "");
+	return { role: usable(role), company: usable(company), location: usable(location) };
+}
+
 type AddApplicationDialogProps = {
 	open: boolean;
 	onOpenChange: (open: boolean) => void;
@@ -141,6 +158,15 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 
 	const add = async (tailor: boolean) => {
 		if (!ready) return;
+		// Tautan yang tidak terbaca akan tersimpan tanpa teks lowongan, dan semua fitur berbayar mati karenanya.
+		if (link && !(description ?? "").trim()) {
+			toast.add({
+				type: "error",
+				description: t`That link couldn't be read. Paste the posting text instead.`,
+			});
+			setPasteOpen(true);
+			return;
+		}
 		const posting = {
 			company: company.trim(),
 			role: role.trim(),
@@ -266,13 +292,14 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 											variant="secondary"
 											disabled={read.isPending || create.isPending}
 											onClick={() => {
+												const found = splitSearchTitle(result.title);
 												setInput(result.url);
 												setPasteOpen(false);
 												setDescription(null);
 												resetRead();
-												setRole("");
-												setCompany("");
-												setLocation("");
+												setRole(found.role);
+												setCompany(found.company);
+												setLocation(found.location);
 												setSalary("");
 												search.reset();
 											}}

@@ -255,7 +255,10 @@ export function Workspace({ applicationId, tab: requested, search }: WorkspacePr
 							</TabsTrigger>
 						))}
 					</TabsList>
-					{application.resumeId && application.jobDescription ? (
+					{application.resumeId &&
+					application.jobDescription &&
+					!application.sentResumeVersionId &&
+					!application.sentCoverLetterVersionId ? (
 						<PrepareBar application={application} />
 					) : null}
 					{WORKSPACE_TABS.map((value) => (
