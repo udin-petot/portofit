@@ -1840,6 +1840,7 @@ msgstr "Application answer"
 msgid "Application closed"
 msgstr "Application closed"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
 msgstr "application credit"
@@ -5999,6 +6000,10 @@ msgstr "Interview"
 #: src/features/career/today.tsx
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
 msgstr "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credit"
+msgstr "interview credit"
 
 #: src/features/billing/payment-dialog.tsx
 msgid "interview credits"
@@ -12692,6 +12697,7 @@ msgstr "Too light for headings on white. It may be hard to read and print faintl
 msgid "Too many requests. Try again later."
 msgstr "Too many requests. Try again later."
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "Total"

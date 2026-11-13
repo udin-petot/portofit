@@ -1845,6 +1845,7 @@ msgstr "Jawaban lamaran"
 msgid "Application closed"
 msgstr "lamaran pekerjaan ditutup"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
 msgstr "kredit lamaran"
@@ -6004,6 +6005,10 @@ msgstr "Wawancara"
 #: src/features/career/today.tsx
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
 msgstr "Briefing wawancara, susulan yang jatuh tempo, dan proses yang selesai muncul di sini saat siap."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credit"
+msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
 msgid "interview credits"
@@ -12697,6 +12702,7 @@ msgstr "Terlalu terang untuk judul berwarna putih. Mungkin sulit untuk membaca d
 msgid "Too many requests. Try again later."
 msgstr "Terlalu banyak permintaan. Coba lagi nanti."
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "Total"

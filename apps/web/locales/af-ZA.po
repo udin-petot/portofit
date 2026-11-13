@@ -1844,6 +1844,7 @@ msgstr "Aansoekantwoord"
 msgid "Application closed"
 msgstr "Werksaansoek gesluit"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
 msgstr ""
@@ -6002,6 +6003,10 @@ msgstr "Onderhoud"
 
 #: src/features/career/today.tsx
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
@@ -12696,6 +12701,7 @@ msgstr "Te lig vir opskrifte op wit. Dit kan moeilik wees om flou te lees en te 
 msgid "Too many requests. Try again later."
 msgstr "Te veel versoeke. Probeer later weer."
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "Totaal"

@@ -1844,6 +1844,7 @@ msgstr "ចម្លើយក្នុងពាក្យសុំ"
 msgid "Application closed"
 msgstr "ពាក្យសុំការងារត្រូវបានបិទ"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
 msgstr ""
@@ -6002,6 +6003,10 @@ msgstr "សម្ភាសន៍"
 
 #: src/features/career/today.tsx
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
@@ -12696,6 +12701,7 @@ msgstr "ស្រាលពេកសម្រាប់ក្បាលពណ៌ស
 msgid "Too many requests. Try again later."
 msgstr "សំណើច្រើនពេក។ សូមព្យាយាមម្តងទៀតនៅពេលក្រោយ។"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "សរុប"

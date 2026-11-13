@@ -1844,6 +1844,7 @@ msgstr "지원서 답변"
 msgid "Application closed"
 msgstr "입사 지원이 마감되었습니다"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
 msgstr ""
@@ -6002,6 +6003,10 @@ msgstr "면접"
 
 #: src/features/career/today.tsx
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
@@ -12696,6 +12701,7 @@ msgstr "흰색 제목에 너무 밝습니다. 희미하게 인쇄되어 읽기 �
 msgid "Too many requests. Try again later."
 msgstr "요청이 너무 많습니다. 나중에 다시 시도하세요."
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "총"

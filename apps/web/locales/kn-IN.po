@@ -1844,6 +1844,7 @@ msgstr "ಅರ್ಜಿಯ ಉತ್ತರ"
 msgid "Application closed"
 msgstr "ಉದ್ಯೋಗ ಅರ್ಜಿಯನ್ನು ಮುಚ್ಚಲಾಗಿದೆ"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
 msgstr ""
@@ -6002,6 +6003,10 @@ msgstr "ಸಂದರ್ಶನ"
 
 #: src/features/career/today.tsx
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
@@ -12696,6 +12701,7 @@ msgstr "ಬಿಳಿಯ ಶೀರ್ಷಿಕೆಗಳಿಗೆ ತುಂಬಾ 
 msgid "Too many requests. Try again later."
 msgstr "ಹಲವಾರು ವಿನಂತಿಗಳು. ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "ಒಟ್ಟು"

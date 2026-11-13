@@ -1844,6 +1844,7 @@ msgstr "Përgjigje në aplikim"
 msgid "Application closed"
 msgstr "aplikimi për punë u mbyll"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
 msgstr ""
@@ -6002,6 +6003,10 @@ msgstr "Intervistë"
 
 #: src/features/career/today.tsx
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
@@ -12696,6 +12701,7 @@ msgstr "Shumë i lehtë për titujt në të bardhë. Mund të jetë e vështirë
 msgid "Too many requests. Try again later."
 msgstr "Shumë kërkesa. Provo sërish më vonë."
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "Gjithsej"

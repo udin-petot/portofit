@@ -1844,6 +1844,7 @@ msgstr "Odpowiedź w aplikacji"
 msgid "Application closed"
 msgstr "podanie o pracę zostało zamknięte"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
 msgstr ""
@@ -6002,6 +6003,10 @@ msgstr "Rozmowa kwalifikacyjna"
 
 #: src/features/career/today.tsx
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
@@ -12696,6 +12701,7 @@ msgstr "Zbyt jasne na nagłówki w kolorze białym. Może być trudno odczytać 
 msgid "Too many requests. Try again later."
 msgstr "Zbyt wiele żądań. Spróbuj ponownie później."
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "Całkowity"

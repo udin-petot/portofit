@@ -1844,6 +1844,7 @@ msgstr "應徵回答"
 msgid "Application closed"
 msgstr "工作申請已關閉"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
 msgstr ""
@@ -6002,6 +6003,10 @@ msgstr "面試"
 
 #: src/features/career/today.tsx
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
@@ -12696,6 +12701,7 @@ msgstr "對於白色標題來說太亮了。微弱地閱讀和列印可能會很
 msgid "Too many requests. Try again later."
 msgstr "請求太多。稍後再試。"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "全部的"

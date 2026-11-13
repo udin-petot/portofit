@@ -1844,6 +1844,7 @@ msgstr "Ansøgningssvar"
 msgid "Application closed"
 msgstr "Jobansøgning lukket"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
 msgstr ""
@@ -6002,6 +6003,10 @@ msgstr "Interview"
 
 #: src/features/career/today.tsx
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
@@ -12696,6 +12701,7 @@ msgstr "For lys til overskrifter på hvid. Det kan være svært at læse og udsk
 msgid "Too many requests. Try again later."
 msgstr "For mange anmodninger. Prøv igen senere."
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "Total"

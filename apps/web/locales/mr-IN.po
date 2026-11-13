@@ -1844,6 +1844,7 @@ msgstr "अर्जातील उत्तर"
 msgid "Application closed"
 msgstr "नोकरी अर्ज बंद"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 msgid "application credit"
 msgstr ""
@@ -6002,6 +6003,10 @@ msgstr "मुलाखत"
 
 #: src/features/career/today.tsx
 msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "interview credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
@@ -12696,6 +12701,7 @@ msgstr "पांढऱ्यावरील शीर्षकांसाठ�
 msgid "Too many requests. Try again later."
 msgstr "खूप विनंत्या. नंतर पुन्हा प्रयत्न करा."
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/sections.tsx
 msgid "Total"
 msgstr "एकूण"

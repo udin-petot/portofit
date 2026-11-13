@@ -75,7 +75,11 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 	const plan = order
 		? getPlanCopy({ code: order.planCode, name: order.planName, description: null, kind: order.kind }, english)
 		: null;
-	const unit = order?.kind === "interview" ? t`interview credits` : t`application credits`;
+	const credits = order?.credits ?? 1;
+	const creditUnit = (() => {
+		if (order?.kind === "interview") return credits === 1 ? t`interview credit` : t`interview credits`;
+		return credits === 1 ? t`application credit` : t`application credits`;
+	})();
 
 	const copyAmount = async () => {
 		if (!order) return;
@@ -113,7 +117,11 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 	const summary = order ? (
 		<div className="grid gap-0.5">
 			<p className="text-[11px] tracking-[0.06em] text-ink-3 uppercase">
-				<Trans>Total to pay</Trans>
+				{phase === "lunas" || phase === "kedaluwarsa" || phase === "ditolak" ? (
+					<Trans>Total</Trans>
+				) : (
+					<Trans>Total to pay</Trans>
+				)}
 			</p>
 			<p className="text-[30px] leading-9 font-semibold text-ink tabular-nums max-sm:text-[28px]">
 				{formatRupiah(order.totalIdr)}
@@ -254,7 +262,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 					<Trans>Payment received</Trans>
 				</p>
 				<p className="text-[13px] leading-5 text-ink-2">
-					{order?.credits ?? 1} {unit} <Trans>added to your account.</Trans>
+					{credits} {creditUnit} <Trans>added to your account.</Trans>
 					{balances ? (
 						<>
 							{" "}
