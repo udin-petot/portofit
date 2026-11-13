@@ -50,6 +50,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 		refetchInterval: (query) => {
 			const state = query.state.data?.order.status;
 			if (state === "lunas" || state === "hangus" || state === "ditolak") return false;
+			// Setelah bukti terkirim, admin bisa memverifikasi kapan saja: rapatkan dulu, lalu longgarkan.
 			const fresh = uploadedAt !== null && Date.now() - uploadedAt < 30_000;
 			return fresh ? 5_000 : 15_000;
 		},
@@ -74,7 +75,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 	const plan = order
 		? getPlanCopy({ code: order.planCode, name: order.planName, description: null, kind: order.kind }, english)
 		: null;
-	const unit = order?.kind === "interview" ? t`kredit wawancara` : t`kredit lamaran`;
+	const unit = order?.kind === "interview" ? t`interview credits` : t`application credits`;
 
 	const copyAmount = async () => {
 		if (!order) return;
@@ -98,21 +99,21 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 
 	const title =
 		phase === "lunas"
-			? t`Pembayaran diterima`
+			? t`Payment received`
 			: phase === "kedaluwarsa"
-				? t`Waktu habis`
+				? t`Time is up`
 				: phase === "ditolak"
-					? t`Bukti ditolak`
+					? t`Proof rejected`
 					: phase === "galat"
-						? t`Koneksi bermasalah`
+						? t`Connection problem`
 						: phase === "menunggu_dicek"
-							? t`Menunggu dicek admin`
-							: t`Selesaikan pembayaran`;
+							? t`Waiting for a check`
+							: t`Finish the payment`;
 
 	const summary = order ? (
 		<div className="grid gap-0.5">
 			<p className="text-[11px] tracking-[0.06em] text-ink-3 uppercase">
-				<Trans>Total bayar</Trans>
+				<Trans>Total to pay</Trans>
 			</p>
 			<p className="text-[30px] leading-9 font-semibold text-ink tabular-nums max-sm:text-[28px]">
 				{formatRupiah(order.totalIdr)}
@@ -131,14 +132,14 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 			<div className="flex items-center justify-between gap-3 rounded-lg border border-line bg-sunken px-3 py-2.5">
 				<div>
 					<p className="text-[11px] text-ink-3">
-						<Trans>Kode unik</Trans>
+						<Trans>Unique code</Trans>
 					</p>
 					<p className="font-mono text-sm font-semibold tracking-[0.08em] text-ink">
 						{String(order?.uniqueCode ?? 0).padStart(3, "0")}
 					</p>
 				</div>
 				<Button variant="secondary" size="sm" onClick={() => void copyAmount()}>
-					{copied ? <Trans>Tersalin</Trans> : <Trans>Salin nominal</Trans>}
+					{copied ? <Trans>Copied</Trans> : <Trans>Copy the amount</Trans>}
 				</Button>
 			</div>
 
@@ -146,19 +147,15 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 
 			<div className="mx-auto flex items-center gap-1.5 rounded-full bg-warn-soft px-3 py-1 text-xs text-warn-text">
 				<Icon name="clock" size={13} />
-				<Trans>Berlaku</Trans>
-				<Countdown
-					expiresAt={expiresAt}
-					onExpire={() => setExpired(true)}
-					className="font-medium text-warn-text"
-				/>
-				<Trans>lagi</Trans>
+				<Trans>Valid for</Trans>
+				<Countdown expiresAt={expiresAt} onExpire={() => setExpired(true)} className="font-medium text-warn-text" />
+				<Trans>more</Trans>
 			</div>
 
 			<p className="text-center text-xs leading-5 text-ink-2">
 				<Trans>
-					Bayar tepat sampai tiga angka terakhir. Pindai dengan aplikasi bank atau dompet digital apa pun yang
-					mendukung QRIS.
+					Pay the exact amount down to the last three digits. Scan it with any bank or wallet app that supports
+					QRIS.
 				</Trans>
 			</p>
 
@@ -166,7 +163,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 				ref={fileInput}
 				type="file"
 				accept={PROOF_ACCEPT}
-				aria-label={t`Unggah bukti bayar`}
+				aria-label={t`Upload payment proof`}
 				className="sr-only"
 				disabled={proof.isPending}
 				onChange={(event) => {
@@ -179,7 +176,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 			<div className="grid gap-2">
 				<Button className="h-11 w-full" disabled={proof.isPending} onClick={() => fileInput.current?.click()}>
 					<Icon name="upload-simple" size={16} />
-					{proof.isPending ? <Trans>Mengunggah bukti…</Trans> : <Trans>Unggah bukti bayar</Trans>}
+					{proof.isPending ? <Trans>Uploading the proof…</Trans> : <Trans>Upload payment proof</Trans>}
 				</Button>
 				<Button
 					variant="secondary"
@@ -197,7 +194,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 					}
 				>
 					<Icon name="chat-text" size={16} />
-					<Trans>Kirim bukti lewat WhatsApp</Trans>
+					<Trans>Send the proof on WhatsApp</Trans>
 				</Button>
 			</div>
 
@@ -208,7 +205,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 			) : null}
 
 			<p className="text-center text-[11px] text-ink-3">
-				<Trans>Bisa ditutup kapan saja, pesanan tetap tersimpan di Transaksi.</Trans>
+				<Trans>You can close this any time; the order stays in Transactions.</Trans>
 			</p>
 		</>
 	);
@@ -218,31 +215,33 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 			<QrMorph phase={phase} />
 			<div className="grid gap-1 text-center">
 				<p className="text-[15px] font-semibold text-ink">
-					<Trans>Bukti sudah masuk</Trans>
+					<Trans>Proof sent</Trans>
 				</p>
 				<p className="text-[13px] leading-5 text-ink-2">
-					<Trans>Admin memeriksa manual, biasanya kurang dari satu hari kerja. Kredit langsung masuk setelah lolos.</Trans>
+					<Trans>
+						An admin checks it by hand, usually within one working day. Credits land in your account once it passes.
+					</Trans>
 				</p>
 			</div>
 			<div className="grid gap-1.5 rounded-lg border border-line bg-sunken px-3 py-2.5 text-[13px]">
 				<div className="flex justify-between gap-3">
 					<span className="text-ink-3">
-						<Trans>Paket</Trans>
+						<Trans>Plan</Trans>
 					</span>
 					<span className="truncate text-ink">{plan?.name}</span>
 				</div>
 				<div className="flex justify-between gap-3">
 					<span className="text-ink-3">
-						<Trans>Dibayar</Trans>
+						<Trans>Paid</Trans>
 					</span>
 					<span className="text-ink tabular-nums">{formatRupiah(order?.totalIdr ?? 0)}</span>
 				</div>
 			</div>
 			<Button variant="secondary" className="h-11 w-full" onClick={onClose}>
-				<Trans>Tutup</Trans>
+				<Trans>Close</Trans>
 			</Button>
 			<p className="text-center text-[11px] text-ink-3">
-				<Trans>Kami kabari lewat email begitu diverifikasi.</Trans>
+				<Trans>We email you the moment it is verified.</Trans>
 			</p>
 		</>
 	);
@@ -252,14 +251,14 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 			<QrMorph phase={phase} />
 			<div className="grid gap-1 text-center">
 				<p className="text-[17px] font-semibold text-ink">
-					<Trans>Pembayaran diterima</Trans>
+					<Trans>Payment received</Trans>
 				</p>
 				<p className="text-[13px] leading-5 text-ink-2">
-					{order?.credits ?? 1} {unit} <Trans>masuk ke akunmu.</Trans>
+					{order?.credits ?? 1} {unit} <Trans>added to your account.</Trans>
 					{balances ? (
 						<>
 							{" "}
-							<Trans>Saldo sekarang</Trans>{" "}
+							<Trans>Balance now</Trans>{" "}
 							{order?.kind === "interview" ? balances.interview : balances.application}.
 						</>
 					) : null}
@@ -283,10 +282,10 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 						savePdf(result.pdf, result.fileName);
 					}}
 				>
-					<Trans>Unduh invoice</Trans>
+					<Trans>Download invoice</Trans>
 				</Button>
 				<Button variant="secondary" className="h-11 w-full" onClick={onClose}>
-					<Trans>Selesai</Trans>
+					<Trans>Done</Trans>
 				</Button>
 			</div>
 		</>
@@ -297,18 +296,18 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 			<QrMorph phase={phase} />
 			<div className="grid gap-1 text-center">
 				<p className="text-[17px] font-semibold text-ink">
-					<Trans>Pesanan kedaluwarsa</Trans>
+					<Trans>Order expired</Trans>
 				</p>
 				<p className="text-[13px] leading-5 text-ink-2">
-					<Trans>Batas waktu lewat sebelum bukti masuk. Pesanan ini ditutup dan tidak bisa dibayar lagi.</Trans>
+					<Trans>The deadline passed before the proof arrived. This order is closed and cannot be paid again.</Trans>
 				</p>
 			</div>
 			<div className="grid gap-2">
 				<Button className="h-11 w-full" disabled={createOrder.isPending} onClick={() => void restart()}>
-					{createOrder.isPending ? <Trans>Menyiapkan…</Trans> : <Trans>Buat pesanan baru</Trans>}
+					{createOrder.isPending ? <Trans>Preparing…</Trans> : <Trans>Create a new order</Trans>}
 				</Button>
 				<Button variant="secondary" className="h-11 w-full" onClick={onClose}>
-					<Trans>Tutup</Trans>
+					<Trans>Close</Trans>
 				</Button>
 			</div>
 		</>
@@ -319,18 +318,18 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 			<QrMorph phase={phase} />
 			<div className="grid gap-1 text-center">
 				<p className="text-[17px] font-semibold text-ink">
-					<Trans>Bukti tidak cocok</Trans>
+					<Trans>Proof did not match</Trans>
 				</p>
 				<p className="text-[13px] leading-5 text-ink-2">
-					{order?.rejectionReason ?? <Trans>Nominal atau bukti tidak sesuai dengan pesanan ini.</Trans>}
+					{order?.rejectionReason ?? <Trans>The amount or the proof does not match this order.</Trans>}
 				</p>
 			</div>
 			<div className="grid gap-2">
 				<Button className="h-11 w-full" disabled={proof.isPending} onClick={() => fileInput.current?.click()}>
-					{proof.isPending ? <Trans>Mengunggah bukti…</Trans> : <Trans>Unggah bukti lain</Trans>}
+					{proof.isPending ? <Trans>Uploading the proof…</Trans> : <Trans>Upload another proof</Trans>}
 				</Button>
 				<Button variant="secondary" className="h-11 w-full" disabled={createOrder.isPending} onClick={() => void restart()}>
-					<Trans>Buat pesanan baru</Trans>
+					<Trans>Create a new order</Trans>
 				</Button>
 			</div>
 			{proof.error ? (
@@ -346,14 +345,14 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 			<QrMorph phase={phase} />
 			<div className="grid gap-1 text-center">
 				<p className="text-[17px] font-semibold text-ink">
-					<Trans>Status tidak terbaca</Trans>
+					<Trans>Status could not be read</Trans>
 				</p>
 				<p className="text-[13px] leading-5 text-ink-2">
-					<Trans>Koneksi bermasalah. Pesananmu tetap tersimpan, coba muat ulang statusnya.</Trans>
+					<Trans>Connection problem. Your order is still saved, try loading its status again.</Trans>
 				</p>
 			</div>
 			<Button className="h-11 w-full" onClick={() => void status.refetch()}>
-				<Trans>Coba lagi</Trans>
+				<Trans>Try again</Trans>
 			</Button>
 		</>
 	);
@@ -364,7 +363,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 				<>
 					<div className="mx-auto size-[240px] animate-pulse rounded-xl bg-sunken" />
 					<p className="text-center text-xs text-ink-3">
-						<Trans>Menyiapkan pembayaran…</Trans>
+						<Trans>Preparing your payment…</Trans>
 					</p>
 				</>
 			) : (
@@ -395,7 +394,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 				<SheetContent
 					side="bottom"
 					showCloseButton={!proof.isPending}
-					closeLabel={t`Tutup`}
+					closeLabel={t`Close`}
 					className="max-h-[92svh] gap-2 pb-[env(safe-area-inset-bottom)]"
 				>
 					<SheetHeader>
@@ -409,7 +408,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 
 	return (
 		<Dialog open onOpenChange={handleOpenChange}>
-			<DialogContent showCloseButton={!proof.isPending} closeLabel={t`Tutup`} className="max-w-[460px] p-5">
+			<DialogContent showCloseButton={!proof.isPending} closeLabel={t`Close`} className="max-w-[460px] p-5">
 				<DialogTitle className="font-sans text-[17px] font-semibold">{title}</DialogTitle>
 				<div aria-live="polite" className="sr-only">
 					{title}

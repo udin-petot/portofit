@@ -1,4 +1,5 @@
 import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import { useLingui } from "@lingui/react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
@@ -7,21 +8,14 @@ import { formatRupiah } from "./config";
 import { getPlanCopy, type PlanLike } from "./plan-copy";
 import { orpc } from "@/libs/orpc/client";
 
-type PricingPageProps = { signedIn: boolean };
+type PricingPageProps = { signedIn: boolean; onOrder?: ((orderId: string) => void) | undefined };
 
-export function PricingBody({ signedIn }: PricingPageProps) {
+export function PricingBody({ signedIn, onOrder }: PricingPageProps) {
 	const navigate = useNavigate();
 	const { i18n } = useLingui();
 	const english = i18n.locale.startsWith("en");
 	const { data, isLoading } = useQuery(orpc.billing.plans.queryOptions());
 	const createOrder = useMutation(orpc.billing.createOrder.mutationOptions());
-
-	const freeFeatures = [
-		t`Unlimited ATS checks, no login`,
-		t`One free resume to build and download`,
-		t`Weekly AI allowance, back every Monday`,
-		t`Free issue list and basic job match`,
-	];
 
 	const buy = async (planCode: string) => {
 		if (!signedIn) {
@@ -29,6 +23,11 @@ export function PricingBody({ signedIn }: PricingPageProps) {
 			return;
 		}
 		const order = await createOrder.mutateAsync({ planCode });
+		// Halaman yang punya popup membuka pesanan di tempat; halaman publik tetap pindah halaman.
+		if (onOrder) {
+			onOrder(order.id);
+			return;
+		}
 		await navigate({ to: "/dashboard/transaksi", search: { order: order.id } });
 	};
 
@@ -36,50 +35,32 @@ export function PricingBody({ signedIn }: PricingPageProps) {
 
 	return (
 		<div className="grid gap-4">
-			<div className="grid gap-4 md:grid-cols-3">
-				<section className="flex flex-col rounded-lg border border-line bg-surface p-6">
-					<h2 className="text-lg font-semibold text-ink">{t`Free`}</h2>
-					<p className="mt-1 text-2xl font-semibold text-ink">Rp0</p>
-					<p className="mt-1 text-sm text-ink-3">{t`To try the flow`}</p>
-					<ul className="mt-5 grid gap-2 text-sm text-ink-2">
-						{freeFeatures.map((item) => (
-							<li key={item} className="flex gap-2">
-								<span aria-hidden className="text-ink-3">
-									·
-								</span>
-								{item}
-							</li>
-						))}
-					</ul>
-					<div className="mt-auto pt-6">
-						<Button
-							variant="secondary"
-							className="w-full"
-							onClick={() => void navigate({ to: signedIn ? "/dashboard" : "/auth/register" })}
-						>
-							{signedIn ? t`Go to my documents` : t`Start free`}
-						</Button>
-					</div>
-				</section>
-
+			{/* Paket berbayar lebih dulu: halaman ini tentang membeli, bukan tentang mencoba. */}
+			<div className="grid gap-4 md:max-w-[760px] md:grid-cols-2">
 				{isLoading ? (
-					<section className="rounded-lg border border-line bg-surface p-6 text-sm text-ink-3 md:col-span-2">{t`Loading packages…`}</section>
+					<section className="rounded-lg border border-line bg-surface p-6 text-sm text-ink-3 md:col-span-2">
+						{t`Loading packages…`}
+					</section>
 				) : (
 					(data?.plans ?? []).map((plan) => {
 						const copy = copyFor(plan);
 						return (
-							<section key={plan.code} className="flex flex-col rounded-lg border border-line bg-surface p-6">
-								<h2 className="text-lg font-semibold text-ink">{copy.name}</h2>
-								<p className="mt-1 text-2xl font-semibold text-ink">{formatRupiah(plan.priceIdr)}</p>
+							<section key={plan.code} className="flex h-full flex-col rounded-lg border border-line bg-surface p-6">
+								<h2 className="text-base font-semibold text-ink">{copy.name}</h2>
+								<p className="mt-2 text-[32px] leading-9 font-semibold text-ink tabular-nums">
+									{formatRupiah(plan.priceIdr)}
+								</p>
 								<p className="mt-1 text-sm text-ink-3">
 									{plan.credits} {copy.unit}
 								</p>
-								<p className="mt-5 text-sm leading-relaxed text-ink-2">{copy.description}</p>
+								<p className="mt-4 text-sm leading-relaxed text-ink-2">{copy.description}</p>
 								<div className="mt-auto pt-6">
-									<Button className="w-full" onClick={() => void buy(plan.code)} disabled={createOrder.isPending}>
+									<Button className="h-11 w-full" onClick={() => void buy(plan.code)} disabled={createOrder.isPending}>
 										{createOrder.isPending ? t`Preparing your order…` : t`Buy ${formatRupiah(plan.priceIdr)}`}
 									</Button>
-									<p className="mt-2 text-center text-xs text-ink-3">{t`Pay by QRIS, verified manually by an admin.`}</p>
+									<p className="mt-2 text-center text-xs text-ink-3">
+										{t`Pay by QRIS, checked by an admin, credits land once it passes.`}
+									</p>
 								</div>
 							</section>
 						);
@@ -87,12 +68,31 @@ export function PricingBody({ signedIn }: PricingPageProps) {
 				)}
 			</div>
 
+			<section className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-dashed border-line px-4 py-3">
+				<div className="min-w-0">
+					<p className="text-sm text-ink">
+						<Trans>Not sure yet?</Trans>{" "}
+						<span className="text-ink-3">
+							<Trans>Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance.</Trans>
+						</span>
+					</p>
+				</div>
+				<Button
+					variant="ghost"
+					size="sm"
+					className="shrink-0"
+					onClick={() => void navigate({ to: signedIn ? "/dashboard" : "/auth/register" })}
+				>
+					{signedIn ? t`Open my documents` : t`Start free`}
+				</Button>
+			</section>
+
 			<section className="rounded-lg border border-line bg-sunken p-6 text-sm leading-relaxed text-ink-2">
 				<h2 className="text-base font-semibold text-ink">{t`How to pay`}</h2>
 				<ol className="mt-3 grid gap-2">
-					<li>{t`1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003.`}</li>
-					<li>{t`2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code.`}</li>
-					<li>{t`3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately.`}</li>
+					<li>{t`1. Choose a package. The order opens straight away in a payment window.`}</li>
+					<li>{t`2. Scan the QRIS and pay the exact amount down to the last three digits.`}</li>
+					<li>{t`3. Upload the proof in the same window. Credits land once an admin checks it.`}</li>
 				</ol>
 				<p className="mt-3 text-xs text-ink-3">
 					{t`One application credit covers one Prepare this application: a tailored resume, a cover letter and a match score for one job. One interview credit covers one practice session for one interview. Credits do not expire.`}
@@ -117,7 +117,7 @@ export function PricingBody({ signedIn }: PricingPageProps) {
 }
 
 /** The public page: the same plans under a marketing header, for someone who has not signed in yet. */
-export function PricingPage({ signedIn }: PricingPageProps) {
+export function PricingPage({ signedIn }: { signedIn: boolean }) {
 	return (
 		<main id="main-content" className="min-h-svh bg-bg pt-24 pb-20">
 			<div className="mx-auto w-full max-w-5xl px-5">

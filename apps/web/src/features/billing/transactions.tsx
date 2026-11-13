@@ -1,23 +1,17 @@
 import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { toast } from "@reactive-resume/ui/components/toast";
-import {
-	formatRupiah,
-	MAX_PROOF_BYTES,
-	ORDER_STATUS_LABEL,
-	PROOF_ACCEPT,
-	QRIS_IMAGE_PATH,
-	whatsappLink,
-} from "./config";
+import { formatRupiah, ORDER_STATUS_LABEL, ORDER_STATUS_TONE } from "./config";
 import { Countdown } from "./countdown";
 import { InvoiceSheet } from "./invoice-sheet";
+import { PaymentDialog } from "./payment-dialog";
 import { getPlanCopy } from "./plan-copy";
 import { orpc } from "@/libs/orpc/client";
 
@@ -26,6 +20,15 @@ type Tab = "semua" | "menunggu_bayar" | "diproses" | "selesai" | "batal";
 const TABS: Tab[] = ["semua", "menunggu_bayar", "diproses", "selesai", "batal"];
 
 type TransactionsPageProps = { selectedOrderId?: string | undefined; isAdmin?: boolean };
+
+/** Warna chip status mengikuti tone yang sudah dipakai di config, supaya daftar dan detail tidak berbeda. */
+function chipTone(status: string) {
+	const tone = ORDER_STATUS_TONE[status] ?? "neutral";
+	if (tone === "success") return "bg-accent-soft text-accent-text";
+	if (tone === "warning") return "bg-warn-soft text-warn-text";
+	if (tone === "danger") return "bg-danger-soft text-danger-text";
+	return "bg-sunken text-ink-2";
+}
 
 export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 	const { i18n } = useLingui();
@@ -37,14 +40,9 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 		refetchInterval: 20_000,
 	});
 	const invoices = useQuery(orpc.invoice.list.queryOptions());
-	const uploadFile = useMutation(orpc.storage.uploadFile.mutationOptions({ meta: { noInvalidate: true } }));
-	const attachProof = useMutation(orpc.billing.attachProof.mutationOptions());
 	const [invoiceOpen, setInvoiceOpen] = useState<string | null>(null);
 	const [tab, setTab] = useState<Tab>("semua");
 	const [query, setQuery] = useState("");
-	const [fileName, setFileName] = useState<string | null>(null);
-	const [uploadError, setUploadError] = useState<string | null>(null);
-	const fileInput = useRef<HTMLInputElement>(null);
 	const previousStatus = useRef<Record<string, string>>({});
 
 	// Labels are built during render, not at import time, so they follow the language the reader chose.
@@ -119,7 +117,6 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 
 	const selected = list.find((order) => order.id === selectedOrderId) ?? null;
 	const invoiceFor = (orderId: string) => invoices.data?.items.find((item) => item.orderId === orderId);
-	const uploadPending = uploadFile.isPending || attachProof.isPending;
 
 	useEffect(() => {
 		if (!orders.data) return;
@@ -137,49 +134,6 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 		}
 		previousStatus.current = Object.fromEntries(orders.data.orders.map((order) => [order.id, order.status]));
 	}, [orders.data, queryClient, planLabel]);
-
-	const kirimBukti = async (file: File) => {
-		if (!selected) return;
-		const reset = () => {
-			if (fileInput.current) fileInput.current.value = "";
-		};
-		if (file.type !== "image/jpeg" && file.type !== "image/png") {
-			const message = t`The proof must be a JPG or PNG. PDF is not accepted.`;
-			setUploadError(message);
-			toast.add({ type: "error", description: message });
-			reset();
-			return;
-		}
-		if (file.size > MAX_PROOF_BYTES) {
-			const message = t`The proof can be at most 10 MB.`;
-			setUploadError(message);
-			toast.add({ type: "error", description: message });
-			reset();
-			return;
-		}
-		setUploadError(null);
-		setFileName(file.name);
-		try {
-			const uploaded = await uploadFile.mutateAsync(file);
-			await attachProof.mutateAsync({
-				orderId: selected.id,
-				proofPath: uploaded.path,
-				note: "Bukti dari halaman transaksi",
-			});
-			await queryClient.invalidateQueries();
-			toast.add({
-				type: "success",
-				description: t`Proof sent. An admin checks it by hand, then the credits arrive automatically.`,
-			});
-		} catch (error) {
-			const message = error instanceof Error ? error.message : t`The proof could not be sent. Try again.`;
-			setUploadError(message);
-			toast.add({ type: "error", description: message });
-		} finally {
-			setFileName(null);
-			reset();
-		}
-	};
 
 	const bukaPesanan = (orderId: string) => {
 		const invoice = invoiceFor(orderId);
@@ -257,103 +211,6 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 					);
 				})}
 			</div>
-
-			{selected && selected.status === "menunggu_bayar" ? (
-				<section className="mt-4 overflow-hidden rounded-lg border border-line bg-raised">
-					<header className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-4 py-3">
-						<h2 className="text-sm font-medium text-ink">
-							<Trans>Finish the payment</Trans>
-						</h2>
-						<span className="rounded-full bg-warn-soft px-2.5 py-1 text-xs text-warn-text">
-							<Trans>Time left</Trans>{" "}
-							<Countdown
-								expiresAt={selected.expiresAt ? new Date(selected.expiresAt) : null}
-								onExpire={() => void orders.refetch()}
-							/>
-						</span>
-					</header>
-					<div className="grid gap-4 p-4 sm:grid-cols-[152px_minmax(0,1fr)] sm:gap-5">
-						<div className="grid justify-items-center gap-2 sm:justify-items-start">
-							<img
-								src={QRIS_IMAGE_PATH}
-								alt={t`PortoFit QRIS code`}
-								className="w-[min(44vw,176px)] rounded-sm bg-white sm:w-full sm:max-w-[152px]"
-								onError={(event) => {
-									event.currentTarget.style.display = "none";
-								}}
-							/>
-							<p className="text-center text-xs leading-4 text-ink-3 sm:max-w-[152px] sm:text-left sm:leading-5">
-								<Trans>Scan it with any bank or wallet app that supports QRIS.</Trans>
-							</p>
-						</div>
-						<div className="grid content-start gap-1">
-							<p className="text-xs text-ink-3">
-								<Trans>Total to transfer</Trans>
-							</p>
-							<p className="text-[28px] leading-8 font-semibold text-ink tabular-nums">
-								{formatRupiah(selected.totalIdr)}
-							</p>
-							<p className="text-sm text-ink-2">{planLabel(selected)}</p>
-							<p className="mt-1 text-xs text-ink-2">
-								<Trans>Unique code</Trans>{" "}
-								<span className="font-semibold text-ink tabular-nums">
-									{String(selected.uniqueCode).padStart(3, "0")}
-								</span>
-								. <Trans>The amount has to match down to the last three digits.</Trans>
-							</p>
-							<div className="mt-3 grid gap-2 sm:flex sm:flex-wrap sm:items-center">
-								<Button
-									variant="secondary"
-									size="sm"
-									className="w-full sm:w-auto"
-									disabled={uploadPending}
-									onClick={() => fileInput.current?.click()}
-								>
-									<Icon name="upload-simple" size={16} />
-									{uploadPending ? <Trans>Uploading the proof…</Trans> : <Trans>Upload payment proof</Trans>}
-								</Button>
-								<input
-									ref={fileInput}
-									type="file"
-									accept={PROOF_ACCEPT}
-									aria-label={t`Upload payment proof`}
-									className="sr-only"
-									disabled={uploadPending}
-									onChange={(event) => {
-										const file = event.currentTarget.files?.[0];
-										if (file) void kirimBukti(file);
-									}}
-								/>
-								<Button
-									variant="ghost"
-									size="sm"
-									className="w-full sm:w-auto"
-									onClick={() =>
-										window.open(
-											whatsappLink(
-												`Halo PortoFit, saya mau konfirmasi pembayaran ${selected.planName} total ${formatRupiah(selected.totalIdr)} (kode unik ${String(selected.uniqueCode).padStart(3, "0")}).`,
-											),
-											"_blank",
-											"noopener",
-										)
-									}
-								>
-									<Trans>Or through WhatsApp</Trans>
-								</Button>
-							</div>
-							<p className="mt-1 text-xs text-ink-3">
-								<Trans>A photo of the transfer proof, JPG or PNG, at most 10 MB.</Trans>
-							</p>
-							{fileName ? <p className="truncate text-xs text-ink-3">{fileName}</p> : null}
-							{uploadError ? (
-								<p role="alert" className="mt-1 text-xs text-danger-text">
-									{uploadError}
-								</p>
-							) : null}
-						</div>
-					</div>
-				</section>
-			) : null}
 
 			{selected && selected.status === "menunggu_verifikasi" ? (
 				<section className="mt-4 flex items-start gap-3 rounded-lg border border-line bg-surface p-4">
@@ -491,38 +348,46 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 								className={`border-b border-line py-4 last:border-0 ${current ? "bg-hover/40" : ""}`}
 								aria-current={current ? "true" : undefined}
 							>
-								<div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-									<div className="min-w-0">
-										<p className="truncate text-sm text-ink">{planLabel(order)}</p>
-										<p className="mt-0.5 text-xs text-ink-3 tabular-nums">
-											{order.id.slice(0, 8)} · {new Date(order.createdAt).toLocaleDateString(i18n.locale)} ·{" "}
-											<Trans>code</Trans> {String(order.uniqueCode).padStart(3, "0")}
+								<div className="grid gap-2">
+									<div className="flex items-start justify-between gap-3">
+										<div className="min-w-0">
+											<p className="truncate text-sm text-ink">{planLabel(order)}</p>
+											<p className="mt-0.5 text-xs text-ink-3 tabular-nums">
+												{new Date(order.createdAt).toLocaleDateString(i18n.locale)} · <Trans>code</Trans>{" "}
+												{String(order.uniqueCode).padStart(3, "0")}
+												{invoice ? ` · ${invoice.number}` : null}
+											</p>
+										</div>
+										<p className="shrink-0 text-sm font-semibold text-ink tabular-nums">
+											{formatRupiah(order.totalIdr)}
 										</p>
-										<p className="mt-1 text-xs text-ink-2">
+									</div>
+									<div className="flex flex-wrap items-center gap-2">
+										<span
+											className={`inline-flex h-6 items-center rounded-full px-2.5 text-[11px] font-medium ${chipTone(order.status)}`}
+										>
 											{statusText(order.status)}
-											{order.status === "menunggu_bayar" && order.expiresAt ? (
-												<>
-													{" · "}
-													<Trans>left</Trans>{" "}
-													<Countdown expiresAt={new Date(order.expiresAt)} onExpire={() => void orders.refetch()} />
-												</>
-											) : null}
-											{invoice ? ` · ${invoice.number}` : null}
-										</p>
+										</span>
+										{order.status === "menunggu_bayar" && order.expiresAt ? (
+											<span className="text-xs text-ink-3">
+												<Trans>Ends in</Trans>{" "}
+												<Countdown expiresAt={new Date(order.expiresAt)} onExpire={() => void orders.refetch()} />
+											</span>
+										) : null}
 									</div>
-									{/* Phones put the action on the left and the amount on the right, away from the help pill. */}
-									<div className="flex items-center justify-between gap-3 sm:w-auto sm:shrink-0 sm:flex-col-reverse sm:items-end sm:gap-1">
-										<Button variant="secondary" size="sm" onClick={() => bukaPesanan(order.id)}>
-											{order.status === "menunggu_bayar" ? (
-												<Trans>Pay</Trans>
-											) : invoice ? (
-												<Trans>View invoice</Trans>
-											) : (
-												<Trans>View</Trans>
-											)}
-										</Button>
-										<p className="text-sm text-ink tabular-nums">{formatRupiah(order.totalIdr)}</p>
-									</div>
+									<Button
+										variant={order.status === "menunggu_bayar" ? "primary" : "secondary"}
+										className="h-11 w-full sm:h-9 sm:w-auto sm:justify-self-end"
+										onClick={() => bukaPesanan(order.id)}
+									>
+										{order.status === "menunggu_bayar" ? (
+											<Trans>Continue payment</Trans>
+										) : invoice ? (
+											<Trans>View invoice</Trans>
+										) : (
+											<Trans>View</Trans>
+										)}
+									</Button>
 								</div>
 							</li>
 						);
@@ -531,6 +396,11 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 			)}
 
 			<InvoiceSheet invoiceId={invoiceOpen} onClose={() => setInvoiceOpen(null)} />
+			<PaymentDialog
+				orderId={selectedOrderId ?? null}
+				onClose={() => void navigate({ to: "/dashboard/transaksi", search: {} })}
+				onRestart={(next) => void navigate({ to: "/dashboard/transaksi", search: { order: next } })}
+			/>
 		</div>
 	);
 }

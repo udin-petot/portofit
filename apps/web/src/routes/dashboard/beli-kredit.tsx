@@ -1,9 +1,15 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { useQuery } from "@tanstack/react-query";
+import { useLingui } from "@lingui/react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
+import { Countdown } from "@/features/billing/countdown";
+import { formatRupiah } from "@/features/billing/config";
+import { PaymentDialog } from "@/features/billing/payment-dialog";
+import { getPlanCopy } from "@/features/billing/plan-copy";
 import { PricingBody } from "@/features/billing/pricing";
 import { orpc } from "@/libs/orpc/client";
 
@@ -11,19 +17,37 @@ export const Route = createFileRoute("/dashboard/beli-kredit")({
 	component: BuyCreditsPage,
 });
 
-/** Balance tiles, so someone arriving from Transaksi sees what they still own before buying more. */
+/** Balance tiles, so someone arriving from Transactions sees what they still own before buying more. */
 function Balance({ label, value }: { label: string; value: number | undefined }) {
 	return (
-		<div className="flex items-baseline justify-between gap-3 rounded-lg bg-sunken px-3.5 py-3">
-			<span className="text-sm text-ink-2">{label}</span>
-			<span className="font-mono text-lg font-medium text-ink tabular-nums">{value ?? "—"}</span>
+		<div className="grid gap-1 rounded-lg border border-line bg-surface px-3.5 py-3">
+			<span className="text-xs text-ink-3">{label}</span>
+			<span className="text-right font-mono text-lg font-medium text-ink tabular-nums">{value ?? "—"}</span>
 		</div>
 	);
 }
 
 function BuyCreditsPage() {
 	const navigate = useNavigate();
+	const { i18n } = useLingui();
+	const queryClient = useQueryClient();
+	const [orderId, setOrderId] = useState<string | null>(null);
 	const balances = useQuery(orpc.billing.balances.queryOptions());
+	const active = useQuery({ ...orpc.billing.activeOrder.queryOptions(), refetchInterval: 20_000 });
+
+	const pending = active.data?.order ?? null;
+	const pendingPlan = pending
+		? getPlanCopy(
+				{ code: pending.planCode, name: pending.planName, description: null, kind: pending.kind },
+				i18n.locale.startsWith("en"),
+			)
+		: null;
+
+	const closePayment = () => {
+		setOrderId(null);
+		void queryClient.invalidateQueries({ queryKey: orpc.billing.activeOrder.key() });
+		void queryClient.invalidateQueries({ queryKey: orpc.billing.balances.key() });
+	};
 
 	return (
 		<div className="mx-auto w-full max-w-[1080px] px-6 pt-8 pb-28 md:pb-12">
@@ -47,9 +71,43 @@ function BuyCreditsPage() {
 				<Balance label={t`Interview credits`} value={balances.data?.interview} />
 			</section>
 
+			{pending ? (
+				<section
+					aria-label={t`Order waiting for payment`}
+					className="mt-4 grid gap-2.5 rounded-lg border border-warn-soft bg-warn-soft/30 p-3.5"
+				>
+					<div className="flex items-start justify-between gap-3">
+						<div className="min-w-0">
+							<p className="text-[11px] font-medium tracking-[0.06em] text-warn-text uppercase">
+								<Trans>Order waiting for payment</Trans>
+							</p>
+							<p className="mt-0.5 truncate text-sm text-ink">{pendingPlan?.name}</p>
+							<p className="mt-0.5 text-xs text-warn-text">
+								{pending.expiresAt ? (
+									<>
+										<Trans>Ends in</Trans>{" "}
+										<Countdown
+											expiresAt={new Date(pending.expiresAt)}
+											onExpire={() => void active.refetch()}
+											className="font-medium text-warn-text"
+										/>
+									</>
+								) : null}
+							</p>
+						</div>
+						<p className="shrink-0 text-sm font-semibold text-ink tabular-nums">{formatRupiah(pending.totalIdr)}</p>
+					</div>
+					<Button className="h-11 w-full sm:w-auto sm:justify-self-start" onClick={() => setOrderId(pending.id)}>
+						<Trans>Continue payment</Trans>
+					</Button>
+				</section>
+			) : null}
+
 			<div className="mt-8">
-				<PricingBody signedIn />
+				<PricingBody signedIn onOrder={setOrderId} />
 			</div>
+
+			<PaymentDialog orderId={orderId} onClose={closePayment} onRestart={setOrderId} />
 		</div>
 	);
 }
