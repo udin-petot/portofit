@@ -24,7 +24,7 @@ const getColumns = (): { id: string; title: string; links: FooterLink[] }[] => [
 		title: t`Product`,
 		links: [
 			{ label: t`Pricing`, href: "/harga" },
-			{ label: t`Templates`, href: "#design" },
+			{ label: t`Templates`, href: "/templates" },
 			{ label: t`Features`, href: "#write" },
 			{ label: t`ATS checker`, to: "/ats-checker" },
 			{ label: t`Get started`, to: "/dashboard" },

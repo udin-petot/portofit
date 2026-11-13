@@ -27,6 +27,10 @@ export function Header() {
 					<BrandIcon className="size-10" />
 				</Link>
 
+				<a href="/templates" className="font-ui text-sm text-ink-2 transition-colors hover:text-ink">
+					{t`Templates`}
+				</a>
+
 				<div className="ml-auto flex items-center gap-x-2">
 					<LocaleCombobox
 						render={

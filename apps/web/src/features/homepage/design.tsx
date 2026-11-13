@@ -211,8 +211,13 @@ export function Design() {
 				</SceneCaption>
 
 				<p className="pointer-events-none absolute inset-x-(--gutter) bottom-[8vh] [transform:translateY(calc((1-var(--z))*30px))] text-center text-[8vw] leading-none text-balance opacity-(--z) will-change-[transform,opacity] min-[900px]:bottom-[5vh] min-[900px]:text-[clamp(36px,4vw,72px)]">
-					<span className="font-anybody font-light tracking-[-.02em] text-ink">{t`${templateCount} templates.`}</span>{" "}
-					<span className="font-display tracking-[-.02em] text-accent-text italic">{t`Make any of them yours.`}</span>
+					<a
+						href="/templates"
+						className="pointer-events-auto inline-block transition-opacity hover:opacity-80"
+					>
+						<span className="font-anybody font-light tracking-[-.02em] text-ink">{t`${templateCount} templates.`}</span>{" "}
+						<span className="font-display tracking-[-.02em] text-accent-text italic">{t`Make any of them yours.`}</span>
+					</a>
 				</p>
 			</div>
 		</section>

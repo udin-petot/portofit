@@ -91,6 +91,12 @@ export function LandingHeader() {
 					);
 				})}
 				<a
+					href="/templates"
+					className="font-martian flex h-[34px] items-center rounded-full px-[11px] text-[11px] leading-none font-medium tracking-[.08em] uppercase font-stretch-[87.5%] opacity-65 transition-opacity duration-300 hover:opacity-100"
+				>
+					{t`Templates`}
+				</a>
+				<a
 					href="/harga"
 					className="font-martian flex h-[34px] items-center rounded-full px-[11px] text-[11px] leading-none font-medium tracking-[.08em] uppercase font-stretch-[87.5%] opacity-65 transition-opacity duration-300 hover:opacity-100"
 				>
@@ -133,6 +139,9 @@ export function LandingHeader() {
 						))}
 					</nav>
 					<div className="grid gap-0.5 border-t border-line pt-3">
+						<a href="/templates" className="flex h-11 items-center rounded-lg px-3 text-sm text-ink transition-colors hover:bg-hover">
+							{t`Templates`}
+						</a>
 						<a href="/harga" className="flex h-11 items-center rounded-lg px-3 text-sm text-ink transition-colors hover:bg-hover">
 							{t`Pricing`}
 						</a>
