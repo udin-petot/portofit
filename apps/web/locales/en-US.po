@@ -2412,14 +2412,15 @@ msgstr "bullet {n}"
 msgid "Bulleted list"
 msgstr "Bulleted list"
 
+#: src/features/billing/pricing.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Buy"
 msgstr "Buy"
 
 #. placeholder {0}: formatRupiah(plan.priceIdr)
 #: src/features/billing/pricing.tsx
-msgid "Buy {0}"
-msgstr "Buy {0}"
+#~ msgid "Buy {0}"
+#~ msgstr "Buy {0}"
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Buy a credit"
@@ -2439,8 +2440,8 @@ msgid "Buy credits to continue."
 msgstr "Buy credits to continue."
 
 #: src/features/billing/pricing.tsx
-msgid "By buying, you agree to the terms below."
-msgstr "By buying, you agree to the terms below."
+#~ msgid "By buying, you agree to the terms below."
+#~ msgstr "By buying, you agree to the terms below."
 
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
@@ -8693,8 +8694,8 @@ msgstr "Paused schedules keep their settings."
 #~ msgstr "Pay"
 
 #: src/features/billing/pricing.tsx
-msgid "Pay by QRIS, checked by an admin, credits land once it passes."
-msgstr "Pay by QRIS, checked by an admin, credits land once it passes."
+#~ msgid "Pay by QRIS, checked by an admin, credits land once it passes."
+#~ msgstr "Pay by QRIS, checked by an admin, credits land once it passes."
 
 #: src/features/billing/pricing.tsx
 #~ msgid "Pay by QRIS, verified manually by an admin."
@@ -9055,8 +9056,8 @@ msgid "Preparing edits…"
 msgstr "Preparing edits…"
 
 #: src/features/billing/pricing.tsx
-msgid "Preparing your order…"
-msgstr "Preparing your order…"
+#~ msgid "Preparing your order…"
+#~ msgstr "Preparing your order…"
 
 #: src/features/billing/payment-dialog.tsx
 msgid "Preparing your payment…"
@@ -9067,6 +9068,7 @@ msgid "Preparing your resume for printing..."
 msgstr "Preparing your resume for printing..."
 
 #: src/features/billing/payment-dialog.tsx
+#: src/features/billing/pricing.tsx
 #: src/features/career/workspace/prepare-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx

@@ -10,20 +10,36 @@ import { Countdown } from "@/features/billing/countdown";
 import { formatRupiah } from "@/features/billing/config";
 import { PaymentDialog } from "@/features/billing/payment-dialog";
 import { getPlanCopy } from "@/features/billing/plan-copy";
-import { PricingBody } from "@/features/billing/pricing";
+import { FreeNote, HowToPay, PlanList } from "@/features/billing/pricing";
 import { orpc } from "@/libs/orpc/client";
 
 export const Route = createFileRoute("/dashboard/beli-kredit")({
 	component: BuyCreditsPage,
 });
 
-/** Balance tiles, so someone arriving from Transactions sees what they still own before buying more. */
-function Balance({ label, value }: { label: string; value: number | undefined }) {
+type Balances = { application: number; interview: number };
+
+/** Dua saldo dalam satu baris kotak. Angka rata kanan supaya bisa dibandingkan tanpa membaca label. */
+function BalanceTiles({ data }: { data?: Balances | undefined }) {
 	return (
-		<div className="grid gap-1 rounded-lg border border-line bg-surface px-3.5 py-3">
-			<span className="text-xs text-ink-3">{label}</span>
-			<span className="text-right font-mono text-lg font-medium text-ink tabular-nums">{value ?? "—"}</span>
-		</div>
+		<section aria-label={t`Your balance`} className="grid grid-cols-2 gap-2">
+			<div className="grid gap-1 rounded-lg border border-line bg-surface px-3 py-2">
+				<span className="text-[11px] leading-4 text-ink-3">
+					<Trans>Application credits</Trans>
+				</span>
+				<span className="text-right font-mono text-lg font-medium text-ink tabular-nums">
+					{data?.application ?? "—"}
+				</span>
+			</div>
+			<div className="grid gap-1 rounded-lg border border-line bg-surface px-3 py-2">
+				<span className="text-[11px] leading-4 text-ink-3">
+					<Trans>Interview credits</Trans>
+				</span>
+				<span className="text-right font-mono text-lg font-medium text-ink tabular-nums">
+					{data?.interview ?? "—"}
+				</span>
+			</div>
+		</section>
 	);
 }
 
@@ -66,45 +82,58 @@ function BuyCreditsPage() {
 				</Button>
 			</div>
 
-			<section aria-label={t`Your balance`} className="mt-5 grid gap-2 sm:grid-cols-2">
-				<Balance label={t`Application credits`} value={balances.data?.application} />
-				<Balance label={t`Interview credits`} value={balances.data?.interview} />
-			</section>
+			{/* Ponsel: saldo di atas paket, karena yang dibaca pertama adalah sisa kredit. */}
+			<div className="mt-5 lg:hidden">
+				<BalanceTiles data={balances.data} />
+			</div>
 
-			{pending ? (
-				<section
-					aria-label={t`Order waiting for payment`}
-					className="mt-4 grid gap-2.5 rounded-lg border border-warn-soft bg-warn-soft/30 p-3.5"
-				>
-					<div className="flex items-start justify-between gap-3">
-						<div className="min-w-0">
-							<p className="text-[11px] font-medium tracking-[0.06em] text-warn-text uppercase">
-								<Trans>Order waiting for payment</Trans>
-							</p>
-							<p className="mt-0.5 truncate text-sm text-ink">{pendingPlan?.name}</p>
-							<p className="mt-0.5 text-xs text-warn-text">
-								{pending.expiresAt ? (
-									<>
-										<Trans>Ends in</Trans>{" "}
-										<Countdown
-											expiresAt={new Date(pending.expiresAt)}
-											onExpire={() => void active.refetch()}
-											className="font-medium text-warn-text"
-										/>
-									</>
-								) : null}
-							</p>
-						</div>
-						<p className="shrink-0 text-sm font-semibold text-ink tabular-nums">{formatRupiah(pending.totalIdr)}</p>
-					</div>
-					<Button className="h-11 w-full sm:w-auto sm:justify-self-start" onClick={() => setOrderId(pending.id)}>
-						<Trans>Continue payment</Trans>
-					</Button>
-				</section>
-			) : null}
+			<div className="mt-4 grid gap-6 lg:mt-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+				<div className="min-w-0">
+					{pending ? (
+						<section
+							aria-label={t`Order waiting for payment`}
+							className="mb-3 flex flex-col gap-2.5 rounded-lg border border-warn-soft bg-warn-soft/30 p-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+						>
+							<div className="min-w-0">
+								<p className="text-[11px] font-medium tracking-[0.06em] text-warn-text uppercase">
+									<Trans>Order waiting for payment</Trans>
+								</p>
+								<p className="mt-0.5 truncate text-sm text-ink">{pendingPlan?.name}</p>
+								<p className="mt-0.5 text-xs text-warn-text">
+									{pending.expiresAt ? (
+										<>
+											<Trans>Ends in</Trans>{" "}
+											<Countdown
+												expiresAt={new Date(pending.expiresAt)}
+												onExpire={() => void active.refetch()}
+												className="font-medium text-warn-text"
+											/>
+										</>
+									) : null}
+								</p>
+							</div>
+							<div className="flex items-center justify-between gap-3 sm:flex-none sm:justify-end">
+								<p className="text-sm font-semibold text-ink tabular-nums">{formatRupiah(pending.totalIdr)}</p>
+								<Button className="h-11 sm:h-9" onClick={() => setOrderId(pending.id)}>
+									<Trans>Continue payment</Trans>
+								</Button>
+							</div>
+						</section>
+					) : null}
 
-			<div className="mt-8">
-				<PricingBody signedIn onOrder={setOrderId} />
+					<PlanList signedIn onOrder={setOrderId} />
+					<FreeNote signedIn />
+				</div>
+
+				<aside className="hidden gap-3 lg:sticky lg:top-6 lg:grid">
+					<BalanceTiles data={balances.data} />
+					<HowToPay collapsible />
+				</aside>
+			</div>
+
+			{/* Ponsel: cara bayar di bawah paket, tertutup supaya tidak menutup halaman. */}
+			<div className="mt-4 lg:hidden">
+				<HowToPay collapsible />
 			</div>
 
 			<PaymentDialog orderId={orderId} onClose={closePayment} onRestart={setOrderId} />

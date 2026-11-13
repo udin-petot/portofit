@@ -2417,14 +2417,15 @@ msgstr "entri daftar {n}"
 msgid "Bulleted list"
 msgstr "Daftar berpoin"
 
+#: src/features/billing/pricing.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Buy"
 msgstr "Beli"
 
 #. placeholder {0}: formatRupiah(plan.priceIdr)
 #: src/features/billing/pricing.tsx
-msgid "Buy {0}"
-msgstr "Beli {0}"
+#~ msgid "Buy {0}"
+#~ msgstr "Beli {0}"
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Buy a credit"
@@ -2444,8 +2445,8 @@ msgid "Buy credits to continue."
 msgstr "Beli kredit untuk melanjutkan."
 
 #: src/features/billing/pricing.tsx
-msgid "By buying, you agree to the terms below."
-msgstr "Dengan membeli, kamu menyetujui ketentuan di bawah ini."
+#~ msgid "By buying, you agree to the terms below."
+#~ msgstr "Dengan membeli, kamu menyetujui ketentuan di bawah ini."
 
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
@@ -8698,8 +8699,8 @@ msgstr "Jadwal yang dijeda tetap menyimpan pengaturannya."
 #~ msgstr "Bayar"
 
 #: src/features/billing/pricing.tsx
-msgid "Pay by QRIS, checked by an admin, credits land once it passes."
-msgstr ""
+#~ msgid "Pay by QRIS, checked by an admin, credits land once it passes."
+#~ msgstr ""
 
 #: src/features/billing/pricing.tsx
 #~ msgid "Pay by QRIS, verified manually by an admin."
@@ -9060,8 +9061,8 @@ msgid "Preparing edits…"
 msgstr "Mempersiapkan pengeditan…"
 
 #: src/features/billing/pricing.tsx
-msgid "Preparing your order…"
-msgstr "Menyiapkan pesanan…"
+#~ msgid "Preparing your order…"
+#~ msgstr "Menyiapkan pesanan…"
 
 #: src/features/billing/payment-dialog.tsx
 msgid "Preparing your payment…"
@@ -9072,6 +9073,7 @@ msgid "Preparing your resume for printing..."
 msgstr "Mempersiapkan resume Anda untuk dicetak..."
 
 #: src/features/billing/payment-dialog.tsx
+#: src/features/billing/pricing.tsx
 #: src/features/career/workspace/prepare-bar.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
