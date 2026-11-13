@@ -21,6 +21,15 @@ const deadlineText = (value: Date | null) =>
 		? new Intl.DateTimeFormat("id-ID", { timeStyle: "short", timeZone: "Asia/Jakarta" }).format(value)
 		: "30 menit sejak pesanan dibuat";
 
+/** Sisa waktu dalam kata, dihitung saat email dikirim, bukan saat masuk antrean. */
+const remainingText = (value: Date | null): string | undefined => {
+	if (!value) return undefined;
+	const minutes = Math.round((value.getTime() - Date.now()) / 60_000);
+	if (minutes <= 0) return "kurang dari semenit";
+	if (minutes === 1) return "sekitar semenit";
+	return `sekitar ${minutes} menit`;
+};
+
 /** Mengirim antrean email pesanan. Satu kegagalan tidak menahan yang lain. */
 export async function processOrderEmails(limit = 20): Promise<{ sent: number; failed: number }> {
 	const rows = await db
@@ -64,6 +73,7 @@ export async function processOrderEmails(limit = 20): Promise<{ sent: number; fa
 				total: rupiah(row.totalIdr),
 				uniqueCode: row.uniqueCode,
 				deadline: deadlineText(row.expiresAt),
+				remaining: kind === "pengingat" ? remainingText(row.expiresAt) : undefined,
 				url: new URL(`/dashboard/transaksi?order=${row.orderId}`, env.APP_URL).toString(),
 			});
 
