@@ -21,7 +21,7 @@ Diambil dari popup hidup pada 13 November 2026 dengan pesanan berstatus `menungg
 
 ## Keputusan
 
-- Bentuk jamnya tetap ikon `clock` yang sudah dipakai sekarang, tidak digambar ulang. Dua jarumnya tetap, dan yang bergerak hanya jarum panjangnya, satu putaran per menit, mulai dari detik saat popup dibuka.
+- Bentuk jamnya tetap ikon `clock` yang sudah dipakai sekarang, tidak digambar ulang. Dua jarumnya tetap, dan yang bergerak hanya jarum panjangnya, satu putaran per 12 detik, mulai dari posisi acak yang tetap.
 - Tidak ada jarum tambahan, tanda jam, angka, atau ornamen. Yang berubah dari ikon aslinya cuma satu: jarum panjang berputar.
 - Gerak memakai satu animasi CSS `linear`, bukan pulsa atau denyut. Jam memang bergerak lurus dan terus, jadi bentuk geraknya masuk akal, bukan hiasan.
 - `prefers-reduced-motion` menghentikan ketiga jarum di posisi waktu saat dibuka. Jam tetap terbaca, hanya tidak bergerak.
@@ -74,5 +74,5 @@ Dialog 460 (desktop)                Lembar 390 (ponsel)
 - 1280 dan 460: jam di tengah, tiga baris rincian rata, tidak ada gulir.
 - 390: lembar tidak lebih dari 92svh, tombol Close terlihat tanpa menggulir.
 - `prefers-reduced-motion: reduce`: jarum diam di posisi waktu saat dibuka.
-- Jam dibuka pukul 22.19.38: jarum panjang mulai di posisi detik 38, lalu satu putaran penuh dalam 60 detik (terukur 6 derajat per detik).
+- Satu putaran jarum panjang selesai dalam 12 detik. Terukur di produksi 30,2 derajat per detik, atau 11,9 detik per putaran.
 - Layar pembaca: jam `aria-hidden`, judul popup tetap satu-satunya heading.

@@ -25,8 +25,8 @@
 **Files:** `apps/web/src/features/billing/waiting-clock.tsx` (baru), `waiting-clock.test.ts` (baru).
 
 - [ ] `WaitingClock({ className })` menggambar ikon jam yang sama dengan Phosphor: cincin r=88, garis 16/256, ujung membulat, satu jarum pendek ke atas, satu jarum panjang ke kanan.
-- [ ] Hanya jarum panjang yang diberi `animate-[spin_60s_linear_infinite]`, `origin-[128px_128px]`, `motion-reduce:animate-none`.
-- [ ] `animation-delay` negatif sebesar detik sekarang, jadi jarum mulai di posisi detik saat popup dibuka.
+- [ ] Hanya jarum panjang yang diberi `animate-[spin_12s_linear_infinite]`, `origin-[128px_128px]`, `motion-reduce:animate-none`.
+- [ ] `animation-delay` negatif sebesar `detik % 12`, jadi jarum mulai di posisi acak yang tetap, tidak selalu dari arah yang sama.
 - [ ] Fungsi `secondOffset(date)` mengembalikan detik 0 sampai 59. Uji: 22.19.38 memberi 38.
 - [ ] Lingkaran `bg-warn-soft` 88px di ponsel dan 96px dari `sm`, ikon 48px dan 52px. Ikon `aria-hidden`.
 - [ ] Commit.
