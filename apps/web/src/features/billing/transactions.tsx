@@ -208,7 +208,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 									aria-pressed={active}
 									onClick={() => setTab(item)}
 									className={cn(
-										"relative flex h-[30px] shrink-0 items-center gap-1.5 rounded-sm px-3 text-[13px] font-medium whitespace-nowrap transition-colors",
+										"touch-target relative flex h-[30px] shrink-0 items-center gap-1.5 rounded-sm px-3 text-[13px] font-medium whitespace-nowrap transition-colors",
 										active ? "text-ink" : "text-ink-2 hover:text-ink",
 									)}
 								>
