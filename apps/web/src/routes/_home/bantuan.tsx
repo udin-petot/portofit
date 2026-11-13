@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FaqList } from "@/features/support/faq-list";
+import { LegalLanguageNotice } from "@/features/legal/page";
 import { formatRupiah } from "@/features/billing/config";
 import { orpc } from "@/libs/orpc/client";
 import { SUPPORT_WHATSAPP_URL } from "@reactive-resume/utils/support-faq";
@@ -30,7 +31,8 @@ function RouteComponent() {
 			: undefined;
 
 	return (
-		<main id="main-content" className="mx-auto w-full max-w-3xl px-5 pt-28 pb-20">
+		<main id="main-content" lang="id-ID" className="mx-auto w-full max-w-3xl px-5 pt-28 pb-20">
+			<LegalLanguageNotice />
 			<p className="font-mono text-xs tracking-widest text-ink-3 uppercase">Bantuan</p>
 			<h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Pertanyaan yang sering muncul</h1>
 			<p className="mt-4 text-base leading-relaxed text-ink-2">

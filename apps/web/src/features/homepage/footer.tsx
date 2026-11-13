@@ -47,7 +47,7 @@ const getColumns = (): { id: string; title: string; links: FooterLink[] }[] => [
 			{ label: t`Terms of service`, href: "/syarat" },
 			{ label: t`Privacy policy`, href: "/privasi" },
 			{ label: t`Refund policy`, href: "/refund" },
-			{ label: "Bantuan", href: "/bantuan" },
+			{ label: t`Help`, href: "/bantuan" },
 			{ label: "WhatsApp", href: SUPPORT_WHATSAPP_URL },
 			{ label: t`MIT License`, href: licenseUrl },
 		],

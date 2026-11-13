@@ -6449,6 +6449,10 @@ msgstr "File Word lama tidak didukung. Buka file di Word dan simpan sebagai .doc
 msgid "Legal"
 msgstr "Hukum"
 
+#: src/features/legal/page.tsx
+msgid "Legal documents are only available in Indonesian."
+msgstr "Dokumen hukum hanya tersedia dalam bahasa Indonesia."
+
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Length"

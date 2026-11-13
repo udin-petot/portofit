@@ -6444,6 +6444,10 @@ msgstr "Legacy Word files aren't supported. Open the file in Word and save it as
 msgid "Legal"
 msgstr "Legal"
 
+#: src/features/legal/page.tsx
+msgid "Legal documents are only available in Indonesian."
+msgstr "Legal documents are only available in Indonesian."
+
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Length"

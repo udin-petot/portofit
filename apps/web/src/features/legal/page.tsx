@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { t } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { WHATSAPP_NUMBER } from "@/features/billing/config";
 
 type LegalPageProps = {
@@ -15,11 +17,28 @@ const legalLinks = [
 	{ href: "/lisensi", label: "Lisensi MIT" },
 ];
 
+/**
+ * The legal texts are written in Indonesian and only exist in Indonesian, so a visitor whose site language is
+ * something else is told that before reading. The notice is the only English line on the page and carries its own
+ * lang, because the document around it is Indonesian.
+ */
+export function LegalLanguageNotice() {
+	const { i18n } = useLingui();
+	if (i18n.locale === "id-ID") return null;
+
+	return (
+		<p lang={i18n.locale} className="mb-6 border-s-2 border-line ps-3 text-[13px] leading-6 text-ink-3">
+			{t`Legal documents are only available in Indonesian.`}
+		</p>
+	);
+}
+
 /** Shared shell for the public legal pages: readable prose, one column, no app chrome beyond the site header. */
 export function LegalPage({ title, summary, updated = "29 Oktober 2026", children }: LegalPageProps) {
 	return (
-		<main id="main-content" className="min-h-svh bg-bg pt-28 pb-20">
+		<main id="main-content" lang="id-ID" className="min-h-svh bg-bg pt-28 pb-20">
 			<div className="mx-auto w-full max-w-3xl px-5">
+				<LegalLanguageNotice />
 				<p className="font-mono text-xs tracking-widest text-ink-3 uppercase">Hukum</p>
 				<h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{title}</h1>
 				<p className="mt-3 text-sm text-ink-3">Berlaku {updated}</p>
