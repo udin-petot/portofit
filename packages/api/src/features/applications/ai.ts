@@ -156,9 +156,22 @@ const parsePostingOutput = z.object({
 const aiErrors = {
 	BAD_GATEWAY: { message: "The AI provider returned an error or is unreachable.", status: 502 },
 	BAD_REQUEST: { message: "Invalid application or AI request.", status: 400 },
+	PRECONDITION_FAILED: { message: "Submitted documents cannot be replaced.", status: 412 },
 };
 
 type LoadedApplication = Awaited<ReturnType<typeof applicationService.getById>>;
+
+/**
+ * Lamaran yang sudah ditandai terkirim menyimpan versi dokumen yang dikirim.
+ * Menimpanya menghapus bukti yang dipegang pelamar, jadi ditolak sebelum kredit dipotong.
+ */
+function assertDocumentsReplaceable(application: LoadedApplication) {
+	if (application.sentResumeVersionId || application.sentCoverLetterVersionId)
+		throw new ORPCError("PRECONDITION_FAILED", {
+			message:
+				"Recorded submitted documents cannot be replaced. Prepare from an application you haven't sent yet.",
+		});
+}
 
 /**
  * Syarat setiap aksi AI per lamaran: CV terikat dan lowongan tertempel. Diperiksa lebih awal
@@ -468,6 +481,7 @@ export const aiRouter = {
 		.errors(aiErrors)
 		.handler(async ({ context, input }) => {
 			const application = await applicationService.getById({ id: input.id, userId: context.user.id });
+			assertDocumentsReplaceable(application);
 			await loadForAi(context.user.id, application);
 
 			// Aksi berbayar: satu kredit lamaran per tailor CV ke lowongan.
@@ -505,6 +519,7 @@ export const aiRouter = {
 		.handler(async ({ context, input }) => {
 			const application = await applicationService.getById({ id: input.id, userId: context.user.id });
 			// Syarat diperiksa sebelum kredit dipotong, supaya tidak ada pembayaran untuk pekerjaan yang tidak bisa jalan.
+			assertDocumentsReplaceable(application);
 			await loadForAi(context.user.id, application);
 
 			await billingService.consumeCredit({
@@ -537,7 +552,10 @@ export const aiRouter = {
 						kind: "application",
 						reason: `Paket lamaran gagal — ${application.company} · ${application.role}`.slice(0, 200),
 					})
-					.catch(() => undefined);
+					.catch((refundError: unknown) => {
+						// Kredit yang tidak kembali harus kelihatan di log, bukan hilang diam-diam.
+						console.error("[prepare] pengembalian kredit gagal", refundError);
+					});
 				throw error;
 			}
 		}),
