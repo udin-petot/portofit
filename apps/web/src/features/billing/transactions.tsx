@@ -3,6 +3,7 @@ import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
+import { m } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
@@ -14,6 +15,7 @@ import { Countdown } from "./countdown";
 import { InvoiceSheet } from "./invoice-sheet";
 import { PaymentDialog } from "./payment-dialog";
 import { getPlanCopy } from "./plan-copy";
+import { D2, EASE } from "@/libs/motion";
 import { orpc } from "@/libs/orpc/client";
 
 type Tab = "semua" | "menunggu_bayar" | "diproses" | "selesai" | "batal";
@@ -193,34 +195,43 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 				<div
 					role="group"
 					aria-label={t`Filter by status`}
-					className="mx-[-24px] flex snap-x gap-2 overflow-x-auto px-6 pb-1 sm:mx-0 sm:overflow-visible sm:px-0 sm:pb-0"
+					className="-mx-6 flex overflow-x-auto px-6 pb-1 [scrollbar-width:none] sm:mx-0 sm:overflow-visible sm:px-0 sm:pb-0"
 				>
-					{TABS.map((item) => {
-						const count = counts[item];
-						const active = tab === item;
-						return (
-							<button
-								key={item}
-								type="button"
-								aria-pressed={active}
-								onClick={() => setTab(item)}
-								className={cn(
-									"flex min-h-9 shrink-0 snap-start items-center gap-1.5 rounded-full border px-3.5 text-[13px] transition-colors",
-									active
-										? "border-ink bg-ink font-medium text-bg"
-										: "border-line text-ink-2 hover:border-line-2 hover:text-ink",
-								)}
-							>
-								{tabLabel(item)}
-								{/* A zero on every tab is noise, so a count shows only when it is real or the tab is open. */}
-								{count > 0 || active ? (
-									<span className={cn("text-xs tabular-nums", active ? "text-bg/70" : "text-ink-3")}>
-										{loading ? "" : count}
-									</span>
-								) : null}
-							</button>
-						);
-					})}
+					<div className="flex shrink-0 gap-0.5 rounded-[9px] bg-sunken p-[3px]">
+						{TABS.map((item) => {
+							const count = counts[item];
+							const active = tab === item;
+							return (
+								<button
+									key={item}
+									type="button"
+									aria-pressed={active}
+									onClick={() => setTab(item)}
+									className={cn(
+										"relative flex h-[30px] shrink-0 items-center gap-1.5 rounded-sm px-3 text-[13px] font-medium whitespace-nowrap transition-colors",
+										active ? "text-ink" : "text-ink-2 hover:text-ink",
+									)}
+								>
+									{active && (
+										<m.span
+											layoutId="transactions-filter"
+											transition={{ duration: D2, ease: EASE }}
+											className="absolute inset-0 rounded-sm bg-raised shadow-e1"
+										/>
+									)}
+									<span className="relative">{tabLabel(item)}</span>
+									{/* A zero on every tab is noise, so a count shows only when it is real or the tab is open. */}
+									{count > 0 || active ? (
+										<span
+											className={cn("relative text-xs tabular-nums", active ? "text-ink-2" : "text-ink-3")}
+										>
+											{loading ? "" : count}
+										</span>
+									) : null}
+								</button>
+							);
+						})}
+					</div>
 				</div>
 			</div>
 
