@@ -20,15 +20,15 @@
 
 ---
 
-### Task 1: Jarum yang berputar
+### Task 1: Jarum panjang yang berputar
 
 **Files:** `apps/web/src/features/billing/waiting-clock.tsx` (baru), `waiting-clock.test.ts` (baru).
 
-- [ ] Komponen `WaitingClock({ size })` membungkus `Icon name="clock"` di dalam lingkaran `bg-warn-soft`, tanpa menggambar ulang bentuk jam.
-- [ ] Satu jarum `span` 2px, tinggi 24px, `bottom-1/2`, `left-1/2 -translate-x-1/2`, `origin-bottom`, berputar dengan `animation: spin 60s linear infinite`.
-- [ ] `animation-delay` negatif sebesar detik sekarang, jadi jarum mulai di posisi detik saat popup dibuka, bukan di 12.
-- [ ] Fungsi kecil `secondOffset(date)` mengembalikan detik 0 sampai 59. Uji: 22.19.38 memberi 38.
-- [ ] `motion-reduce:animate-none` pada jarum. Ikon dan jarum `aria-hidden`.
+- [ ] `WaitingClock({ className })` menggambar ikon jam yang sama dengan Phosphor: cincin r=88, garis 16/256, ujung membulat, satu jarum pendek ke atas, satu jarum panjang ke kanan.
+- [ ] Hanya jarum panjang yang diberi `animate-[spin_60s_linear_infinite]`, `origin-[128px_128px]`, `motion-reduce:animate-none`.
+- [ ] `animation-delay` negatif sebesar detik sekarang, jadi jarum mulai di posisi detik saat popup dibuka.
+- [ ] Fungsi `secondOffset(date)` mengembalikan detik 0 sampai 59. Uji: 22.19.38 memberi 38.
+- [ ] Lingkaran `bg-warn-soft` 88px di ponsel dan 96px dari `sm`, ikon 48px dan 52px. Ikon `aria-hidden`.
 - [ ] Commit.
 
 ### Task 2: Pasang di kotak tanda

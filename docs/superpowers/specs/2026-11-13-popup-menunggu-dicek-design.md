@@ -21,8 +21,8 @@ Diambil dari popup hidup pada 13 November 2026 dengan pesanan berstatus `menungg
 
 ## Keputusan
 
-- Bentuk jamnya tetap ikon `clock` yang sudah dipakai sekarang, tidak digambar ulang. Yang ditambah cuma satu jarum detik tipis yang berputar, satu putaran per menit, mulai dari detik saat popup dibuka.
-- Tidak ada tanda jam, angka, atau ornamen. Yang bergerak hanya jarum itu, jadi bentuk aslinya tetap sederhana dan tinggal hidup.
+- Bentuk jamnya tetap ikon `clock` yang sudah dipakai sekarang, tidak digambar ulang. Dua jarumnya tetap, dan yang bergerak hanya jarum panjangnya, satu putaran per menit, mulai dari detik saat popup dibuka.
+- Tidak ada jarum tambahan, tanda jam, angka, atau ornamen. Yang berubah dari ikon aslinya cuma satu: jarum panjang berputar.
 - Gerak memakai satu animasi CSS `linear`, bukan pulsa atau denyut. Jam memang bergerak lurus dan terus, jadi bentuk geraknya masuk akal, bukan hiasan.
 - `prefers-reduced-motion` menghentikan ketiga jarum di posisi waktu saat dibuka. Jam tetap terbaca, hanya tidak bergerak.
 - Kotak tetap 240px supaya perpindahan QR ke tanda keadaan tidak menggeser tata letak.
@@ -56,8 +56,8 @@ Dialog 460 (desktop)                Lembar 390 (ponsel)
 └──────────────────────────┘        └──────────────────┘
 ```
 
-- Lingkaran kuning 96px di desktop dan 88px di ponsel, ikon 52px dan 48px, di dalam kotak 240px. Jarum detik 2px, panjang 24px dan 22px, berpangkal di titik tengah ikon.
-- Jarum detik setipis 2px supaya tidak bersaing dengan jarum ikon. Warnanya sama dengan ikon, jadi tidak menambah warna baru.
+- Lingkaran kuning 96px di desktop dan 88px di ponsel, ikon 52px dan 48px, di dalam kotak 240px. Ketebalan garis ikon 16 dari 256, ujung jarum membulat.
+- Warna jarum sama dengan ikon, tidak menambah warna baru. Titik sumbu putar di tengah ikon, jadi jarum berputar tanpa bergeser.
 - Kotak rincian tiga baris, 13px, label 12px, pemisah `border-line`.
 - Status memakai chip kecil "In review" dengan titik, bukan teks biasa, karena statusnya memang keadaan yang sedang berlangsung.
 - Jarak: 18px antar blok di desktop, 14px di ponsel. Catatan kaki 11px dengan jarak 6px dari tombol.
@@ -74,5 +74,5 @@ Dialog 460 (desktop)                Lembar 390 (ponsel)
 - 1280 dan 460: jam di tengah, tiga baris rincian rata, tidak ada gulir.
 - 390: lembar tidak lebih dari 92svh, tombol Close terlihat tanpa menggulir.
 - `prefers-reduced-motion: reduce`: jarum diam di posisi waktu saat dibuka.
-- Jam dibuka pukul 22.19.38: jarum detik mulai di angka 38, lalu satu putaran penuh dalam 60 detik.
+- Jam dibuka pukul 22.19.38: jarum panjang mulai di posisi detik 38, lalu satu putaran penuh dalam 60 detik (terukur 6 derajat per detik).
 - Layar pembaca: jam `aria-hidden`, judul popup tetap satu-satunya heading.
