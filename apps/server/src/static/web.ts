@@ -106,15 +106,15 @@ const BASE_SECURITY_HEADERS = {
 const githubUrl = "https://github.com/udin-petot/portofit";
 // Fallback copy for a build without prerendered pages; a prerendered page carries its own locale's title and
 // description, and the social cards reuse them.
-const ROOT_TITLE = "PortoFit — Job preparation from CV to interview";
+const ROOT_TITLE = "PortoFit — Job preparation from resume to interview";
 const ROOT_DESCRIPTION =
-	"PortoFit prepares your job application in one flow: build a CV, match it to a job, then practise interviews. Start free, no ads.";
+	"PortoFit prepares your job application in one flow: build a resume, match it to a job, then practise interviews. Start free, no ads.";
 const ATS_CHECKER_TITLE = "Free ATS resume checker — PortoFit";
 const ATS_CHECKER_DESCRIPTION =
 	"Check whether software can read your resume PDF. Runs entirely in your browser, so your file is never uploaded.";
 const PRICING_TITLE = "Pricing — PortoFit";
 const PRICING_DESCRIPTION =
-	"Free ATS checks, Rp5,000 per application for a tailored CV and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually.";
+	"Free ATS checks, Rp5,000 per application for a tailored resume and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually.";
 const TERMS_TITLE = "Syarat Layanan PortoFit";
 const TERMS_DESCRIPTION =
 	"Aturan pemakaian PortoFit: akun, konten, kredit dan pembayaran, batas pemakaian AI, serta tanggung jawab pengguna.";

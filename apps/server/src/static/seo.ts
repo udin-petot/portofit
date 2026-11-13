@@ -80,7 +80,7 @@ export function handleLlms(options?: StaticSeoOptions) {
 		"",
 		"## Facts",
 		"",
-		"- Price: the core is free. Paid packages cost Rp5,000 for a CV tailored to one job and Rp10,000 for one interview practice session, paid with QRIS.",
+		"- Price: the core is free. Paid packages cost Rp5,000 for a resume tailored to one job and Rp10,000 for one interview practice session, paid with QRIS.",
 		"- Export: PDF, Word (DOCX), Markdown and JSON.",
 		"- Import: PDF, LinkedIn data export, JSON Resume, PortoFit JSON; Word files with an AI provider.",
 		"- Sharing: private by default; a public link or a password-protected link, changeable at any time.",
