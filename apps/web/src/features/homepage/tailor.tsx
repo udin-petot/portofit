@@ -157,7 +157,7 @@ export function Tailor() {
 					</div>
 				</div>
 
-				<div className="absolute end-[14vw] top-[73%] aspect-[612/792] w-(--pw) -translate-y-1/2 opacity-[clamp(0,var(--p)*20,1)] min-[900px]:end-[8vw] min-[900px]:top-[58%]">
+				<div className="absolute end-[14vw] top-[73%] aspect-[595/842] w-(--pw) -translate-y-1/2 opacity-[clamp(0,var(--p)*20,1)] min-[900px]:end-[8vw] min-[900px]:top-[58%]">
 					<div
 						aria-hidden="true"
 						className="@container absolute inset-0 [transform:translate(calc(var(--dir)*var(--cv)*var(--cvx)),calc(var(--cv)*8%))_rotate(calc(var(--dir)*var(--cv)*-8deg))] overflow-hidden rounded-[2px] bg-[#fbfaf6] shadow-paper [transition:transform_.5s_var(--ease)]"

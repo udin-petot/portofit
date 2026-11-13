@@ -195,7 +195,7 @@ export function Check() {
 					onPointerMove={moveLens}
 					onPointerLeave={releaseLens}
 					data-lens-page
-					className="@container absolute end-[calc(50%-var(--pw)/2)] bottom-[3vh] aspect-[612/792] w-(--pw) [transform:rotate(1deg)] cursor-crosshair rounded-[2px] opacity-[clamp(0,var(--p)*20,1)] shadow-paper min-[900px]:end-[10vw] min-[900px]:top-[52%] min-[900px]:bottom-auto min-[900px]:[transform:translateY(-50%)_rotate(1deg)]"
+					className="@container absolute end-[calc(50%-var(--pw)/2)] bottom-[3vh] aspect-[595/842] w-(--pw) [transform:rotate(1deg)] cursor-crosshair rounded-[2px] opacity-[clamp(0,var(--p)*20,1)] shadow-paper min-[900px]:end-[10vw] min-[900px]:top-[52%] min-[900px]:bottom-auto min-[900px]:[transform:translateY(-50%)_rotate(1deg)]"
 				>
 					<Sheet />
 					<div

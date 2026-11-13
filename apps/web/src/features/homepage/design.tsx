@@ -114,7 +114,7 @@ export function Design() {
 						<div
 							key={cell.index}
 							className={cn(
-								"relative aspect-[612/792] [transform:translateY(calc((1-var(--z))*var(--rise)))] will-change-transform [transition:transform_.5s_var(--ease)]",
+								"relative aspect-[595/842] [transform:translateY(calc((1-var(--z))*var(--rise)))] will-change-transform [transition:transform_.5s_var(--ease)]",
 								!cell.template && "invisible",
 							)}
 							style={{ "--rise": `${cell.rise}px` } as CSSProperties}
@@ -142,7 +142,7 @@ export function Design() {
 
 				<div
 					data-stack
-					className="absolute top-(--dpt) left-1/2 aspect-[612/792] w-(--pw) [transform:translate(calc(-50%-var(--dir)*var(--z)*.56*var(--pw)*(1-var(--z)*(1-var(--smin,.5)))),calc(-50%-var(--z)*8vh))_scale(calc(1-var(--z)*(1-var(--smin,.5))))] opacity-[clamp(0,var(--p)*20,1)] will-change-[transform,opacity] [transition:transform_.35s_var(--ease)]"
+					className="absolute top-(--dpt) left-1/2 aspect-[595/842] w-(--pw) [transform:translate(calc(-50%-var(--dir)*var(--z)*.56*var(--pw)*(1-var(--z)*(1-var(--smin,.5)))),calc(-50%-var(--z)*8vh))_scale(calc(1-var(--z)*(1-var(--smin,.5))))] opacity-[clamp(0,var(--p)*20,1)] will-change-[transform,opacity] [transition:transform_.35s_var(--ease)]"
 				>
 					<div className="absolute inset-0 rounded-[2px] shadow-paper" />
 					{sheetTemplates.map((template, index) => (
