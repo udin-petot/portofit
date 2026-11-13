@@ -5,7 +5,7 @@ import { Trans } from "@lingui/react/macro";
 import { Icon } from "@reactive-resume/ui/components/icon";
 
 /*
- * The demo resume page that every scene shows: Alex Morgan's resume, in one of five looks. Everything is sized in
+ * The demo resume page that every scene shows: Rangga Pratama's resume, in one of five looks. Everything is sized in
  * cqw so a page reads the same at any width. The scenes steer it through inherited CSS variables:
  *   --chk        Check's scan progress; ticks each section heading as the scan passes it.
  *   --dw         Check's date warning; flags the second job's mixed date format.
@@ -216,7 +216,7 @@ function Heading({ template, children, tick }: HeadingProps) {
 
 type SheetProps = { template?: SheetTemplate };
 
-/** Alex Morgan's resume, as a page. Decorative: the scenes' own copy says what it shows. */
+/** Rangga Pratama's resume, as a page. Decorative: the scenes' own copy says what it shows. */
 export function Sheet({ template = sheetTemplates[0] as SheetTemplate }: SheetProps) {
 	return (
 		<div
@@ -229,7 +229,7 @@ export function Sheet({ template = sheetTemplates[0] as SheetTemplate }: SheetPr
 					style={{ alignItems: template.align, ...template.header }}
 				>
 					<span className="leading-none" style={template.title}>
-						{t`Alex Morgan`}
+						{t`Rangga Pratama`}
 					</span>
 					<span className="text-[2.3cqw] font-medium" style={{ color: template.subtitleColor }}>
 						{t`Senior Product Designer`}
@@ -238,9 +238,9 @@ export function Sheet({ template = sheetTemplates[0] as SheetTemplate }: SheetPr
 						className="flex flex-wrap gap-x-[3cqw] gap-y-[.4cqw] text-[1.6cqw] opacity-78"
 						style={{ justifyContent: template.align }}
 					>
-						<span>alex@morgan.design</span>
-						<span>{t`Lisbon, Portugal`}</span>
-						<span>morgan.design</span>
+						<span>rangga@pratama.id</span>
+						<span>{t`Jakarta, Indonesia`}</span>
+						<span>ranggapratama.id</span>
 					</span>
 				</header>
 
@@ -265,7 +265,7 @@ export function Sheet({ template = sheetTemplates[0] as SheetTemplate }: SheetPr
 										<b className="font-semibold">{t`Lead Product Designer`}</b>
 										<span className="whitespace-nowrap opacity-70">{t`2021 – Present`}</span>
 									</div>
-									<div className="opacity-78">{t`Northwind Labs · Lisbon`}</div>
+									<div className="opacity-78">{t`Sinarpagi Labs · Jakarta`}</div>
 									<ul className="mt-[.6cqw] flex list-disc flex-col gap-[.4cqw] ps-[2.2cqw]">
 										<li>{designSystemBullet()}</li>
 										<li>
@@ -283,7 +283,7 @@ export function Sheet({ template = sheetTemplates[0] as SheetTemplate }: SheetPr
 											</span>
 										</span>
 									</div>
-									<div className="opacity-78">{t`Parcel & Co. · Porto`}</div>
+									<div className="opacity-78">{t`Kelana · Bandung`}</div>
 									<ul className="mt-[.6cqw] list-disc ps-[2.2cqw]">
 										<li>
 											<AccessibilityBullet />
@@ -298,10 +298,10 @@ export function Sheet({ template = sheetTemplates[0] as SheetTemplate }: SheetPr
 								{t`Education`}
 							</Heading>
 							<div className="flex justify-between gap-[2cqw]">
-								<b className="font-semibold">{t`BA, Communication Design`}</b>
+								<b className="font-semibold">{t`S1 Sistem Informasi`}</b>
 								<span className="whitespace-nowrap opacity-70">{t`2013 – 2017`}</span>
 							</div>
-							<div className="opacity-78">{t`University of Porto`}</div>
+							<div className="opacity-78">{t`Universitas Indonesia`}</div>
 						</section>
 					</div>
 
@@ -326,9 +326,8 @@ export function Sheet({ template = sheetTemplates[0] as SheetTemplate }: SheetPr
 								{t`Languages`}
 							</Heading>
 							<div className="flex flex-col gap-[.3cqw]">
-								<span>{t`English (native)`}</span>
-								<span>{t`Portuguese (native)`}</span>
-								<span>{t`Spanish (B2)`}</span>
+								<span>{t`Indonesian (native)`}</span>
+								<span>{t`English (B2)`}</span>
 							</div>
 						</section>
 					</div>

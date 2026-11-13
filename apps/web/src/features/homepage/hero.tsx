@@ -33,7 +33,7 @@ const getFragments = () => [
 		className: cn(fragmentKind.pill, pillAccent),
 	},
 	{
-		text: t`Lisbon`,
+		text: t`Jakarta`,
 		at: ["41vw", "20vh", "6vw", "10vh", "-3deg", 1, 0.5],
 		className: cn(fragmentKind.serif, "text-[2.8vw] text-ink-3"),
 	},
@@ -53,17 +53,17 @@ const getFragments = () => [
 		className: cn(fragmentKind.mono, "text-ink-3"),
 	},
 	{
-		text: t`BA, Communication Design`,
+		text: t`S1 Sistem Informasi`,
 		at: ["10vw", "-40vh", "1vw", "-11vh", "-2deg", 1, 0.6],
 		className: cn(fragmentKind.serif, "text-[1.5vw] text-ink-2"),
 	},
 	{
-		text: t`University of Porto`,
+		text: t`Universitas Indonesia`,
 		at: ["-9vw", "-43vh", "-3vw", "-16vh", "2deg", 1, 0.35],
 		className: cn(fragmentKind.mono, "text-ink-3", "max-[700px]:hidden"),
 	},
 	{
-		text: t`Parcel & Co.`,
+		text: t`Kelana`,
 		at: ["39vw", "3vh", "5vw", "1vh", "-6deg", 1, 0.8],
 		className: cn(fragmentKind.display, "text-[1.9vw] text-ink-2 font-stretch-[108%]"),
 	},
@@ -78,7 +78,7 @@ const getFragments = () => [
 		className: cn(fragmentKind.pill, pillAccent),
 	},
 	{
-		text: "alex@morgan.design",
+		text: "rangga@pratama.id",
 		at: ["25vw", "29vh", "4vw", "9vh", "2deg", 1, 0.4],
 		className: cn(fragmentKind.mono, "text-ink-3"),
 	},
@@ -98,7 +98,7 @@ const getFragments = () => [
 		className: cn(fragmentKind.serif, "text-[1.7vw] text-ink-2", "max-[700px]:hidden"),
 	},
 	{
-		text: t`Spanish, B2`,
+		text: t`English, B2`,
 		at: ["-26vw", "43vh", "-3vw", "16vh", "0deg", 1, 0.3],
 		className: cn(fragmentKind.mono, "text-ink-3"),
 	},

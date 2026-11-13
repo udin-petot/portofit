@@ -27,12 +27,12 @@ function ParsedText({ fixed }: { fixed: boolean }) {
 	return (
 		<>
 			<div>
-				<span className={field}>name</span> <span className="text-[2.6cqw]">{t`Alex Morgan`}</span>
+				<span className={field}>name</span> <span className="text-[2.6cqw]">{t`Rangga Pratama`}</span>
 				<br />
 				<span className={field}>title</span> {t`Senior Product Designer`}
 				<br />
-				<span className={field}>email</span> alex@morgan.design <span className={field}>loc</span> {t`Lisbon, Portugal`}{" "}
-				<span className={field}>url</span> morgan.design
+				<span className={field}>email</span> rangga@pratama.id <span className={field}>loc</span> {t`Jakarta, Indonesia`}{" "}
+				<span className={field}>url</span> ranggapratama.id
 			</div>
 			<div>
 				{section(t`Profile`)}
@@ -43,11 +43,11 @@ function ParsedText({ fixed }: { fixed: boolean }) {
 				{section(t`Experience`, 2)}
 				<br />
 				<span className={field}>role</span> {t`Lead Product Designer`} <span className={field}>org</span>{" "}
-				{t`Northwind Labs`}
+				{t`Sinarpagi Labs`}
 				<br />
 				<span className={field}>dates</span> {t`2021 – Present`}
 				<span className="block truncate">· {designSystemBullet()}</span>
-				<span className={field}>role</span> {t`Product Designer`} <span className={field}>org</span> {t`Parcel & Co.`}
+				<span className={field}>role</span> {t`Product Designer`} <span className={field}>org</span> {t`Kelana`}
 				<br />
 				<span className={field}>dates</span>{" "}
 				<span data-park className={fixed ? "text-[oklch(0.86_0.12_150)]" : "text-[oklch(0.85_0.13_85)]"}>
@@ -57,7 +57,7 @@ function ParsedText({ fixed }: { fixed: boolean }) {
 			<div>
 				{section(t`Education`, 1)}
 				<br />
-				{t`BA, Communication Design`} · {t`University of Porto`} · {t`2013 – 2017`}
+				{t`S1 Sistem Informasi`} · {t`Universitas Indonesia`} · {t`2013 – 2017`}
 			</div>
 			<div>
 				{section(t`Skills`, 6)}
@@ -69,7 +69,7 @@ function ParsedText({ fixed }: { fixed: boolean }) {
 			<div>
 				{section(t`Languages`, 3)}
 				<br />
-				<span className="lowercase">{[t`English (native)`, t`Portuguese (native)`, t`Spanish (B2)`].join(", ")}</span>
+				<span className="lowercase">{[t`Indonesian (native)`, t`English (B2)`].join(", ")}</span>
 			</div>
 		</>
 	);

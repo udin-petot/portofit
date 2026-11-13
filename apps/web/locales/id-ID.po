@@ -1560,8 +1560,8 @@ msgstr "Albania"
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
-msgid "Alex Morgan"
-msgstr "Alex Morgan"
+msgid "Rangga Pratama"
+msgstr "Rangga Pratama"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Align centre"
@@ -2053,12 +2053,12 @@ msgid "Assistant."
 msgstr "Asisten."
 
 #: src/features/homepage/prepare.tsx
-msgid "At Northwind Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
-msgstr "Di Northwind Labs, saya memimpin riset untuk desain ulang onboarding kami. Saya mewawancarai 14 pelanggan, menemukan tiga titik drop-off, dan kami merilis penyiapan yang lebih singkat. Aktivasi naik dari 31% ke 44%."
+msgid "At Sinarpagi Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
+msgstr "Di Sinarpagi Labs, saya memimpin riset untuk desain ulang onboarding kami. Saya mewawancarai 14 pelanggan, menemukan tiga titik drop-off, dan kami merilis penyiapan yang lebih singkat. Aktivasi naik dari 31% ke 44%."
 
 #: src/features/homepage/remember.tsx
-msgid "At Northwind Labs, most new teams stalled before they finished setup."
-msgstr "Di Northwind Labs, sebagian besar tim baru tersendat sebelum menyelesaikan penyiapan."
+msgid "At Sinarpagi Labs, most new teams stalled before they finished setup."
+msgstr "Di Sinarpagi Labs, sebagian besar tim baru tersendat sebelum menyelesaikan penyiapan."
 
 #: src/features/homepage/footer.tsx
 #: src/features/homepage/header.tsx
@@ -2145,7 +2145,7 @@ msgstr "Azerbaijani"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
 #: src/features/homepage/sheet.tsx
-msgid "BA, Communication Design"
+msgid "S1 Sistem Informasi"
 msgstr "BA, Desain Komunikasi"
 
 #: src/features/documents/new-document-dialog.tsx
@@ -2350,8 +2350,8 @@ msgid "Built a shared design system used by six product teams."
 msgstr "Membangun design system bersama yang dipakai enam tim produk."
 
 #: src/features/homepage/prepare.tsx
-msgid "Built from the posting, Sam’s message and your two strongest stories."
-msgstr "Disusun dari lowongan, pesan Sam, dan dua cerita terkuat Anda."
+msgid "Built from the posting, Sari’s message and your two strongest stories."
+msgstr "Disusun dari lowongan, pesan Sari, dan dua cerita terkuat Anda."
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
@@ -4605,14 +4605,23 @@ msgstr "Mengaktifkan otentikasi dua faktor…"
 msgid "End"
 msgstr "Akhir"
 
-#: src/libs/locale.ts
-msgid "English"
-msgstr "Inggris"
+#: src/features/homepage/hero.tsx
+msgid "English, B2"
+msgstr "Inggris, B2"
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
-msgid "English (native)"
-msgstr "Bahasa Inggris (asli)"
+msgid "English (B2)"
+msgstr "Inggris (B2)"
+
+#: src/features/homepage/check.tsx
+#: src/features/homepage/sheet.tsx
+msgid "Indonesian (native)"
+msgstr "Indonesia (asli)"
+
+#: src/libs/locale.ts
+msgid "English"
+msgstr "Inggris"
 
 #: src/libs/locale.ts
 msgid "English (United Kingdom)"
@@ -4967,7 +4976,7 @@ msgid "Fieldnote"
 msgstr "Fieldnote"
 
 #: src/features/homepage/tailor.tsx
-msgid "Fieldnote · Remote, EU"
+msgid "Fieldnote · Jakarta"
 msgstr "Fieldnote · Jarak Jauh, UE"
 
 #: src/features/homepage/hero.tsx
@@ -5105,8 +5114,8 @@ msgid "Fix these values in the CSV, or leave their columns out, before importing
 msgstr "Perbaiki nilai-nilai ini di CSV, atau hilangkan kolomnya, sebelum mengimpor."
 
 #: src/features/homepage/remember.tsx
-msgid "Fixing onboarding drop-off at Northwind Labs"
-msgstr "Mengatasi drop-off onboarding di Northwind Labs"
+msgid "Fixing onboarding drop-off at Sinarpagi Labs"
+msgstr "Mengatasi drop-off onboarding di Sinarpagi Labs"
 
 #: src/features/ats-checker/messages.ts
 msgid "Flatten the form so the text is part of the page."
@@ -5516,8 +5525,8 @@ msgid "Help translate"
 msgstr "Bantu terjemahkan"
 
 #: src/features/homepage/prepare.tsx
-msgid "Hi Alex, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
-msgstr "Halo Alex, senang bisa mengonfirmasi: Anda akan bertemu tim desain kami hari ini pukul {time}, lewat video. Bisakah Anda membawa contoh pekerjaan onboarding Anda?"
+msgid "Hi Rangga, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
+msgstr "Halo Rangga, senang bisa mengonfirmasi: Anda akan bertemu tim desain kami hari ini pukul {time}, lewat video. Bisakah Anda membawa contoh pekerjaan onboarding Anda?"
 
 #: src/components/level/combobox.tsx
 #: src/features/resume/editor/write/entries.tsx
@@ -6671,13 +6680,13 @@ msgid "Links"
 msgstr "Tautan"
 
 #: src/features/homepage/hero.tsx
-msgid "Lisbon"
-msgstr "Lisbon"
+msgid "Jakarta"
+msgstr "Jakarta"
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
-msgid "Lisbon, Portugal"
-msgstr "Lisbon, Portugal"
+msgid "Jakarta, Indonesia"
+msgstr "Jakarta, Indonesia"
 
 #: src/features/documents/documents-page.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -7030,8 +7039,8 @@ msgid "Messages · Pasted from your email"
 msgstr "Pesan · Ditempel dari email Anda"
 
 #: src/features/homepage/remember.tsx
-msgid "Messages · Reply to Sam at Fieldnote"
-msgstr "Pesan · Balasan untuk Sam di Fieldnote"
+msgid "Messages · Reply to Sari at Fieldnote"
+msgstr "Pesan · Balasan untuk Sari di Fieldnote"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
@@ -7122,8 +7131,8 @@ msgid "Most entries have no dates."
 msgstr "Sebagian besar entri tidak memiliki tanggal."
 
 #: src/features/homepage/remember.tsx
-msgid "Most new teams at Northwind Labs stalled during setup and never reached activation."
-msgstr "Sebagian besar tim baru di Northwind Labs tersendat saat penyiapan dan tidak pernah mencapai aktivasi."
+msgid "Most new teams at Sinarpagi Labs stalled during setup and never reached activation."
+msgstr "Sebagian besar tim baru di Sinarpagi Labs tersendat saat penyiapan dan tidak pernah mencapai aktivasi."
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Most recruiters read 180–320 words. The shaded band shows the range."
@@ -7400,8 +7409,8 @@ msgid "New section"
 msgstr "Bagian baru"
 
 #: src/features/homepage/remember.tsx
-msgid "New teams at Northwind were stalling in setup; most never got through."
-msgstr "Tim baru di Northwind tersendat di penyiapan; sebagian besar tidak pernah menyelesaikannya."
+msgid "New teams at Sinarpagi were stalling in setup; most never got through."
+msgstr "Tim baru di Sinarpagi tersendat di penyiapan; sebagian besar tidak pernah menyelesaikannya."
 
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Next issue"
@@ -7700,13 +7709,13 @@ msgid "normal margins"
 msgstr "margin normal"
 
 #: src/features/homepage/check.tsx
-msgid "Northwind Labs"
-msgstr "Northwind Labs"
+msgid "Sinarpagi Labs"
+msgstr "Sinarpagi Labs"
 
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
-msgid "Northwind Labs · Lisbon"
-msgstr "Northwind Labs · Lisbon"
+msgid "Sinarpagi Labs · Jakarta"
+msgstr "Sinarpagi Labs · Jakarta"
 
 #: src/libs/locale.ts
 msgid "Norwegian"
@@ -8335,13 +8344,13 @@ msgstr "paragraf {n}"
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
-msgid "Parcel & Co."
-msgstr "Parcel & Co."
+msgid "Kelana"
+msgstr "Kelana"
 
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
-msgid "Parcel & Co. · Porto"
-msgstr "Parcel & Co. · Porto"
+msgid "Kelana · Bandung"
+msgstr "Kelana · Bandung"
 
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
@@ -8673,11 +8682,6 @@ msgstr "Potret"
 #: src/libs/locale.ts
 msgid "Portuguese (Brazil)"
 msgstr "Portugis (Brasil)"
-
-#: src/features/homepage/check.tsx
-#: src/features/homepage/sheet.tsx
-msgid "Portuguese (native)"
-msgstr "Portugis (asli)"
 
 #: src/libs/locale.ts
 msgid "Portuguese (Portugal)"
@@ -9975,12 +9979,12 @@ msgid "Salary range"
 msgstr "Rentang gaji"
 
 #: src/features/homepage/prepare.tsx
-msgid "Sam"
-msgstr "Sam"
+msgid "Sari"
+msgstr "Sari"
 
 #: src/features/homepage/prepare.tsx
-msgid "Sam, Fieldnote"
-msgstr "Sam, Fieldnote"
+msgid "Sari, Fieldnote"
+msgstr "Sari, Fieldnote"
 
 #: src/features/homepage/remember.tsx
 msgid "Same you. Less starting over."
@@ -11031,15 +11035,6 @@ msgstr "Jarak (Vertikal)"
 msgid "Spanish"
 msgstr "Spanyol"
 
-#: src/features/homepage/check.tsx
-#: src/features/homepage/sheet.tsx
-msgid "Spanish (B2)"
-msgstr "Spanyol (B2)"
-
-#: src/features/homepage/hero.tsx
-msgid "Spanish, B2"
-msgstr "Spanyol, B2"
-
 #: src/features/career/workspace/practise.tsx
 msgid "Speak"
 msgstr "Bicara"
@@ -11658,8 +11653,8 @@ msgid "Thai"
 msgstr "Thai"
 
 #: src/features/homepage/remember.tsx
-msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
-msgstr "Terima kasih, Sam. Ini salah satunya: di Northwind Labs saya memimpin desain ulang onboarding, dari 14 wawancara pelanggan hingga penyiapan yang lebih singkat."
+msgid "Thanks, Sari. Here’s one: at Sinarpagi Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
+msgstr "Terima kasih, Sari. Ini salah satunya: di Sinarpagi Labs saya memimpin desain ulang onboarding, dari 14 wawancara pelanggan hingga penyiapan yang lebih singkat."
 
 #: src/features/ats-checker/checker.tsx
 msgid "That file couldn't be read as a PDF."
@@ -12638,8 +12633,8 @@ msgstr "Kode unik"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
 #: src/features/homepage/sheet.tsx
-msgid "University of Porto"
-msgstr "University of Porto"
+msgid "Universitas Indonesia"
+msgstr "Universitas Indonesia"
 
 #: src/features/career/offers.tsx
 msgid "Unknown"

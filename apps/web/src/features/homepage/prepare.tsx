@@ -178,7 +178,7 @@ function PencilTick({ tick }: { tick: string }) {
 	);
 }
 
-/** 0 Messages: Sam's confirmation, pasted in and read for you, with the stage change it proposes. */
+/** 0 Messages: Sari's confirmation, pasted in and read for you, with the stage change it proposes. */
 function MessagesPanel() {
 	const time = useTime(INTERVIEW_AT);
 	return (
@@ -188,15 +188,15 @@ function MessagesPanel() {
 			</span>
 			<div className="flex flex-col gap-[.15em] border-b border-line pb-[.7em] text-[.92em] text-ink-2">
 				<span>
-					<b className="font-semibold text-ink">{t`From`}</b> {t`Sam, Fieldnote`}
+					<b className="font-semibold text-ink">{t`From`}</b> {t`Sari, Fieldnote`}
 				</span>
 				<span>
 					<b className="font-semibold text-ink">{t`Subject`}</b> {t`Re: Senior Product Designer`}
 				</span>
 			</div>
 			<p className="font-display text-[1.25em] leading-[1.45] text-pretty text-ink">
-				{t`Hi Alex, great to confirm: you’ll meet our design team today at ${time}, by video. Could you bring an example of your onboarding work?`}
-				<span className="mt-[.3em] block italic">{t`Sam`}</span>
+				{t`Hi Rangga, great to confirm: you’ll meet our design team today at ${time}, by video. Could you bring an example of your onboarding work?`}
+				<span className="mt-[.3em] block italic">{t`Sari`}</span>
 			</p>
 
 			<div className="flex [transform:translateY(calc((1-var(--mr))*10px))] flex-col gap-[.7em] rounded-[.75em] border border-line bg-raised p-[1.1em] opacity-(--mr) shadow-e2 [transition:transform_.4s_var(--ease)]">
@@ -328,7 +328,7 @@ function PlanPanel() {
 			)}
 		>
 			<h3 className="font-display text-[1.55em] leading-[1.15] text-ink">{t`A focused 30-minute plan`}</h3>
-			<span className="text-ink-2">{t`Built from the posting, Sam’s message and your two strongest stories.`}</span>
+			<span className="text-ink-2">{t`Built from the posting, Sari’s message and your two strongest stories.`}</span>
 			<div aria-hidden="true" className="h-[.3em] overflow-hidden rounded-full bg-[oklch(0.93_0.006_95)]">
 				<div className="h-full origin-left [transform:scaleX(calc((var(--k1)*10+var(--k2)*10+var(--k3)*5+var(--k4)*5)/30))] rounded-full bg-[oklch(0.5_0.1_150)] rtl:origin-right" />
 			</div>
@@ -404,7 +404,7 @@ function PractisePanel({ active }: { active: boolean }) {
 			<p className="font-display text-[1.4em] leading-[1.25] text-pretty text-ink">{question}</p>
 			<p className="min-h-[5.6em] rounded-[.5em] border border-line-2 px-[.9em] py-[.7em] leading-[1.55] text-ink">
 				<TypedText
-					text={t`At Northwind Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%.`}
+					text={t`At Sinarpagi Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%.`}
 					progress="--ty"
 					rate={120}
 				/>

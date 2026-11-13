@@ -311,7 +311,7 @@ export function Support() {
 }
 
 /**
- * 12 Closing call to action. The story hands over: Alex's Fieldnote card rests at Interview on the board Tailor
+ * 12 Closing call to action. The story hands over: Rangga's Fieldnote card rests at Interview on the board Tailor
  * started, and an empty card waits under Saved for the reader's own.
  */
 export function Closing() {
