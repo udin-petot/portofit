@@ -48,7 +48,7 @@ export function InvoiceSheet({ invoiceId, onClose, onResend }: InvoiceSheetProps
 	return (
 		<div className="fixed inset-0 z-50 flex justify-end">
 			<button type="button" aria-label={t`Close invoice`} className="absolute inset-0 bg-black/40" onClick={onClose} />
-			<aside className="relative flex h-full w-full max-w-[470px] flex-col border-s border-line bg-surface">
+			<aside className="relative flex h-full w-full max-w-[540px] flex-col border-s border-line bg-surface">
 				<header className="flex items-center justify-between border-b border-line px-4 py-3">
 					<span className="flex items-center gap-2 text-sm font-medium text-ink">
 						<Icon name="note" size={16} className="text-ink-3" />
@@ -94,7 +94,7 @@ export function InvoiceSheet({ invoiceId, onClose, onResend }: InvoiceSheetProps
 
 							<div className="mx-7 mt-5 border-t border-[#E4E1D8]" />
 
-							<div className="grid grid-cols-3 gap-4 px-7 py-5">
+							<div className="grid grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)_minmax(0,0.95fr)] gap-4 px-7 py-5">
 								<div className="min-w-0">
 									<p className="text-[9px] uppercase tracking-[0.12em] text-[#6B6A60]">
 										<Trans>Issued to</Trans>

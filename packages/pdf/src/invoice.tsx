@@ -109,6 +109,24 @@ const styles = {
 	},
 	totalLabel: { fontSize: 9.5, fontFamily: "Helvetica-Bold", letterSpacing: 0.5 },
 	totalValue: { fontSize: 13, fontFamily: "Helvetica-Bold" },
+	guide: { flexDirection: "row", marginTop: 26, backgroundColor: PAPER, borderRadius: 7, paddingVertical: 13, paddingHorizontal: 14 },
+	guideLeft: { flex: 1.45, paddingRight: 20 },
+	guideRight: { flex: 1, borderLeftWidth: 0.75, borderLeftColor: LINE, paddingLeft: 16 },
+	step: { flexDirection: "row", alignItems: "flex-start", marginBottom: 5 },
+	stepNumber: {
+		width: 13,
+		height: 13,
+		borderRadius: 7,
+		backgroundColor: ACCENT,
+		color: "#FFFFFF",
+		fontFamily: "Helvetica-Bold",
+		fontSize: 7,
+		textAlign: "center",
+		marginRight: 7,
+		marginTop: 1,
+	},
+	stepText: { flex: 1, fontSize: 8, lineHeight: 1.5, color: INK },
+	guideContact: { marginTop: 5, color: ACCENT_TEXT, fontFamily: "Helvetica-Bold" },
 	notes: { flexDirection: "row", marginTop: 30, borderTopWidth: 0.75, borderTopColor: LINE, paddingTop: 14 },
 	notesLeft: { flex: 1.5, paddingRight: 24 },
 	notesRight: { flex: 1, alignItems: "flex-end" },
@@ -206,6 +224,31 @@ export function InvoiceDocument({ number, issuedAt, snapshot }: InvoicePdfInput)
 				<View style={styles.totalRow}>
 					<Text style={styles.totalLabel}>Total dibayar</Text>
 					<Text style={styles.totalValue}>{rupiah(snapshot.totalIdr)}</Text>
+				</View>
+
+				<View style={styles.guide}>
+					<View style={styles.guideLeft}>
+						<Text style={styles.notesLabel}>CARA PAKAI KREDIT INI</Text>
+						<View style={styles.step}>
+							<Text style={styles.stepNumber}>1</Text>
+							<Text style={styles.stepText}>Buka dasbor, lalu pilih lamaran atau dokumen yang mau dikerjakan.</Text>
+						</View>
+						<View style={styles.step}>
+							<Text style={styles.stepNumber}>2</Text>
+							<Text style={styles.stepText}>Tekan persiapan di tab kecocokan. Satu kredit membuat CV dan surat lamaran.</Text>
+						</View>
+						<View style={styles.step}>
+							<Text style={styles.stepNumber}>3</Text>
+							<Text style={styles.stepText}>Periksa hasilnya, unduh PDF, lalu kirim sendiri ke perusahaan lewat situs mereka.</Text>
+						</View>
+					</View>
+					<View style={styles.guideRight}>
+						<Text style={styles.notesLabel}>BUTUH BANTUAN</Text>
+						<Text style={styles.notesText}>
+							Balas lewat menu Bantuan di dasbor. Dijawab pada hari kerja, biasanya kurang dari satu hari.
+						</Text>
+						<Text style={[styles.notesText, styles.guideContact]}>WhatsApp 081939948769</Text>
+					</View>
 				</View>
 
 				<View style={styles.notes}>
