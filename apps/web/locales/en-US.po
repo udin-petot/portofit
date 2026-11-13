@@ -1555,8 +1555,8 @@ msgstr "Albanian"
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
-msgid "Rangga Pratama"
-msgstr "Rangga Pratama"
+msgid "Bagus Maulana"
+msgstr "Bagus Maulana"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Align centre"
@@ -5520,8 +5520,8 @@ msgid "Help translate"
 msgstr "Help translate"
 
 #: src/features/homepage/prepare.tsx
-msgid "Hi Rangga, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
-msgstr "Hi Rangga, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
+msgid "Hi Bagus, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
+msgstr "Hi Bagus, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
 
 #: src/components/level/combobox.tsx
 #: src/features/resume/editor/write/entries.tsx

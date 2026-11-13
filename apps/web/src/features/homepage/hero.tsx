@@ -78,18 +78,18 @@ const getFragments = () => [
 		className: cn(fragmentKind.pill, pillAccent),
 	},
 	{
-		text: "rangga@pratama.id",
+		text: "bagus@maulana.id",
 		at: ["25vw", "29vh", "4vw", "9vh", "2deg", 1, 0.4],
 		className: cn(fragmentKind.mono, "text-ink-3"),
 	},
 	{
 		text: t`Barista, 2012`,
-		at: ["-44vw", "38vh", "-6vw", "15vh", "-7deg", 1, 0.8],
+		at: ["-43vw", "38vh", "-6vw", "15vh", "-7deg", 1, 0.8],
 		className: cn(fragmentKind.serif, "text-[2.2vw] text-ink-3 italic"),
 	},
 	{
 		text: t`40% faster reviews`,
-		at: ["44vw", "38vh", "6vw", "13vh", "-4deg", 1, 1],
+		at: ["40vw", "38vh", "6vw", "13vh", "-4deg", 1, 1],
 		className: cn(fragmentKind.display, "text-[2.4vw] font-light text-ink-2 font-stretch-[94%]"),
 	},
 	{

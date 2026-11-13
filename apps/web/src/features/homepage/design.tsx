@@ -14,7 +14,7 @@ import { templates } from "@/dialogs/resume/template/data";
 const TEMPLATE_AT = [0.05, 0.2, 0.36, 0.52, 0.7];
 
 /**
- * The contact sheet the scene zooms out to: every real template, six by three, with Rangga's page taking the eighteenth
+ * The contact sheet the scene zooms out to: every real template, six by three, with Bagus's page taking the eighteenth
  * cell. Its cell sits half a column left of centre, so the page drifts there as the sheet comes in.
  */
 const STACK_CELL = 8;
@@ -36,7 +36,7 @@ const pageLabel = "font-martian font-medium text-[calc(var(--pw)*.045)] leading-
 
 /**
  * 02 Design. The word "Design." changes its type as five looks wipe across the page in turn, then the scene zooms out
- * to a contact sheet of every real template, with Rangga's page settling into a cell of its own. The tabs jump to each
+ * to a contact sheet of every real template, with Bagus's page settling into a cell of its own. The tabs jump to each
  * wipe.
  *
  * Everything that moves with the scroll sits on its own layer (will-change), and the wipes slide clipped layers

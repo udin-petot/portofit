@@ -195,7 +195,7 @@ function MessagesPanel() {
 				</span>
 			</div>
 			<p className="font-display text-[1.25em] leading-[1.45] text-pretty text-ink">
-				{t`Hi Rangga, great to confirm: you’ll meet our design team today at ${time}, by video. Could you bring an example of your onboarding work?`}
+				{t`Hi Bagus, great to confirm: you’ll meet our design team today at ${time}, by video. Could you bring an example of your onboarding work?`}
 				<span className="mt-[.3em] block italic">{t`Sari`}</span>
 			</p>
 

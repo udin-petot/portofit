@@ -9,7 +9,7 @@ import { SCENE, useLanding } from "./scroll";
 import { Sheet } from "./sheet";
 import { Doodle, labelClass, TypedText } from "./ui";
 
-const ADDRESS = "portofit.tech/rangga-pratama";
+const ADDRESS = "portofit.tech/bagus-maulana";
 const SLUG_START = ADDRESS.indexOf("/") + 1;
 
 /**
