@@ -1673,8 +1673,8 @@ msgid "Amount"
 msgstr "Amount"
 
 #: src/features/billing/payment-dialog.tsx
-msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
-msgstr "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
+#~ msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
+#~ msgstr "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
 
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
@@ -2680,6 +2680,10 @@ msgstr "Checking the exported PDF…"
 #: src/features/career/shared.tsx
 msgid "Checking your preferences"
 msgstr "Checking your preferences"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Checking your proof"
+msgstr "Checking your proof"
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Checking… Copy is available after saving."
@@ -3809,6 +3813,10 @@ msgstr "Credit history"
 #: src/routes/dashboard/akun.tsx
 msgid "Credits"
 msgstr "Credits"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Credits land in your account the moment it passes."
+msgstr "Credits land in your account the moment it passes."
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Crop and Upload"
@@ -5934,6 +5942,7 @@ msgstr "Improving…"
 msgid "In good company"
 msgstr "In good company"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "In review"
@@ -9227,8 +9236,8 @@ msgid "Proof rejected"
 msgstr "Proof rejected"
 
 #: src/features/billing/payment-dialog.tsx
-msgid "Proof sent"
-msgstr "Proof sent"
+#~ msgid "Proof sent"
+#~ msgstr "Proof sent"
 
 #: src/features/billing/transactions.tsx
 msgid "Proof sent, waiting for a check"
@@ -9237,6 +9246,10 @@ msgstr "Proof sent, waiting for a check"
 #: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
 msgstr "Proof sent. An admin checks it by hand, then the credits arrive automatically."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof sent. An admin checks it by hand, usually within one working day."
+msgstr "Proof sent. An admin checks it by hand, usually within one working day."
 
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"
@@ -11509,6 +11522,7 @@ msgstr "Starts now"
 msgid "Statistics"
 msgstr "Statistics"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/workspace/fit.tsx
 msgid "Status"
 msgstr "Status"
@@ -13472,8 +13486,8 @@ msgid "Volunteer"
 msgstr "Volunteer"
 
 #: src/features/billing/payment-dialog.tsx
-msgid "Waiting for a check"
-msgstr "Waiting for a check"
+#~ msgid "Waiting for a check"
+#~ msgstr "Waiting for a check"
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"

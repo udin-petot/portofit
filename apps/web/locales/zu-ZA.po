@@ -1672,8 +1672,8 @@ msgid "Amount"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
-msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
-msgstr ""
+#~ msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
+#~ msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
@@ -2678,6 +2678,10 @@ msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Checking your preferences"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Checking your proof"
 msgstr ""
 
 #: src/features/resume/share/link-tab.tsx
@@ -3807,6 +3811,10 @@ msgstr ""
 #: src/features/billing/invoice-sheet.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Credits"
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Credits land in your account the moment it passes."
 msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
@@ -5933,6 +5941,7 @@ msgstr ""
 msgid "In good company"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "In review"
@@ -9226,8 +9235,8 @@ msgid "Proof rejected"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
-msgid "Proof sent"
-msgstr ""
+#~ msgid "Proof sent"
+#~ msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "Proof sent, waiting for a check"
@@ -9235,6 +9244,10 @@ msgstr ""
 
 #: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
+msgstr ""
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof sent. An admin checks it by hand, usually within one working day."
 msgstr ""
 
 #: src/features/career/workspace/messages.tsx
@@ -11508,6 +11521,7 @@ msgstr ""
 msgid "Statistics"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/workspace/fit.tsx
 msgid "Status"
 msgstr ""
@@ -13471,8 +13485,8 @@ msgid "Volunteer"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
-msgid "Waiting for a check"
-msgstr ""
+#~ msgid "Waiting for a check"
+#~ msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"

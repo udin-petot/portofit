@@ -1678,8 +1678,8 @@ msgid "Amount"
 msgstr "Jumlah"
 
 #: src/features/billing/payment-dialog.tsx
-msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
-msgstr ""
+#~ msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
+#~ msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
@@ -2685,6 +2685,10 @@ msgstr "Memeriksa PDF yang diekspor…"
 #: src/features/career/shared.tsx
 msgid "Checking your preferences"
 msgstr "Memeriksa preferensi Anda"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Checking your proof"
+msgstr ""
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Checking… Copy is available after saving."
@@ -3814,6 +3818,10 @@ msgstr "Riwayat kredit"
 #: src/routes/dashboard/akun.tsx
 msgid "Credits"
 msgstr "Kredit"
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Credits land in your account the moment it passes."
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Crop and Upload"
@@ -5939,6 +5947,7 @@ msgstr "Meningkatkan…"
 msgid "In good company"
 msgstr "Di perusahaan yang baik"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "In review"
@@ -9232,8 +9241,8 @@ msgid "Proof rejected"
 msgstr "Bukti ditolak"
 
 #: src/features/billing/payment-dialog.tsx
-msgid "Proof sent"
-msgstr ""
+#~ msgid "Proof sent"
+#~ msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "Proof sent, waiting for a check"
@@ -9242,6 +9251,10 @@ msgstr "Bukti terkirim, menunggu verifikasi"
 #: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
 msgstr "Bukti terkirim. Admin memverifikasi manual, lalu kredit masuk otomatis."
+
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof sent. An admin checks it by hand, usually within one working day."
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"
@@ -11514,6 +11527,7 @@ msgstr "Dimulai sekarang"
 msgid "Statistics"
 msgstr "Statistik"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/career/workspace/fit.tsx
 msgid "Status"
 msgstr "Status"
@@ -13477,8 +13491,8 @@ msgid "Volunteer"
 msgstr "Relawan"
 
 #: src/features/billing/payment-dialog.tsx
-msgid "Waiting for a check"
-msgstr ""
+#~ msgid "Waiting for a check"
+#~ msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"

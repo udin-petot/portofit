@@ -111,16 +111,16 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 					: phase === "galat"
 						? t`Connection problem`
 						: phase === "menunggu_dicek"
-							? t`Waiting for a check`
+							? t`Checking your proof`
 							: t`Finish the payment`;
 
 	const summary = order ? (
 		<div className="grid gap-0.5">
 			<p className="text-[11px] tracking-[0.06em] text-ink-3 uppercase">
-				{phase === "lunas" || phase === "kedaluwarsa" || phase === "ditolak" ? (
-					<Trans>Total</Trans>
-				) : (
+				{phase === "menunggu" || phase === "mengunggah" ? (
 					<Trans>Total to pay</Trans>
+				) : (
+					<Trans>Total</Trans>
 				)}
 			</p>
 			<p className="text-[30px] leading-9 font-semibold text-ink tabular-nums max-sm:text-[28px]">
@@ -221,30 +221,38 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 	const reviewing = (
 		<>
 			<QrMorph phase={phase} />
-			<div className="grid gap-1 text-center">
-				<p className="text-[15px] font-semibold text-ink">
-					<Trans>Proof sent</Trans>
-				</p>
-				<p className="text-[13px] leading-5 text-ink-2">
-					<Trans>
-						An admin checks it by hand, usually within one working day. Credits land in your account once it passes.
-					</Trans>
-				</p>
-			</div>
-			<div className="grid gap-1.5 rounded-lg border border-line bg-sunken px-3 py-2.5 text-[13px]">
-				<div className="flex justify-between gap-3">
-					<span className="text-ink-3">
+			<p className="mx-auto max-w-[330px] text-center text-[13px] leading-5 text-ink-2">
+				<Trans>Proof sent. An admin checks it by hand, usually within one working day.</Trans>
+				<br />
+				<span className="text-ink-3">
+					<Trans>Credits land in your account the moment it passes.</Trans>
+				</span>
+			</p>
+			<dl className="divide-y divide-line rounded-lg border border-line">
+				<div className="flex items-center justify-between gap-3 px-3 py-2.5">
+					<dt className="text-xs text-ink-3">
 						<Trans>Plan</Trans>
-					</span>
-					<span className="truncate text-ink">{plan?.name}</span>
+					</dt>
+					<dd className="max-w-[230px] truncate text-[13px] text-ink">{plan?.name}</dd>
 				</div>
-				<div className="flex justify-between gap-3">
-					<span className="text-ink-3">
+				<div className="flex items-center justify-between gap-3 px-3 py-2.5">
+					<dt className="text-xs text-ink-3">
 						<Trans>Paid</Trans>
-					</span>
-					<span className="text-ink tabular-nums">{formatRupiah(order?.totalIdr ?? 0)}</span>
+					</dt>
+					<dd className="text-[13px] text-ink tabular-nums">{formatRupiah(order?.totalIdr ?? 0)}</dd>
 				</div>
-			</div>
+				<div className="flex items-center justify-between gap-3 px-3 py-2.5">
+					<dt className="text-xs text-ink-3">
+						<Trans>Status</Trans>
+					</dt>
+					<dd>
+						<span className="inline-flex items-center gap-1.5 rounded-full bg-warn-soft px-2.5 py-0.5 text-[11px] font-medium text-warn-text">
+							<span className="size-1.5 rounded-full bg-current" />
+							<Trans>In review</Trans>
+						</span>
+					</dd>
+				</div>
+			</dl>
 			<Button variant="secondary" className="h-11 w-full" onClick={onClose}>
 				<Trans>Close</Trans>
 			</Button>
@@ -376,7 +384,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 				</>
 			) : (
 				<>
-					{summary}
+					{phase === "menunggu_dicek" ? null : summary}
 					{phase === "menunggu" || phase === "mengunggah" ? waiting : null}
 					{phase === "menunggu_dicek" ? reviewing : null}
 					{phase === "lunas" ? paid : null}

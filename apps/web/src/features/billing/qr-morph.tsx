@@ -2,9 +2,9 @@ import { Icon } from "@reactive-resume/ui/components/icon";
 import { cn } from "@reactive-resume/utils/style";
 import { QRIS_IMAGE_PATH } from "./config";
 import type { PaymentPhase } from "./payment-phase";
+import { WaitingClock } from "./waiting-clock";
 
 const MARKS = {
-	menunggu_dicek: { icon: "clock", box: "bg-warn-soft", ink: "text-warn-text" },
 	lunas: { icon: "check-circle", box: "bg-accent-soft", ink: "text-accent-text" },
 	kedaluwarsa: { icon: "x-circle", box: "bg-danger-soft", ink: "text-danger-text" },
 	ditolak: { icon: "x-circle", box: "bg-danger-soft", ink: "text-danger-text" },
@@ -17,7 +17,7 @@ const MARKS = {
  */
 export function QrMorph({ phase }: { phase: PaymentPhase }) {
 	const showQr = phase === "menunggu" || phase === "mengunggah";
-	const mark = showQr ? null : MARKS[phase as keyof typeof MARKS];
+	const mark = showQr || phase === "menunggu_dicek" ? null : MARKS[phase as keyof typeof MARKS];
 
 	return (
 		<div className="relative mx-auto size-[240px] overflow-hidden rounded-xl">
@@ -38,7 +38,9 @@ export function QrMorph({ phase }: { phase: PaymentPhase }) {
 				)}
 				aria-hidden={showQr ? "true" : undefined}
 			>
-				{mark ? (
+				{phase === "menunggu_dicek" ? (
+					<WaitingClock />
+				) : mark ? (
 					<span className={cn("grid size-[84px] place-items-center rounded-full", mark.box, mark.ink)}>
 						<Icon name={mark.icon} size={38} />
 					</span>
