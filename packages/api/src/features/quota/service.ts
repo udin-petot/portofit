@@ -3,10 +3,19 @@ import { and, eq, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import { aiQuotaUsage, interviewSession } from "@reactive-resume/db/schema";
 import { billingService } from "../billing/service";
+import { recordUsage } from "../usage/record";
+import type { UsageFeature } from "../usage/taxonomy";
 import { AI_FEATURES, type AiFeature, quotaLine, quotaPeriodStart, quotaResetAt, WEEKLY_AI_LIMITS } from "./period";
 
 export type { AiFeature, QuotaLine } from "./period";
 export { AI_FEATURES, WEEKLY_AI_LIMITS, quotaPeriodStart, quotaResetAt } from "./period";
+
+const USAGE_FEATURE: Record<AiFeature, UsageFeature> = {
+	review: "ai_review",
+	improve: "ai_improve",
+	coach: "coach_message",
+	job_match: "job_match",
+};
 
 function line(feature: AiFeature, used: number) {
 	return quotaLine(feature, used);
@@ -27,6 +36,7 @@ async function claimInterviewSession(input: { userId: string; interviewId: strin
 			kind: "interview",
 			reason: input.reason,
 		});
+		recordUsage("interview_session");
 		return { charged: true as const };
 	} catch (error) {
 		await db.delete(interviewSession).where(eq(interviewSession.id, session.id));
@@ -55,7 +65,7 @@ export const quotaService = {
 	 * Memotong jatah sebelum pekerjaan AI dimulai. Dipanggil di awal handler, bukan di tampilan,
 	 * supaya panggilan langsung ke endpoint tidak bisa melewati batas.
 	 */
-	consume(input: { userId: string; feature: AiFeature; cost?: number; now?: Date }) {
+	async consume(input: { userId: string; feature: AiFeature; cost?: number; now?: Date }) {
 		// Tombol mati: menghentikan biaya model tanpa deploy ulang. Dibaca dari process.env supaya
 		// bisa dinyalakan hanya dengan mengganti env container, tanpa menyentuh skema env.
 		if (process.env.AI_PAUSED === "true" || process.env.AI_PAUSED === "1") {
@@ -68,7 +78,7 @@ export const quotaService = {
 		const limit = WEEKLY_AI_LIMITS[input.feature];
 		const periodStart = quotaPeriodStart(input.now);
 
-		return db.transaction(async (tx) => {
+		const result = await db.transaction(async (tx) => {
 			await tx.execute(
 				sql`select pg_advisory_xact_lock(hashtext(${`${input.userId}:ai:${input.feature}`}))`,
 			);
@@ -112,6 +122,11 @@ export const quotaService = {
 
 			return line(input.feature, next);
 		});
+
+		// Dihitung setelah jatah benar benar terpakai, bukan saat permintaan datang.
+		recordUsage(USAGE_FEATURE[input.feature]);
+
+		return result;
 	},
 
 	/**

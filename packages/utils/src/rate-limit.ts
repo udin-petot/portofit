@@ -47,5 +47,7 @@ export const rateLimitConfig = {
 		storageUpload: { maxRequests: 20, window: 60 * 1000 },
 		storageDelete: { maxRequests: 30, window: 60 * 1000 },
 		resumeMutations: { maxRequests: 300, window: 60 * 1000 },
+		// Penghitung pemakaian: murah, tapi tetap dibatasi supaya satu peramban tidak bisa membanjiri tabel.
+		usageTrack: { maxRequests: 120, window: 60 * 1000 },
 	},
 } as const;

@@ -9,4 +9,5 @@ export * from "./cover-letter";
 export * from "./quota";
 export * from "./resume";
 export * from "./support";
+export * from "./usage";
 export * from "./web-access";

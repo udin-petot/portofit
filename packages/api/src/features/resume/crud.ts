@@ -7,6 +7,7 @@ import { documentsService } from "../documents/service";
 import { createResumeData } from "./initial-data";
 import { parseStoredResumeData } from "./resume-data-validation";
 import { resumeService } from "./service";
+import { recordUsage } from "../usage/record";
 
 export const crudRouter = {
 	list: protectedProcedure
@@ -71,6 +72,7 @@ export const crudRouter = {
 		})
 		.handler(({ context, input }) => {
 			const locale = input.locale ?? context.locale;
+			recordUsage("resume_create");
 			return resumeService.create({
 				name: input.name,
 				...(input.slug ? { slug: input.slug } : {}),
@@ -146,8 +148,11 @@ export const crudRouter = {
 				status: 400,
 			},
 		})
-		.handler(({ context, input }) =>
-			resumeService.update({
+		.handler(({ context, input }) => {
+			// Hanya saat tautan publik dinyalakan, bukan setiap kali pengaturan disimpan ulang.
+			if (input.isPublic === true) recordUsage("resume_share");
+
+			return resumeService.update({
 				id: input.id,
 				userId: context.user.id,
 				...(input.name !== undefined ? { name: input.name } : {}),
@@ -157,8 +162,8 @@ export const crudRouter = {
 				...(input.data !== undefined ? { data: input.data } : {}),
 				...(input.isPublic !== undefined ? { isPublic: input.isPublic } : {}),
 				...(input.showDownloadButtons !== undefined ? { showDownloadButtons: input.showDownloadButtons } : {}),
-			}),
-		),
+			});
+		}),
 
 	patch: protectedProcedure
 		.route({

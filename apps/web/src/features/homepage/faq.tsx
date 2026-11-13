@@ -31,7 +31,7 @@ function useQuestions(): Question[] {
 		{
 			id: "free",
 			question: t`Is PortoFit free?`,
-			answer: t`Partly. Building a resume, checking PDF readability, and saving applications are free. For a resume and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking.`,
+			answer: t`Partly. Building a resume, checking PDF readability, and saving applications are free. For a resume and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no third-party trackers.`,
 		},
 		{
 			id: "ats",

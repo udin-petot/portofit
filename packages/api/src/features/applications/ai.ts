@@ -9,6 +9,7 @@ import type { Locale } from "@reactive-resume/utils/locale";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
 import { aiProvidersService } from "../ai-providers/service";
 import { billingService } from "../billing/service";
+import { recordUsage } from "../usage/record";
 import { generateJson as sharedGenerateJson } from "../ai/generate-json";
 import { getModel } from "../ai/service";
 import { coverLetterService } from "../cover-letters/service";
@@ -475,6 +476,7 @@ export const aiRouter = {
 				kind: "application",
 				reason: `Tailor CV — ${application.company} · ${application.role}`.slice(0, 200),
 			});
+			recordUsage("tailor_resume");
 
 			return tailorResumeFor(context.user.id, application, context.locale);
 		}),
@@ -510,6 +512,7 @@ export const aiRouter = {
 				kind: "application",
 				reason: `Paket lamaran — ${application.company} · ${application.role}`.slice(0, 200),
 			});
+			recordUsage("prepare_application");
 
 			try {
 				const tailored = await tailorResumeFor(context.user.id, application, context.locale);

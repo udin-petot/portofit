@@ -17,6 +17,7 @@ import { PdfPasswordRequiredError, PdfTooLargeError, PdfUnreadableError } from "
 import { getPdfCategoryDescription, getPdfCategoryLabel, getPdfFindingMessage } from "./messages";
 import { savePendingImport, takePendingImport } from "./pending-import";
 import { runAtsCheck } from "./run-ats-check";
+import { trackUsage } from "@/libs/usage";
 import { getOrpcErrorMessage } from "@/libs/error-message";
 import { ENTER_CLASS, POP_CLASS, stagger } from "@/libs/motion";
 import { client } from "@/libs/orpc/client";
@@ -75,6 +76,8 @@ export function AtsChecker({ signedIn, importPending }: AtsCheckerProps) {
 			});
 			if (controller.signal.aborted) return;
 			setState({ name: "done", file, result });
+			// Statistik saja: tidak ada isi CV atau teks lowongan yang ikut terkirim.
+			trackUsage(posting.trim() ? "ats_check_posting" : "ats_check");
 		} catch (error) {
 			if (!controller.signal.aborted) setState({ name: "idle", error: describeError(error) });
 		}
@@ -88,6 +91,7 @@ export function AtsChecker({ signedIn, importPending }: AtsCheckerProps) {
 			// Read in the browser, the same way the check did, so every issue lines up in Check.
 			const data = await readFile.readResumeFile(file, "pdf", { aiAvailable: false });
 			const resumeId = await client.resume.import({ data });
+			trackUsage("resume_import");
 			await navigate({ to: "/builder/$resumeId", params: { resumeId }, search: { mode: "check" } });
 		} catch (error) {
 			setState({

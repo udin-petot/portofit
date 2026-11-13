@@ -8358,8 +8358,8 @@ msgid "Partly supported"
 msgstr "Didukung sebagian"
 
 #: src/features/homepage/faq.tsx
-msgid "Partly. Building a resume, checking PDF readability, and saving applications are free. For a resume and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no tracking."
-msgstr "Sebagian. Membuat resume, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk resume beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacakan."
+msgid "Partly. Building a resume, checking PDF readability, and saving applications are free. For a resume and cover letter tailored to one job, plus interview practice sessions, there are low-cost paid packages. No ads, no third-party trackers."
+msgstr "Sebagian. Membuat resume, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk resume beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacak pihak ketiga."
 
 #. Authentication provider display name in account settings
 #. Label for passkey sign-in button
@@ -8651,8 +8651,8 @@ msgid "PortoFit {__APP_VERSION__} · MIT"
 msgstr "PortoFit {__APP_VERSION__} · MIT"
 
 #: src/features/homepage/sections.tsx
-msgid "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a resume tailored to one job and interview practice. No ads, no tracking."
-msgstr "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk resume yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacakan."
+msgid "PortoFit is built by a student team as an entrepreneurship project on an MIT-licensed open source foundation. The core version is free, with low-cost paid packages for a resume tailored to one job and interview practice. No ads, no third-party trackers."
+msgstr "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk resume yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacak pihak ketiga."
 
 #: src/features/homepage/header.tsx
 msgid "PortoFit on GitHub"

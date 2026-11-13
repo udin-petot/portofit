@@ -51,6 +51,7 @@ const supportLimiter = createRateLimiter("supportLimiter", rateLimitConfig.orpc.
 const storageUploadLimiter = createRateLimiter("storageUploadLimiter", rateLimitConfig.orpc.storageUpload);
 const storageDeleteLimiter = createRateLimiter("storageDeleteLimiter", rateLimitConfig.orpc.storageDelete);
 const resumeMutationLimiter = createRateLimiter("resumeMutationLimiter", rateLimitConfig.orpc.resumeMutations);
+const usageTrackLimiter = createRateLimiter("usageTrackLimiter", rateLimitConfig.orpc.usageTrack);
 const disabledLimiter = {
 	// oxlint-disable-next-line require-await -- The limiter contract returns a Promise even when rate limiting is disabled.
 	limit: async () => ({
@@ -104,6 +105,12 @@ export const aiRequestRateLimit = createRatelimitMiddleware<ContextWithHeaders, 
 export const supportRequestRateLimit = createRatelimitMiddleware<ContextWithHeaders, unknown>({
 	limiter: productionLimiter(supportLimiter),
 	key: ({ context }) => `support-request:${getUserKey(context)}`,
+});
+
+/** Pemeriksa ATS bisa dipakai tanpa akun, jadi kuncinya alamat, bukan akun. */
+export const usageTrackRateLimit = createRatelimitMiddleware<ContextWithHeaders, unknown>({
+	limiter: productionLimiter(usageTrackLimiter),
+	key: ({ context }) => `usage-track:${getClientKey(context.trustedClient)}`,
 });
 
 export const storageUploadRateLimit = createRatelimitMiddleware<ContextWithHeaders, unknown>({

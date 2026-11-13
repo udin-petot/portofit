@@ -15,6 +15,7 @@ import { resolvePublicResumePdfBlob } from "@/features/resume/public/public-pdf"
 import { getLostCharactersMessage, getReadableErrorMessage } from "@/libs/error-message";
 import { client } from "@/libs/orpc/client";
 import { createSectionTitleResolverForLocale } from "@/libs/resume/section-title-locale";
+import { trackUsage } from "@/libs/usage";
 
 /**
  * Section titles are stored empty by default and resolved (locale-aware) at render time. PDF does
@@ -142,6 +143,7 @@ export function useResumeExport(resume: ExportableResume | undefined, exportOpti
 		if (!resume) return;
 		try {
 			downloadWithAnchor(await createExportFile(resume, "json"), `${getDefaultFileName(resume)}.json`);
+			trackUsage("resume_export_json");
 		} catch {
 			toast.add({ type: "error", description: t`Could not generate the JSON. Please try again.` });
 		}
@@ -152,6 +154,7 @@ export function useResumeExport(resume: ExportableResume | undefined, exportOpti
 		try {
 			const blob = await createExportFile(resume, "md");
 			downloadWithAnchor(blob, `${getDefaultFileName(resume)}.md`);
+			trackUsage("resume_export_markdown");
 		} catch {
 			toast.add({ type: "error", description: t`Could not generate the Markdown. Please try again.` });
 		}
@@ -162,6 +165,7 @@ export function useResumeExport(resume: ExportableResume | undefined, exportOpti
 		try {
 			const blob = await createExportFile(resume, "docx");
 			downloadWithAnchor(blob, `${getDefaultFileName(resume)}.docx`);
+			trackUsage("resume_export_docx");
 		} catch {
 			toast.add({ type: "error", description: t`Could not generate the DOCX. Please try again.` });
 		}
@@ -181,6 +185,7 @@ export function useResumeExport(resume: ExportableResume | undefined, exportOpti
 		try {
 			const blob = await makeBlob();
 			downloadWithAnchor(blob, `${getDefaultFileName(resume)}.pdf`);
+			trackUsage("resume_export_pdf");
 			if (exportOptions.publicResumePdf) {
 				// Statistics are best effort and must not delay or fail a completed browser download.
 				void client.resume.statistics.recordDownload(exportOptions.publicResumePdf.publicResume).catch(() => undefined);

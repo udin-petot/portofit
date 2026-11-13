@@ -6,6 +6,7 @@ import { aiRequestRateLimit, resumeMutationRateLimit } from "../../middleware/ra
 import { paginate } from "../../pagination";
 import { draftLetterBody } from "./draft";
 import { coverLetterService } from "./service";
+import { recordUsage } from "../usage/record";
 import { deleteLetterVersion, getLetterVersion, listLetterVersions, renameLetterVersion } from "./versions";
 
 export const coverLettersRouter = {
@@ -49,7 +50,10 @@ export const coverLettersRouter = {
 		.input(coverLetterDto.create.input)
 		.use(resumeMutationRateLimit)
 		.output(coverLetterDto.create.output)
-		.handler(({ context, input }) => coverLetterService.create({ ...input, userId: context.user.id })),
+		.handler(({ context, input }) => {
+			recordUsage("cover_letter_create");
+			return coverLetterService.create({ ...input, userId: context.user.id });
+		}),
 	update: protectedProcedure
 		.route({
 			method: "PUT",

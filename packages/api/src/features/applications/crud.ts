@@ -4,6 +4,7 @@ import { applicationDto } from "../../dto/application";
 import { resumeMutationRateLimit } from "../../middleware/rate-limit";
 import { paginate, paginationShape } from "../../pagination";
 import { applicationService } from "./service";
+import { recordUsage } from "../usage/record";
 
 export const crudRouter = {
 	list: protectedProcedure
@@ -60,7 +61,10 @@ export const crudRouter = {
 		.input(applicationDto.create.input)
 		.use(resumeMutationRateLimit)
 		.output(applicationDto.create.output)
-		.handler(({ input, context }) => applicationService.create({ userId: context.user.id, ...input })),
+		.handler(({ input, context }) => {
+			recordUsage("application_create");
+			return applicationService.create({ userId: context.user.id, ...input });
+		}),
 
 	import: protectedProcedure
 		.route({

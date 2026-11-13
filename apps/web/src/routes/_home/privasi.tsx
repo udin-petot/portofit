@@ -73,6 +73,11 @@ function RouteComponent() {
 					Draf jawaban latihan dapat disimpan di penyimpanan lokal peramban. Kami tidak memasang cookie iklan atau
 					pelacak pihak ketiga.
 				</p>
+				<p>
+					Kami menghitung pemakaian fitur untuk tahu bagian mana yang perlu diperbaiki: satu catatan berisi nama fitur
+					dan waktunya saja, tanpa akun, tanpa isi dokumen, dan tanpa alamat IP. Catatan itu bertahan paling lama satu
+					tahun, lalu terhapus sendiri, dan tidak dibagikan ke siapa pun.
+				</p>
 			</LegalSection>
 
 			<LegalSection title="6. Berapa lama data disimpan">
