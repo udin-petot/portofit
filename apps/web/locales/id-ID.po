@@ -1682,8 +1682,8 @@ msgstr "Jumlah"
 #~ msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
-msgstr "Admin memeriksa bukti transfermu secara manual. Kredit masuk otomatis setelah lolos, dan halaman ini memberi tahu begitu statusnya berubah."
+#~ msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
+#~ msgstr "Admin memeriksa bukti transfermu secara manual. Kredit masuk otomatis setelah lolos, dan halaman ini memberi tahu begitu statusnya berubah."
 
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
@@ -3124,7 +3124,6 @@ msgstr "Lanjutkan"
 msgid "Continue as guest"
 msgstr "Lanjutkan sebagai tamu"
 
-#: src/features/billing/transactions.tsx
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
 msgstr ""
@@ -3757,7 +3756,6 @@ msgid "Create a new account"
 msgstr "Buat akun baru"
 
 #: src/features/billing/payment-dialog.tsx
-#: src/features/billing/transactions.tsx
 msgid "Create a new order"
 msgstr "Buat pesanan baru"
 
@@ -5123,6 +5121,10 @@ msgstr "Kami mengisi yang bisa diambil dari lowongan."
 #: src/features/documents/new-document-dialog.tsx
 msgid "Filling in entries"
 msgstr "Mengisi entri"
+
+#: src/features/billing/transactions.tsx
+msgid "Filter by status"
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
@@ -8257,12 +8259,12 @@ msgid "Open AI settings"
 msgstr "Buka pengaturan AI"
 
 #: src/features/billing/transactions.tsx
-msgid "Open an application to practise"
-msgstr "Buka lamaran untuk latihan"
+#~ msgid "Open an application to practise"
+#~ msgstr "Buka lamaran untuk latihan"
 
 #: src/features/billing/transactions.tsx
-msgid "Open an application to use it"
-msgstr "Buka lamaran untuk memakainya"
+#~ msgid "Open an application to use it"
+#~ msgstr "Buka lamaran untuk memakainya"
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -8416,7 +8418,6 @@ msgid "Orange"
 msgstr "Oranye"
 
 #: src/features/billing/payment-dialog.tsx
-#: src/features/billing/transactions.tsx
 msgid "Order expired"
 msgstr "Pesanan hangus"
 
@@ -8425,8 +8426,8 @@ msgid "Order waiting for payment"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "orders"
-msgstr "pesanan"
+#~ msgid "orders"
+#~ msgstr "pesanan"
 
 #: src/routes/dashboard/akun.tsx
 msgid "Orders"
@@ -8737,8 +8738,8 @@ msgid "Payment"
 msgstr "Pembayaran"
 
 #: src/features/billing/transactions.tsx
-msgid "Payment confirmed"
-msgstr "Pembayaran dikonfirmasi"
+#~ msgid "Payment confirmed"
+#~ msgstr "Pembayaran dikonfirmasi"
 
 #: src/features/billing/transactions.tsx
 msgid "payment confirmed, your credits are in"
@@ -9236,7 +9237,6 @@ msgstr "Dipromosikan untuk memimpin, 2021"
 #~ msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
-#: src/features/billing/transactions.tsx
 msgid "Proof rejected"
 msgstr "Bukti ditolak"
 
@@ -9245,8 +9245,8 @@ msgstr "Bukti ditolak"
 #~ msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "Proof sent, waiting for a check"
-msgstr "Bukti terkirim, menunggu verifikasi"
+#~ msgid "Proof sent, waiting for a check"
+#~ msgstr "Bukti terkirim, menunggu verifikasi"
 
 #: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
@@ -12080,8 +12080,8 @@ msgid "The copy is linked to the application, so Check and the assistant use its
 msgstr "Salinannya ditautkan ke lamaran pekerjaan, jadi Periksa dan asisten menggunakan postingan pekerjaannya."
 
 #: src/features/billing/transactions.tsx
-msgid "The credits are in your account. An invoice is there if you need proof of payment."
-msgstr "Kredit sudah masuk ke akunmu. Invoice tersedia kalau kamu perlu bukti bayar."
+#~ msgid "The credits are in your account. An invoice is there if you need proof of payment."
+#~ msgstr "Kredit sudah masuk ke akunmu. Invoice tersedia kalau kamu perlu bukti bayar."
 
 #: src/features/billing/payment-dialog.tsx
 msgid "The deadline passed before the proof arrived. This order is closed and cannot be paid again."
@@ -12201,8 +12201,8 @@ msgid "The password you entered is incorrect"
 msgstr "Kata sandi yang Anda masukkan salah"
 
 #: src/features/billing/transactions.tsx
-msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
-msgstr "Batas waktu bayar lewat sebelum bukti masuk. Buat pesanan baru untuk melanjutkan."
+#~ msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
+#~ msgstr "Batas waktu bayar lewat sebelum bukti masuk. Buat pesanan baru untuk melanjutkan."
 
 #: src/features/resume/editor/check/job-match.tsx
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
@@ -12225,8 +12225,8 @@ msgid "The proof could not be sent. Try again."
 msgstr "Bukti gagal dikirim. Coba lagi."
 
 #: src/features/billing/transactions.tsx
-msgid "The proof did not match the amount on this order."
-msgstr "Bukti tidak cocok dengan nominal pesanan ini."
+#~ msgid "The proof did not match the amount on this order."
+#~ msgstr "Bukti tidak cocok dengan nominal pesanan ini."
 
 #: src/features/billing/use-proof-upload.ts
 msgid "The proof must be a JPG or PNG. PDF is not accepted."
@@ -13435,7 +13435,6 @@ msgstr "Tautan video, alamat kantor, atau nomor telepon"
 msgid "Vietnamese"
 msgstr "Vietnam"
 
-#: src/features/billing/transactions.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -13447,8 +13446,8 @@ msgid "View application"
 msgstr "Lihat lamaran kerja"
 
 #: src/features/billing/transactions.tsx
-msgid "View invoice"
-msgstr "Lihat invoice"
+#~ msgid "View invoice"
+#~ msgstr "Lihat invoice"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx

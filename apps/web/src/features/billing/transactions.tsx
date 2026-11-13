@@ -8,6 +8,7 @@ import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { cn } from "@reactive-resume/utils/style";
 import { formatRupiah, ORDER_STATUS_LABEL, ORDER_STATUS_TONE } from "./config";
 import { Countdown } from "./countdown";
 import { InvoiceSheet } from "./invoice-sheet";
@@ -115,6 +116,18 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 		return matchTab && matchQuery;
 	});
 
+	/** Bulan sebagai pemisah, seperti buku besar: orang mencari transaksi dengan mengingat kapan. */
+	const groups = useMemo(() => {
+		const buckets = new Map<string, typeof shown>();
+		for (const order of shown) {
+			const key = new Date(order.createdAt).toLocaleDateString(i18n.locale, { month: "long", year: "numeric" });
+			const bucket = buckets.get(key);
+			if (bucket) bucket.push(order);
+			else buckets.set(key, [order]);
+		}
+		return [...buckets.entries()];
+	}, [shown, i18n.locale]);
+
 	const selected = list.find((order) => order.id === selectedOrderId) ?? null;
 	const invoiceFor = (orderId: string) => invoices.data?.items.find((item) => item.orderId === orderId);
 
@@ -167,140 +180,54 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 				</Button>
 			</div>
 
-			<div className="mt-4 flex flex-wrap items-center justify-between gap-3 sm:mt-6">
+			{/* Satu baris alat: cari di kiri, saring di kanan. Dua baris terpisah memakan tinggi tanpa alasan. */}
+			<div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 				<Input
 					type="search"
 					value={query}
 					placeholder={t`Search a plan or order number`}
 					aria-label={t`Search orders`}
-					className="w-full sm:w-72"
+					className="w-full sm:w-64"
 					onChange={(event) => setQuery(event.target.value)}
 				/>
-				{loading ? null : (
-					<p className="hidden text-xs text-ink-3 tabular-nums sm:block">
-						{counts.semua} <Trans>orders</Trans>
-					</p>
-				)}
-			</div>
-
-			{/* One scrolling row of pills at every width: two rows of underlined tabs read as a broken bar. */}
-			<div className="mx-[-24px] mt-3 flex snap-x gap-2 overflow-x-auto px-6 pb-1 sm:mx-0 sm:mt-4 sm:flex-wrap sm:overflow-visible sm:px-0">
-				{TABS.map((item) => {
-					const count = counts[item];
-					const active = tab === item;
-					return (
-						<button
-							key={item}
-							type="button"
-							aria-pressed={active}
-							onClick={() => setTab(item)}
-							className={`flex min-h-9 shrink-0 snap-start items-center gap-1.5 rounded-full border px-3.5 text-[13px] transition-colors sm:min-h-10 sm:px-4 sm:text-sm ${
-								active
-									? "border-ink bg-ink font-medium text-bg"
-									: "border-line text-ink-2 hover:border-line-2 hover:text-ink"
-							}`}
-						>
-							{tabLabel(item)}
-							{/* A zero on every tab is noise, so a count shows only when it is real or the tab is open. */}
-							{count > 0 || active ? (
-								<span className={`text-xs tabular-nums ${active ? "text-bg/70" : "text-ink-3"}`}>
-									{loading ? "" : count}
-								</span>
-							) : null}
-						</button>
-					);
-				})}
-			</div>
-
-			{selected && selected.status === "menunggu_verifikasi" ? (
-				<section className="mt-4 flex items-start gap-3 rounded-lg border border-line bg-surface p-4">
-					<Icon name="clock" size={20} className="mt-0.5 shrink-0 text-warn" />
-					<div className="grid gap-1">
-						<h2 className="text-sm font-medium text-ink">
-							<Trans>Proof sent, waiting for a check</Trans>
-						</h2>
-						<p className="text-xs leading-5 text-ink-2">
-							<Trans>
-								An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page
-								tells you the moment the status changes.
-							</Trans>
-						</p>
-					</div>
-				</section>
-			) : null}
-
-			{selected && selected.status === "lunas" ? (
-				<section className="mt-4 flex flex-wrap items-start justify-between gap-3 rounded-lg border border-line bg-surface p-4">
-					<div className="flex items-start gap-3">
-						<Icon name="check-circle" size={20} className="mt-0.5 shrink-0 text-accent-text" />
-						<div className="grid gap-1">
-							<h2 className="text-sm font-medium text-ink">
-								<Trans>Payment confirmed</Trans>
-							</h2>
-							<p className="text-xs leading-5 text-ink-2">
-								<Trans>The credits are in your account. An invoice is there if you need proof of payment.</Trans>
-							</p>
-						</div>
-					</div>
-					<div className="flex flex-wrap items-center gap-2">
-						<Button
-							size="sm"
-							onClick={() =>
-								void navigate({
-									to: selected.kind === "interview" ? "/dashboard/career" : "/dashboard/applications",
-								})
-							}
-						>
-							{selected.kind === "interview" ? (
-								<Trans>Open an application to practise</Trans>
-							) : (
-								<Trans>Open an application to use it</Trans>
-							)}
-						</Button>
-						{invoiceFor(selected.id) ? (
-							<Button
-								variant="secondary"
-								size="sm"
-								onClick={() => {
-									const invoice = invoiceFor(selected.id);
-									if (invoice) setInvoiceOpen(invoice.id);
-								}}
+				<div
+					role="group"
+					aria-label={t`Filter by status`}
+					className="mx-[-24px] flex snap-x gap-2 overflow-x-auto px-6 pb-1 sm:mx-0 sm:overflow-visible sm:px-0 sm:pb-0"
+				>
+					{TABS.map((item) => {
+						const count = counts[item];
+						const active = tab === item;
+						return (
+							<button
+								key={item}
+								type="button"
+								aria-pressed={active}
+								onClick={() => setTab(item)}
+								className={cn(
+									"flex min-h-9 shrink-0 snap-start items-center gap-1.5 rounded-full border px-3.5 text-[13px] transition-colors",
+									active
+										? "border-ink bg-ink font-medium text-bg"
+										: "border-line text-ink-2 hover:border-line-2 hover:text-ink",
+								)}
 							>
-								<Trans>View invoice</Trans>
-							</Button>
-						) : null}
-					</div>
-				</section>
-			) : null}
-
-			{selected && (selected.status === "ditolak" || selected.status === "hangus") ? (
-				<section className="mt-4 grid gap-1 rounded-lg border border-line bg-surface p-4">
-					<h2 className="text-sm font-medium text-ink">
-						{selected.status === "hangus" ? <Trans>Order expired</Trans> : <Trans>Proof rejected</Trans>}
-					</h2>
-					<p className="text-xs leading-5 text-ink-2">
-						{selected.rejectionReason ??
-							(selected.status === "hangus" ? (
-								<Trans>The payment deadline passed before the proof arrived. Create a new order to continue.</Trans>
-							) : (
-								<Trans>The proof did not match the amount on this order.</Trans>
-							))}
-					</p>
-					<Button
-						variant="secondary"
-						size="sm"
-						className="mt-2 w-fit"
-						onClick={() => void navigate({ to: "/dashboard/beli-kredit" })}
-					>
-						<Trans>Create a new order</Trans>
-					</Button>
-				</section>
-			) : null}
+								{tabLabel(item)}
+								{/* A zero on every tab is noise, so a count shows only when it is real or the tab is open. */}
+								{count > 0 || active ? (
+									<span className={cn("text-xs tabular-nums", active ? "text-bg/70" : "text-ink-3")}>
+										{loading ? "" : count}
+									</span>
+								) : null}
+							</button>
+						);
+					})}
+				</div>
+			</div>
 
 			{loading ? (
-				<ul className="mt-2" aria-busy="true" aria-label={t`Loading orders`}>
+				<ul className="mt-4" aria-busy="true" aria-label={t`Loading orders`}>
 					{[0, 1, 2].map((row) => (
-						<li key={row} className="border-b border-line py-4 last:border-0">
+						<li key={row} className="border-b border-line py-3.5 last:border-0">
 							<div className="flex items-start justify-between gap-4">
 								<div className="grid w-full gap-2">
 									<span className="h-3.5 w-48 animate-pulse rounded-sm bg-sunken" />
@@ -312,9 +239,9 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 					))}
 				</ul>
 			) : shown.length === 0 ? (
-				<div className="mt-2 border-b border-line py-10 text-center">
+				<div className="mt-4 rounded-lg border border-dashed border-line py-12 text-center">
 					<p className="text-sm text-ink-2">
-						{query.trim() ? (
+						{term ? (
 							<Trans>No order matches "{term}".</Trans>
 						) : tab === "semua" ? (
 							<Trans>No orders yet.</Trans>
@@ -322,7 +249,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 							<Trans>No orders in this tab.</Trans>
 						)}
 					</p>
-					{query.trim() ? (
+					{term ? (
 						<Button variant="ghost" size="sm" className="mt-3" onClick={() => setQuery("")}>
 							<Trans>Clear the search</Trans>
 						</Button>
@@ -338,61 +265,84 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 					) : null}
 				</div>
 			) : (
-				<ul className="mt-2">
-					{shown.map((order) => {
-						const invoice = invoiceFor(order.id);
-						const current = order.id === selected?.id;
-						return (
-							<li
-								key={order.id}
-								className={`border-b border-line py-4 last:border-0 ${current ? "bg-hover/40" : ""}`}
-								aria-current={current ? "true" : undefined}
-							>
-								<div className="grid gap-2">
-									<div className="flex items-start justify-between gap-3">
-										<div className="min-w-0">
-											<p className="truncate text-sm text-ink">{planLabel(order)}</p>
-											<p className="mt-0.5 text-xs text-ink-3 tabular-nums">
-												{new Date(order.createdAt).toLocaleDateString(i18n.locale)} · <Trans>code</Trans>{" "}
-												{String(order.uniqueCode).padStart(3, "0")}
-												{invoice ? ` · ${invoice.number}` : null}
-											</p>
-										</div>
-										<p className="shrink-0 text-sm font-semibold text-ink tabular-nums">
-											{formatRupiah(order.totalIdr)}
-										</p>
-									</div>
-									<div className="flex flex-wrap items-center gap-2">
-										<span
-											className={`inline-flex h-6 items-center rounded-full px-2.5 text-[11px] font-medium ${chipTone(order.status)}`}
-										>
-											{statusText(order.status)}
-										</span>
-										{order.status === "menunggu_bayar" && order.expiresAt ? (
-											<span className="text-xs text-ink-3">
-												<Trans>Ends in</Trans>{" "}
-												<Countdown expiresAt={new Date(order.expiresAt)} onExpire={() => void orders.refetch()} />
-											</span>
-										) : null}
-									</div>
-									<Button
-										variant={order.status === "menunggu_bayar" ? "primary" : "secondary"}
-										className="h-11 w-full sm:h-9 sm:w-auto sm:justify-self-end"
-										onClick={() => bukaPesanan(order.id)}
-									>
-										{order.status === "menunggu_bayar" ? (
-											<Trans>Continue payment</Trans>
-										) : invoice ? (
-											<Trans>View invoice</Trans>
-										) : (
-											<Trans>View</Trans>
-										)}
-									</Button>
-								</div>
-							</li>
-						);
-					})}
-				</ul>
+				<div className="mt-2">
+					{groups.map(([month, rows]) => (
+						<section key={month}>
+							<h2 className="px-2 pt-5 pb-2 text-xs font-medium text-ink-3">{month}</h2>
+							<ul className="border-t border-line">
+								{rows.map((order) => {
+									const invoice = invoiceFor(order.id);
+									const current = order.id === selected?.id;
+									const awaiting = order.status === "menunggu_bayar";
+									return (
+										<li key={order.id} className="border-b border-line">
+											<button
+												type="button"
+												onClick={() => bukaPesanan(order.id)}
+												aria-current={current ? "true" : undefined}
+												className={cn(
+													"group flex w-full items-start justify-between gap-4 px-2 py-3.5 text-left transition-colors",
+													"hover:bg-hover/40 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none",
+													current && "bg-hover/40",
+												)}
+											>
+												<div className="min-w-0 flex-1">
+													<p className="truncate text-sm font-medium text-ink">{planLabel(order)}</p>
+													<div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11.5px] text-ink-3">
+														<span
+															className={cn(
+																"inline-flex shrink-0 items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-medium",
+																chipTone(order.status),
+															)}
+														>
+															<span className="size-1.5 rounded-full bg-current" />
+															{statusText(order.status)}
+														</span>
+														<span className="tabular-nums">
+															{new Date(order.createdAt).toLocaleDateString(i18n.locale)}
+														</span>
+														<span aria-hidden="true">·</span>
+														<span className="tabular-nums">
+															<Trans>code</Trans> {String(order.uniqueCode).padStart(3, "0")}
+														</span>
+														{invoice ? (
+															<>
+																<span aria-hidden="true">·</span>
+																<span className="tabular-nums">{invoice.number}</span>
+															</>
+														) : null}
+														{awaiting && order.expiresAt ? (
+															<>
+																<span aria-hidden="true">·</span>
+																<span className="text-warn-text tabular-nums">
+																	<Trans>Ends in</Trans>{" "}
+																	<Countdown
+																		expiresAt={new Date(order.expiresAt)}
+																		onExpire={() => void orders.refetch()}
+																	/>
+																</span>
+															</>
+														) : null}
+													</div>
+												</div>
+												<div className="flex shrink-0 items-start gap-2.5 pt-0.5">
+													<span className="text-sm font-semibold text-ink tabular-nums">
+														{formatRupiah(order.totalIdr)}
+													</span>
+													<Icon
+														name="caret-right"
+														size={14}
+														className="mt-1 text-ink-3 transition-transform group-hover:translate-x-0.5"
+													/>
+												</div>
+											</button>
+										</li>
+									);
+								})}
+							</ul>
+						</section>
+					))}
+				</div>
 			)}
 
 			<InvoiceSheet invoiceId={invoiceOpen} onClose={() => setInvoiceOpen(null)} />

@@ -1677,8 +1677,8 @@ msgstr "Amount"
 #~ msgstr "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
 
 #: src/features/billing/transactions.tsx
-msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
-msgstr "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
+#~ msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
+#~ msgstr "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
 
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
@@ -3119,7 +3119,6 @@ msgstr "Continue"
 msgid "Continue as guest"
 msgstr "Continue as guest"
 
-#: src/features/billing/transactions.tsx
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
 msgstr "Continue payment"
@@ -3752,7 +3751,6 @@ msgid "Create a new account"
 msgstr "Create a new account"
 
 #: src/features/billing/payment-dialog.tsx
-#: src/features/billing/transactions.tsx
 msgid "Create a new order"
 msgstr "Create a new order"
 
@@ -5118,6 +5116,10 @@ msgstr "Filled in what we could from the posting."
 #: src/features/documents/new-document-dialog.tsx
 msgid "Filling in entries"
 msgstr "Filling in entries"
+
+#: src/features/billing/transactions.tsx
+msgid "Filter by status"
+msgstr "Filter by status"
 
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
@@ -8252,12 +8254,12 @@ msgid "Open AI settings"
 msgstr "Open AI settings"
 
 #: src/features/billing/transactions.tsx
-msgid "Open an application to practise"
-msgstr "Open an application to practise"
+#~ msgid "Open an application to practise"
+#~ msgstr "Open an application to practise"
 
 #: src/features/billing/transactions.tsx
-msgid "Open an application to use it"
-msgstr "Open an application to use it"
+#~ msgid "Open an application to use it"
+#~ msgstr "Open an application to use it"
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -8411,7 +8413,6 @@ msgid "Orange"
 msgstr "Orange"
 
 #: src/features/billing/payment-dialog.tsx
-#: src/features/billing/transactions.tsx
 msgid "Order expired"
 msgstr "Order expired"
 
@@ -8420,8 +8421,8 @@ msgid "Order waiting for payment"
 msgstr "Order waiting for payment"
 
 #: src/features/billing/transactions.tsx
-msgid "orders"
-msgstr "orders"
+#~ msgid "orders"
+#~ msgstr "orders"
 
 #: src/routes/dashboard/akun.tsx
 msgid "Orders"
@@ -8732,8 +8733,8 @@ msgid "Payment"
 msgstr "Payment"
 
 #: src/features/billing/transactions.tsx
-msgid "Payment confirmed"
-msgstr "Payment confirmed"
+#~ msgid "Payment confirmed"
+#~ msgstr "Payment confirmed"
 
 #: src/features/billing/transactions.tsx
 msgid "payment confirmed, your credits are in"
@@ -9231,7 +9232,6 @@ msgstr "Promoted to lead, 2021"
 #~ msgstr "Proof did not match"
 
 #: src/features/billing/payment-dialog.tsx
-#: src/features/billing/transactions.tsx
 msgid "Proof rejected"
 msgstr "Proof rejected"
 
@@ -9240,8 +9240,8 @@ msgstr "Proof rejected"
 #~ msgstr "Proof sent"
 
 #: src/features/billing/transactions.tsx
-msgid "Proof sent, waiting for a check"
-msgstr "Proof sent, waiting for a check"
+#~ msgid "Proof sent, waiting for a check"
+#~ msgstr "Proof sent, waiting for a check"
 
 #: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
@@ -12075,8 +12075,8 @@ msgid "The copy is linked to the application, so Check and the assistant use its
 msgstr "The copy is linked to the application, so Check and the assistant use its posting."
 
 #: src/features/billing/transactions.tsx
-msgid "The credits are in your account. An invoice is there if you need proof of payment."
-msgstr "The credits are in your account. An invoice is there if you need proof of payment."
+#~ msgid "The credits are in your account. An invoice is there if you need proof of payment."
+#~ msgstr "The credits are in your account. An invoice is there if you need proof of payment."
 
 #: src/features/billing/payment-dialog.tsx
 msgid "The deadline passed before the proof arrived. This order is closed and cannot be paid again."
@@ -12196,8 +12196,8 @@ msgid "The password you entered is incorrect"
 msgstr "The password you entered is incorrect"
 
 #: src/features/billing/transactions.tsx
-msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
-msgstr "The payment deadline passed before the proof arrived. Create a new order to continue."
+#~ msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
+#~ msgstr "The payment deadline passed before the proof arrived. Create a new order to continue."
 
 #: src/features/resume/editor/check/job-match.tsx
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
@@ -12220,8 +12220,8 @@ msgid "The proof could not be sent. Try again."
 msgstr "The proof could not be sent. Try again."
 
 #: src/features/billing/transactions.tsx
-msgid "The proof did not match the amount on this order."
-msgstr "The proof did not match the amount on this order."
+#~ msgid "The proof did not match the amount on this order."
+#~ msgstr "The proof did not match the amount on this order."
 
 #: src/features/billing/use-proof-upload.ts
 msgid "The proof must be a JPG or PNG. PDF is not accepted."
@@ -13430,7 +13430,6 @@ msgstr "Video link, office address, or phone number"
 msgid "Vietnamese"
 msgstr "Vietnamese"
 
-#: src/features/billing/transactions.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -13442,8 +13441,8 @@ msgid "View application"
 msgstr "View application"
 
 #: src/features/billing/transactions.tsx
-msgid "View invoice"
-msgstr "View invoice"
+#~ msgid "View invoice"
+#~ msgstr "View invoice"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx

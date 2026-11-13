@@ -1681,8 +1681,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
-msgstr ""
+#~ msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
+#~ msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
@@ -3123,7 +3123,6 @@ msgstr "Davam et"
 msgid "Continue as guest"
 msgstr "Qonaq kimi davam et"
 
-#: src/features/billing/transactions.tsx
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
 msgstr ""
@@ -3756,7 +3755,6 @@ msgid "Create a new account"
 msgstr "Yeni hesab yaradın"
 
 #: src/features/billing/payment-dialog.tsx
-#: src/features/billing/transactions.tsx
 msgid "Create a new order"
 msgstr ""
 
@@ -5122,6 +5120,10 @@ msgstr "İş elanından bacardığımız qədər doldurduq."
 #: src/features/documents/new-document-dialog.tsx
 msgid "Filling in entries"
 msgstr "Girişlərin doldurulması"
+
+#: src/features/billing/transactions.tsx
+msgid "Filter by status"
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
@@ -8256,12 +8258,12 @@ msgid "Open AI settings"
 msgstr "AI parametrlərini açın"
 
 #: src/features/billing/transactions.tsx
-msgid "Open an application to practise"
-msgstr ""
+#~ msgid "Open an application to practise"
+#~ msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "Open an application to use it"
-msgstr ""
+#~ msgid "Open an application to use it"
+#~ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -8415,7 +8417,6 @@ msgid "Orange"
 msgstr "Narıncı"
 
 #: src/features/billing/payment-dialog.tsx
-#: src/features/billing/transactions.tsx
 msgid "Order expired"
 msgstr ""
 
@@ -8424,8 +8425,8 @@ msgid "Order waiting for payment"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "orders"
-msgstr ""
+#~ msgid "orders"
+#~ msgstr ""
 
 #: src/routes/dashboard/akun.tsx
 msgid "Orders"
@@ -8736,8 +8737,8 @@ msgid "Payment"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "Payment confirmed"
-msgstr ""
+#~ msgid "Payment confirmed"
+#~ msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "payment confirmed, your credits are in"
@@ -9235,7 +9236,6 @@ msgstr "Rəhbərliyə yüksəldi, 2021"
 #~ msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
-#: src/features/billing/transactions.tsx
 msgid "Proof rejected"
 msgstr ""
 
@@ -9244,8 +9244,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "Proof sent, waiting for a check"
-msgstr ""
+#~ msgid "Proof sent, waiting for a check"
+#~ msgstr ""
 
 #: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
@@ -12079,8 +12079,8 @@ msgid "The copy is linked to the application, so Check and the assistant use its
 msgstr "Surət iş ərizəsi ilə əlaqələndirilir, ona görə də Check və köməkçi onun iş elanından istifadə edir."
 
 #: src/features/billing/transactions.tsx
-msgid "The credits are in your account. An invoice is there if you need proof of payment."
-msgstr ""
+#~ msgid "The credits are in your account. An invoice is there if you need proof of payment."
+#~ msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
 msgid "The deadline passed before the proof arrived. This order is closed and cannot be paid again."
@@ -12200,8 +12200,8 @@ msgid "The password you entered is incorrect"
 msgstr "Daxil etdiyiniz parol yanlışdır"
 
 #: src/features/billing/transactions.tsx
-msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
-msgstr ""
+#~ msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
+#~ msgstr ""
 
 #: src/features/resume/editor/check/job-match.tsx
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
@@ -12224,8 +12224,8 @@ msgid "The proof could not be sent. Try again."
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-msgid "The proof did not match the amount on this order."
-msgstr ""
+#~ msgid "The proof did not match the amount on this order."
+#~ msgstr ""
 
 #: src/features/billing/use-proof-upload.ts
 msgid "The proof must be a JPG or PNG. PDF is not accepted."
@@ -13434,7 +13434,6 @@ msgstr "Video bağlantısı, ofis ünvanı və ya telefon nömrəsi"
 msgid "Vietnamese"
 msgstr "Vyetnam"
 
-#: src/features/billing/transactions.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -13446,8 +13445,8 @@ msgid "View application"
 msgstr "İş ərizəsinə baxın"
 
 #: src/features/billing/transactions.tsx
-msgid "View invoice"
-msgstr ""
+#~ msgid "View invoice"
+#~ msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
