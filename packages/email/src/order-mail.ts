@@ -3,9 +3,9 @@ import { OrderEmail, type OrderEmailKind } from "./templates/order";
 import { sendEmail } from "./transport";
 
 const SUBJECT: Record<OrderEmailKind, string> = {
-	dibuat: "Selesaikan pembayaran PortoFit dalam 10 menit",
-	pengingat: "Sisa 5 menit untuk menyelesaikan pembayaran PortoFit",
-	hangus: "Pesanan PortoFit hangus",
+	dibuat: "Selesaikan pembayaran PortoFit",
+	pengingat: "Pesanan PortoFit menunggu kamu",
+	hangus: "Pesanan PortoFit kedaluwarsa",
 };
 
 export type SendOrderEmailInput = {

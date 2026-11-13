@@ -17,15 +17,15 @@ export interface OrderEmailProps {
 
 const COPY: Record<OrderEmailKind, { preview: string; heading: string; intro: string; action: string }> = {
 	dibuat: {
-		preview: "Pesanan dibuat, selesaikan pembayaran dalam 10 menit",
+		preview: "Pesanan dibuat, selesaikan pembayaran sebelum batas waktu",
 		heading: "Selesaikan pembayaran",
 		intro: "Pesananmu sudah dibuat. Transfer sesuai nominal di bawah sebelum waktu habis, lalu unggah bukti di halaman transaksi.",
 		action: "Buka transaksi",
 	},
 	pengingat: {
-		preview: "Sisa waktu pembayaran tinggal lima menit",
+		preview: "Sisa waktu pembayaran sebentar lagi",
 		heading: "Waktu hampir habis",
-		intro: "Sisa waktu pembayaranmu tinggal lima menit. Kalau sudah transfer, unggah buktinya sekarang supaya pesanan tidak hangus.",
+		intro: "Waktu pembayaranmu hampir habis. Kalau sudah transfer, unggah buktinya sekarang supaya pesanan tidak hangus.",
 		action: "Unggah bukti",
 	},
 	hangus: {

@@ -9,8 +9,8 @@ const order = (overrides: Partial<{ status: string; expiresAt: Date | null }> = 
 });
 
 describe("computeExpiry", () => {
-	it("memberi satu jam sejak pesanan dibuat, cukup untuk pembayaran QRIS manual", () => {
-		expect(computeExpiry(now).toISOString()).toBe("2026-11-11T11:00:00.000Z");
+	it("memberi tiga puluh menit sejak pesanan dibuat, cukup untuk pembayaran QRIS manual", () => {
+		expect(computeExpiry(now).toISOString()).toBe("2026-11-11T10:30:00.000Z");
 	});
 });
 

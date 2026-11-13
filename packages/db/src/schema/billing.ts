@@ -65,7 +65,7 @@ export const billingOrder = pg.pgTable(
 		proofNote: pg.text("proof_note"),
 		verifiedBy: pg.text("verified_by").references(() => user.id, { onDelete: "set null" }),
 		verifiedAt: pg.timestamp("verified_at", { withTimezone: true }),
-		// Batas bayar 10 menit. Diisi saat pesanan dibuat; bukti yang masuk sebelum batas membekukan hitung mundur.
+		// Batas bayar 30 menit. Diisi saat pesanan dibuat; bukti yang masuk sebelum batas membekukan hitung mundur.
 		expiresAt: pg.timestamp("expires_at", { withTimezone: true }),
 		rejectionReason: pg.text("rejection_reason"),
 		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),

@@ -19,7 +19,7 @@ const rupiah = (amount: number) => `Rp${amount.toLocaleString("id-ID")}`;
 const deadlineText = (value: Date | null) =>
 	value
 		? new Intl.DateTimeFormat("id-ID", { timeStyle: "short", timeZone: "Asia/Jakarta" }).format(value)
-		: "10 menit sejak pesanan dibuat";
+		: "30 menit sejak pesanan dibuat";
 
 /** Mengirim antrean email pesanan. Satu kegagalan tidak menahan yang lain. */
 export async function processOrderEmails(limit = 20): Promise<{ sent: number; failed: number }> {
