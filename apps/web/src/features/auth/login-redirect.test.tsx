@@ -275,3 +275,23 @@ describe("OAuth account creation", () => {
 		expect(mocks.signup).toHaveBeenCalledWith(expect.objectContaining({ name: "A" }));
 	});
 });
+
+describe("auth panel", () => {
+	it("keeps the login heading inside the shared panel", () => {
+		const { container } = renderLogin();
+
+		const panel = container.querySelector("[data-auth-panel]");
+		const heading = screen.getByRole("heading", { level: 1 });
+
+		expect(heading.textContent).toBe("Sign in");
+		expect(panel?.contains(heading)).toBe(true);
+	});
+
+	it("puts the registration link in the panel footer", () => {
+		const { container } = renderLogin();
+
+		const footer = container.querySelector("[data-auth-panel-footer]");
+
+		expect(footer?.contains(screen.getByRole("link", { name: "Create one" }))).toBe(true);
+	});
+});

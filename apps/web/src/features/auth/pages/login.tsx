@@ -9,6 +9,7 @@ import { Button } from "@reactive-resume/ui/components/button";
 import { FormControl, FormItem, FormLabel, FormMessage } from "@reactive-resume/ui/components/form";
 import { Input } from "@reactive-resume/ui/components/input";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { AuthPanel } from "../components/auth-panel";
 import { SocialAuth } from "../components/social-auth";
 import { getAuthRedirectOptions, getOAuthSignInOptions, isOAuthRedirect } from "../redirect";
 import { PasswordInput } from "@/components/input/password-input";
@@ -119,129 +120,120 @@ export function LoginPage({ disableEmailAuth, disableSignups, allowGuestLogin }:
 	});
 
 	return (
-		<div>
-			<header className="space-y-1.5">
-				<h1 className="font-display text-[30px] leading-9 font-medium text-ink">
-					<Trans comment="Title on the login page">Sign in</Trans>
-				</h1>
-				<p className="text-sm text-ink-2">
-					<Trans>Use your email, or a social account.</Trans>
-				</p>
-			</header>
-
-			<div className="mt-5 overflow-hidden rounded-xl border border-line bg-surface">
-				<div className="p-5">
-					{!disableEmailAuth && (
-						<form
-							className="space-y-4"
-							onSubmit={(event) => {
-								event.preventDefault();
-								event.stopPropagation();
-								void form.handleSubmit();
-							}}
+		<AuthPanel
+			title={<Trans comment="Title on the login page">Sign in</Trans>}
+			description={<Trans>Use your email, or a social account.</Trans>}
+			footer={
+				!disableSignups ? (
+					<>
+						<Trans>No account?</Trans>{" "}
+						<Link
+							to="/auth/register"
+							search={{ callbackURL, reauthenticate }}
+							className="font-medium text-ink underline underline-offset-4"
 						>
-							<form.Field name="identifier">
-								{(field) => (
-									<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-										<FormLabel>
-											<Trans comment="Label for login identifier input that accepts email or username">
-												Email or username
-											</Trans>
-										</FormLabel>
-										<FormControl
-											render={
-												<Input
-													autoComplete="section-login username webauthn"
-													placeholder="nama@email.com"
-													className="lowercase"
-													name={field.name}
-													value={field.state.value}
-													onBlur={field.handleBlur}
-													onChange={(event) => field.handleChange(event.target.value)}
-												/>
-											}
+							<Trans comment="Call-to-action link from login page to account registration page">Create one</Trans>
+						</Link>
+					</>
+				) : undefined
+			}
+		>
+			{!disableEmailAuth && (
+				<form
+					className="space-y-4"
+					onSubmit={(event) => {
+						event.preventDefault();
+						event.stopPropagation();
+						void form.handleSubmit();
+					}}
+				>
+					<form.Field name="identifier">
+						{(field) => (
+							<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
+								<FormLabel>
+									<Trans comment="Label for login identifier input that accepts email or username">
+										Email or username
+									</Trans>
+								</FormLabel>
+								<FormControl
+									render={
+										<Input
+											autoComplete="section-login username webauthn"
+											placeholder="nama@email.com"
+											className="lowercase"
+											name={field.name}
+											value={field.state.value}
+											onBlur={field.handleBlur}
+											onChange={(event) => field.handleChange(event.target.value)}
 										/>
-										<FormMessage errors={field.state.meta.errors} />
-									</FormItem>
-								)}
-							</form.Field>
+									}
+								/>
+								<FormMessage errors={field.state.meta.errors} />
+							</FormItem>
+						)}
+					</form.Field>
 
-							<form.Field name="password">
-								{(field) => (
-									<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-										<div className="flex items-baseline justify-between gap-3">
-											<FormLabel>
-												<Trans comment="Label for password input on login form">Password</Trans>
-											</FormLabel>
+					<form.Field name="password">
+						{(field) => (
+							<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
+								<div className="flex items-baseline justify-between gap-3">
+									<FormLabel>
+										<Trans comment="Label for password input on login form">Password</Trans>
+									</FormLabel>
 
-											<Button
-												tabIndex={-1}
-												variant="link"
-												nativeButton={false}
-												className="h-auto p-0 text-xs leading-none"
-												render={
-													<Link to="/auth/forgot-password">
-														<Trans comment="Link label to password reset page from login form">Forgot?</Trans>
-													</Link>
-												}
-											/>
-										</div>
-										<FormControl
-											render={
-												<PasswordInput
-													minLength={6}
-													maxLength={64}
-													autoComplete="section-login current-password"
-													name={field.name}
-													value={field.state.value}
-													onBlur={field.handleBlur}
-													onChange={(event) => field.handleChange(event.target.value)}
-												/>
-											}
+									<Button
+										tabIndex={-1}
+										variant="link"
+										nativeButton={false}
+										className="h-auto p-0 text-xs leading-none"
+										render={
+											<Link to="/auth/forgot-password">
+												<Trans comment="Link label to password reset page from login form">Forgot?</Trans>
+											</Link>
+										}
+									/>
+								</div>
+								<FormControl
+									render={
+										<PasswordInput
+											minLength={6}
+											maxLength={64}
+											autoComplete="section-login current-password"
+											name={field.name}
+											value={field.state.value}
+											onBlur={field.handleBlur}
+											onChange={(event) => field.handleChange(event.target.value)}
 										/>
-										<FormMessage errors={field.state.meta.errors} />
-									</FormItem>
-								)}
-							</form.Field>
+									}
+								/>
+								<FormMessage errors={field.state.meta.errors} />
+							</FormItem>
+						)}
+					</form.Field>
 
-							<Button type="submit" className="h-11 w-full" disabled={isSubmitting}>
-								<Trans comment="Primary action button label on login form">Sign in</Trans>
-							</Button>
-						</form>
-					)}
+					<Button type="submit" className="h-11 w-full" disabled={isSubmitting}>
+						<Trans comment="Primary action button label on login form">Sign in</Trans>
+					</Button>
+				</form>
+			)}
 
-					<div className="mt-5">
-						<SocialAuth />
-					</div>
-
-					{!disableSignups && (
-						<p className="mt-5 text-center text-[13px] text-ink-3">
-							<Trans>No account?</Trans>{" "}
-							<Link
-								to="/auth/register"
-								search={{ callbackURL, reauthenticate }}
-								className="text-ink underline-offset-4 hover:underline"
-							>
-								<Trans comment="Call-to-action link from login page to account registration page">Create one</Trans>
-							</Link>
-						</p>
-					)}
-				</div>
-
-				{allowGuestLogin && (
-					<div className="flex items-center justify-center gap-1.5 border-t border-line px-5 py-3 text-[12.5px] text-ink-3">
-						<Trans>Just looking?</Trans>
-						<button
-							type="button"
-							onClick={() => guestSignIn.mutate()}
-							disabled={guestSignIn.isPending}
-							className="touch-target text-ink-2 hover:text-ink disabled:opacity-60"
-						>
-							{guestSignIn.isPending ? <Trans>Opening the editor...</Trans> : <Trans>Continue as a guest</Trans>}
-						</button>
-					</div>
-				)}
+			<div className={disableEmailAuth ? undefined : "mt-5"}>
+				<SocialAuth />
 			</div>
-		</div>
+
+			{allowGuestLogin && (
+				<div className="mt-4 flex items-center justify-center gap-1.5 text-[12.5px] text-ink-3">
+					<Trans>Just looking?</Trans>
+					<button
+						type="button"
+						onClick={() => guestSignIn.mutate()}
+						disabled={guestSignIn.isPending}
+						className="touch-target text-ink-2 hover:text-ink disabled:opacity-60"
+					>
+						{guestSignIn.isPending ? <Trans>Opening the editor...</Trans> : <Trans>Continue as a guest</Trans>}
+					</button>
+				</div>
+			)}
+		</AuthPanel>
 	);
 }
