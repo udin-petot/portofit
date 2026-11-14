@@ -54,6 +54,10 @@ export function UserDropdownMenu({ children }: Props) {
 					<Icon name="gear-six" />
 					<Trans>Settings</Trans>
 				</DropdownMenuItem>
+				<DropdownMenuItem onClick={() => void router.navigate({ to: "/dashboard/akun" })}>
+					<Icon name="user-circle" size={16} />
+					<Trans>Account</Trans>
+				</DropdownMenuItem>
 				<DropdownMenuSeparator />
 				<DropdownMenuGroup>
 					<DropdownMenuLabel>

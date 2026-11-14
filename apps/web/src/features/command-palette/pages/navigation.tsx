@@ -104,19 +104,12 @@ export function NavigationCommandGroup() {
 
 			<BaseCommandGroup page="settings" heading={<Trans>Settings</Trans>}>
 				<CommandItem
-					keywords={[
-						t`Account`,
-						t`Profile`,
-						t`Password`,
-						t`Two-step verification`,
-						t`Export Data`,
-						t`Delete Account`,
-					]}
+					keywords={[t`Account`, t`Profile`, t`Password`, t`Two-step verification`, t`Export Data`, t`Delete Account`]}
 					value="navigation.settings.account"
 					onSelect={() => onNavigate("/dashboard/settings/account")}
 				>
 					<Icon name="user-circle" size={16} />
-					<Trans>Account</Trans>
+					<Trans>Profile and security</Trans>
 				</CommandItem>
 
 				<CommandItem

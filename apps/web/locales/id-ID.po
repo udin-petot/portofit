@@ -9334,7 +9334,7 @@ msgstr "Profil"
 
 #: src/routes/dashboard/akun.tsx
 msgid "Profile and security"
-msgstr "Profil & keamanan"
+msgstr "Profil dan keamanan"
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile link (optional)"

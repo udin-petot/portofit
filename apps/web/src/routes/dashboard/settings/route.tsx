@@ -14,7 +14,7 @@ type Page = {
 
 // Six pages became three, each with one job (README §5.9).
 const SETTINGS_PAGES: Page[] = [
-	{ to: "/dashboard/settings/account", icon: "user-circle", label: () => t`Account` },
+	{ to: "/dashboard/settings/account", icon: "user-circle", label: () => t`Profile and security` },
 	{ to: "/dashboard/settings/preferences", icon: "sliders-horizontal", label: () => t`Preferences` },
 	{ to: "/dashboard/settings/ai", icon: "sparkle", label: () => t`AI & developer` },
 ];

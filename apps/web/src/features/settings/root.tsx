@@ -66,7 +66,7 @@ export function SettingsRoot() {
 				className="divide-y divide-line overflow-hidden rounded-[14px] border border-line bg-surface"
 			>
 				<Link to="/dashboard/settings/account" viewTransition={pushTransition} className={rowClass}>
-					<Row icon="user-circle" label={<Trans>Account</Trans>} />
+					<Row icon="user-circle" label={<Trans>Profile and security</Trans>} />
 				</Link>
 				<Link to="/dashboard/settings/preferences" viewTransition={pushTransition} className={rowClass}>
 					<Row icon="sliders-horizontal" label={<Trans>Preferences</Trans>} value={i18n.t(themeMap[theme])} />

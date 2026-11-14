@@ -68,12 +68,11 @@ function useNavItems() {
 	items.push({ to: "/dashboard/career", icon: "compass", label: t`Career`, ...(unread ? { count: unread } : {}) });
 	items.push({ to: "/dashboard/beli-kredit", icon: "tag", label: t`Buy credits` });
 	if (isAdmin) items.push({ to: "/admin", icon: "key", label: t`Admin` });
-	const settings: NavItem = { to: "/dashboard/akun", icon: "user-circle", label: t`Account` };
 	const trash: NavItem | null = counts?.trash
 		? { to: "/dashboard/trash", icon: "trash", label: t`Trash`, count: counts.trash }
 		: null;
 
-	return { items, settings, trash };
+	return { items, trash };
 }
 
 /** Whether the item is the current page: Documents is exact, the others match their section. */
@@ -139,7 +138,7 @@ export function AppShell({ children }: AppShellProps) {
 }
 
 function Sidebar() {
-	const { items, settings, trash } = useNavItems();
+	const { items, trash } = useNavItems();
 	const isCurrent = useIsCurrent();
 	const openPalette = useCommandPaletteStore((state) => state.setOpen);
 	const openDialog = useDialogStore((state) => state.openDialog);
@@ -172,12 +171,6 @@ function Sidebar() {
 				{items.map((item) => (
 					<NavLink key={item.to} item={item} current={isCurrent(item.to)} />
 				))}
-				<div className="mt-2 border-t border-line pt-2">
-					<p className="px-2.5 pb-1 text-[11px] font-medium tracking-[0.04em] text-ink-3 uppercase">
-						<Trans>Settings</Trans>
-					</p>
-					<NavLink item={settings} current={isCurrent(settings.to)} />
-				</div>
 			</nav>
 
 			<div className="mt-auto grid gap-2">
@@ -237,7 +230,7 @@ function NavLink({ item, current }: { item: NavItem; current: boolean }) {
 
 /** Tablets: the same destinations as icons, with their names in tooltips. */
 function Rail() {
-	const { items, settings, trash } = useNavItems();
+	const { items, trash } = useNavItems();
 	const isCurrent = useIsCurrent();
 	const openPalette = useCommandPaletteStore((state) => state.setOpen);
 	const openDialog = useDialogStore((state) => state.openDialog);
@@ -259,7 +252,7 @@ function Rail() {
 				/>
 			</RailTip>
 			<nav aria-label={t`App`} className="grid gap-1">
-				{[...items, settings].map((item) => (
+				{items.map((item) => (
 					<RailTip key={item.to} label={item.label} icon={item.icon} filled={isCurrent(item.to)}>
 						<Link
 							to={item.to}
