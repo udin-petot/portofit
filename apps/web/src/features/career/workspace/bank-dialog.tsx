@@ -80,7 +80,7 @@ export function BankQuestionDialog({
 										submitOwn();
 									}
 								}}
-								maxLength={2000}
+								maxLength={500}
 								placeholder={t`Type a question you want to practise…`}
 								className="h-9"
 							/>
