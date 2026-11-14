@@ -211,8 +211,8 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 		await queryClient.invalidateQueries({ queryKey: orpc.billing.key() });
 	};
 
-	const fail = (error: unknown, fallback: string) => {
-		toast.add({ type: "error", description: getOrpcErrorMessage(error, { fallback }) });
+	const fail = (error: unknown, fallback: string, allowServerMessage = false) => {
+		toast.add({ type: "error", description: getOrpcErrorMessage(error, { fallback, allowServerMessage }) });
 	};
 
 	const verifyNow = async (order: AdminOrder) => {
@@ -225,7 +225,9 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 			setProofOrder(null);
 			await refresh();
 		} catch (error) {
-			fail(error, "Verifikasi gagal. Coba lagi.");
+			// A second admin may have verified the same order in another tab. Show the server's reason
+			// ("Order ini sudah lunas.") instead of a generic failure that looks like the click did nothing.
+			fail(error, "Verifikasi gagal. Coba lagi.", true);
 		}
 	};
 
