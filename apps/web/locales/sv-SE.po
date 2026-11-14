@@ -974,8 +974,8 @@ msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "En modells åsikt, inte en dom. Det kan vara fel."
 
 #: src/features/settings/account/security.tsx
-msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-msgstr "Ett namn hjälper dig att skilja lösenord från varandra, som \"Work laptop\"."
+#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
+#~ msgstr "Ett namn hjälper dig att skilja lösenord från varandra, som \"Work laptop\"."
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1333,8 +1333,8 @@ msgid "Add Page"
 msgstr "Lägg till sida"
 
 #: src/features/settings/account/security.tsx
-msgid "Add passkey"
-msgstr "Lägg till lösenord"
+#~ msgid "Add passkey"
+#~ msgstr "Lägg till lösenord"
 
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
@@ -3121,8 +3121,12 @@ msgid "Continue"
 msgstr "Fortsätt"
 
 #: src/features/auth/pages/login.tsx
-msgid "Continue as guest"
-msgstr "Fortsätt som gäst"
+msgid "Continue as a guest"
+msgstr ""
+
+#: src/features/auth/pages/login.tsx
+#~ msgid "Continue as guest"
+#~ msgstr "Fortsätt som gäst"
 
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
@@ -3329,8 +3333,8 @@ msgid "Couldn't add the application. Please try again."
 msgstr "Det gick inte att lägga till ansökan. Försök igen."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't add the passkey. Try again."
-msgstr "Det gick inte att lägga till lösenordet. Försök igen."
+#~ msgid "Couldn't add the passkey. Try again."
+#~ msgstr "Det gick inte att lägga till lösenordet. Försök igen."
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3532,16 +3536,16 @@ msgid "Couldn't remove it from Applications."
 msgstr "Det gick inte att ta bort den från Ansökningar."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't remove the passkey. Try again."
-msgstr "Det gick inte att ta bort lösenordet. Försök igen."
+#~ msgid "Couldn't remove the passkey. Try again."
+#~ msgstr "Det gick inte att ta bort lösenordet. Försök igen."
 
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "Det gick inte att byta namn."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't rename the passkey."
-msgstr "Det gick inte att byta namn på lösenordet."
+#~ msgid "Couldn't rename the passkey."
+#~ msgstr "Det gick inte att byta namn på lösenordet."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3785,8 +3789,13 @@ msgstr "Skapa nyckel"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
-msgid "Create one now"
-msgstr "Skapa en nu"
+msgid "Create one"
+msgstr ""
+
+#. Call-to-action link from login page to account registration page
+#: src/features/auth/pages/login.tsx
+#~ msgid "Create one now"
+#~ msgstr "Skapa en nu"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4275,8 +4284,8 @@ msgid "Does it use AI?"
 msgstr ""
 
 #: src/features/auth/pages/login.tsx
-msgid "Don't have an account? <0/>"
-msgstr "Har du inget konto? <0/>"
+#~ msgid "Don't have an account? <0/>"
+#~ msgstr "Har du inget konto? <0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -4667,9 +4676,7 @@ msgstr "E-post (valfritt)"
 
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
-#. Label for login identifier input that accepts email or username
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/login.tsx
 #: src/features/auth/pages/register.tsx
 msgid "Email Address"
 msgstr "E-postadress"
@@ -4681,6 +4688,11 @@ msgstr "E-postadressen kommer inte att kännas igen"
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
 msgstr "E-postleverans är inte inställd på den här servern, så adressen är inte verifierad."
+
+#. Label for login identifier input that accepts email or username
+#: src/features/auth/pages/login.tsx
+msgid "Email or username"
+msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Email the recruiter"
@@ -5338,12 +5350,17 @@ msgstr "Glöm"
 
 #. Link label to password reset page from login form
 #: src/features/auth/pages/login.tsx
-msgid "Forgot Password?"
-msgstr "Glömt ditt lösenord?"
+#~ msgid "Forgot Password?"
+#~ msgstr "Glömt ditt lösenord?"
 
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "Glömt ditt lösenord?"
+
+#. Link label to password reset page from login form
+#: src/features/auth/pages/login.tsx
+msgid "Forgot?"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Format"
@@ -6196,8 +6213,8 @@ msgid "It will be deleted for good and can't be restored."
 msgstr "Det kommer att raderas för gott och kan inte återställas."
 
 #: src/features/settings/account/security.tsx
-msgid "It will no longer sign you in."
-msgstr "Det kommer inte längre att logga in dig."
+#~ msgid "It will no longer sign you in."
+#~ msgstr "Det kommer inte längre att logga in dig."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
@@ -6324,6 +6341,10 @@ msgstr ""
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON läst"
+
+#: src/features/auth/pages/login.tsx
+msgid "Just looking?"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
@@ -6821,8 +6842,6 @@ msgid "Linked. Name, email, phone and city update when the resume does."
 msgstr "Länkad. Namn, e-post, telefon och stad uppdateras när CV gör det."
 
 #. Authentication provider display name in account settings
-#. Brand name label for LinkedIn social sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
@@ -7454,8 +7473,8 @@ msgid "Name the story"
 msgstr "Namnge berättelsen"
 
 #: src/features/settings/account/security.tsx
-msgid "Name this passkey"
-msgstr "Ge detta lösenord ett namn"
+#~ msgid "Name this passkey"
+#~ msgstr "Ge detta lösenord ett namn"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -7614,6 +7633,10 @@ msgstr "Nästa steg: {0}. Lägger till en påminnelse under I dag."
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "Nästa gång skulle jag komma överens om hur vi mäter framgång före den första prototypen."
+
+#: src/features/auth/pages/login.tsx
+msgid "No account?"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8345,6 +8368,10 @@ msgstr "Öppna arbetsytan"
 msgid "Opening"
 msgstr "Inledning"
 
+#: src/features/auth/pages/login.tsx
+msgid "Opening the editor..."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Opening the file"
 msgstr "Öppnar filen"
@@ -8399,6 +8426,10 @@ msgstr "Alternativ för denna post"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "or"
 msgstr "eller"
+
+#: src/features/auth/pages/login.tsx
+msgid "or continue with"
+msgstr ""
 
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
@@ -8574,14 +8605,11 @@ msgid "Partly. Building a resume, checking PDF readability, and saving applicati
 msgstr ""
 
 #. Authentication provider display name in account settings
-#. Label for passkey sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "Passkey"
 msgstr "Passkey"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/settings/account/security.tsx
 msgid "Passkeys"
 msgstr "Passkeys"
 
@@ -9782,17 +9810,14 @@ msgstr "Distans, hybrid, en stad…"
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/resume/share/link-tab.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove"
 msgstr "Ta bort"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "Ta bort {0}"
 
@@ -9840,8 +9865,8 @@ msgid "Remove the password?"
 msgstr "Ta bort lösenordet?"
 
 #: src/features/settings/account/security.tsx
-msgid "Remove this passkey?"
-msgstr "Vill du ta bort den här nyckeln?"
+#~ msgid "Remove this passkey?"
+#~ msgstr "Vill du ta bort den här nyckeln?"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -9849,7 +9874,6 @@ msgstr "Vill du ta bort det här fotot?"
 
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
-#: src/features/settings/account/security.tsx
 msgid "Rename"
 msgstr "Döpa om"
 
@@ -10298,7 +10322,6 @@ msgstr ""
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
-#: src/features/settings/account/security.tsx
 msgid "Save"
 msgstr "Spara"
 
@@ -11062,6 +11085,7 @@ msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "Sidofält läses ofta sist, eller blandas in i huvudkolumnen."
 
 #. Primary action button label on login form
+#. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
 #: src/features/auth/pages/login.tsx
 msgid "Sign in"
@@ -11076,12 +11100,12 @@ msgstr "Logga in nu"
 
 #. Title on the login page
 #: src/features/auth/pages/login.tsx
-msgid "Sign in to your account"
-msgstr "Logga in på ditt konto"
+#~ msgid "Sign in to your account"
+#~ msgstr "Logga in på ditt konto"
 
 #: src/features/settings/account/security.tsx
-msgid "Sign in with your fingerprint, face or device PIN"
-msgstr "Logga in med ditt fingeravtryck, ansikte eller PIN-kod"
+#~ msgid "Sign in with your fingerprint, face or device PIN"
+#~ msgstr "Logga in med ditt fingeravtryck, ansikte eller PIN-kod"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -13087,8 +13111,8 @@ msgid "Unlock it first"
 msgstr "Lås upp den först"
 
 #: src/features/settings/account/security.tsx
-msgid "Unnamed passkey"
-msgstr "Namnlös passkey"
+#~ msgid "Unnamed passkey"
+#~ msgstr "Namnlös passkey"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13302,6 +13326,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "Använd din redigerares vanliga punktlista, så att lösa tecken inte hamnar mitt i en mening."
+
+#: src/features/auth/pages/login.tsx
+msgid "Use your email, or a social account."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Used"
@@ -14031,8 +14059,8 @@ msgid "You answered: {answer}"
 msgstr "Du svarade: {answer}"
 
 #: src/features/auth/pages/login.tsx
-msgid "You can also sign in with your username."
-msgstr "Du kan också logga in med ditt användarnamn."
+#~ msgid "You can also sign in with your username."
+#~ msgstr "Du kan också logga in med ditt användarnamn."
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."

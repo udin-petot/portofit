@@ -1,7 +1,7 @@
 import type { RouterOutput } from "@/libs/orpc/client";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { GithubLogoIcon, GoogleLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
+import { GithubLogoIcon, GoogleLogoIcon } from "@phosphor-icons/react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter, useSearch } from "@tanstack/react-router";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -9,7 +9,7 @@ import { Icon } from "@reactive-resume/ui/components/icon";
 import { Skeleton } from "@reactive-resume/ui/components/skeleton";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
-import { getAuthRedirectOptions, getOAuthPasskeyOptions, getOAuthSignInOptions, isOAuthRedirect } from "../redirect";
+import { getOAuthSignInOptions, isOAuthRedirect } from "../redirect";
 import { authClient } from "@/libs/auth/client";
 import { ENTER_CLASS } from "@/libs/motion";
 import { orpc } from "@/libs/orpc/client";
@@ -37,7 +37,7 @@ export function SocialAuth() {
 
 function SocialAuthSkeleton() {
 	return (
-		<div className="grid grid-cols-2 gap-4">
+		<div className="grid grid-cols-2 gap-3">
 			<Skeleton className="h-9 w-full" />
 			<Skeleton className="h-9 w-full" />
 			<Skeleton className="h-9 w-full" />
@@ -55,10 +55,7 @@ function SocialAuthButtons({ providers }: SocialAuthButtonsProps) {
 	const queryClient = useQueryClient();
 	const { callbackURL } = useSearch({ from: "/auth" });
 
-	const runSignIn = async (
-		fn: () => Promise<{ data?: unknown; error: { message?: string | undefined } | null }>,
-		isPasskey = false,
-	) => {
+	const runSignIn = async (fn: () => Promise<{ data?: unknown; error: { message?: string | undefined } | null }>) => {
 		const toastId = toast.add({ type: "loading", description: t`Signing in...` });
 		const { data, error } = await fn();
 		if (error) {
@@ -78,11 +75,10 @@ function SocialAuthButtons({ providers }: SocialAuthButtonsProps) {
 		if (isOAuthRedirect(data)) return;
 		await queryClient.invalidateQueries({ queryKey: sessionQueryKey });
 		await router.invalidate();
-		if (isPasskey) void router.navigate(getAuthRedirectOptions(callbackURL));
 	};
 
 	return (
-		<div className={cn(ENTER_CLASS, "grid grid-cols-2 gap-4")}>
+		<div className={cn(ENTER_CLASS, "grid grid-cols-2 gap-3")}>
 			<Button
 				variant="secondary"
 				onClick={() =>
@@ -98,17 +94,6 @@ function SocialAuthButtons({ providers }: SocialAuthButtonsProps) {
 			>
 				<Icon name="key" size={16} />
 				{providers.custom}
-			</Button>
-
-			<Button
-				variant="secondary"
-				onClick={() =>
-					runSignIn(() => authClient.signIn.passkey({ autoFill: false, ...getOAuthPasskeyOptions(callbackURL) }), true)
-				}
-				className={cn("hidden", "passkey" in providers && "inline-flex")}
-			>
-				<Icon name="fingerprint" size={16} />
-				<Trans comment="Label for passkey sign-in button">Passkey</Trans>
 			</Button>
 
 			<Button
@@ -149,24 +134,6 @@ function SocialAuthButtons({ providers }: SocialAuthButtonsProps) {
 				<Trans comment="Brand name label for GitHub social sign-in button">GitHub</Trans>
 			</Button>
 
-			<Button
-				onClick={() =>
-					runSignIn(() =>
-						authClient.signIn.social({
-							provider: "linkedin",
-							callbackURL: callbackURL ?? "/dashboard",
-							...getOAuthSignInOptions(callbackURL),
-						}),
-					)
-				}
-				className={cn(
-					"hidden flex-1 bg-[#0A66C2] text-white hover:bg-[#0A66C2]/80",
-					"linkedin" in providers && "inline-flex",
-				)}
-			>
-				<LinkedinLogoIcon />
-				<Trans comment="Brand name label for LinkedIn social sign-in button">LinkedIn</Trans>
-			</Button>
 		</div>
 	);
 }

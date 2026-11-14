@@ -974,8 +974,8 @@ msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "ஒரு மாதிரியின் கருத்து, ஒரு தீர்ப்பு அல்ல. அது தவறாகவும் இருக்கலாம்."
 
 #: src/features/settings/account/security.tsx
-msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-msgstr "\"ஒர்க் லேப்டாப்\" போன்ற கடவுச் சாவிகளை வேறுபடுத்திப் பார்க்க ஒரு பெயர் உதவுகிறது."
+#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
+#~ msgstr "\"ஒர்க் லேப்டாப்\" போன்ற கடவுச் சாவிகளை வேறுபடுத்திப் பார்க்க ஒரு பெயர் உதவுகிறது."
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1333,8 +1333,8 @@ msgid "Add Page"
 msgstr "பக்கத்தைச் சேர்க்கவும்"
 
 #: src/features/settings/account/security.tsx
-msgid "Add passkey"
-msgstr "கடவுச் சாவியைச் சேர்க்கவும்"
+#~ msgid "Add passkey"
+#~ msgstr "கடவுச் சாவியைச் சேர்க்கவும்"
 
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
@@ -3121,8 +3121,12 @@ msgid "Continue"
 msgstr "தொடர்க"
 
 #: src/features/auth/pages/login.tsx
-msgid "Continue as guest"
-msgstr "விருந்தினராகத் தொடரவும்"
+msgid "Continue as a guest"
+msgstr ""
+
+#: src/features/auth/pages/login.tsx
+#~ msgid "Continue as guest"
+#~ msgstr "விருந்தினராகத் தொடரவும்"
 
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
@@ -3329,8 +3333,8 @@ msgid "Couldn't add the application. Please try again."
 msgstr "பயன்பாட்டைச் சேர்க்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't add the passkey. Try again."
-msgstr "கடவுச்சொல்லைச் சேர்க்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
+#~ msgid "Couldn't add the passkey. Try again."
+#~ msgstr "கடவுச்சொல்லைச் சேர்க்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3532,16 +3536,16 @@ msgid "Couldn't remove it from Applications."
 msgstr "விண்ணப்பங்களிலிருந்து அதை அகற்ற முடியவில்லை."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't remove the passkey. Try again."
-msgstr "கடவுச் சாவியை அகற்ற முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
+#~ msgid "Couldn't remove the passkey. Try again."
+#~ msgstr "கடவுச் சாவியை அகற்ற முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
 
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "மறுபெயரிட முடியவில்லை."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't rename the passkey."
-msgstr "கடவுச்சொல்லை மறுபெயரிட முடியவில்லை."
+#~ msgid "Couldn't rename the passkey."
+#~ msgstr "கடவுச்சொல்லை மறுபெயரிட முடியவில்லை."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3785,8 +3789,13 @@ msgstr "விசையை உருவாக்கவும்"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
-msgid "Create one now"
-msgstr "இப்போதே உருவாக்குங்கள்"
+msgid "Create one"
+msgstr ""
+
+#. Call-to-action link from login page to account registration page
+#: src/features/auth/pages/login.tsx
+#~ msgid "Create one now"
+#~ msgstr "இப்போதே உருவாக்குங்கள்"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4275,8 +4284,8 @@ msgid "Does it use AI?"
 msgstr ""
 
 #: src/features/auth/pages/login.tsx
-msgid "Don't have an account? <0/>"
-msgstr "கணக்கு இல்லையா? <0/>"
+#~ msgid "Don't have an account? <0/>"
+#~ msgstr "கணக்கு இல்லையா? <0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -4667,9 +4676,7 @@ msgstr "மின்னஞ்சல் (விருப்பத்திற்�
 
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
-#. Label for login identifier input that accepts email or username
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/login.tsx
 #: src/features/auth/pages/register.tsx
 msgid "Email Address"
 msgstr "மின்னஞ்சல் முகவரி"
@@ -4681,6 +4688,11 @@ msgstr "மின்னஞ்சல் முகவரி அங்கீகர�
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
 msgstr "இந்த சர்வரில் மின்னஞ்சல் டெலிவரி அமைக்கப்படவில்லை, எனவே முகவரி சரிபார்க்கப்படவில்லை."
+
+#. Label for login identifier input that accepts email or username
+#: src/features/auth/pages/login.tsx
+msgid "Email or username"
+msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Email the recruiter"
@@ -5338,12 +5350,17 @@ msgstr "மறந்துவிடு"
 
 #. Link label to password reset page from login form
 #: src/features/auth/pages/login.tsx
-msgid "Forgot Password?"
-msgstr "கடவுச்சொல்லை மறந்துவிட்டீர்களா?"
+#~ msgid "Forgot Password?"
+#~ msgstr "கடவுச்சொல்லை மறந்துவிட்டீர்களா?"
 
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "உங்கள் கடவுச்சொல்லை மறந்துவிட்டீர்களா?"
+
+#. Link label to password reset page from login form
+#: src/features/auth/pages/login.tsx
+msgid "Forgot?"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Format"
@@ -6196,8 +6213,8 @@ msgid "It will be deleted for good and can't be restored."
 msgstr "அது நன்றாக நீக்கப்படும் மற்றும் மீட்டெடுக்க முடியாது."
 
 #: src/features/settings/account/security.tsx
-msgid "It will no longer sign you in."
-msgstr "அது இனி உங்களை உள்நுழையாது."
+#~ msgid "It will no longer sign you in."
+#~ msgstr "அது இனி உங்களை உள்நுழையாது."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
@@ -6324,6 +6341,10 @@ msgstr ""
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON படித்தது"
+
+#: src/features/auth/pages/login.tsx
+msgid "Just looking?"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
@@ -6821,8 +6842,6 @@ msgid "Linked. Name, email, phone and city update when the resume does."
 msgstr "இணைக்கப்பட்டது. ரெஸ்யூம் செய்யும்போது பெயர், மின்னஞ்சல், தொலைபேசி மற்றும் நகரத்தைப் புதுப்பிக்கவும்."
 
 #. Authentication provider display name in account settings
-#. Brand name label for LinkedIn social sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "லிங்க்ட்இன்"
@@ -7454,8 +7473,8 @@ msgid "Name the story"
 msgstr "கதைக்குப் பெயரிடு"
 
 #: src/features/settings/account/security.tsx
-msgid "Name this passkey"
-msgstr "இந்த பாஸ்கீக்கு பெயரிடவும்"
+#~ msgid "Name this passkey"
+#~ msgstr "இந்த பாஸ்கீக்கு பெயரிடவும்"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -7614,6 +7633,10 @@ msgstr "அடுத்த படி: {0}. ‘இன்று’ பக்கத
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "அடுத்த முறை, முதல் முன்மாதிரிக்கு முன்பே வெற்றியை எப்படி அளவிடுவது என்பதில் ஒப்புக்கொள்வேன்."
+
+#: src/features/auth/pages/login.tsx
+msgid "No account?"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8345,6 +8368,10 @@ msgstr "பணியிடத்தைத் திற"
 msgid "Opening"
 msgstr "தொடக்க உரை"
 
+#: src/features/auth/pages/login.tsx
+msgid "Opening the editor..."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Opening the file"
 msgstr "கோப்பைத் திறக்கிறது"
@@ -8399,6 +8426,10 @@ msgstr "இந்த நுழைவுக்கான விருப்பங�
 #: src/features/resume/editor/check/job-match.tsx
 msgid "or"
 msgstr "அல்லது"
+
+#: src/features/auth/pages/login.tsx
+msgid "or continue with"
+msgstr ""
 
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
@@ -8574,14 +8605,11 @@ msgid "Partly. Building a resume, checking PDF readability, and saving applicati
 msgstr ""
 
 #. Authentication provider display name in account settings
-#. Label for passkey sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "Passkey"
 msgstr "பாஸ் கீ"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/settings/account/security.tsx
 msgid "Passkeys"
 msgstr "பாஸ் கீகள்"
 
@@ -9782,17 +9810,14 @@ msgstr "தொலைநிலை, ஹைபிரிட், ஒரு நகர�
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/resume/share/link-tab.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove"
 msgstr "அகற்று"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "{0} ஐ அகற்று"
 
@@ -9840,8 +9865,8 @@ msgid "Remove the password?"
 msgstr "கடவுச்சொல்லை அகற்றவா?"
 
 #: src/features/settings/account/security.tsx
-msgid "Remove this passkey?"
-msgstr "இந்தக் கடவுச் சாவியை அகற்றவா?"
+#~ msgid "Remove this passkey?"
+#~ msgstr "இந்தக் கடவுச் சாவியை அகற்றவா?"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -9849,7 +9874,6 @@ msgstr "இந்தப் படத்தை அகற்றவா?"
 
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
-#: src/features/settings/account/security.tsx
 msgid "Rename"
 msgstr "மறுபெயரிடவும்"
 
@@ -10298,7 +10322,6 @@ msgstr ""
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
-#: src/features/settings/account/security.tsx
 msgid "Save"
 msgstr "சேமி"
 
@@ -11062,6 +11085,7 @@ msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "பக்கப்பட்டிகள் பெரும்பாலும் கடைசியாக படிக்கப்படுகின்றன அல்லது பிரதான நெடுவரிசையில் கலக்கப்படுகின்றன."
 
 #. Primary action button label on login form
+#. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
 #: src/features/auth/pages/login.tsx
 msgid "Sign in"
@@ -11076,12 +11100,12 @@ msgstr "இப்போது உள்நுழையவும்"
 
 #. Title on the login page
 #: src/features/auth/pages/login.tsx
-msgid "Sign in to your account"
-msgstr "உங்கள் கணக்கில் உள்நுழைக"
+#~ msgid "Sign in to your account"
+#~ msgstr "உங்கள் கணக்கில் உள்நுழைக"
 
 #: src/features/settings/account/security.tsx
-msgid "Sign in with your fingerprint, face or device PIN"
-msgstr "உங்கள் கைரேகை, முகம் அல்லது சாதன பின் மூலம் உள்நுழையவும்"
+#~ msgid "Sign in with your fingerprint, face or device PIN"
+#~ msgstr "உங்கள் கைரேகை, முகம் அல்லது சாதன பின் மூலம் உள்நுழையவும்"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -13087,8 +13111,8 @@ msgid "Unlock it first"
 msgstr "முதலில் அதைத் திறக்கவும்"
 
 #: src/features/settings/account/security.tsx
-msgid "Unnamed passkey"
-msgstr "பெயரிடப்படாத பாஸ் கீ"
+#~ msgid "Unnamed passkey"
+#~ msgstr "பெயரிடப்படாத பாஸ் கீ"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13302,6 +13326,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "பிசகான எழுத்துருக் குறியீடுகள் வாக்கியத்தின் நடுவில் வராமல் இருக்க, உங்கள் எடிட்டரின் வழக்கமான புல்லட் பட்டியலைப் பயன்படுத்தவும்."
+
+#: src/features/auth/pages/login.tsx
+msgid "Use your email, or a social account."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Used"
@@ -14031,8 +14059,8 @@ msgid "You answered: {answer}"
 msgstr "நீங்கள் பதிலளித்தீர்கள்: {answer}"
 
 #: src/features/auth/pages/login.tsx
-msgid "You can also sign in with your username."
-msgstr "உங்கள் பயனர் பெயரைப் பயன்படுத்தியும் உள்நுழையலாம்."
+#~ msgid "You can also sign in with your username."
+#~ msgstr "உங்கள் பயனர் பெயரைப் பயன்படுத்தியும் உள்நுழையலாம்."
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."

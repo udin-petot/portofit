@@ -75,7 +75,7 @@ export function ResumePasswordPage({ username, slug, redirectPath }: ResumePassw
 	return (
 		<>
 			<div className="space-y-4 text-center">
-				<h1 className="text-2xl font-semibold tracking-tight">
+				<h1 className="font-display text-[30px] leading-9 font-medium">
 					<Trans>This resume is password protected</Trans>
 				</h1>
 

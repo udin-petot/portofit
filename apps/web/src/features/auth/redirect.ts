@@ -49,16 +49,3 @@ export function isOAuthRedirect(data: unknown) {
 	);
 }
 
-export function getOAuthPasskeyOptions(callbackURL: unknown) {
-	const oauthOptions = getOAuthSignInOptions(callbackURL);
-	return {
-		fetchOptions: {
-			onRequest(context: { body?: unknown }) {
-				if (!oauthOptions.oauth_query) return;
-				// The passkey client forwards fetchOptions, but drops extra top-level fields.
-				const body: unknown = typeof context.body === "string" ? JSON.parse(context.body) : context.body;
-				if (body && typeof body === "object") context.body = JSON.stringify({ ...body, ...oauthOptions });
-			},
-		},
-	};
-}

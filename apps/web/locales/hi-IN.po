@@ -974,8 +974,8 @@ msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "एक मॉडल की राय, फैसला नहीं. यह ग़लत हो सकता है."
 
 #: src/features/settings/account/security.tsx
-msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-msgstr "एक नाम आपको पासकीज़ को अलग बताने में मदद करता है, जैसे \"कार्य लैपटॉप\"।"
+#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
+#~ msgstr "एक नाम आपको पासकीज़ को अलग बताने में मदद करता है, जैसे \"कार्य लैपटॉप\"।"
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1333,8 +1333,8 @@ msgid "Add Page"
 msgstr "पेज जोड़ें"
 
 #: src/features/settings/account/security.tsx
-msgid "Add passkey"
-msgstr "पासकी जोड़ें"
+#~ msgid "Add passkey"
+#~ msgstr "पासकी जोड़ें"
 
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
@@ -3121,8 +3121,12 @@ msgid "Continue"
 msgstr "जारी रखें"
 
 #: src/features/auth/pages/login.tsx
-msgid "Continue as guest"
-msgstr "अतिथि के रूप में जारी रखें"
+msgid "Continue as a guest"
+msgstr ""
+
+#: src/features/auth/pages/login.tsx
+#~ msgid "Continue as guest"
+#~ msgstr "अतिथि के रूप में जारी रखें"
 
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
@@ -3329,8 +3333,8 @@ msgid "Couldn't add the application. Please try again."
 msgstr "आवेदन जोड़ा नहीं जा सका। कृपया फिर कोशिश करें।"
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't add the passkey. Try again."
-msgstr "पासकी नहीं जोड़ा जा सका. पुनः प्रयास करें।"
+#~ msgid "Couldn't add the passkey. Try again."
+#~ msgstr "पासकी नहीं जोड़ा जा सका. पुनः प्रयास करें।"
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3532,16 +3536,16 @@ msgid "Couldn't remove it from Applications."
 msgstr "इसे आवेदनों से हटाया नहीं जा सका।"
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't remove the passkey. Try again."
-msgstr "पासकी नहीं निकाली जा सकी. पुनः प्रयास करें।"
+#~ msgid "Couldn't remove the passkey. Try again."
+#~ msgstr "पासकी नहीं निकाली जा सकी. पुनः प्रयास करें।"
 
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "नाम बदला नहीं जा सका।"
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't rename the passkey."
-msgstr "पासकी का नाम नहीं बदला जा सका."
+#~ msgid "Couldn't rename the passkey."
+#~ msgstr "पासकी का नाम नहीं बदला जा सका."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3785,8 +3789,13 @@ msgstr "कुंजी बनाएं"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
-msgid "Create one now"
-msgstr "अभी एक बनाएँ"
+msgid "Create one"
+msgstr ""
+
+#. Call-to-action link from login page to account registration page
+#: src/features/auth/pages/login.tsx
+#~ msgid "Create one now"
+#~ msgstr "अभी एक बनाएँ"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4275,8 +4284,8 @@ msgid "Does it use AI?"
 msgstr ""
 
 #: src/features/auth/pages/login.tsx
-msgid "Don't have an account? <0/>"
-msgstr "खाता नहीं है? <0/>"
+#~ msgid "Don't have an account? <0/>"
+#~ msgstr "खाता नहीं है? <0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -4667,9 +4676,7 @@ msgstr "ईमेल (वैकल्पिक)"
 
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
-#. Label for login identifier input that accepts email or username
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/login.tsx
 #: src/features/auth/pages/register.tsx
 msgid "Email Address"
 msgstr "ईमेल पता"
@@ -4681,6 +4688,11 @@ msgstr "ईमेल पता पहचाना नहीं जाएगा"
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
 msgstr "इस सर्वर पर ईमेल डिलीवरी सेट नहीं है, इसलिए पता सत्यापित नहीं है।"
+
+#. Label for login identifier input that accepts email or username
+#: src/features/auth/pages/login.tsx
+msgid "Email or username"
+msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Email the recruiter"
@@ -5338,12 +5350,17 @@ msgstr "भुला दें"
 
 #. Link label to password reset page from login form
 #: src/features/auth/pages/login.tsx
-msgid "Forgot Password?"
-msgstr "पासवर्ड भूल गए?"
+#~ msgid "Forgot Password?"
+#~ msgstr "पासवर्ड भूल गए?"
 
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "पासवर्ड भूल गए हैं?"
+
+#. Link label to password reset page from login form
+#: src/features/auth/pages/login.tsx
+msgid "Forgot?"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Format"
@@ -6196,8 +6213,8 @@ msgid "It will be deleted for good and can't be restored."
 msgstr "इसे हमेशा के लिए हटा दिया जाएगा और इसे पुनर्स्थापित नहीं किया जा सकेगा."
 
 #: src/features/settings/account/security.tsx
-msgid "It will no longer sign you in."
-msgstr "यह अब आपको साइन इन नहीं करेगा."
+#~ msgid "It will no longer sign you in."
+#~ msgstr "यह अब आपको साइन इन नहीं करेगा."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
@@ -6324,6 +6341,10 @@ msgstr ""
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON पढ़ें"
+
+#: src/features/auth/pages/login.tsx
+msgid "Just looking?"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
@@ -6821,8 +6842,6 @@ msgid "Linked. Name, email, phone and city update when the resume does."
 msgstr "जुड़ा हुआ. बायोडाटा आने पर नाम, ईमेल, फोन और शहर अपडेट करें।"
 
 #. Authentication provider display name in account settings
-#. Brand name label for LinkedIn social sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "लिंक्डइन"
@@ -7454,8 +7473,8 @@ msgid "Name the story"
 msgstr "कहानी का नाम दें"
 
 #: src/features/settings/account/security.tsx
-msgid "Name this passkey"
-msgstr "इस पासकी को नाम दें"
+#~ msgid "Name this passkey"
+#~ msgstr "इस पासकी को नाम दें"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -7614,6 +7633,10 @@ msgstr "अगला कदम: {0}। \"आज\" में एक रिमा�
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "अगली बार, मैं पहले प्रोटोटाइप से पहले तय कर लेता कि सफलता कैसे मापनी है।"
+
+#: src/features/auth/pages/login.tsx
+msgid "No account?"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8345,6 +8368,10 @@ msgstr "वर्कस्पेस खोलें"
 msgid "Opening"
 msgstr "शुरुआत"
 
+#: src/features/auth/pages/login.tsx
+msgid "Opening the editor..."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Opening the file"
 msgstr "फ़ाइल खुल रही है"
@@ -8399,6 +8426,10 @@ msgstr "इस प्रविष्टि के लिए विकल्प"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "or"
 msgstr "या"
+
+#: src/features/auth/pages/login.tsx
+msgid "or continue with"
+msgstr ""
 
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
@@ -8574,14 +8605,11 @@ msgid "Partly. Building a resume, checking PDF readability, and saving applicati
 msgstr ""
 
 #. Authentication provider display name in account settings
-#. Label for passkey sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "Passkey"
 msgstr "पासकी"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/settings/account/security.tsx
 msgid "Passkeys"
 msgstr "पासकीज़"
 
@@ -9782,17 +9810,14 @@ msgstr "रिमोट, हाइब्रिड, कोई शहर…"
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/resume/share/link-tab.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove"
 msgstr "निकालना"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "{0} निकालें"
 
@@ -9840,8 +9865,8 @@ msgid "Remove the password?"
 msgstr "पासवर्ड हटाएँ?"
 
 #: src/features/settings/account/security.tsx
-msgid "Remove this passkey?"
-msgstr "यह पासकी हटाएँ?"
+#~ msgid "Remove this passkey?"
+#~ msgstr "यह पासकी हटाएँ?"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -9849,7 +9874,6 @@ msgstr "यह फ़ोटो हटाएं?"
 
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
-#: src/features/settings/account/security.tsx
 msgid "Rename"
 msgstr "नाम बदलें"
 
@@ -10298,7 +10322,6 @@ msgstr ""
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
-#: src/features/settings/account/security.tsx
 msgid "Save"
 msgstr "सहेजें"
 
@@ -11062,6 +11085,7 @@ msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "साइडबार को अक्सर सबसे आखिर में पढ़ा जाता है, या मुख्य कॉलम में मिला दिया जाता है।"
 
 #. Primary action button label on login form
+#. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
 #: src/features/auth/pages/login.tsx
 msgid "Sign in"
@@ -11076,12 +11100,12 @@ msgstr "अभी साइन इन करें"
 
 #. Title on the login page
 #: src/features/auth/pages/login.tsx
-msgid "Sign in to your account"
-msgstr "अपने अकाउंट मे साइन इन करें।"
+#~ msgid "Sign in to your account"
+#~ msgstr "अपने अकाउंट मे साइन इन करें।"
 
 #: src/features/settings/account/security.tsx
-msgid "Sign in with your fingerprint, face or device PIN"
-msgstr "अपने फ़िंगरप्रिंट, चेहरे या डिवाइस पिन से साइन इन करें"
+#~ msgid "Sign in with your fingerprint, face or device PIN"
+#~ msgstr "अपने फ़िंगरप्रिंट, चेहरे या डिवाइस पिन से साइन इन करें"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -13087,8 +13111,8 @@ msgid "Unlock it first"
 msgstr "पहले इसे अनलॉक करें"
 
 #: src/features/settings/account/security.tsx
-msgid "Unnamed passkey"
-msgstr "अनाम पासकी"
+#~ msgid "Unnamed passkey"
+#~ msgstr "अनाम पासकी"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13302,6 +13326,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "अपने एडिटर की सामान्य बुलेट सूची इस्तेमाल करें, ताकि आवारा ग्लिफ़ बीच वाक्य में न आएँ।"
+
+#: src/features/auth/pages/login.tsx
+msgid "Use your email, or a social account."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Used"
@@ -14031,8 +14059,8 @@ msgid "You answered: {answer}"
 msgstr "आपने उत्तर दिया: {answer}"
 
 #: src/features/auth/pages/login.tsx
-msgid "You can also sign in with your username."
-msgstr "आप अपने उपयोगकर्ता नाम से भी साइन इन कर सकते हैं।"
+#~ msgid "You can also sign in with your username."
+#~ msgstr "आप अपने उपयोगकर्ता नाम से भी साइन इन कर सकते हैं।"
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."

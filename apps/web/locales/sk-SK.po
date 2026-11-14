@@ -974,8 +974,8 @@ msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "Názor modelky, nie verdikt. Môže to byť nesprávne."
 
 #: src/features/settings/account/security.tsx
-msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-msgstr "Názov vám pomôže rozlíšiť prístupové kľúče, napríklad „pracovný laptop“."
+#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
+#~ msgstr "Názov vám pomôže rozlíšiť prístupové kľúče, napríklad „pracovný laptop“."
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1333,8 +1333,8 @@ msgid "Add Page"
 msgstr "Pridať stranu"
 
 #: src/features/settings/account/security.tsx
-msgid "Add passkey"
-msgstr "Pridať prístupový kľúč"
+#~ msgid "Add passkey"
+#~ msgstr "Pridať prístupový kľúč"
 
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
@@ -3121,8 +3121,12 @@ msgid "Continue"
 msgstr "Pokračovať"
 
 #: src/features/auth/pages/login.tsx
-msgid "Continue as guest"
-msgstr "Pokračovať ako hosť"
+msgid "Continue as a guest"
+msgstr ""
+
+#: src/features/auth/pages/login.tsx
+#~ msgid "Continue as guest"
+#~ msgstr "Pokračovať ako hosť"
 
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
@@ -3329,8 +3333,8 @@ msgid "Couldn't add the application. Please try again."
 msgstr "Žiadosť sa nepodarilo pridať. Skúste to znova."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't add the passkey. Try again."
-msgstr "Nepodarilo sa pridať prístupový kľúč. Skúste to znova."
+#~ msgid "Couldn't add the passkey. Try again."
+#~ msgstr "Nepodarilo sa pridať prístupový kľúč. Skúste to znova."
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3532,16 +3536,16 @@ msgid "Couldn't remove it from Applications."
 msgstr "Nepodarilo sa to odstrániť zo Žiadostí."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't remove the passkey. Try again."
-msgstr "Nepodarilo sa odstrániť prístupový kľúč. Skúste to znova."
+#~ msgid "Couldn't remove the passkey. Try again."
+#~ msgstr "Nepodarilo sa odstrániť prístupový kľúč. Skúste to znova."
 
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "Nepodarilo sa premenovať."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't rename the passkey."
-msgstr "Prístupový kľúč sa nepodarilo premenovať."
+#~ msgid "Couldn't rename the passkey."
+#~ msgstr "Prístupový kľúč sa nepodarilo premenovať."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3785,8 +3789,13 @@ msgstr "Vytvoriť kľúč"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
-msgid "Create one now"
-msgstr "Vytvorte si ho teraz"
+msgid "Create one"
+msgstr ""
+
+#. Call-to-action link from login page to account registration page
+#: src/features/auth/pages/login.tsx
+#~ msgid "Create one now"
+#~ msgstr "Vytvorte si ho teraz"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4275,8 +4284,8 @@ msgid "Does it use AI?"
 msgstr ""
 
 #: src/features/auth/pages/login.tsx
-msgid "Don't have an account? <0/>"
-msgstr "Nemáte účet? <0/>"
+#~ msgid "Don't have an account? <0/>"
+#~ msgstr "Nemáte účet? <0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -4667,9 +4676,7 @@ msgstr "E-mail (voliteľné)"
 
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
-#. Label for login identifier input that accepts email or username
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/login.tsx
 #: src/features/auth/pages/register.tsx
 msgid "Email Address"
 msgstr "E‑mailová adresa"
@@ -4681,6 +4688,11 @@ msgstr "E-mailová adresa nebude rozpoznaná"
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
 msgstr "Na tomto serveri nie je nastavené doručovanie e-mailov, takže adresa nie je overená."
+
+#. Label for login identifier input that accepts email or username
+#: src/features/auth/pages/login.tsx
+msgid "Email or username"
+msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Email the recruiter"
@@ -5338,12 +5350,17 @@ msgstr "Zabudnúť"
 
 #. Link label to password reset page from login form
 #: src/features/auth/pages/login.tsx
-msgid "Forgot Password?"
-msgstr "Zabudnuté heslo?"
+#~ msgid "Forgot Password?"
+#~ msgstr "Zabudnuté heslo?"
 
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "Zabudol si heslo?"
+
+#. Link label to password reset page from login form
+#: src/features/auth/pages/login.tsx
+msgid "Forgot?"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Format"
@@ -6196,8 +6213,8 @@ msgid "It will be deleted for good and can't be restored."
 msgstr "Bude definitívne vymazaný a nebude možné ho obnoviť."
 
 #: src/features/settings/account/security.tsx
-msgid "It will no longer sign you in."
-msgstr "Už vás to neprihlási."
+#~ msgid "It will no longer sign you in."
+#~ msgstr "Už vás to neprihlási."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
@@ -6324,6 +6341,10 @@ msgstr ""
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "Čítanie JSON"
+
+#: src/features/auth/pages/login.tsx
+msgid "Just looking?"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
@@ -6821,8 +6842,6 @@ msgid "Linked. Name, email, phone and city update when the resume does."
 msgstr "Prepojené. Meno, e-mail, telefón a mesto sa aktualizujú, keď to urobí životopis."
 
 #. Authentication provider display name in account settings
-#. Brand name label for LinkedIn social sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
@@ -7454,8 +7473,8 @@ msgid "Name the story"
 msgstr "Pomenujte príbeh"
 
 #: src/features/settings/account/security.tsx
-msgid "Name this passkey"
-msgstr "Pomenujte tento prístupový kľúč"
+#~ msgid "Name this passkey"
+#~ msgstr "Pomenujte tento prístupový kľúč"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -7614,6 +7633,10 @@ msgstr "Ďalší krok: {0}. Pridá pripomienku do sekcie Dnes."
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "Nabudúce: ešte pred prvým prototypom sa dohodnúť, ako merať úspech."
+
+#: src/features/auth/pages/login.tsx
+msgid "No account?"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8345,6 +8368,10 @@ msgstr "Otvoriť pracovný priestor"
 msgid "Opening"
 msgstr "Úvod"
 
+#: src/features/auth/pages/login.tsx
+msgid "Opening the editor..."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Opening the file"
 msgstr "Otváranie súboru"
@@ -8399,6 +8426,10 @@ msgstr "Možnosti pre tento záznam"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "or"
 msgstr "alebo"
+
+#: src/features/auth/pages/login.tsx
+msgid "or continue with"
+msgstr ""
 
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
@@ -8574,14 +8605,11 @@ msgid "Partly. Building a resume, checking PDF readability, and saving applicati
 msgstr ""
 
 #. Authentication provider display name in account settings
-#. Label for passkey sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "Passkey"
 msgstr "Passkey"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/settings/account/security.tsx
 msgid "Passkeys"
 msgstr "Passkeys"
 
@@ -9782,17 +9810,14 @@ msgstr "Na diaľku, hybridne, mesto…"
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/resume/share/link-tab.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove"
 msgstr "Odstrániť"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "Odstráňte {0}"
 
@@ -9840,8 +9865,8 @@ msgid "Remove the password?"
 msgstr "Chcete odstrániť heslo?"
 
 #: src/features/settings/account/security.tsx
-msgid "Remove this passkey?"
-msgstr "Odstrániť tento prístupový kľúč?"
+#~ msgid "Remove this passkey?"
+#~ msgstr "Odstrániť tento prístupový kľúč?"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -9849,7 +9874,6 @@ msgstr "Odstrániť túto fotku?"
 
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
-#: src/features/settings/account/security.tsx
 msgid "Rename"
 msgstr "Premenovať"
 
@@ -10298,7 +10322,6 @@ msgstr ""
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
-#: src/features/settings/account/security.tsx
 msgid "Save"
 msgstr "Uložiť"
 
@@ -11062,6 +11085,7 @@ msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "Bočné panely sa často čítajú ako posledné alebo sa primiešavajú do hlavného stĺpca."
 
 #. Primary action button label on login form
+#. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
 #: src/features/auth/pages/login.tsx
 msgid "Sign in"
@@ -11076,12 +11100,12 @@ msgstr "Prihláste sa teraz"
 
 #. Title on the login page
 #: src/features/auth/pages/login.tsx
-msgid "Sign in to your account"
-msgstr "Prihlás sa do svojho účtu"
+#~ msgid "Sign in to your account"
+#~ msgstr "Prihlás sa do svojho účtu"
 
 #: src/features/settings/account/security.tsx
-msgid "Sign in with your fingerprint, face or device PIN"
-msgstr "Prihláste sa pomocou odtlačku prsta, tváre alebo kódu PIN zariadenia"
+#~ msgid "Sign in with your fingerprint, face or device PIN"
+#~ msgstr "Prihláste sa pomocou odtlačku prsta, tváre alebo kódu PIN zariadenia"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -13087,8 +13111,8 @@ msgid "Unlock it first"
 msgstr "Najprv ho odomknite"
 
 #: src/features/settings/account/security.tsx
-msgid "Unnamed passkey"
-msgstr "Nepomenovaný prístupový kľúč"
+#~ msgid "Unnamed passkey"
+#~ msgstr "Nepomenovaný prístupový kľúč"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13302,6 +13326,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "Použite bežný odrážkový zoznam vášho editora, aby sa cudzie glyfy neocitli uprostred vety."
+
+#: src/features/auth/pages/login.tsx
+msgid "Use your email, or a social account."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Used"
@@ -14031,8 +14059,8 @@ msgid "You answered: {answer}"
 msgstr "Odpovedali ste: {answer}"
 
 #: src/features/auth/pages/login.tsx
-msgid "You can also sign in with your username."
-msgstr "Prihlásiť sa môžete aj používateľským menom."
+#~ msgid "You can also sign in with your username."
+#~ msgstr "Prihlásiť sa môžete aj používateľským menom."
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."

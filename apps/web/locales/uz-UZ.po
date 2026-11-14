@@ -974,8 +974,8 @@ msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "Hukm emas, modelning fikri. Bu noto'g'ri bo'lishi mumkin."
 
 #: src/features/settings/account/security.tsx
-msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-msgstr "Ism kalitlarni bir-biridan ajratishga yordam beradi, masalan, \"Ish noutbuki\"."
+#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
+#~ msgstr "Ism kalitlarni bir-biridan ajratishga yordam beradi, masalan, \"Ish noutbuki\"."
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1333,8 +1333,8 @@ msgid "Add Page"
 msgstr "Sahifa qo‘shish"
 
 #: src/features/settings/account/security.tsx
-msgid "Add passkey"
-msgstr "O'tish kalitini qo'shing"
+#~ msgid "Add passkey"
+#~ msgstr "O'tish kalitini qo'shing"
 
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
@@ -3121,8 +3121,12 @@ msgid "Continue"
 msgstr "Davom etish"
 
 #: src/features/auth/pages/login.tsx
-msgid "Continue as guest"
-msgstr "Mehmon sifatida davom etish"
+msgid "Continue as a guest"
+msgstr ""
+
+#: src/features/auth/pages/login.tsx
+#~ msgid "Continue as guest"
+#~ msgstr "Mehmon sifatida davom etish"
 
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
@@ -3329,8 +3333,8 @@ msgid "Couldn't add the application. Please try again."
 msgstr "Arizani qo'shib bo'lmadi. Qayta urinib ko'ring."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't add the passkey. Try again."
-msgstr "O‘tish kalitini qo‘shib bo‘lmadi. Qayta urinib ko'ring."
+#~ msgid "Couldn't add the passkey. Try again."
+#~ msgstr "O‘tish kalitini qo‘shib bo‘lmadi. Qayta urinib ko'ring."
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3532,16 +3536,16 @@ msgid "Couldn't remove it from Applications."
 msgstr "Uni Arizalardan olib tashlab bo'lmadi."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't remove the passkey. Try again."
-msgstr "O‘tish kalitini olib tashlab bo‘lmadi. Qayta urinib ko'ring."
+#~ msgid "Couldn't remove the passkey. Try again."
+#~ msgstr "O‘tish kalitini olib tashlab bo‘lmadi. Qayta urinib ko'ring."
 
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "Nomini o'zgartirib bo'lmadi."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't rename the passkey."
-msgstr "O‘tish kaliti nomini o‘zgartirib bo‘lmadi."
+#~ msgid "Couldn't rename the passkey."
+#~ msgstr "O‘tish kaliti nomini o‘zgartirib bo‘lmadi."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3785,8 +3789,13 @@ msgstr "Kalit yaratish"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
-msgid "Create one now"
-msgstr "Hozir birini yarating"
+msgid "Create one"
+msgstr ""
+
+#. Call-to-action link from login page to account registration page
+#: src/features/auth/pages/login.tsx
+#~ msgid "Create one now"
+#~ msgstr "Hozir birini yarating"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4275,8 +4284,8 @@ msgid "Does it use AI?"
 msgstr ""
 
 #: src/features/auth/pages/login.tsx
-msgid "Don't have an account? <0/>"
-msgstr "Hisobingiz yoʻqmi? <0/>"
+#~ msgid "Don't have an account? <0/>"
+#~ msgstr "Hisobingiz yoʻqmi? <0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -4667,9 +4676,7 @@ msgstr "Elektron pochta (ixtiyoriy)"
 
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
-#. Label for login identifier input that accepts email or username
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/login.tsx
 #: src/features/auth/pages/register.tsx
 msgid "Email Address"
 msgstr "Email manzili"
@@ -4681,6 +4688,11 @@ msgstr "Elektron pochta manzili aniqlanmaydi"
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
 msgstr "Bu serverda elektron pochta xabarlarini yetkazib berish sozlanmagan, shuning uchun manzil tasdiqlanmagan."
+
+#. Label for login identifier input that accepts email or username
+#: src/features/auth/pages/login.tsx
+msgid "Email or username"
+msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Email the recruiter"
@@ -5338,12 +5350,17 @@ msgstr "Unutish"
 
 #. Link label to password reset page from login form
 #: src/features/auth/pages/login.tsx
-msgid "Forgot Password?"
-msgstr "Parolni unutdingizmi?"
+#~ msgid "Forgot Password?"
+#~ msgstr "Parolni unutdingizmi?"
 
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "Parolingizni unutdingizmi?"
+
+#. Link label to password reset page from login form
+#: src/features/auth/pages/login.tsx
+msgid "Forgot?"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Format"
@@ -6196,8 +6213,8 @@ msgid "It will be deleted for good and can't be restored."
 msgstr "U butunlay oʻchirib tashlanadi va uni qayta tiklab boʻlmaydi."
 
 #: src/features/settings/account/security.tsx
-msgid "It will no longer sign you in."
-msgstr "U endi tizimga kirmaydi."
+#~ msgid "It will no longer sign you in."
+#~ msgstr "U endi tizimga kirmaydi."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
@@ -6324,6 +6341,10 @@ msgstr ""
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON o'qildi"
+
+#: src/features/auth/pages/login.tsx
+msgid "Just looking?"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
@@ -6821,8 +6842,6 @@ msgid "Linked. Name, email, phone and city update when the resume does."
 msgstr "Bog'langan. Ism, e-pochta, telefon va shahar rezyumeda yangilanadi."
 
 #. Authentication provider display name in account settings
-#. Brand name label for LinkedIn social sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
@@ -7454,8 +7473,8 @@ msgid "Name the story"
 msgstr "Hikoyaga nom bering"
 
 #: src/features/settings/account/security.tsx
-msgid "Name this passkey"
-msgstr "Ushbu kalitga nom bering"
+#~ msgid "Name this passkey"
+#~ msgstr "Ushbu kalitga nom bering"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -7614,6 +7633,10 @@ msgstr "Keyingi qadam: {0}. Bugun bo'limiga eslatma qo'shadi."
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "Keyingi safar birinchi prototipdan oldin muvaffaqiyatni qanday o'lchashni kelishib olardim."
+
+#: src/features/auth/pages/login.tsx
+msgid "No account?"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8345,6 +8368,10 @@ msgstr "Ish maydonini ochish"
 msgid "Opening"
 msgstr "Kirish so'zi"
 
+#: src/features/auth/pages/login.tsx
+msgid "Opening the editor..."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Opening the file"
 msgstr "Faylni ochish"
@@ -8399,6 +8426,10 @@ msgstr "Ushbu kirish uchun imkoniyatlar"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "or"
 msgstr "yoki"
+
+#: src/features/auth/pages/login.tsx
+msgid "or continue with"
+msgstr ""
 
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
@@ -8574,14 +8605,11 @@ msgid "Partly. Building a resume, checking PDF readability, and saving applicati
 msgstr ""
 
 #. Authentication provider display name in account settings
-#. Label for passkey sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "Passkey"
 msgstr "Kirish kaliti"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/settings/account/security.tsx
 msgid "Passkeys"
 msgstr "Kirish kalitlari"
 
@@ -9782,17 +9810,14 @@ msgstr "Masofaviy, gibrid, shahar…"
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/resume/share/link-tab.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove"
 msgstr "O'chirish"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "{0} ni olib tashlang"
 
@@ -9840,8 +9865,8 @@ msgid "Remove the password?"
 msgstr "Parol olib tashlansinmi?"
 
 #: src/features/settings/account/security.tsx
-msgid "Remove this passkey?"
-msgstr "Bu kalit olib tashlansinmi?"
+#~ msgid "Remove this passkey?"
+#~ msgstr "Bu kalit olib tashlansinmi?"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -9849,7 +9874,6 @@ msgstr "Bu surat olib tashlansinmi?"
 
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
-#: src/features/settings/account/security.tsx
 msgid "Rename"
 msgstr "Nomini o'zgartirish"
 
@@ -10298,7 +10322,6 @@ msgstr ""
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
-#: src/features/settings/account/security.tsx
 msgid "Save"
 msgstr "Saqlash"
 
@@ -11062,6 +11085,7 @@ msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "Yon panellar ko'pincha oxirgi o'qiladi yoki asosiy ustunga aralashtiriladi."
 
 #. Primary action button label on login form
+#. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
 #: src/features/auth/pages/login.tsx
 msgid "Sign in"
@@ -11076,12 +11100,12 @@ msgstr "Hozir kiring"
 
 #. Title on the login page
 #: src/features/auth/pages/login.tsx
-msgid "Sign in to your account"
-msgstr "Hisobingizga kiring"
+#~ msgid "Sign in to your account"
+#~ msgstr "Hisobingizga kiring"
 
 #: src/features/settings/account/security.tsx
-msgid "Sign in with your fingerprint, face or device PIN"
-msgstr "Barmoq izi, yuz yoki qurilma PIN-kodi bilan tizimga kiring"
+#~ msgid "Sign in with your fingerprint, face or device PIN"
+#~ msgstr "Barmoq izi, yuz yoki qurilma PIN-kodi bilan tizimga kiring"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -13087,8 +13111,8 @@ msgid "Unlock it first"
 msgstr "Avval uni qulfdan chiqaring"
 
 #: src/features/settings/account/security.tsx
-msgid "Unnamed passkey"
-msgstr "Nomsiz kirish kaliti"
+#~ msgid "Unnamed passkey"
+#~ msgstr "Nomsiz kirish kaliti"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13302,6 +13326,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "Tasodifiy belgilar gap oʻrtasiga tushib qolmasligi uchun muharriringizning oddiy nuqtali roʻyxatidan foydalaning."
+
+#: src/features/auth/pages/login.tsx
+msgid "Use your email, or a social account."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Used"
@@ -14031,8 +14059,8 @@ msgid "You answered: {answer}"
 msgstr "Siz javob berdingiz: {answer}"
 
 #: src/features/auth/pages/login.tsx
-msgid "You can also sign in with your username."
-msgstr "Foydalanuvchi nomingiz bilan ham kirishingiz mumkin."
+#~ msgid "You can also sign in with your username."
+#~ msgstr "Foydalanuvchi nomingiz bilan ham kirishingiz mumkin."
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."

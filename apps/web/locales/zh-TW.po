@@ -974,8 +974,8 @@ msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "模型的意見，而不是判決。這可能是錯誤的。"
 
 #: src/features/settings/account/security.tsx
-msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-msgstr "名稱可以幫助您區分密鑰，例如“工作筆記型電腦”。"
+#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
+#~ msgstr "名稱可以幫助您區分密鑰，例如“工作筆記型電腦”。"
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1333,8 +1333,8 @@ msgid "Add Page"
 msgstr "新增頁面"
 
 #: src/features/settings/account/security.tsx
-msgid "Add passkey"
-msgstr "新增密鑰"
+#~ msgid "Add passkey"
+#~ msgstr "新增密鑰"
 
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
@@ -3121,8 +3121,12 @@ msgid "Continue"
 msgstr "繼續"
 
 #: src/features/auth/pages/login.tsx
-msgid "Continue as guest"
-msgstr "以訪客身分繼續"
+msgid "Continue as a guest"
+msgstr ""
+
+#: src/features/auth/pages/login.tsx
+#~ msgid "Continue as guest"
+#~ msgstr "以訪客身分繼續"
 
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
@@ -3329,8 +3333,8 @@ msgid "Couldn't add the application. Please try again."
 msgstr "無法新增應徵紀錄。請再試一次。"
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't add the passkey. Try again."
-msgstr "無法新增密鑰。再試一次。"
+#~ msgid "Couldn't add the passkey. Try again."
+#~ msgstr "無法新增密鑰。再試一次。"
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3532,16 +3536,16 @@ msgid "Couldn't remove it from Applications."
 msgstr "無法將其從「應徵紀錄」中移除。"
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't remove the passkey. Try again."
-msgstr "無法刪除密鑰。再試一次。"
+#~ msgid "Couldn't remove the passkey. Try again."
+#~ msgstr "無法刪除密鑰。再試一次。"
 
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "無法重新命名。"
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't rename the passkey."
-msgstr "無法重命名密鑰。"
+#~ msgid "Couldn't rename the passkey."
+#~ msgstr "無法重命名密鑰。"
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3785,8 +3789,13 @@ msgstr "建立密鑰"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
-msgid "Create one now"
-msgstr "立即建立"
+msgid "Create one"
+msgstr ""
+
+#. Call-to-action link from login page to account registration page
+#: src/features/auth/pages/login.tsx
+#~ msgid "Create one now"
+#~ msgstr "立即建立"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4275,8 +4284,8 @@ msgid "Does it use AI?"
 msgstr ""
 
 #: src/features/auth/pages/login.tsx
-msgid "Don't have an account? <0/>"
-msgstr "沒有帳戶？<0/>"
+#~ msgid "Don't have an account? <0/>"
+#~ msgstr "沒有帳戶？<0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -4667,9 +4676,7 @@ msgstr "電子郵件（選填）"
 
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
-#. Label for login identifier input that accepts email or username
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/login.tsx
 #: src/features/auth/pages/register.tsx
 msgid "Email Address"
 msgstr "電子郵件地址"
@@ -4681,6 +4688,11 @@ msgstr "電子郵件地址將無法被識別"
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
 msgstr "此伺服器上未設定電子郵件傳送，因此該位址未經驗證。"
+
+#. Label for login identifier input that accepts email or username
+#: src/features/auth/pages/login.tsx
+msgid "Email or username"
+msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Email the recruiter"
@@ -5338,12 +5350,17 @@ msgstr "忘記"
 
 #. Link label to password reset page from login form
 #: src/features/auth/pages/login.tsx
-msgid "Forgot Password?"
-msgstr "忘記密碼？"
+#~ msgid "Forgot Password?"
+#~ msgstr "忘記密碼？"
 
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "忘記密碼？"
+
+#. Link label to password reset page from login form
+#: src/features/auth/pages/login.tsx
+msgid "Forgot?"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Format"
@@ -6196,8 +6213,8 @@ msgid "It will be deleted for good and can't be restored."
 msgstr "它將永久刪除且無法恢復。"
 
 #: src/features/settings/account/security.tsx
-msgid "It will no longer sign you in."
-msgstr "它不會再讓您登入。"
+#~ msgid "It will no longer sign you in."
+#~ msgstr "它不會再讓您登入。"
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
@@ -6324,6 +6341,10 @@ msgstr ""
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON 已讀"
+
+#: src/features/auth/pages/login.tsx
+msgid "Just looking?"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
@@ -6821,8 +6842,6 @@ msgid "Linked. Name, email, phone and city update when the resume does."
 msgstr "已連結。姓名、電子郵件、電話和城市會隨著履歷的更新而更新。"
 
 #. Authentication provider display name in account settings
-#. Brand name label for LinkedIn social sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
@@ -7454,8 +7473,8 @@ msgid "Name the story"
 msgstr "為故事命名"
 
 #: src/features/settings/account/security.tsx
-msgid "Name this passkey"
-msgstr "命名此密鑰"
+#~ msgid "Name this passkey"
+#~ msgstr "命名此密鑰"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -7614,6 +7633,10 @@ msgstr "下一步：{0}。會在「今天」中新增提醒。"
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "下次，我會在第一個原型之前就先講定如何衡量成功。"
+
+#: src/features/auth/pages/login.tsx
+msgid "No account?"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8345,6 +8368,10 @@ msgstr "開啟工作區"
 msgid "Opening"
 msgstr "開場白"
 
+#: src/features/auth/pages/login.tsx
+msgid "Opening the editor..."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Opening the file"
 msgstr "開啟文件"
@@ -8399,6 +8426,10 @@ msgstr "此條目的選項"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "or"
 msgstr "或者"
+
+#: src/features/auth/pages/login.tsx
+msgid "or continue with"
+msgstr ""
 
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
@@ -8574,14 +8605,11 @@ msgid "Partly. Building a resume, checking PDF readability, and saving applicati
 msgstr ""
 
 #. Authentication provider display name in account settings
-#. Label for passkey sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "Passkey"
 msgstr "通行金鑰"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/settings/account/security.tsx
 msgid "Passkeys"
 msgstr "通行金鑰"
 
@@ -9782,17 +9810,14 @@ msgstr "遠端、混合、一座城市…"
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/resume/share/link-tab.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove"
 msgstr "消除"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "刪除 {0}"
 
@@ -9840,8 +9865,8 @@ msgid "Remove the password?"
 msgstr "刪除密碼？"
 
 #: src/features/settings/account/security.tsx
-msgid "Remove this passkey?"
-msgstr "刪除這個密鑰？"
+#~ msgid "Remove this passkey?"
+#~ msgstr "刪除這個密鑰？"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -9849,7 +9874,6 @@ msgstr "刪除這張照片嗎？"
 
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
-#: src/features/settings/account/security.tsx
 msgid "Rename"
 msgstr "重新命名"
 
@@ -10298,7 +10322,6 @@ msgstr ""
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
-#: src/features/settings/account/security.tsx
 msgid "Save"
 msgstr "儲存"
 
@@ -11062,6 +11085,7 @@ msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "側邊欄通常是最後閱讀的，或混合到主欄。"
 
 #. Primary action button label on login form
+#. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
 #: src/features/auth/pages/login.tsx
 msgid "Sign in"
@@ -11076,12 +11100,12 @@ msgstr "立即登入"
 
 #. Title on the login page
 #: src/features/auth/pages/login.tsx
-msgid "Sign in to your account"
-msgstr "登入您的帳戶"
+#~ msgid "Sign in to your account"
+#~ msgstr "登入您的帳戶"
 
 #: src/features/settings/account/security.tsx
-msgid "Sign in with your fingerprint, face or device PIN"
-msgstr "使用您的指紋、臉部或裝置 PIN 碼登錄"
+#~ msgid "Sign in with your fingerprint, face or device PIN"
+#~ msgstr "使用您的指紋、臉部或裝置 PIN 碼登錄"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -13087,8 +13111,8 @@ msgid "Unlock it first"
 msgstr "先解鎖吧"
 
 #: src/features/settings/account/security.tsx
-msgid "Unnamed passkey"
-msgstr "未命名通行金鑰"
+#~ msgid "Unnamed passkey"
+#~ msgstr "未命名通行金鑰"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13302,6 +13326,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "使用編輯器自帶的一般項目符號清單功能，避免出現落在句子中間的雜散符號。"
+
+#: src/features/auth/pages/login.tsx
+msgid "Use your email, or a social account."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Used"
@@ -14031,8 +14059,8 @@ msgid "You answered: {answer}"
 msgstr "您回答：{answer}"
 
 #: src/features/auth/pages/login.tsx
-msgid "You can also sign in with your username."
-msgstr "您也可以用使用者名稱登入。"
+#~ msgid "You can also sign in with your username."
+#~ msgstr "您也可以用使用者名稱登入。"
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."

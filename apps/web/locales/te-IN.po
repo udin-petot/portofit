@@ -974,8 +974,8 @@ msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "మోడల్ అభిప్రాయం, తీర్పు కాదు. అది తప్పు కావచ్చు."
 
 #: src/features/settings/account/security.tsx
-msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-msgstr "\"వర్క్ ల్యాప్‌టాప్\" వంటి పాస్‌కీలను వేరుగా చెప్పడంలో పేరు మీకు సహాయపడుతుంది."
+#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
+#~ msgstr "\"వర్క్ ల్యాప్‌టాప్\" వంటి పాస్‌కీలను వేరుగా చెప్పడంలో పేరు మీకు సహాయపడుతుంది."
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1333,8 +1333,8 @@ msgid "Add Page"
 msgstr "పేజీ జోడించండి"
 
 #: src/features/settings/account/security.tsx
-msgid "Add passkey"
-msgstr "పాస్‌కీని జోడించండి"
+#~ msgid "Add passkey"
+#~ msgstr "పాస్‌కీని జోడించండి"
 
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
@@ -3121,8 +3121,12 @@ msgid "Continue"
 msgstr "కొనసాగించు"
 
 #: src/features/auth/pages/login.tsx
-msgid "Continue as guest"
-msgstr "అతిథిగా కొనసాగండి"
+msgid "Continue as a guest"
+msgstr ""
+
+#: src/features/auth/pages/login.tsx
+#~ msgid "Continue as guest"
+#~ msgstr "అతిథిగా కొనసాగండి"
 
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
@@ -3329,8 +3333,8 @@ msgid "Couldn't add the application. Please try again."
 msgstr "దరఖాస్తును జోడించలేకపోయాం. దయచేసి మళ్లీ ప్రయత్నించండి."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't add the passkey. Try again."
-msgstr "పాస్‌కీని జోడించడం సాధ్యపడలేదు. మళ్లీ ప్రయత్నించండి."
+#~ msgid "Couldn't add the passkey. Try again."
+#~ msgstr "పాస్‌కీని జోడించడం సాధ్యపడలేదు. మళ్లీ ప్రయత్నించండి."
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3532,16 +3536,16 @@ msgid "Couldn't remove it from Applications."
 msgstr "దరఖాస్తుల నుండి దాన్ని తీసివేయడం సాధ్యపడలేదు."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't remove the passkey. Try again."
-msgstr "పాస్‌కీని తీసివేయడం సాధ్యపడలేదు. మళ్లీ ప్రయత్నించండి."
+#~ msgid "Couldn't remove the passkey. Try again."
+#~ msgstr "పాస్‌కీని తీసివేయడం సాధ్యపడలేదు. మళ్లీ ప్రయత్నించండి."
 
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "పేరు మార్చడం సాధ్యపడలేదు."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't rename the passkey."
-msgstr "పాస్‌కీ పేరు మార్చడం సాధ్యపడలేదు."
+#~ msgid "Couldn't rename the passkey."
+#~ msgstr "పాస్‌కీ పేరు మార్చడం సాధ్యపడలేదు."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3785,8 +3789,13 @@ msgstr "కీని సృష్టించండి"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
-msgid "Create one now"
-msgstr "ఇప్పుడే సృష్టించండి"
+msgid "Create one"
+msgstr ""
+
+#. Call-to-action link from login page to account registration page
+#: src/features/auth/pages/login.tsx
+#~ msgid "Create one now"
+#~ msgstr "ఇప్పుడే సృష్టించండి"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4275,8 +4284,8 @@ msgid "Does it use AI?"
 msgstr ""
 
 #: src/features/auth/pages/login.tsx
-msgid "Don't have an account? <0/>"
-msgstr "ఖాతా లేదా? <0/>"
+#~ msgid "Don't have an account? <0/>"
+#~ msgstr "ఖాతా లేదా? <0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -4667,9 +4676,7 @@ msgstr "ఇమెయిల్ (ఐచ్ఛికం)"
 
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
-#. Label for login identifier input that accepts email or username
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/login.tsx
 #: src/features/auth/pages/register.tsx
 msgid "Email Address"
 msgstr "ఇమెయిల్ చిరునామా"
@@ -4681,6 +4688,11 @@ msgstr "ఇమెయిల్ చిరునామా గుర్తించ�
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
 msgstr "ఈ సర్వర్‌లో ఇమెయిల్ డెలివరీ సెటప్ చేయబడలేదు, కాబట్టి చిరునామా ధృవీకరించబడలేదు."
+
+#. Label for login identifier input that accepts email or username
+#: src/features/auth/pages/login.tsx
+msgid "Email or username"
+msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Email the recruiter"
@@ -5338,12 +5350,17 @@ msgstr "మరచిపో"
 
 #. Link label to password reset page from login form
 #: src/features/auth/pages/login.tsx
-msgid "Forgot Password?"
-msgstr "పాస్‌వర్డ్ మర్చిపోయారా?"
+#~ msgid "Forgot Password?"
+#~ msgstr "పాస్‌వర్డ్ మర్చిపోయారా?"
 
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "మీ పాస్‌వర్డ్ మర్చిపోయారా?"
+
+#. Link label to password reset page from login form
+#: src/features/auth/pages/login.tsx
+msgid "Forgot?"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Format"
@@ -6196,8 +6213,8 @@ msgid "It will be deleted for good and can't be restored."
 msgstr "ఇది మంచి కోసం తొలగించబడుతుంది మరియు పునరుద్ధరించబడదు."
 
 #: src/features/settings/account/security.tsx
-msgid "It will no longer sign you in."
-msgstr "ఇది ఇకపై మిమ్మల్ని సైన్ ఇన్ చేయదు."
+#~ msgid "It will no longer sign you in."
+#~ msgstr "ఇది ఇకపై మిమ్మల్ని సైన్ ఇన్ చేయదు."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
@@ -6324,6 +6341,10 @@ msgstr ""
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON చదివారు"
+
+#: src/features/auth/pages/login.tsx
+msgid "Just looking?"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
@@ -6821,8 +6842,6 @@ msgid "Linked. Name, email, phone and city update when the resume does."
 msgstr "లింక్ చేయబడింది. రెజ్యూమ్ చేసినప్పుడు పేరు, ఇమెయిల్, ఫోన్ మరియు నగరం నవీకరణ."
 
 #. Authentication provider display name in account settings
-#. Brand name label for LinkedIn social sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "లింక్డ్‌ఇన్"
@@ -7454,8 +7473,8 @@ msgid "Name the story"
 msgstr "కథకు పేరు పెట్టు"
 
 #: src/features/settings/account/security.tsx
-msgid "Name this passkey"
-msgstr "ఈ పాస్‌కీకి పేరు పెట్టండి"
+#~ msgid "Name this passkey"
+#~ msgstr "ఈ పాస్‌కీకి పేరు పెట్టండి"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -7614,6 +7633,10 @@ msgstr "తదుపరి అడుగు: {0}. ‘ఈరోజు’లో ర
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "తదుపరిసారి, మొదటి ప్రోటోటైప్‌కు ముందే విజయాన్ని ఎలా కొలవాలో అంగీకారానికి వస్తాను."
+
+#: src/features/auth/pages/login.tsx
+msgid "No account?"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8345,6 +8368,10 @@ msgstr "వర్క్‌స్పేస్‌ను తెరువు"
 msgid "Opening"
 msgstr "ప్రారంభ పరిచయం"
 
+#: src/features/auth/pages/login.tsx
+msgid "Opening the editor..."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Opening the file"
 msgstr "ఫైల్‌ను తెరవడం"
@@ -8399,6 +8426,10 @@ msgstr "ఈ ఎంట్రీ కోసం ఎంపికలు"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "or"
 msgstr "లేదా"
+
+#: src/features/auth/pages/login.tsx
+msgid "or continue with"
+msgstr ""
 
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
@@ -8574,14 +8605,11 @@ msgid "Partly. Building a resume, checking PDF readability, and saving applicati
 msgstr ""
 
 #. Authentication provider display name in account settings
-#. Label for passkey sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "Passkey"
 msgstr "పాస్‌కీ"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/settings/account/security.tsx
 msgid "Passkeys"
 msgstr "పాస్‌కీలు"
 
@@ -9782,17 +9810,14 @@ msgstr "రిమోట్, హైబ్రిడ్, ఒక నగరం…"
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/resume/share/link-tab.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove"
 msgstr "తొలగించు"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "{0}ని తీసివేయండి"
 
@@ -9840,8 +9865,8 @@ msgid "Remove the password?"
 msgstr "పాస్‌వర్డ్‌ని తీసివేయాలా?"
 
 #: src/features/settings/account/security.tsx
-msgid "Remove this passkey?"
-msgstr "ఈ పాస్‌కీని తీసివేయాలా?"
+#~ msgid "Remove this passkey?"
+#~ msgstr "ఈ పాస్‌కీని తీసివేయాలా?"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -9849,7 +9874,6 @@ msgstr "ఈ ఫోటోను తీసివేయాలా?"
 
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
-#: src/features/settings/account/security.tsx
 msgid "Rename"
 msgstr "పేరు మార్చండి"
 
@@ -10298,7 +10322,6 @@ msgstr ""
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
-#: src/features/settings/account/security.tsx
 msgid "Save"
 msgstr "సేవ్ చేయండి"
 
@@ -11062,6 +11085,7 @@ msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "సైడ్‌బార్లు తరచుగా చివరిగా చదవబడతాయి లేదా ప్రధాన కాలమ్‌లో కలపబడతాయి."
 
 #. Primary action button label on login form
+#. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
 #: src/features/auth/pages/login.tsx
 msgid "Sign in"
@@ -11076,12 +11100,12 @@ msgstr "ఇప్పుడు సైన్ ఇన్ చేయండి"
 
 #. Title on the login page
 #: src/features/auth/pages/login.tsx
-msgid "Sign in to your account"
-msgstr "మీ ఖాతాలో సైన్ ఇన్ అవ్వండి"
+#~ msgid "Sign in to your account"
+#~ msgstr "మీ ఖాతాలో సైన్ ఇన్ అవ్వండి"
 
 #: src/features/settings/account/security.tsx
-msgid "Sign in with your fingerprint, face or device PIN"
-msgstr "మీ వేలిముద్ర, ముఖం లేదా పరికర పిన్‌తో సైన్ ఇన్ చేయండి"
+#~ msgid "Sign in with your fingerprint, face or device PIN"
+#~ msgstr "మీ వేలిముద్ర, ముఖం లేదా పరికర పిన్‌తో సైన్ ఇన్ చేయండి"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -13087,8 +13111,8 @@ msgid "Unlock it first"
 msgstr "ముందుగా దాన్ని అన్‌లాక్ చేయండి"
 
 #: src/features/settings/account/security.tsx
-msgid "Unnamed passkey"
-msgstr "పేరులేని పాస్‌కీ"
+#~ msgid "Unnamed passkey"
+#~ msgstr "పేరులేని పాస్‌కీ"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13302,6 +13326,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "మీ ఎడిటర్ యొక్క సాధారణ బుల్లెట్ జాబితాను ఉపయోగించండి, తద్వారా తప్పుదారి గ్లిఫ్‌లు వాక్యం మధ్యలో పడవు."
+
+#: src/features/auth/pages/login.tsx
+msgid "Use your email, or a social account."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Used"
@@ -14031,8 +14059,8 @@ msgid "You answered: {answer}"
 msgstr "మీరు సమాధానం ఇచ్చారు: {answer}"
 
 #: src/features/auth/pages/login.tsx
-msgid "You can also sign in with your username."
-msgstr "మీ యూజర్‌నేమ్‌తో కూడా సైన్ ఇన్ చేయవచ్చు."
+#~ msgid "You can also sign in with your username."
+#~ msgstr "మీ యూజర్‌నేమ్‌తో కూడా సైన్ ఇన్ చేయవచ్చు."
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."

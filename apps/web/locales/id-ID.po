@@ -975,8 +975,8 @@ msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "Pendapat model, bukan putusan. Bisa saja salah."
 
 #: src/features/settings/account/security.tsx
-msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-msgstr "Sebuah nama membantu Anda membedakan kunci sandi, seperti \"Laptop kerja\"."
+#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
+#~ msgstr "Sebuah nama membantu Anda membedakan kunci sandi, seperti \"Laptop kerja\"."
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1334,8 +1334,8 @@ msgid "Add Page"
 msgstr "Tambah Halaman"
 
 #: src/features/settings/account/security.tsx
-msgid "Add passkey"
-msgstr "Tambahkan kunci sandi"
+#~ msgid "Add passkey"
+#~ msgstr "Tambahkan kunci sandi"
 
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
@@ -3122,8 +3122,12 @@ msgid "Continue"
 msgstr "Lanjutkan"
 
 #: src/features/auth/pages/login.tsx
-msgid "Continue as guest"
-msgstr "Lanjutkan sebagai tamu"
+msgid "Continue as a guest"
+msgstr "Lanjut sebagai tamu"
+
+#: src/features/auth/pages/login.tsx
+#~ msgid "Continue as guest"
+#~ msgstr "Lanjutkan sebagai tamu"
 
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
@@ -3330,8 +3334,8 @@ msgid "Couldn't add the application. Please try again."
 msgstr "Tidak dapat menambahkan lamaran. Coba lagi."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't add the passkey. Try again."
-msgstr "Tidak dapat menambahkan kunci sandi. Coba lagi."
+#~ msgid "Couldn't add the passkey. Try again."
+#~ msgstr "Tidak dapat menambahkan kunci sandi. Coba lagi."
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3533,16 +3537,16 @@ msgid "Couldn't remove it from Applications."
 msgstr "Tidak dapat menghapusnya dari Lamaran."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't remove the passkey. Try again."
-msgstr "Tidak dapat menghapus kunci sandi. Coba lagi."
+#~ msgid "Couldn't remove the passkey. Try again."
+#~ msgstr "Tidak dapat menghapus kunci sandi. Coba lagi."
 
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "Tidak dapat mengganti namanya."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't rename the passkey."
-msgstr "Tidak dapat mengganti nama kunci sandi."
+#~ msgid "Couldn't rename the passkey."
+#~ msgstr "Tidak dapat mengganti nama kunci sandi."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3786,8 +3790,13 @@ msgstr "Buat kunci"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
-msgid "Create one now"
-msgstr "Buat satu sekarang"
+msgid "Create one"
+msgstr "Buat sekarang"
+
+#. Call-to-action link from login page to account registration page
+#: src/features/auth/pages/login.tsx
+#~ msgid "Create one now"
+#~ msgstr "Buat satu sekarang"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4276,8 +4285,8 @@ msgid "Does it use AI?"
 msgstr "Apakah memakai AI?"
 
 #: src/features/auth/pages/login.tsx
-msgid "Don't have an account? <0/>"
-msgstr "Belum punya akun? <0/>"
+#~ msgid "Don't have an account? <0/>"
+#~ msgstr "Belum punya akun? <0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -4668,12 +4677,10 @@ msgstr "Email (opsional)"
 
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
-#. Label for login identifier input that accepts email or username
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/login.tsx
 #: src/features/auth/pages/register.tsx
 msgid "Email Address"
-msgstr "Alamat Email"
+msgstr "Email"
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
@@ -4682,6 +4689,11 @@ msgstr "Alamat email tidak akan dikenali"
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
 msgstr "Pengiriman email tidak diatur di server ini, sehingga alamatnya tidak terverifikasi."
+
+#. Label for login identifier input that accepts email or username
+#: src/features/auth/pages/login.tsx
+msgid "Email or username"
+msgstr "Email atau nama pengguna"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Email the recruiter"
@@ -5339,12 +5351,17 @@ msgstr "Lupakan"
 
 #. Link label to password reset page from login form
 #: src/features/auth/pages/login.tsx
-msgid "Forgot Password?"
-msgstr "Lupa Kata Sandi?"
+#~ msgid "Forgot Password?"
+#~ msgstr "Lupa Kata Sandi?"
 
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "Lupa kata sandi Anda?"
+
+#. Link label to password reset page from login form
+#: src/features/auth/pages/login.tsx
+msgid "Forgot?"
+msgstr "Lupa?"
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Format"
@@ -6197,8 +6214,8 @@ msgid "It will be deleted for good and can't be restored."
 msgstr "Ini akan dihapus selamanya dan tidak dapat dipulihkan."
 
 #: src/features/settings/account/security.tsx
-msgid "It will no longer sign you in."
-msgstr "Itu tidak akan membuat Anda masuk lagi."
+#~ msgid "It will no longer sign you in."
+#~ msgstr "Itu tidak akan membuat Anda masuk lagi."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
@@ -6325,6 +6342,10 @@ msgstr "Bergabung {joined}"
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON dibaca"
+
+#: src/features/auth/pages/login.tsx
+msgid "Just looking?"
+msgstr "Cuma lihat-lihat?"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
@@ -6822,8 +6843,6 @@ msgid "Linked. Name, email, phone and city update when the resume does."
 msgstr "Tertaut. Nama, email, telepon, dan kota diperbarui saat resume diperbarui."
 
 #. Authentication provider display name in account settings
-#. Brand name label for LinkedIn social sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
@@ -7455,8 +7474,8 @@ msgid "Name the story"
 msgstr "Beri nama cerita"
 
 #: src/features/settings/account/security.tsx
-msgid "Name this passkey"
-msgstr "Beri nama kunci sandi ini"
+#~ msgid "Name this passkey"
+#~ msgstr "Beri nama kunci sandi ini"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -7615,6 +7634,10 @@ msgstr "Langkah berikutnya: {0}. Menambahkan pengingat ke Hari ini."
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "Lain kali, saya akan menyepakati cara mengukur keberhasilan sebelum prototipe pertama."
+
+#: src/features/auth/pages/login.tsx
+msgid "No account?"
+msgstr "Belum punya akun?"
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8346,6 +8369,10 @@ msgstr "Buka ruang kerja"
 msgid "Opening"
 msgstr "Pembuka"
 
+#: src/features/auth/pages/login.tsx
+msgid "Opening the editor..."
+msgstr "Membuka editor..."
+
 #: src/features/ats-checker/checker.tsx
 msgid "Opening the file"
 msgstr "Membuka file"
@@ -8400,6 +8427,10 @@ msgstr "Opsi untuk entri ini"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "or"
 msgstr "atau"
+
+#: src/features/auth/pages/login.tsx
+msgid "or continue with"
+msgstr "atau lanjut dengan"
 
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
@@ -8575,14 +8606,11 @@ msgid "Partly. Building a resume, checking PDF readability, and saving applicati
 msgstr "Sebagian. Membuat resume, memeriksa keterbacaan PDF, dan menyimpan lamaran gratis. Untuk resume beserta surat lamaran yang disesuaikan ke satu lowongan, serta sesi latihan wawancara, ada paket berbayar murah. Tidak ada iklan dan tidak ada pelacak pihak ketiga."
 
 #. Authentication provider display name in account settings
-#. Label for passkey sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "Passkey"
 msgstr "Kunci sandi"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/settings/account/security.tsx
 msgid "Passkeys"
 msgstr "Passkeys"
 
@@ -9783,17 +9811,14 @@ msgstr "Remote, Hybrid, kota…"
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/resume/share/link-tab.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove"
 msgstr "Hapus"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "Hapus {0}"
 
@@ -9841,8 +9866,8 @@ msgid "Remove the password?"
 msgstr "Hapus kata sandi?"
 
 #: src/features/settings/account/security.tsx
-msgid "Remove this passkey?"
-msgstr "Hapus kunci sandi ini?"
+#~ msgid "Remove this passkey?"
+#~ msgstr "Hapus kunci sandi ini?"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -9850,7 +9875,6 @@ msgstr "Hapus foto ini?"
 
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
-#: src/features/settings/account/security.tsx
 msgid "Rename"
 msgstr "Ganti nama"
 
@@ -10299,7 +10323,6 @@ msgstr "Sari, Fieldnote"
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
-#: src/features/settings/account/security.tsx
 msgid "Save"
 msgstr "Simpan"
 
@@ -11063,6 +11086,7 @@ msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "Sidebar sering kali dibaca terakhir, atau digabungkan ke dalam kolom utama."
 
 #. Primary action button label on login form
+#. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
 #: src/features/auth/pages/login.tsx
 msgid "Sign in"
@@ -11077,12 +11101,12 @@ msgstr "Masuk sekarang"
 
 #. Title on the login page
 #: src/features/auth/pages/login.tsx
-msgid "Sign in to your account"
-msgstr "Masuk ke akun Anda"
+#~ msgid "Sign in to your account"
+#~ msgstr "Masuk ke akun Anda"
 
 #: src/features/settings/account/security.tsx
-msgid "Sign in with your fingerprint, face or device PIN"
-msgstr "Masuk dengan sidik jari, wajah, atau PIN perangkat Anda"
+#~ msgid "Sign in with your fingerprint, face or device PIN"
+#~ msgstr "Masuk dengan sidik jari, wajah, atau PIN perangkat Anda"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -13088,8 +13112,8 @@ msgid "Unlock it first"
 msgstr "Buka kuncinya terlebih dahulu"
 
 #: src/features/settings/account/security.tsx
-msgid "Unnamed passkey"
-msgstr "Kunci sandi yang tidak disebutkan namanya"
+#~ msgid "Unnamed passkey"
+#~ msgstr "Kunci sandi yang tidak disebutkan namanya"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13303,6 +13327,10 @@ msgstr "Pakai templat ini"
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "Gunakan daftar berpoin biasa dari editor Anda, agar glif liar tidak muncul di tengah kalimat."
+
+#: src/features/auth/pages/login.tsx
+msgid "Use your email, or a social account."
+msgstr "Pakai email kamu, atau akun sosial."
 
 #: src/features/career/coach-thread.tsx
 msgid "Used"
@@ -14032,8 +14060,8 @@ msgid "You answered: {answer}"
 msgstr "Anda menjawab: {answer}"
 
 #: src/features/auth/pages/login.tsx
-msgid "You can also sign in with your username."
-msgstr "Anda juga dapat masuk dengan nama pengguna Anda."
+#~ msgid "You can also sign in with your username."
+#~ msgstr "Anda juga dapat masuk dengan nama pengguna Anda."
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."

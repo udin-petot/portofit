@@ -58,7 +58,7 @@ export function ForgotPasswordPage() {
 	return (
 		<>
 			<div className="space-y-1 text-center">
-				<h1 className="text-2xl font-semibold tracking-tight">
+				<h1 className="font-display text-[30px] leading-9 font-medium">
 					<Trans>Forgot your password?</Trans>
 				</h1>
 
@@ -125,7 +125,7 @@ function PostForgotPasswordScreen() {
 		// Replaces the form in place: fades up into the auth column, with the layout's 24px gap.
 		<div className={cn(ENTER_CLASS, "grid gap-y-6")}>
 			<div className="space-y-1 text-center">
-				<h1 className="text-2xl font-semibold tracking-tight">
+				<h1 className="font-display text-[30px] leading-9 font-medium">
 					<Trans>You've got mail!</Trans>
 				</h1>
 				<p className="text-ink-3">

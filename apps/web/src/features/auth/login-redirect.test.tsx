@@ -124,7 +124,6 @@ describe("OAuth callback after sign-in", () => {
 	it.each([
 		["Google", "google"],
 		["GitHub", "github"],
-		["LinkedIn", "linkedin"],
 		["SSO", "custom"],
 	])("passes the callback to %s sign-in", async (label, provider) => {
 		renderLogin();
@@ -135,14 +134,6 @@ describe("OAuth callback after sign-in", () => {
 				callbackURL: mocks.callbackURL,
 				oauth_query: mocks.callbackURL.split("?")[1],
 			}),
-		);
-	});
-
-	it("resumes the callback after passkey sign-in", async () => {
-		renderLogin();
-		fireEvent.click(screen.getByRole("button", { name: "Passkey" }));
-		await waitFor(() =>
-			expect(mocks.navigate).toHaveBeenCalledWith({ href: mocks.callbackURL, reloadDocument: true, replace: true }),
 		);
 	});
 

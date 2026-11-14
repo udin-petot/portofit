@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { authSearchSchema, getAuthRedirectOptions, getOAuthPasskeyOptions, getOAuthSignInOptions } from "./redirect";
+import { authSearchSchema, getAuthRedirectOptions, getOAuthSignInOptions } from "./redirect";
 
 describe("authentication callback", () => {
 	it.each([{}, { reauthenticate: true }])("accepts auth routes without a callback query: %j", (search) => {
@@ -54,17 +54,4 @@ describe("signed OAuth sign-in context", () => {
 			expect(getOAuthSignInOptions(callbackURL)).toEqual({});
 		},
 	);
-});
-
-describe("passkey OAuth context", () => {
-	it("adds signed context to the actual WebAuthn verification request without dropping the assertion", () => {
-		const request = {
-			body: JSON.stringify({ response: { id: "credential", response: { signature: "webauthn-signature" } } }),
-		};
-		getOAuthPasskeyOptions("/api/auth/oauth?prompt=login&sig=signed").fetchOptions.onRequest(request);
-		expect(JSON.parse(request.body)).toEqual({
-			response: { id: "credential", response: { signature: "webauthn-signature" } },
-			oauth_query: "prompt=login&sig=signed",
-		});
-	});
 });

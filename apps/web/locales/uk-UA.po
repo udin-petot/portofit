@@ -974,8 +974,8 @@ msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "Думка моделі, а не вирок. Це може бути неправильно."
 
 #: src/features/settings/account/security.tsx
-msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-msgstr "Назва допомагає розрізняти ключі доступу, як-от «Робочий ноутбук»."
+#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
+#~ msgstr "Назва допомагає розрізняти ключі доступу, як-от «Робочий ноутбук»."
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1333,8 +1333,8 @@ msgid "Add Page"
 msgstr "Додати сторінку"
 
 #: src/features/settings/account/security.tsx
-msgid "Add passkey"
-msgstr "Додати ключ доступу"
+#~ msgid "Add passkey"
+#~ msgstr "Додати ключ доступу"
 
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
@@ -3121,8 +3121,12 @@ msgid "Continue"
 msgstr "Продовжити"
 
 #: src/features/auth/pages/login.tsx
-msgid "Continue as guest"
-msgstr "Продовжити як гість"
+msgid "Continue as a guest"
+msgstr ""
+
+#: src/features/auth/pages/login.tsx
+#~ msgid "Continue as guest"
+#~ msgstr "Продовжити як гість"
 
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
@@ -3329,8 +3333,8 @@ msgid "Couldn't add the application. Please try again."
 msgstr "Не вдалося додати заявку. Спробуйте ще раз."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't add the passkey. Try again."
-msgstr "Не вдалося додати ключ доступу. Спробуйте знову."
+#~ msgid "Couldn't add the passkey. Try again."
+#~ msgstr "Не вдалося додати ключ доступу. Спробуйте знову."
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3532,16 +3536,16 @@ msgid "Couldn't remove it from Applications."
 msgstr "Не вдалося вилучити із Заявок."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't remove the passkey. Try again."
-msgstr "Не вдалося видалити ключ доступу. Спробуйте знову."
+#~ msgid "Couldn't remove the passkey. Try again."
+#~ msgstr "Не вдалося видалити ключ доступу. Спробуйте знову."
 
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "Не вдалося перейменувати."
 
 #: src/features/settings/account/security.tsx
-msgid "Couldn't rename the passkey."
-msgstr "Не вдалося перейменувати ключ доступу."
+#~ msgid "Couldn't rename the passkey."
+#~ msgstr "Не вдалося перейменувати ключ доступу."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3785,8 +3789,13 @@ msgstr "Створити ключ"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
-msgid "Create one now"
-msgstr "Створіть його зараз"
+msgid "Create one"
+msgstr ""
+
+#. Call-to-action link from login page to account registration page
+#: src/features/auth/pages/login.tsx
+#~ msgid "Create one now"
+#~ msgstr "Створіть його зараз"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4275,8 +4284,8 @@ msgid "Does it use AI?"
 msgstr ""
 
 #: src/features/auth/pages/login.tsx
-msgid "Don't have an account? <0/>"
-msgstr "Немає облікового запису? <0/>"
+#~ msgid "Don't have an account? <0/>"
+#~ msgstr "Немає облікового запису? <0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -4667,9 +4676,7 @@ msgstr "Електронна адреса (необов'язково)"
 
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
-#. Label for login identifier input that accepts email or username
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/login.tsx
 #: src/features/auth/pages/register.tsx
 msgid "Email Address"
 msgstr "Електронна адреса"
@@ -4681,6 +4688,11 @@ msgstr "Адреса електронної пошти не буде розпі�
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
 msgstr "На цьому сервері не налаштовано доставку електронної пошти, тому адреса не підтверджена."
+
+#. Label for login identifier input that accepts email or username
+#: src/features/auth/pages/login.tsx
+msgid "Email or username"
+msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Email the recruiter"
@@ -5338,12 +5350,17 @@ msgstr "Забути"
 
 #. Link label to password reset page from login form
 #: src/features/auth/pages/login.tsx
-msgid "Forgot Password?"
-msgstr "Забули пароль?"
+#~ msgid "Forgot Password?"
+#~ msgstr "Забули пароль?"
 
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "Забули свій пароль?"
+
+#. Link label to password reset page from login form
+#: src/features/auth/pages/login.tsx
+msgid "Forgot?"
+msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Format"
@@ -6196,8 +6213,8 @@ msgid "It will be deleted for good and can't be restored."
 msgstr "Він буде видалений назавжди та не підлягає відновленню."
 
 #: src/features/settings/account/security.tsx
-msgid "It will no longer sign you in."
-msgstr "Ви більше не входите в систему."
+#~ msgid "It will no longer sign you in."
+#~ msgstr "Ви більше не входите в систему."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
@@ -6324,6 +6341,10 @@ msgstr ""
 #: src/features/resume/import/read-file.ts
 msgid "JSON read"
 msgstr "JSON читати"
+
+#: src/features/auth/pages/login.tsx
+msgid "Just looking?"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Justify"
@@ -6821,8 +6842,6 @@ msgid "Linked. Name, email, phone and city update when the resume does."
 msgstr "Пов'язано. Оновлення імені, електронної пошти, телефону та міста, коли з’явиться резюме."
 
 #. Authentication provider display name in account settings
-#. Brand name label for LinkedIn social sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
@@ -7454,8 +7473,8 @@ msgid "Name the story"
 msgstr "Назвіть розповідь"
 
 #: src/features/settings/account/security.tsx
-msgid "Name this passkey"
-msgstr "Назвіть цей ключ доступу"
+#~ msgid "Name this passkey"
+#~ msgstr "Назвіть цей ключ доступу"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -7614,6 +7633,10 @@ msgstr "Наступний крок: {0}. Додає нагадування в �
 #: src/features/homepage/remember.tsx
 msgid "Next time, I’d agree how to measure success before the first prototype."
 msgstr "Наступного разу я б узгодив, як вимірювати успіх, ще до першого прототипу."
+
+#: src/features/auth/pages/login.tsx
+msgid "No account?"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "No active applications."
@@ -8345,6 +8368,10 @@ msgstr "Відкрити робочий простір"
 msgid "Opening"
 msgstr "Вступ"
 
+#: src/features/auth/pages/login.tsx
+msgid "Opening the editor..."
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Opening the file"
 msgstr "Відкриття файлу"
@@ -8399,6 +8426,10 @@ msgstr "Параметри для цього запису"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "or"
 msgstr "або"
+
+#: src/features/auth/pages/login.tsx
+msgid "or continue with"
+msgstr ""
 
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
@@ -8574,14 +8605,11 @@ msgid "Partly. Building a resume, checking PDF readability, and saving applicati
 msgstr ""
 
 #. Authentication provider display name in account settings
-#. Label for passkey sign-in button
-#: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "Passkey"
 msgstr "Ключ доступу"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/settings/account/security.tsx
 msgid "Passkeys"
 msgstr "Ключі доступу"
 
@@ -9782,17 +9810,14 @@ msgstr "Віддалено, гібридно, місто…"
 #: src/features/resume/editor/write/picture-settings.tsx
 #: src/features/resume/share/link-tab.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove"
 msgstr "видалити"
 
 #. placeholder {0}: attachment.filename
 #. placeholder {0}: contact.name
-#. placeholder {0}: passkey.name || t`Unnamed passkey`
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
-#: src/features/settings/account/security.tsx
 msgid "Remove {0}"
 msgstr "Видаліть {0}"
 
@@ -9840,8 +9865,8 @@ msgid "Remove the password?"
 msgstr "Видалити пароль?"
 
 #: src/features/settings/account/security.tsx
-msgid "Remove this passkey?"
-msgstr "Видалити цей ключ?"
+#~ msgid "Remove this passkey?"
+#~ msgstr "Видалити цей ключ?"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -9849,7 +9874,6 @@ msgstr "Видалити це фото?"
 
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
-#: src/features/settings/account/security.tsx
 msgid "Rename"
 msgstr "Перейменувати"
 
@@ -10298,7 +10322,6 @@ msgstr ""
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
-#: src/features/settings/account/security.tsx
 msgid "Save"
 msgstr "Зберегти"
 
@@ -11062,6 +11085,7 @@ msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "Бічні панелі часто читаються в останню чергу або змішуються з основною колонкою."
 
 #. Primary action button label on login form
+#. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
 #: src/features/auth/pages/login.tsx
 msgid "Sign in"
@@ -11076,12 +11100,12 @@ msgstr "Увійдіть зараз"
 
 #. Title on the login page
 #: src/features/auth/pages/login.tsx
-msgid "Sign in to your account"
-msgstr "Увійдіть до свого облікового запису"
+#~ msgid "Sign in to your account"
+#~ msgstr "Увійдіть до свого облікового запису"
 
 #: src/features/settings/account/security.tsx
-msgid "Sign in with your fingerprint, face or device PIN"
-msgstr "Увійдіть за допомогою відбитка пальця, обличчя або PIN-коду пристрою"
+#~ msgid "Sign in with your fingerprint, face or device PIN"
+#~ msgstr "Увійдіть за допомогою відбитка пальця, обличчя або PIN-коду пристрою"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -13087,8 +13111,8 @@ msgid "Unlock it first"
 msgstr "Спочатку розблокуйте його"
 
 #: src/features/settings/account/security.tsx
-msgid "Unnamed passkey"
-msgstr "Безіменний ключ доступу"
+#~ msgid "Unnamed passkey"
+#~ msgstr "Безіменний ключ доступу"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13302,6 +13326,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "Використовуйте звичайний маркований список вашого редактора, щоб випадкові символи не потрапляли всередину речення."
+
+#: src/features/auth/pages/login.tsx
+msgid "Use your email, or a social account."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Used"
@@ -14031,8 +14059,8 @@ msgid "You answered: {answer}"
 msgstr "Ви відповіли: {answer}"
 
 #: src/features/auth/pages/login.tsx
-msgid "You can also sign in with your username."
-msgstr "Увійти можна також за іменем користувача."
+#~ msgid "You can also sign in with your username."
+#~ msgstr "Увійти можна також за іменем користувача."
 
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."
