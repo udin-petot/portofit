@@ -532,6 +532,9 @@ export const billingService = {
 	adminVerifyOrder(input: { role?: string | null | undefined; actorId: string; orderId: string }) {
 		assertAdmin(input.role);
 		return db.transaction(async (tx) => {
+			// Two admins can click Verifikasi at once. Lock the order row before reading its status,
+			// otherwise both transactions can pass the status check and grant the credits twice.
+			await tx.execute(sql`select id from billing_order where id = ${input.orderId} for update`);
 			const [order] = await tx.select().from(billingOrder).where(eq(billingOrder.id, input.orderId)).limit(1);
 			if (!order) throw new ORPCError("NOT_FOUND", { message: "Order tidak ditemukan." });
 			if (order.status === "lunas") throw new ORPCError("BAD_REQUEST", { message: "Order ini sudah lunas." });
@@ -616,8 +619,15 @@ export const billingService = {
 		const [updated] = await db
 			.update(billingOrder)
 			.set({ status: "ditolak", rejectionReason: input.reason, verifiedBy: input.actorId, verifiedAt: new Date() })
-			.where(eq(billingOrder.id, order.id))
+			.where(
+				and(eq(billingOrder.id, order.id), inArray(billingOrder.status, ["menunggu_bayar", "menunggu_verifikasi"])),
+			)
 			.returning();
+		if (!updated) {
+			throw new ORPCError("BAD_REQUEST", {
+				message: "Status pesanan sudah berubah. Muat ulang daftar sebelum menolak.",
+			});
+		}
 		await db.insert(adminAudit).values({
 			actorId: input.actorId,
 			action: "order.reject",
