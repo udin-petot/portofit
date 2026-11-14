@@ -1890,7 +1890,7 @@ msgstr "Kredit lamaran habis"
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Application date"
-msgstr "tanggal lamaran pekerjaan"
+msgstr "Tanggal melamar"
 
 #: src/features/applications/components/export-applications-sheet.tsx
 msgid "Application date from"
@@ -6323,7 +6323,7 @@ msgstr "Deskripsi pekerjaan"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Job link or posting text"
-msgstr "Tautan pekerjaan atau teks postingan pekerjaan"
+msgstr "Tautan atau teks lowongan"
 
 #: src/features/homepage/tailor.tsx
 #: src/features/resume/editor/check/check-panel.tsx
@@ -10738,7 +10738,7 @@ msgstr "Cari dari lamaran pekerjaan dan asisten, dan baca halaman yang tidak dap
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Search job postings"
-msgstr "Cari lowongan pekerjaan"
+msgstr "Cari lowongan"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "Search or run…"
