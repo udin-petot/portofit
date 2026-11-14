@@ -99,7 +99,7 @@ const styles = {
 		borderBottomWidth: 0.5,
 		borderBottomColor: LINE,
 	},
-	rowLast: { flexDirection: "row", paddingVertical: 10, paddingHorizontal: 10 },
+	balanceNote: { fontSize: 8.5, color: MUTED, paddingHorizontal: 10, paddingTop: 8 },
 	cell: { fontSize: 9.5 },
 	colDesc: { flex: 1 },
 	colCredits: { width: 64, textAlign: "right" },
@@ -214,11 +214,9 @@ export function InvoiceDocument({ number, issuedAt, snapshot }: InvoicePdfInput)
 					<Text style={[styles.cell, styles.colAmount]}>{rupiah(snapshot.amountIdr)}</Text>
 				</View>
 
-				<View style={styles.rowLast}>
-					<Text style={[styles.cell, styles.colDesc]}>Sisa kredit setelah pembayaran ini</Text>
-					<Text style={[styles.cell, styles.colCredits]}>—</Text>
-					<Text style={[styles.cell, styles.colAmount]}>{snapshot.balanceAfter}</Text>
-				</View>
+				<Text style={styles.balanceNote}>
+					Sisa kredit di akun setelah pembayaran ini: {snapshot.balanceAfter} kredit.
+				</Text>
 
 				<View style={styles.guide}>
 					<View style={styles.guideLeft}>
