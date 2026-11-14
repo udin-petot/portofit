@@ -674,17 +674,17 @@ function ContextColumn({ application, interview, now, onEdit }: ContextColumnPro
 						</div>
 					</div>
 					{upcoming && <CountdownChip at={new Date(upcoming.at)} now={now} />}
-					<div className="flex flex-wrap gap-1.5">
-						<Button size="sm" variant="secondary" onClick={onEdit}>
-							{upcoming ? <Trans>Edit</Trans> : <Trans>Add an interview</Trans>}
-						</Button>
-						{upcoming && (
+					{upcoming && (
+						<div className="flex flex-wrap gap-1.5">
+							<Button size="sm" variant="secondary" onClick={onEdit}>
+								<Trans>Edit</Trans>
+							</Button>
 							<Button size="sm" variant="ghost" onClick={addToCalendar}>
 								<Icon name="calendar-plus" size={16} />
 								<Trans>Add to calendar</Trans>
 							</Button>
-						)}
-					</div>
+						</div>
+					)}
 				</div>
 			</section>
 

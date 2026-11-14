@@ -38,10 +38,6 @@ export function PrepareTab({ application, version, interview, now, go }: Workspa
 				<p className="max-w-[340px] text-sm text-ink-2">
 					<Trans>Once a round is scheduled, Prepare builds a timed plan, your opening and the questions to ask.</Trans>
 				</p>
-				<Button variant="secondary" onClick={() => go("prepare", { edit: "interview" })}>
-					<Icon name="calendar-dot" size={18} />
-					<Trans>Add an interview</Trans>
-				</Button>
 			</Notice>
 		);
 
