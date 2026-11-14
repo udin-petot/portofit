@@ -1502,6 +1502,10 @@ msgstr "Dibandingkan dengan persyaratan Anda"
 msgid "Agree to the Terms of Service and Privacy Policy"
 msgstr "Setujui Syarat Layanan dan Kebijakan Privasi"
 
+#: src/features/auth/pages/register.tsx
+msgid "Agree to the Terms of Service and Privacy Policy to continue."
+msgstr "Setujui Syarat Layanan dan Kebijakan Privasi untuk melanjutkan."
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
@@ -4696,6 +4700,7 @@ msgid "Enter a new password for your account"
 msgstr "Masukkan kata sandi baru untuk akun Anda"
 
 #: src/features/applications/components/detail/contacts.tsx
+#: src/features/auth/pages/register.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Enter a valid email address."
 msgstr "Masukkan alamat email yang valid."
@@ -4723,6 +4728,10 @@ msgstr "Masukkan kode verifikasi dari aplikasi autentikator Anda"
 #: src/dialogs/auth/change-password.tsx
 msgid "Enter your current password and a new password to update your account."
 msgstr "Masukkan kata sandi saat ini dan kata sandi baru untuk memperbarui akun Anda."
+
+#: src/features/auth/pages/register.tsx
+msgid "Enter your name."
+msgstr "Isi nama Anda."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Enter your password to confirm setting up two-factor authentication. Once it is on, you need a code from your authenticator app every time you sign in."
@@ -7365,6 +7374,10 @@ msgstr ""
 msgid "Name"
 msgstr "Nama"
 
+#: src/features/auth/pages/register.tsx
+msgid "Name is too long."
+msgstr "Nama terlalu panjang."
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Name of person {0}"
@@ -8511,6 +8524,14 @@ msgstr "Kunci sandi"
 #: src/features/settings/account/security.tsx
 msgid "Password"
 msgstr "Kata Sandi"
+
+#: src/features/auth/pages/register.tsx
+msgid "Password is too long."
+msgstr "Kata sandi terlalu panjang."
+
+#: src/features/auth/pages/register.tsx
+msgid "Password must be at least 8 characters."
+msgstr "Kata sandi minimal 8 karakter."
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Password must be between 6 and 64 characters."
@@ -13166,6 +13187,18 @@ msgstr "Riset pengguna"
 #: src/features/settings/account/profile.tsx
 msgid "Username"
 msgstr "Nama Pengguna"
+
+#: src/features/auth/pages/register.tsx
+msgid "Username can only contain lowercase letters, numbers, dots, hyphens and underscores."
+msgstr "Nama pengguna hanya boleh berisi huruf kecil, angka, titik, tanda hubung, dan garis bawah."
+
+#: src/features/auth/pages/register.tsx
+msgid "Username is too long."
+msgstr "Nama pengguna terlalu panjang."
+
+#: src/features/auth/pages/register.tsx
+msgid "Username must be at least 3 characters."
+msgstr "Nama pengguna minimal 3 karakter."
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Uses facts from your resume"

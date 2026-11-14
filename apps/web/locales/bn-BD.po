@@ -1501,6 +1501,10 @@ msgstr "আপনার প্রয়োজনীয়তার তুলন�
 msgid "Agree to the Terms of Service and Privacy Policy"
 msgstr ""
 
+#: src/features/auth/pages/register.tsx
+msgid "Agree to the Terms of Service and Privacy Policy to continue."
+msgstr ""
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
@@ -4695,6 +4699,7 @@ msgid "Enter a new password for your account"
 msgstr "আপনার অ্যাকাউন্টের জন্য নতুন পাসওয়ার্ড দিন"
 
 #: src/features/applications/components/detail/contacts.tsx
+#: src/features/auth/pages/register.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Enter a valid email address."
 msgstr "একটি বৈধ ইমেল ঠিকানা লিখুন."
@@ -4722,6 +4727,10 @@ msgstr "আপনার অথেনটিকেটর অ্যাপ থেক
 #: src/dialogs/auth/change-password.tsx
 msgid "Enter your current password and a new password to update your account."
 msgstr "আপনার অ্যাকাউন্ট আপডেট করতে বর্তমান পাসওয়ার্ড এবং একটি নতুন পাসওয়ার্ড লিখুন।"
+
+#: src/features/auth/pages/register.tsx
+msgid "Enter your name."
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Enter your password to confirm setting up two-factor authentication. Once it is on, you need a code from your authenticator app every time you sign in."
@@ -7364,6 +7373,10 @@ msgstr ""
 msgid "Name"
 msgstr "নাম"
 
+#: src/features/auth/pages/register.tsx
+msgid "Name is too long."
+msgstr ""
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Name of person {0}"
@@ -8510,6 +8523,14 @@ msgstr "পাসকি"
 #: src/features/settings/account/security.tsx
 msgid "Password"
 msgstr "পাসওয়ার্ড"
+
+#: src/features/auth/pages/register.tsx
+msgid "Password is too long."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Password must be at least 8 characters."
+msgstr ""
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Password must be between 6 and 64 characters."
@@ -13165,6 +13186,18 @@ msgstr "ব্যবহারকারী গবেষণা"
 #: src/features/settings/account/profile.tsx
 msgid "Username"
 msgstr "ইউজারনেম"
+
+#: src/features/auth/pages/register.tsx
+msgid "Username can only contain lowercase letters, numbers, dots, hyphens and underscores."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Username is too long."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Username must be at least 3 characters."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Uses facts from your resume"

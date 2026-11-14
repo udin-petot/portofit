@@ -1501,6 +1501,10 @@ msgstr "مقارنةً بمتطلباتك"
 msgid "Agree to the Terms of Service and Privacy Policy"
 msgstr ""
 
+#: src/features/auth/pages/register.tsx
+msgid "Agree to the Terms of Service and Privacy Policy to continue."
+msgstr ""
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
@@ -4695,6 +4699,7 @@ msgid "Enter a new password for your account"
 msgstr "أدخل كلمة مرور جديدة لحسابك"
 
 #: src/features/applications/components/detail/contacts.tsx
+#: src/features/auth/pages/register.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Enter a valid email address."
 msgstr "أدخل عنوان بريد إلكتروني صالحًا."
@@ -4722,6 +4727,10 @@ msgstr "أدخِل رمز التحقق من تطبيق المصادقة الخا
 #: src/dialogs/auth/change-password.tsx
 msgid "Enter your current password and a new password to update your account."
 msgstr "أدخِل كلمة المرور الحالية وكلمة مرور جديدة لتحديث حسابك."
+
+#: src/features/auth/pages/register.tsx
+msgid "Enter your name."
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Enter your password to confirm setting up two-factor authentication. Once it is on, you need a code from your authenticator app every time you sign in."
@@ -7364,6 +7373,10 @@ msgstr ""
 msgid "Name"
 msgstr "الاسم"
 
+#: src/features/auth/pages/register.tsx
+msgid "Name is too long."
+msgstr ""
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Name of person {0}"
@@ -8510,6 +8523,14 @@ msgstr "مفتاح المرور"
 #: src/features/settings/account/security.tsx
 msgid "Password"
 msgstr "كلمة المرور"
+
+#: src/features/auth/pages/register.tsx
+msgid "Password is too long."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Password must be at least 8 characters."
+msgstr ""
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Password must be between 6 and 64 characters."
@@ -13165,6 +13186,18 @@ msgstr "بحث المستخدمين"
 #: src/features/settings/account/profile.tsx
 msgid "Username"
 msgstr "اسم المستخدم"
+
+#: src/features/auth/pages/register.tsx
+msgid "Username can only contain lowercase letters, numbers, dots, hyphens and underscores."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Username is too long."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Username must be at least 3 characters."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Uses facts from your resume"

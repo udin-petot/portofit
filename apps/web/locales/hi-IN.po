@@ -1501,6 +1501,10 @@ msgstr "आपकी ज़रूरतों के मुक़ाबले"
 msgid "Agree to the Terms of Service and Privacy Policy"
 msgstr ""
 
+#: src/features/auth/pages/register.tsx
+msgid "Agree to the Terms of Service and Privacy Policy to continue."
+msgstr ""
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
@@ -4695,6 +4699,7 @@ msgid "Enter a new password for your account"
 msgstr "अपने खाते के लिए नया पासवर्ड दर्ज करें"
 
 #: src/features/applications/components/detail/contacts.tsx
+#: src/features/auth/pages/register.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Enter a valid email address."
 msgstr "एक मान्य ईमेल पता दर्ज करें।"
@@ -4722,6 +4727,10 @@ msgstr "अपने ऑथेंटिकेटर ऐप से सत्य�
 #: src/dialogs/auth/change-password.tsx
 msgid "Enter your current password and a new password to update your account."
 msgstr "अपना खाता अपडेट करने के लिए अपना वर्तमान पासवर्ड और नया पासवर्ड दर्ज करें।"
+
+#: src/features/auth/pages/register.tsx
+msgid "Enter your name."
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Enter your password to confirm setting up two-factor authentication. Once it is on, you need a code from your authenticator app every time you sign in."
@@ -7364,6 +7373,10 @@ msgstr ""
 msgid "Name"
 msgstr "नाम"
 
+#: src/features/auth/pages/register.tsx
+msgid "Name is too long."
+msgstr ""
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Name of person {0}"
@@ -8510,6 +8523,14 @@ msgstr "पासकी"
 #: src/features/settings/account/security.tsx
 msgid "Password"
 msgstr "पासवर्ड"
+
+#: src/features/auth/pages/register.tsx
+msgid "Password is too long."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Password must be at least 8 characters."
+msgstr ""
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Password must be between 6 and 64 characters."
@@ -13165,6 +13186,18 @@ msgstr "उपयोगकर्ता शोध"
 #: src/features/settings/account/profile.tsx
 msgid "Username"
 msgstr "उपयोगकर्ता नाम"
+
+#: src/features/auth/pages/register.tsx
+msgid "Username can only contain lowercase letters, numbers, dots, hyphens and underscores."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Username is too long."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Username must be at least 3 characters."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Uses facts from your resume"

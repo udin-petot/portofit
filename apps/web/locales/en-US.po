@@ -1497,6 +1497,10 @@ msgstr "Against your requirements"
 msgid "Agree to the Terms of Service and Privacy Policy"
 msgstr "Agree to the Terms of Service and Privacy Policy"
 
+#: src/features/auth/pages/register.tsx
+msgid "Agree to the Terms of Service and Privacy Policy to continue."
+msgstr "Agree to the Terms of Service and Privacy Policy to continue."
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
@@ -4691,6 +4695,7 @@ msgid "Enter a new password for your account"
 msgstr "Enter a new password for your account"
 
 #: src/features/applications/components/detail/contacts.tsx
+#: src/features/auth/pages/register.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Enter a valid email address."
 msgstr "Enter a valid email address."
@@ -4718,6 +4723,10 @@ msgstr "Enter the verification code from your authenticator app"
 #: src/dialogs/auth/change-password.tsx
 msgid "Enter your current password and a new password to update your account."
 msgstr "Enter your current password and a new password to update your account."
+
+#: src/features/auth/pages/register.tsx
+msgid "Enter your name."
+msgstr "Enter your name."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Enter your password to confirm setting up two-factor authentication. Once it is on, you need a code from your authenticator app every time you sign in."
@@ -7360,6 +7369,10 @@ msgstr "nama.pengguna"
 msgid "Name"
 msgstr "Name"
 
+#: src/features/auth/pages/register.tsx
+msgid "Name is too long."
+msgstr "Name is too long."
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Name of person {0}"
@@ -8506,6 +8519,14 @@ msgstr "Passkey"
 #: src/features/settings/account/security.tsx
 msgid "Password"
 msgstr "Password"
+
+#: src/features/auth/pages/register.tsx
+msgid "Password is too long."
+msgstr "Password is too long."
+
+#: src/features/auth/pages/register.tsx
+msgid "Password must be at least 8 characters."
+msgstr "Password must be at least 8 characters."
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Password must be between 6 and 64 characters."
@@ -13161,6 +13182,18 @@ msgstr "User research"
 #: src/features/settings/account/profile.tsx
 msgid "Username"
 msgstr "Username"
+
+#: src/features/auth/pages/register.tsx
+msgid "Username can only contain lowercase letters, numbers, dots, hyphens and underscores."
+msgstr "Username can only contain lowercase letters, numbers, dots, hyphens and underscores."
+
+#: src/features/auth/pages/register.tsx
+msgid "Username is too long."
+msgstr "Username is too long."
+
+#: src/features/auth/pages/register.tsx
+msgid "Username must be at least 3 characters."
+msgstr "Username must be at least 3 characters."
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Uses facts from your resume"

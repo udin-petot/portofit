@@ -1496,6 +1496,10 @@ msgstr ""
 msgid "Agree to the Terms of Service and Privacy Policy"
 msgstr ""
 
+#: src/features/auth/pages/register.tsx
+msgid "Agree to the Terms of Service and Privacy Policy to continue."
+msgstr ""
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
@@ -4690,6 +4694,7 @@ msgid "Enter a new password for your account"
 msgstr ""
 
 #: src/features/applications/components/detail/contacts.tsx
+#: src/features/auth/pages/register.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Enter a valid email address."
 msgstr ""
@@ -4716,6 +4721,10 @@ msgstr ""
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Enter your current password and a new password to update your account."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Enter your name."
 msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
@@ -7359,6 +7368,10 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
+#: src/features/auth/pages/register.tsx
+msgid "Name is too long."
+msgstr ""
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Name of person {0}"
@@ -8504,6 +8517,14 @@ msgstr ""
 #: src/features/settings/account/auth-hooks.ts
 #: src/features/settings/account/security.tsx
 msgid "Password"
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Password is too long."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Password must be at least 8 characters."
 msgstr ""
 
 #: src/features/resume/builder/password-dialog.tsx
@@ -13159,6 +13180,18 @@ msgstr ""
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Username"
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Username can only contain lowercase letters, numbers, dots, hyphens and underscores."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Username is too long."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "Username must be at least 3 characters."
 msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx

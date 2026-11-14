@@ -23,23 +23,23 @@ import { sessionQueryKey } from "@/libs/root-context";
 import { useAppForm } from "@/libs/tanstack-form";
 
 const formSchema = z.object({
-	name: z.string().trim().min(1, { message: "Enter your name." }).max(64, { message: "Name is too long." }),
+	name: z.string().trim().min(1, { message: t`Enter your name.` }).max(64, { message: t`Name is too long.` }),
 	username: z
 		.string()
-		.min(3, { message: "Username must be at least 3 characters." })
-		.max(64, { message: "Username is too long." })
+		.min(3, { message: t`Username must be at least 3 characters.` })
+		.max(64, { message: t`Username is too long.` })
 		.trim()
 		.toLowerCase()
 		.regex(/^[a-z0-9._-]+$/, {
-			message: "Username can only contain lowercase letters, numbers, dots, hyphens and underscores.",
+			message: t`Username can only contain lowercase letters, numbers, dots, hyphens and underscores.`,
 		}),
-	email: z.email({ message: "Enter a valid email address." }).toLowerCase(),
+	email: z.email({ message: t`Enter a valid email address.` }).toLowerCase(),
 	password: z
 		.string()
-		.min(8, { message: "Password must be at least 8 characters." })
-		.max(64, { message: "Password is too long." }),
+		.min(8, { message: t`Password must be at least 8 characters.` })
+		.max(64, { message: t`Password is too long.` }),
 	accepted: z.boolean().refine((value) => value, {
-		message: "Setujui Syarat Layanan dan Kebijakan Privasi untuk melanjutkan.",
+		message: t`Agree to the Terms of Service and Privacy Policy to continue.`,
 	}),
 });
 
