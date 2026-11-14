@@ -220,6 +220,19 @@ export function DocumentsPage({ search, onSearchChange }: DocumentsPageProps) {
 					{isPending ? (
 						<LibrarySkeleton view={view} />
 					) : shown.length === 0 ? (
+						search.type === "letter" && !search.q.trim() && search.tags.length === 0 ? (
+							<div className="grid justify-items-center gap-2 py-16 text-center">
+								<Icon name="envelope" size={28} className="text-ink-3" />
+								<p className="font-semibold">
+									<Trans>No cover letters yet</Trans>
+								</p>
+								<p className="max-w-[380px] text-sm text-ink-2">
+									<Trans>
+										Open an application and choose Write a letter, or use New and pick New cover letter instead.
+									</Trans>
+								</p>
+							</div>
+						) : (
 						<div className="grid justify-items-center gap-2 py-16 text-center">
 							<Icon name="magnifying-glass" size={28} className="text-ink-3" />
 							<p className="font-semibold">
@@ -242,6 +255,7 @@ export function DocumentsPage({ search, onSearchChange }: DocumentsPageProps) {
 								</Button>
 							)}
 						</div>
+						)
 					) : view === "list" ? (
 						<table className={cn("w-full table-fixed border-collapse", viewEnter)}>
 							<caption className="sr-only">

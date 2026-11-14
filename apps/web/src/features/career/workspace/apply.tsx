@@ -641,7 +641,7 @@ function Checklist({
 		<aside className="grid gap-3.5 rounded-xl border border-line bg-surface p-4">
 			<div className="flex items-baseline justify-between gap-3">
 				<h2 className="text-sm font-semibold">
-					<Trans>Before you submit</Trans>
+					{submitted ? <Trans>What you sent</Trans> : <Trans>Before you submit</Trans>}
 				</h2>
 				<span className="font-mono text-xs font-medium tracking-[0.04em] text-ink-2 uppercase">
 					{t`${done} of ${items.length}`}

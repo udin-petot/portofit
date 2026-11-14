@@ -2392,7 +2392,6 @@ msgstr "Beli satu kredit"
 
 #: src/features/billing/credit-dialog.tsx
 #: src/features/billing/transactions.tsx
-#: src/features/career/hooks.ts
 #: src/features/documents/new-document-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/akun.tsx
@@ -3455,12 +3454,9 @@ msgid "Couldn't propose these edits: {0}"
 msgstr "Tidak dapat mengusulkan pengeditan ini: {0}"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/resume/editor/check/writing-tab.tsx
 msgid "Couldn't reach the AI provider. Try again in a moment."
 msgstr "Tidak dapat menghubungi penyedia AI. Coba lagi sebentar lagi."
-
-#: src/features/resume/editor/check/writing-tab.tsx
-msgid "Couldn't reach your AI provider. Its key may have expired."
-msgstr "Tidak dapat menghubungi penyedia AI Anda. Kuncinya mungkin telah kedaluwarsa."
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Couldn't read that file."
@@ -7599,6 +7595,10 @@ msgstr "Belum ada pembicaraan tentang dokumen ini."
 msgid "No corrections"
 msgstr "Tidak ada koreksi"
 
+#: src/features/documents/documents-page.tsx
+msgid "No cover letters yet"
+msgstr "Belum ada surat lamaran"
+
 #: src/features/ats-checker/messages.ts
 msgid "No dates were found."
 msgstr "Tidak ditemukan tanggal."
@@ -8106,8 +8106,8 @@ msgid "one format"
 msgstr "satu format"
 
 #: src/features/billing/credit-dialog.tsx
-msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
-msgstr "Satu paket wawancara berisi satu sesi latihan dengan masukan AI. Latihan ulang pada wawancara yang sama gratis."
+msgid "One interview package covers one practice session with AI feedback. Practising again for the same scheduled interview is free."
+msgstr ""
 
 #: src/features/auth/pages/consent.tsx
 msgid "Only allow applications you trust. This application will be able to:"
@@ -8178,6 +8178,10 @@ msgstr "Buka {title}"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Open AI settings"
 msgstr "Buka pengaturan AI"
+
+#: src/features/documents/documents-page.tsx
+msgid "Open an application and choose Write a letter, or use New and pick New cover letter instead."
+msgstr "Buka salah satu lamaran lalu pilih Tulis surat, atau pakai tombol New lalu pilih New cover letter instead."
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -8379,10 +8383,6 @@ msgstr "dari 100"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Out of application credits. Buy 1 credit to copy your resume to this job."
 msgstr "Kredit lamaran habis. Beli 1 kredit untuk menyalin resume ke lowongan ini."
-
-#: src/features/career/hooks.ts
-msgid "Out of credits. Buy a package to continue the interview practice session."
-msgstr "Kredit habis. Beli paket dulu untuk melanjutkan sesi latihan wawancara."
 
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Out of date: the text has changed since."
@@ -8813,6 +8813,15 @@ msgstr "Portugis (Portugal)"
 #: src/features/resume/editor/write/entries.tsx
 msgid "Position"
 msgstr "Posisi"
+
+#: src/features/career/bank-browse.tsx
+msgid "Possible follow-ups"
+msgstr "Kemungkinan lanjutan"
+
+#. placeholder {0}: bank.followUps.join(" · ")
+#: src/features/career/workspace/practise.tsx
+msgid "Possible follow-ups: {0}"
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
@@ -11734,8 +11743,8 @@ msgid "Test"
 msgstr "Tes"
 
 #: src/features/settings/ai/web-access.tsx
-msgid "Test connection"
-msgstr "Uji koneksi"
+msgid "Test web access"
+msgstr "Uji akses web"
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Tested with {connectedProvider}. Only this service was tested."
@@ -11938,9 +11947,17 @@ msgstr "PDF yang diekspor"
 msgid "The exported PDF couldn't be checked. Try again."
 msgstr "PDF yang diekspor tidak dapat diperiksa. Coba lagi."
 
+#: src/features/career/workspace/practise.tsx
+msgid "The feedback didn't finish. Your free practice is still available; try again in a moment."
+msgstr "Umpan balik belum selesai. Latihan gratis Anda masih tersedia; coba lagi sebentar lagi."
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
 msgstr "File tidak dapat dibaca sebagai resume."
+
+#: src/features/career/workspace/fit.tsx
+msgid "The fit check didn't finish. Try again in a moment."
+msgstr "Pemeriksaan kecocokan belum selesai. Coba lagi sebentar lagi."
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "The greeting follows the name."
@@ -13529,6 +13546,7 @@ msgid "What you did: {0}"
 msgstr "Yang Anda lakukan: {0}"
 
 #: src/features/applications/components/detail/sent-documents.tsx
+#: src/features/career/workspace/apply.tsx
 msgid "What you sent"
 msgstr "Apa yang Anda kirimkan"
 
@@ -13544,6 +13562,11 @@ msgstr "Yang Anda cari"
 #: src/features/settings/ai/api-keys.tsx
 msgid "What's it for?"
 msgstr "Untuk apa?"
+
+#: src/features/career/bank-browse.tsx
+#: src/features/career/workspace/practise.tsx
+msgid "What's scored"
+msgstr "Yang dinilai"
 
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "What's working"

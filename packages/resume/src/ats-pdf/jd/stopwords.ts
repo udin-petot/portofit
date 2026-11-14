@@ -32,6 +32,13 @@ const RECRUITING_BOILERPLATE =
 	"regard religion remote required requirement requirements responsibilities responsibility role roles salary " +
 	"seeking sex sexual skills status team teams thrive time title veteran welcome work working workplace years";
 
+const INDONESIAN_FUNCTION_WORDS =
+	"ada adalah agar akan antara anda atau bagi bahwa bagi banyak baru beberapa belum bisa bukan dalam dan dapat dari dengan di dimana hingga jika juga kalau kami kamu karena ke ketika kita lebih melalui mampu masih mau menjadi menuju namun oleh pada para saat sebagai secara sedang sejak setelah sebelum selama sehingga sesuai sudah supaya tapi telah tentang terhadap tetapi tidak untuk yaitu yang";
+
 export const JD_STOPWORDS: ReadonlySet<string> = new Set(
-	[...FUNCTION_WORDS.split(" "), ...RECRUITING_BOILERPLATE.split(" ")].filter(Boolean),
+	[
+		...FUNCTION_WORDS.split(" "),
+		...RECRUITING_BOILERPLATE.split(" "),
+		...INDONESIAN_FUNCTION_WORDS.split(" "),
+	].filter(Boolean),
 );

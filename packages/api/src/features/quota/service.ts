@@ -1,5 +1,5 @@
 import { ORPCError } from "@orpc/server";
-import { and, eq, sql } from "drizzle-orm";
+import { and, eq, inArray, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import { aiQuotaUsage, interviewSession } from "@reactive-resume/db/schema";
 import { billingService } from "../billing/service";
@@ -166,6 +166,25 @@ export const quotaService = {
 			interviewId: `practice:${input.applicationId}`,
 			reason: input.reason,
 		});
+	},
+
+	/**
+	 * Membatalkan klaim sesi latihan ketika pekerjaan AI gagal, supaya sesi gratis atau kredit
+	 * yang sudah dipotong tidak hilang karena kesalahan penyedia. Baris sesi dihapus agar
+	 * percobaan berikutnya dihitung dari awal.
+	 */
+	async releasePracticeSession(input: { userId: string; applicationId: string }) {
+		await db
+			.delete(interviewSession)
+			.where(
+				and(
+					eq(interviewSession.userId, input.userId),
+					inArray(interviewSession.interviewId, [
+						`free-practice:${input.applicationId}`,
+						`practice:${input.applicationId}`,
+					]),
+				),
+			);
 	},
 
 	claimInterviewSession,

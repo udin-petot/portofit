@@ -300,6 +300,7 @@ function Session({
 		questions.findIndex((item) => item.text === question.text),
 	);
 	const [feedback, setFeedback] = useState<{ answer: string; data: Practice } | null>(null);
+	const [failure, setFailure] = useState<unknown>(null);
 	const [step, setStep] = useState<Step>({ name: "idle" });
 	const [audio, setAudio] = useState<Audio | null>(null);
 	const [announcement, setAnnouncement] = useState("");
@@ -442,6 +443,7 @@ function Session({
 		// Corrections to a transcript are kept with it, so the server's copy matches what was reviewed.
 		if (spoken?.id && text !== spoken.text)
 			void client.career.voice.saveTranscript({ id: spoken.id, text }).catch(() => undefined);
+		setFailure(null);
 		generate
 			.run({
 				task: "practice",
@@ -455,7 +457,7 @@ function Session({
 			.then(({ item }) => {
 				if (item?.data.kind === "practice") setFeedback({ answer, data: item.data });
 			})
-			.catch(() => undefined);
+			.catch((error) => setFailure(error));
 	};
 
 	const providerName = provider?.label ?? t`your AI connection`;
@@ -499,7 +501,7 @@ function Session({
 				<section className="grid gap-2.5 rounded-xl border border-line bg-sunken p-4">
 					<div className="flex items-center gap-2 font-mono text-[11px] font-medium tracking-[0.06em] text-ink-3 uppercase">
 						<Icon name="compass" size={15} />
-						Yang dinilai
+						<Trans>What's scored</Trans>
 					</div>
 					<ul className="grid gap-1.5">
 						{bank.rubric.map((item) => (
@@ -510,7 +512,9 @@ function Session({
 						))}
 					</ul>
 					{bank.followUps.length > 0 && (
-						<p className="text-xs leading-5 text-ink-3">Kemungkinan lanjutan: {bank.followUps.join(" · ")}</p>
+						<p className="text-xs leading-5 text-ink-3">
+						<Trans>Possible follow-ups: {bank.followUps.join(" · ")}</Trans>
+					</p>
 					)}
 				</section>
 			)}
@@ -718,6 +722,14 @@ function Session({
 							<Trans>Compared with your stories and the posting.</Trans>
 						</p>
 					</div>
+					{failure !== null && (
+						<p role="alert" className="text-[13px] leading-5 text-danger-text">
+							{getOrpcErrorMessage(failure, {
+								fallback: t`The feedback didn't finish. Your free practice is still available; try again in a moment.`,
+								allowServerMessage: true,
+							})}
+						</p>
+					)}
 					{connection.isUnavailable ? (
 						<AiProviderLoadState state={connection} />
 					) : provider ? (

@@ -23,18 +23,21 @@ import { sessionQueryKey } from "@/libs/root-context";
 import { useAppForm } from "@/libs/tanstack-form";
 
 const formSchema = z.object({
-	name: z.string().trim().min(1).max(64),
+	name: z.string().trim().min(1, { message: "Enter your name." }).max(64, { message: "Name is too long." }),
 	username: z
 		.string()
-		.min(3)
-		.max(64)
+		.min(3, { message: "Username must be at least 3 characters." })
+		.max(64, { message: "Username is too long." })
 		.trim()
 		.toLowerCase()
 		.regex(/^[a-z0-9._-]+$/, {
 			message: "Username can only contain lowercase letters, numbers, dots, hyphens and underscores.",
 		}),
-	email: z.email().toLowerCase(),
-	password: z.string().min(8).max(64),
+	email: z.email({ message: "Enter a valid email address." }).toLowerCase(),
+	password: z
+		.string()
+		.min(8, { message: "Password must be at least 8 characters." })
+		.max(64, { message: "Password is too long." }),
 	accepted: z.boolean().refine((value) => value, {
 		message: "Setujui Syarat Layanan dan Kebijakan Privasi untuk melanjutkan.",
 	}),

@@ -7,6 +7,22 @@ const isCoverLetterSection = (section: ResumeData["customSections"][number]) => 
 const isVisibleCoverLetterSection = (section: ResumeData["customSections"][number]) =>
 	isCoverLetterSection(section) && !section.hidden && section.items.some((item) => !item.hidden);
 
+/** Whether a laid-out section would print anything. Empty sections must not create a page of their own. */
+function sectionHasPrintableContent(data: ResumeData, sectionId: string): boolean {
+	if (sectionId === "summary") {
+		return !data.summary.hidden && data.summary.content.replace(/<[^>]*>/g, "").trim().length > 0;
+	}
+
+	const standard = (data.sections as Record<string, { hidden?: boolean; items?: { hidden?: boolean }[] }>)[sectionId];
+	if (standard?.items) return !standard.hidden && standard.items.some((item) => !item.hidden);
+
+	const custom = data.customSections.find((section) => section.id === sectionId);
+	if (custom) return !custom.hidden && custom.items.some((item) => !item.hidden);
+
+	// An id we don't recognise keeps its page, so a future section type never loses text.
+	return true;
+}
+
 export const getVisibleCoverLetterSectionIds = (data: ResumeData) =>
 	data.customSections.filter(isVisibleCoverLetterSection).map((section) => section.id);
 
@@ -35,7 +51,8 @@ export function getResumeExportData(data: ResumeData, target: ResumeExportTarget
 
 			return { ...page, main: page.main.filter(keepSection), sidebar: page.sidebar.filter(keepSection) };
 		})
-		.filter((page) => page.main.length > 0 || page.sidebar.length > 0);
+		// A template can lay out a second page for sections that have no entries yet; that page would print blank.
+		.filter((page) => [...page.main, ...page.sidebar].some((id) => sectionHasPrintableContent(data, id)));
 
 	if (target === "cover-letter" && pages.length === 0 && visibleCoverLetterIds.size > 0) {
 		for (const id of visibleCoverLetterIds) pages.push({ fullWidth: true, main: [id], sidebar: [] });

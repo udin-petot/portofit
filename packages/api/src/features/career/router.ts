@@ -18,6 +18,7 @@ import {
 	savedItemSchema,
 } from "../../dto/career";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
+import { billingService } from "../billing/service";
 import { quotaService } from "../quota/service";
 import { generateCareer } from "./generate";
 import { careerJobs } from "./jobs";
@@ -285,20 +286,23 @@ export const careerRouter = {
 			if (charged) await quotaService.consume({ userId: context.user.id, feature: "job_match" });
 
 			// Satu kredit wawancara per wawancara, bukan per jawaban: sesi pertama yang membayar, latihan ulang gratis.
+			let practiceCharge = false;
 			if (input.task.task === "practice") {
 				if (input.task.interviewId) {
-					await quotaService.claimInterviewSession({
+					const claimed = await quotaService.claimInterviewSession({
 						userId: context.user.id,
 						interviewId: input.task.interviewId,
 						reason: "Sesi latihan wawancara",
 					});
+					practiceCharge = claimed.charged;
 				} else {
 					// Tanpa jadwal, latihan tetap ditagih: satu sesi gratis per lamaran, selebihnya kredit.
-					await quotaService.claimPracticeSession({
+					const claimed = await quotaService.claimPracticeSession({
 						userId: context.user.id,
 						applicationId: input.applicationId,
 						reason: "Sesi latihan wawancara",
 					});
+					practiceCharge = claimed.charged;
 				}
 			}
 
@@ -306,6 +310,10 @@ export const careerRouter = {
 				return await generateCareer({ userId: context.user.id, ...input, ...(signal ? { signal } : {}) });
 			} catch (error) {
 				if (charged) await quotaService.release({ userId: context.user.id, feature: "job_match" }).catch(() => undefined);
+				if (input.task.task === "practice") {
+					if (practiceCharge) await billingService.refundCredit({ userId: context.user.id, kind: "interview", reason: "Latihan gagal, kredit dikembalikan" }).catch(() => undefined);
+					await quotaService.releasePracticeSession({ userId: context.user.id, applicationId: input.applicationId }).catch(() => undefined);
+				}
 				throw error;
 			}
 		}),

@@ -159,7 +159,7 @@ export function WebAccessSection() {
 									loading={test.isPending}
 									onClick={() => test.mutate()}
 								>
-									<Trans>Test connection</Trans>
+									<Trans>Test web access</Trans>
 								</Button>
 							</div>
 						)}
@@ -186,7 +186,7 @@ export function WebAccessSection() {
 										loading={test.isPending}
 										onClick={() => test.mutate()}
 									>
-										<Trans>Test connection</Trans>
+										<Trans>Test web access</Trans>
 									</Button>
 									{status.canSave && (
 										<>

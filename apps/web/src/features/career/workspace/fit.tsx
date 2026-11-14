@@ -62,6 +62,7 @@ export function FitTab({ application, version }: WorkspaceTabProps) {
 	const forget = useMutation(orpc.career.forgetFact.mutationOptions());
 	const readOnly = version?.data.kind === "fit";
 	const item = (readOnly ? version : latest(saved.data, "fit")) as FitItem | undefined;
+	const [failure, setFailure] = useState<unknown>(null);
 
 	if (saved.isPending)
 		return (
@@ -71,7 +72,10 @@ export function FitTab({ application, version }: WorkspaceTabProps) {
 			</div>
 		);
 
-	const check = () => void generate.run({ task: "fit" }).catch(() => undefined);
+	const check = () => {
+		setFailure(null);
+		void generate.run({ task: "fit" }).catch((error) => setFailure(error));
+	};
 
 	if (!item)
 		return (
@@ -86,6 +90,14 @@ export function FitTab({ application, version }: WorkspaceTabProps) {
 					</Trans>
 				</p>
 				<AiNotice className="max-w-[420px] text-start" />
+				{failure !== null && (
+					<p role="alert" className="max-w-[420px] text-[13px] leading-5 text-danger-text">
+						{getOrpcErrorMessage(failure, {
+							fallback: t`The fit check didn't finish. Try again in a moment.`,
+							allowServerMessage: true,
+						})}
+					</p>
+				)}
 				{provider && (
 					<Button loading={generate.isPending} onClick={check}>
 						<Icon name="list-checks" size={18} />

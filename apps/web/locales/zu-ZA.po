@@ -2386,7 +2386,6 @@ msgstr ""
 
 #: src/features/billing/credit-dialog.tsx
 #: src/features/billing/transactions.tsx
-#: src/features/career/hooks.ts
 #: src/features/documents/new-document-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/akun.tsx
@@ -3449,11 +3448,8 @@ msgid "Couldn't propose these edits: {0}"
 msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
-msgid "Couldn't reach the AI provider. Try again in a moment."
-msgstr ""
-
 #: src/features/resume/editor/check/writing-tab.tsx
-msgid "Couldn't reach your AI provider. Its key may have expired."
+msgid "Couldn't reach the AI provider. Try again in a moment."
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -7593,6 +7589,10 @@ msgstr ""
 msgid "No corrections"
 msgstr ""
 
+#: src/features/documents/documents-page.tsx
+msgid "No cover letters yet"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "No dates were found."
 msgstr ""
@@ -8100,7 +8100,7 @@ msgid "one format"
 msgstr ""
 
 #: src/features/billing/credit-dialog.tsx
-msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
+msgid "One interview package covers one practice session with AI feedback. Practising again for the same scheduled interview is free."
 msgstr ""
 
 #: src/features/auth/pages/consent.tsx
@@ -8171,6 +8171,10 @@ msgstr ""
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Open AI settings"
+msgstr ""
+
+#: src/features/documents/documents-page.tsx
+msgid "Open an application and choose Write a letter, or use New and pick New cover letter instead."
 msgstr ""
 
 #: src/features/career/today.tsx
@@ -8372,10 +8376,6 @@ msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Out of application credits. Buy 1 credit to copy your resume to this job."
-msgstr ""
-
-#: src/features/career/hooks.ts
-msgid "Out of credits. Buy a package to continue the interview practice session."
 msgstr ""
 
 #: src/features/resume/editor/proposals/proposal-list.tsx
@@ -8806,6 +8806,15 @@ msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Position"
+msgstr ""
+
+#: src/features/career/bank-browse.tsx
+msgid "Possible follow-ups"
+msgstr ""
+
+#. placeholder {0}: bank.followUps.join(" · ")
+#: src/features/career/workspace/practise.tsx
+msgid "Possible follow-ups: {0}"
 msgstr ""
 
 #: src/features/career/workspace/saved.tsx
@@ -11728,7 +11737,7 @@ msgid "Test"
 msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
-msgid "Test connection"
+msgid "Test web access"
 msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
@@ -11932,8 +11941,16 @@ msgstr ""
 msgid "The exported PDF couldn't be checked. Try again."
 msgstr ""
 
+#: src/features/career/workspace/practise.tsx
+msgid "The feedback didn't finish. Your free practice is still available; try again in a moment."
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
+msgstr ""
+
+#: src/features/career/workspace/fit.tsx
+msgid "The fit check didn't finish. Try again in a moment."
 msgstr ""
 
 #: src/routes/builder/letter/-components/write-panel.tsx
@@ -13523,6 +13540,7 @@ msgid "What you did: {0}"
 msgstr ""
 
 #: src/features/applications/components/detail/sent-documents.tsx
+#: src/features/career/workspace/apply.tsx
 msgid "What you sent"
 msgstr ""
 
@@ -13537,6 +13555,11 @@ msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "What's it for?"
+msgstr ""
+
+#: src/features/career/bank-browse.tsx
+#: src/features/career/workspace/practise.tsx
+msgid "What's scored"
 msgstr ""
 
 #: src/features/resume/editor/check/writing-tab.tsx

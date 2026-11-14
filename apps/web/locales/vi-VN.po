@@ -2391,7 +2391,6 @@ msgstr ""
 
 #: src/features/billing/credit-dialog.tsx
 #: src/features/billing/transactions.tsx
-#: src/features/career/hooks.ts
 #: src/features/documents/new-document-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/akun.tsx
@@ -3454,12 +3453,9 @@ msgid "Couldn't propose these edits: {0}"
 msgstr "Không thể đề xuất những chỉnh sửa này: {0}"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/resume/editor/check/writing-tab.tsx
 msgid "Couldn't reach the AI provider. Try again in a moment."
 msgstr "Không thể liên hệ với nhà cung cấp AI. Hãy thử lại sau giây lát."
-
-#: src/features/resume/editor/check/writing-tab.tsx
-msgid "Couldn't reach your AI provider. Its key may have expired."
-msgstr "Không thể liên hệ với nhà cung cấp AI của bạn. Chìa khóa của nó có thể đã hết hạn."
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Couldn't read that file."
@@ -7598,6 +7594,10 @@ msgstr "Chưa có cuộc trò chuyện nào về tài liệu này."
 msgid "No corrections"
 msgstr "Không có chỉnh sửa"
 
+#: src/features/documents/documents-page.tsx
+msgid "No cover letters yet"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "No dates were found."
 msgstr "Không tìm thấy ngày tháng nào."
@@ -8105,7 +8105,7 @@ msgid "one format"
 msgstr "một định dạng"
 
 #: src/features/billing/credit-dialog.tsx
-msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
+msgid "One interview package covers one practice session with AI feedback. Practising again for the same scheduled interview is free."
 msgstr ""
 
 #: src/features/auth/pages/consent.tsx
@@ -8177,6 +8177,10 @@ msgstr "Mở {title}"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Open AI settings"
 msgstr "Mở cài đặt AI"
+
+#: src/features/documents/documents-page.tsx
+msgid "Open an application and choose Write a letter, or use New and pick New cover letter instead."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -8377,10 +8381,6 @@ msgstr "trên 100"
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Out of application credits. Buy 1 credit to copy your resume to this job."
-msgstr ""
-
-#: src/features/career/hooks.ts
-msgid "Out of credits. Buy a package to continue the interview practice session."
 msgstr ""
 
 #: src/features/resume/editor/proposals/proposal-list.tsx
@@ -8812,6 +8812,15 @@ msgstr "Bồ Đào Nha (Bồ Đào Nha)"
 #: src/features/resume/editor/write/entries.tsx
 msgid "Position"
 msgstr "Vị trí"
+
+#: src/features/career/bank-browse.tsx
+msgid "Possible follow-ups"
+msgstr ""
+
+#. placeholder {0}: bank.followUps.join(" · ")
+#: src/features/career/workspace/practise.tsx
+msgid "Possible follow-ups: {0}"
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
@@ -11733,8 +11742,8 @@ msgid "Test"
 msgstr "Bài kiểm tra"
 
 #: src/features/settings/ai/web-access.tsx
-msgid "Test connection"
-msgstr "Kiểm tra kết nối"
+msgid "Test web access"
+msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Tested with {connectedProvider}. Only this service was tested."
@@ -11937,9 +11946,17 @@ msgstr "PDF đã xuất"
 msgid "The exported PDF couldn't be checked. Try again."
 msgstr "Không thể kiểm tra PDF đã xuất. Hãy thử lại."
 
+#: src/features/career/workspace/practise.tsx
+msgid "The feedback didn't finish. Your free practice is still available; try again in a moment."
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "The file couldn't be read as a resume."
 msgstr "Không thể đọc tệp này dưới dạng sơ yếu lý lịch."
+
+#: src/features/career/workspace/fit.tsx
+msgid "The fit check didn't finish. Try again in a moment."
+msgstr ""
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "The greeting follows the name."
@@ -13528,6 +13545,7 @@ msgid "What you did: {0}"
 msgstr "Điều bạn đã làm: {0}"
 
 #: src/features/applications/components/detail/sent-documents.tsx
+#: src/features/career/workspace/apply.tsx
 msgid "What you sent"
 msgstr "Những gì bạn đã gửi"
 
@@ -13543,6 +13561,11 @@ msgstr "Bạn đang tìm gì"
 #: src/features/settings/ai/api-keys.tsx
 msgid "What's it for?"
 msgstr "Nó dùng để làm gì?"
+
+#: src/features/career/bank-browse.tsx
+#: src/features/career/workspace/practise.tsx
+msgid "What's scored"
+msgstr ""
 
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "What's working"

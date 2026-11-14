@@ -101,9 +101,26 @@ export function greetingName(recipientName: string): string | null {
 	const [first, ...rest] = words;
 	if (!first || words.join(" ").toLowerCase() === "hiring team") return null;
 	if (rest.at(-1)?.toLowerCase() === "team") return words.join(" ");
+	// "Tim Rekrutmen" is a team, not a person named Tim. Fall back to the team greeting.
+	if (words.some((word) => TEAM_WORDS.has(word.toLowerCase()))) return null;
 	if (HONORIFIC.test(first) && rest.length > 0) return `${first} ${rest.at(-1)}`;
 	return first;
 }
+
+/** Words that mark the recipient as a group rather than one person, in both languages people write here. */
+const TEAM_WORDS = new Set([
+	"team",
+	"tim",
+	"hiring",
+	"recruitment",
+	"recruiter",
+	"rekrutmen",
+	"rekruter",
+	"talent",
+	"hr",
+	"people",
+	"panitia",
+]);
 
 /** The words a structured letter is composed with, in the reader's language. */
 export type LetterWords = {

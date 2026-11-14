@@ -63,6 +63,7 @@ describe("independent cover letters", () => {
 		expect(greetingName("Dr. Dana Reyes")).toBe("Dr. Reyes");
 		expect(greetingName("ms Reyes")).toBe("ms Reyes");
 		expect(greetingName("Design team")).toBe("Design team");
+		expect(greetingName("Tim Rekrutmen")).toBeNull();
 		expect(greetingName("Hiring Team")).toBeNull();
 		expect(greetingName(" ")).toBeNull();
 	});

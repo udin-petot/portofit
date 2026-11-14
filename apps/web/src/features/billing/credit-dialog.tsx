@@ -39,8 +39,8 @@ export function CreditDialog() {
 					<DialogDescription>
 						{current.kind === "interview" ? (
 							<Trans>
-								One interview package covers one practice session with AI feedback. Practising again on the same
-								interview is free.
+								One interview package covers one practice session with AI feedback. Practising again for the
+								same scheduled interview is free.
 							</Trans>
 						) : (
 							<Trans>

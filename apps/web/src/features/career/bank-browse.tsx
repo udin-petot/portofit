@@ -98,7 +98,7 @@ export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpen
 									<div className="mx-2 mb-1 grid gap-3 rounded-lg border border-line bg-sunken p-3.5">
 										<div>
 											<p className="font-mono text-[10px] font-medium tracking-[0.06em] text-ink-3 uppercase">
-												Yang dinilai
+												<Trans>What's scored</Trans>
 											</p>
 											<ul className="mt-1.5 grid gap-1.5">
 												{question.rubric.map((item) => (
@@ -111,7 +111,7 @@ export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpen
 										</div>
 										<div>
 											<p className="font-mono text-[10px] font-medium tracking-[0.06em] text-ink-3 uppercase">
-												Kemungkinan lanjutan
+												<Trans>Possible follow-ups</Trans>
 											</p>
 											<p className="mt-1 text-xs leading-5 text-ink-2">{question.followUps.join(" · ")}</p>
 										</div>

@@ -130,7 +130,7 @@ export function WritingTab({ data, issues }: WritingTabProps) {
 					<span>
 						{getOrpcErrorMessage(error, {
 							byCode: {
-								BAD_GATEWAY: t`Couldn't reach your AI provider. Its key may have expired.`,
+								BAD_GATEWAY: t`Couldn't reach the AI provider. Try again in a moment.`,
 								BAD_REQUEST: t`The provider returned a review that couldn't be read. Try again.`,
 								PRECONDITION_FAILED: t`AI providers are unavailable until ENCRYPTION_SECRET is configured.`,
 							},

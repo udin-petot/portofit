@@ -171,7 +171,6 @@ export function useDefaultProvider() {
 export function useGenerate(applicationId: string) {
 	const { i18n } = useLingui();
 	const queryClient = useQueryClient();
-	const router = useRouter();
 	const connection = useDefaultProvider();
 	const { provider } = connection;
 	const mutation = useMutation({
@@ -182,16 +181,9 @@ export function useGenerate(applicationId: string) {
 			void queryClient.invalidateQueries({ queryKey: orpc.billing.ledger.key() });
 		},
 		onError: (error) => {
-			// Kredit habis: tawarkan jalan keluar, bukan hanya pesan galat.
+			// Kredit habis sudah ditangani dialog kredit global; jangan tampilkan pesan kedua.
 			const creditCode = error instanceof ORPCError ? (error.data as { code?: string } | undefined)?.code : undefined;
-			if (creditCode === "CREDIT_REQUIRED") {
-				toast.add({
-					type: "error",
-					description: t`Out of credits. Buy a package to continue the interview practice session.`,
-					actionProps: { children: t`Buy credits`, onClick: () => void router.navigate({ to: "/harga" }) },
-				});
-				return;
-			}
+			if (creditCode === "CREDIT_REQUIRED") return;
 
 			const name = provider?.label ?? t`Your AI connection`;
 			toast.add({
