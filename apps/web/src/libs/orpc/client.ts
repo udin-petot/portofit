@@ -77,6 +77,23 @@ export const streamClient: RouterClient<typeof router> = createORPCClient(
 		interceptors: [
 			onError((error) => {
 				if (error instanceof DOMException && error.name === "AbortError") return;
+				if (
+					error instanceof ORPCError &&
+					(error.data as { code?: string; kind?: string } | undefined)?.code === "CREDIT_REQUIRED"
+				) {
+					const kind =
+						(error.data as { kind?: string }).kind === "interview"
+							? "interview"
+							: (error.data as { kind?: string }).kind === "coach"
+								? "coach"
+								: "application";
+					notifyCreditRequired(kind);
+					return;
+				}
+				if (error instanceof ORPCError && (error.data as { code?: string } | undefined)?.code === "QUOTA_EXHAUSTED") {
+					notifyQuotaExhausted();
+					return;
+				}
 				console.warn("[oRPC stream client]", error);
 			}),
 		],

@@ -437,7 +437,10 @@ export const billingService = {
 			const current = await sumCredits(tx, input.userId, input.kind);
 			if (current < 1) {
 				throw new ORPCError("FORBIDDEN", {
-					message: "Kredit habis. Beli paket di halaman harga untuk melanjutkan.",
+					message:
+						input.kind === "coach"
+							? "Pesan Coach habis. Beli paket Coach untuk melanjutkan."
+							: "Kredit habis. Beli paket di halaman harga untuk melanjutkan.",
 					data: { code: "CREDIT_REQUIRED", kind: input.kind, balance: current },
 				});
 			}
