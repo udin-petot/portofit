@@ -6,10 +6,10 @@ import { useState } from "react";
 import z from "zod";
 import { Button } from "@reactive-resume/ui/components/button";
 import { FormControl, FormItem, FormLabel, FormMessage } from "@reactive-resume/ui/components/form";
-import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
+import { AuthPanel } from "../components/auth-panel";
 import { authClient } from "@/libs/auth/client";
 import { ENTER_CLASS } from "@/libs/motion";
 import { useAppForm } from "@/libs/tanstack-form";
@@ -56,33 +56,19 @@ export function ForgotPasswordPage() {
 	if (submitted) return <PostForgotPasswordScreen />;
 
 	return (
-		<>
-			<div className="rounded-xl border border-line bg-surface p-5">
-				<div className="space-y-1">
-				<h1 className="font-display text-[30px] leading-9 font-medium">
-					<Trans>Forgot your password?</Trans>
-				</h1>
-
-				<div className="text-ink-3">
-					<Trans>
-						Remember your password?{" "}
-						<Button
-							variant="link"
-							className="h-auto gap-1.5 px-1! py-0"
-							nativeButton={false}
-							render={
-								<Link to="/auth/login">
-									<Trans comment="Call-to-action link from forgot-password page to login page">Sign in now</Trans>{" "}
-									<Icon name="arrow-right" size={16} />
-								</Link>
-							}
-						/>
-					</Trans>
-				</div>
-			</div>
-
+		<AuthPanel
+			title={<Trans>Forgot your password?</Trans>}
+			footer={
+				<>
+					<Trans>Remember your password?</Trans>{" "}
+					<Link to="/auth/login" className="font-medium text-ink underline underline-offset-4">
+						<Trans comment="Call-to-action link from forgot-password page to login page">Sign in</Trans>
+					</Link>
+				</>
+			}
+		>
 			<form
-				className="space-y-6"
+				className="space-y-4"
 				onSubmit={(event) => {
 					event.preventDefault();
 					event.stopPropagation();
@@ -113,12 +99,11 @@ export function ForgotPasswordPage() {
 					)}
 				</form.Field>
 
-				<Button type="submit" className="w-full" disabled={isSubmitting}>
+				<Button type="submit" className="h-11 w-full" disabled={isSubmitting}>
 					<Trans comment="Primary action button label on forgot-password form">Send Password Reset Email</Trans>
 				</Button>
 			</form>
-			</div>
-		</>
+		</AuthPanel>
 	);
 }
 

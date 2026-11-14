@@ -11,6 +11,7 @@ import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { OTPField } from "@reactive-resume/ui/components/otp-field";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { AuthPanel } from "../components/auth-panel";
 import { getAuthRedirectOptions, getOAuthSignInOptions, isOAuthRedirect } from "../redirect";
 import { authClient } from "@/libs/auth/client";
 import { sessionQueryKey } from "@/libs/root-context";
@@ -81,23 +82,31 @@ function TwoFactorVerificationPage({ backupCode = false }: TwoFactorVerification
 	const isSubmitting = useSelector(form.store, (state) => state.isSubmitting);
 
 	return (
-		<>
-			<div className="rounded-xl border border-line bg-surface p-5">
-				<div className="space-y-1">
-				<h1 className="font-display text-[30px] leading-9 font-medium">
-					{backupCode ? <Trans>Verify with a Backup Code</Trans> : <Trans>Two-Factor Authentication</Trans>}
-				</h1>
-				<div className="text-ink-3">
-					{backupCode ? (
-						<Trans>Enter one of your saved backup codes to access your account</Trans>
-					) : (
-						<Trans>Enter the verification code from your authenticator app</Trans>
-					)}
-				</div>
-			</div>
-
+		<AuthPanel
+			title={backupCode ? <Trans>Verify with a Backup Code</Trans> : <Trans>Two-Factor Authentication</Trans>}
+			description={
+				backupCode ? (
+					<Trans>Enter one of your saved backup codes to access your account</Trans>
+				) : (
+					<Trans>Enter the verification code from your authenticator app</Trans>
+				)
+			}
+			footer={
+				!backupCode ? (
+					<Link
+						to="/auth/verify-2fa-backup"
+						search={{ callbackURL, reauthenticate }}
+						className="font-medium text-ink underline underline-offset-4"
+					>
+						<Trans comment="Link to backup-code verification flow when authenticator app is unavailable">
+							Lost access to your authenticator?
+						</Trans>
+					</Link>
+				) : undefined
+			}
+		>
 			<form
-				className="grid gap-6"
+				className="grid gap-4"
 				onSubmit={(event) => {
 					event.preventDefault();
 					event.stopPropagation();
@@ -158,7 +167,7 @@ function TwoFactorVerificationPage({ backupCode = false }: TwoFactorVerification
 				<div className="flex gap-x-2">
 					<Button
 						variant="secondary"
-						className="flex-1"
+						className="h-11 flex-1"
 						nativeButton={false}
 						render={
 							<Link to={backupCode ? "/auth/verify-2fa" : "/auth/login"} search={{ callbackURL, reauthenticate }}>
@@ -172,7 +181,7 @@ function TwoFactorVerificationPage({ backupCode = false }: TwoFactorVerification
 						}
 					/>
 
-					<Button type="submit" className="flex-1" disabled={isSubmitting}>
+					<Button type="submit" className="h-11 flex-1" disabled={isSubmitting}>
 						<Icon name="check" size={16} />
 						{backupCode ? (
 							<Trans comment="Primary action button to submit backup code">Verify</Trans>
@@ -182,23 +191,7 @@ function TwoFactorVerificationPage({ backupCode = false }: TwoFactorVerification
 					</Button>
 				</div>
 			</form>
-
-			{!backupCode && (
-				<Button
-					variant="link"
-					nativeButton={false}
-					className="h-auto justify-self-center p-0 text-sm"
-					render={
-						<Link to="/auth/verify-2fa-backup" search={{ callbackURL, reauthenticate }}>
-							<Trans comment="Link to backup-code verification flow when authenticator app is unavailable">
-								Lost access to your authenticator?
-							</Trans>
-						</Link>
-					}
-				/>
-			)}
-			</div>
-		</>
+		</AuthPanel>
 	);
 }
 

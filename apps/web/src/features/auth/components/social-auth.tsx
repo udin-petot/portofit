@@ -78,7 +78,7 @@ function SocialAuthButtons({ providers }: SocialAuthButtonsProps) {
 	};
 
 	return (
-		<div className={cn(ENTER_CLASS, "grid grid-cols-2 gap-3")}>
+		<div className={cn(ENTER_CLASS, "grid grid-cols-1 gap-3 sm:grid-cols-2")}>
 			<Button
 				variant="secondary"
 				onClick={() =>
@@ -97,6 +97,7 @@ function SocialAuthButtons({ providers }: SocialAuthButtonsProps) {
 			</Button>
 
 			<Button
+				variant="secondary"
 				onClick={() =>
 					runSignIn(() =>
 						authClient.signIn.social({
@@ -106,16 +107,14 @@ function SocialAuthButtons({ providers }: SocialAuthButtonsProps) {
 						}),
 					)
 				}
-				className={cn(
-					"hidden flex-1 bg-[#4285F4] text-white hover:bg-[#4285F4]/80",
-					"google" in providers && "inline-flex",
-				)}
+				className={cn("hidden flex-1", "google" in providers && "inline-flex")}
 			>
-				<GoogleLogoIcon />
+				<GoogleLogoIcon className="text-[#4285F4]" />
 				<Trans comment="Brand name label for Google social sign-in button">Google</Trans>
 			</Button>
 
 			<Button
+				variant="secondary"
 				onClick={() =>
 					runSignIn(() =>
 						authClient.signIn.social({
@@ -125,15 +124,11 @@ function SocialAuthButtons({ providers }: SocialAuthButtonsProps) {
 						}),
 					)
 				}
-				className={cn(
-					"hidden flex-1 bg-[#2b3137] text-white hover:bg-[#2b3137]/80",
-					"github" in providers && "inline-flex",
-				)}
+				className={cn("hidden flex-1", "github" in providers && "inline-flex")}
 			>
 				<GithubLogoIcon />
 				<Trans comment="Brand name label for GitHub social sign-in button">GitHub</Trans>
 			</Button>
-
 		</div>
 	);
 }

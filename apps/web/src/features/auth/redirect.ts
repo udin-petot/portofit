@@ -48,4 +48,3 @@ export function isOAuthRedirect(data: unknown) {
 		typeof data.url === "string"
 	);
 }
-

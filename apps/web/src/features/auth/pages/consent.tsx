@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { cn } from "@reactive-resume/utils/style";
+import { AuthPanel } from "../components/auth-panel";
 import { isOAuthRedirect } from "../redirect";
 import { authClient } from "@/libs/auth/client";
 import { ENTER_CLASS } from "@/libs/motion";
@@ -62,15 +63,7 @@ export function OAuthConsentPage({ oauthQuery, email }: OAuthConsentPageProps) {
 	}
 
 	return (
-		<>
-			<div className="space-y-2 text-center">
-				<h1 className="text-2xl font-semibold tracking-tight">
-					<Trans>Connect an application</Trans>
-				</h1>
-				<p className="text-sm wrap-anywhere text-ink-3">
-					<Trans>Signed in as {email}</Trans>
-				</p>
-			</div>
+		<AuthPanel title={<Trans>Connect an application</Trans>} description={<Trans>Signed in as {email}</Trans>}>
 			{!validRequest || isError ? (
 				<p key="invalid" role="alert" className={ENTER_CLASS}>
 					<Trans>This connection request is invalid or has expired.</Trans>
@@ -139,15 +132,15 @@ export function OAuthConsentPage({ oauthQuery, email }: OAuthConsentPageProps) {
 						</p>
 					)}
 					<div className="flex gap-2">
-						<Button className="flex-1" variant="secondary" disabled={pending} onClick={() => void submit(false)}>
+						<Button className="h-11 flex-1" variant="secondary" disabled={pending} onClick={() => void submit(false)}>
 							<Trans>Deny</Trans>
 						</Button>
-						<Button className="flex-1" disabled={pending} onClick={() => void submit(true)}>
+						<Button className="h-11 flex-1" disabled={pending} onClick={() => void submit(true)}>
 							<Trans>Allow access</Trans>
 						</Button>
 					</div>
 				</div>
 			) : null}
-		</>
+		</AuthPanel>
 	);
 }

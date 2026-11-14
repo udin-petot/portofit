@@ -13,6 +13,7 @@ import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
+import { AuthPanel } from "../components/auth-panel";
 import { SocialAuth } from "../components/social-auth";
 import { getAuthRedirectOptions, getOAuthSignInOptions, isOAuthRedirect } from "../redirect";
 import { PasswordInput } from "@/components/input/password-input";
@@ -100,34 +101,24 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 	if (submitted) return <PostSignupScreen />;
 
 	return (
-		<>
-			<div className="rounded-xl border border-line bg-surface p-5">
-				<div className="space-y-1">
-				<h1 className="font-display text-[30px] leading-9 font-medium">
-					<Trans>Create a new account</Trans>
-				</h1>
-
-				<div className="text-ink-3">
-					<Trans>
-						Already have an account?{" "}
-						<Button
-							variant="link"
-							nativeButton={false}
-							className="h-auto gap-1.5 px-1! py-0"
-							render={
-								<Link to="/auth/login" search={{ callbackURL, reauthenticate }}>
-									<Trans comment="Call-to-action link from registration page to login page">Sign in now</Trans>{" "}
-									<Icon name="arrow-right" size={16} />
-								</Link>
-							}
-						/>
-					</Trans>
-				</div>
-			</div>
-
+		<AuthPanel
+			title={<Trans>Create a new account</Trans>}
+			footer={
+				<>
+					<Trans>Already have an account?</Trans>{" "}
+					<Link
+						to="/auth/login"
+						search={{ callbackURL, reauthenticate }}
+						className="font-medium text-ink underline underline-offset-4"
+					>
+						<Trans comment="Call-to-action link from registration page to login page">Sign in</Trans>
+					</Link>
+				</>
+			}
+		>
 			{!disableEmailAuth && (
 				<form
-					className="space-y-6"
+					className="space-y-4"
 					onSubmit={(event) => {
 						event.preventDefault();
 						event.stopPropagation();
@@ -148,7 +139,7 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 											autoComplete="section-register name"
 											placeholder={t({
 												comment: "Example full name placeholder on registration form",
-												message: "John Doe",
+												message: "Nama lengkap",
 											})}
 											name={field.name}
 											value={field.state.value}
@@ -176,7 +167,7 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 											autoComplete="section-register username"
 											placeholder={t({
 												comment: "Example username placeholder on registration form",
-												message: "john.doe",
+												message: "nama.pengguna",
 											})}
 											className="lowercase"
 											name={field.name}
@@ -202,7 +193,7 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 										<Input
 											type="email"
 											autoComplete="section-register email"
-											placeholder="john.doe@example.com"
+											placeholder="nama@email.com"
 											className="lowercase"
 											name={field.name}
 											value={field.state.value}
@@ -243,7 +234,7 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 					<form.Field name="accepted">
 						{(field) => (
 							<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-								<label className="flex items-start gap-2.5 text-xs leading-5 text-ink-2">
+								<label className="flex items-start gap-2.5 text-[13px] leading-5 text-ink-2">
 									<Checkbox
 										name={field.name}
 										checked={field.state.value}
@@ -268,14 +259,16 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 						)}
 					</form.Field>
 
-					<Button type="submit" className="w-full" disabled={isSubmitting}>
+					<Button type="submit" className="h-11 w-full" disabled={isSubmitting}>
 						<Trans comment="Primary action button label on registration form">Sign up</Trans>
 					</Button>
 				</form>
 			)}
 
-			<SocialAuth />
-			<p className="text-center text-xs leading-5 text-ink-3">
+			<div className="mt-5">
+				<SocialAuth />
+			</div>
+			<p className="mt-3 text-center text-[12.5px] leading-5 text-ink-3">
 				Dengan mendaftar lewat Google atau GitHub, kamu menyetujui{" "}
 				<a href="/syarat" className="underline underline-offset-4 hover:text-accent-text">
 					Syarat Layanan
@@ -286,8 +279,7 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 				</a>
 				.
 			</p>
-			</div>
-		</>
+		</AuthPanel>
 	);
 }
 

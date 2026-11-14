@@ -6,6 +6,7 @@ import z from "zod";
 import { Button } from "@reactive-resume/ui/components/button";
 import { FormControl, FormItem, FormLabel, FormMessage } from "@reactive-resume/ui/components/form";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { AuthPanel } from "../components/auth-panel";
 import { PasswordInput } from "@/components/input/password-input";
 import { authClient } from "@/libs/auth/client";
 import { useAppForm } from "@/libs/tanstack-form";
@@ -56,20 +57,12 @@ export function ResetPasswordPage({ token }: Props) {
 	const isSubmitting = useSelector(form.store, (state) => state.isSubmitting);
 
 	return (
-		<>
-			<div className="rounded-xl border border-line bg-surface p-5">
-				<div className="space-y-1">
-				<h1 className="font-display text-[30px] leading-9 font-medium">
-					<Trans>Reset your password</Trans>
-				</h1>
-
-				<div className="text-ink-3">
-					<Trans>Enter a new password for your account</Trans>
-				</div>
-			</div>
-
+		<AuthPanel
+			title={<Trans>Reset your password</Trans>}
+			description={<Trans>Enter a new password for your account</Trans>}
+		>
 			<form
-				className="space-y-6"
+				className="space-y-4"
 				onSubmit={(event) => {
 					event.preventDefault();
 					event.stopPropagation();
@@ -100,11 +93,10 @@ export function ResetPasswordPage({ token }: Props) {
 					)}
 				</form.Field>
 
-				<Button type="submit" className="w-full" disabled={isSubmitting}>
+				<Button type="submit" className="h-11 w-full" disabled={isSubmitting}>
 					<Trans comment="Primary action button label on reset-password form">Reset Password</Trans>
 				</Button>
 			</form>
-			</div>
-		</>
+		</AuthPanel>
 	);
 }

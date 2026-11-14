@@ -8,6 +8,7 @@ import { Button } from "@reactive-resume/ui/components/button";
 import { FormControl, FormItem, FormLabel, FormMessage } from "@reactive-resume/ui/components/form";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { AuthPanel } from "../components/auth-panel";
 import { PasswordInput } from "@/components/input/password-input";
 import { getReadableErrorMessage } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
@@ -73,19 +74,12 @@ export function ResumePasswordPage({ username, slug, redirectPath }: ResumePassw
 	});
 
 	return (
-		<>
-			<div className="space-y-4 text-center">
-				<h1 className="font-display text-[30px] leading-9 font-medium">
-					<Trans>This resume is password protected</Trans>
-				</h1>
-
-				<div className="leading-relaxed text-ink-3">
-					<Trans>Enter the password the resume owner shared with you.</Trans>
-				</div>
-			</div>
-
+		<AuthPanel
+			title={<Trans>This resume is password protected</Trans>}
+			description={<Trans>Enter the password the resume owner shared with you.</Trans>}
+		>
 			<form
-				className="space-y-6"
+				className="space-y-4"
 				onSubmit={(event) => {
 					event.preventDefault();
 					event.stopPropagation();
@@ -116,11 +110,11 @@ export function ResumePasswordPage({ username, slug, redirectPath }: ResumePassw
 					)}
 				</form.Field>
 
-				<Button type="submit" className="w-full" disabled={isPending}>
+				<Button type="submit" className="h-11 w-full" disabled={isPending}>
 					<Icon name="lock-open" size={16} />
 					<Trans comment="Primary action button label to unlock a password-protected resume">Unlock</Trans>
 				</Button>
 			</form>
-		</>
+		</AuthPanel>
 	);
 }

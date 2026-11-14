@@ -4,6 +4,7 @@ import { Link, useRouteContext } from "@tanstack/react-router";
 import { Alert, AlertDescription, AlertTitle } from "@reactive-resume/ui/components/alert";
 import { buttonVariants } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
+import { AuthPanel } from "../components/auth-panel";
 
 function getErrorMessage(code: string | undefined): string {
 	switch (code) {
@@ -58,15 +59,13 @@ export function AuthErrorPage({ code, description }: AuthErrorPageProps) {
 	const returnsToSettings = Boolean(context.session);
 
 	return (
-		<>
-			<div className="space-y-1 text-center">
-				<h1 className="text-2xl font-semibold tracking-tight">
-					<Trans comment="Title on the page shown after a failed or cancelled OAuth sign-in">
-						Sign-in didn't complete
-					</Trans>
-				</h1>
-			</div>
-
+		<AuthPanel
+			title={
+				<Trans comment="Title on the page shown after a failed or cancelled OAuth sign-in">
+					Sign-in didn't complete
+				</Trans>
+			}
+		>
 			<Alert>
 				<Icon name="warning" size={16} />
 				<AlertTitle>{getErrorMessage(code)}</AlertTitle>
@@ -97,6 +96,6 @@ export function AuthErrorPage({ code, description }: AuthErrorPageProps) {
 					</Trans>
 				</Link>
 			)}
-		</>
+		</AuthPanel>
 	);
 }
