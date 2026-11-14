@@ -201,7 +201,6 @@ function AccountPage() {
 
 					<Section
 						title={<Trans>Credit history</Trans>}
-						count={list.length}
 						action={
 							<Link to="/dashboard/transaksi" className="shrink-0 text-[13px] text-ink-2 hover:text-ink">
 								<Trans>See all orders</Trans>
