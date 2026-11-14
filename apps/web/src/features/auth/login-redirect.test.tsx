@@ -294,4 +294,18 @@ describe("auth panel", () => {
 
 		expect(footer?.contains(screen.getByRole("link", { name: "Create one" }))).toBe(true);
 	});
+
+	it.each([
+		["register", <RegisterPage key="register" disableEmailAuth={false} />],
+		["two-factor", <VerifyTwoFactorPage key="two-factor" />],
+		["backup code", <VerifyTwoFactorBackupPage key="backup" />],
+	])("keeps the %s heading inside the shared panel", (_name, page) => {
+		const { container } = render(<I18nProvider i18n={i18n}>{page}</I18nProvider>);
+
+		const panel = container.querySelector("[data-auth-panel]");
+		const headings = container.querySelectorAll("h1");
+
+		expect(headings).toHaveLength(1);
+		expect(panel?.contains(headings[0] ?? null)).toBe(true);
+	});
 });
