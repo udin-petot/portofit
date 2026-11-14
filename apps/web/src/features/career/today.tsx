@@ -8,7 +8,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link, useRouter } from "@tanstack/react-router";
 import { AnimatePresence } from "motion/react";
 import { useRef, useState } from "react";
-import { Button } from "@reactive-resume/ui/components/button";
+import { Button, buttonVariants } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { IconButton } from "@reactive-resume/ui/components/icon-button";
 import { Skeleton } from "@reactive-resume/ui/components/skeleton";
@@ -73,6 +73,7 @@ export function TodayPage({ schedule, onScheduleChange }: TodayPageProps) {
 	return (
 		<div className="flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start xl:grid-cols-[minmax(0,1fr)_380px]">
 			<div className="contents lg:flex lg:min-w-0 lg:flex-col lg:gap-7">
+				<StartHere className="order-1 lg:order-none" />
 				<NeedsYou now={now} onReview={reviewRoles} className="order-2 lg:order-none" />
 				<NewRoles
 					ref={rolesRef}
@@ -89,6 +90,87 @@ export function TodayPage({ schedule, onScheduleChange }: TodayPageProps) {
 			</div>
 			<ScheduleSheet schedule={schedule} onScheduleChange={onScheduleChange} onDelete={deleteSchedule} />
 		</div>
+	);
+}
+
+/** A short, state-aware guide for a new account. It disappears once the profile and first application exist. */
+function StartHere({ className }: { className?: string }) {
+	const applications = useQuery(applicationsListQueryOptions());
+	const facts = useQuery(orpc.career.facts.queryOptions({ input: { applicationId: null, all: true } }));
+
+	if (applications.isPending || facts.isPending || applications.isError || facts.isError) return null;
+	const hasApplication = (applications.data?.length ?? 0) > 0;
+	const hasProfile = (facts.data?.length ?? 0) > 0;
+	if (hasApplication && hasProfile) return null;
+
+	const steps = [
+		{
+			done: hasApplication,
+			label: t`Save a job or record an application`,
+			hint: t`Start with the job you are chasing now.`,
+			to: "/dashboard/applications" as const,
+			search: { create: true },
+		},
+		{
+			done: hasProfile,
+			label: t`Add your first experience`,
+			hint: t`This is what the coach uses to ground its answers.`,
+			to: "/dashboard/career/knowledge/facts" as const,
+		},
+		{
+			done: false,
+			label: t`Ask the coach`,
+			hint: t`Use it for a CV review or an interview you have coming up.`,
+			to: "/dashboard/career/coach/{-$conversationId}" as const,
+		},
+	];
+
+	return (
+		<section aria-labelledby="start-here" className={cn("rounded-xl border border-line bg-surface p-4", className)}>
+			<p id="start-here" className="text-sm font-semibold">
+				<Trans>Start here</Trans>
+			</p>
+			<p className="mt-1 text-[13px] leading-5 text-ink-2">
+				<Trans>Three small steps. You can stop and come back at any time.</Trans>
+			</p>
+			<ol className="mt-3 grid gap-2 sm:grid-cols-3">
+				{steps.map((step, index) => (
+					<li key={step.label}>
+						<Link
+							to={step.to}
+							search={"search" in step ? step.search : undefined}
+							className={cn(
+								"flex h-full items-start gap-2 rounded-lg p-2.5 transition-colors hover:bg-hover",
+								step.done && "text-ink-3",
+							)}
+						>
+							<span
+								className={cn(
+									"mt-px grid size-5 shrink-0 place-items-center rounded-full text-[11px] font-semibold",
+									step.done ? "text-accent-ink bg-accent" : "bg-sunken text-ink-3",
+								)}
+							>
+								{step.done ? <Icon name="check" size={12} /> : index + 1}
+							</span>
+							<span className="grid gap-0.5">
+								<span className={cn("text-[13px] leading-5 font-medium", step.done && "line-through")}>
+									{step.label}
+								</span>
+								<span className="text-xs leading-[17px] text-ink-3">{step.hint}</span>
+							</span>
+						</Link>
+					</li>
+				))}
+			</ol>
+			<Link
+				to="/dashboard/applications"
+				search={{ create: true }}
+				className={cn(buttonVariants({ size: "sm", variant: "secondary" }), "mt-2")}
+			>
+				<Icon name="plus" size={16} />
+				<Trans>Add my first job</Trans>
+			</Link>
+		</section>
 	);
 }
 
@@ -225,7 +307,7 @@ function NeedsYou({ now, onReview, className }: NeedsYouProps) {
 
 	return (
 		<section aria-labelledby="needs-you" className={cn("flex flex-col gap-2.5", className)}>
-			<SectionHeading id="needs-you" title={t`Needs you`} count={data ? unread.length : undefined} />
+			<SectionHeading id="needs-you" title={t`Needs action`} count={data ? unread.length : undefined} />
 			{isError || applicationQuery.isError ? (
 				<CareerLoadError
 					onRetry={() => {
@@ -290,11 +372,11 @@ function NeedsYou({ now, onReview, className }: NeedsYouProps) {
 					) : (
 						<div className="flex flex-col items-center gap-1.5 rounded-xl border border-dashed border-line-2 p-7 text-center">
 							<p className="font-display text-[22px] leading-7 font-medium">
-								<Trans>You're up to date</Trans>
+								<Trans>Nothing needs you right now</Trans>
 							</p>
 							<p className="max-w-[300px] text-sm text-ink-2">
 								<Trans>
-									Interview briefings, follow-ups that are due, and finished runs land here when they are ready.
+									Interview briefings, follow-ups that are due, and search results land here when they are ready.
 								</Trans>
 							</p>
 							{read.length > 0 && (
@@ -404,7 +486,7 @@ function NewRoles({ ref, now, deleted, onOpenSchedule, className }: NewRolesProp
 		if (!active.enabled)
 			return (
 				<p className="flex flex-wrap items-center gap-x-1 px-0.5 py-1.5 text-[13px] text-ink-3">
-					<Trans>No new roles. Discovery is paused.</Trans>
+					<Trans>No new roles. Automatic search is paused.</Trans>
 					<Button
 						variant="link"
 						className="text-[13px] text-ink-2 underline underline-offset-3"
@@ -419,10 +501,10 @@ function NewRoles({ ref, now, deleted, onOpenSchedule, className }: NewRolesProp
 		return (
 			<p className="px-0.5 py-1.5 text-[13px] text-ink-3">
 				{offset === 0
-					? t`No new roles. Discovery runs again today at ${clock}.`
+					? t`No new roles. Automatic search runs again today at ${clock}.`
 					: offset === 1
-						? t`No new roles. Discovery runs again tomorrow at ${clock}.`
-						: t`No new roles. Discovery runs again on ${day(active.nextRunAt)} at ${clock}.`}
+						? t`No new roles. Automatic search runs again tomorrow at ${clock}.`
+						: t`No new roles. Automatic search runs again on ${day(active.nextRunAt)} at ${clock}.`}
 			</p>
 		);
 	};
@@ -431,7 +513,7 @@ function NewRoles({ ref, now, deleted, onOpenSchedule, className }: NewRolesProp
 		<section ref={ref} aria-labelledby="new-roles" className={cn("flex flex-col gap-2.5", className)}>
 			<SectionHeading
 				id="new-roles"
-				title={t`New roles from your search`}
+				title={t`New roles for you`}
 				count={rows ? visible.filter((row) => !tracked[row.id]).length : undefined}
 				note={t`Nothing is applied for or created until you choose.`}
 			/>
@@ -458,7 +540,7 @@ function NewRoles({ ref, now, deleted, onOpenSchedule, className }: NewRolesProp
 							onClick={() => onOpenSchedule("new:discovery")}
 						>
 							<Icon name="globe-simple" size={18} />
-							<Trans>Set up discovery</Trans>
+							<Trans>Set up automatic search</Trans>
 						</Button>
 					</div>
 				)
@@ -794,7 +876,7 @@ function Schedules({ deleted, onOpenSchedule, className }: SchedulesProps) {
 			<div className="flex items-center ps-4 pe-2.5 pt-3.5 pb-2.5">
 				<Eyebrow className="flex-1">
 					<span id="schedules">
-						<Trans>Schedules</Trans>
+						<Trans>Automatic searches</Trans>
 					</span>
 				</Eyebrow>
 				<Button variant="ghost" size="sm" className="text-ink-2" onClick={() => onOpenSchedule("new")}>

@@ -3,7 +3,7 @@ import { getLocaleAlternates, localizedUrl } from "./locale";
 
 describe("locale URLs", () => {
 	it("keeps the default locale on the plain address and puts others in the locale parameter", () => {
-		expect(localizedUrl("https://rxresu.me/?locale=de-DE", "en-US")).toBe("https://rxresu.me/");
+		expect(localizedUrl("https://rxresu.me/?locale=de-DE", "id-ID")).toBe("https://rxresu.me/");
 		expect(localizedUrl("https://rxresu.me/", "de-DE")).toBe("https://rxresu.me/?locale=de-DE");
 	});
 

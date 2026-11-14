@@ -182,14 +182,14 @@ function Sidebar() {
 			<div className="mt-auto grid gap-2">
 				{trash && <NavLink item={trash} current={isCurrent(trash.to)} />}
 				<Button
-					aria-label={t`New`}
+					aria-label={t`New document`}
 					aria-keyshortcuts="N"
 					className="h-9 justify-between"
 					onClick={() => openDialog("document.new", undefined)}
 				>
 					<span className="flex items-center gap-1.5">
 						<Icon name="plus" />
-						<Trans>New</Trans>
+						<Trans>New document</Trans>
 					</span>
 					<Kbd className="bg-on-accent/15 text-on-accent">N</Kbd>
 				</Button>
@@ -282,8 +282,8 @@ function Rail() {
 						/>
 					</RailTip>
 				)}
-				<RailTip label={t`New`} icon="plus">
-					<Button size="icon" aria-label={t`New`} onClick={() => openDialog("document.new", undefined)} />
+				<RailTip label={t`New document`} icon="plus">
+					<Button size="icon" aria-label={t`New document`} onClick={() => openDialog("document.new", undefined)} />
 				</RailTip>
 				<UserDropdownMenu>
 					{({ session }) => (

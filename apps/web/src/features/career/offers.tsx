@@ -103,9 +103,12 @@ export function OffersPage({ a, b }: OffersPageProps) {
 				<h2 className="font-display text-[22px] leading-7 font-medium">
 					<Trans>No offers to compare yet</Trans>
 				</h2>
-				<p className="max-w-[340px] text-sm text-ink-2">
-					<Trans>Paste an offer into an application's Messages tab.</Trans>
+				<p className="max-w-[360px] text-sm text-ink-2">
+					<Trans>Record an offer from an application, then compare pay, place and what you give up here.</Trans>
 				</p>
+				<Button variant="secondary" onClick={() => void navigate({ to: "/dashboard/applications" })}>
+					<Trans>Go to applications</Trans>
+				</Button>
 			</div>
 		);
 
@@ -216,7 +219,7 @@ function ComparisonTable({ offers, left, right, onChoose }: ComparisonTableProps
 										<Trans>Save another offer to compare</Trans>
 									</p>
 									<p className="text-[13px] text-ink-3">
-										<Trans>Paste an offer into an application's Messages tab.</Trans>
+										<Trans>Record another offer from an application.</Trans>
 									</p>
 									{offers.length > 1 && (
 										<OfferHeader

@@ -27,7 +27,8 @@ import { getOrpcErrorMessage } from "@/libs/error-message";
 import { client, orpc } from "@/libs/orpc/client";
 
 type Parsed = RouterOutput["applications"]["ai"]["parsePosting"];
-type Stage = "saved" | "applied" | "interview";
+export type ApplicationStartStage = "saved" | "applied" | "interview";
+type Stage = ApplicationStartStage;
 
 const STAGES: readonly Stage[] = ["saved", "applied", "interview"];
 const MAX_POSTING_CHARS = 20_000;
@@ -55,6 +56,7 @@ type AddApplicationDialogProps = {
 	open: boolean;
 	onOpenChange: (open: boolean) => void;
 	onAdded: (id: string) => void;
+	initialStage?: ApplicationStartStage;
 };
 
 /**
@@ -62,7 +64,12 @@ type AddApplicationDialogProps = {
  * provider when one is set up) into role and company, which stay editable; the posting itself is saved with the
  * application for Check, the assistant and letters. Add, or Add and tailor a resume.
  */
-export function AddApplicationDialog({ open, onOpenChange, onAdded }: AddApplicationDialogProps) {
+export function AddApplicationDialog({
+	open,
+	onOpenChange,
+	onAdded,
+	initialStage = "saved",
+}: AddApplicationDialogProps) {
 	// A fresh form for every open, kept in place while the dialog animates closed.
 	const [instance, setInstance] = useState(0);
 	const [wasOpen, setWasOpen] = useState(open);
@@ -74,15 +81,24 @@ export function AddApplicationDialog({ open, onOpenChange, onAdded }: AddApplica
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
 			<DialogContent className="max-h-[85svh] overflow-y-auto sm:max-w-[560px]">
-				<AddApplicationForm key={instance} onClose={() => onOpenChange(false)} onAdded={onAdded} />
+				<AddApplicationForm
+					key={instance}
+					initialStage={initialStage}
+					onClose={() => onOpenChange(false)}
+					onAdded={onAdded}
+				/>
 			</DialogContent>
 		</Dialog>
 	);
 }
 
-type AddApplicationFormProps = { onClose: () => void; onAdded: (id: string) => void };
+type AddApplicationFormProps = {
+	initialStage: ApplicationStartStage;
+	onClose: () => void;
+	onAdded: (id: string) => void;
+};
 
-function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
+function AddApplicationForm({ initialStage, onClose, onAdded }: AddApplicationFormProps) {
 	const id = useId();
 	const { data: webAccess } = useQuery(orpc.webAccess.status.queryOptions());
 	const { data: documents } = useQuery(orpc.documents.list.queryOptions({ input: { trashed: false } }));
@@ -91,7 +107,7 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 	const [input, setInput] = useState("");
 	const [role, setRole] = useState("");
 	const [company, setCompany] = useState("");
-	const [stage, setStage] = useState<Stage>("saved");
+	const [stage, setStage] = useState<Stage>(initialStage);
 	const [stageDate, setStageDate] = useState(() => new Date().toLocaleDateString("en-CA"));
 	const [resumeId, setResumeId] = useState("");
 	const [coverLetterId, setCoverLetterId] = useState("");
@@ -193,7 +209,12 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 		try {
 			const applicationId = await create.mutateAsync(posting);
 			invalidate();
-			toast.add({ description: t`Added ${role.trim()} at ${company.trim()}` });
+			toast.add({
+				description:
+					stage === "saved"
+						? t`Saved ${role.trim()} at ${company.trim()} to saved jobs. This is not an application yet.`
+						: t`Added ${role.trim()} at ${company.trim()}`,
+			});
 			onClose();
 			if (tailor)
 				openDialog("document.new", { step: "copy", applicationId, ...(resumeId ? { sourceResumeId: resumeId } : {}) });
@@ -215,11 +236,11 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 			}}
 		>
 			<DialogHeader>
-				<DialogTitle>
-					<Trans>Save a job</Trans>
-				</DialogTitle>
-				<DialogDescription className="sr-only">
-					<Trans>Paste a job link or posting, then check the role and company.</Trans>
+				<DialogTitle>{stage === "saved" ? t`Save a job` : t`Add application`}</DialogTitle>
+				<DialogDescription>
+					{stage === "saved"
+						? t`Save a job you have not applied to yet. It stays out of your applications until you mark it applied.`
+						: t`Record a job you already applied to, including the date and files you sent.`}
 				</DialogDescription>
 			</DialogHeader>
 
@@ -457,7 +478,7 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 							className="min-h-7 max-w-full flex-auto [overflow-wrap:anywhere] whitespace-normal"
 						>
 							{value === "saved" ? (
-								<Trans>Saved</Trans>
+								<Trans>Not applied yet</Trans>
 							) : value === "applied" ? (
 								<Trans>Already applied</Trans>
 							) : (
@@ -540,10 +561,10 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 			)}
 			<DialogFooter className="sticky bottom-0 z-10 -mx-6 mt-2 -mb-6 border-t border-line bg-raised px-6 py-3">
 				<Button type="button" variant="secondary" disabled={!ready} onClick={() => void add(false)}>
-					{stage === "saved" ? <Trans>Save job</Trans> : <Trans>Record application</Trans>}
+					{stage === "saved" ? <Trans>Save job</Trans> : <Trans>Add application</Trans>}
 				</Button>
 				<Button type="button" disabled={!ready} onClick={() => void add(true)}>
-					<Trans>Save and prepare resume</Trans>
+					{stage === "saved" ? <Trans>Save and prepare resume</Trans> : <Trans>Add and prepare resume</Trans>}
 				</Button>
 			</DialogFooter>
 		</form>

@@ -17,7 +17,10 @@ import { Input } from "@reactive-resume/ui/components/input";
 import { Skeleton } from "@reactive-resume/ui/components/skeleton";
 import { Tabs, TabsList, TabsTrigger } from "@reactive-resume/ui/components/tabs";
 import { cn } from "@reactive-resume/utils/style";
-import { AddApplicationDialog } from "@/features/applications/components/add-application-dialog";
+import {
+	AddApplicationDialog,
+	type ApplicationStartStage,
+} from "@/features/applications/components/add-application-dialog";
 import { ApplicationDetailSheet } from "@/features/applications/components/application-detail-sheet";
 import { ApplicationFormSheet } from "@/features/applications/components/application-form-sheet";
 import { ApplicationBoard } from "@/features/applications/components/board";
@@ -74,6 +77,7 @@ function RouteComponent() {
 	// Typing filters at once; the URL only seeds the search.
 	const [query, setQuery] = useState(q);
 	const [adding, setAdding] = useState(false);
+	const [addingStage, setAddingStage] = useState<ApplicationStartStage>("applied");
 	const [importing, setImporting] = useState(false);
 	const [exporting, setExporting] = useState(false);
 	const [editing, setEditing] = useState<Application | null>(null);
@@ -84,10 +88,15 @@ function RouteComponent() {
 	const { data: applications, isPending, isError, isFetching, refetch } = useQuery(applicationsListQueryOptions());
 	const setSearch = (patch: Partial<Search>) =>
 		void navigate({ resetScroll: false, search: (prev: Search) => ({ ...prev, ...patch }) });
+	const openAdd = (stage: ApplicationStartStage) => {
+		setAddingStage(stage);
+		setAdding(true);
+	};
 
 	useEffect(() => {
 		if (!create) return;
 		// oxlint-disable-next-line react/set-state-in-effect -- takes the one-shot ?create flag from the address, then clears it
+		setAddingStage("applied");
 		setAdding(true);
 		void navigate({ replace: true, resetScroll: false, search: (prev: Search) => ({ ...prev, create: false }) });
 	}, [create, navigate]);
@@ -121,7 +130,7 @@ function RouteComponent() {
 				<h1 className="font-display text-[30px] leading-9 font-medium">
 					<Trans>Applications</Trans>
 				</h1>
-				<div className="flex items-center gap-2">
+				<div className="flex flex-wrap items-center justify-end gap-2">
 					<DropdownMenu>
 						<DropdownMenuTrigger render={<Button variant="secondary" aria-label={t`Import or export CSV`} />}>
 							<Icon name="file-text" />
@@ -136,9 +145,13 @@ function RouteComponent() {
 							</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>
-					<Button onClick={() => setAdding(true)}>
-						<Icon name="plus" />
+					<Button variant="secondary" onClick={() => openAdd("saved")}>
+						<Icon name="bookmark-simple" />
 						<Trans>Save job</Trans>
+					</Button>
+					<Button onClick={() => openAdd("applied")}>
+						<Icon name="plus" />
+						<Trans>Add application</Trans>
 					</Button>
 				</div>
 			</header>
@@ -160,7 +173,7 @@ function RouteComponent() {
 			)}
 
 			{isError && !applications ? null : empty ? (
-				<EmptyState onAdd={() => setAdding(true)} onImport={() => setImporting(true)} />
+				<EmptyState onAdd={openAdd} onImport={() => setImporting(true)} />
 			) : (
 				<>
 					<div className="flex flex-wrap items-center gap-2">
@@ -215,7 +228,7 @@ function RouteComponent() {
 								className={cn(saved && "bg-sunken")}
 							>
 								<Icon name={saved ? "check-square" : "square"} size={18} />
-								<Trans>Unapplied</Trans>
+								<Trans>Saved jobs</Trans>
 								<span className="font-mono text-xs text-ink-3">{savedCount}</span>
 							</Button>
 						)}
@@ -235,7 +248,7 @@ function RouteComponent() {
 
 					<p className="text-xs leading-[18px] text-ink-3">
 						{shown === "list" ? (
-							<Trans>Every application in one table. Sort by what needs attention.</Trans>
+							<Trans>Track each application and see what needs attention next.</Trans>
 						) : shown === "board" ? (
 							<Trans>Drag a card to move an application through the stages.</Trans>
 						) : shown === "insights" ? (
@@ -250,10 +263,10 @@ function RouteComponent() {
 					) : allHidden ? (
 						<div className="grid justify-items-center gap-2 py-16 text-center">
 							<p className="text-sm font-medium">
-								<Trans>Only jobs you have applied to are shown.</Trans>
+								<Trans>Saved jobs are hidden from this list.</Trans>
 							</p>
 							<Button size="sm" variant="secondary" onClick={() => setSearch({ saved: true })}>
-								<Trans>Show unapplied</Trans>
+								<Trans>Show saved jobs</Trans>
 							</Button>
 						</div>
 					) : noMatches ? (
@@ -305,7 +318,7 @@ function RouteComponent() {
 				</>
 			)}
 
-			<AddApplicationDialog open={adding} onOpenChange={setAdding} onAdded={setSelectedId} />
+			<AddApplicationDialog open={adding} onOpenChange={setAdding} onAdded={setSelectedId} initialStage={addingStage} />
 			<ApplicationFormSheet
 				open={Boolean(editing)}
 				application={editing}
@@ -400,30 +413,45 @@ function FollowUpNudge({ applications }: { applications: Application[] }) {
 	);
 }
 
-function EmptyState({ onAdd, onImport }: { onAdd: () => void; onImport: () => void }) {
+function EmptyState({ onAdd, onImport }: { onAdd: (stage: ApplicationStartStage) => void; onImport: () => void }) {
 	return (
 		<div className="grid justify-items-center gap-3 py-20 text-center transition-[opacity,translate] duration-emphasized ease-enter starting:translate-y-2 starting:opacity-0">
 			<span className="grid size-12 place-items-center rounded-xl bg-sunken text-ink-2">
 				<Icon name="briefcase" size={26} />
 			</span>
 			<h2 className="text-lg font-semibold">
-				<Trans>Track your first job</Trans>
+				<Trans>Track your first application</Trans>
 			</h2>
-			<p className="max-w-sm text-sm text-ink-2">
+			<p className="max-w-md text-sm text-ink-2">
 				<Trans>
-					Save a job, then move it along as the company replies: applied, screening, interview, offer. Every stage you
-					update feeds the funnel in Insights.
+					Already applied? Record it here. Still looking? Save the job first, then mark it applied when you send your
+					application.
 				</Trans>
 			</p>
-			<div className="flex gap-2">
-				<Button onClick={onAdd}>
+			<ol className="grid max-w-md gap-1.5 text-left text-[13px] text-ink-2">
+				<li>
+					1. <Trans>Save a job or record one you already applied to.</Trans>
+				</li>
+				<li>
+					2. <Trans>Attach the resume and cover letter you sent.</Trans>
+				</li>
+				<li>
+					3. <Trans>Update the stage when the company replies.</Trans>
+				</li>
+			</ol>
+			<div className="flex flex-wrap justify-center gap-2">
+				<Button onClick={() => onAdd("applied")}>
 					<Icon name="plus" />
-					<Trans>Save job</Trans>
+					<Trans>Record an application</Trans>
 				</Button>
-				<Button variant="secondary" onClick={onImport}>
-					<Trans>Import from CSV</Trans>
+				<Button variant="secondary" onClick={() => onAdd("saved")}>
+					<Icon name="bookmark-simple" />
+					<Trans>Save a job first</Trans>
 				</Button>
 			</div>
+			<Button variant="link" size="sm" onClick={onImport} className="text-xs text-ink-3">
+				<Trans>Import from CSV</Trans>
+			</Button>
 		</div>
 	);
 }

@@ -34,7 +34,7 @@ function KnowledgeLayout() {
 			to: "/dashboard/career/knowledge/facts",
 			match: "/dashboard/career/knowledge/facts",
 			icon: "list-checks",
-			label: t`Facts`,
+			label: t`Experience`,
 			count: facts.data?.filter((fact) => fact.status !== "forgotten").length,
 		},
 		{
@@ -49,7 +49,7 @@ function KnowledgeLayout() {
 			match: "/dashboard/career/knowledge/preferences",
 			icon: "sliders-horizontal",
 			label: t({
-				message: "Preferences",
+				message: "Work preferences",
 				context: "Career preferences: the roles, places, pay and ways of working you want",
 			}),
 		},
@@ -59,7 +59,7 @@ function KnowledgeLayout() {
 		<div className="grid min-w-0 items-start gap-5 md:grid-cols-[200px_minmax(0,1fr)] md:gap-7">
 			<aside className="grid gap-5 [view-transition-name:knowledge-nav] md:sticky md:top-6">
 				<nav
-					aria-label={t`Knowledge`}
+					aria-label={t`Career Profile`}
 					className="flex gap-0.5 rounded-[9px] bg-sunken p-[3px] md:grid md:bg-transparent md:p-0"
 				>
 					{sections.map((section) => {
@@ -92,12 +92,27 @@ function KnowledgeLayout() {
 				</nav>
 				<p className="hidden px-2.5 text-xs leading-[17px] text-ink-3 md:block">
 					<Trans>
-						Your enabled facts, stories and preferences can be sent to your AI connection when you use coaching tools or
-						scheduled interview preparation. In chat, the Knowledge switch controls what is added to each message.
+						Your experience, stories and work preferences can be sent to your AI connection when you use coaching tools
+						or scheduled interview preparation. In chat, the Career Profile switch controls what is added to each
+						message.
 					</Trans>
 				</p>
 			</aside>
-			<div className="min-w-0">
+			<div className="grid min-w-0 gap-4">
+				{facts.data?.length === 0 && (
+					<section className="rounded-xl border border-line bg-surface p-4">
+						<p className="text-sm font-semibold">
+							<Trans>What is Career Profile?</Trans>
+						</p>
+						<p className="mt-1 max-w-[620px] text-[13px] leading-5 text-ink-2">
+							<Trans>
+								It is not an article. It is a record of your experience, stories and work preferences. The coach and
+								interview practice read it to give answers that are actually yours. Start with one experience, then add
+								more when you need them.
+							</Trans>
+						</p>
+					</section>
+				)}
 				<Outlet />
 			</div>
 		</div>

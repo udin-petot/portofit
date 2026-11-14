@@ -32,8 +32,8 @@ function CareerLayout() {
 			to: "/dashboard/career",
 			match: "/dashboard/career/",
 			icon: "tray",
-			label: t`Today`,
-			hint: t`What needs you today, new roles from your saved search, and scheduled runs.`,
+			label: t`Overview`,
+			hint: t`What needs your attention, new roles, and the searches you saved.`,
 		},
 		{
 			to: "/dashboard/career/coach/{-$conversationId}",
@@ -46,8 +46,8 @@ function CareerLayout() {
 			to: "/dashboard/career/knowledge/facts",
 			match: "/dashboard/career/knowledge",
 			icon: "books",
-			label: t`Knowledge`,
-			hint: t`Facts, stories and preferences about you. The coach and interview prep read these.`,
+			label: t`Career Profile`,
+			hint: t`Your experience, stories and work preferences. The coach and interview practice use them.`,
 		},
 		{
 			to: "/dashboard/career/offers",

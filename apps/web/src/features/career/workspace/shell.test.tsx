@@ -27,7 +27,11 @@ vi.mock("@/libs/orpc/client", () => {
 	});
 	return {
 		orpc: {
-			applications: { getById: endpoint("application"), ai: { prepare: endpoint("prepare") } },
+			applications: {
+				getById: endpoint("application"),
+				update: endpoint("update"),
+				ai: { prepare: endpoint("prepare") },
+			},
 			billing: { balances: endpoint("balances", async () => ({ application: 0, interview: 0 })) },
 			documents: { list: endpoint("documents", api.documents) },
 			career: {

@@ -121,8 +121,8 @@ export function FactsPage({ highlight }: FactsPageProps) {
 						type="search"
 						value={search}
 						onChange={(event) => setSearch(event.target.value)}
-						placeholder={t`Search facts`}
-						aria-label={t`Search facts`}
+						placeholder={t`Search experience`}
+						aria-label={t`Search experience`}
 						className="min-w-0 flex-1 bg-transparent text-[13px] outline-none placeholder:text-ink-3"
 					/>
 				</label>
@@ -169,7 +169,9 @@ export function FactsPage({ highlight }: FactsPageProps) {
 					{visible.length === 0 && (
 						<div className="grid justify-items-center gap-2 p-6 text-center text-sm text-ink-3">
 							<p>
-								{facts.length === 0 ? t`No facts yet. Add one above.` : t`No facts match. Try another word or type.`}
+								{facts.length === 0
+									? t`No experience yet. Add one above.`
+									: t`No experience matches. Try another word or type.`}
 							</p>
 							{type !== null && (
 								<Button variant="link" size="sm" onClick={() => setType(null)}>
@@ -278,7 +280,7 @@ function AddFact({ onAdded }: AddFactProps) {
 					if (event.key === "Enter" && !event.nativeEvent.isComposing) add();
 				}}
 				maxLength={2000}
-				placeholder={t`Add a fact, for example “I mentored two associate PMs in 2025”`}
+				placeholder={t`Add an experience, skill or preference`}
 				aria-label={t`New fact`}
 				className="h-[34px] min-w-0 flex-1 basis-60 bg-transparent text-sm outline-none placeholder:text-ink-3"
 			/>
