@@ -4,7 +4,8 @@ import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
 import { useQuery } from "@tanstack/react-query";
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate, useRouteContext } from "@tanstack/react-router";
+import { Avatar, AvatarFallback, AvatarImage } from "@reactive-resume/ui/components/avatar";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { getInitials } from "@reactive-resume/utils/string";
@@ -12,7 +13,6 @@ import { cn } from "@reactive-resume/utils/style";
 import { formatRupiah } from "@/features/billing/config";
 import { getPlanCopy } from "@/features/billing/plan-copy";
 import { useSignOut } from "@/hooks/use-sign-out";
-import { authClient } from "@/libs/auth/client";
 import { orpc } from "@/libs/orpc/client";
 
 export const Route = createFileRoute("/dashboard/akun")({
@@ -67,13 +67,14 @@ function AccountPage() {
 	const { i18n } = useLingui();
 	const signOut = useSignOut();
 	const navigate = useNavigate();
-	const { data: session, isPending: sessionLoading } = authClient.useSession();
+	// The dashboard route already refreshes this after a profile edit, so the account card follows Settings.
+	const { session } = useRouteContext({ from: "/dashboard" });
 	const balances = useQuery(orpc.billing.balances.queryOptions());
 	const plans = useQuery(orpc.billing.plans.queryOptions());
 	const orders = useQuery(orpc.billing.myOrders.queryOptions({ input: { limit: 50 } }));
 	const ledger = useQuery(orpc.billing.ledger.queryOptions({ input: { limit: 20 } }));
 
-	const user = session?.user as { name?: string; email?: string; createdAt?: string | Date } | undefined;
+	const user = session.user as { name?: string; email?: string; image?: string | null; createdAt?: string | Date };
 	const list = orders.data?.orders ?? [];
 	const entries = (ledger.data?.entries ?? []).slice(0, 8);
 	const paid = list.filter((order) => order.status === "lunas").length;
@@ -141,9 +142,12 @@ function AccountPage() {
 					<Section title={<Trans>Profile</Trans>}>
 						<div className={PANEL}>
 							<div className="flex items-center gap-3 px-4 py-3.5">
-								<span className="grid size-10 shrink-0 place-items-center rounded-[10px] bg-sunken text-[13px] font-semibold text-ink-2">
-									{sessionLoading ? "" : getInitials(user?.name ?? "")}
-								</span>
+								<Avatar className="size-10 rounded-[10px]">
+									<AvatarImage src={user.image ?? undefined} alt="" />
+									<AvatarFallback className="rounded-[10px] bg-sunken text-[13px] font-semibold text-ink-2">
+										{getInitials(user.name ?? "")}
+									</AvatarFallback>
+								</Avatar>
 								<div className="grid min-w-0 flex-1 gap-px">
 									<p className="truncate text-[15px] font-semibold text-ink">{user?.name || t`No name`}</p>
 									<p className="truncate text-[13px] text-ink-2">{user?.email}</p>
