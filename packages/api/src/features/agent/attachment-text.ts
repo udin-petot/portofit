@@ -66,11 +66,13 @@ function extractDocxText(data: Uint8Array): string {
 
 async function extractPdfText(data: Uint8Array, filename: string): Promise<string> {
 	const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
-	const task = getDocument({ data, useSystemFonts: false });
+	// Storage returns a Node Buffer; pdf.js deliberately rejects Buffer and asks for a plain Uint8Array.
+	const bytes = new Uint8Array(data);
+	const task = getDocument({ data: bytes, useSystemFonts: false });
 	try {
 		const document = await task.promise;
 		const raw = await harvestPdfDocument(document, {
-			file: { name: filename, sizeBytes: data.byteLength, magicBytesOk: true },
+			file: { name: filename, sizeBytes: bytes.byteLength, magicBytesOk: true },
 			maxPages: 30,
 			// The coach needs the words, not the layout/operator audit. Skipping the operator pass keeps
 			// a 20-page CV from spending the whole attachment budget on checks nobody reads.
