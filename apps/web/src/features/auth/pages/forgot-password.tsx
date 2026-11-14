@@ -57,7 +57,8 @@ export function ForgotPasswordPage() {
 
 	return (
 		<>
-			<div className="space-y-1 text-center">
+			<div className="rounded-xl border border-line bg-surface p-5">
+				<div className="space-y-1">
 				<h1 className="font-display text-[30px] leading-9 font-medium">
 					<Trans>Forgot your password?</Trans>
 				</h1>
@@ -116,6 +117,7 @@ export function ForgotPasswordPage() {
 					<Trans comment="Primary action button label on forgot-password form">Send Password Reset Email</Trans>
 				</Button>
 			</form>
+			</div>
 		</>
 	);
 }

@@ -82,7 +82,8 @@ function TwoFactorVerificationPage({ backupCode = false }: TwoFactorVerification
 
 	return (
 		<>
-			<div className="space-y-1 text-center">
+			<div className="rounded-xl border border-line bg-surface p-5">
+				<div className="space-y-1">
 				<h1 className="font-display text-[30px] leading-9 font-medium">
 					{backupCode ? <Trans>Verify with a Backup Code</Trans> : <Trans>Two-Factor Authentication</Trans>}
 				</h1>
@@ -196,6 +197,7 @@ function TwoFactorVerificationPage({ backupCode = false }: TwoFactorVerification
 					}
 				/>
 			)}
+			</div>
 		</>
 	);
 }

@@ -57,7 +57,8 @@ export function ResetPasswordPage({ token }: Props) {
 
 	return (
 		<>
-			<div className="space-y-1 text-center">
+			<div className="rounded-xl border border-line bg-surface p-5">
+				<div className="space-y-1">
 				<h1 className="font-display text-[30px] leading-9 font-medium">
 					<Trans>Reset your password</Trans>
 				</h1>
@@ -103,6 +104,7 @@ export function ResetPasswordPage({ token }: Props) {
 					<Trans comment="Primary action button label on reset-password form">Reset Password</Trans>
 				</Button>
 			</form>
+			</div>
 		</>
 	);
 }
