@@ -1625,7 +1625,7 @@ msgstr "Sudah tercakup · pilih satu untuk menemukannya di halaman"
 
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account?"
-msgstr ""
+msgstr "Sudah punya akun?"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
