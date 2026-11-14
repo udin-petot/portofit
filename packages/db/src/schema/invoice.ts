@@ -1,5 +1,5 @@
-import { generateId } from "@reactive-resume/utils/string";
 import * as pg from "drizzle-orm/pg-core";
+import { generateId } from "@reactive-resume/utils/string";
 import { user } from "./auth";
 import { billingOrder } from "./billing";
 
@@ -12,6 +12,7 @@ export type InvoiceSnapshot = {
 	customerEmail: string;
 	planName: string;
 	credits: number;
+	items?: { kind: string; credits: number }[];
 	amountIdr: number;
 	uniqueCode: number;
 	totalIdr: number;

@@ -6,6 +6,7 @@ export type InvoicePdfSnapshot = {
 	customerEmail: string;
 	planName: string;
 	credits: number;
+	items?: { kind: string; credits: number }[];
 	amountIdr: number;
 	uniqueCode: number;
 	totalIdr: number;
@@ -21,6 +22,12 @@ export type InvoicePdfInput = {
 };
 
 const rupiah = (amount: number) => `Rp${amount.toLocaleString("id-ID")}`;
+
+const ITEM_LABEL: Record<string, string> = {
+	application: "lamaran",
+	interview: "sesi wawancara",
+	coach: "pesan Coach",
+};
 
 const tanggal = (value: Date | string) =>
 	new Intl.DateTimeFormat("id-ID", { dateStyle: "long", timeZone: "Asia/Jakarta" }).format(new Date(value));
@@ -97,7 +104,14 @@ const styles = {
 	colDesc: { flex: 1 },
 	colCredits: { width: 64, textAlign: "right" },
 	colAmount: { width: 100, textAlign: "right" },
-	guide: { flexDirection: "row", marginTop: 26, backgroundColor: PAPER, borderRadius: 7, paddingVertical: 13, paddingHorizontal: 14 },
+	guide: {
+		flexDirection: "row",
+		marginTop: 26,
+		backgroundColor: PAPER,
+		borderRadius: 7,
+		paddingVertical: 13,
+		paddingHorizontal: 14,
+	},
 	guideLeft: { flex: 1.45, paddingRight: 20 },
 	guideRight: { flex: 1, borderLeftWidth: 0.75, borderLeftColor: LINE, paddingLeft: 16 },
 	step: { flexDirection: "row", alignItems: "flex-start", marginBottom: 5 },
@@ -190,7 +204,12 @@ export function InvoiceDocument({ number, issuedAt, snapshot }: InvoicePdfInput)
 				</View>
 
 				<View style={styles.row}>
-					<Text style={[styles.cell, styles.colDesc]}>Paket {snapshot.planName}</Text>
+					<Text style={[styles.cell, styles.colDesc]}>
+						Paket {snapshot.planName}
+						{snapshot.items && snapshot.items.length > 0
+							? `\n${snapshot.items.map((item) => `${item.credits} ${ITEM_LABEL[item.kind] ?? item.kind}`).join("\n")}`
+							: ""}
+					</Text>
 					<Text style={[styles.cell, styles.colCredits]}>{snapshot.credits}</Text>
 					<Text style={[styles.cell, styles.colAmount]}>{rupiah(snapshot.amountIdr)}</Text>
 				</View>
@@ -210,11 +229,15 @@ export function InvoiceDocument({ number, issuedAt, snapshot }: InvoicePdfInput)
 						</View>
 						<View style={styles.step}>
 							<Text style={styles.stepNumber}>2</Text>
-							<Text style={styles.stepText}>Tekan persiapan di tab kecocokan. Satu kredit membuat CV dan surat lamaran.</Text>
+							<Text style={styles.stepText}>
+								Tekan persiapan di tab kecocokan. Satu kredit membuat CV dan surat lamaran.
+							</Text>
 						</View>
 						<View style={styles.step}>
 							<Text style={styles.stepNumber}>3</Text>
-							<Text style={styles.stepText}>Periksa hasilnya, unduh PDF, lalu kirim sendiri ke perusahaan lewat situs mereka.</Text>
+							<Text style={styles.stepText}>
+								Periksa hasilnya, unduh PDF, lalu kirim sendiri ke perusahaan lewat situs mereka.
+							</Text>
 						</View>
 					</View>
 					<View style={styles.guideRight}>

@@ -1,6 +1,7 @@
+import type { ReactNode } from "react";
 import { t } from "@lingui/core/macro";
-import { Trans } from "@lingui/react/macro";
 import { useLingui } from "@lingui/react";
+import { Trans } from "@lingui/react/macro";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -16,6 +17,12 @@ type PricingPageProps = { signedIn: boolean; onOrder?: ((orderId: string) => voi
  * Daftar paket sebagai baris, bukan kartu besar. Dua paket saja tidak butuh dua kotak,
  * dan baris mengikuti irama blok lain di halaman ini.
  */
+const ITEM_NOUN: Record<string, string> = {
+	application: t`application`,
+	interview: t`interview session`,
+	coach: t`Coach message`,
+};
+
 export function PlanList({ signedIn, onOrder }: PricingPageProps) {
 	const navigate = useNavigate();
 	const { i18n } = useLingui();
@@ -43,39 +50,90 @@ export function PlanList({ signedIn, onOrder }: PricingPageProps) {
 		);
 	}
 
-	return (
-		<div className="divide-y divide-line overflow-hidden rounded-xl border border-line bg-surface">
-			{(data?.plans ?? []).map((plan) => {
-				const copy = getPlanCopy(plan as PlanLike, english);
-				return (
-					<section
-						key={plan.code}
-						className="flex flex-col gap-3 p-5 sm:min-h-[108px] sm:flex-row sm:items-center sm:justify-between sm:gap-6"
-					>
-						<div className="grid min-w-0 flex-1 gap-0.5">
-							<h2 className="text-[15px] font-semibold text-ink">{copy.name}</h2>
-							<p className="text-xs text-ink-3">
-								{plan.credits} {copy.unit}
-							</p>
-							<p className="mt-1 line-clamp-2 text-[13px] leading-snug text-ink-2">
-								{copy.description}
-							</p>
-						</div>
-						<div className="flex items-center justify-between gap-4 sm:flex-none sm:justify-end sm:gap-5">
-							<span className="text-2xl font-semibold text-ink tabular-nums sm:text-[22px]">
-								{formatRupiah(plan.priceIdr)}
+	const plans = data?.plans ?? [];
+	const singles = plans.filter((plan) => plan.code === "lamaran" || plan.code === "wawancara");
+	const bundles = plans.filter((plan) => plan.kind === "bundle");
+	const packs = plans.filter((plan) => !singles.includes(plan) && plan.kind !== "bundle");
+
+	const card = (plan: (typeof plans)[number]) => {
+		const copy = getPlanCopy(plan as PlanLike, english);
+		const compare = plan.compareAtIdr ?? 0;
+		const savings = compare > plan.priceIdr ? Math.round(((compare - plan.priceIdr) / compare) * 100) : null;
+		const featured = plan.code === "karier-lengkap";
+
+		return (
+			<article
+				key={plan.code}
+				className={
+					featured
+						? "relative flex flex-col gap-3 rounded-xl border border-accent bg-surface p-4"
+						: "relative flex flex-col gap-3 rounded-xl border border-line bg-surface p-4"
+				}
+			>
+				<div className="flex items-start justify-between gap-2">
+					<h2 className="text-[15px] font-semibold text-ink">{copy.name}</h2>
+					<div className="flex shrink-0 flex-col items-end gap-1">
+						{featured ? (
+							<span className="rounded-full bg-accent px-2 py-0.5 text-[10px] font-semibold text-on-accent">
+								<Trans>Most popular</Trans>
 							</span>
-							<Button
-								className="h-11 w-40 sm:h-9 sm:w-32"
-								onClick={() => void buy(plan.code)}
-								disabled={createOrder.isPending}
-							>
-								{createOrder.isPending ? t`Preparing…` : t`Buy`}
-							</Button>
-						</div>
-					</section>
-				);
-			})}
+						) : null}
+						{savings !== null ? (
+							<span className="rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold text-accent-text">
+								<Trans>Save {savings}%</Trans>
+							</span>
+						) : null}
+					</div>
+				</div>
+
+				<div className="flex items-baseline gap-2">
+					<span className="text-2xl font-semibold text-ink tabular-nums">{formatRupiah(plan.priceIdr)}</span>
+					{savings !== null ? (
+						<span className="text-xs text-ink-3 tabular-nums line-through">{formatRupiah(compare)}</span>
+					) : null}
+				</div>
+
+				<ul className="grid gap-1.5 text-[13px] leading-5 text-ink-2">
+					{plan.items.map((item) => (
+						<li key={item.kind} className="flex items-start gap-2">
+							<span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-accent-text" />
+							<span>
+								{item.credits}× {ITEM_NOUN[item.kind] ?? item.kind}
+							</span>
+						</li>
+					))}
+				</ul>
+
+				<p className="line-clamp-3 text-[13px] leading-snug text-ink-3">{copy.description}</p>
+
+				<Button
+					className="mt-auto h-11 w-full sm:h-9"
+					variant={featured ? "primary" : "secondary"}
+					onClick={() => void buy(plan.code)}
+					disabled={createOrder.isPending}
+				>
+					{createOrder.isPending ? t`Preparing…` : t`Buy`}
+				</Button>
+			</article>
+		);
+	};
+
+	const group = (title: ReactNode, list: typeof plans, description?: string) =>
+		list.length === 0 ? null : (
+			<section className="grid gap-2">
+				<div>
+					<h2 className="text-sm font-semibold text-ink">{title}</h2>
+					{description ? <p className="mt-0.5 text-xs text-ink-3">{description}</p> : null}
+				</div>
+				<div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">{list.map(card)}</div>
+			</section>
+		);
+
+	return (
+		<div className="grid gap-6">
+			{group(<Trans>Starter packages</Trans>, packs, t`One feature, enough for a few tries.`)}
+			{group(<Trans>Career bundles</Trans>, bundles, t`Everything for one job hunt, at a lower price.`)}
+			{group(<Trans>Single credits</Trans>, singles, t`Buy only what you need right now.`)}
 		</div>
 	);
 }

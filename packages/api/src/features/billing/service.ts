@@ -1,5 +1,5 @@
 import { ORPCError } from "@orpc/server";
-import { and, asc, desc, eq, gt, gte, ilike, lt, or, sql } from "drizzle-orm";
+import { and, asc, desc, eq, gt, gte, ilike, inArray, lt, or, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import {
 	adminAudit,
@@ -7,7 +7,9 @@ import {
 	billingCreditLedger,
 	billingOrder,
 	billingOrderEmail,
+	billingOrderItem,
 	billingPlan,
+	billingPlanItem,
 	invoice,
 	user,
 } from "@reactive-resume/db/schema";
@@ -16,7 +18,9 @@ import { getStorageService, inferContentType } from "../storage/service";
 import { canAcceptProof, computeExpiry } from "./expiry";
 import { proofRejection } from "./proof";
 
-export type PlanKind = "application" | "interview";
+export type CreditKind = "application" | "interview" | "coach";
+export type PlanKind = CreditKind | "bundle";
+export type PlanItem = { kind: CreditKind; credits: number };
 export type OrderStatus = "menunggu_bayar" | "menunggu_verifikasi" | "lunas" | "ditolak" | "hangus";
 export type PaymentMethod = "qris" | "wa";
 
@@ -35,6 +39,7 @@ export type OrderDto = {
 	planName: string;
 	kind: PlanKind;
 	credits: number;
+	items: PlanItem[];
 	amountIdr: number;
 	uniqueCode: number;
 	totalIdr: number;
@@ -51,13 +56,16 @@ export type OrderDto = {
 type OrderRow = typeof billingOrder.$inferSelect;
 type Tx = Parameters<Parameters<typeof db.transaction>[0]>[0];
 
-function toOrderDto(order: OrderRow): OrderDto {
+function toOrderDto(order: OrderRow, items?: PlanItem[]): OrderDto {
+	const resolved =
+		items ?? (order.kind === "bundle" ? [] : [{ kind: order.kind as CreditKind, credits: order.credits }]);
 	return {
 		id: order.id,
 		planCode: order.planCode,
 		planName: order.planName,
 		kind: order.kind as PlanKind,
 		credits: order.credits,
+		items: resolved,
 		amountIdr: order.amountIdr,
 		uniqueCode: order.uniqueCode,
 		totalIdr: order.totalIdr,
@@ -85,12 +93,61 @@ function assertAdmin(role: string | null | undefined) {
 	if (role !== "admin") throw new ORPCError("FORBIDDEN", { message: "Butuh peran admin untuk tindakan ini." });
 }
 
-async function sumCredits(tx: Tx | typeof db, userId: string, kind: PlanKind) {
+async function sumCredits(tx: Tx | typeof db, userId: string, kind: CreditKind) {
 	const [row] = await tx
 		.select({ total: sql<number>`coalesce(sum(${billingCreditLedger.delta}), 0)::int` })
 		.from(billingCreditLedger)
 		.where(and(eq(billingCreditLedger.userId, userId), eq(billingCreditLedger.kind, kind)));
 	return row?.total ?? 0;
+}
+
+/** Isi katalog satu paket; paket lama tanpa baris item dibaca dari kolom kind/credits. */
+async function planItemsOf(
+	tx: Tx | typeof db,
+	plan: Pick<typeof billingPlan.$inferSelect, "id" | "kind" | "credits">,
+): Promise<PlanItem[]> {
+	const rows = await tx
+		.select({ kind: billingPlanItem.kind, credits: billingPlanItem.credits })
+		.from(billingPlanItem)
+		.where(eq(billingPlanItem.planId, plan.id));
+	if (rows.length > 0) return rows as PlanItem[];
+	if (plan.kind === "bundle") return [];
+	return [{ kind: plan.kind as CreditKind, credits: plan.credits }];
+}
+
+/** Salinan isi order; order lama tanpa baris item dibaca dari kolom kind/credits. */
+async function orderItemsOf(tx: Tx | typeof db, order: OrderRow): Promise<PlanItem[]> {
+	const rows = await tx
+		.select({ kind: billingOrderItem.kind, credits: billingOrderItem.credits })
+		.from(billingOrderItem)
+		.where(eq(billingOrderItem.orderId, order.id));
+	if (rows.length > 0) return rows as PlanItem[];
+	if (order.kind === "bundle") return [];
+	return [{ kind: order.kind as CreditKind, credits: order.credits }];
+}
+
+/** Satu query untuk daftar order, supaya tabel riwayat tidak melakukan N+1. */
+async function orderItemsFor(orders: OrderRow[]): Promise<Map<string, PlanItem[]>> {
+	const ids = orders.map((order) => order.id);
+	if (ids.length === 0) return new Map();
+	const rows = await db
+		.select({ orderId: billingOrderItem.orderId, kind: billingOrderItem.kind, credits: billingOrderItem.credits })
+		.from(billingOrderItem)
+		.where(inArray(billingOrderItem.orderId, ids));
+	const map = new Map<string, PlanItem[]>();
+	for (const row of rows) {
+		const list = map.get(row.orderId) ?? [];
+		list.push({ kind: row.kind as CreditKind, credits: row.credits });
+		map.set(row.orderId, list);
+	}
+	return map;
+}
+
+function itemsOf(order: OrderRow, map: Map<string, PlanItem[]>): PlanItem[] {
+	const items = map.get(order.id);
+	if (items && items.length > 0) return items;
+	if (order.kind === "bundle") return [];
+	return [{ kind: order.kind as CreditKind, credits: order.credits }];
 }
 
 /** Kode 0–999 supaya nominal unik dan mudah dicocokkan di mutasi; hindari tabrakan dengan order terbuka hari ini. */
@@ -122,7 +179,11 @@ async function balancesFor(userId: string) {
 		.groupBy(billingCreditLedger.kind);
 
 	const map = new Map(rows.map((row) => [row.kind, row.total]));
-	return { application: map.get("application") ?? 0, interview: map.get("interview") ?? 0 };
+	return {
+		application: map.get("application") ?? 0,
+		interview: map.get("interview") ?? 0,
+		coach: map.get("coach") ?? 0,
+	};
 }
 
 function csvCell(value: string | number | null | undefined) {
@@ -134,17 +195,31 @@ export const billingService = {
 	async listPlans() {
 		const plans = await db
 			.select({
+				id: billingPlan.id,
 				code: billingPlan.code,
 				name: billingPlan.name,
 				description: billingPlan.description,
 				kind: billingPlan.kind,
 				priceIdr: billingPlan.priceIdr,
+				compareAtIdr: billingPlan.compareAtIdr,
 				credits: billingPlan.credits,
 			})
 			.from(billingPlan)
 			.where(eq(billingPlan.active, true))
 			.orderBy(billingPlan.sortOrder, billingPlan.createdAt);
-		return { plans: plans.map((plan) => ({ ...plan, kind: plan.kind as PlanKind })) };
+		const items = await Promise.all(plans.map((plan) => planItemsOf(db, plan)));
+		return {
+			plans: plans.map((plan, index) => ({
+				code: plan.code,
+				name: plan.name,
+				description: plan.description,
+				kind: plan.kind as PlanKind,
+				priceIdr: plan.priceIdr,
+				compareAtIdr: plan.compareAtIdr ?? null,
+				credits: plan.credits,
+				items: items[index] ?? [],
+			})),
+		};
 	},
 
 	balances(userId: string) {
@@ -163,7 +238,7 @@ export const billingService = {
 		return {
 			entries: rows.map((row) => ({
 				id: row.id,
-				kind: row.kind as PlanKind,
+				kind: row.kind as CreditKind,
 				delta: row.delta,
 				reason: row.reason,
 				balanceAfter: row.balanceAfter,
@@ -180,7 +255,8 @@ export const billingService = {
 			.where(eq(billingOrder.userId, userId))
 			.orderBy(desc(billingOrder.createdAt))
 			.limit(limit);
-		return { orders: orders.map(toOrderDto) };
+		const items = await orderItemsFor(orders);
+		return { orders: orders.map((order) => toOrderDto(order, itemsOf(order, items))) };
 	},
 
 	/** Pesanan yang paling cepat kedaluwarsa, dipakai strip "lanjutkan bayar" di halaman beli kredit. */
@@ -197,7 +273,7 @@ export const billingService = {
 			)
 			.orderBy(asc(billingOrder.expiresAt))
 			.limit(1);
-		return { order: order ? toOrderDto(order) : null };
+		return { order: order ? toOrderDto(order, await orderItemsOf(db, order)) : null };
 	},
 
 	/** Status satu pesanan untuk popup. Pesanan akun lain dibalas 404, sama seperti invoice. */
@@ -212,7 +288,7 @@ export const billingService = {
 			.limit(1);
 
 		return {
-			order: toOrderDto(order),
+			order: toOrderDto(order, await orderItemsOf(db, order)),
 			invoiceId: issued?.id ?? null,
 			invoiceNumber: issued?.number ?? null,
 			balances: await balancesFor(userId),
@@ -226,6 +302,11 @@ export const billingService = {
 			.where(and(eq(billingPlan.code, planCode), eq(billingPlan.active, true)))
 			.limit(1);
 		if (!plan) throw new ORPCError("NOT_FOUND", { message: "Paket tidak ditemukan atau sudah tidak dijual." });
+		const planItems = await planItemsOf(db, plan);
+		if (plan.kind === "bundle" && planItems.length === 0) {
+			throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Paket bundel ini belum punya isi." });
+		}
+		const totalCredits = planItems.reduce((sum, item) => sum + item.credits, 0);
 
 		// Menekan beli dua kali tidak boleh melahirkan dua pesanan. Yang masih hidup dipakai ulang.
 		const [active] = await db
@@ -241,7 +322,7 @@ export const billingService = {
 			)
 			.orderBy(asc(billingOrder.expiresAt))
 			.limit(1);
-		if (active) return toOrderDto(active);
+		if (active) return toOrderDto(active, await orderItemsOf(db, active));
 
 		const uniqueCode = await pickUniqueCode(plan.priceIdr);
 		return db.transaction(async (tx) => {
@@ -253,7 +334,7 @@ export const billingService = {
 					planCode: plan.code,
 					planName: plan.name,
 					kind: plan.kind,
-					credits: plan.credits,
+					credits: totalCredits,
 					amountIdr: plan.priceIdr,
 					uniqueCode,
 					totalIdr: plan.priceIdr + uniqueCode,
@@ -265,9 +346,19 @@ export const billingService = {
 
 			if (!order) throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Order gagal dibuat." });
 
+			if (planItems.length > 0) {
+				await tx.insert(billingOrderItem).values(
+					planItems.map((item) => ({
+						orderId: order.id,
+						kind: item.kind,
+						credits: item.credits,
+					})),
+				);
+			}
+
 			await tx.insert(billingOrderEmail).values({ orderId: order.id, kind: "dibuat" });
 
-			return toOrderDto(order);
+			return toOrderDto(order, planItems);
 		});
 	},
 
@@ -327,11 +418,11 @@ export const billingService = {
 				set: { status: "pending", attempts: 0, lastError: null, sentAt: null, createdAt: new Date() },
 			});
 
-		return toOrderDto(updated);
+		return toOrderDto(updated, await orderItemsOf(db, updated));
 	},
 
 	/** Dipakai fitur lain sebelum melakukan aksi berbayar; menolak bila saldo kurang. */
-	consumeCredit(input: { userId: string; kind: PlanKind; reason: string }) {
+	consumeCredit(input: { userId: string; kind: CreditKind; reason: string }) {
 		return db.transaction(async (tx) => {
 			await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`${input.userId}:${input.kind}`}))`);
 			const current = await sumCredits(tx, input.userId, input.kind);
@@ -358,7 +449,7 @@ export const billingService = {
 	 * Mengembalikan kredit yang sudah dipotong ketika pekerjaan yang dibayar gagal di tengah jalan.
 	 * Tetap tercatat di buku besar supaya selisihnya bisa diaudit, bukan diedit diam diam.
 	 */
-	refundCredit(input: { userId: string; kind: PlanKind; reason: string }) {
+	refundCredit(input: { userId: string; kind: CreditKind; reason: string }) {
 		return db.transaction(async (tx) => {
 			await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`${input.userId}:${input.kind}`}))`);
 			const current = await sumCredits(tx, input.userId, input.kind);
@@ -389,7 +480,13 @@ export const billingService = {
 			.orderBy(desc(billingOrder.createdAt))
 			.limit(input.limit ?? 50);
 		const rows = where ? await query.where(where) : await query;
-		return { orders: rows.map((row) => ({ ...toOrderDto(row.order), buyerEmail: row.buyerEmail ?? null })) };
+		const items = await orderItemsFor(rows.map((row) => row.order));
+		return {
+			orders: rows.map((row) => ({
+				...toOrderDto(row.order, itemsOf(row.order, items)),
+				buyerEmail: row.buyerEmail ?? null,
+			})),
+		};
 	},
 
 	async adminOrderProof(input: { role?: string | null | undefined; orderId: string }) {
@@ -432,21 +529,30 @@ export const billingService = {
 				});
 			}
 
-			const kind = order.kind as PlanKind;
-			await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`${order.userId}:${kind}`}))`);
-			const current = await sumCredits(tx, order.userId, kind);
-			const balanceAfter = current + order.credits;
+			const items = await orderItemsOf(tx, order);
+			if (items.length === 0) {
+				throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Order ini tidak punya rincian kredit." });
+			}
 
-			await tx.insert(billingCreditLedger).values({
-				userId: order.userId,
-				kind,
-				delta: order.credits,
-				// A code, not a sentence: the ledger outlives the interface language it was written in.
-				reason: `purchase:${order.planCode}`,
-				orderId: order.id,
-				balanceAfter,
-				actorId: input.actorId,
-			});
+			const balances = new Map<CreditKind, number>();
+			for (const item of items) {
+				await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`${order.userId}:${item.kind}`}))`);
+				const current = await sumCredits(tx, order.userId, item.kind);
+				const balanceAfter = current + item.credits;
+				balances.set(item.kind, balanceAfter);
+
+				await tx.insert(billingCreditLedger).values({
+					userId: order.userId,
+					kind: item.kind,
+					delta: item.credits,
+					// A code, not a sentence: the ledger outlives the interface language it was written in.
+					reason: `purchase:${order.planCode}`,
+					orderId: order.id,
+					balanceAfter,
+					actorId: input.actorId,
+				});
+			}
+			const totalBalanceAfter = [...balances.values()].reduce((sum, value) => sum + value, 0);
 			const [updated] = await tx
 				.update(billingOrder)
 				.set({ status: "lunas", verifiedBy: input.actorId, verifiedAt: new Date(), rejectionReason: null })
@@ -461,17 +567,23 @@ export const billingService = {
 				.limit(1);
 			if (!customer) throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Pembeli order ini tidak ditemukan." });
 
-			await issueInvoice(tx, { order: updated, customer, balanceAfter });
+			await issueInvoice(tx, { order: updated, customer, balanceAfter: totalBalanceAfter, items });
 
 			await tx.insert(adminAudit).values({
 				actorId: input.actorId,
 				action: "order.verify",
 				targetType: "billing_order",
 				targetId: order.id,
-				detail: { totalIdr: order.totalIdr, credits: order.credits, kind, balanceAfter },
+				detail: {
+					totalIdr: order.totalIdr,
+					credits: order.credits,
+					kind: order.kind,
+					items,
+					balances: Object.fromEntries(balances),
+				},
 			});
 
-			return toOrderDto(updated);
+			return toOrderDto(updated, items);
 		});
 	},
 
@@ -503,7 +615,7 @@ export const billingService = {
 		});
 
 		if (!updated) throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Order gagal diperbarui." });
-		return toOrderDto(updated);
+		return toOrderDto(updated, await orderItemsOf(db, updated));
 	},
 
 	async adminListUsers(input: {
@@ -542,6 +654,7 @@ export const billingService = {
 					balances: {
 						application: mine.find((t) => t.kind === "application")?.total ?? 0,
 						interview: mine.find((t) => t.kind === "interview")?.total ?? 0,
+						coach: mine.find((t) => t.kind === "coach")?.total ?? 0,
 					},
 				};
 			}),
@@ -552,7 +665,7 @@ export const billingService = {
 		role?: string | null | undefined;
 		actorId: string;
 		userId: string;
-		kind: PlanKind;
+		kind: CreditKind;
 		delta: number;
 		reason: string;
 	}) {
@@ -778,6 +891,7 @@ export const billingService = {
 		name?: string | undefined;
 		description?: string | null | undefined;
 		priceIdr?: number | undefined;
+		compareAtIdr?: number | null | undefined;
 		credits?: number | undefined;
 		active?: boolean | undefined;
 		sortOrder?: number | undefined;
@@ -787,6 +901,7 @@ export const billingService = {
 			...(input.name !== undefined ? { name: input.name } : {}),
 			...(input.description !== undefined ? { description: input.description } : {}),
 			...(input.priceIdr !== undefined ? { priceIdr: input.priceIdr } : {}),
+			...(input.compareAtIdr !== undefined ? { compareAtIdr: input.compareAtIdr } : {}),
 			...(input.credits !== undefined ? { credits: input.credits } : {}),
 			...(input.active !== undefined ? { active: input.active } : {}),
 			...(input.sortOrder !== undefined ? { sortOrder: input.sortOrder } : {}),
@@ -804,13 +919,16 @@ export const billingService = {
 			detail: patch,
 		});
 
+		const items = await planItemsOf(db, updated);
 		return {
 			code: updated.code,
 			name: updated.name,
 			description: updated.description,
 			kind: updated.kind as PlanKind,
 			priceIdr: updated.priceIdr,
+			compareAtIdr: updated.compareAtIdr ?? null,
 			credits: updated.credits,
+			items,
 		};
 	},
 

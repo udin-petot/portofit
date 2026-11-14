@@ -115,9 +115,13 @@ function AccountPage() {
 				? Math.abs(delta) === 1
 					? t`interview credit`
 					: t`interview credits`
-				: Math.abs(delta) === 1
-					? t`application credit`
-					: t`application credits`;
+				: kind === "coach"
+					? Math.abs(delta) === 1
+						? t`Coach message`
+						: t`Coach messages`
+					: Math.abs(delta) === 1
+						? t`application credit`
+						: t`application credits`;
 		return `${delta > 0 ? "+" : "−"}${Math.abs(delta)} ${unit}`;
 	};
 
@@ -164,7 +168,7 @@ function AccountPage() {
 							</Button>
 						}
 					>
-						<div className={cn(PANEL, "grid grid-cols-2")}>
+						<div className={cn(PANEL, "grid grid-cols-3")}>
 							<div className="p-4">
 								<p className="text-xs text-ink-3">
 									<Trans>Application</Trans>
@@ -188,6 +192,19 @@ function AccountPage() {
 								{perCredit("wawancara") ? (
 									<p className="mt-0.5 text-xs text-ink-2">
 										{perCredit("wawancara")} <Trans>per credit</Trans>
+									</p>
+								) : null}
+							</div>
+							<div className="border-l border-line p-4">
+								<p className="text-xs text-ink-3">
+									<Trans>Coach</Trans>
+								</p>
+								<p className="mt-0.5 text-[34px] leading-10 font-semibold text-ink tabular-nums">
+									{balances.isLoading ? "—" : (balances.data?.coach ?? 0)}
+								</p>
+								{perCredit("coach-20") ? (
+									<p className="mt-0.5 text-xs text-ink-2">
+										{perCredit("coach-20")} <Trans>per message</Trans>
 									</p>
 								) : null}
 							</div>

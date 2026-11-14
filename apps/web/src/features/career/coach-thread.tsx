@@ -1047,10 +1047,36 @@ function Composer(props: ComposerProps) {
 
 	const page = props.variant === "page";
 	const sendLabel = props.streaming ? t`Stop` : t`Send`;
+	const quota = useQuery(orpc.quota.status.queryOptions());
+	const balances = useQuery(orpc.billing.balances.queryOptions());
+	const freeCoach = quota.data?.features.find((feature) => feature.feature === "coach");
+	const paidCoach = balances.data?.coach ?? 0;
+	const noCoachLeft = freeCoach !== undefined && freeCoach.remaining === 0 && paidCoach === 0;
 
 	return (
 		<div className={page ? "border-t border-line px-6 py-3" : "px-3.5 pt-2 pb-3.5"}>
 			<div className={cn("grid gap-2", page && "mx-auto w-full max-w-[720px]")}>
+				{freeCoach ? (
+					<div className="flex flex-wrap items-center justify-between gap-2 text-[11px] leading-4 text-ink-3">
+						<span>
+							{freeCoach.remaining > 0 ? (
+								<Trans>{freeCoach.remaining} free Coach messages left this week.</Trans>
+							) : paidCoach > 0 ? (
+								<Trans>{paidCoach} paid Coach messages left.</Trans>
+							) : (
+								<Trans>Free Coach messages are used up.</Trans>
+							)}
+						</span>
+						{noCoachLeft ? (
+							<Link
+								to="/dashboard/beli-kredit"
+								className="font-medium text-accent-text underline underline-offset-4 hover:text-accent-hover"
+							>
+								<Trans>Buy Coach messages</Trans>
+							</Link>
+						) : null}
+					</div>
+				) : null}
 				<div className="grid rounded-xl border border-line-2 bg-raised transition-colors duration-quick focus-within:border-accent">
 					<label htmlFor={id} className="sr-only">
 						<Trans>Message the coach</Trans>

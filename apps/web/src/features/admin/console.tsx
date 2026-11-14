@@ -1,9 +1,9 @@
+import type { RouterOutput } from "@/libs/orpc/client";
 import type { IconName } from "@reactive-resume/ui/components/icon";
 import type { ReactNode } from "react";
-import type { RouterOutput } from "@/libs/orpc/client";
-import { useDeferredValue, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
+import { useDeferredValue, useState } from "react";
 import { Badge } from "@reactive-resume/ui/components/badge";
 import { BrandIcon } from "@reactive-resume/ui/components/brand-icon";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -24,25 +24,31 @@ import {
 	DropdownMenuTrigger,
 } from "@reactive-resume/ui/components/dropdown-menu";
 import { Icon } from "@reactive-resume/ui/components/icon";
-import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "@reactive-resume/ui/components/input-group";
+import {
+	InputGroup,
+	InputGroupAddon,
+	InputGroupInput,
+	InputGroupText,
+} from "@reactive-resume/ui/components/input-group";
 import { Label } from "@reactive-resume/ui/components/label";
 import { SegmentedControl, SegmentedControlItem } from "@reactive-resume/ui/components/segmented-control";
 import { Skeleton } from "@reactive-resume/ui/components/skeleton";
 import { Textarea } from "@reactive-resume/ui/components/textarea";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
-import { getOrpcErrorMessage } from "@/libs/error-message";
-import { orpc } from "@/libs/orpc/client";
 import { formatRupiah, ORDER_STATUS_LABEL } from "../billing/config";
+import { RevenueChart, SignupBars, Sparkline, StatusDonut } from "./charts";
 import { FinanceView } from "./finance-view";
 import { UsagePanel } from "./usage-panel";
-import { RevenueChart, SignupBars, Sparkline, StatusDonut } from "./charts";
+import { getOrpcErrorMessage } from "@/libs/error-message";
+import { orpc } from "@/libs/orpc/client";
 
 type Analytics = RouterOutput["billing"]["adminAnalytics"];
 type AdminOrder = RouterOutput["billing"]["adminOrders"]["orders"][number];
 type AdminUser = RouterOutput["billing"]["adminUsers"]["users"][number];
 type Plan = RouterOutput["billing"]["plans"]["plans"][number];
-type PlanKind = "application" | "interview";
+type CreditKind = "application" | "interview" | "coach";
+type PlanKind = CreditKind | "bundle";
 type View = "ringkasan" | "pesanan" | "keuangan" | "pemakaian" | "pengguna" | "paket" | "audit";
 type Days = 7 | 30 | 90;
 
@@ -103,8 +109,18 @@ const STATUS_COLOR: Record<string, string> = {
 	hangus: "var(--ink-3)",
 };
 
-const KIND_LABEL: Record<PlanKind, string> = { application: "CV + cover letter", interview: "Latihan wawancara" };
-const KIND_NOUN: Record<PlanKind, string> = { application: "lamaran", interview: "wawancara" };
+const KIND_LABEL: Record<PlanKind, string> = {
+	application: "CV + cover letter",
+	interview: "Latihan wawancara",
+	coach: "Pesan Coach",
+	bundle: "Bundel karier",
+};
+const KIND_NOUN: Record<PlanKind, string> = {
+	application: "lamaran",
+	interview: "wawancara",
+	coach: "pesan Coach",
+	bundle: "paket",
+};
 
 const ACTION_LABEL: Record<string, string> = {
 	"order.verify": "Verifikasi pesanan",
@@ -119,7 +135,12 @@ const ACTION_LABEL: Record<string, string> = {
 const dateShort = new Intl.DateTimeFormat("id-ID", { day: "2-digit", month: "short" });
 const timeShort = new Intl.DateTimeFormat("id-ID", { hour: "2-digit", minute: "2-digit" });
 const dateLong = new Intl.DateTimeFormat("id-ID", { day: "2-digit", month: "short", year: "numeric" });
-const stampShort = new Intl.DateTimeFormat("id-ID", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" });
+const stampShort = new Intl.DateTimeFormat("id-ID", {
+	day: "2-digit",
+	month: "short",
+	hour: "2-digit",
+	minute: "2-digit",
+});
 const compactNumber = new Intl.NumberFormat("id-ID", { notation: "compact", maximumFractionDigits: 1 });
 
 const formatDate = (value: Date | string | number) => dateShort.format(new Date(value));
@@ -154,7 +175,7 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 	const [proofOrder, setProofOrder] = useState<AdminOrder | null>(null);
 	const [rejectOrder, setRejectOrder] = useState<AdminOrder | null>(null);
 	const [rejectReason, setRejectReason] = useState("");
-	const [creditTarget, setCreditTarget] = useState<{ user: AdminUser; kind: PlanKind; delta: number } | null>(null);
+	const [creditTarget, setCreditTarget] = useState<{ user: AdminUser; kind: CreditKind; delta: number } | null>(null);
 	const [creditReason, setCreditReason] = useState("");
 
 	const analytics = useQuery(orpc.billing.adminAnalytics.queryOptions({ input: { days } }));
@@ -182,7 +203,8 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 	const userList = users.data?.users ?? [];
 	const planList = plans.data?.plans ?? [];
 	const auditEntries = audit.data?.entries ?? [];
-	const filteredOrders = orderFilter === "semua" ? orderList : orderList.filter((order) => order.status === orderFilter);
+	const filteredOrders =
+		orderFilter === "semua" ? orderList : orderList.filter((order) => order.status === orderFilter);
 	const pendingCount = analytics.data?.totals.pendingVerification ?? pendingOrders.length;
 
 	const refresh = async () => {
@@ -198,7 +220,7 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 			await verify.mutateAsync({ orderId: order.id });
 			toast.add({
 				type: "success",
-				description: `${order.planName} diverifikasi. ${order.credits} kredit ${KIND_NOUN[order.kind]} masuk ke pembeli.`,
+				description: `${order.planName} diverifikasi. ${order.credits} kredit masuk ke pembeli.`,
 			});
 			setProofOrder(null);
 			await refresh();
@@ -227,7 +249,7 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 		}
 	};
 
-	const openCredit = (target: AdminUser, kind: PlanKind, delta: number) => {
+	const openCredit = (target: AdminUser, kind: CreditKind, delta: number) => {
 		setCreditReason("Koreksi manual admin");
 		setCreditTarget({ user: target, kind, delta });
 	};
@@ -302,12 +324,7 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 
 	return (
 		<div className="flex min-h-svh bg-bg text-ink">
-			<AdminSidebar
-				view={view}
-				onView={setView}
-				pendingCount={pendingCount}
-				user={user}
-			/>
+			<AdminSidebar view={view} onView={setView} pendingCount={pendingCount} user={user} />
 
 			<main className="min-w-0 flex-1">
 				<header className="sticky top-0 z-30 border-b border-line bg-bg/85 backdrop-blur-md">
@@ -352,7 +369,7 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 						)}
 					</div>
 
-					<div className="mx-auto flex w-full max-w-[1280px] gap-1 overflow-x-auto border-t border-line px-3 py-2 [scrollbar-width:none] lg:hidden">
+					<div className="mx-auto flex w-full max-w-[1280px] [scrollbar-width:none] gap-1 overflow-x-auto border-t border-line px-3 py-2 lg:hidden">
 						{NAV.map((item) => (
 							<button
 								key={item.key}
@@ -431,7 +448,14 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 				</div>
 			</main>
 
-			<ProofDialog order={proofOrder} onClose={() => setProofOrder(null)} proof={proof} onReject={openReject} onVerify={verifyNow} verifying={verify.isPending} />
+			<ProofDialog
+				order={proofOrder}
+				onClose={() => setProofOrder(null)}
+				proof={proof}
+				onReject={openReject}
+				onVerify={verifyNow}
+				verifying={verify.isPending}
+			/>
 			<RejectDialog
 				order={rejectOrder}
 				reason={rejectReason}
@@ -627,11 +651,15 @@ function OverviewView({
 					/>
 					<div className="px-4 pt-4 pb-2">
 						<div className="flex flex-wrap items-end gap-x-3 gap-y-1">
-							<p className="font-display text-[30px] leading-none tracking-tight tabular-nums text-ink">
+							<p className="font-display text-[30px] leading-none tracking-tight text-ink tabular-nums">
 								{formatRupiah(range?.revenueIdr ?? 0)}
 							</p>
 							<span className="pb-0.5 text-xs">
-								<Delta current={range?.revenueIdr ?? 0} previous={previous?.revenueIdr ?? 0} suffix={`${days} hari sebelumnya`} />
+								<Delta
+									current={range?.revenueIdr ?? 0}
+									previous={previous?.revenueIdr ?? 0}
+									suffix={`${days} hari sebelumnya`}
+								/>
 							</span>
 						</div>
 						<p className="mt-1 text-xs text-ink-3">
@@ -639,7 +667,15 @@ function OverviewView({
 						</p>
 					</div>
 					<div className="px-2 pb-3">
-						{loading ? <Skeleton className="m-2 h-44 w-full" /> : <RevenueChart data={revenuePoints} formatValue={formatRupiah} formatAxis={(value) => compactNumber.format(value)} />}
+						{loading ? (
+							<Skeleton className="m-2 h-44 w-full" />
+						) : (
+							<RevenueChart
+								data={revenuePoints}
+								formatValue={formatRupiah}
+								formatAxis={(value) => compactNumber.format(value)}
+							/>
+						)}
 					</div>
 				</Panel>
 
@@ -654,11 +690,11 @@ function OverviewView({
 								<dl className="mt-4 grid grid-cols-2 gap-2 border-t border-line pt-3">
 									<div>
 										<dt className="text-[11px] tracking-[0.1em] text-ink-3 uppercase">Rata-rata pesanan</dt>
-										<dd className="mt-1 text-sm font-medium tabular-nums text-ink">{formatRupiah(averageOrder)}</dd>
+										<dd className="mt-1 text-sm font-medium text-ink tabular-nums">{formatRupiah(averageOrder)}</dd>
 									</div>
 									<div>
 										<dt className="text-[11px] tracking-[0.1em] text-ink-3 uppercase">Total pesanan</dt>
-										<dd className="mt-1 text-sm font-medium tabular-nums text-ink">{totalOrders}</dd>
+										<dd className="mt-1 text-sm font-medium text-ink tabular-nums">{totalOrders}</dd>
 									</div>
 								</dl>
 							</>
@@ -680,7 +716,7 @@ function OverviewView({
 								<div key={step.label} className="grid gap-1.5">
 									<div className="flex items-baseline justify-between gap-2">
 										<span className="text-[11px] tracking-[0.08em] text-ink-3 uppercase">{step.label}</span>
-										<span className="text-sm font-semibold tabular-nums text-ink">{step.value}</span>
+										<span className="text-sm font-semibold text-ink tabular-nums">{step.value}</span>
 									</div>
 									<div className="h-1.5 overflow-hidden rounded-full bg-sunken">
 										<div
@@ -757,7 +793,7 @@ function OverviewView({
 									<li key={plan.planCode} className="grid gap-1">
 										<div className="flex items-baseline justify-between gap-2 text-xs">
 											<span className="truncate text-ink">{plan.planName}</span>
-											<span className="shrink-0 tabular-nums text-ink-2">{formatRupiah(plan.revenueIdr)}</span>
+											<span className="shrink-0 text-ink-2 tabular-nums">{formatRupiah(plan.revenueIdr)}</span>
 										</div>
 										<div className="h-1.5 overflow-hidden rounded-full bg-sunken">
 											<div
@@ -789,15 +825,19 @@ function OverviewView({
 					<dl className="grid gap-2 p-4">
 						<div className="flex items-baseline justify-between gap-3 text-sm">
 							<dt className="text-ink-2">Hari ini</dt>
-							<dd className="font-medium tabular-nums text-ink">{formatRupiah(analytics?.totals.revenueTodayIdr ?? 0)}</dd>
+							<dd className="font-medium text-ink tabular-nums">
+								{formatRupiah(analytics?.totals.revenueTodayIdr ?? 0)}
+							</dd>
 						</div>
 						<div className="flex items-baseline justify-between gap-3 text-sm">
 							<dt className="text-ink-2">Bulan ini</dt>
-							<dd className="font-medium tabular-nums text-ink">{formatRupiah(analytics?.totals.revenueMonthIdr ?? 0)}</dd>
+							<dd className="font-medium text-ink tabular-nums">
+								{formatRupiah(analytics?.totals.revenueMonthIdr ?? 0)}
+							</dd>
 						</div>
 						<div className="flex items-baseline justify-between gap-3 border-t border-line pt-2 text-sm">
 							<dt className="text-ink-2">Pesanan lunas</dt>
-							<dd className="font-medium tabular-nums text-ink">{analytics?.totals.paidOrders ?? 0}</dd>
+							<dd className="font-medium text-ink tabular-nums">{analytics?.totals.paidOrders ?? 0}</dd>
 						</div>
 					</dl>
 				</Panel>
@@ -940,7 +980,9 @@ function OrdersTable({
 								<span className="block text-[11px] text-ink-3 tabular-nums">kode {uniqueCode(order.uniqueCode)}</span>
 							</td>
 							<td className="px-4 py-2.5">
-								<Badge variant={STATUS_VARIANT[order.status] ?? "neutral"}>{ORDER_STATUS_LABEL[order.status] ?? order.status}</Badge>
+								<Badge variant={STATUS_VARIANT[order.status] ?? "neutral"}>
+									{ORDER_STATUS_LABEL[order.status] ?? order.status}
+								</Badge>
 								{order.status === "ditolak" && order.rejectionReason ? (
 									<span className="mt-1 block max-w-40 truncate text-[11px] text-ink-3">{order.rejectionReason}</span>
 								) : null}
@@ -963,11 +1005,7 @@ function OrdersTable({
 											>
 												Tolak
 											</Button>
-											<Button
-												size="sm"
-												loading={verifyingId === order.id}
-												onClick={() => onVerify(order)}
-											>
+											<Button size="sm" loading={verifyingId === order.id} onClick={() => onVerify(order)}>
 												Verifikasi
 											</Button>
 										</>
@@ -993,7 +1031,7 @@ function UsersView({
 	loading: boolean;
 	query: string;
 	onQuery: (value: string) => void;
-	onCredit: (user: AdminUser, kind: PlanKind, delta: number) => void;
+	onCredit: (user: AdminUser, kind: CreditKind, delta: number) => void;
 }) {
 	return (
 		<Panel>
@@ -1065,21 +1103,31 @@ function UsersView({
 										<div className="flex flex-wrap items-center gap-1.5">
 											<BalanceChip count={item.balances.application} kind="application" />
 											<BalanceChip count={item.balances.interview} kind="interview" />
+											<BalanceChip count={item.balances.coach} kind="coach" />
 										</div>
 									</td>
-									<td className="px-4 py-2.5 text-xs whitespace-nowrap text-ink-3">{dateLong.format(new Date(item.createdAt))}</td>
+									<td className="px-4 py-2.5 text-xs whitespace-nowrap text-ink-3">
+										{dateLong.format(new Date(item.createdAt))}
+									</td>
 									<td className="px-4 py-2.5 text-right">
 										<DropdownMenu>
 											<DropdownMenuTrigger
 												render={
-													<Button size="icon-xs" variant="ghost" className="text-ink-3" aria-label={`Kelola kredit ${item.name}`} />
+													<Button
+														size="icon-xs"
+														variant="ghost"
+														className="text-ink-3"
+														aria-label={`Kelola kredit ${item.name}`}
+													/>
 												}
 											>
 												<Icon name="dots-three" size={18} />
 											</DropdownMenuTrigger>
 											<DropdownMenuContent align="end" className="w-56">
 												<DropdownMenuLabel>Kredit lamaran</DropdownMenuLabel>
-												<DropdownMenuItem onClick={() => onCredit(item, "application", 1)}>Tambah 1 kredit</DropdownMenuItem>
+												<DropdownMenuItem onClick={() => onCredit(item, "application", 1)}>
+													Tambah 1 kredit
+												</DropdownMenuItem>
 												<DropdownMenuItem
 													disabled={item.balances.application <= 0}
 													onClick={() => onCredit(item, "application", -1)}
@@ -1088,7 +1136,9 @@ function UsersView({
 												</DropdownMenuItem>
 												<DropdownMenuSeparator />
 												<DropdownMenuLabel>Kredit wawancara</DropdownMenuLabel>
-												<DropdownMenuItem onClick={() => onCredit(item, "interview", 1)}>Tambah 1 kredit</DropdownMenuItem>
+												<DropdownMenuItem onClick={() => onCredit(item, "interview", 1)}>
+													Tambah 1 kredit
+												</DropdownMenuItem>
 												<DropdownMenuItem
 													disabled={item.balances.interview <= 0}
 													onClick={() => onCredit(item, "interview", -1)}
@@ -1184,7 +1234,13 @@ function PlansView({
 	);
 }
 
-function AuditView({ entries, loading }: { entries: Array<RouterOutput["billing"]["adminAudit"]["entries"][number]>; loading: boolean }) {
+function AuditView({
+	entries,
+	loading,
+}: {
+	entries: Array<RouterOutput["billing"]["adminAudit"]["entries"][number]>;
+	loading: boolean;
+}) {
 	return (
 		<Panel>
 			<div className="flex items-center justify-between gap-2 border-b border-line px-4 py-3">
@@ -1199,7 +1255,11 @@ function AuditView({ entries, loading }: { entries: Array<RouterOutput["billing"
 					<Skeleton className="h-8 w-full" />
 				</div>
 			) : entries.length === 0 ? (
-				<EmptyState icon="clock-counter-clockwise" title="Belum ada tindakan" description="Verifikasi pesanan pertama akan muncul di sini." />
+				<EmptyState
+					icon="clock-counter-clockwise"
+					title="Belum ada tindakan"
+					description="Verifikasi pesanan pertama akan muncul di sini."
+				/>
 			) : (
 				<ol className="divide-y divide-line">
 					{entries.map((entry) => (
@@ -1261,11 +1321,13 @@ function StatCard({
 			{loading ? (
 				<Skeleton className="mt-3 h-7 w-24" />
 			) : (
-				<p className="mt-2.5 font-display text-2xl leading-none tracking-tight tabular-nums text-ink">{value}</p>
+				<p className="mt-2.5 font-display text-2xl leading-none tracking-tight text-ink tabular-nums">{value}</p>
 			)}
 			<div className="mt-2 flex items-end justify-between gap-2">
 				<p className="text-xs leading-4 text-ink-3">
-					{delta ? <Delta current={delta.current} previous={delta.previous} suffix="periode sebelumnya" className="me-1" /> : null}
+					{delta ? (
+						<Delta current={delta.current} previous={delta.previous} suffix="periode sebelumnya" className="me-1" />
+					) : null}
 					{hint}
 				</p>
 				{spark && spark.length > 1 ? <Sparkline values={spark} /> : null}
@@ -1301,7 +1363,13 @@ function Delta({
 	const percent = ((current - previous) / previous) * 100;
 	const up = percent >= 0;
 	return (
-		<span className={cn("inline-flex items-center gap-0.5 font-medium", up ? "text-accent-text" : "text-danger-text", className)}>
+		<span
+			className={cn(
+				"inline-flex items-center gap-0.5 font-medium",
+				up ? "text-accent-text" : "text-danger-text",
+				className,
+			)}
+		>
 			<Icon name={up ? "trend-up" : "arrow-down"} size={12} />
 			{Math.abs(percent).toFixed(1)}%<span className="font-normal text-ink-3"> vs {suffix}</span>
 		</span>
@@ -1309,7 +1377,9 @@ function Delta({
 }
 
 function Panel({ children, className }: { children: ReactNode; className?: string }) {
-	return <section className={cn("overflow-hidden rounded-xl border border-line bg-surface", className)}>{children}</section>;
+	return (
+		<section className={cn("overflow-hidden rounded-xl border border-line bg-surface", className)}>{children}</section>
+	);
 }
 
 function PanelHeader({ title, description, action }: { title: string; description?: string; action?: ReactNode }) {
@@ -1351,7 +1421,7 @@ function EmptyState({
 	);
 }
 
-function BalanceChip({ count, kind }: { count: number; kind: PlanKind }) {
+function BalanceChip({ count, kind }: { count: number; kind: CreditKind }) {
 	const empty = count <= 0;
 	return (
 		<span
@@ -1400,7 +1470,9 @@ function ProofDialog({
 				<DialogHeader>
 					<DialogTitle>Bukti bayar</DialogTitle>
 					<DialogDescription>
-						{order ? `${order.planName} · ${formatRupiah(order.totalIdr)} · kode unik ${uniqueCode(order.uniqueCode)}` : ""}
+						{order
+							? `${order.planName} · ${formatRupiah(order.totalIdr)} · kode unik ${uniqueCode(order.uniqueCode)}`
+							: ""}
 					</DialogDescription>
 				</DialogHeader>
 
@@ -1433,9 +1505,14 @@ function ProofDialog({
 							<div className="flex flex-col items-center gap-2 px-4 py-10 text-center">
 								<Icon name="file-pdf" size={28} className="text-ink-3" />
 								<p className="max-w-xs text-xs leading-5 text-ink-2">
-									Bukti berjenis {proof.data.contentType} ({Math.round(proof.data.size / 1024)} KB). Unduh untuk membukanya.
+									Bukti berjenis {proof.data.contentType} ({Math.round(proof.data.size / 1024)} KB). Unduh untuk
+									membukanya.
 								</p>
-								<a className="text-xs font-medium text-accent-text underline underline-offset-2" href={proof.data.dataUrl} download={proof.data.fileName}>
+								<a
+									className="text-xs font-medium text-accent-text underline underline-offset-2"
+									href={proof.data.dataUrl}
+									download={proof.data.fileName}
+								>
 									Unduh bukti
 								</a>
 							</div>
@@ -1488,7 +1565,9 @@ function RejectDialog({
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Tolak pesanan</DialogTitle>
-					<DialogDescription>Alasan ini dibaca pembeli di halaman transaksi. Tulis singkat dan jelas.</DialogDescription>
+					<DialogDescription>
+						Alasan ini dibaca pembeli di halaman transaksi. Tulis singkat dan jelas.
+					</DialogDescription>
 				</DialogHeader>
 
 				{order ? (
@@ -1500,7 +1579,13 @@ function RejectDialog({
 
 				<div className="grid gap-1.5">
 					<Label htmlFor="reject-reason">Alasan penolakan</Label>
-					<Textarea id="reject-reason" rows={3} maxLength={500} value={reason} onChange={(event) => onReason(event.currentTarget.value)} />
+					<Textarea
+						id="reject-reason"
+						rows={3}
+						maxLength={500}
+						value={reason}
+						onChange={(event) => onReason(event.currentTarget.value)}
+					/>
 				</div>
 
 				<DialogFooter>
@@ -1524,7 +1609,7 @@ function CreditDialog({
 	onSubmit,
 	pending,
 }: {
-	target: { user: AdminUser; kind: PlanKind; delta: number } | null;
+	target: { user: AdminUser; kind: CreditKind; delta: number } | null;
 	reason: string;
 	onReason: (value: string) => void;
 	onClose: () => void;
@@ -1541,7 +1626,9 @@ function CreditDialog({
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Koreksi kredit</DialogTitle>
-					<DialogDescription>Perubahan langsung masuk ke saldo dan tercatat di audit. Koreksi manual tidak menagih pembayaran.</DialogDescription>
+					<DialogDescription>
+						Perubahan langsung masuk ke saldo dan tercatat di audit. Koreksi manual tidak menagih pembayaran.
+					</DialogDescription>
 				</DialogHeader>
 
 				{target ? (
@@ -1557,7 +1644,13 @@ function CreditDialog({
 
 				<div className="grid gap-1.5">
 					<Label htmlFor="credit-reason">Alasan</Label>
-					<Textarea id="credit-reason" rows={2} maxLength={200} value={reason} onChange={(event) => onReason(event.currentTarget.value)} />
+					<Textarea
+						id="credit-reason"
+						rows={2}
+						maxLength={200}
+						value={reason}
+						onChange={(event) => onReason(event.currentTarget.value)}
+					/>
 				</div>
 
 				<DialogFooter>

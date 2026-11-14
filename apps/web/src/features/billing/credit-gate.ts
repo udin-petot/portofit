@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from "react";
 
-export type CreditKind = "application" | "interview";
+export type CreditKind = "application" | "interview" | "coach";
 
 type CreditState = { open: boolean; kind: CreditKind };
 
@@ -28,4 +28,9 @@ export function closeCreditDialog() {
 }
 
 /** Dibaca dialog dan juga pengujian, tanpa perlu React. */
-export const useCreditGate = () => useSyncExternalStore(subscribe, () => state, () => state);
+export const useCreditGate = () =>
+	useSyncExternalStore(
+		subscribe,
+		() => state,
+		() => state,
+	);

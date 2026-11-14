@@ -1,10 +1,10 @@
+import type { UsageFeature } from "../usage/taxonomy";
 import { ORPCError } from "@orpc/server";
 import { and, eq, inArray, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import { aiQuotaUsage, interviewSession } from "@reactive-resume/db/schema";
 import { billingService } from "../billing/service";
 import { recordUsage } from "../usage/record";
-import type { UsageFeature } from "../usage/taxonomy";
 import { AI_FEATURES, type AiFeature, quotaLine, quotaPeriodStart, quotaResetAt, WEEKLY_AI_LIMITS } from "./period";
 
 export type { AiFeature, QuotaLine } from "./period";
@@ -79,9 +79,7 @@ export const quotaService = {
 		const periodStart = quotaPeriodStart(input.now);
 
 		const result = await db.transaction(async (tx) => {
-			await tx.execute(
-				sql`select pg_advisory_xact_lock(hashtext(${`${input.userId}:ai:${input.feature}`}))`,
-			);
+			await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`${input.userId}:ai:${input.feature}`}))`);
 			const [row] = await tx
 				.select({ id: aiQuotaUsage.id, used: aiQuotaUsage.used })
 				.from(aiQuotaUsage)
@@ -127,6 +125,46 @@ export const quotaService = {
 		recordUsage(USAGE_FEATURE[input.feature]);
 
 		return result;
+	},
+
+	/**
+	 * Coach memakai jatah gratis mingguan lebih dulu, lalu saldo pesan berbayar. Sumber klaim
+	 * dikembalikan supaya kegagalan AI bisa mengembalikan ke tempat yang benar.
+	 */
+	async consumeCoach(input: { userId: string; now?: Date }) {
+		try {
+			const line = await this.consume({
+				userId: input.userId,
+				feature: "coach",
+				...(input.now ? { now: input.now } : {}),
+			});
+			return { source: "free" as const, remaining: line.remaining };
+		} catch (error) {
+			const code = (error as { data?: { code?: string } } | undefined)?.data?.code;
+			if (!(code === "QUOTA_EXHAUSTED")) throw error;
+			const paid = await billingService.consumeCredit({
+				userId: input.userId,
+				kind: "coach",
+				reason: "coach:message",
+			});
+			return { source: "credit" as const, remaining: paid.remaining };
+		}
+	},
+
+	async releaseCoach(input: { userId: string; source: "free" | "credit"; now?: Date }) {
+		if (input.source === "free") {
+			await this.release({
+				userId: input.userId,
+				feature: "coach",
+				...(input.now ? { now: input.now } : {}),
+			});
+			return;
+		}
+		await billingService.refundCredit({
+			userId: input.userId,
+			kind: "coach",
+			reason: "coach:message:refund",
+		});
 	},
 
 	/**

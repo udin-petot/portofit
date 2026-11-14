@@ -280,6 +280,11 @@ msgstr "{0} found"
 msgid "{0} found, {unreadable} unreadable"
 msgstr "{0} found, {unreadable} unreadable"
 
+#. placeholder {0}: freeCoach.remaining
+#: src/features/career/coach-thread.tsx
+msgid "{0} free Coach messages left this week."
+msgstr "{0} free Coach messages left this week."
+
 #. placeholder {0}: Math.round(minutes / 60)
 #: src/features/career/workspace/shell.tsx
 msgid "{0} h"
@@ -650,6 +655,10 @@ msgstr "{open, plural, one {# thing to review.} other {# things to review.}}"
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "{pageCount, plural, one {# page} other {# pages}}"
 msgstr "{pageCount, plural, one {# page} other {# pages}}"
+
+#: src/features/career/coach-thread.tsx
+msgid "{paidCoach} paid Coach messages left."
+msgstr "{paidCoach} paid Coach messages left."
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "{pairing} type"
@@ -1792,6 +1801,10 @@ msgstr "Appears on the page once it has an organization."
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 
+#: src/features/billing/pricing.tsx
+msgid "application"
+msgstr "application"
+
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/documents/documents-page.tsx
@@ -2394,6 +2407,12 @@ msgid "Buy a credit"
 msgstr "Buy a credit"
 
 #: src/features/billing/credit-dialog.tsx
+#: src/features/career/coach-thread.tsx
+#: src/features/quota/page.tsx
+msgid "Buy Coach messages"
+msgstr "Buy Coach messages"
+
+#: src/features/billing/credit-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/features/documents/new-document-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
@@ -2405,6 +2424,10 @@ msgstr "Buy credits"
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."
 msgstr "Buy credits to continue."
+
+#: src/features/billing/pricing.tsx
+msgid "Buy only what you need right now."
+msgstr "Buy only what you need right now."
 
 #: src/features/auth/pages/register.tsx
 msgid "By signing up with Google or GitHub, you agree to the <0>Terms of Service</0> and <1>Privacy Policy</1>."
@@ -2466,6 +2489,10 @@ msgstr "Cancelled"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "Career"
+
+#: src/features/billing/pricing.tsx
+msgid "Career bundles"
+msgstr "Career bundles"
 
 #: src/features/homepage/sections.tsx
 msgid "Career coach"
@@ -2818,13 +2845,26 @@ msgstr "Closed"
 
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/coach-sheet.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Coach"
 msgstr "Coach"
 
+#: src/features/billing/pricing.tsx
+#: src/routes/dashboard/akun.tsx
+msgid "Coach message"
+msgstr "Coach message"
+
+#: src/features/billing/plan-copy.ts
 #: src/features/quota/page.tsx
+#: src/routes/dashboard/akun.tsx
+#: src/routes/dashboard/beli-kredit.tsx
 msgid "Coach messages"
 msgstr "Coach messages"
+
+#: src/features/billing/credit-dialog.tsx
+msgid "Coach messages used up"
+msgstr "Coach messages used up"
 
 #: src/features/billing/transactions.tsx
 msgid "code"
@@ -4805,6 +4845,10 @@ msgstr "Every week"
 msgid "Everything"
 msgstr "Everything"
 
+#: src/features/billing/pricing.tsx
+msgid "Everything for one job hunt, at a lower price."
+msgstr "Everything for one job hunt, at a lower price."
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
@@ -5152,6 +5196,10 @@ msgstr "Fits on {authored} pages: {details}"
 msgid "Fits on one page: {details}"
 msgstr "Fits on one page: {details}"
 
+#: src/features/quota/page.tsx
+msgid "Five messages are free every week. After they run out, Coach uses paid messages from a Coach package. Paid messages do not expire and are not reset on Monday."
+msgstr "Five messages are free every week. After they run out, Coach uses paid messages from a Coach package. Paid messages do not expire and are not reset on Monday."
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Fix the date"
 msgstr "Fix the date"
@@ -5331,6 +5379,10 @@ msgstr "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
 #: src/libs/seo.ts
 msgid "Free ATS resume checker"
 msgstr "Free ATS resume checker"
+
+#: src/features/career/coach-thread.tsx
+msgid "Free Coach messages are used up."
+msgstr "Free Coach messages are used up."
 
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
@@ -6027,6 +6079,10 @@ msgstr "Interview saved"
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Interview saved · briefing moves to {0}"
 msgstr "Interview saved · briefing moves to {0}"
+
+#: src/features/billing/pricing.tsx
+msgid "interview session"
+msgstr "interview session"
 
 #: src/features/billing/plan-copy.ts
 msgid "interview session credit"
@@ -7171,6 +7227,10 @@ msgstr "MIT License"
 msgid "Mixed"
 msgstr "Mixed"
 
+#: src/features/billing/plan-copy.ts
+msgid "mixed credits"
+msgstr "mixed credits"
+
 #: src/features/homepage/check.tsx
 msgid "mixed format"
 msgstr "mixed format"
@@ -7245,6 +7305,10 @@ msgstr "Most entries have no dates."
 #: src/features/homepage/remember.tsx
 msgid "Most new teams at Sinarpagi Labs stalled during setup and never reached activation."
 msgstr "Most new teams at Sinarpagi Labs stalled during setup and never reached activation."
+
+#: src/features/billing/pricing.tsx
+msgid "Most popular"
+msgstr "Most popular"
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Most recruiters read 180–320 words. The shaded band shows the range."
@@ -8135,6 +8199,10 @@ msgstr "One column with compact spacing and standard headings. Built for fresh g
 msgid "One credit: a tailored resume, a cover letter, and a match score for this job."
 msgstr "One credit: a tailored resume, a cover letter, and a match score for this job."
 
+#: src/features/billing/pricing.tsx
+msgid "One feature, enough for a few tries."
+msgstr "One feature, enough for a few tries."
+
 #: src/features/homepage/check.tsx
 msgid "one format"
 msgstr "one format"
@@ -8490,6 +8558,10 @@ msgstr "PAID"
 msgid "Paid {0}"
 msgstr "Paid {0}"
 
+#: src/features/quota/page.tsx
+msgid "paid Coach messages left"
+msgstr "paid Coach messages left"
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "Paper"
@@ -8696,6 +8768,10 @@ msgstr "People using it"
 #: src/routes/dashboard/akun.tsx
 msgid "per credit"
 msgstr "per credit"
+
+#: src/routes/dashboard/akun.tsx
+msgid "per message"
+msgstr "per message"
 
 #: src/features/settings/account/data.tsx
 msgid "Permanently removes everything. Export first if you want a copy."
@@ -10202,6 +10278,10 @@ msgstr "Sari, Fieldnote"
 msgid "Save"
 msgstr "Save"
 
+#: src/features/billing/pricing.tsx
+msgid "Save {savings}%"
+msgstr "Save {savings}%"
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save a job"
 msgstr "Save a job"
@@ -11012,6 +11092,10 @@ msgstr "Sinarpagi Labs · Jakarta"
 msgid "since last view"
 msgstr "since last view"
 
+#: src/features/billing/pricing.tsx
+msgid "Single credits"
+msgstr "Single credits"
+
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or applications in Japan."
 msgstr "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or applications in Japan."
@@ -11389,6 +11473,10 @@ msgstr "Start with what you have"
 #: src/features/career/shared.tsx
 msgid "Started"
 msgstr "Started"
+
+#: src/features/billing/pricing.tsx
+msgid "Starter packages"
+msgstr "Starter packages"
 
 #: src/features/career/shared.tsx
 msgid "Starts in {minutes} minutes"
@@ -11981,6 +12069,10 @@ msgstr "The file couldn't be read as a resume."
 #: src/features/career/workspace/fit.tsx
 msgid "The fit check didn't finish. Try again in a moment."
 msgstr "The fit check didn't finish. Try again in a moment."
+
+#: src/features/billing/credit-dialog.tsx
+msgid "The five free Coach messages this week are used up. A Coach package adds paid messages that do not expire."
+msgstr "The five free Coach messages this week are used up. A Coach package adds paid messages that do not expire."
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "The greeting follows the name."

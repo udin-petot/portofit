@@ -46,6 +46,7 @@ function Meter({ label, used, limit }: { label: string; used: number; limit: num
 export function QuotaPage() {
 	const { i18n } = useLingui();
 	const quota = useQuery(orpc.quota.status.queryOptions());
+	const balances = useQuery(orpc.billing.balances.queryOptions());
 
 	const resetAt = quota.data?.resetAt ? new Date(quota.data.resetAt) : null;
 	const resetLabel = resetAt
@@ -92,14 +93,41 @@ export function QuotaPage() {
 				</>
 			)}
 
-			<section className="mt-8 rounded-lg border border-line bg-sunken p-5">
+			<section className="mt-8 rounded-lg border border-line bg-surface p-5">
+				<h2 className="text-sm font-semibold text-ink">
+					<Trans>Coach messages</Trans>
+				</h2>
+				<p className="mt-2 text-sm leading-6 text-ink-2">
+					<Trans>
+						Five messages are free every week. After they run out, Coach uses paid messages from a Coach package. Paid
+						messages do not expire and are not reset on Monday.
+					</Trans>
+				</p>
+				<div className="mt-3 flex flex-wrap items-center gap-3">
+					<span className="font-mono text-lg font-medium text-ink tabular-nums">
+						{balances.isLoading ? "—" : (balances.data?.coach ?? 0)}
+					</span>
+					<span className="text-xs text-ink-3">
+						<Trans>paid Coach messages left</Trans>
+					</span>
+					<Link
+						to="/dashboard/beli-kredit"
+						className={buttonVariants({ variant: "secondary", size: "sm", className: "ms-auto" })}
+					>
+						<Icon name="chat-text" size={16} />
+						<Trans>Buy Coach messages</Trans>
+					</Link>
+				</div>
+			</section>
+
+			<section className="mt-4 rounded-lg border border-line bg-sunken p-5">
 				<h2 className="text-sm font-semibold text-ink">
 					<Trans>What stays free</Trans>
 				</h2>
 				<p className="mt-2 text-sm leading-6 text-ink-2">
 					<Trans>
-						Every ATS scan, issue list and basic job match stays free with no limit. Only actions that call a model
-						use this allowance.
+						Every ATS scan, issue list and basic job match stays free with no limit. Only actions that call a model use
+						this allowance.
 					</Trans>
 				</p>
 				<div className="mt-4 flex flex-wrap gap-2">

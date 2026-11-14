@@ -1,10 +1,11 @@
-import { generateId } from "@reactive-resume/utils/string";
 import * as pg from "drizzle-orm/pg-core";
+import { generateId } from "@reactive-resume/utils/string";
 import { user } from "./auth";
 
 /**
  * Paket yang dijual. Bisa diubah dari panel admin tanpa deploy, karena harga dan jumlah kredit disimpan di sini.
- * `kind` menentukan kuota mana yang bertambah saat order diverifikasi.
+ * `kind` menentukan kuota mana yang bertambah saat order diverifikasi. Paket bundel memakai `bundle`
+ * dan isinya dibaca dari `billingPlanItem`.
  */
 export const billingPlan = pg.pgTable(
 	"billing_plan",
@@ -17,9 +18,12 @@ export const billingPlan = pg.pgTable(
 		code: pg.text("code").notNull().unique(),
 		name: pg.text("name").notNull(),
 		description: pg.text("description"),
-		// "application" (CV + cover letter per lowongan) atau "interview" (sesi latihan wawancara).
+		// "application" (CV + cover letter per lowongan), "interview" (sesi latihan), "coach" (pesan Coach),
+		// atau "bundle" (beberapa jenis kredit sekaligus).
 		kind: pg.text("kind").notNull().default("application"),
 		priceIdr: pg.integer("price_idr").notNull(),
+		// Harga pembanding untuk badge "hemat". Kosong berarti tidak ada badge.
+		compareAtIdr: pg.integer("compare_at_idr"),
 		credits: pg.integer("credits").notNull().default(1),
 		active: pg.boolean("active").notNull().default(true),
 		sortOrder: pg.integer("sort_order").notNull().default(0),
@@ -31,6 +35,28 @@ export const billingPlan = pg.pgTable(
 			.$onUpdateFn(() => new Date()),
 	},
 	(t) => [pg.index().on(t.active, t.sortOrder)],
+);
+
+/**
+ * Isi satu paket. Paket satuan punya satu baris; bundel punya beberapa baris dengan jenis berbeda.
+ * Katalog dan order menyimpan salinan terpisah supaya riwayat pesanan tidak berubah saat paket diedit.
+ */
+export const billingPlanItem = pg.pgTable(
+	"billing_plan_item",
+	{
+		id: pg
+			.text("id")
+			.notNull()
+			.primaryKey()
+			.$defaultFn(() => generateId()),
+		planId: pg
+			.text("plan_id")
+			.notNull()
+			.references(() => billingPlan.id, { onDelete: "cascade" }),
+		kind: pg.text("kind").notNull(),
+		credits: pg.integer("credits").notNull(),
+	},
+	(t) => [pg.uniqueIndex("billing_plan_item_plan_kind_index").on(t.planId, t.kind), pg.index().on(t.planId)],
 );
 
 /**
@@ -80,6 +106,28 @@ export const billingOrder = pg.pgTable(
 		pg.index().on(t.status, t.createdAt),
 		pg.index().on(t.status, t.expiresAt),
 	],
+);
+
+/**
+ * Salinan isi paket saat dibeli. Admin membaca baris ini ketika memverifikasi, jadi perubahan
+ * katalog setelahnya tidak bisa mengubah kredit yang dijanjikan ke pembeli.
+ */
+export const billingOrderItem = pg.pgTable(
+	"billing_order_item",
+	{
+		id: pg
+			.text("id")
+			.notNull()
+			.primaryKey()
+			.$defaultFn(() => generateId()),
+		orderId: pg
+			.text("order_id")
+			.notNull()
+			.references(() => billingOrder.id, { onDelete: "cascade" }),
+		kind: pg.text("kind").notNull(),
+		credits: pg.integer("credits").notNull(),
+	},
+	(t) => [pg.uniqueIndex("billing_order_item_order_kind_index").on(t.orderId, t.kind), pg.index().on(t.orderId)],
 );
 
 /**

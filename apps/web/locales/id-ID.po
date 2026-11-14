@@ -285,6 +285,11 @@ msgstr "{0} ditemukan"
 msgid "{0} found, {unreadable} unreadable"
 msgstr "{0} ditemukan, {unreadable} tidak dapat dibaca"
 
+#. placeholder {0}: freeCoach.remaining
+#: src/features/career/coach-thread.tsx
+msgid "{0} free Coach messages left this week."
+msgstr "Sisa {0} pesan Coach gratis minggu ini."
+
 #. placeholder {0}: Math.round(minutes / 60)
 #: src/features/career/workspace/shell.tsx
 msgid "{0} h"
@@ -655,6 +660,10 @@ msgstr "{open, plural, one {# hal yang perlu ditinjau.} other {# hal yang perlu 
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "{pageCount, plural, one {# page} other {# pages}}"
 msgstr "{pageCount, plural, one {halaman #} other {# halaman}}"
+
+#: src/features/career/coach-thread.tsx
+msgid "{paidCoach} paid Coach messages left."
+msgstr "Sisa {paidCoach} pesan Coach berbayar."
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "{pairing} type"
@@ -1797,6 +1806,10 @@ msgstr "Muncul di halaman setelah memiliki organisasi."
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "Sistem pelacakan pelamar mengubah PDF Anda menjadi teks biasa sebelum ada yang membacanya. Pemeriksa melakukan hal yang sama, dengan perpustakaan PDF.js di browser Anda, lalu menilai seberapa banyak resume Anda bertahan: 0 hingga 100, berdasarkan seberapa andal teks yang dihasilkan, bukan dari peluang Anda mendapatkan pekerjaan."
 
+#: src/features/billing/pricing.tsx
+msgid "application"
+msgstr "lamaran"
+
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/documents/documents-page.tsx
@@ -2399,6 +2412,12 @@ msgid "Buy a credit"
 msgstr "Beli satu kredit"
 
 #: src/features/billing/credit-dialog.tsx
+#: src/features/career/coach-thread.tsx
+#: src/features/quota/page.tsx
+msgid "Buy Coach messages"
+msgstr "Beli pesan Coach"
+
+#: src/features/billing/credit-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/features/documents/new-document-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
@@ -2410,6 +2429,10 @@ msgstr "Beli kredit"
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."
 msgstr "Beli kredit untuk melanjutkan."
+
+#: src/features/billing/pricing.tsx
+msgid "Buy only what you need right now."
+msgstr "Beli yang Anda butuhkan sekarang."
 
 #: src/features/auth/pages/register.tsx
 msgid "By signing up with Google or GitHub, you agree to the <0>Terms of Service</0> and <1>Privacy Policy</1>."
@@ -2471,6 +2494,10 @@ msgstr "Dibatalkan"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "Karier"
+
+#: src/features/billing/pricing.tsx
+msgid "Career bundles"
+msgstr "Bundel karier"
 
 #: src/features/homepage/sections.tsx
 msgid "Career coach"
@@ -2823,13 +2850,26 @@ msgstr "Tertutup"
 
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/coach-sheet.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Coach"
 msgstr "Coach"
 
+#: src/features/billing/pricing.tsx
+#: src/routes/dashboard/akun.tsx
+msgid "Coach message"
+msgstr "pesan Coach"
+
+#: src/features/billing/plan-copy.ts
 #: src/features/quota/page.tsx
+#: src/routes/dashboard/akun.tsx
+#: src/routes/dashboard/beli-kredit.tsx
 msgid "Coach messages"
 msgstr "Pesan pendamping"
+
+#: src/features/billing/credit-dialog.tsx
+msgid "Coach messages used up"
+msgstr "Pesan Coach habis"
 
 #: src/features/billing/transactions.tsx
 msgid "code"
@@ -4810,6 +4850,10 @@ msgstr "Setiap minggu"
 msgid "Everything"
 msgstr "Semua"
 
+#: src/features/billing/pricing.tsx
+msgid "Everything for one job hunt, at a lower price."
+msgstr "Semua kebutuhan satu pencarian kerja, dengan harga lebih hemat."
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
@@ -5157,6 +5201,10 @@ msgstr "Cocok pada halaman {authored}: {details}"
 msgid "Fits on one page: {details}"
 msgstr "Muat pada satu halaman: {details}"
 
+#: src/features/quota/page.tsx
+msgid "Five messages are free every week. After they run out, Coach uses paid messages from a Coach package. Paid messages do not expire and are not reset on Monday."
+msgstr "Lima pesan gratis setiap minggu. Setelah habis, Coach memakai pesan berbayar dari paket Coach. Pesan berbayar tidak kedaluwarsa dan tidak direset hari Senin."
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Fix the date"
 msgstr "Perbaiki tanggalnya"
@@ -5336,6 +5384,10 @@ msgstr "Penggunaan AI gratis kembali penuh setiap Senin pukul 00.00 WIB. Sisa pe
 #: src/libs/seo.ts
 msgid "Free ATS resume checker"
 msgstr "Pemeriksa resume ATS gratis"
+
+#: src/features/career/coach-thread.tsx
+msgid "Free Coach messages are used up."
+msgstr "Pesan Coach gratis sudah habis."
 
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
@@ -6032,6 +6084,10 @@ msgstr "Wawancara disimpan"
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Interview saved · briefing moves to {0}"
 msgstr "Wawancara disimpan · briefing dipindah ke {0}"
+
+#: src/features/billing/pricing.tsx
+msgid "interview session"
+msgstr "sesi wawancara"
 
 #: src/features/billing/plan-copy.ts
 msgid "interview session credit"
@@ -7176,6 +7232,10 @@ msgstr "Lisensi MIT"
 msgid "Mixed"
 msgstr "Campuran"
 
+#: src/features/billing/plan-copy.ts
+msgid "mixed credits"
+msgstr "kredit campuran"
+
 #: src/features/homepage/check.tsx
 msgid "mixed format"
 msgstr "format campuran"
@@ -7250,6 +7310,10 @@ msgstr "Sebagian besar entri tidak memiliki tanggal."
 #: src/features/homepage/remember.tsx
 msgid "Most new teams at Sinarpagi Labs stalled during setup and never reached activation."
 msgstr "Sebagian besar tim baru di Sinarpagi Labs tersendat saat penyiapan dan tidak pernah mencapai aktivasi."
+
+#: src/features/billing/pricing.tsx
+msgid "Most popular"
+msgstr "Paling laris"
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Most recruiters read 180–320 words. The shaded band shows the range."
@@ -8140,6 +8204,10 @@ msgstr "Satu kolom dengan jarak rapat dan judul bagian standar. Dibuat untuk fre
 msgid "One credit: a tailored resume, a cover letter, and a match score for this job."
 msgstr "Satu kredit: resume disesuaikan, surat lamaran, dan skor kecocokan untuk lowongan ini."
 
+#: src/features/billing/pricing.tsx
+msgid "One feature, enough for a few tries."
+msgstr "Satu fitur, cukup untuk beberapa kali coba."
+
 #: src/features/homepage/check.tsx
 msgid "one format"
 msgstr "satu format"
@@ -8495,6 +8563,10 @@ msgstr "LUNAS"
 msgid "Paid {0}"
 msgstr "Dibayar {0}"
 
+#: src/features/quota/page.tsx
+msgid "paid Coach messages left"
+msgstr "pesan Coach berbayar tersisa"
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "Kertas"
@@ -8701,6 +8773,10 @@ msgstr "Orang yang menggunakannya"
 #: src/routes/dashboard/akun.tsx
 msgid "per credit"
 msgstr "per kredit"
+
+#: src/routes/dashboard/akun.tsx
+msgid "per message"
+msgstr "per pesan"
 
 #: src/features/settings/account/data.tsx
 msgid "Permanently removes everything. Export first if you want a copy."
@@ -10207,6 +10283,10 @@ msgstr "Sari, Fieldnote"
 msgid "Save"
 msgstr "Simpan"
 
+#: src/features/billing/pricing.tsx
+msgid "Save {savings}%"
+msgstr "Hemat {savings}%"
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save a job"
 msgstr "Simpan pekerjaan"
@@ -11017,6 +11097,10 @@ msgstr "Sinarpagi Labs · Jakarta"
 msgid "since last view"
 msgstr "sejak tampilan terakhir"
 
+#: src/features/billing/pricing.tsx
+msgid "Single credits"
+msgstr "Kredit satuan"
+
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or applications in Japan."
 msgstr "Bentuk satu kolom yang terinspirasi oleh resume rirekisho Jepang: header terbuat dari bidang yang dibatasi, dan setiap bagian disajikan sebagai tabel dengan bilah judul yang solid. Ringkas dan mudah dipindai, cocok untuk pekerjaan teknik, pekerjaan operasi, atau lamaran pekerjaan di Jepang."
@@ -11394,6 +11478,10 @@ msgstr "Mulai dari yang sudah kamu punya"
 #: src/features/career/shared.tsx
 msgid "Started"
 msgstr "Sudah dimulai"
+
+#: src/features/billing/pricing.tsx
+msgid "Starter packages"
+msgstr "Paket fitur"
 
 #: src/features/career/shared.tsx
 msgid "Starts in {minutes} minutes"
@@ -11986,6 +12074,10 @@ msgstr "File tidak dapat dibaca sebagai resume."
 #: src/features/career/workspace/fit.tsx
 msgid "The fit check didn't finish. Try again in a moment."
 msgstr "Pemeriksaan kecocokan belum selesai. Coba lagi sebentar lagi."
+
+#: src/features/billing/credit-dialog.tsx
+msgid "The five free Coach messages this week are used up. A Coach package adds paid messages that do not expire."
+msgstr "Lima pesan Coach gratis minggu ini sudah habis. Paket Coach menambah pesan berbayar yang tidak kedaluwarsa."
 
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "The greeting follows the name."

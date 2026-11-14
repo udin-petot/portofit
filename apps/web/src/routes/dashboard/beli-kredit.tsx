@@ -1,13 +1,13 @@
 import { t } from "@lingui/core/macro";
-import { Trans } from "@lingui/react/macro";
 import { useLingui } from "@lingui/react";
+import { Trans } from "@lingui/react/macro";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
-import { Countdown } from "@/features/billing/countdown";
 import { formatRupiah } from "@/features/billing/config";
+import { Countdown } from "@/features/billing/countdown";
 import { PaymentDialog } from "@/features/billing/payment-dialog";
 import { getPlanCopy } from "@/features/billing/plan-copy";
 import { FreeNote, HowToPay, PlanList } from "@/features/billing/pricing";
@@ -17,12 +17,12 @@ export const Route = createFileRoute("/dashboard/beli-kredit")({
 	component: BuyCreditsPage,
 });
 
-type Balances = { application: number; interview: number };
+type Balances = { application: number; interview: number; coach: number };
 
-/** Dua saldo dalam satu baris kotak. Angka rata kanan supaya bisa dibandingkan tanpa membaca label. */
+/** Tiga saldo dalam satu baris kotak. Angka rata kanan supaya bisa dibandingkan tanpa membaca label. */
 function BalanceTiles({ data }: { data?: Balances | undefined }) {
 	return (
-		<section aria-label={t`Your balance`} className="grid grid-cols-2 gap-2">
+		<section aria-label={t`Your balance`} className="grid grid-cols-3 gap-2">
 			<div className="grid gap-1 rounded-lg border border-line bg-surface px-3 py-2">
 				<span className="text-[11px] leading-4 text-ink-3">
 					<Trans>Application credits</Trans>
@@ -35,9 +35,13 @@ function BalanceTiles({ data }: { data?: Balances | undefined }) {
 				<span className="text-[11px] leading-4 text-ink-3">
 					<Trans>Interview credits</Trans>
 				</span>
-				<span className="text-right font-mono text-lg font-medium text-ink tabular-nums">
-					{data?.interview ?? "—"}
+				<span className="text-right font-mono text-lg font-medium text-ink tabular-nums">{data?.interview ?? "—"}</span>
+			</div>
+			<div className="grid gap-1 rounded-lg border border-line bg-surface px-3 py-2">
+				<span className="text-[11px] leading-4 text-ink-3">
+					<Trans>Coach messages</Trans>
 				</span>
+				<span className="text-right font-mono text-lg font-medium text-ink tabular-nums">{data?.coach ?? "—"}</span>
 			</div>
 		</section>
 	);

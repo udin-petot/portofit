@@ -32,6 +32,8 @@ export function CreditDialog() {
 					<DialogTitle>
 						{current.kind === "interview" ? (
 							<Trans>Interview credits used up</Trans>
+						) : current.kind === "coach" ? (
+							<Trans>Coach messages used up</Trans>
 						) : (
 							<Trans>Application credits used up</Trans>
 						)}
@@ -39,8 +41,13 @@ export function CreditDialog() {
 					<DialogDescription>
 						{current.kind === "interview" ? (
 							<Trans>
-								One interview package covers one practice session with AI feedback. Practising again for the
-								same scheduled interview is free.
+								One interview package covers one practice session with AI feedback. Practising again for the same
+								scheduled interview is free.
+							</Trans>
+						) : current.kind === "coach" ? (
+							<Trans>
+								The five free Coach messages this week are used up. A Coach package adds paid messages that do not
+								expire.
 							</Trans>
 						) : (
 							<Trans>
@@ -68,7 +75,7 @@ export function CreditDialog() {
 						<Trans>Not now</Trans>
 					</Button>
 					<Button onClick={() => window.location.assign("/dashboard/beli-kredit")}>
-						<Trans>Buy credits</Trans>
+						{current.kind === "coach" ? <Trans>Buy Coach messages</Trans> : <Trans>Buy credits</Trans>}
 					</Button>
 				</DialogFooter>
 			</DialogContent>

@@ -1,7 +1,14 @@
-import { and, desc, eq } from "drizzle-orm";
 import { ORPCError } from "@orpc/server";
+import { and, desc, eq } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
-import { billingCreditLedger, billingOrder, invoice, invoiceEmail, user, type InvoiceSnapshot } from "@reactive-resume/db/schema";
+import {
+	billingCreditLedger,
+	billingOrder,
+	invoice,
+	invoiceEmail,
+	user,
+	type InvoiceSnapshot,
+} from "@reactive-resume/db/schema";
 import { createInvoicePdf, type InvoicePdfInput } from "@reactive-resume/pdf/server";
 import { nextInvoiceNumber } from "./number";
 
@@ -21,12 +28,14 @@ export function buildInvoiceSnapshot(
 	order: OrderRow,
 	customer: { name: string; email: string },
 	balanceAfter: number,
+	items?: { kind: string; credits: number }[],
 ): InvoiceSnapshot {
 	return {
 		customerName: customer.name,
 		customerEmail: customer.email,
 		planName: order.planName,
 		credits: order.credits,
+		...(items && items.length > 0 ? { items } : {}),
 		amountIdr: order.amountIdr,
 		uniqueCode: order.uniqueCode,
 		totalIdr: order.totalIdr,
@@ -42,7 +51,12 @@ export function buildInvoiceSnapshot(
  */
 export async function issueInvoice(
 	tx: Tx,
-	input: { order: OrderRow; customer: { name: string; email: string }; balanceAfter: number },
+	input: {
+		order: OrderRow;
+		customer: { name: string; email: string };
+		balanceAfter: number;
+		items?: { kind: string; credits: number }[];
+	},
 ): Promise<InvoiceRow> {
 	const findExisting = async () => {
 		const [existing] = await tx.select().from(invoice).where(eq(invoice.orderId, input.order.id)).limit(1);
@@ -53,7 +67,7 @@ export async function issueInvoice(
 	if (existing) return existing;
 
 	const issuedAt = input.order.verifiedAt ?? new Date();
-	const snapshot = buildInvoiceSnapshot(input.order, input.customer, input.balanceAfter);
+	const snapshot = buildInvoiceSnapshot(input.order, input.customer, input.balanceAfter, input.items);
 	const number = await nextInvoiceNumber(tx, invoiceYear(issuedAt));
 
 	try {
@@ -80,7 +94,13 @@ export async function issueInvoice(
 /** Daftar kuitansi milik pengguna, terbaru dulu. */
 export async function listInvoices(userId: string) {
 	const rows = await db
-		.select({ id: invoice.id, orderId: invoice.orderId, number: invoice.number, issuedAt: invoice.issuedAt, snapshot: invoice.snapshot })
+		.select({
+			id: invoice.id,
+			orderId: invoice.orderId,
+			number: invoice.number,
+			issuedAt: invoice.issuedAt,
+			snapshot: invoice.snapshot,
+		})
 		.from(invoice)
 		.where(eq(invoice.userId, userId))
 		.orderBy(desc(invoice.issuedAt));

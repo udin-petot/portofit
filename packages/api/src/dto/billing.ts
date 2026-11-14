@@ -1,10 +1,21 @@
 import z from "zod";
 
-export const planKindSchema = z.enum(["application", "interview"]).describe("Jenis kredit yang dibeli: per lamaran atau per sesi wawancara.");
+export const creditKindSchema = z
+	.enum(["application", "interview", "coach"])
+	.describe("Jenis kredit yang bisa dipakai: per lamaran, per sesi wawancara, atau per pesan Coach.");
+export const planKindSchema = z
+	.enum(["application", "interview", "coach", "bundle"])
+	.describe("Jenis paket. Bundle berisi beberapa jenis kredit dan dibaca dari daftar item.");
+export const planItemSchema = z.object({
+	kind: creditKindSchema,
+	credits: z.number().int().positive().describe("Jumlah kredit untuk jenis ini."),
+});
 export const orderStatusSchema = z
 	.enum(["menunggu_bayar", "menunggu_verifikasi", "lunas", "ditolak", "hangus"])
 	.describe("Tahap pesanan: dibuat, bukti diunggah, diverifikasi admin, atau ditolak.");
-export const paymentMethodSchema = z.enum(["qris", "wa"]).describe("qris: bukti diunggah di situs. wa: bukti dikirim lewat WhatsApp lalu dicatat admin.");
+export const paymentMethodSchema = z
+	.enum(["qris", "wa"])
+	.describe("qris: bukti diunggah di situs. wa: bukti dikirim lewat WhatsApp lalu dicatat admin.");
 
 export const planOutputSchema = z.object({
 	code: z.string().describe("Kode paket yang dipakai saat membuat order."),
@@ -12,7 +23,9 @@ export const planOutputSchema = z.object({
 	description: z.string().nullable(),
 	kind: planKindSchema,
 	priceIdr: z.number().int().describe("Harga paket dalam rupiah, belum termasuk kode unik."),
+	compareAtIdr: z.number().int().nullable().describe("Harga pembanding untuk badge hemat; kosong bila tidak ada."),
 	credits: z.number().int().describe("Jumlah kredit yang bertambah setelah order diverifikasi."),
+	items: z.array(planItemSchema).describe("Rincian kredit per jenis; paket satuan berisi satu baris."),
 });
 
 export const orderOutputSchema = z.object({
@@ -21,6 +34,7 @@ export const orderOutputSchema = z.object({
 	planName: z.string(),
 	kind: planKindSchema,
 	credits: z.number().int(),
+	items: z.array(planItemSchema).describe("Salinan isi paket saat order dibuat."),
 	amountIdr: z.number().int().describe("Harga paket yang di-snapshot saat order dibuat."),
 	uniqueCode: z.number().int().describe("Kode 0–999 yang ditambahkan ke nominal agar mudah dicocokkan di mutasi."),
 	totalIdr: z.number().int().describe("Nominal yang harus dibayar: harga paket ditambah kode unik."),
@@ -41,13 +55,16 @@ export const adminOrderOutputSchema = orderOutputSchema.extend({
 export const balancesOutputSchema = z.object({
 	application: z.number().int().describe("Sisa kredit untuk CV + cover letter per lamaran."),
 	interview: z.number().int().describe("Sisa kredit untuk sesi latihan wawancara."),
+	coach: z.number().int().describe("Sisa pesan Coach berbayar."),
 });
 
 export const billingDto = {
 	listPlans: { output: z.object({ plans: z.array(planOutputSchema) }) },
 	balances: { output: balancesOutputSchema },
 	listMyOrders: {
-		input: z.object({ limit: z.number().int().min(1).max(100).optional().describe("Jumlah order terakhir yang diambil (default 20).") }),
+		input: z.object({
+			limit: z.number().int().min(1).max(100).optional().describe("Jumlah order terakhir yang diambil (default 20)."),
+		}),
 		output: z.object({ orders: z.array(orderOutputSchema) }),
 	},
 	createOrder: {
@@ -71,26 +88,34 @@ export const billingDto = {
 	attachProof: {
 		input: z.object({
 			orderId: z.string().min(1),
-			proofPath: z.string().min(1).max(512).describe("Path hasil unggah lewat endpoint storage. Harus foto JPG atau PNG, PDF ditolak."),
+			proofPath: z
+				.string()
+				.min(1)
+				.max(512)
+				.describe("Path hasil unggah lewat endpoint storage. Harus foto JPG atau PNG, PDF ditolak."),
 			note: z.string().max(500).optional().describe("Catatan pengirim, mis. nama pemilik rekening."),
-			paymentMethod: paymentMethodSchema.optional().describe("Default qris. Pakai wa bila bukti dikirim lewat WhatsApp."),
+			paymentMethod: paymentMethodSchema
+				.optional()
+				.describe("Default qris. Pakai wa bila bukti dikirim lewat WhatsApp."),
 		}),
 		output: orderOutputSchema,
 	},
 	consumeCredit: {
 		input: z.object({
-			kind: planKindSchema,
+			kind: creditKindSchema,
 			reason: z.string().min(3).max(200).describe("Keterangan pemakaian, mis. 'Tailor CV ke lowongan Backend PT X'."),
 		}),
 		output: z.object({ ok: z.literal(true), remaining: z.number().int() }),
 	},
 	ledger: {
-		input: z.object({ limit: z.number().int().min(1).max(100).optional().describe("Jumlah baris terakhir (default 30).") }),
+		input: z.object({
+			limit: z.number().int().min(1).max(100).optional().describe("Jumlah baris terakhir (default 30)."),
+		}),
 		output: z.object({
 			entries: z.array(
 				z.object({
 					id: z.string(),
-					kind: planKindSchema,
+					kind: creditKindSchema,
 					delta: z.number().int().describe("+1 saat kredit masuk, -1 saat dipakai."),
 					reason: z.string(),
 					balanceAfter: z.number().int(),
@@ -142,8 +167,13 @@ export const billingDto = {
 	adminAdjustCredits: {
 		input: z.object({
 			userId: z.string().min(1),
-			kind: planKindSchema,
-			delta: z.number().int().min(-1000).max(1000).refine((value) => value !== 0, "Delta tidak boleh nol."),
+			kind: creditKindSchema,
+			delta: z
+				.number()
+				.int()
+				.min(-1000)
+				.max(1000)
+				.refine((value) => value !== 0, "Delta tidak boleh nol."),
 			reason: z.string().min(3).max(200),
 		}),
 		output: z.object({ ok: z.literal(true), balances: balancesOutputSchema }),
@@ -158,7 +188,9 @@ export const billingDto = {
 		}),
 	},
 	adminAnalytics: {
-		input: z.object({ days: z.number().int().min(7).max(90).default(30).describe("Panjang jendela grafik, dalam hari.") }),
+		input: z.object({
+			days: z.number().int().min(7).max(90).default(30).describe("Panjang jendela grafik, dalam hari."),
+		}),
 		output: z.object({
 			range: z.object({
 				days: z.number().int(),
@@ -210,14 +242,19 @@ export const billingDto = {
 			name: z.string().min(1).max(120).optional(),
 			description: z.string().max(500).nullable().optional(),
 			priceIdr: z.number().int().min(0).max(10_000_000).optional(),
-			credits: z.number().int().min(1).max(100).optional(),
+			compareAtIdr: z.number().int().min(0).max(10_000_000).nullable().optional(),
+			credits: z.number().int().min(1).max(1000).optional(),
 			active: z.boolean().optional(),
 			sortOrder: z.number().int().min(0).max(999).optional(),
 		}),
 		output: planOutputSchema,
 	},
 	adminExportCsv: {
-		output: z.object({ filename: z.string(), csv: z.string().describe("Isi CSV transaksi lunas, siap dibuka di Excel."), rows: z.number().int() }),
+		output: z.object({
+			filename: z.string(),
+			csv: z.string().describe("Isi CSV transaksi lunas, siap dibuka di Excel."),
+			rows: z.number().int(),
+		}),
 	},
 	adminAudit: {
 		input: z.object({ limit: z.number().int().min(1).max(200).optional() }),

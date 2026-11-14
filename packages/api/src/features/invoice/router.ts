@@ -89,6 +89,7 @@ export const invoiceRouter = {
 					customerEmail: z.string(),
 					planName: z.string(),
 					credits: z.number().int(),
+					items: z.array(z.object({ kind: z.string(), credits: z.number().int() })).optional(),
 					amountIdr: z.number().int(),
 					uniqueCode: z.number().int(),
 					totalIdr: z.number().int(),

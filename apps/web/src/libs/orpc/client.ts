@@ -1,13 +1,13 @@
 import type { InferRouterOutputs, RouterClient } from "@orpc/server";
 import type router from "@reactive-resume/api/routers";
+import { t } from "@lingui/core/macro";
 import { ORPCError, createORPCClient, onError } from "@orpc/client";
 import { RPCLink } from "@orpc/client/fetch";
 import { BatchLinkPlugin } from "@orpc/client/plugins";
 import { createTanstackQueryUtils } from "@orpc/tanstack-query";
-import { t } from "@lingui/core/macro";
 import { toast } from "@reactive-resume/ui/components/toast";
-import { notifyCreditRequired } from "@/features/billing/credit-gate";
 import { rpcFetch } from "./fetch";
+import { notifyCreditRequired } from "@/features/billing/credit-gate";
 
 const getRpcUrl = () => `${window.location.origin}/api/rpc`;
 
@@ -44,7 +44,12 @@ export const client: RouterClient<typeof router> = createORPCClient(
 					error instanceof ORPCError &&
 					(error.data as { code?: string; kind?: string } | undefined)?.code === "CREDIT_REQUIRED"
 				) {
-					const kind = (error.data as { kind?: string }).kind === "interview" ? "interview" : "application";
+					const kind =
+						(error.data as { kind?: string }).kind === "interview"
+							? "interview"
+							: (error.data as { kind?: string }).kind === "coach"
+								? "coach"
+								: "application";
 					notifyCreditRequired(kind);
 					return;
 				}
