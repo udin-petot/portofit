@@ -56,16 +56,34 @@ export const messagesRouter = {
 			// Pendamping memakai satu jatah per pesan; percakapan terbuka tanpa batas akan menguras biaya kelompok.
 			// Jatah gratis dicoba dulu, lalu saldo pesan berbayar.
 			const claim = await quotaService.consumeCoach({ userId: context.user.id });
+			let released = false;
+			const release = async () => {
+				if (released) return;
+				released = true;
+				await quotaService.releaseCoach({ userId: context.user.id, source: claim.source }).catch(() => undefined);
+			};
+
 			try {
-				return agentService.messages.send({
+				const stream = await agentService.messages.send({
 					userId: context.user.id,
 					threadId: input.threadId,
 					message: input.message,
 					...(input.attachmentIds ? { attachmentIds: input.attachmentIds } : {}),
 					...(input.context ? { context: input.context } : {}),
+					// The provider can fail after the stream has started; release the claim from that path too.
+					onFailure: release,
 				});
+
+				return (async function* () {
+					try {
+						yield* stream;
+					} catch (error) {
+						await release();
+						throw error;
+					}
+				})();
 			} catch (error) {
-				await quotaService.releaseCoach({ userId: context.user.id, source: claim.source }).catch(() => undefined);
+				await release();
 				throw error;
 			}
 		}),

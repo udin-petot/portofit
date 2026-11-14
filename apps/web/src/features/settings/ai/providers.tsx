@@ -79,8 +79,7 @@ export function ProvidersSection() {
 					<div className="flex items-center gap-3">
 						<ProviderLogo provider={managed.provider} className="size-10 rounded-[10px] bg-sunken" />
 						<div className="grid min-w-0 gap-1">
-							<p className="text-sm font-medium">{providerLabel(managed.provider)}</p>
-							<p className="text-xs break-all text-ink-3">{managed.model}</p>
+							<p className="text-sm font-medium">AI PortoFit</p>
 							<p className="text-xs text-ink-2">
 								<Trans>Managed by your server</Trans>
 							</p>
@@ -232,7 +231,7 @@ function ProviderRow({ provider, isDefault, onMakeDefault, makingDefault, onEdit
 				<ProviderLogo provider={provider.provider} className="size-10 rounded-lg bg-sunken" />
 				<span className="grid min-w-0 flex-1 gap-0.5">
 					<span className="flex flex-wrap items-center gap-2 text-sm font-semibold">
-						<span className="break-words">{provider.label}</span>
+						<span className="break-words">{provider.managed ? "AI PortoFit" : provider.label}</span>
 						<span
 							className={cn(
 								"rounded-full px-2 py-0.5 text-xs font-medium",
@@ -257,7 +256,7 @@ function ProviderRow({ provider, isDefault, onMakeDefault, makingDefault, onEdit
 							</span>
 						)}
 					</span>
-					<span className="text-xs break-all text-ink-2">{provider.model}</span>
+					{!provider.managed && <span className="text-xs break-all text-ink-2">{provider.model}</span>}
 					<span className="text-xs text-ink-3">
 						<Trans>Key ends in {keyEnding(provider.apiKeyPreview)}</Trans>
 					</span>

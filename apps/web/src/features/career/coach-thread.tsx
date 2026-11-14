@@ -232,7 +232,7 @@ export function CoachThread(props: CoachThreadProps) {
 			const id = await ensureThread();
 			setPrompt({ text, attachments, used: usedFor(knowledge, props.context) });
 			draft.current = null;
-			props.onThreadCreated(id, text);
+			props.onThreadCreated(id, text || attachments[0]?.filename || t`Attachment`);
 			return true;
 		} catch (error) {
 			toast.add({
@@ -1005,7 +1005,7 @@ function Composer(props: ComposerProps) {
 
 	const submit = async () => {
 		const value = text.trim();
-		if (!value || props.streaming || props.disabled || uploading) return;
+		if ((!value && attachments.length === 0) || props.streaming || props.disabled || uploading) return;
 		const sent = await props.onSend(
 			value,
 			attachments.map(({ size: _size, ...attachment }) => attachment),
@@ -1138,6 +1138,7 @@ function Composer(props: ComposerProps) {
 							ref={fileInput}
 							type="file"
 							multiple
+							accept=".pdf,.doc,.docx,.txt,.md,.json,image/*"
 							className="hidden"
 							onChange={(event) => void upload(event.target.files)}
 						/>
@@ -1147,7 +1148,9 @@ function Composer(props: ComposerProps) {
 									<Button
 										size="icon-sm"
 										aria-label={sendLabel}
-										disabled={!props.streaming && (props.disabled || uploading)}
+										disabled={
+											!props.streaming && (props.disabled || uploading || (!text.trim() && attachments.length === 0))
+										}
 										onClick={props.streaming ? props.onStop : () => void submit()}
 										className="rounded-lg"
 									/>

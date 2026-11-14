@@ -51,6 +51,13 @@ import { client, orpc } from "@/libs/orpc/client";
 type ThreadSummary = RouterOutput["agent"]["threads"]["list"][number];
 type UsableProvider = ReturnType<typeof useHasUsableAiProvider>["usableProviders"][number];
 
+/** The managed server connection is a product name, not a model selector; hide its model everywhere. */
+const AI_PORTOFIT = "AI PortoFit";
+const displayProviderName = (provider: { label: string; managed?: boolean }) =>
+	provider.managed ? AI_PORTOFIT : provider.label;
+const displayStoredProviderName = (label: string | null | undefined) =>
+	label === "Server AI" ? AI_PORTOFIT : (label ?? t`Your AI`);
+
 // ---- Context chips: per conversation, in this browser; new conversations start from the defaults. ----
 
 type Chips = { application: boolean; memory: boolean; web: boolean; offers: boolean };
@@ -152,8 +159,8 @@ export function CoachPage({ conversationId, offerIds: routeOfferIds }: CoachPage
 	// A conversation runs on its own connection; one switched off or removed moves to the default.
 	const provider = usable.find((item) => item.id === (summary ? summary.aiProviderId : providerId)) ?? usable[0];
 	useConversationConnection(summary, provider);
-	const label = provider?.label ?? summary?.providerLabel ?? t`Your AI`;
-	const connection = connectionName(label);
+	const label = provider ? displayProviderName(provider) : displayStoredProviderName(summary?.providerLabel);
+	const connection = provider?.managed ? AI_PORTOFIT : connectionName(label);
 
 	const context: MessageContext = {
 		// A career conversation has no document or posting to leave out.
@@ -503,10 +510,10 @@ type ModelChipProps = {
 	onChoose: (id: string) => void;
 };
 
-/** "Demo AI · gpt-4.1-mini": the connection this conversation uses; the menu switches it. */
+/** "AI PortoFit" or "Demo AI · gpt-4.1-mini": the connection this conversation uses; the menu switches it. */
 function ModelChip({ open, onOpenChange, providers, current, label, onChoose }: ModelChipProps) {
 	const navigate = useNavigate();
-	const text = current ? `${current.label} · ${current.model}` : label;
+	const text = current ? displayProviderName(current) : label;
 	return (
 		<DropdownMenu open={open} onOpenChange={onOpenChange}>
 			<DropdownMenuTrigger
@@ -524,8 +531,8 @@ function ModelChip({ open, onOpenChange, providers, current, label, onChoose }: 
 				{providers.map((item) => (
 					<DropdownMenuItem key={item.id} onClick={() => onChoose(item.id)}>
 						<span className="grid min-w-0 flex-1">
-							<span className="truncate">{item.label}</span>
-							<span className="truncate font-mono text-xs text-ink-3">{item.model}</span>
+							<span className="truncate">{displayProviderName(item)}</span>
+							{!item.managed && <span className="truncate font-mono text-xs text-ink-3">{item.model}</span>}
 						</span>
 						{item.id === current?.id && <Icon name="check" size={16} />}
 					</DropdownMenuItem>

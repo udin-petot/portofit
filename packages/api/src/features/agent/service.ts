@@ -15,7 +15,7 @@ import {
 	ToolLoopAgent,
 	wrapLanguageModel,
 } from "ai";
-import { and, asc, count, desc, eq, inArray, isNull, sql } from "drizzle-orm";
+import { and, asc, count, desc, eq, inArray, isNull, or, sql } from "drizzle-orm";
 import { agentWebSources } from "@reactive-resume/ai/tools/agent-tool-contracts";
 import { db } from "@reactive-resume/db/client";
 import * as schema from "@reactive-resume/db/schema";
@@ -30,6 +30,7 @@ import { resumeService } from "../resume/service";
 import { getStorageService, inferContentType } from "../storage/service";
 import { webAccessService } from "../web-access/credentials";
 import { readPage, searchWeb } from "../web-access/service";
+import { extractAttachmentText, isExtractableAttachment, MAX_ATTACHMENT_TEXT_CHARS } from "./attachment-text";
 import { isRunAlive, monitorRunCancellation, requestRunCancellation } from "./cancellation";
 import { pruneAgentModelContext } from "./context";
 import { documentOf, documentView, findPosting, loadDocument, resolveEdits } from "./document";
@@ -63,7 +64,6 @@ const MAX_ATTACHMENT_BYTES = 25 * 1024 * 1024;
 const MAX_THREAD_ATTACHMENT_BYTES = 100 * 1024 * 1024;
 const READABLE_ATTACHMENT_TYPES = new Set(["text/plain", "text/markdown", "application/json"]);
 const DIRECT_MODEL_FILE_ATTACHMENT_TYPES = new Set([
-	"application/pdf",
 	"audio/mpeg",
 	"audio/mp3",
 	"audio/wav",
@@ -71,7 +71,6 @@ const DIRECT_MODEL_FILE_ATTACHMENT_TYPES = new Set([
 	"audio/x-wav",
 ]);
 const AGENT_ATTACHMENT_URL_PREFIX = "agent-attachment:";
-const MAX_ATTACHMENT_TEXT_CHARS = 40_000;
 
 const activeRunCleanup = new Map<string, () => void>();
 const activeRunTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
@@ -114,6 +113,8 @@ type SendMessageInput = {
 	message: UIMessage;
 	attachmentIds?: unknown;
 	context?: MessageContext | undefined;
+	/** Called once when the provider stream fails, so the router can return the Coach allowance. */
+	onFailure?: (() => void | Promise<void>) | undefined;
 };
 
 type CreateAttachmentInput = {
@@ -317,38 +318,65 @@ function attachmentLabel(attachment: AgentAttachmentRecord) {
 	return `${attachment.filename} (${attachment.mediaType}, ${attachment.size} bytes, attachmentId: ${attachment.id})`;
 }
 
-function buildAttachmentModelParts(input: AttachmentModelInput[]): Array<TextPart | ImagePart | FilePart> {
-	return input.map(({ attachment, data }) => {
-		if (READABLE_ATTACHMENT_TYPES.has(attachment.mediaType)) {
-			const text = new TextDecoder().decode(data).slice(0, MAX_ATTACHMENT_TEXT_CHARS);
+async function buildAttachmentModelParts(
+	input: AttachmentModelInput[],
+): Promise<Array<TextPart | ImagePart | FilePart>> {
+	return Promise.all(
+		input.map(async ({ attachment, data }) => {
+			if (READABLE_ATTACHMENT_TYPES.has(attachment.mediaType)) {
+				const text = new TextDecoder().decode(data).slice(0, MAX_ATTACHMENT_TEXT_CHARS);
+				return {
+					type: "text",
+					text: `Attachment ${attachmentLabel(attachment)}:\n\n${text}`,
+				};
+			}
+
+			if (attachment.mediaType.startsWith("image/")) {
+				return {
+					type: "image",
+					image: data,
+					mediaType: attachment.mediaType,
+				};
+			}
+
+			if (isExtractableAttachment(attachment.mediaType)) {
+				// The server AI provider accepts text and images, not arbitrary file parts. Reading the
+				// document here makes PDFs and Word files work on every text model instead of failing
+				// with "Unsupported chat content part type: 'file'".
+				const text = await extractAttachmentText({
+					filename: attachment.filename,
+					mediaType: attachment.mediaType,
+					data,
+				});
+				return {
+					type: "text",
+					text: `Attachment ${attachmentLabel(attachment)}:\n\n${text ?? ""}`,
+				};
+			}
+
+			if (DIRECT_MODEL_FILE_ATTACHMENT_TYPES.has(attachment.mediaType)) {
+				return {
+					type: "file",
+					data,
+					filename: attachment.filename,
+					mediaType: attachment.mediaType,
+				};
+			}
+
 			return {
 				type: "text",
-				text: `Attachment ${attachmentLabel(attachment)}:\n\n${text}`,
+				text: `Attachment ${attachmentLabel(attachment)} is not included directly because this media type is not supported for model file input. Use the read_attachment tool if text extraction is available.`,
 			};
-		}
+		}),
+	);
+}
 
-		if (attachment.mediaType.startsWith("image/")) {
-			return {
-				type: "image",
-				image: data,
-				mediaType: attachment.mediaType,
-			};
-		}
-
-		if (DIRECT_MODEL_FILE_ATTACHMENT_TYPES.has(attachment.mediaType)) {
-			return {
-				type: "file",
-				data,
-				filename: attachment.filename,
-				mediaType: attachment.mediaType,
-			};
-		}
-
-		return {
-			type: "text",
-			text: `Attachment ${attachmentLabel(attachment)} is not included directly because this media type is not supported for model file input. Use the read_attachment tool if text extraction is available.`,
-		};
-	});
+function attachmentIdsFromMessage(message: UIMessage) {
+	return message.parts.flatMap((part) =>
+		part.type === "file" && part.url.startsWith(AGENT_ATTACHMENT_URL_PREFIX)
+			? [part.url.slice(AGENT_ATTACHMENT_URL_PREFIX.length)]
+			: [],
+	);
 }
 
 function uniqueAttachmentIds(ids: unknown) {
@@ -384,7 +412,7 @@ function uniqueAttachmentIds(ids: unknown) {
 	return [...unique];
 }
 
-async function getUnlinkedMessageAttachments(input: { ids: unknown; threadId: string; userId: string }) {
+async function getMessageAttachments(input: { ids: unknown; threadId: string; userId: string }) {
 	const ids = uniqueAttachmentIds(input.ids);
 	if (ids.length === 0) return [];
 
@@ -396,13 +424,12 @@ async function getUnlinkedMessageAttachments(input: { ids: unknown; threadId: st
 				eq(schema.agentAttachment.threadId, input.threadId),
 				eq(schema.agentAttachment.userId, input.userId),
 				inArray(schema.agentAttachment.id, ids),
-				isNull(schema.agentAttachment.messageId),
 			),
 		);
 
 	if (attachments.length !== ids.length) {
 		throw new ORPCError("BAD_REQUEST", {
-			message: "One or more attachments are unavailable or already linked to a message.",
+			message: "One or more attachments are unavailable or belong to another conversation.",
 		});
 	}
 
@@ -411,7 +438,7 @@ async function getUnlinkedMessageAttachments(input: { ids: unknown; threadId: st
 		const attachment = attachmentsById.get(id);
 		if (!attachment) {
 			throw new ORPCError("BAD_REQUEST", {
-				message: "One or more attachments are unavailable or already linked to a message.",
+				message: "One or more attachments are unavailable or belong to another conversation.",
 			});
 		}
 
@@ -436,7 +463,7 @@ async function linkAttachmentsToMessage(input: {
 				eq(schema.agentAttachment.threadId, input.threadId),
 				eq(schema.agentAttachment.userId, input.userId),
 				inArray(schema.agentAttachment.id, ids),
-				isNull(schema.agentAttachment.messageId),
+				or(isNull(schema.agentAttachment.messageId), eq(schema.agentAttachment.messageId, input.messageId)),
 			),
 		)
 		.returning({ id: schema.agentAttachment.id });
@@ -663,10 +690,10 @@ function messageText(message: UIMessage) {
 	return textParts.join(" ").trim();
 }
 
-/** The first message names the conversation: up to 57 characters, or 44 in the career coach's list. */
+/** The first message names the conversation: its text, else its attachment, up to 57 characters (44 in the career list). */
 function buildThreadTitle(message: UIMessage, fallback: string, max = 60) {
-	const text = messageText(message);
-	if (!text) return fallback;
+	const file = message.parts.find((part) => part.type === "file" && part.filename);
+	const text = messageText(message) || (file?.type === "file" ? file.filename : "") || fallback;
 	return text.length > max ? `${text.slice(0, max - 3)}...` : text;
 }
 
@@ -696,15 +723,40 @@ async function readAttachment(input: { id: string; threadId: string; userId: str
 	const stored = await getStorageService().read(attachment.storageKey);
 	if (!stored) throw new Error("ATTACHMENT_NOT_FOUND");
 
-	if (!READABLE_ATTACHMENT_TYPES.has(attachment.mediaType)) {
+	if (READABLE_ATTACHMENT_TYPES.has(attachment.mediaType)) {
 		return {
 			id: attachment.id,
 			filename: attachment.filename,
 			mediaType: attachment.mediaType,
 			size: attachment.size,
-			content: null,
-			note: "This attachment is provided directly to the model when its message is sent. Text extraction is not available through this tool for this media type.",
+			content: new TextDecoder().decode(stored.data).slice(0, MAX_ATTACHMENT_TEXT_CHARS),
 		};
+	}
+
+	if (isExtractableAttachment(attachment.mediaType)) {
+		try {
+			const content = await extractAttachmentText({
+				filename: attachment.filename,
+				mediaType: attachment.mediaType,
+				data: stored.data,
+			});
+			return {
+				id: attachment.id,
+				filename: attachment.filename,
+				mediaType: attachment.mediaType,
+				size: attachment.size,
+				content,
+			};
+		} catch (error) {
+			return {
+				id: attachment.id,
+				filename: attachment.filename,
+				mediaType: attachment.mediaType,
+				size: attachment.size,
+				content: null,
+				note: error instanceof Error ? error.message : "This document's text could not be read.",
+			};
+		}
 	}
 
 	return {
@@ -712,7 +764,8 @@ async function readAttachment(input: { id: string; threadId: string; userId: str
 		filename: attachment.filename,
 		mediaType: attachment.mediaType,
 		size: attachment.size,
-		content: new TextDecoder().decode(stored.data).slice(0, MAX_ATTACHMENT_TEXT_CHARS),
+		content: null,
+		note: "This attachment is provided directly to the model when its message is sent. Text extraction is not available through this tool for this media type.",
 	};
 }
 
@@ -1198,13 +1251,15 @@ export const agentService = {
 					? null
 					: await findPosting(input.userId, document.id, loaded, input.context?.applicationId);
 
+			const requestedAttachmentIds =
+				input.attachmentIds ?? (input.message.role === "user" ? attachmentIdsFromMessage(input.message) : []);
 			const [runnableProvider, attachments] = await Promise.all([
 				aiProvidersService.getRunnableById({
 					id: thread.aiProviderId,
 					userId: input.userId,
 				}),
-				getUnlinkedMessageAttachments({
-					ids: input.attachmentIds ?? [],
+				getMessageAttachments({
+					ids: requestedAttachmentIds,
 					threadId: input.threadId,
 					userId: input.userId,
 				}),
@@ -1333,7 +1388,9 @@ export const agentService = {
 				const modelMessages = await convertToModelMessages(
 					replay.map((message) => toModelInputMessage(message, runnableProvider, connection !== null)),
 				);
-				const attachmentModelParts = buildAttachmentModelParts(await readAttachmentModelInputs(attachmentsForModel));
+				const attachmentModelParts = await buildAttachmentModelParts(
+					await readAttachmentModelInputs(attachmentsForModel),
+				);
 
 				// Draft row inserted after the replay snapshot (so it is not replayed) and before the
 				// stream starts, so a crash mid-run leaves a resumable record instead of nothing.
@@ -1486,6 +1543,7 @@ export const agentService = {
 									}
 								},
 								onError: (error) => {
+									void input.onFailure?.();
 									const message = error instanceof Error ? error.message : "Agent run failed.";
 									return runnableProvider.apiKey ? message.replaceAll(runnableProvider.apiKey, "***") : message;
 								},

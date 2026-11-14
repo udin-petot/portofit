@@ -128,6 +128,7 @@ vi.mock("drizzle-orm", () => ({
 	}),
 	isNull: (value: unknown) => ({ type: "isNull", value }),
 	max: (value: unknown) => ({ type: "max", value }),
+	or: (...conditions: unknown[]) => ({ type: "or", conditions }),
 	sql: () => ({ type: "sql" }),
 }));
 
