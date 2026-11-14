@@ -34,6 +34,7 @@ import {
 } from "../practice-bank";
 import { CollapseRow, PrivacyLine, useCareerTime, Working, workingSteps } from "../shared";
 import { BankQuestionDialog } from "./bank-dialog";
+import { dedupeQuestions, type PracticeQuestion } from "./questions";
 import {
 	acceptAudioFile,
 	canDictate,
@@ -54,7 +55,7 @@ import { client } from "@/libs/orpc/client";
 
 type Practice = SavedData<"practice">;
 type Attempt = SavedItem & { data: Practice };
-type Question = { text: string; origin: Practice["origin"] };
+type Question = PracticeQuestion;
 type Mode = Practice["mode"];
 
 const isAttempt = (item: SavedItem): item is Attempt => item.data.kind === "practice";
@@ -68,10 +69,10 @@ function practiceQuestions(
 ) {
 	const simulated = latest(items, "briefing", interviewId)?.data.practiceQuestions ?? [];
 	const recalled = (items ?? []).flatMap((item) => (item.data.kind === "debrief" ? [item.data.question] : []));
-	const questions: Question[] = [
+	const questions = dedupeQuestions([
 		...simulated.map((text) => ({ text, origin: "simulated" as const })),
-		...[...new Set(recalled)].map((text) => ({ text, origin: "recalled" as const })),
-	];
+		...recalled.map((text) => ({ text, origin: "recalled" as const })),
+	]);
 	if (questions.length > 0) return questions;
 
 	// Tanpa briefing, ambil satu soal Dasar dari tiap kategori bank supaya layar pertama tidak kosong.
@@ -82,10 +83,10 @@ function practiceQuestions(
 			bank.find((item) => item.category === category),
 	).filter((item) => item !== undefined);
 
-	return [
+	return dedupeQuestions([
 		{ text: t`Why do you want this role at ${company}?`, origin: "simulated" as const },
 		...starters.slice(0, 5).map((item) => ({ text: item.text, origin: "simulated" as const })),
-	];
+	]);
 }
 
 export function PractiseTab({ application, version, interview, speak, story, now, go }: WorkspaceTabProps) {
