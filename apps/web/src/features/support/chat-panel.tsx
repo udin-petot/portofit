@@ -1,9 +1,9 @@
-import { Icon } from "@reactive-resume/ui/components/icon";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
+import { Icon } from "@reactive-resume/ui/components/icon";
 import { SUPPORT_CONVERSATION_LIMIT, SUPPORT_WHATSAPP_URL } from "@reactive-resume/utils/support-faq";
-import { orpc } from "@/libs/orpc/client";
 import { AssistantMarkdown } from "@/features/assistant/markdown";
+import { orpc } from "@/libs/orpc/client";
 
 const FALLBACK_WHATSAPP = SUPPORT_WHATSAPP_URL;
 
@@ -13,7 +13,7 @@ type ViewProps = {
 	messages: ChatMessage[];
 	aiFailed: boolean;
 	whatsappUrl: string;
-	onSend: (message: string) => void;
+	onSend: (message: string) => Promise<boolean>;
 	onReset: () => void;
 	sending: boolean;
 	error?: string | null;
@@ -33,21 +33,44 @@ export function SupportChatView({
 	onWhatsapp,
 }: ViewProps) {
 	const [draft, setDraft] = useState("");
-	const canSend = draft.trim().length > 0 && draft.length <= 1000 && !sending && !full;
-	const seen = useRef(messages.length);
+	const [pending, setPending] = useState<string | null>(null);
+	const [submitting, setSubmitting] = useState(false);
+	const canSend = draft.trim().length > 0 && draft.length <= 1000 && !sending && !submitting && !full;
 	const end = useRef<HTMLDivElement>(null);
 
-	// Draf baru dikosongkan setelah pesan benar-benar bertambah, supaya teks tidak hilang saat server menolak.
 	useEffect(() => {
-		if (messages.length > seen.current) setDraft("");
-		seen.current = messages.length;
 		end.current?.scrollIntoView({ block: "end" });
-	}, [messages.length]);
+	}, [messages.length, pending]);
+
+	const submit = async () => {
+		const message = draft.trim();
+		if (!message || submitting || full) return;
+
+		setDraft("");
+		setPending(message);
+		setSubmitting(true);
+
+		let ok = false;
+		try {
+			ok = await onSend(message);
+		} catch {
+			ok = false;
+		} finally {
+			setSubmitting(false);
+			setPending(null);
+		}
+
+		if (!ok) setDraft(message);
+	};
+
+	const visible = pending
+		? [...messages, { id: "pending", role: "user", content: pending } satisfies ChatMessage]
+		: messages;
 
 	return (
 		<div className="flex h-full min-h-0 flex-col">
 			<div className="min-h-0 flex-1 overflow-y-auto px-4 py-4">
-				{messages.length === 0 ? (
+				{visible.length === 0 ? (
 					<div className="grid gap-2">
 						<p className="text-sm leading-6 text-ink">
 							Belum ada pesan. Tulis pertanyaanmu soal pembayaran, kredit, atau pengembalian dana.
@@ -56,7 +79,7 @@ export function SupportChatView({
 					</div>
 				) : (
 					<ul className="grid gap-4">
-						{messages.map((message) => (
+						{visible.map((message) => (
 							<li key={message.id} className={message.role === "user" ? "grid justify-items-end gap-1" : "grid gap-1"}>
 								<span className="text-[11px] font-medium text-ink-3">
 									{message.role === "user" ? "Kamu" : "Bantuan PortoFit"}
@@ -75,10 +98,16 @@ export function SupportChatView({
 					</ul>
 				)}
 
+				{pending || sending ? (
+					<div className="mt-3 grid gap-1">
+						<span className="text-[11px] font-medium text-ink-3">Bantuan PortoFit</span>
+						<p className="text-sm text-ink-3">Sedang mengetik…</p>
+					</div>
+				) : null}
+
 				{aiFailed ? (
 					<p className="mt-3 rounded-lg border border-line px-3 py-2 text-xs leading-5 text-ink-2">
-						Bantuan otomatis sedang tidak bisa menjawab. Lanjut lewat WhatsApp supaya admin bisa membaca
-						percakapanmu.
+						Bantuan otomatis sedang tidak bisa menjawab. Lanjut lewat WhatsApp supaya admin bisa membaca percakapanmu.
 					</p>
 				) : null}
 
@@ -103,7 +132,7 @@ export function SupportChatView({
 						onKeyDown={(event) => {
 							if (event.key === "Enter" && !event.shiftKey && canSend) {
 								event.preventDefault();
-								onSend(draft.trim());
+								void submit();
 							}
 						}}
 						placeholder="Tulis pertanyaanmu di sini"
@@ -115,7 +144,7 @@ export function SupportChatView({
 					<button
 						type="button"
 						onClick={() => {
-							onSend(draft.trim());
+							void submit();
 						}}
 						disabled={!canSend}
 						aria-label="Kirim pesan"
@@ -180,7 +209,15 @@ export function SupportChat() {
 			sending={send.isPending}
 			error={error}
 			full={full}
-			onSend={(message) => send.mutate({ message }, { onSuccess: () => void invalidate() })}
+			onSend={async (message) => {
+				try {
+					await send.mutateAsync({ message });
+					await invalidate();
+					return true;
+				} catch {
+					return false;
+				}
+			}}
 			onReset={() => {
 				const ok = window.confirm(
 					"Percakapan baru akan menutup percakapan ini. Riwayatnya tidak bisa dibuka lagi. Lanjut?",
