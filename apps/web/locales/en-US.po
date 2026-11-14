@@ -13686,8 +13686,12 @@ msgid "We read \"{0}\". Pick a month so it sorts and prints consistently."
 msgstr "We read \"{0}\". Pick a month so it sorts and prints consistently."
 
 #: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "We read the page and save the posting for Check, the assistant and your letter."
+#~ msgid "We read the page and save the posting for Check, the assistant and your letter."
+#~ msgstr "We read the page and save the posting for Check, the assistant and your letter."
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "We read the page and save the posting for fit checks, the coach and your cover letter."
+msgstr "We read the page and save the posting for fit checks, the coach and your cover letter."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."

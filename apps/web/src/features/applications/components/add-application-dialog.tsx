@@ -588,7 +588,7 @@ function ReadStatus({ text, link, readable, pending, error, parsed, ai }: ReadSt
 	if (!text) {
 		return (
 			<p className={cn(base, "text-ink-3")}>
-				<Trans>We read the page and save the posting for Check, the assistant and your letter.</Trans>
+				<Trans>We read the page and save the posting for fit checks, the coach and your cover letter.</Trans>
 			</p>
 		);
 	}

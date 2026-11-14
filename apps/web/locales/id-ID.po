@@ -3785,7 +3785,7 @@ msgstr "Surat lamaran diimpor"
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Cover letter submitted (optional)"
-msgstr "Surat lamaran dikirimkan (opsional)"
+msgstr "Surat lamaran yang dikirim (opsional)"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Cover letters"
@@ -6036,7 +6036,7 @@ msgstr "sebaris"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Insights"
-msgstr "Ringkasan"
+msgstr "Statistik"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Integrations"
@@ -9851,7 +9851,7 @@ msgstr "Ingat"
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Remember facts from my messages"
-msgstr "Ingat fakta dari pesan saya"
+msgstr "Ingat pengalaman dari pesan saya"
 
 #: src/features/career/coach-thread.tsx
 #: src/features/career/workspace/debrief.tsx
@@ -10125,7 +10125,7 @@ msgstr "resume · versi terkirim"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Resume (optional)"
-msgstr "resume (opsional)"
+msgstr "CV (opsional)"
 
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Resume + letter"
@@ -10158,7 +10158,7 @@ msgstr "halaman resume"
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume submitted (optional)"
-msgstr "resume dikirimkan (opsional)"
+msgstr "CV yang dikirim (opsional)"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -10411,7 +10411,7 @@ msgstr "Hemat {savings}%"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save a job"
-msgstr "Simpan pekerjaan"
+msgstr "Simpan lowongan"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Save a job first"
@@ -10443,7 +10443,7 @@ msgstr "Simpan dan tautkan"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save and prepare resume"
-msgstr "Simpan dan siapkan resume"
+msgstr "Simpan dan siapkan CV"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Save and test"
@@ -12196,7 +12196,7 @@ msgstr "Pemeriksaannya bersifat mekanis. Ini menanyakan model bahasa bagaimana r
 
 #: src/features/career/knowledge/facts.tsx
 msgid "The coach doesn't remember anything from your messages."
-msgstr "Coach tidak mengingat apa pun dari pesan Anda."
+msgstr "Coach tidak mengingat apa pun dari pesanmu."
 
 #: src/features/career/coach.tsx
 msgid "The coach isn't set up on this server. Whoever runs it needs to set ENCRYPTION_SECRET. Knowledge, Offers and your applications work without it."
@@ -12204,7 +12204,7 @@ msgstr "Coach belum diatur di server ini. Pengelolanya perlu mengatur ENCRYPTION
 
 #: src/features/career/knowledge/facts.tsx
 msgid "The coach proposes each fact in the chat. Nothing is saved until you agree."
-msgstr "Coach mengusulkan setiap fakta di chat. Tidak ada yang disimpan sampai Anda setuju."
+msgstr "Coach mengusulkan setiap pengalaman di chat. Tidak ada yang disimpan sampai kamu setuju."
 
 #: src/features/career/workspace/shell.tsx
 msgid "The coach reads these for this application only."
@@ -12212,7 +12212,7 @@ msgstr "Coach membaca ini hanya untuk lamaran ini."
 
 #: src/features/career/knowledge/facts.tsx
 msgid "The coach saves facts you state, and tells you. You can undo."
-msgstr "Coach menyimpan fakta yang Anda sebutkan, dan memberi tahu Anda. Anda bisa membatalkannya."
+msgstr "Coach menyimpan pengalaman yang kamu sebutkan dan memberi tahu kamu. Kamu bisa membatalkannya."
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
@@ -13691,8 +13691,12 @@ msgid "We read \"{0}\". Pick a month so it sorts and prints consistently."
 msgstr "Kita membaca \"{0}\". Pilih bulan agar dapat disortir dan dicetak secara konsisten."
 
 #: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "Kami membaca halaman dan menyimpan lowongan pekerjaan untuk Check, asisten dan surat Anda."
+#~ msgid "We read the page and save the posting for Check, the assistant and your letter."
+#~ msgstr "Kami membaca halaman dan menyimpan lowongan pekerjaan untuk Check, asisten dan surat Anda."
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "We read the page and save the posting for fit checks, the coach and your cover letter."
+msgstr "Kami membaca halaman dan menyimpan lowongan untuk cek kecocokan, Coach, dan surat lamaranmu."
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."
