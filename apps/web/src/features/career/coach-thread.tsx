@@ -427,7 +427,7 @@ function ChatView(props: ChatViewProps) {
 				// Announced when the answer is complete, not token by token.
 				aria-busy={streaming}
 				aria-label={t`Conversation`}
-				className="min-h-0 flex-1 overflow-y-auto"
+				className="relative min-h-0 flex-1 overflow-y-auto"
 			>
 				<div className={contentClass[variant]}>
 					{messages.length === 0 && !streaming && props.empty(send)}
@@ -861,10 +861,7 @@ function Proposal({ items, knowledge, company }: ProposalProps) {
 
 	// Remembered earlier (a reload): Knowledge has a fact quoted from the same message.
 	const matched = knowledge.all.filter((fact) =>
-		items.some(
-			(item) =>
-				fact.source.kind === "user-message" && fact.source.id === item.fact.source.id && fact.text === item.fact.text,
-		),
+		items.some((item) => fact.source.id === item.fact.source.id && fact.text === item.fact.text),
 	);
 	const remembered =
 		saved ??

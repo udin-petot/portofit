@@ -798,6 +798,7 @@ function createAgent(input: {
 		tab: WorkspaceTab | undefined;
 		offers: Awaited<ReturnType<typeof careerService.savedItems>>;
 		sourceMessageId: string | undefined;
+		sourceAttachment: { id: string; filename: string } | undefined;
 		allowedSources: Set<string>;
 	};
 	userId: string;
@@ -1425,6 +1426,9 @@ export const agentService = {
 											)
 										: [],
 									sourceMessageId,
+									sourceAttachment: attachmentsForModel[0]
+										? { id: attachmentsForModel[0].id, filename: attachmentsForModel[0].filename }
+										: undefined,
 									allowedSources: new Set([
 										...messages.flatMap((message) => agentWebSources(message).map((source) => source.url)),
 										...(messageText(input.message).match(/https?:\/\/[^\s<>")]+/g) ?? []),

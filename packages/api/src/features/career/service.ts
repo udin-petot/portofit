@@ -73,6 +73,22 @@ async function sourceText(userId: string, source: CareerSource, applicationId: s
 					.join("\n")
 			: "";
 	}
+	if (source.kind === "attachment") {
+		const [row] = await db
+			.select({ applicationId: tables.agentThread.applicationId })
+			.from(tables.agentAttachment)
+			.innerJoin(tables.agentThread, eq(tables.agentAttachment.threadId, tables.agentThread.id))
+			.where(
+				and(
+					eq(tables.agentAttachment.id, source.id),
+					eq(tables.agentAttachment.userId, userId),
+					isNull(tables.agentThread.deletedAt),
+				),
+			);
+		if (!row || (row.applicationId && row.applicationId !== applicationId)) throw new ORPCError("NOT_FOUND");
+		// The model proposes a concise fact from a document; the user approves it before it is saved.
+		return source.quote;
+	}
 	if (source.kind === "resume-version") {
 		const [row] = await db
 			.select()
@@ -329,8 +345,22 @@ export const careerService = {
 			throw new ORPCError("BAD_REQUEST", { message: "Automatic memory must quote the user's own words exactly." });
 		if (automatic && (await careerService.profile(userId)).memoryMode !== "auto") return null;
 		const original = await sourceText(userId, input.source, input.applicationId);
-		if (!input.source.quote.trim() || !original.includes(input.source.quote))
-			throw new ORPCError("BAD_REQUEST", { message: "The source does not contain that quotation." });
+		if (!input.source.quote.trim() || !original.includes(input.source.quote)) {
+			// A document-only message has no typed text to quote. The model proposes a concise
+			// fact from the document; the user still has to press Remember, so accept that
+			// proposal instead of rejecting every fact read from an attachment.
+			const [attachment] =
+				input.source.kind === "user-message"
+					? await db
+							.select({ id: tables.agentAttachment.id })
+							.from(tables.agentAttachment)
+							.where(
+								and(eq(tables.agentAttachment.messageId, input.source.id), eq(tables.agentAttachment.userId, userId)),
+							)
+							.limit(1)
+					: [];
+			if (!attachment) throw new ORPCError("BAD_REQUEST", { message: "The source does not contain that quotation." });
+		}
 		const sourceKey = hash(`${input.source.kind}:${input.source.id}:${input.source.quote.trim().toLocaleLowerCase()}`);
 		return db.transaction(async (tx) => {
 			await lockCareerUser(tx, userId);

@@ -15,6 +15,8 @@ type CareerToolsInput = {
 	shareMemory: boolean;
 	tab: WorkspaceTab | undefined;
 	sourceMessageId: string | undefined;
+	/** The document the user attached to this turn, if any. Facts read from it point here. */
+	sourceAttachment?: { id: string; filename: string } | undefined;
 };
 
 const TABS: Record<WorkspaceTab, string> = {
@@ -29,8 +31,8 @@ const TABS: Record<WorkspaceTab, string> = {
 };
 
 const MEMORY = {
-	ask: "When the latest user message states something lasting about them (experience, a skill, an accomplishment, a preference), call remember_fact with their exact words. The user sees it as a proposal and decides; never say it was saved.",
-	auto: "When the latest user message states something lasting about them (experience, a skill, an accomplishment, a preference), call remember_fact with their exact words; it is saved to their Knowledge.",
+	ask: "When the latest user message states something lasting about them (experience, a skill, an accomplishment, a preference), call remember_fact with their exact words. For a document attached to that message, call remember_fact with one concise fact grounded in the document. The user sees it as a proposal and decides; never say it was saved.",
+	auto: "When the latest user message states something lasting about them (experience, a skill, an accomplishment, a preference), call remember_fact with their exact words; it is saved to their Knowledge. Facts read from an attached document are proposed for the user to approve.",
 	off: "Don't remember facts; the user switched memory off.",
 };
 
@@ -141,17 +143,21 @@ export function buildCareerTools(input: CareerToolsInput): ToolSet {
 		if (sourceMessageId && mode !== "off")
 			tools.remember_fact = tool({
 				description:
-					"Remember an explicit statement about the user (their experience, skills, accomplishments or preferences), quoted verbatim from their latest message. Never remember events in an application (an offer, a salary they were quoted, an interview time, what an employer said), hypotheticals, rewrites, generated text, mock answers or other people's claims.",
+					"Remember an explicit statement about the user (their experience, skills, accomplishments or preferences), quoted verbatim from their latest message. When the latest message has an attached document, propose one concise fact grounded in that document instead. Never remember events in an application (an offer, a salary they were quoted, an interview time, what an employer said), hypotheticals, rewrites, generated text, mock answers or other people's claims.",
 				inputSchema: z.object({ quote: z.string().trim().min(1).max(2000), category: factCategorySchema }),
 				execute: async ({ quote, category }) => {
+					const source = input.sourceAttachment
+						? ({ kind: "attachment" as const, id: input.sourceAttachment.id, quote } as const)
+						: ({ kind: "user-message" as const, id: sourceMessageId, quote } as const);
 					const fact = {
 						applicationId: scope.applicationId,
 						text: quote,
 						category,
-						source: { kind: "user-message" as const, id: sourceMessageId, quote },
+						source,
 					};
 					// Ask first: the reply shows the fact as a proposal; the user's Remember saves it.
-					if (mode === "ask") return { status: "proposed" as const, fact };
+					// A fact read from a document always needs that approval, even in auto mode.
+					if (mode === "ask" || input.sourceAttachment) return { status: "proposed" as const, fact };
 					const saved = await careerService.saveFact(input.userId, fact, true);
 					return saved ? { status: "saved" as const, fact, id: saved.id } : { status: "skipped" as const, fact };
 				},
