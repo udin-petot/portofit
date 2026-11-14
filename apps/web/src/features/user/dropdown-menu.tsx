@@ -50,13 +50,9 @@ export function UserDropdownMenu({ children }: Props) {
 			<DropdownMenuTrigger render={children({ session: session as AuthSession })} />
 
 			<DropdownMenuContent align="start" side="top">
-				<DropdownMenuItem onClick={() => void router.navigate({ to: "/dashboard/settings" })}>
-					<Icon name="gear-six" />
-					<Trans>Settings</Trans>
-				</DropdownMenuItem>
 				<DropdownMenuItem onClick={() => void router.navigate({ to: "/dashboard/akun" })}>
-					<Icon name="user-circle" size={16} />
-					<Trans>Account</Trans>
+					<Icon name="gear-six" />
+					<Trans>Settings and account</Trans>
 				</DropdownMenuItem>
 				<DropdownMenuSeparator />
 				<DropdownMenuGroup>
