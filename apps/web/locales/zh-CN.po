@@ -810,10 +810,6 @@ msgstr "1 次面试"
 msgid "1. Choose a package. The order opens straight away in a payment window."
 msgstr ""
 
-#: src/features/billing/pricing.tsx
-#~ msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
-#~ msgstr ""
-
 #: src/features/career/workspace/prepare.tsx
 msgid "10-minute briefing"
 msgstr "10 分钟简报"
@@ -838,10 +834,6 @@ msgstr "2-3 句话阅读效果最佳"
 #: src/features/billing/pricing.tsx
 msgid "2. Scan the QRIS and pay the exact amount down to the last three digits."
 msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
-#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -872,10 +864,6 @@ msgstr "3 项有证据 · 1 项部分 · 1 项缺失"
 #: src/features/billing/pricing.tsx
 msgid "3. Upload the proof in the same window. Credits land once an admin checks it."
 msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
-#~ msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "30 days"
@@ -973,10 +961,6 @@ msgstr "有一个链接指向的地址和它显示的地址不一致。"
 msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "模型的意见，而不是判决。这可能是错误的。"
 
-#: src/features/settings/account/security.tsx
-#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-#~ msgstr "名称可以帮助您区分密钥，例如“工作笔记本电脑”。"
-
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
 msgstr "数字格式的日期在不同国家的读法不同。"
@@ -988,10 +972,6 @@ msgstr "有一页被旋转了。"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "A pasted posting can be saved as an application afterwards."
 msgstr "粘贴的职位发布之后可以保存为职位申请。"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
-#~ msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
@@ -1332,10 +1312,6 @@ msgstr "添加一个带国家区号的号码；有些申请表要求先填写才
 msgid "Add Page"
 msgstr "添加页面"
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Add passkey"
-#~ msgstr "添加密钥"
-
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
 msgstr "添加个人资料"
@@ -1574,10 +1550,6 @@ msgstr "在设置 ENCRYPTION_SECRET 之前，AI 提供程序在此服务器上�
 msgid "AI providers couldn't be loaded. Reload to try again."
 msgstr "无法加载 AI 提供程序。重新加载再试一次。"
 
-#: src/routes/dashboard/akun.tsx
-#~ msgid "AI providers, API keys and integrations."
-#~ msgstr ""
-
 #: src/libs/locale.ts
 msgid "Albanian"
 msgstr "阿尔巴尼亚语"
@@ -1643,8 +1615,8 @@ msgid "Already covered · pick one to find it on the page"
 msgstr "已经涵盖·选择一个在页面上找到它"
 
 #: src/features/auth/pages/register.tsx
-msgid "Already have an account? <0/>"
-msgstr "已有账户？<0/>"
+msgid "Already have an account?"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -1675,14 +1647,6 @@ msgstr "阿姆哈拉语"
 #: src/features/billing/invoice-sheet.tsx
 msgid "Amount"
 msgstr ""
-
-#: src/features/billing/payment-dialog.tsx
-#~ msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
-#~ msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
-#~ msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
@@ -2421,11 +2385,6 @@ msgstr "项目符号列表"
 msgid "Buy"
 msgstr ""
 
-#. placeholder {0}: formatRupiah(plan.priceIdr)
-#: src/features/billing/pricing.tsx
-#~ msgid "Buy {0}"
-#~ msgstr ""
-
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Buy a credit"
 msgstr ""
@@ -2443,10 +2402,6 @@ msgstr ""
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."
 msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "By buying, you agree to the terms below."
-#~ msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
@@ -3124,10 +3079,6 @@ msgstr "继续"
 msgid "Continue as a guest"
 msgstr ""
 
-#: src/features/auth/pages/login.tsx
-#~ msgid "Continue as guest"
-#~ msgstr "以访客身份继续"
-
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
 msgstr ""
@@ -3332,10 +3283,6 @@ msgstr "无法添加职位申请。"
 msgid "Couldn't add the application. Please try again."
 msgstr "无法添加申请。请重试。"
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Couldn't add the passkey. Try again."
-#~ msgstr "无法添加密钥。再试一次。"
-
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file."
@@ -3535,17 +3482,9 @@ msgstr "无法记住该内容。请重试。"
 msgid "Couldn't remove it from Applications."
 msgstr "无法将其从“申请”中移除。"
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Couldn't remove the passkey. Try again."
-#~ msgstr "无法删除密钥。再试一次。"
-
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "无法重命名。"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Couldn't rename the passkey."
-#~ msgstr "无法重命名密钥。"
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3791,11 +3730,6 @@ msgstr "创建密钥"
 #: src/features/auth/pages/login.tsx
 msgid "Create one"
 msgstr ""
-
-#. Call-to-action link from login page to account registration page
-#: src/features/auth/pages/login.tsx
-#~ msgid "Create one now"
-#~ msgstr "现在就创建一个"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4282,10 +4216,6 @@ msgstr "这份工作的文件"
 #: src/features/homepage/faq.tsx
 msgid "Does it use AI?"
 msgstr ""
-
-#: src/features/auth/pages/login.tsx
-#~ msgid "Don't have an account? <0/>"
-#~ msgstr "没有账户？<0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -5348,11 +5278,6 @@ msgstr "适合什么工作？"
 msgid "Forget"
 msgstr "忘记"
 
-#. Link label to password reset page from login form
-#: src/features/auth/pages/login.tsx
-#~ msgid "Forgot Password?"
-#~ msgstr "忘记密码？"
-
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "你忘记密码了吗？"
@@ -5391,10 +5316,6 @@ msgstr "今天发现"
 msgid "Found yesterday"
 msgstr "昨天发现"
 
-#: src/features/billing/pricing.tsx
-#~ msgid "Free"
-#~ msgstr ""
-
 #: src/features/quota/page.tsx
 msgid "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
 msgstr ""
@@ -5402,10 +5323,6 @@ msgstr ""
 #: src/libs/seo.ts
 msgid "Free ATS resume checker"
 msgstr "免费 ATS 简历检查器"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Free issue list and basic job match"
-#~ msgstr ""
 
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
@@ -5547,10 +5464,6 @@ msgstr "回家"
 #: src/routes/_home/-sections/header.tsx
 msgid "Go to dashboard"
 msgstr "转到仪表板"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Go to my documents"
-#~ msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
@@ -6212,10 +6125,6 @@ msgstr "它可能已被删除。请选择其他故事或新增一个。"
 msgid "It will be deleted for good and can't be restored."
 msgstr "它将被永久删除且无法恢复。"
 
-#: src/features/settings/account/security.tsx
-#~ msgid "It will no longer sign you in."
-#~ msgstr "它不会再让您登录。"
-
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
 msgstr "它将显示在工作申请的时间表和日历上。"
@@ -6323,16 +6232,6 @@ msgstr "求职追踪器"
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "工作机会"
-
-#. Example full name placeholder on registration form
-#: src/features/auth/pages/register.tsx
-msgid "John Doe"
-msgstr "无名氏"
-
-#. Example username placeholder on registration form
-#: src/features/auth/pages/register.tsx
-msgid "john.doe"
-msgstr "john.doe"
 
 #: src/routes/dashboard/akun.tsx
 msgid "Joined {joined}"
@@ -6531,10 +6430,6 @@ msgstr "横向"
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Language"
 msgstr "语言"
-
-#: src/routes/dashboard/akun.tsx
-#~ msgid "Language, theme and display."
-#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -7434,6 +7329,16 @@ msgstr "我的任务是找出原因，同时不增加支持工作。"
 msgid "My orders"
 msgstr ""
 
+#. Example full name placeholder on registration form
+#: src/features/auth/pages/register.tsx
+msgid "Nama lengkap"
+msgstr ""
+
+#. Example username placeholder on registration form
+#: src/features/auth/pages/register.tsx
+msgid "nama.pengguna"
+msgstr ""
+
 #. Label for full name input on registration form
 #: src/dialogs/resume/index.tsx
 #: src/features/applications/components/detail/contacts.tsx
@@ -7471,10 +7376,6 @@ msgstr "用你申请的职位来给这份简历命名。"
 #: src/features/career/knowledge/stories.tsx
 msgid "Name the story"
 msgstr "为故事命名"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Name this passkey"
-#~ msgstr "命名此密钥"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -8060,10 +7961,6 @@ msgid "Nothing scheduled. Add a search to find roles each morning, or preparatio
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-#~ msgid "Nothing spent yet."
-#~ msgstr ""
-
-#: src/routes/dashboard/akun.tsx
 msgid "Nothing spent yet. Credits appear here after you use one."
 msgstr ""
 
@@ -8207,10 +8104,6 @@ msgstr ""
 msgid "one format"
 msgstr "格式统一"
 
-#: src/features/billing/pricing.tsx
-#~ msgid "One free resume to build and download"
-#~ msgstr ""
-
 #: src/features/billing/credit-dialog.tsx
 msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
 msgstr ""
@@ -8284,14 +8177,6 @@ msgstr "打开{title}"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Open AI settings"
 msgstr "打开AI设置"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Open an application to practise"
-#~ msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Open an application to use it"
-#~ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -8427,10 +8312,6 @@ msgstr "此条目的选项"
 msgid "or"
 msgstr "或者"
 
-#: src/features/auth/pages/login.tsx
-msgid "or continue with"
-msgstr ""
-
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
 msgid "or continue with"
@@ -8439,10 +8320,6 @@ msgstr "或通过以下方式继续"
 #: src/features/assistant/conversation.tsx
 msgid "Or in your own words…"
 msgstr "或者用你自己的话说..."
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Or through WhatsApp"
-#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Or upload a resume PDF"
@@ -8459,10 +8336,6 @@ msgstr ""
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Order waiting for payment"
 msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "orders"
-#~ msgstr ""
 
 #: src/routes/dashboard/akun.tsx
 msgid "Orders"
@@ -8609,10 +8482,6 @@ msgstr ""
 msgid "Passkey"
 msgstr "通行密钥"
 
-#: src/features/command-palette/pages/navigation.tsx
-msgid "Passkeys"
-msgstr "通行密钥"
-
 #. Authentication provider display name in account settings
 #. Label for password input on login form
 #. Label for password input on protected resume access form
@@ -8736,18 +8605,6 @@ msgstr "已暂停 · {line}"
 msgid "Paused schedules keep their settings."
 msgstr "暂停的定时任务会保留其设置。"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "Pay"
-#~ msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Pay by QRIS, checked by an admin, credits land once it passes."
-#~ msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Pay by QRIS, verified manually by an admin."
-#~ msgstr ""
-
 #: src/features/billing/pricing.tsx
 msgid "Pay only for what you use"
 msgstr ""
@@ -8768,10 +8625,6 @@ msgstr ""
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
 msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Payment confirmed"
-#~ msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "payment confirmed, your credits are in"
@@ -8939,10 +8792,6 @@ msgstr ""
 msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored resume and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-#~ msgid "PortoFit QRIS code"
-#~ msgstr ""
-
 #: src/features/documents/start-guide.tsx
 msgid "PortoFit tracks each job from the posting to the interview."
 msgstr ""
@@ -9102,10 +8951,6 @@ msgstr "正在准备 {label} 文件..."
 msgid "Preparing edits…"
 msgstr "准备编辑..."
 
-#: src/features/billing/pricing.tsx
-#~ msgid "Preparing your order…"
-#~ msgstr ""
-
 #: src/features/billing/payment-dialog.tsx
 msgid "Preparing your payment…"
 msgstr ""
@@ -9243,10 +9088,6 @@ msgstr "第 {0} 位人员的个人主页链接"
 msgid "Profile links must be public HTTPS addresses."
 msgstr "个人主页链接必须是公开的 HTTPS 地址。"
 
-#: src/routes/dashboard/akun.tsx
-#~ msgid "Profile, credits, orders and settings."
-#~ msgstr ""
-
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Profiles"
@@ -9266,20 +9107,8 @@ msgid "Promoted to lead, 2021"
 msgstr "2021 年晋升领导"
 
 #: src/features/billing/payment-dialog.tsx
-#~ msgid "Proof did not match"
-#~ msgstr ""
-
-#: src/features/billing/payment-dialog.tsx
 msgid "Proof rejected"
 msgstr ""
-
-#: src/features/billing/payment-dialog.tsx
-#~ msgid "Proof sent"
-#~ msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Proof sent, waiting for a check"
-#~ msgstr ""
 
 #: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
@@ -9779,8 +9608,8 @@ msgid "Remember this for future coaching?"
 msgstr "记住这条以便日后辅导？"
 
 #: src/features/auth/pages/forgot-password.tsx
-msgid "Remember your password? <0/>"
-msgstr "记得密码？<0/>"
+msgid "Remember your password?"
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Remembered: “{text}”"
@@ -9863,10 +9692,6 @@ msgstr "移除标签"
 #: src/features/resume/share/link-tab.tsx
 msgid "Remove the password?"
 msgstr "删除密码？"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Remove this passkey?"
-#~ msgstr "删除这个密钥？"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -10517,10 +10342,6 @@ msgstr "正在保存…"
 msgid "Say it aloud"
 msgstr "大声说出来"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "Scan it with any bank or wallet app that supports QRIS."
-#~ msgstr ""
-
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
 msgstr "使用你偏好的验证器应用扫描下方二维码。你也可以复制下面的密钥并粘贴到应用中。"
@@ -11084,28 +10905,16 @@ msgstr "侧边栏宽度"
 msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "侧边栏通常是最后阅读的，或者混合到主栏中。"
 
+#. Call-to-action link from forgot-password page to login page
+#. Call-to-action link from registration page to login page
 #. Primary action button label on login form
 #. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
+#: src/features/auth/pages/forgot-password.tsx
 #: src/features/auth/pages/login.tsx
+#: src/features/auth/pages/register.tsx
 msgid "Sign in"
 msgstr "登录"
-
-#. Call-to-action link from forgot-password page to login page
-#. Call-to-action link from registration page to login page
-#: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/register.tsx
-msgid "Sign in now"
-msgstr "立即登录"
-
-#. Title on the login page
-#: src/features/auth/pages/login.tsx
-#~ msgid "Sign in to your account"
-#~ msgstr "登录你的账号"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Sign in with your fingerprint, face or device PIN"
-#~ msgstr "使用您的指纹、面部或设备 PIN 码登录"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -12056,10 +11865,6 @@ msgstr "激活率提升了 13 个百分点。您的知识库里有前后数据�
 msgid "The AI features are paused for a moment. Try again shortly."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-#~ msgid "The amount has to match down to the last three digits."
-#~ msgstr ""
-
 #: src/features/billing/payment-dialog.tsx
 msgid "The amount or the proof does not match this order."
 msgstr ""
@@ -12115,10 +11920,6 @@ msgstr "教练会保存您陈述的事实，并告诉您。您可以撤销。"
 #: src/features/documents/new-document-dialog.tsx
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "该副本链接到职位申请，因此 Check 和助理可以使用其职位发布。"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "The credits are in your account. An invoice is there if you need proof of payment."
-#~ msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
 msgid "The deadline passed before the proof arrived. This order is closed and cannot be paid again."
@@ -12237,10 +12038,6 @@ msgstr "这些页面是图片，背后没有文字。"
 msgid "The password you entered is incorrect"
 msgstr "你输入的密码不正确"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
-#~ msgstr ""
-
 #: src/features/resume/editor/check/job-match.tsx
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
 msgstr "招聘启事要求“{label}”。如果这对我来说是正确的，请将其写入我的简历中合适的位置。先问我吧。"
@@ -12260,10 +12057,6 @@ msgstr ""
 #: src/features/billing/use-proof-upload.ts
 msgid "The proof could not be sent. Try again."
 msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "The proof did not match the amount on this order."
-#~ msgstr ""
 
 #: src/features/billing/use-proof-upload.ts
 msgid "The proof must be a JPG or PNG. PDF is not accepted."
@@ -12697,10 +12490,6 @@ msgstr "时间 · {timeZone}"
 msgid "Time is up"
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-#~ msgid "Time left"
-#~ msgstr ""
-
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
 msgstr "时间、链接、面试官、您发送的内容"
@@ -12729,10 +12518,6 @@ msgstr "标题"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "To"
 msgstr "到"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "To try the flow"
-#~ msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 #: src/features/resume/share/link-tab.tsx
@@ -12772,10 +12557,6 @@ msgstr ""
 #: src/features/billing/payment-dialog.tsx
 msgid "Total to pay"
 msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Total to transfer"
-#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -13062,10 +12843,6 @@ msgstr "撤消简历更改"
 msgid "Unique code"
 msgstr ""
 
-#: src/features/billing/invoice-sheet.tsx
-#~ msgid "Unique transfer code"
-#~ msgstr ""
-
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
 #: src/features/homepage/sheet.tsx
@@ -13075,10 +12852,6 @@ msgstr ""
 #: src/features/career/offers.tsx
 msgid "Unknown"
 msgstr "未知"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Unlimited ATS checks, no login"
-#~ msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
@@ -13109,10 +12882,6 @@ msgstr "解锁编辑"
 #: src/features/documents/document-actions.tsx
 msgid "Unlock it first"
 msgstr "先解锁吧"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Unnamed passkey"
-#~ msgstr "未命名通行密钥"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13486,10 +13255,6 @@ msgstr "看法"
 msgid "View application"
 msgstr "查看职位申请"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "View invoice"
-#~ msgstr ""
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13534,10 +13299,6 @@ msgstr "语音设置"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "志愿者经历"
-
-#: src/features/billing/payment-dialog.tsx
-#~ msgid "Waiting for a check"
-#~ msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"
@@ -13618,10 +13379,6 @@ msgstr "网页搜索失败：{0}"
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Website"
 msgstr "网站"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Weekly AI allowance, back every Monday"
-#~ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Weekly at {clock} · next {next}"
@@ -14058,10 +13815,6 @@ msgstr "您已将其用于“{0}”。"
 msgid "You answered: {answer}"
 msgstr "您回答：{answer}"
 
-#: src/features/auth/pages/login.tsx
-#~ msgid "You can also sign in with your username."
-#~ msgstr "你也可以用用户名登录。"
-
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."
 msgstr ""
@@ -14335,10 +14088,6 @@ msgstr "您的简历上的名字发生了变化。这封信也更新了。"
 #: src/features/resume/editor/check/issues.ts
 msgid "Your name is missing"
 msgstr "你的名字不见了"
-
-#: src/routes/dashboard/akun.tsx
-#~ msgid "Your name, email, password and signed-in sessions."
-#~ msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "your notes"

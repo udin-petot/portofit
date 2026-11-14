@@ -810,10 +810,6 @@ msgstr "1 rozhovor"
 msgid "1. Choose a package. The order opens straight away in a payment window."
 msgstr ""
 
-#: src/features/billing/pricing.tsx
-#~ msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
-#~ msgstr ""
-
 #: src/features/career/workspace/prepare.tsx
 msgid "10-minute briefing"
 msgstr "10-minútový brífing"
@@ -838,10 +834,6 @@ msgstr "Najlepšie sa čítajú 2–3 vety"
 #: src/features/billing/pricing.tsx
 msgid "2. Scan the QRIS and pay the exact amount down to the last three digits."
 msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
-#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -872,10 +864,6 @@ msgstr "3 podložené · 1 čiastočne · 1 chýba"
 #: src/features/billing/pricing.tsx
 msgid "3. Upload the proof in the same window. Credits land once an admin checks it."
 msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
-#~ msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "30 days"
@@ -973,10 +961,6 @@ msgstr "Odkaz smeruje inam, než ukazuje zobrazená adresa."
 msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "Názor modelky, nie verdikt. Môže to byť nesprávne."
 
-#: src/features/settings/account/security.tsx
-#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-#~ msgstr "Názov vám pomôže rozlíšiť prístupové kľúče, napríklad „pracovný laptop“."
-
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
 msgstr "Číselný dátum sa v rôznych krajinách číta inak."
@@ -988,10 +972,6 @@ msgstr "Strana je otočená."
 #: src/features/resume/editor/check/job-match.tsx
 msgid "A pasted posting can be saved as an application afterwards."
 msgstr "Vložený pracovný inzerát je možné následne uložiť ako žiadosť o zamestnanie."
-
-#: src/features/billing/transactions.tsx
-#~ msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
-#~ msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
@@ -1332,10 +1312,6 @@ msgstr "Pridajte ho s predvoľbou krajiny; niektoré prihlasovacie formuláre ho
 msgid "Add Page"
 msgstr "Pridať stranu"
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Add passkey"
-#~ msgstr "Pridať prístupový kľúč"
-
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
 msgstr "Pridať profil"
@@ -1574,10 +1550,6 @@ msgstr "Poskytovatelia AI nie sú na tomto serveri k dispozícii, kým nie je na
 msgid "AI providers couldn't be loaded. Reload to try again."
 msgstr "Poskytovateľov AI sa nepodarilo načítať. Znova načítajte a skúste to znova."
 
-#: src/routes/dashboard/akun.tsx
-#~ msgid "AI providers, API keys and integrations."
-#~ msgstr ""
-
 #: src/libs/locale.ts
 msgid "Albanian"
 msgstr "Albánčina"
@@ -1643,8 +1615,8 @@ msgid "Already covered · pick one to find it on the page"
 msgstr "Už pokryté · vyberte jeden a nájdite ho na stránke"
 
 #: src/features/auth/pages/register.tsx
-msgid "Already have an account? <0/>"
-msgstr "Máte už účet? <0/>"
+msgid "Already have an account?"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -1675,14 +1647,6 @@ msgstr "Amharčina"
 #: src/features/billing/invoice-sheet.tsx
 msgid "Amount"
 msgstr ""
-
-#: src/features/billing/payment-dialog.tsx
-#~ msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
-#~ msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
-#~ msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
@@ -2421,11 +2385,6 @@ msgstr "Zoznam s odrážkami"
 msgid "Buy"
 msgstr ""
 
-#. placeholder {0}: formatRupiah(plan.priceIdr)
-#: src/features/billing/pricing.tsx
-#~ msgid "Buy {0}"
-#~ msgstr ""
-
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Buy a credit"
 msgstr ""
@@ -2443,10 +2402,6 @@ msgstr ""
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."
 msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "By buying, you agree to the terms below."
-#~ msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
@@ -3124,10 +3079,6 @@ msgstr "Pokračovať"
 msgid "Continue as a guest"
 msgstr ""
 
-#: src/features/auth/pages/login.tsx
-#~ msgid "Continue as guest"
-#~ msgstr "Pokračovať ako hosť"
-
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
 msgstr ""
@@ -3332,10 +3283,6 @@ msgstr "Nepodarilo sa pridať žiadosť o prácu."
 msgid "Couldn't add the application. Please try again."
 msgstr "Žiadosť sa nepodarilo pridať. Skúste to znova."
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Couldn't add the passkey. Try again."
-#~ msgstr "Nepodarilo sa pridať prístupový kľúč. Skúste to znova."
-
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file."
@@ -3535,17 +3482,9 @@ msgstr "Nepodarilo sa to zapamätať. Skúste to znova."
 msgid "Couldn't remove it from Applications."
 msgstr "Nepodarilo sa to odstrániť zo Žiadostí."
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Couldn't remove the passkey. Try again."
-#~ msgstr "Nepodarilo sa odstrániť prístupový kľúč. Skúste to znova."
-
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "Nepodarilo sa premenovať."
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Couldn't rename the passkey."
-#~ msgstr "Prístupový kľúč sa nepodarilo premenovať."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3791,11 +3730,6 @@ msgstr "Vytvoriť kľúč"
 #: src/features/auth/pages/login.tsx
 msgid "Create one"
 msgstr ""
-
-#. Call-to-action link from login page to account registration page
-#: src/features/auth/pages/login.tsx
-#~ msgid "Create one now"
-#~ msgstr "Vytvorte si ho teraz"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4282,10 +4216,6 @@ msgstr "Dokumenty pre túto prácu"
 #: src/features/homepage/faq.tsx
 msgid "Does it use AI?"
 msgstr ""
-
-#: src/features/auth/pages/login.tsx
-#~ msgid "Don't have an account? <0/>"
-#~ msgstr "Nemáte účet? <0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -5348,11 +5278,6 @@ msgstr "Na akú prácu?"
 msgid "Forget"
 msgstr "Zabudnúť"
 
-#. Link label to password reset page from login form
-#: src/features/auth/pages/login.tsx
-#~ msgid "Forgot Password?"
-#~ msgstr "Zabudnuté heslo?"
-
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "Zabudol si heslo?"
@@ -5391,10 +5316,6 @@ msgstr "Nájdené dnes"
 msgid "Found yesterday"
 msgstr "Nájdené včera"
 
-#: src/features/billing/pricing.tsx
-#~ msgid "Free"
-#~ msgstr ""
-
 #: src/features/quota/page.tsx
 msgid "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
 msgstr ""
@@ -5402,10 +5323,6 @@ msgstr ""
 #: src/libs/seo.ts
 msgid "Free ATS resume checker"
 msgstr "Bezplatná kontrola životopisov ATS"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Free issue list and basic job match"
-#~ msgstr ""
 
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
@@ -5547,10 +5464,6 @@ msgstr "Choď domov"
 #: src/routes/_home/-sections/header.tsx
 msgid "Go to dashboard"
 msgstr "Prejsť na nástenku"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Go to my documents"
-#~ msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
@@ -6212,10 +6125,6 @@ msgstr "Možno bol odstránený. Vyberte iný príbeh alebo pridajte nový."
 msgid "It will be deleted for good and can't be restored."
 msgstr "Bude definitívne vymazaný a nebude možné ho obnoviť."
 
-#: src/features/settings/account/security.tsx
-#~ msgid "It will no longer sign you in."
-#~ msgstr "Už vás to neprihlási."
-
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
 msgstr "Zobrazí sa na časovej osi žiadosti o zamestnanie a v kalendári."
@@ -6323,16 +6232,6 @@ msgstr "Sledovanie žiadostí o prácu"
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "Pracovné miesta"
-
-#. Example full name placeholder on registration form
-#: src/features/auth/pages/register.tsx
-msgid "John Doe"
-msgstr "John Doe"
-
-#. Example username placeholder on registration form
-#: src/features/auth/pages/register.tsx
-msgid "john.doe"
-msgstr "john.doe"
 
 #: src/routes/dashboard/akun.tsx
 msgid "Joined {joined}"
@@ -6531,10 +6430,6 @@ msgstr "Na šírku"
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Language"
 msgstr "Jazyk"
-
-#: src/routes/dashboard/akun.tsx
-#~ msgid "Language, theme and display."
-#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -7434,6 +7329,16 @@ msgstr "Mojou úlohou bolo zistiť prečo, bez pridania práce podpore."
 msgid "My orders"
 msgstr ""
 
+#. Example full name placeholder on registration form
+#: src/features/auth/pages/register.tsx
+msgid "Nama lengkap"
+msgstr ""
+
+#. Example username placeholder on registration form
+#: src/features/auth/pages/register.tsx
+msgid "nama.pengguna"
+msgstr ""
+
 #. Label for full name input on registration form
 #: src/dialogs/resume/index.tsx
 #: src/features/applications/components/detail/contacts.tsx
@@ -7471,10 +7376,6 @@ msgstr "Pomenujte životopis podľa pozície, o ktorú sa uchádzate."
 #: src/features/career/knowledge/stories.tsx
 msgid "Name the story"
 msgstr "Pomenujte príbeh"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Name this passkey"
-#~ msgstr "Pomenujte tento prístupový kľúč"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -8060,10 +7961,6 @@ msgid "Nothing scheduled. Add a search to find roles each morning, or preparatio
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-#~ msgid "Nothing spent yet."
-#~ msgstr ""
-
-#: src/routes/dashboard/akun.tsx
 msgid "Nothing spent yet. Credits appear here after you use one."
 msgstr ""
 
@@ -8207,10 +8104,6 @@ msgstr ""
 msgid "one format"
 msgstr "jeden formát"
 
-#: src/features/billing/pricing.tsx
-#~ msgid "One free resume to build and download"
-#~ msgstr ""
-
 #: src/features/billing/credit-dialog.tsx
 msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
 msgstr ""
@@ -8284,14 +8177,6 @@ msgstr "Otvorte {title}"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Open AI settings"
 msgstr "Otvorte nastavenia AI"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Open an application to practise"
-#~ msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Open an application to use it"
-#~ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -8427,10 +8312,6 @@ msgstr "Možnosti pre tento záznam"
 msgid "or"
 msgstr "alebo"
 
-#: src/features/auth/pages/login.tsx
-msgid "or continue with"
-msgstr ""
-
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
 msgid "or continue with"
@@ -8439,10 +8320,6 @@ msgstr "alebo pokračuj s"
 #: src/features/assistant/conversation.tsx
 msgid "Or in your own words…"
 msgstr "Alebo vlastnými slovami…"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Or through WhatsApp"
-#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Or upload a resume PDF"
@@ -8459,10 +8336,6 @@ msgstr ""
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Order waiting for payment"
 msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "orders"
-#~ msgstr ""
 
 #: src/routes/dashboard/akun.tsx
 msgid "Orders"
@@ -8609,10 +8482,6 @@ msgstr ""
 msgid "Passkey"
 msgstr "Passkey"
 
-#: src/features/command-palette/pages/navigation.tsx
-msgid "Passkeys"
-msgstr "Passkeys"
-
 #. Authentication provider display name in account settings
 #. Label for password input on login form
 #. Label for password input on protected resume access form
@@ -8736,18 +8605,6 @@ msgstr "Pozastavené · {line}"
 msgid "Paused schedules keep their settings."
 msgstr "Pozastavené naplánované úlohy si ponechajú nastavenia."
 
-#: src/features/billing/transactions.tsx
-#~ msgid "Pay"
-#~ msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Pay by QRIS, checked by an admin, credits land once it passes."
-#~ msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Pay by QRIS, verified manually by an admin."
-#~ msgstr ""
-
 #: src/features/billing/pricing.tsx
 msgid "Pay only for what you use"
 msgstr ""
@@ -8768,10 +8625,6 @@ msgstr ""
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
 msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Payment confirmed"
-#~ msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "payment confirmed, your credits are in"
@@ -8939,10 +8792,6 @@ msgstr ""
 msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored resume and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-#~ msgid "PortoFit QRIS code"
-#~ msgstr ""
-
 #: src/features/documents/start-guide.tsx
 msgid "PortoFit tracks each job from the posting to the interview."
 msgstr ""
@@ -9102,10 +8951,6 @@ msgstr "Pripravuje sa súbor {label}…"
 msgid "Preparing edits…"
 msgstr "Pripravujú sa úpravy…"
 
-#: src/features/billing/pricing.tsx
-#~ msgid "Preparing your order…"
-#~ msgstr ""
-
 #: src/features/billing/payment-dialog.tsx
 msgid "Preparing your payment…"
 msgstr ""
@@ -9243,10 +9088,6 @@ msgstr "Odkaz na profil osoby {0}"
 msgid "Profile links must be public HTTPS addresses."
 msgstr "Odkazy na profily musia byť verejné adresy HTTPS."
 
-#: src/routes/dashboard/akun.tsx
-#~ msgid "Profile, credits, orders and settings."
-#~ msgstr ""
-
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Profiles"
@@ -9266,20 +9107,8 @@ msgid "Promoted to lead, 2021"
 msgstr "Povýšený na vedúceho, 2021"
 
 #: src/features/billing/payment-dialog.tsx
-#~ msgid "Proof did not match"
-#~ msgstr ""
-
-#: src/features/billing/payment-dialog.tsx
 msgid "Proof rejected"
 msgstr ""
-
-#: src/features/billing/payment-dialog.tsx
-#~ msgid "Proof sent"
-#~ msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Proof sent, waiting for a check"
-#~ msgstr ""
 
 #: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
@@ -9779,8 +9608,8 @@ msgid "Remember this for future coaching?"
 msgstr "Zapamätať si to pre budúci koučing?"
 
 #: src/features/auth/pages/forgot-password.tsx
-msgid "Remember your password? <0/>"
-msgstr "Pamätáte si heslo? <0/>"
+msgid "Remember your password?"
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Remembered: “{text}”"
@@ -9863,10 +9692,6 @@ msgstr "Odstrániť značku"
 #: src/features/resume/share/link-tab.tsx
 msgid "Remove the password?"
 msgstr "Chcete odstrániť heslo?"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Remove this passkey?"
-#~ msgstr "Odstrániť tento prístupový kľúč?"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -10517,10 +10342,6 @@ msgstr "Ukladá sa…"
 msgid "Say it aloud"
 msgstr "Povedzte to nahlas"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "Scan it with any bank or wallet app that supports QRIS."
-#~ msgstr ""
-
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
 msgstr "Naskenuj nižšie uvedený QR kód svojou obľúbenou autentifikačnou aplikáciou. Môžeš tiež skopírovať nižšie uvedený tajný kľúč a vložiť ho do aplikácie."
@@ -11084,28 +10905,16 @@ msgstr "Šírka bočného panela"
 msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "Bočné panely sa často čítajú ako posledné alebo sa primiešavajú do hlavného stĺpca."
 
+#. Call-to-action link from forgot-password page to login page
+#. Call-to-action link from registration page to login page
 #. Primary action button label on login form
 #. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
+#: src/features/auth/pages/forgot-password.tsx
 #: src/features/auth/pages/login.tsx
+#: src/features/auth/pages/register.tsx
 msgid "Sign in"
 msgstr "Prihlásiť sa"
-
-#. Call-to-action link from forgot-password page to login page
-#. Call-to-action link from registration page to login page
-#: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/register.tsx
-msgid "Sign in now"
-msgstr "Prihláste sa teraz"
-
-#. Title on the login page
-#: src/features/auth/pages/login.tsx
-#~ msgid "Sign in to your account"
-#~ msgstr "Prihlás sa do svojho účtu"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Sign in with your fingerprint, face or device PIN"
-#~ msgstr "Prihláste sa pomocou odtlačku prsta, tváre alebo kódu PIN zariadenia"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -12056,10 +11865,6 @@ msgstr "Nárast aktivácie o 13 bodov. Vaše Znalosti majú hodnoty pred a po."
 msgid "The AI features are paused for a moment. Try again shortly."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-#~ msgid "The amount has to match down to the last three digits."
-#~ msgstr ""
-
 #: src/features/billing/payment-dialog.tsx
 msgid "The amount or the proof does not match this order."
 msgstr ""
@@ -12115,10 +11920,6 @@ msgstr "Kouč ukladá fakty, ktoré uvediete, a oznámi vám to. Môžete to vr�
 #: src/features/documents/new-document-dialog.tsx
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "Kópia je prepojená so žiadosťou o prácu, takže Check a asistent používajú jej inzerát."
-
-#: src/features/billing/transactions.tsx
-#~ msgid "The credits are in your account. An invoice is there if you need proof of payment."
-#~ msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
 msgid "The deadline passed before the proof arrived. This order is closed and cannot be paid again."
@@ -12237,10 +12038,6 @@ msgstr "Strany sú obrázky bez textu za nimi."
 msgid "The password you entered is incorrect"
 msgstr "Zadané heslo je nesprávne"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
-#~ msgstr ""
-
 #: src/features/resume/editor/check/job-match.tsx
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
 msgstr "Pracovná ponuka vyžaduje „{label}“. Ak je to pre mňa pravda, zapracujte to do môjho životopisu tam, kde sa to hodí. Najprv sa ma opýtajte."
@@ -12260,10 +12057,6 @@ msgstr ""
 #: src/features/billing/use-proof-upload.ts
 msgid "The proof could not be sent. Try again."
 msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "The proof did not match the amount on this order."
-#~ msgstr ""
 
 #: src/features/billing/use-proof-upload.ts
 msgid "The proof must be a JPG or PNG. PDF is not accepted."
@@ -12697,10 +12490,6 @@ msgstr "Čas · {timeZone}"
 msgid "Time is up"
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-#~ msgid "Time left"
-#~ msgstr ""
-
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
 msgstr "Čas, odkaz, s kým, čo ste poslali"
@@ -12729,10 +12518,6 @@ msgstr "Názov"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "To"
 msgstr "Komu"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "To try the flow"
-#~ msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 #: src/features/resume/share/link-tab.tsx
@@ -12772,10 +12557,6 @@ msgstr ""
 #: src/features/billing/payment-dialog.tsx
 msgid "Total to pay"
 msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Total to transfer"
-#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -13062,10 +12843,6 @@ msgstr "Vrátiť späť zmenu životopisu"
 msgid "Unique code"
 msgstr ""
 
-#: src/features/billing/invoice-sheet.tsx
-#~ msgid "Unique transfer code"
-#~ msgstr ""
-
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
 #: src/features/homepage/sheet.tsx
@@ -13075,10 +12852,6 @@ msgstr ""
 #: src/features/career/offers.tsx
 msgid "Unknown"
 msgstr "Neznáme"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Unlimited ATS checks, no login"
-#~ msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
@@ -13109,10 +12882,6 @@ msgstr "Odomknite úpravy"
 #: src/features/documents/document-actions.tsx
 msgid "Unlock it first"
 msgstr "Najprv ho odomknite"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Unnamed passkey"
-#~ msgstr "Nepomenovaný prístupový kľúč"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13486,10 +13255,6 @@ msgstr "Zobraziť"
 msgid "View application"
 msgstr "Zobraziť žiadosť o zamestnanie"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "View invoice"
-#~ msgstr ""
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13534,10 +13299,6 @@ msgstr "Nastavenia hlasu"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "Dobrovoľníctvo"
-
-#: src/features/billing/payment-dialog.tsx
-#~ msgid "Waiting for a check"
-#~ msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"
@@ -13618,10 +13379,6 @@ msgstr "Vyhľadávanie na webe zlyhalo: {0}"
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Website"
 msgstr "Webová stránka"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Weekly AI allowance, back every Monday"
-#~ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Weekly at {clock} · next {next}"
@@ -14058,10 +13815,6 @@ msgstr "Toto už používate pre „{0}“."
 msgid "You answered: {answer}"
 msgstr "Odpovedali ste: {answer}"
 
-#: src/features/auth/pages/login.tsx
-#~ msgid "You can also sign in with your username."
-#~ msgstr "Prihlásiť sa môžete aj používateľským menom."
-
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."
 msgstr ""
@@ -14335,10 +14088,6 @@ msgstr "Vaše meno sa v životopise zmenilo. List bol tiež aktualizovaný."
 #: src/features/resume/editor/check/issues.ts
 msgid "Your name is missing"
 msgstr "Vaše meno chýba"
-
-#: src/routes/dashboard/akun.tsx
-#~ msgid "Your name, email, password and signed-in sessions."
-#~ msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "your notes"

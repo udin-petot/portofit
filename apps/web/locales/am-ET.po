@@ -810,10 +810,6 @@ msgstr "1 ቃለ መጠይቅ"
 msgid "1. Choose a package. The order opens straight away in a payment window."
 msgstr ""
 
-#: src/features/billing/pricing.tsx
-#~ msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
-#~ msgstr ""
-
 #: src/features/career/workspace/prepare.tsx
 msgid "10-minute briefing"
 msgstr "የ10 ደቂቃ አጭር መግለጫ"
@@ -838,10 +834,6 @@ msgstr "2-3 አረፍተ ነገሮች በተሻለ ሁኔታ ይነበባሉ"
 #: src/features/billing/pricing.tsx
 msgid "2. Scan the QRIS and pay the exact amount down to the last three digits."
 msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
-#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -872,10 +864,6 @@ msgstr "3 የተደገፉ · 1 በከፊል · 1 የጎደለ"
 #: src/features/billing/pricing.tsx
 msgid "3. Upload the proof in the same window. Credits land once an admin checks it."
 msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
-#~ msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "30 days"
@@ -973,10 +961,6 @@ msgstr "አገናኝ ከሚያሳየው አድራሻ ውጭ ወዳለ ሌላ ቦ
 msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "የአንድ ሞዴል አስተያየት, ፍርድ አይደለም. ስህተት ሊሆን ይችላል."
 
-#: src/features/settings/account/security.tsx
-#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-#~ msgstr "ስም እንደ \"ስራ ላፕቶፕ\" ያሉ የይለፍ ቁልፎችን ለመለየት ይረዳዎታል።"
-
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
 msgstr "የቁጥር ቀን በተለያዩ ሀገራት በተለያየ መልኩ ይነበባል።"
@@ -988,10 +972,6 @@ msgstr "ገጽ ተሽከርክሯል።"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "A pasted posting can be saved as an application afterwards."
 msgstr "የተለጠፈ የሥራ ማስታወቂያ በኋላ እንደ የሥራ ማመልከቻ ሊቀመጥ ይችላል።"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
-#~ msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
@@ -1332,10 +1312,6 @@ msgstr "ከሀገር ኮዱ ጋር አንድ ይጨምሩ፤ አንዳንድ የ
 msgid "Add Page"
 msgstr "ገጽ ያክሉ"
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Add passkey"
-#~ msgstr "የይለፍ ቁልፍ ጨምር"
-
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
 msgstr "መገለጫ ያክሉ"
@@ -1574,10 +1550,6 @@ msgstr "ENCRYPTION_SECRET እስኪቀናበር ድረስ AI አቅራቢዎች 
 msgid "AI providers couldn't be loaded. Reload to try again."
 msgstr "AI አቅራቢዎች ሊጫኑ አልቻሉም። እንደገና ለመሞከር እንደገና ይጫኑ።"
 
-#: src/routes/dashboard/akun.tsx
-#~ msgid "AI providers, API keys and integrations."
-#~ msgstr ""
-
 #: src/libs/locale.ts
 msgid "Albanian"
 msgstr "አልባኒኛ"
@@ -1643,8 +1615,8 @@ msgid "Already covered · pick one to find it on the page"
 msgstr "አስቀድሞ የተሸፈነ · በገጹ ላይ ለማግኘት አንዱን ይምረጡ"
 
 #: src/features/auth/pages/register.tsx
-msgid "Already have an account? <0/>"
-msgstr "ቀድሞ መለያ አለዎት? <0/>"
+msgid "Already have an account?"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -1675,14 +1647,6 @@ msgstr "አማርኛ"
 #: src/features/billing/invoice-sheet.tsx
 msgid "Amount"
 msgstr ""
-
-#: src/features/billing/payment-dialog.tsx
-#~ msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
-#~ msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
-#~ msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
@@ -2421,11 +2385,6 @@ msgstr "ነጥበ ምልክት የተደረገበት ዝርዝር"
 msgid "Buy"
 msgstr ""
 
-#. placeholder {0}: formatRupiah(plan.priceIdr)
-#: src/features/billing/pricing.tsx
-#~ msgid "Buy {0}"
-#~ msgstr ""
-
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Buy a credit"
 msgstr ""
@@ -2443,10 +2402,6 @@ msgstr ""
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."
 msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "By buying, you agree to the terms below."
-#~ msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
@@ -3124,10 +3079,6 @@ msgstr "ቀጥል"
 msgid "Continue as a guest"
 msgstr ""
 
-#: src/features/auth/pages/login.tsx
-#~ msgid "Continue as guest"
-#~ msgstr "እንደ እንግዳ ይቀጥሉ"
-
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
 msgstr ""
@@ -3332,10 +3283,6 @@ msgstr "የሥራ ማመልከቻውን ማከል አልተቻለም።"
 msgid "Couldn't add the application. Please try again."
 msgstr "ማመልከቻውን ማከል አልተቻለም። እባክዎ እንደገና ይሞክሩ።"
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Couldn't add the passkey. Try again."
-#~ msgstr "የይለፍ ቁልፉን ማከል አልተቻለም። እንደገና ይሞክሩ።"
-
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file."
@@ -3535,17 +3482,9 @@ msgstr "ያንን ማስታወስ አልተቻለም። እንደገና ይሞ�
 msgid "Couldn't remove it from Applications."
 msgstr "ከማመልከቻዎች ማስወገድ አልተቻለም።"
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Couldn't remove the passkey. Try again."
-#~ msgstr "የይለፍ ቁልፉን ማስወገድ አልተቻለም። እንደገና ይሞክሩ።"
-
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "ስሙን መቀየር አልተቻለም።"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Couldn't rename the passkey."
-#~ msgstr "የይለፍ ቁልፉን እንደገና መሰየም አልተቻለም።"
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3791,11 +3730,6 @@ msgstr "ቁልፍ ፍጠር"
 #: src/features/auth/pages/login.tsx
 msgid "Create one"
 msgstr ""
-
-#. Call-to-action link from login page to account registration page
-#: src/features/auth/pages/login.tsx
-#~ msgid "Create one now"
-#~ msgstr "አሁን አንድ ይፍጠሩ"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4282,10 +4216,6 @@ msgstr "ለዚህ ሥራ ሰነዶች"
 #: src/features/homepage/faq.tsx
 msgid "Does it use AI?"
 msgstr ""
-
-#: src/features/auth/pages/login.tsx
-#~ msgid "Don't have an account? <0/>"
-#~ msgstr "መለያ የለዎትም? <0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -5348,11 +5278,6 @@ msgstr "ለየትኛው ሥራ?"
 msgid "Forget"
 msgstr "እርሳ"
 
-#. Link label to password reset page from login form
-#: src/features/auth/pages/login.tsx
-#~ msgid "Forgot Password?"
-#~ msgstr "የይለፍ ቃልዎን ረስተዋል?"
-
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "የይለፍ ቃልዎን ረስተዋል?"
@@ -5391,10 +5316,6 @@ msgstr "ዛሬ የተገኘ"
 msgid "Found yesterday"
 msgstr "ትናንት የተገኘ"
 
-#: src/features/billing/pricing.tsx
-#~ msgid "Free"
-#~ msgstr ""
-
 #: src/features/quota/page.tsx
 msgid "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
 msgstr ""
@@ -5402,10 +5323,6 @@ msgstr ""
 #: src/libs/seo.ts
 msgid "Free ATS resume checker"
 msgstr "ነፃ ATS የሪሱሜ ማረጋገጫ"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Free issue list and basic job match"
-#~ msgstr ""
 
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
@@ -5547,10 +5464,6 @@ msgstr "ወደ ቤት ሂድ"
 #: src/routes/_home/-sections/header.tsx
 msgid "Go to dashboard"
 msgstr "ወደ ዳሽቦርዱ ሂድ"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Go to my documents"
-#~ msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
@@ -6212,10 +6125,6 @@ msgstr "ተሰርዞ ሊሆን ይችላል። ሌላ ታሪክ ይምረጡ ወ
 msgid "It will be deleted for good and can't be restored."
 msgstr "ለበጎ ይሰረዛል እና ወደነበረበት ሊመለስ አይችልም።"
 
-#: src/features/settings/account/security.tsx
-#~ msgid "It will no longer sign you in."
-#~ msgstr "ከአሁን በኋላ እርስዎን አያስገቡም።"
-
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
 msgstr "በስራ ማመልከቻው የጊዜ ሰሌዳ እና በቀን መቁጠሪያ ላይ ይታያል."
@@ -6323,16 +6232,6 @@ msgstr "የማመልከቻ መከታተያ"
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "ስራዎች"
-
-#. Example full name placeholder on registration form
-#: src/features/auth/pages/register.tsx
-msgid "John Doe"
-msgstr "John Doe"
-
-#. Example username placeholder on registration form
-#: src/features/auth/pages/register.tsx
-msgid "john.doe"
-msgstr "john.doe"
 
 #: src/routes/dashboard/akun.tsx
 msgid "Joined {joined}"
@@ -6531,10 +6430,6 @@ msgstr "መሬት አቀማመጥ"
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Language"
 msgstr "ቋንቋ"
-
-#: src/routes/dashboard/akun.tsx
-#~ msgid "Language, theme and display."
-#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -7434,6 +7329,16 @@ msgstr "የእኔ ኃላፊነት የድጋፍ ሥራ ሳልጨምር ምክን�
 msgid "My orders"
 msgstr ""
 
+#. Example full name placeholder on registration form
+#: src/features/auth/pages/register.tsx
+msgid "Nama lengkap"
+msgstr ""
+
+#. Example username placeholder on registration form
+#: src/features/auth/pages/register.tsx
+msgid "nama.pengguna"
+msgstr ""
+
 #. Label for full name input on registration form
 #: src/dialogs/resume/index.tsx
 #: src/features/applications/components/detail/contacts.tsx
@@ -7471,10 +7376,6 @@ msgstr "የስራ ልምድ ማስረጃውን እያመለከቱበት ባለ�
 #: src/features/career/knowledge/stories.tsx
 msgid "Name the story"
 msgstr "ለታሪኩ ስም ይስጡ"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Name this passkey"
-#~ msgstr "ይህን የይለፍ ቃል ይሰይሙ"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -8060,10 +7961,6 @@ msgid "Nothing scheduled. Add a search to find roles each morning, or preparatio
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-#~ msgid "Nothing spent yet."
-#~ msgstr ""
-
-#: src/routes/dashboard/akun.tsx
 msgid "Nothing spent yet. Credits appear here after you use one."
 msgstr ""
 
@@ -8207,10 +8104,6 @@ msgstr ""
 msgid "one format"
 msgstr "አንድ ቅርጸት"
 
-#: src/features/billing/pricing.tsx
-#~ msgid "One free resume to build and download"
-#~ msgstr ""
-
 #: src/features/billing/credit-dialog.tsx
 msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
 msgstr ""
@@ -8284,14 +8177,6 @@ msgstr "{title} ን ይክፈቱ"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Open AI settings"
 msgstr "የ AI ቅንብሮችን ይክፈቱ"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Open an application to practise"
-#~ msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Open an application to use it"
-#~ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -8427,10 +8312,6 @@ msgstr "ለዚህ ግቤት አማራጮች"
 msgid "or"
 msgstr "ወይም"
 
-#: src/features/auth/pages/login.tsx
-msgid "or continue with"
-msgstr ""
-
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
 msgid "or continue with"
@@ -8439,10 +8320,6 @@ msgstr "ወይም ቀጥለህ ከዚህ ጋር"
 #: src/features/assistant/conversation.tsx
 msgid "Or in your own words…"
 msgstr "ወይ በራስህ አባባል…"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Or through WhatsApp"
-#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Or upload a resume PDF"
@@ -8459,10 +8336,6 @@ msgstr ""
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Order waiting for payment"
 msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "orders"
-#~ msgstr ""
 
 #: src/routes/dashboard/akun.tsx
 msgid "Orders"
@@ -8609,10 +8482,6 @@ msgstr ""
 msgid "Passkey"
 msgstr "ፓስኪ"
 
-#: src/features/command-palette/pages/navigation.tsx
-msgid "Passkeys"
-msgstr "ፓስኪዎች"
-
 #. Authentication provider display name in account settings
 #. Label for password input on login form
 #. Label for password input on protected resume access form
@@ -8736,18 +8605,6 @@ msgstr "ቆሟል · {line}"
 msgid "Paused schedules keep their settings."
 msgstr "የቆሙ መርሐ ግብሮች ቅንብሮቻቸውን ይይዛሉ።"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "Pay"
-#~ msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Pay by QRIS, checked by an admin, credits land once it passes."
-#~ msgstr ""
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Pay by QRIS, verified manually by an admin."
-#~ msgstr ""
-
 #: src/features/billing/pricing.tsx
 msgid "Pay only for what you use"
 msgstr ""
@@ -8768,10 +8625,6 @@ msgstr ""
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
 msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Payment confirmed"
-#~ msgstr ""
 
 #: src/features/billing/transactions.tsx
 msgid "payment confirmed, your credits are in"
@@ -8939,10 +8792,6 @@ msgstr ""
 msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored resume and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-#~ msgid "PortoFit QRIS code"
-#~ msgstr ""
-
 #: src/features/documents/start-guide.tsx
 msgid "PortoFit tracks each job from the posting to the interview."
 msgstr ""
@@ -9102,10 +8951,6 @@ msgstr "{label} ፋይልን በማዘጋጀት ላይ…"
 msgid "Preparing edits…"
 msgstr "አርትዖቶችን በማዘጋጀት ላይ…"
 
-#: src/features/billing/pricing.tsx
-#~ msgid "Preparing your order…"
-#~ msgstr ""
-
 #: src/features/billing/payment-dialog.tsx
 msgid "Preparing your payment…"
 msgstr ""
@@ -9243,10 +9088,6 @@ msgstr "የሰው {0} የመገለጫ አገናኝ"
 msgid "Profile links must be public HTTPS addresses."
 msgstr "የመገለጫ አገናኞች ይፋዊ HTTPS አድራሻዎች መሆን አለባቸው።"
 
-#: src/routes/dashboard/akun.tsx
-#~ msgid "Profile, credits, orders and settings."
-#~ msgstr ""
-
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Profiles"
@@ -9266,20 +9107,8 @@ msgid "Promoted to lead, 2021"
 msgstr "ለመሪነት ከፍ ተደርገዋል፣ 2021"
 
 #: src/features/billing/payment-dialog.tsx
-#~ msgid "Proof did not match"
-#~ msgstr ""
-
-#: src/features/billing/payment-dialog.tsx
 msgid "Proof rejected"
 msgstr ""
-
-#: src/features/billing/payment-dialog.tsx
-#~ msgid "Proof sent"
-#~ msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Proof sent, waiting for a check"
-#~ msgstr ""
 
 #: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
@@ -9779,8 +9608,8 @@ msgid "Remember this for future coaching?"
 msgstr "ይህ ለወደፊት ስልጠና ይታወስ?"
 
 #: src/features/auth/pages/forgot-password.tsx
-msgid "Remember your password? <0/>"
-msgstr "የይለፍ ቃልዎን ያስታውሳሉ? <0/>"
+msgid "Remember your password?"
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Remembered: “{text}”"
@@ -9863,10 +9692,6 @@ msgstr "መለያ አስወግድ"
 #: src/features/resume/share/link-tab.tsx
 msgid "Remove the password?"
 msgstr "የይለፍ ቃሉ ይወገድ?"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Remove this passkey?"
-#~ msgstr "ይህ የይለፍ ቃል ይወገድ?"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -10517,10 +10342,6 @@ msgstr "በማስቀመጥ ላይ…"
 msgid "Say it aloud"
 msgstr "ጮክ ብለው ይናገሩት"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "Scan it with any bank or wallet app that supports QRIS."
-#~ msgstr ""
-
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
 msgstr "በታች ያለውን QR ኮድ በሚፈልጉት የማረጋገጫ መተግበሪያ ተንቀሳቃሽ ያስክኑ። በተጨማሪም ከታች ያለውን ሚስጥር ቁልፍ ቅጂ ማድረግ እና ወደ መተግበሪያዎ መለጠፍ ትችላላችሁ።"
@@ -11084,28 +10905,16 @@ msgstr "የጎን አሞሌ ስፋት"
 msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "የጎን አሞሌዎች ብዙውን ጊዜ በመጨረሻ ይነበባሉ ወይም ወደ ዋናው አምድ ይደባለቃሉ።"
 
+#. Call-to-action link from forgot-password page to login page
+#. Call-to-action link from registration page to login page
 #. Primary action button label on login form
 #. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
+#: src/features/auth/pages/forgot-password.tsx
 #: src/features/auth/pages/login.tsx
+#: src/features/auth/pages/register.tsx
 msgid "Sign in"
 msgstr "ግባ"
-
-#. Call-to-action link from forgot-password page to login page
-#. Call-to-action link from registration page to login page
-#: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/register.tsx
-msgid "Sign in now"
-msgstr "አሁን ግባ"
-
-#. Title on the login page
-#: src/features/auth/pages/login.tsx
-#~ msgid "Sign in to your account"
-#~ msgstr "ወደ መለያዎ ይግቡ"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Sign in with your fingerprint, face or device PIN"
-#~ msgstr "በእርስዎ የጣት አሻራ፣ ፊት ወይም መሣሪያ ፒን ይግቡ"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -12056,10 +11865,6 @@ msgstr "የ13 ነጥብ የአክቲቬሽን ጭማሪ። እውቀትዎ በ�
 msgid "The AI features are paused for a moment. Try again shortly."
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-#~ msgid "The amount has to match down to the last three digits."
-#~ msgstr ""
-
 #: src/features/billing/payment-dialog.tsx
 msgid "The amount or the proof does not match this order."
 msgstr ""
@@ -12115,10 +11920,6 @@ msgstr "አሰልጣኙ የሚናገሯቸውን እውነታዎች ያስቀም
 #: src/features/documents/new-document-dialog.tsx
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "ቅጂው ከሥራ ማመልከቻው ጋር የተገናኘ ነው፣ ስለዚህ ቼክ እና ረዳቱ የእሱን የሥራ ማስታወቂያ ይጠቀማሉ።"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "The credits are in your account. An invoice is there if you need proof of payment."
-#~ msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
 msgid "The deadline passed before the proof arrived. This order is closed and cannot be paid again."
@@ -12237,10 +12038,6 @@ msgstr "ገጾቹ ምስሎች ናቸው፣ ከኋላቸው ምንም ጽሁፍ 
 msgid "The password you entered is incorrect"
 msgstr "ያስገቡት የይለፍ ቃል ትክክል አይደለም"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
-#~ msgstr ""
-
 #: src/features/resume/editor/check/job-match.tsx
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
 msgstr "የሥራ ማስታወቂያው \"{label}\" ይጠይቃል። ለእኔ እውነት ከሆነ፣ በሚስማማበት ቦታ በሥራ ልምድ ማስረጃዬ ውስጥ አካትተው። መጀመሪያ ጠይቁኝ።"
@@ -12260,10 +12057,6 @@ msgstr ""
 #: src/features/billing/use-proof-upload.ts
 msgid "The proof could not be sent. Try again."
 msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "The proof did not match the amount on this order."
-#~ msgstr ""
 
 #: src/features/billing/use-proof-upload.ts
 msgid "The proof must be a JPG or PNG. PDF is not accepted."
@@ -12697,10 +12490,6 @@ msgstr "ሰዓት · {timeZone}"
 msgid "Time is up"
 msgstr ""
 
-#: src/features/billing/transactions.tsx
-#~ msgid "Time left"
-#~ msgstr ""
-
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
 msgstr "ሰዓት፣ አገናኝ፣ ማን፣ የላኩት"
@@ -12729,10 +12518,6 @@ msgstr "ርዕስ"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "To"
 msgstr "ለ"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "To try the flow"
-#~ msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 #: src/features/resume/share/link-tab.tsx
@@ -12772,10 +12557,6 @@ msgstr ""
 #: src/features/billing/payment-dialog.tsx
 msgid "Total to pay"
 msgstr ""
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Total to transfer"
-#~ msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -13062,10 +12843,6 @@ msgstr "የሥራ ልምድ ለውጥ ቀልብስ"
 msgid "Unique code"
 msgstr ""
 
-#: src/features/billing/invoice-sheet.tsx
-#~ msgid "Unique transfer code"
-#~ msgstr ""
-
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
 #: src/features/homepage/sheet.tsx
@@ -13075,10 +12852,6 @@ msgstr ""
 #: src/features/career/offers.tsx
 msgid "Unknown"
 msgstr "ያልታወቀ"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Unlimited ATS checks, no login"
-#~ msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
@@ -13109,10 +12882,6 @@ msgstr "አርትዖትን ይክፈቱ"
 #: src/features/documents/document-actions.tsx
 msgid "Unlock it first"
 msgstr "መጀመሪያ ይክፈቱት።"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Unnamed passkey"
-#~ msgstr "ስም የሌለው ፓስኪ"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13486,10 +13255,6 @@ msgstr "ይመልከቱ"
 msgid "View application"
 msgstr "የሥራ ማመልከቻ ይመልከቱ"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "View invoice"
-#~ msgstr ""
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13534,10 +13299,6 @@ msgstr "የድምፅ ቅንብሮች"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "በጎ ፈቃደኝነት"
-
-#: src/features/billing/payment-dialog.tsx
-#~ msgid "Waiting for a check"
-#~ msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"
@@ -13618,10 +13379,6 @@ msgstr "የድር ፍለጋ አልተሳካም፡ {0}"
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Website"
 msgstr "ድር ገጽ"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Weekly AI allowance, back every Monday"
-#~ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Weekly at {clock} · next {next}"
@@ -14058,10 +13815,6 @@ msgstr "ይህንን ለ\"{0}\" አስቀድመው ተጠቀሙበት።"
 msgid "You answered: {answer}"
 msgstr "መለስክ፡ {answer}"
 
-#: src/features/auth/pages/login.tsx
-#~ msgid "You can also sign in with your username."
-#~ msgstr "በተጠቃሚ ስምዎም መግባት ይችላሉ።"
-
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."
 msgstr ""
@@ -14335,10 +14088,6 @@ msgstr "ስምዎ በሪሱሜው ላይ ተቀይሯል። ደብዳቤውም �
 #: src/features/resume/editor/check/issues.ts
 msgid "Your name is missing"
 msgstr "ስምህ ጠፍቷል"
-
-#: src/routes/dashboard/akun.tsx
-#~ msgid "Your name, email, password and signed-in sessions."
-#~ msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "your notes"

@@ -806,10 +806,6 @@ msgstr "1 interview"
 msgid "1. Choose a package. The order opens straight away in a payment window."
 msgstr "1. Choose a package. The order opens straight away in a payment window."
 
-#: src/features/billing/pricing.tsx
-#~ msgid "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
-#~ msgstr "1. Choose a package. The system creates an order with a three-digit unique code, for example Rp5,000 becomes Rp5,003."
-
 #: src/features/career/workspace/prepare.tsx
 msgid "10-minute briefing"
 msgstr "10-minute briefing"
@@ -834,10 +830,6 @@ msgstr "2–3 sentences reads best"
 #: src/features/billing/pricing.tsx
 msgid "2. Scan the QRIS and pay the exact amount down to the last three digits."
 msgstr "2. Scan the QRIS and pay the exact amount down to the last three digits."
-
-#: src/features/billing/pricing.tsx
-#~ msgid "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
-#~ msgstr "2. Scan the QRIS on the order page and pay exactly up to the last digit of the unique code."
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -868,10 +860,6 @@ msgstr "3 supported · 1 partly · 1 missing"
 #: src/features/billing/pricing.tsx
 msgid "3. Upload the proof in the same window. Credits land once an admin checks it."
 msgstr "3. Upload the proof in the same window. Credits land once an admin checks it."
-
-#: src/features/billing/pricing.tsx
-#~ msgid "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
-#~ msgstr "3. Upload your payment proof or send it on WhatsApp. An admin verifies it and the credits land immediately."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "30 days"
@@ -969,10 +957,6 @@ msgstr "A link points somewhere other than the address it shows."
 msgid "A model's opinion, not a verdict. It can be wrong."
 msgstr "A model's opinion, not a verdict. It can be wrong."
 
-#: src/features/settings/account/security.tsx
-#~ msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
-#~ msgstr "A name helps you tell passkeys apart, like \"Work laptop\"."
-
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
 msgstr "A numeric date reads differently in different countries."
@@ -984,10 +968,6 @@ msgstr "A page is rotated."
 #: src/features/resume/editor/check/job-match.tsx
 msgid "A pasted posting can be saved as an application afterwards."
 msgstr "A pasted posting can be saved as an application afterwards."
-
-#: src/features/billing/transactions.tsx
-#~ msgid "A photo of the transfer proof, JPG or PNG, at most 10 MB."
-#~ msgstr "A photo of the transfer proof, JPG or PNG, at most 10 MB."
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "A reminder to check in, shown as the next step until you do."
@@ -1328,10 +1308,6 @@ msgstr "Add one with its country code; some application forms require it before 
 msgid "Add Page"
 msgstr "Add Page"
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Add passkey"
-#~ msgstr "Add passkey"
-
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add profile"
 msgstr "Add profile"
@@ -1570,10 +1546,6 @@ msgstr "AI providers aren't available on this server until ENCRYPTION_SECRET is 
 msgid "AI providers couldn't be loaded. Reload to try again."
 msgstr "AI providers couldn't be loaded. Reload to try again."
 
-#: src/routes/dashboard/akun.tsx
-#~ msgid "AI providers, API keys and integrations."
-#~ msgstr "AI providers, API keys and integrations."
-
 #: src/libs/locale.ts
 msgid "Albanian"
 msgstr "Albanian"
@@ -1639,8 +1611,8 @@ msgid "Already covered · pick one to find it on the page"
 msgstr "Already covered · pick one to find it on the page"
 
 #: src/features/auth/pages/register.tsx
-msgid "Already have an account? <0/>"
-msgstr "Already have an account? <0/>"
+msgid "Already have an account?"
+msgstr "Already have an account?"
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -1671,14 +1643,6 @@ msgstr "Amharic"
 #: src/features/billing/invoice-sheet.tsx
 msgid "Amount"
 msgstr "Amount"
-
-#: src/features/billing/payment-dialog.tsx
-#~ msgid "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
-#~ msgstr "An admin checks it by hand, usually within one working day. Credits land in your account once it passes."
-
-#: src/features/billing/transactions.tsx
-#~ msgid "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
-#~ msgstr "An admin checks your transfer proof by hand. Credits arrive automatically once it passes, and this page tells you the moment the status changes."
 
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
@@ -2417,11 +2381,6 @@ msgstr "Bulleted list"
 msgid "Buy"
 msgstr "Buy"
 
-#. placeholder {0}: formatRupiah(plan.priceIdr)
-#: src/features/billing/pricing.tsx
-#~ msgid "Buy {0}"
-#~ msgstr "Buy {0}"
-
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Buy a credit"
 msgstr "Buy a credit"
@@ -2439,10 +2398,6 @@ msgstr "Buy credits"
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."
 msgstr "Buy credits to continue."
-
-#: src/features/billing/pricing.tsx
-#~ msgid "By buying, you agree to the terms below."
-#~ msgstr "By buying, you agree to the terms below."
 
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
@@ -3120,10 +3075,6 @@ msgstr "Continue"
 msgid "Continue as a guest"
 msgstr "Continue as a guest"
 
-#: src/features/auth/pages/login.tsx
-#~ msgid "Continue as guest"
-#~ msgstr "Continue as guest"
-
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Continue payment"
 msgstr "Continue payment"
@@ -3328,10 +3279,6 @@ msgstr "Couldn't add the application."
 msgid "Couldn't add the application. Please try again."
 msgstr "Couldn't add the application. Please try again."
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Couldn't add the passkey. Try again."
-#~ msgstr "Couldn't add the passkey. Try again."
-
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file."
@@ -3531,17 +3478,9 @@ msgstr "Couldn't remember that. Try again."
 msgid "Couldn't remove it from Applications."
 msgstr "Couldn't remove it from Applications."
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Couldn't remove the passkey. Try again."
-#~ msgstr "Couldn't remove the passkey. Try again."
-
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "Couldn't rename it."
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Couldn't rename the passkey."
-#~ msgstr "Couldn't rename the passkey."
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Couldn't revoke the key."
@@ -3787,11 +3726,6 @@ msgstr "Create key"
 #: src/features/auth/pages/login.tsx
 msgid "Create one"
 msgstr "Create one"
-
-#. Call-to-action link from login page to account registration page
-#: src/features/auth/pages/login.tsx
-#~ msgid "Create one now"
-#~ msgstr "Create one now"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4278,10 +4212,6 @@ msgstr "Documents for this job"
 #: src/features/homepage/faq.tsx
 msgid "Does it use AI?"
 msgstr "Does it use AI?"
-
-#: src/features/auth/pages/login.tsx
-#~ msgid "Don't have an account? <0/>"
-#~ msgstr "Don't have an account? <0/>"
 
 #. placeholder {0}: chip.label
 #: src/features/assistant/conversation.tsx
@@ -5344,11 +5274,6 @@ msgstr "For which job?"
 msgid "Forget"
 msgstr "Forget"
 
-#. Link label to password reset page from login form
-#: src/features/auth/pages/login.tsx
-#~ msgid "Forgot Password?"
-#~ msgstr "Forgot Password?"
-
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "Forgot your password?"
@@ -5387,10 +5312,6 @@ msgstr "Found today"
 msgid "Found yesterday"
 msgstr "Found yesterday"
 
-#: src/features/billing/pricing.tsx
-#~ msgid "Free"
-#~ msgstr "Free"
-
 #: src/features/quota/page.tsx
 msgid "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
 msgstr "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
@@ -5398,10 +5319,6 @@ msgstr "Free AI actions reset every Monday at 00:00 WIB. Nothing carries over."
 #: src/libs/seo.ts
 msgid "Free ATS resume checker"
 msgstr "Free ATS resume checker"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Free issue list and basic job match"
-#~ msgstr "Free issue list and basic job match"
 
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
@@ -5543,10 +5460,6 @@ msgstr "Go home"
 #: src/routes/_home/-sections/header.tsx
 msgid "Go to dashboard"
 msgstr "Go to dashboard"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Go to my documents"
-#~ msgstr "Go to my documents"
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
@@ -6208,10 +6121,6 @@ msgstr "It may have been deleted. Choose another story or add a new one."
 msgid "It will be deleted for good and can't be restored."
 msgstr "It will be deleted for good and can't be restored."
 
-#: src/features/settings/account/security.tsx
-#~ msgid "It will no longer sign you in."
-#~ msgstr "It will no longer sign you in."
-
 #: src/features/applications/components/interview-dialog.tsx
 msgid "It will show on the application's timeline and on the calendar."
 msgstr "It will show on the application's timeline and on the calendar."
@@ -6319,16 +6228,6 @@ msgstr "Job tracker"
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "Jobs"
-
-#. Example full name placeholder on registration form
-#: src/features/auth/pages/register.tsx
-msgid "John Doe"
-msgstr "John Doe"
-
-#. Example username placeholder on registration form
-#: src/features/auth/pages/register.tsx
-msgid "john.doe"
-msgstr "john.doe"
 
 #: src/routes/dashboard/akun.tsx
 msgid "Joined {joined}"
@@ -6527,10 +6426,6 @@ msgstr "Landscape"
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Language"
 msgstr "Language"
-
-#: src/routes/dashboard/akun.tsx
-#~ msgid "Language, theme and display."
-#~ msgstr "Language, theme and display."
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -7430,6 +7325,16 @@ msgstr "My job was to find out why, without adding support work."
 msgid "My orders"
 msgstr "My orders"
 
+#. Example full name placeholder on registration form
+#: src/features/auth/pages/register.tsx
+msgid "Nama lengkap"
+msgstr "Nama lengkap"
+
+#. Example username placeholder on registration form
+#: src/features/auth/pages/register.tsx
+msgid "nama.pengguna"
+msgstr "nama.pengguna"
+
 #. Label for full name input on registration form
 #: src/dialogs/resume/index.tsx
 #: src/features/applications/components/detail/contacts.tsx
@@ -7467,10 +7372,6 @@ msgstr "Name the resume after the position you are applying for."
 #: src/features/career/knowledge/stories.tsx
 msgid "Name the story"
 msgstr "Name the story"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Name this passkey"
-#~ msgstr "Name this passkey"
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Name this version"
@@ -8056,10 +7957,6 @@ msgid "Nothing scheduled. Add a search to find roles each morning, or preparatio
 msgstr "Nothing scheduled. Add a search to find roles each morning, or preparation to get a briefing before an interview."
 
 #: src/routes/dashboard/akun.tsx
-#~ msgid "Nothing spent yet."
-#~ msgstr "Nothing spent yet."
-
-#: src/routes/dashboard/akun.tsx
 msgid "Nothing spent yet. Credits appear here after you use one."
 msgstr "Nothing spent yet. Credits appear here after you use one."
 
@@ -8203,10 +8100,6 @@ msgstr "One credit: a tailored resume, a cover letter, and a match score for thi
 msgid "one format"
 msgstr "one format"
 
-#: src/features/billing/pricing.tsx
-#~ msgid "One free resume to build and download"
-#~ msgstr "One free resume to build and download"
-
 #: src/features/billing/credit-dialog.tsx
 msgid "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
 msgstr "One interview package covers one practice session with AI feedback. Practising again on the same interview is free."
@@ -8280,14 +8173,6 @@ msgstr "Open {title}"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Open AI settings"
 msgstr "Open AI settings"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Open an application to practise"
-#~ msgstr "Open an application to practise"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Open an application to use it"
-#~ msgstr "Open an application to use it"
 
 #: src/features/career/today.tsx
 msgid "Open briefing"
@@ -8423,10 +8308,6 @@ msgstr "Options for this entry"
 msgid "or"
 msgstr "or"
 
-#: src/features/auth/pages/login.tsx
-msgid "or continue with"
-msgstr "or continue with"
-
 #: src/features/auth/components/social-auth.tsx
 msgctxt "Choose to authenticate with a social provider (Google, GitHub, etc.) instead of email and password"
 msgid "or continue with"
@@ -8435,10 +8316,6 @@ msgstr "or continue with"
 #: src/features/assistant/conversation.tsx
 msgid "Or in your own words…"
 msgstr "Or in your own words…"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Or through WhatsApp"
-#~ msgstr "Or through WhatsApp"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Or upload a resume PDF"
@@ -8455,10 +8332,6 @@ msgstr "Order expired"
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Order waiting for payment"
 msgstr "Order waiting for payment"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "orders"
-#~ msgstr "orders"
 
 #: src/routes/dashboard/akun.tsx
 msgid "Orders"
@@ -8605,10 +8478,6 @@ msgstr "Partly. Building a resume, checking PDF readability, and saving applicat
 msgid "Passkey"
 msgstr "Passkey"
 
-#: src/features/command-palette/pages/navigation.tsx
-msgid "Passkeys"
-msgstr "Passkeys"
-
 #. Authentication provider display name in account settings
 #. Label for password input on login form
 #. Label for password input on protected resume access form
@@ -8732,18 +8601,6 @@ msgstr "Paused · {line}"
 msgid "Paused schedules keep their settings."
 msgstr "Paused schedules keep their settings."
 
-#: src/features/billing/transactions.tsx
-#~ msgid "Pay"
-#~ msgstr "Pay"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Pay by QRIS, checked by an admin, credits land once it passes."
-#~ msgstr "Pay by QRIS, checked by an admin, credits land once it passes."
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Pay by QRIS, verified manually by an admin."
-#~ msgstr "Pay by QRIS, verified manually by an admin."
-
 #: src/features/billing/pricing.tsx
 msgid "Pay only for what you use"
 msgstr "Pay only for what you use"
@@ -8764,10 +8621,6 @@ msgstr "Pay the exact amount down to the last three digits. Scan it with any ban
 #: src/routes/dashboard/akun.tsx
 msgid "Payment"
 msgstr "Payment"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Payment confirmed"
-#~ msgstr "Payment confirmed"
 
 #: src/features/billing/transactions.tsx
 msgid "payment confirmed, your credits are in"
@@ -8935,10 +8788,6 @@ msgstr "PortoFit prepares your job application in one flow: build a resume, chec
 msgid "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored resume and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
 msgstr "PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored resume and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually."
 
-#: src/features/billing/transactions.tsx
-#~ msgid "PortoFit QRIS code"
-#~ msgstr "PortoFit QRIS code"
-
 #: src/features/documents/start-guide.tsx
 msgid "PortoFit tracks each job from the posting to the interview."
 msgstr "PortoFit tracks each job from the posting to the interview."
@@ -9098,10 +8947,6 @@ msgstr "Preparing {label} file…"
 msgid "Preparing edits…"
 msgstr "Preparing edits…"
 
-#: src/features/billing/pricing.tsx
-#~ msgid "Preparing your order…"
-#~ msgstr "Preparing your order…"
-
 #: src/features/billing/payment-dialog.tsx
 msgid "Preparing your payment…"
 msgstr "Preparing your payment…"
@@ -9239,10 +9084,6 @@ msgstr "Profile link of person {0}"
 msgid "Profile links must be public HTTPS addresses."
 msgstr "Profile links must be public HTTPS addresses."
 
-#: src/routes/dashboard/akun.tsx
-#~ msgid "Profile, credits, orders and settings."
-#~ msgstr "Profile, credits, orders and settings."
-
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Profiles"
@@ -9262,20 +9103,8 @@ msgid "Promoted to lead, 2021"
 msgstr "Promoted to lead, 2021"
 
 #: src/features/billing/payment-dialog.tsx
-#~ msgid "Proof did not match"
-#~ msgstr "Proof did not match"
-
-#: src/features/billing/payment-dialog.tsx
 msgid "Proof rejected"
 msgstr "Proof rejected"
-
-#: src/features/billing/payment-dialog.tsx
-#~ msgid "Proof sent"
-#~ msgstr "Proof sent"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Proof sent, waiting for a check"
-#~ msgstr "Proof sent, waiting for a check"
 
 #: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
@@ -9775,8 +9604,8 @@ msgid "Remember this for future coaching?"
 msgstr "Remember this for future coaching?"
 
 #: src/features/auth/pages/forgot-password.tsx
-msgid "Remember your password? <0/>"
-msgstr "Remember your password? <0/>"
+msgid "Remember your password?"
+msgstr "Remember your password?"
 
 #: src/features/career/coach-thread.tsx
 msgid "Remembered: “{text}”"
@@ -9859,10 +9688,6 @@ msgstr "Remove tag"
 #: src/features/resume/share/link-tab.tsx
 msgid "Remove the password?"
 msgstr "Remove the password?"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Remove this passkey?"
-#~ msgstr "Remove this passkey?"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Remove this photo?"
@@ -10513,10 +10338,6 @@ msgstr "Saving…"
 msgid "Say it aloud"
 msgstr "Say it aloud"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "Scan it with any bank or wallet app that supports QRIS."
-#~ msgstr "Scan it with any bank or wallet app that supports QRIS."
-
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
 msgstr "Scan the QR code below with your preferred authenticator app. You can also copy the secret below and paste it into your app."
@@ -11080,28 +10901,16 @@ msgstr "Sidebar Width"
 msgid "Sidebars are often read last, or mixed into the main column."
 msgstr "Sidebars are often read last, or mixed into the main column."
 
+#. Call-to-action link from forgot-password page to login page
+#. Call-to-action link from registration page to login page
 #. Primary action button label on login form
 #. Title on the login page
 #: src/features/auth/components/guest-banner.tsx
+#: src/features/auth/pages/forgot-password.tsx
 #: src/features/auth/pages/login.tsx
+#: src/features/auth/pages/register.tsx
 msgid "Sign in"
 msgstr "Sign in"
-
-#. Call-to-action link from forgot-password page to login page
-#. Call-to-action link from registration page to login page
-#: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/register.tsx
-msgid "Sign in now"
-msgstr "Sign in now"
-
-#. Title on the login page
-#: src/features/auth/pages/login.tsx
-#~ msgid "Sign in to your account"
-#~ msgstr "Sign in to your account"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Sign in with your fingerprint, face or device PIN"
-#~ msgstr "Sign in with your fingerprint, face or device PIN"
 
 #. User menu action to sign out of current account
 #: src/features/settings/account/page.tsx
@@ -12052,10 +11861,6 @@ msgstr "The 13-point activation lift. Your Knowledge has the before and after."
 msgid "The AI features are paused for a moment. Try again shortly."
 msgstr "The AI features are paused for a moment. Try again shortly."
 
-#: src/features/billing/transactions.tsx
-#~ msgid "The amount has to match down to the last three digits."
-#~ msgstr "The amount has to match down to the last three digits."
-
 #: src/features/billing/payment-dialog.tsx
 msgid "The amount or the proof does not match this order."
 msgstr "The amount or the proof does not match this order."
@@ -12111,10 +11916,6 @@ msgstr "The coach saves facts you state, and tells you. You can undo."
 #: src/features/documents/new-document-dialog.tsx
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "The copy is linked to the application, so Check and the assistant use its posting."
-
-#: src/features/billing/transactions.tsx
-#~ msgid "The credits are in your account. An invoice is there if you need proof of payment."
-#~ msgstr "The credits are in your account. An invoice is there if you need proof of payment."
 
 #: src/features/billing/payment-dialog.tsx
 msgid "The deadline passed before the proof arrived. This order is closed and cannot be paid again."
@@ -12233,10 +12034,6 @@ msgstr "The pages are pictures, with no text behind them."
 msgid "The password you entered is incorrect"
 msgstr "The password you entered is incorrect"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "The payment deadline passed before the proof arrived. Create a new order to continue."
-#~ msgstr "The payment deadline passed before the proof arrived. Create a new order to continue."
-
 #: src/features/resume/editor/check/job-match.tsx
 msgid "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
 msgstr "The posting asks for “{label}”. If it's true for me, work it into my resume where it fits. Ask me first."
@@ -12256,10 +12053,6 @@ msgstr "The proof can be at most 10 MB."
 #: src/features/billing/use-proof-upload.ts
 msgid "The proof could not be sent. Try again."
 msgstr "The proof could not be sent. Try again."
-
-#: src/features/billing/transactions.tsx
-#~ msgid "The proof did not match the amount on this order."
-#~ msgstr "The proof did not match the amount on this order."
 
 #: src/features/billing/use-proof-upload.ts
 msgid "The proof must be a JPG or PNG. PDF is not accepted."
@@ -12693,10 +12486,6 @@ msgstr "Time · {timeZone}"
 msgid "Time is up"
 msgstr "Time is up"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "Time left"
-#~ msgstr "Time left"
-
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
 msgstr "Time, link, who, what you sent"
@@ -12725,10 +12514,6 @@ msgstr "Title"
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "To"
 msgstr "To"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "To try the flow"
-#~ msgstr "To try the flow"
 
 #: src/features/applications/components/calendar-view.tsx
 #: src/features/resume/share/link-tab.tsx
@@ -12768,10 +12553,6 @@ msgstr "TOTAL PAID"
 #: src/features/billing/payment-dialog.tsx
 msgid "Total to pay"
 msgstr "Total to pay"
-
-#: src/features/billing/transactions.tsx
-#~ msgid "Total to transfer"
-#~ msgstr "Total to transfer"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
@@ -13058,10 +12839,6 @@ msgstr "Undo resume change"
 msgid "Unique code"
 msgstr "Unique code"
 
-#: src/features/billing/invoice-sheet.tsx
-#~ msgid "Unique transfer code"
-#~ msgstr "Unique transfer code"
-
 #: src/features/homepage/check.tsx
 #: src/features/homepage/hero.tsx
 #: src/features/homepage/sheet.tsx
@@ -13071,10 +12848,6 @@ msgstr "Universitas Indonesia"
 #: src/features/career/offers.tsx
 msgid "Unknown"
 msgstr "Unknown"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Unlimited ATS checks, no login"
-#~ msgstr "Unlimited ATS checks, no login"
 
 #: src/features/documents/document-actions.tsx
 msgid "Unlink"
@@ -13105,10 +12878,6 @@ msgstr "Unlock editing"
 #: src/features/documents/document-actions.tsx
 msgid "Unlock it first"
 msgstr "Unlock it first"
-
-#: src/features/settings/account/security.tsx
-#~ msgid "Unnamed passkey"
-#~ msgstr "Unnamed passkey"
 
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/stylesheet/targets.ts
@@ -13482,10 +13251,6 @@ msgstr "View"
 msgid "View application"
 msgstr "View application"
 
-#: src/features/billing/transactions.tsx
-#~ msgid "View invoice"
-#~ msgstr "View invoice"
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13530,10 +13295,6 @@ msgstr "Voice settings"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "Volunteer"
-
-#: src/features/billing/payment-dialog.tsx
-#~ msgid "Waiting for a check"
-#~ msgstr "Waiting for a check"
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"
@@ -13614,10 +13375,6 @@ msgstr "Web search failed: {0}"
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Website"
 msgstr "Website"
-
-#: src/features/billing/pricing.tsx
-#~ msgid "Weekly AI allowance, back every Monday"
-#~ msgstr "Weekly AI allowance, back every Monday"
 
 #: src/features/career/today.tsx
 msgid "Weekly at {clock} · next {next}"
@@ -14054,10 +13811,6 @@ msgstr "You already use this for “{0}”."
 msgid "You answered: {answer}"
 msgstr "You answered: {answer}"
 
-#: src/features/auth/pages/login.tsx
-#~ msgid "You can also sign in with your username."
-#~ msgstr "You can also sign in with your username."
-
 #: src/features/documents/start-guide.tsx
 msgid "You can close this and come back later."
 msgstr "You can close this and come back later."
@@ -14331,10 +14084,6 @@ msgstr "Your name changed on the resume. The letter updated too."
 #: src/features/resume/editor/check/issues.ts
 msgid "Your name is missing"
 msgstr "Your name is missing"
-
-#: src/routes/dashboard/akun.tsx
-#~ msgid "Your name, email, password and signed-in sessions."
-#~ msgstr "Your name, email, password and signed-in sessions."
 
 #: src/features/career/workspace/saved.tsx
 msgid "your notes"
