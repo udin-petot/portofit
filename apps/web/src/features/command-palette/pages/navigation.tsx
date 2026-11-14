@@ -109,7 +109,6 @@ export function NavigationCommandGroup() {
 						t`Profile`,
 						t`Password`,
 						t`Two-step verification`,
-						t`Passkeys`,
 						t`Export Data`,
 						t`Delete Account`,
 					]}
