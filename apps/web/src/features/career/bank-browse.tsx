@@ -40,7 +40,7 @@ export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpen
 					</DialogDescription>
 				</DialogHeader>
 
-				<div className="flex flex-wrap gap-1.5 border-b border-line px-4 py-3">
+				<div className="flex [scrollbar-width:none] gap-1.5 overflow-x-auto border-b border-line px-4 py-3 [&::-webkit-scrollbar]:hidden">
 					{[ALL, ...BANK_CATEGORIES].map((category) => {
 						const active = filter === category;
 						return (
@@ -50,7 +50,7 @@ export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpen
 								aria-pressed={active}
 								onClick={() => setFilter(category)}
 								className={cn(
-									"h-8 rounded-full border px-3 text-xs font-medium transition-colors",
+									"h-8 shrink-0 rounded-full border px-3 text-xs font-medium transition-colors",
 									active
 										? "border-accent bg-accent text-on-accent"
 										: "border-line text-ink-2 hover:bg-sunken hover:text-ink",

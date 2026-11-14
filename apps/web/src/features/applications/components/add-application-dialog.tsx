@@ -538,7 +538,7 @@ function AddApplicationForm({ onClose, onAdded }: AddApplicationFormProps) {
 					</select>
 				</div>
 			)}
-			<DialogFooter>
+			<DialogFooter className="sticky bottom-0 z-10 -mx-6 mt-2 -mb-6 border-t border-line bg-raised px-6 py-3">
 				<Button type="button" variant="secondary" disabled={!ready} onClick={() => void add(false)}>
 					{stage === "saved" ? <Trans>Save job</Trans> : <Trans>Record application</Trans>}
 				</Button>

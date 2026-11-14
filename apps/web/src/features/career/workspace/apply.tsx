@@ -79,8 +79,7 @@ function PostingMissing({ application }: { application: WorkspaceTabProps["appli
 			</p>
 			<p className="text-[13px] leading-5 text-ink-3">
 				<Trans>
-					Paste the posting text below. Fit, the assistant and the letter read it, so without it they can only
-					guess.
+					Paste the posting text below. Fit, the assistant and the letter read it, so without it they can only guess.
 				</Trans>
 			</p>
 			<Textarea

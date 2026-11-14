@@ -1,5 +1,6 @@
 import type { Application } from "../types";
 import { t } from "@lingui/core/macro";
+import { useLingui } from "@lingui/react";
 import { Plural, Trans } from "@lingui/react/macro";
 import { useQuery } from "@tanstack/react-query";
 import { useRef } from "react";
@@ -8,7 +9,7 @@ import { Icon } from "@reactive-resume/ui/components/icon";
 import { Skeleton } from "@reactive-resume/ui/components/skeleton";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { computeInsights, computeOutcomes, computeTimeline } from "../insights";
-import { getStageColor, getStageLabel } from "../stages";
+import { getStageColor, getStageLabel, PIPELINE } from "../stages";
 import { stagger } from "@/libs/motion";
 import { orpc } from "@/libs/orpc/client";
 
@@ -27,6 +28,8 @@ export function InsightsSkeleton() {
 }
 
 export function ApplicationInsights({ applications }: { applications: Application[] }) {
+	const { i18n } = useLingui();
+	const dateFormat = new Intl.DateTimeFormat(i18n.locale, { day: "numeric", month: "numeric" });
 	const { data } = useQuery(orpc.applications.stats.queryOptions({}));
 	const { data: documents } = useQuery(orpc.documents.list.queryOptions({ input: { trashed: false } }));
 
@@ -45,6 +48,10 @@ export function ApplicationInsights({ applications }: { applications: Applicatio
 	if (!data) return <InsightsSkeleton />;
 
 	const insights = computeInsights(data.byStage);
+	const localizedInsights = {
+		...insights,
+		funnel: insights.funnel.map((row, index) => ({ ...row, label: getStageLabel(PIPELINE[index] ?? "saved") })),
+	};
 	const maxSource = Math.max(1, ...data.bySource.map((s) => s.count));
 	const widest = Math.max(1, ...outcomes.funnel.map((row) => row.reached));
 
@@ -130,7 +137,7 @@ export function ApplicationInsights({ applications }: { applications: Applicatio
 				</section>
 			)}
 
-			<PipelineFlow insights={insights} />
+			<PipelineFlow insights={localizedInsights} />
 
 			<div className="grid gap-4 lg:grid-cols-2">
 				{/* application velocity over time */}
@@ -154,7 +161,7 @@ export function ApplicationInsights({ applications }: { applications: Applicatio
 										}}
 									/>
 								</div>
-								<span className="text-[10px] text-ink-3 tabular-nums">{bucket.label}</span>
+								<span className="text-[10px] text-ink-3 tabular-nums">{dateFormat.format(bucket.start)}</span>
 							</div>
 						))}
 					</div>

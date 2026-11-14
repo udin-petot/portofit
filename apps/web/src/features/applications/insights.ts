@@ -57,7 +57,7 @@ export function computeInsights(byStage: StageCount[]): Insights {
 	return { total, tiles, funnel, closed };
 }
 
-export type TimelineBucket = { label: string; count: number };
+export type TimelineBucket = { start: number; label: string; count: number };
 
 // Bucket application dates into the last `weeks` calendar weeks (Sunday-started) so the Insights
 // view can show application velocity over time — a dimension the funnel/tiles don't capture.
@@ -82,7 +82,7 @@ export function computeTimeline(applications: readonly OutcomeSource[], weeks = 
 		if (bucket) bucket.count++;
 	}
 
-	return buckets.map(({ label, count }) => ({ label, count }));
+	return buckets.map(({ start, label, count }) => ({ start, label, count }));
 }
 
 type OutcomeSource = Pick<Application, "status" | "closedReason" | "activity" | "appliedAt" | "resumeId">;

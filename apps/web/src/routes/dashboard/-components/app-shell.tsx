@@ -97,6 +97,11 @@ export function AppShell({ children }: AppShellProps) {
 	const matchRoute = useMatchRoute();
 	const tabs =
 		breakpoint === "mobile" && !matchRoute({ to: "/dashboard/applications/$applicationId/{-$tab}", fuzzy: true });
+	const hideSupport =
+		breakpoint === "mobile" &&
+		Boolean(
+			matchRoute({ to: "/dashboard/settings", fuzzy: true }) || matchRoute({ to: "/dashboard/akun", fuzzy: true }),
+		);
 
 	useHotkey("N", () => {
 		if (isEditableElementFocused() || useDialogStore.getState().open) return;
@@ -123,12 +128,12 @@ export function AppShell({ children }: AppShellProps) {
 				<Trans>Skip to main content</Trans>
 			</a>
 			{breakpoint !== "mobile" && (breakpoint === "tablet" ? <Rail /> : <Sidebar />)}
-			<main id="main-content" className="min-w-0">
+			<main id="main-content" className="min-w-0 max-sm:pb-24">
 				<GuestBanner />
 				{children}
 			</main>
 			{tabs && <MobileTabs />}
-			<SupportLauncher />
+			{!hideSupport && <SupportLauncher />}
 		</div>
 	);
 }
