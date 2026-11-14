@@ -7,6 +7,7 @@ import {
 	DropdownMenuContent,
 	DropdownMenuGroup,
 	DropdownMenuItem,
+	DropdownMenuLabel,
 	DropdownMenuRadioGroup,
 	DropdownMenuRadioItem,
 	DropdownMenuSeparator,
@@ -53,6 +54,20 @@ export function UserDropdownMenu({ children }: Props) {
 					<Icon name="gear-six" />
 					<Trans>Settings</Trans>
 				</DropdownMenuItem>
+				<DropdownMenuSeparator />
+				<DropdownMenuGroup>
+					<DropdownMenuLabel>
+						<Trans>Billing</Trans>
+					</DropdownMenuLabel>
+					<DropdownMenuItem onClick={() => void router.navigate({ to: "/dashboard/jatah" })}>
+						<Icon name="chart-line-up" size={16} />
+						<Trans>AI allowance</Trans>
+					</DropdownMenuItem>
+					<DropdownMenuItem onClick={() => void router.navigate({ to: "/dashboard/transaksi" })}>
+						<Icon name="list-numbers" size={16} />
+						<Trans>Transactions</Trans>
+					</DropdownMenuItem>
+				</DropdownMenuGroup>
 				<DropdownMenuSeparator />
 				<DropdownMenuGroup>
 					<DropdownMenuSub>

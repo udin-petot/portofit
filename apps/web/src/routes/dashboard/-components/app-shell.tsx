@@ -66,8 +66,6 @@ function useNavItems() {
 	const unread = notifications?.filter((notification) => !notification.readAt).length ?? 0;
 	// Career counts what's waiting for the user (unread notifications), so nothing shows at zero.
 	items.push({ to: "/dashboard/career", icon: "compass", label: t`Career`, ...(unread ? { count: unread } : {}) });
-	items.push({ to: "/dashboard/jatah", icon: "chart-line-up", label: t`AI allowance` });
-	items.push({ to: "/dashboard/transaksi", icon: "list-numbers", label: t`Transactions` });
 	items.push({ to: "/dashboard/beli-kredit", icon: "tag", label: t`Buy credits` });
 	if (isAdmin) items.push({ to: "/admin", icon: "key", label: t`Admin` });
 	const settings: NavItem = { to: "/dashboard/akun", icon: "user-circle", label: t`Account` };
@@ -175,6 +173,9 @@ function Sidebar() {
 					<NavLink key={item.to} item={item} current={isCurrent(item.to)} />
 				))}
 				<div className="mt-2 border-t border-line pt-2">
+					<p className="px-2.5 pb-1 text-[11px] font-medium tracking-[0.04em] text-ink-3 uppercase">
+						<Trans>Settings</Trans>
+					</p>
 					<NavLink item={settings} current={isCurrent(settings.to)} />
 				</div>
 			</nav>
