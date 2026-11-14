@@ -1,3 +1,5 @@
+import { BANK_CATEGORY_EN, BANK_LEVEL_EN, PRACTICE_BANK_EN } from "./practice-bank-english";
+
 export type BankLevel = "Dasar" | "Menengah" | "Lanjut";
 
 export type BankCategory = "Umum & perilaku" | "Backend" | "Frontend" | "Data" | "QA & testing" | "Negosiasi & karier";
@@ -71,7 +73,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Menyebut cara memvalidasi pemahaman di tengah jalan, bukan di akhir.",
 			"Jujur soal batas kemampuan dan cara mengomunikasikan risiko ke atasan.",
 		],
-		followUps: ["Bagaimana kamu tahu kamu sudah cukup paham untuk mulai?", "Apa yang kamu lakukan kalau ternyata tidak selesai seminggu?"],
+		followUps: [
+			"Bagaimana kamu tahu kamu sudah cukup paham untuk mulai?",
+			"Apa yang kamu lakukan kalau ternyata tidak selesai seminggu?",
+		],
 	},
 	{
 		id: "umum-kegagalan",
@@ -85,7 +90,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Ada perubahan proses yang bertahan setelah kejadian itu.",
 			"Tidak memilih 'kegagalan palsu' yang sebenarnya pujian.",
 		],
-		followUps: ["Siapa yang terdampak, dan bagaimana kamu memberi tahu mereka?", "Bagaimana kamu mencegah hal yang sama terulang?"],
+		followUps: [
+			"Siapa yang terdampak, dan bagaimana kamu memberi tahu mereka?",
+			"Bagaimana kamu mencegah hal yang sama terulang?",
+		],
 	},
 	{
 		id: "umum-kenapa-posisi",
@@ -99,7 +107,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Jujur menyebut area yang masih perlu dipelajari.",
 			"Menunjukkan pertanyaan balik yang relevan tentang tim atau pekerjaan.",
 		],
-		followUps: ["Bagian mana dari peran ini yang paling menantang untukmu?", "Apa yang kamu harapkan dari atasan langsung?"],
+		followUps: [
+			"Bagian mana dari peran ini yang paling menantang untukmu?",
+			"Apa yang kamu harapkan dari atasan langsung?",
+		],
 	},
 	{
 		id: "backend-sql-nosql",
@@ -113,7 +124,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Mengakui bahwa skala bukan satu-satunya alasan memilih NoSQL.",
 			"Bisa menjelaskan konsekuensi operasional (migrasi, query, biaya).",
 		],
-		followUps: ["Kalau data butuh relasi tapi volumenya besar, apa yang kamu lakukan?", "Apa yang paling sulit saat migrasi dari satu model ke model lain?"],
+		followUps: [
+			"Kalau data butuh relasi tapi volumenya besar, apa yang kamu lakukan?",
+			"Apa yang paling sulit saat migrasi dari satu model ke model lain?",
+		],
 	},
 	{
 		id: "backend-desain-api",
@@ -127,7 +141,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Autentikasi dan otorisasi dipisahkan dari logika bisnis.",
 			"Rencana perubahan yang tidak memutus klien lama (deprecation, versioning).",
 		],
-		followUps: ["Bagaimana kamu menangani klien yang masih memakai versi lama?", "Di mana kamu menaruh logika yang berbeda antara mobile dan web?"],
+		followUps: [
+			"Bagaimana kamu menangani klien yang masih memakai versi lama?",
+			"Di mana kamu menaruh logika yang berbeda antara mobile dan web?",
+		],
 	},
 	{
 		id: "backend-url",
@@ -155,7 +172,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Ada mekanisme rekonsiliasi dengan penyedia pembayaran, bukan hanya mengandalkan callback.",
 			"Pengguna mendapat status yang jelas dan tidak ditagih dua kali.",
 		],
-		followUps: ["Bagaimana kamu menangani callback yang datang dua kali?", "Apa yang terjadi kalau penyedia pembayaran sedang down saat checkout?"],
+		followUps: [
+			"Bagaimana kamu menangani callback yang datang dua kali?",
+			"Apa yang terjadi kalau penyedia pembayaran sedang down saat checkout?",
+		],
 	},
 	{
 		id: "frontend-ssr-csr",
@@ -169,7 +189,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Memahami biaya: server, cache, dan hydration.",
 			"Tidak mengklaim satu pendekatan selalu lebih baik.",
 		],
-		followUps: ["Halaman mana di proyek terakhirmu yang kamu render di server, dan kenapa?", "Apa masalah umum saat hydration?"],
+		followUps: [
+			"Halaman mana di proyek terakhirmu yang kamu render di server, dan kenapa?",
+			"Apa masalah umum saat hydration?",
+		],
 	},
 	{
 		id: "frontend-performa",
@@ -197,7 +220,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Menghindari duplikasi sumber kebenaran.",
 			"Menyebut konsekuensi: re-render, debugging, dan onboarding tim.",
 		],
-		followUps: ["Kapan kamu memilih Context dibanding library state?", "Bagaimana kamu menghindari prop drilling tanpa membuat semuanya global?"],
+		followUps: [
+			"Kapan kamu memilih Context dibanding library state?",
+			"Bagaimana kamu menghindari prop drilling tanpa membuat semuanya global?",
+		],
 	},
 	{
 		id: "frontend-layout",
@@ -211,7 +237,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Memperbaiki akar masalah, bukan menambah override acak.",
 			"Menambahkan pengecekan regresi setelah perbaikan.",
 		],
-		followUps: ["Bagaimana kamu menguji breakpoint tanpa perangkat fisik?", "Apa yang kamu lakukan kalau bug hanya muncul di browser tertentu?"],
+		followUps: [
+			"Bagaimana kamu menguji breakpoint tanpa perangkat fisik?",
+			"Apa yang kamu lakukan kalau bug hanya muncul di browser tertentu?",
+		],
 	},
 	{
 		id: "data-validasi",
@@ -225,7 +254,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Menyebut kemungkinan bias: sampling, data hilang, periode yang tidak sebanding.",
 			"Memisahkan korelasi dari sebab-akibat.",
 		],
-		followUps: ["Bagaimana kamu menangani data yang hilang?", "Kapan kamu memilih eksperimen daripada analisis historis?"],
+		followUps: [
+			"Bagaimana kamu menangani data yang hilang?",
+			"Kapan kamu memilih eksperimen daripada analisis historis?",
+		],
 	},
 	{
 		id: "data-indeks",
@@ -253,7 +285,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Memisahkan penurunan nyata dari perubahan definisi atau pelacakan.",
 			"Mengomunikasikan temuan dengan tingkat keyakinan yang jujur.",
 		],
-		followUps: ["Kalau data ternyata benar, langkah berikutnya apa?", "Bagaimana kamu mencegah panik yang sama terulang?"],
+		followUps: [
+			"Kalau data ternyata benar, langkah berikutnya apa?",
+			"Bagaimana kamu mencegah panik yang sama terulang?",
+		],
 	},
 	{
 		id: "qa-otomatis-manual",
@@ -309,7 +344,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Terbuka pada diskusi tanpa menurunkan angka secara refleks.",
 			"Menanyakan rentang yang disiapkan perusahaan bila memungkinkan.",
 		],
-		followUps: ["Kalau tawaran di bawah rentang, apa yang kamu lakukan?", "Komponen apa selain gaji yang penting untukmu?"],
+		followUps: [
+			"Kalau tawaran di bawah rentang, apa yang kamu lakukan?",
+			"Komponen apa selain gaji yang penting untukmu?",
+		],
 	},
 	{
 		id: "karier-dua-tawaran",
@@ -323,7 +361,10 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Mempertimbangkan risiko: masa percobaan, beban kerja, jalur promosi.",
 			"Keputusan dijelaskan dengan alasan yang konsisten.",
 		],
-		followUps: ["Apa yang tidak akan kamu korbankan?", "Bagaimana kamu memverifikasi klaim perusahaan sebelum menerima?"],
+		followUps: [
+			"Apa yang tidak akan kamu korbankan?",
+			"Bagaimana kamu memverifikasi klaim perusahaan sebelum menerima?",
+		],
 	},
 	{
 		id: "karier-rencana",
@@ -337,8 +378,31 @@ export const PRACTICE_BANK: BankQuestion[] = [
 			"Menyebut keterampilan yang ingin diperdalam dan cara mencapainya.",
 			"Tidak menjawab 'ingin jadi manajer' tanpa alasan.",
 		],
-		followUps: ["Kalau posisi ini tidak menyediakan jalur itu, apa yang kamu lakukan?", "Siapa yang kamu kagumi secara profesional, dan kenapa?"],
+		followUps: [
+			"Kalau posisi ini tidak menyediakan jalur itu, apa yang kamu lakukan?",
+			"Siapa yang kamu kagumi secara profesional, dan kenapa?",
+		],
 	},
 ];
 
 export const BANK_COUNT = PRACTICE_BANK.length;
+
+/** True for the English UI, whose bank copy lives in `practice-bank-english.ts`. */
+export const isEnglishLocale = (locale: string) => locale.toLowerCase().startsWith("en");
+
+/** The bank in the reader's language. Ids, categories, and levels stay canonical. */
+export function practiceBankFor(locale: string): BankQuestion[] {
+	if (!isEnglishLocale(locale)) return PRACTICE_BANK;
+	return PRACTICE_BANK.map((question) => ({
+		...question,
+		...(PRACTICE_BANK_EN[question.id] ?? {}),
+	}));
+}
+
+export function bankCategoryLabel(category: BankCategory, locale: string): string {
+	return isEnglishLocale(locale) ? BANK_CATEGORY_EN[category] : category;
+}
+
+export function bankLevelLabel(level: BankLevel, locale: string): string {
+	return isEnglishLocale(locale) ? BANK_LEVEL_EN[level] : level;
+}

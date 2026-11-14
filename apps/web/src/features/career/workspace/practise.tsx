@@ -24,7 +24,14 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/com
 import { cn } from "@reactive-resume/utils/style";
 import { useCoachKnowledge } from "../coach-thread";
 import { latest, useDefaultProvider, useGenerate, useSavedItems, useSessionDraft } from "../hooks";
-import { BANK_COUNT, type BankQuestion } from "../practice-bank";
+import {
+	BANK_CATEGORIES,
+	BANK_COUNT,
+	type BankQuestion,
+	bankCategoryLabel,
+	bankLevelLabel,
+	practiceBankFor,
+} from "../practice-bank";
 import { CollapseRow, PrivacyLine, useCareerTime, Working, workingSteps } from "../shared";
 import { BankQuestionDialog } from "./bank-dialog";
 import {
@@ -44,7 +51,6 @@ import { useHasUsableAiProvider } from "@/features/settings/integrations/hooks/u
 import { getOrpcErrorMessage } from "@/libs/error-message";
 import { D2, EASE, ENTER_CLASS } from "@/libs/motion";
 import { client } from "@/libs/orpc/client";
-import { BANK_CATEGORIES, PRACTICE_BANK } from "../practice-bank";
 
 type Practice = SavedData<"practice">;
 type Attempt = SavedItem & { data: Practice };
@@ -54,7 +60,12 @@ type Mode = Practice["mode"];
 const isAttempt = (item: SavedItem): item is Attempt => item.data.kind === "practice";
 
 /** The briefing's practice questions for this interview, then questions recalled in Debrief; generic ones without either. */
-function practiceQuestions(items: SavedItem[] | undefined, interviewId: string | undefined, company: string) {
+function practiceQuestions(
+	items: SavedItem[] | undefined,
+	interviewId: string | undefined,
+	company: string,
+	locale: string,
+) {
 	const simulated = latest(items, "briefing", interviewId)?.data.practiceQuestions ?? [];
 	const recalled = (items ?? []).flatMap((item) => (item.data.kind === "debrief" ? [item.data.question] : []));
 	const questions: Question[] = [
@@ -64,10 +75,11 @@ function practiceQuestions(items: SavedItem[] | undefined, interviewId: string |
 	if (questions.length > 0) return questions;
 
 	// Tanpa briefing, ambil satu soal Dasar dari tiap kategori bank supaya layar pertama tidak kosong.
+	const bank = practiceBankFor(locale);
 	const starters = BANK_CATEGORIES.map(
 		(category) =>
-			PRACTICE_BANK.find((item) => item.category === category && item.level === "Dasar") ??
-			PRACTICE_BANK.find((item) => item.category === category),
+			bank.find((item) => item.category === category && item.level === "Dasar") ??
+			bank.find((item) => item.category === category),
 	).filter((item) => item !== undefined);
 
 	return [
@@ -77,7 +89,9 @@ function practiceQuestions(items: SavedItem[] | undefined, interviewId: string |
 }
 
 export function PractiseTab({ application, version, interview, speak, story, now, go }: WorkspaceTabProps) {
+	const { i18n } = useLingui();
 	const [bank, setBank] = useState<BankQuestion | null>(null);
+	const [ownQuestion, setOwnQuestion] = useState<string | null>(null);
 	const [bankOpen, setBankOpen] = useState(false);
 	const saved = useSavedItems(application.id);
 	const knowledge = useCoachKnowledge(application.id);
@@ -85,16 +99,18 @@ export function PractiseTab({ application, version, interview, speak, story, now
 	const viewing = version && isAttempt(version) ? version : undefined;
 	const attempts = saved.data?.filter(isAttempt) ?? [];
 	const selectedStory = story ? knowledge.stories.find((item) => item.id === story) : undefined;
-	const questions: Question[] = bank
-		? [{ text: bank.text, origin: "simulated" }]
-		: selectedStory
-			? [
-					{
-						text: t`Tell me about “${selectedStory.data.title}”. What was your part, what did you do, and what changed?`,
-						origin: "simulated",
-					},
-				]
-			: practiceQuestions(saved.data, interview?.id, application.company);
+	const questions: Question[] = ownQuestion
+		? [{ text: ownQuestion, origin: "simulated" }]
+		: bank
+			? [{ text: bank.text, origin: "simulated" }]
+			: selectedStory
+				? [
+						{
+							text: t`Tell me about “${selectedStory.data.title}”. What was your part, what did you do, and what changed?`,
+							origin: "simulated",
+						},
+					]
+				: practiceQuestions(saved.data, interview?.id, application.company, i18n.locale);
 	if (story && knowledge.isError)
 		return (
 			<Notice icon="warning-circle">
@@ -123,23 +139,40 @@ export function PractiseTab({ application, version, interview, speak, story, now
 		<div className="grid gap-4">
 			<div className="flex flex-wrap items-center justify-between gap-2">
 				<p className="text-[13px] leading-5 text-ink-3">
-					{bank ? (
+					{ownQuestion ? (
+						<Trans>Your own question</Trans>
+					) : bank ? (
 						<>
-							<Trans>Question bank</Trans> · {bank.category} · {bank.level}
+							<Trans>Question bank</Trans> · {bankCategoryLabel(bank.category, i18n.locale)} ·{" "}
+							{bankLevelLabel(bank.level, i18n.locale)}
 						</>
 					) : (
-						<Trans>Practice from an application question or your own story.</Trans>
+						<Trans>
+							Pick one question, answer it, then get feedback. The bank is a starting point; you can add your own
+							question too.
+						</Trans>
 					)}
 				</p>
-				<div className="flex items-center gap-2">
-					{bank ? (
-						<Button variant="secondary" size="sm" onClick={() => setBank(null)}>
+				<div className="flex flex-wrap items-center gap-2">
+					{bank || ownQuestion ? (
+						<Button
+							variant="secondary"
+							size="sm"
+							onClick={() => {
+								setBank(null);
+								setOwnQuestion(null);
+							}}
+						>
 							<Trans>Application questions</Trans>
 						</Button>
 					) : null}
 					<Button variant="secondary" size="sm" onClick={() => setBankOpen(true)}>
 						<Icon name="books" size={16} />
 						<Trans>Question bank ({BANK_COUNT})</Trans>
+					</Button>
+					<Button variant="secondary" size="sm" onClick={() => setBankOpen(true)}>
+						<Icon name="plus" size={16} />
+						<Trans>Add your own</Trans>
 					</Button>
 				</div>
 			</div>
@@ -153,7 +186,7 @@ export function PractiseTab({ application, version, interview, speak, story, now
 					</div>
 				) : (
 					<Session
-						key={`${application.id}:${interview?.id ?? "none"}:${story ?? "general"}:${bank?.id ?? "free"}`}
+						key={`${application.id}:${interview?.id ?? "none"}:${story ?? "general"}:${bank?.id ?? ownQuestion ?? "free"}`}
 						applicationId={application.id}
 						interviewId={interview?.id ?? null}
 						questions={questions}
@@ -197,7 +230,14 @@ export function PractiseTab({ application, version, interview, speak, story, now
 				open={bankOpen}
 				onOpenChange={setBankOpen}
 				onPick={(question) => {
+					setOwnQuestion(null);
 					setBank(question);
+					setBankOpen(false);
+					if (viewing) go("practise");
+				}}
+				onCustom={(text) => {
+					setBank(null);
+					setOwnQuestion(text);
 					setBankOpen(false);
 					if (viewing) go("practise");
 				}}
@@ -494,6 +534,11 @@ function Session({
 					)}
 				</div>
 				<h2 className="font-display text-[22px] leading-[29px]">{question.text}</h2>
+				{total > 1 && (
+					<p className="text-xs leading-5 text-ink-3">
+						<Trans>Answer this question, then get feedback. The next question opens after that.</Trans>
+					</p>
+				)}
 				{storyTitle && <p className="text-sm text-ink-2">{t`Practising your story: ${storyTitle}`}</p>}
 			</section>
 
@@ -513,8 +558,8 @@ function Session({
 					</ul>
 					{bank.followUps.length > 0 && (
 						<p className="text-xs leading-5 text-ink-3">
-						<Trans>Possible follow-ups: {bank.followUps.join(" · ")}</Trans>
-					</p>
+							<Trans>Possible follow-ups: {bank.followUps.join(" · ")}</Trans>
+						</p>
 					)}
 				</section>
 			)}

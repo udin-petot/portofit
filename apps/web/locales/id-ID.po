@@ -1412,6 +1412,14 @@ msgstr "Tambahkan apa yang terjadi sebelum menyimpan."
 msgid "Add your name"
 msgstr "Tambahkan nama Anda"
 
+#: src/features/career/workspace/practise.tsx
+msgid "Add your own"
+msgstr "Tambah sendiri"
+
+#: src/features/career/workspace/bank-dialog.tsx
+msgid "Add your own question"
+msgstr "Tambah pertanyaan sendiri"
+
 #. placeholder {0}: role.trim()
 #. placeholder {1}: company.trim()
 #: src/features/applications/components/add-application-dialog.tsx
@@ -1715,6 +1723,10 @@ msgstr "Jawaban disalin"
 #: src/features/assistant/conversation.tsx
 msgid "Answer in your own words"
 msgstr "Jawab dengan kata-kata Anda sendiri"
+
+#: src/features/career/workspace/practise.tsx
+msgid "Answer this question, then get feedback. The next question opens after that."
+msgstr "Jawab pertanyaan ini, lalu minta masukan. Pertanyaan berikutnya terbuka setelah itu."
 
 #: src/features/career/workspace/saved.tsx
 msgid "Answers"
@@ -8824,6 +8836,10 @@ msgstr "Pilih dari {templateCount} templat, lalu atur font, warna, dan spasi. Te
 msgid "Pick one format and use it everywhere."
 msgstr "Pilih satu format dan gunakan di mana pun."
 
+#: src/features/career/workspace/practise.tsx
+msgid "Pick one question, answer it, then get feedback. The bank is a starting point; you can add your own question too."
+msgstr "Pilih satu pertanyaan, jawab, lalu minta masukan. Bank soal bisa jadi titik awal; kamu juga bisa menambah pertanyaan sendiri."
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Pick two examples"
 msgstr "Pilih dua contoh"
@@ -8982,8 +8998,8 @@ msgid "Practice for your {company} interviews."
 msgstr "Latihan untuk wawancara Anda di {company}."
 
 #: src/features/career/workspace/practise.tsx
-msgid "Practice from an application question or your own story."
-msgstr "Latihan dari pertanyaan lamaran atau ceritamu."
+#~ msgid "Practice from an application question or your own story."
+#~ msgstr "Latihan dari pertanyaan lamaran atau ceritamu."
 
 #: src/features/career/workspace/debrief.tsx
 #: src/features/homepage/prepare.tsx
@@ -9001,6 +9017,7 @@ msgstr "Pertanyaan latihan adalah simulasi, bukan dari Fieldnote."
 
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/shared.tsx
+#: src/features/career/workspace/bank-dialog.tsx
 #: src/features/career/workspace/prepare.tsx
 #: src/features/career/workspace/shell.tsx
 #: src/features/homepage/prepare.tsx
@@ -12919,6 +12936,10 @@ msgstr "Ketik <0>{CONFIRMATION}</0> untuk mengonfirmasi"
 msgid "Type a command or search…"
 msgstr "Ketik perintah atau cari…"
 
+#: src/features/career/workspace/bank-dialog.tsx
+msgid "Type a question you want to practise…"
+msgstr "Ketik pertanyaan yang ingin kamu latih…"
+
 #: src/features/career/workspace/practise.tsx
 msgid "Type instead"
 msgstr "Ketik saja"
@@ -14260,6 +14281,10 @@ msgstr "Pembuka Anda"
 #: src/features/career/workspace/prepare.tsx
 msgid "Your opening, the stories to bring and questions to ask. It becomes your checklist 10 minutes before the call."
 msgstr "Pembuka Anda, cerita yang perlu dibawa, dan pertanyaan yang perlu diajukan. 10 menit sebelum panggilan, ini menjadi daftar periksa Anda."
+
+#: src/features/career/workspace/practise.tsx
+msgid "Your own question"
+msgstr "Pertanyaan sendiri"
 
 #: src/features/auth/pages/reset-password.tsx
 msgid "Your password has been reset. You can now sign in with your new password."

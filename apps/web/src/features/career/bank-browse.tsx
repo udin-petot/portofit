@@ -1,4 +1,5 @@
 import type { BankCategory } from "./practice-bank";
+import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
@@ -11,9 +12,9 @@ import {
 } from "@reactive-resume/ui/components/dialog";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { cn } from "@reactive-resume/utils/style";
-import { BANK_CATEGORIES, BANK_COUNT, PRACTICE_BANK } from "./practice-bank";
+import { BANK_CATEGORIES, BANK_COUNT, bankCategoryLabel, bankLevelLabel, practiceBankFor } from "./practice-bank";
 
-const ALL = "Semua" as const;
+const ALL = "all" as const;
 type Filter = BankCategory | typeof ALL;
 
 /**
@@ -21,9 +22,13 @@ type Filter = BankCategory | typeof ALL;
  * AI feedback stays inside an application, where the answer can be judged against a real posting.
  */
 export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
+	const { i18n } = useLingui();
+	const locale = i18n.locale;
+	const english = locale.toLowerCase().startsWith("en");
+	const bank = practiceBankFor(locale);
 	const [filter, setFilter] = useState<Filter>(ALL);
 	const [expanded, setExpanded] = useState<string | null>(null);
-	const list = filter === ALL ? PRACTICE_BANK : PRACTICE_BANK.filter((question) => question.category === filter);
+	const list = filter === ALL ? bank : bank.filter((question) => question.category === filter);
 
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
@@ -43,6 +48,7 @@ export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpen
 				<div className="flex [scrollbar-width:none] gap-1.5 overflow-x-auto border-b border-line px-4 py-3 [&::-webkit-scrollbar]:hidden">
 					{[ALL, ...BANK_CATEGORIES].map((category) => {
 						const active = filter === category;
+						const label = category === ALL ? (english ? "All" : "Semua") : bankCategoryLabel(category, locale);
 						return (
 							<button
 								key={category}
@@ -56,7 +62,7 @@ export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpen
 										: "border-line text-ink-2 hover:bg-sunken hover:text-ink",
 								)}
 							>
-								{category}
+								{label}
 							</button>
 						);
 					})}
@@ -75,7 +81,7 @@ export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpen
 								>
 									<span className="flex flex-wrap items-center gap-1.5 text-[11px] text-ink-3">
 										<span className="rounded-full bg-sunken px-2 py-0.5 font-medium text-ink-2">
-											{question.category}
+											{bankCategoryLabel(question.category, locale)}
 										</span>
 										<span
 											className={cn(
@@ -83,11 +89,11 @@ export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpen
 												question.level === "Lanjut" && "bg-accent-soft text-accent-text",
 											)}
 										>
-											{question.level}
+											{bankLevelLabel(question.level, locale)}
 										</span>
 										<span className="ms-auto inline-flex items-center gap-1">
 											<Icon name={isOpen ? "minus" : "plus"} size={14} />
-											{isOpen ? "Tutup" : "Rubrik"}
+											{isOpen ? (english ? "Close" : "Tutup") : english ? "Rubric" : "Rubrik"}
 										</span>
 									</span>
 									<span className="text-sm leading-5 font-medium text-ink">{question.text}</span>
@@ -125,10 +131,12 @@ export function BankBrowseDialog({ open, onOpenChange }: { open: boolean; onOpen
 				<div className="flex flex-wrap items-center gap-2 border-t border-line px-5 py-3 text-xs text-ink-3">
 					<Icon name="info" size={15} />
 					<span className="min-w-0 flex-1">
-						Umpan balik AI butuh konteks lowongan. Buat lamaran dulu, lalu buka tab Latihan.
+						{english
+							? "AI feedback needs the posting context. Create an application first, then open the Practise tab."
+							: "Umpan balik AI butuh konteks lowongan. Buat lamaran dulu, lalu buka tab Latihan."}
 					</span>
 					<Link to="/dashboard/applications" className="font-medium text-accent-text hover:underline">
-						Buka lamaran
+						{english ? "Open applications" : "Buka lamaran"}
 					</Link>
 				</div>
 			</DialogContent>

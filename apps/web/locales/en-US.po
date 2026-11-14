@@ -1407,6 +1407,14 @@ msgstr "Add what happened before you can save."
 msgid "Add your name"
 msgstr "Add your name"
 
+#: src/features/career/workspace/practise.tsx
+msgid "Add your own"
+msgstr "Add your own"
+
+#: src/features/career/workspace/bank-dialog.tsx
+msgid "Add your own question"
+msgstr "Add your own question"
+
 #. placeholder {0}: role.trim()
 #. placeholder {1}: company.trim()
 #: src/features/applications/components/add-application-dialog.tsx
@@ -1710,6 +1718,10 @@ msgstr "Answer copied"
 #: src/features/assistant/conversation.tsx
 msgid "Answer in your own words"
 msgstr "Answer in your own words"
+
+#: src/features/career/workspace/practise.tsx
+msgid "Answer this question, then get feedback. The next question opens after that."
+msgstr "Answer this question, then get feedback. The next question opens after that."
 
 #: src/features/career/workspace/saved.tsx
 msgid "Answers"
@@ -8819,6 +8831,10 @@ msgstr "Pick from {templateCount} templates, then set the type, color and spacin
 msgid "Pick one format and use it everywhere."
 msgstr "Pick one format and use it everywhere."
 
+#: src/features/career/workspace/practise.tsx
+msgid "Pick one question, answer it, then get feedback. The bank is a starting point; you can add your own question too."
+msgstr "Pick one question, answer it, then get feedback. The bank is a starting point; you can add your own question too."
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Pick two examples"
 msgstr "Pick two examples"
@@ -8977,8 +8993,8 @@ msgid "Practice for your {company} interviews."
 msgstr "Practice for your {company} interviews."
 
 #: src/features/career/workspace/practise.tsx
-msgid "Practice from an application question or your own story."
-msgstr "Practice from an application question or your own story."
+#~ msgid "Practice from an application question or your own story."
+#~ msgstr "Practice from an application question or your own story."
 
 #: src/features/career/workspace/debrief.tsx
 #: src/features/homepage/prepare.tsx
@@ -8996,6 +9012,7 @@ msgstr "Practice questions are simulated, not from Fieldnote."
 
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/shared.tsx
+#: src/features/career/workspace/bank-dialog.tsx
 #: src/features/career/workspace/prepare.tsx
 #: src/features/career/workspace/shell.tsx
 #: src/features/homepage/prepare.tsx
@@ -12914,6 +12931,10 @@ msgstr "Type <0>{CONFIRMATION}</0> to confirm"
 msgid "Type a command or search…"
 msgstr "Type a command or search…"
 
+#: src/features/career/workspace/bank-dialog.tsx
+msgid "Type a question you want to practise…"
+msgstr "Type a question you want to practise…"
+
 #: src/features/career/workspace/practise.tsx
 msgid "Type instead"
 msgstr "Type instead"
@@ -14255,6 +14276,10 @@ msgstr "Your opening"
 #: src/features/career/workspace/prepare.tsx
 msgid "Your opening, the stories to bring and questions to ask. It becomes your checklist 10 minutes before the call."
 msgstr "Your opening, the stories to bring and questions to ask. It becomes your checklist 10 minutes before the call."
+
+#: src/features/career/workspace/practise.tsx
+msgid "Your own question"
+msgstr "Your own question"
 
 #: src/features/auth/pages/reset-password.tsx
 msgid "Your password has been reset. You can now sign in with your new password."
