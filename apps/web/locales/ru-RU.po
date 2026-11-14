@@ -1575,8 +1575,8 @@ msgid "AI providers couldn't be loaded. Reload to try again."
 msgstr "Не удалось загрузить поставщиков ИИ. Перезагрузите, чтобы повторить попытку."
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI providers, API keys and integrations."
-msgstr ""
+#~ msgid "AI providers, API keys and integrations."
+#~ msgstr ""
 
 #: src/libs/locale.ts
 msgid "Albanian"
@@ -1846,10 +1846,12 @@ msgstr "заявка на работу закрыта"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
+#: src/routes/dashboard/akun.tsx
 msgid "application credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "application credits"
 msgstr ""
 
@@ -2166,7 +2168,6 @@ msgid "Avoid heavy letter-spacing effects, then re-export."
 msgstr "Избегайте сильного межбуквенного интервала, затем экспортируйте заново."
 
 #: src/features/billing/transactions.tsx
-#: src/routes/dashboard/akun.tsx
 msgid "Awaiting payment"
 msgstr ""
 
@@ -2417,7 +2418,6 @@ msgid "Bulleted list"
 msgstr "Маркированный список"
 
 #: src/features/billing/pricing.tsx
-#: src/routes/dashboard/akun.tsx
 msgid "Buy"
 msgstr ""
 
@@ -2435,6 +2435,7 @@ msgstr ""
 #: src/features/career/hooks.ts
 #: src/features/documents/new-document-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Buy credits"
 msgstr ""
@@ -5950,7 +5951,6 @@ msgstr "В хорошей компании"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
-#: src/routes/dashboard/akun.tsx
 msgid "In review"
 msgstr ""
 
@@ -6018,10 +6018,12 @@ msgid "Interview briefings, follow-ups that are due, and finished runs land here
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "interview credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "interview credits"
 msgstr ""
 
@@ -6510,8 +6512,8 @@ msgid "Language"
 msgstr "Язык"
 
 #: src/routes/dashboard/akun.tsx
-msgid "Language, theme and display."
-msgstr ""
+#~ msgid "Language, theme and display."
+#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -7777,7 +7779,6 @@ msgid "No orders in this tab."
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-#: src/routes/dashboard/akun.tsx
 msgid "No orders yet."
 msgstr ""
 
@@ -8036,7 +8037,11 @@ msgid "Nothing scheduled. Add a search to find roles each morning, or preparatio
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "Nothing spent yet."
+#~ msgid "Nothing spent yet."
+#~ msgstr ""
+
+#: src/routes/dashboard/akun.tsx
+msgid "Nothing spent yet. Credits appear here after you use one."
 msgstr ""
 
 #: src/features/career/workspace/messages.tsx
@@ -9189,6 +9194,7 @@ msgstr "Компетентность"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/settings/account/profile.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "Profile"
 msgstr "Профиль"
 
@@ -9210,8 +9216,8 @@ msgid "Profile links must be public HTTPS addresses."
 msgstr "Ссылки на профили должны быть публичными HTTPS-адресами."
 
 #: src/routes/dashboard/akun.tsx
-msgid "Profile, credits, orders and settings."
-msgstr ""
+#~ msgid "Profile, credits, orders and settings."
+#~ msgstr ""
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -10676,6 +10682,10 @@ msgstr "В разделах используются заголовки, кот�
 msgid "See all"
 msgstr ""
 
+#: src/routes/dashboard/akun.tsx
+msgid "See all orders"
+msgstr ""
+
 #: src/libs/orpc/client.ts
 msgid "See allowance"
 msgstr ""
@@ -10831,6 +10841,10 @@ msgstr "Отправлено на {0}."
 #: src/libs/locale.ts
 msgid "Serbian"
 msgstr "Сербский"
+
+#: src/routes/dashboard/akun.tsx
+msgid "Session"
+msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Set a follow-up…"
@@ -14295,8 +14309,8 @@ msgid "Your name is missing"
 msgstr "Ваше имя отсутствует"
 
 #: src/routes/dashboard/akun.tsx
-msgid "Your name, email, password and signed-in sessions."
-msgstr ""
+#~ msgid "Your name, email, password and signed-in sessions."
+#~ msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "your notes"
@@ -14333,6 +14347,10 @@ msgstr "Ваш номер телефона записан в необычном 
 #: src/features/career/coach.tsx
 msgid "your preferences"
 msgstr "ваши предпочтения"
+
+#: src/routes/dashboard/akun.tsx
+msgid "Your profile, your credits, and the trail of what you spent them on."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "your provider"

@@ -3,9 +3,12 @@ import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
 import { useQuery } from "@tanstack/react-query";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
+import { getInitials } from "@reactive-resume/utils/string";
+import { cn } from "@reactive-resume/utils/style";
 import { formatRupiah } from "@/features/billing/config";
 import { getPlanCopy } from "@/features/billing/plan-copy";
 import { useConfirm } from "@/hooks/use-confirm";
@@ -20,35 +23,50 @@ const SETTINGS_LINKS: {
 	to: "/dashboard/settings/account" | "/dashboard/settings/preferences" | "/dashboard/settings/ai";
 	icon: IconName;
 	title: string;
-	body: string;
 }[] = [
-	{
-		to: "/dashboard/settings/account",
-		icon: "user-circle",
-		title: t`Profile and security`,
-		body: t`Your name, email, password and signed-in sessions.`,
-	},
-	{
-		to: "/dashboard/settings/preferences",
-		icon: "sliders-horizontal",
-		title: t`Preferences`,
-		body: t`Language, theme and display.`,
-	},
-	{
-		to: "/dashboard/settings/ai",
-		icon: "sparkle",
-		title: t`AI and developer`,
-		body: t`AI providers, API keys and integrations.`,
-	},
+	{ to: "/dashboard/settings/account", icon: "user-circle", title: t`Profile and security` },
+	{ to: "/dashboard/settings/preferences", icon: "sliders-horizontal", title: t`Preferences` },
+	{ to: "/dashboard/settings/ai", icon: "sparkle", title: t`AI and developer` },
 ];
 
-function Bar({ className }: { className: string }) {
-	return <span className={`block animate-pulse rounded-sm bg-sunken ${className}`} />;
+/** Judul bagian di luar panel, dengan badge angka bila bagiannya punya jumlah. */
+function Section({
+	title,
+	count,
+	action,
+	className,
+	children,
+}: {
+	title: ReactNode;
+	count?: number | undefined;
+	action?: ReactNode;
+	className?: string;
+	children: ReactNode;
+}) {
+	return (
+		<section className={cn("flex flex-col gap-2.5", className)}>
+			<div className="flex items-center justify-between gap-3">
+				<h2 className="flex min-w-0 items-center gap-2 text-[17px] leading-6 font-semibold text-ink">
+					<span className="truncate">{title}</span>
+					{count === undefined ? null : (
+						<span className="grid h-5 min-w-5 shrink-0 place-items-center rounded-full bg-sunken px-1.5 text-[11px] font-semibold text-ink-3 tabular-nums">
+							{count}
+						</span>
+					)}
+				</h2>
+				{action}
+			</div>
+			{children}
+		</section>
+	);
 }
+
+const PANEL = "overflow-hidden rounded-xl border border-line bg-surface";
 
 function AccountPage() {
 	const { i18n } = useLingui();
 	const confirm = useConfirm();
+	const navigate = useNavigate();
 	const { data: session, isPending: sessionLoading } = authClient.useSession();
 	const balances = useQuery(orpc.billing.balances.queryOptions());
 	const plans = useQuery(orpc.billing.plans.queryOptions());
@@ -57,23 +75,14 @@ function AccountPage() {
 
 	const user = session?.user as { name?: string; email?: string; createdAt?: string | Date } | undefined;
 	const list = orders.data?.orders ?? [];
-	const entries = ledger.data?.entries ?? [];
-	const count = (status: string[]) => list.filter((order) => status.includes(order.status)).length;
+	const entries = (ledger.data?.entries ?? []).slice(0, 8);
+	const paid = list.filter((order) => order.status === "lunas").length;
+	const cancelled = list.filter((order) => order.status === "ditolak" || order.status === "hangus").length;
 	const joined = user?.createdAt
 		? new Intl.DateTimeFormat(i18n.locale, { month: "long", year: "numeric" }).format(new Date(user.createdAt))
 		: null;
 
-	// A counter that reads zero on every row is noise, so only a real count earns a cell.
-	const orderCells = [
-		{ label: t`Awaiting payment`, value: count(["menunggu_bayar"]) },
-		{ label: t`In review`, value: count(["menunggu_verifikasi"]) },
-		{ label: t`Paid`, value: count(["lunas"]) },
-		{ label: t`Cancelled`, value: count(["ditolak", "hangus"]) },
-	].filter((cell) => cell.value > 0);
-
-	// Prices come from the plans themselves: an admin changing a price must not leave this page quoting the old one.
-	// The ledger stores what happened, not prose: purchase entries hold a plan code, so they read in the
-	// language of whoever opens the page. Older rows still hold "Pembayaran <nama paket> in Indonesian.
+	// The ledger stores a code, not a sentence, so the row reads in the language of whoever opens the page.
 	const reasonText = (reason: string) => {
 		const english = i18n.locale.startsWith("en");
 		const findPlan = (code: string, name: string) =>
@@ -100,174 +109,198 @@ function AccountPage() {
 		return formatRupiah(Math.round(plan.priceIdr / plan.credits));
 	};
 
+	const deltaText = (delta: number, kind: string) => {
+		const unit =
+			kind === "interview"
+				? Math.abs(delta) === 1
+					? t`interview credit`
+					: t`interview credits`
+				: Math.abs(delta) === 1
+					? t`application credit`
+					: t`application credits`;
+		return `${delta > 0 ? "+" : "−"}${Math.abs(delta)} ${unit}`;
+	};
+
 	const signOut = async () => {
 		const ok = await confirm(t`Sign out of this account?`, { description: t`You can sign back in at any time.` });
 		if (ok) await authClient.signOut();
 	};
 
-	const credit = (value: number | undefined, unit: string, price: string | null) => (
-		<div className="grid gap-1">
-			<p className="text-xs text-ink-3">{unit}</p>
-			{balances.isLoading ? (
-				<Bar className="h-7 w-12" />
-			) : (
-				<p className="text-[22px] leading-7 text-ink tabular-nums">{value ?? 0}</p>
-			)}
-			{price ? (
-				<p className="text-xs text-ink-2">
-					{price} <Trans>per credit</Trans>
-				</p>
-			) : null}
-		</div>
-	);
-
 	return (
-		<div className="mx-auto w-full max-w-[1080px] px-6 pt-8 pb-28 md:pb-12">
-			<h1 className="font-sans text-2xl font-semibold text-ink">
-				<Trans>Account</Trans>
-			</h1>
-			<p className="mt-1 text-sm text-ink-2">
-				<Trans>Profile, credits, orders and settings.</Trans>
-			</p>
+		<div className="px-4 py-5 md:px-10 md:py-7">
+			<header className="grid gap-1.5">
+				<h1 className="font-display text-[30px] leading-9 font-medium text-ink">
+					<Trans>Account</Trans>
+				</h1>
+				<p className="max-w-[60ch] text-sm text-ink-2">
+					<Trans>Your profile, your credits, and the trail of what you spent them on.</Trans>
+				</p>
+			</header>
 
-			<div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
-				<section className="rounded-lg border border-line bg-surface p-5">
-					<div className="flex flex-wrap items-start justify-between gap-4">
-						<div className="grid min-w-0 gap-1">
-							{sessionLoading ? (
-								<>
-									<Bar className="h-5 w-40" />
-									<Bar className="h-4 w-56" />
-								</>
-							) : (
-								<>
-									<p className="truncate text-lg text-ink">{user?.name || t`No name`}</p>
-									<p className="truncate text-sm text-ink-2">{user?.email}</p>
+			<div className="mt-7 grid gap-6 xl:grid-cols-[minmax(0,1fr)_380px] xl:items-start">
+				<div className="flex min-w-0 flex-col gap-7">
+					<Section title={<Trans>Profile</Trans>}>
+						<div className={PANEL}>
+							<div className="flex items-center gap-3 px-4 py-3.5">
+								<span className="grid size-10 shrink-0 place-items-center rounded-[10px] bg-sunken text-[13px] font-semibold text-ink-2">
+									{sessionLoading ? "" : getInitials(user?.name ?? "")}
+								</span>
+								<div className="grid min-w-0 flex-1 gap-px">
+									<p className="truncate text-[15px] font-semibold text-ink">{user?.name || t`No name`}</p>
+									<p className="truncate text-[13px] text-ink-2">{user?.email}</p>
 									{joined ? (
 										<p className="text-xs text-ink-3">
 											<Trans>Joined {joined}</Trans>
 										</p>
 									) : null}
-								</>
+								</div>
+								<Button variant="secondary" size="sm" className="ml-auto max-xl:hidden" onClick={() => void signOut()}>
+									<Trans>Sign out</Trans>
+								</Button>
+							</div>
+						</div>
+					</Section>
+
+					<Section
+						title={<Trans>Credits</Trans>}
+						action={
+							<Button size="sm" className="h-9" onClick={() => void navigate({ to: "/dashboard/beli-kredit" })}>
+								<Trans>Buy credits</Trans>
+							</Button>
+						}
+					>
+						<div className={cn(PANEL, "grid grid-cols-2")}>
+							<div className="p-4">
+								<p className="text-xs text-ink-3">
+									<Trans>Application</Trans>
+								</p>
+								<p className="mt-0.5 text-[34px] leading-10 font-semibold text-ink tabular-nums">
+									{balances.isLoading ? "—" : (balances.data?.application ?? 0)}
+								</p>
+								{perCredit("lamaran") ? (
+									<p className="mt-0.5 text-xs text-ink-2">
+										{perCredit("lamaran")} <Trans>per credit</Trans>
+									</p>
+								) : null}
+							</div>
+							<div className="border-l border-line p-4">
+								<p className="text-xs text-ink-3">
+									<Trans>Interview</Trans>
+								</p>
+								<p className="mt-0.5 text-[34px] leading-10 font-semibold text-ink tabular-nums">
+									{balances.isLoading ? "—" : (balances.data?.interview ?? 0)}
+								</p>
+								{perCredit("wawancara") ? (
+									<p className="mt-0.5 text-xs text-ink-2">
+										{perCredit("wawancara")} <Trans>per credit</Trans>
+									</p>
+								) : null}
+							</div>
+						</div>
+					</Section>
+
+					<Section
+						title={<Trans>Credit history</Trans>}
+						count={list.length}
+						action={
+							<Link to="/dashboard/transaksi" className="shrink-0 text-[13px] text-ink-2 hover:text-ink">
+								<Trans>See all orders</Trans>
+							</Link>
+						}
+					>
+						<div className={PANEL}>
+							{ledger.isLoading ? (
+								<div className="grid gap-2 p-4" aria-hidden="true">
+									<span className="h-3.5 w-52 animate-pulse rounded-sm bg-sunken" />
+									<span className="h-3 w-36 animate-pulse rounded-sm bg-sunken" />
+								</div>
+							) : entries.length === 0 ? (
+								<p className="p-4 text-sm text-ink-3">
+									<Trans>Nothing spent yet. Credits appear here after you use one.</Trans>
+								</p>
+							) : (
+								entries.map((entry) => (
+									<div
+										key={entry.id}
+										className="flex items-center justify-between gap-4 border-t border-line px-4 py-3 first:border-t-0"
+									>
+										<div className="min-w-0">
+											<p className="truncate text-sm text-ink">{reasonText(entry.reason)}</p>
+											<p className="mt-0.5 text-xs text-ink-3">
+												{new Date(entry.createdAt).toLocaleDateString(i18n.locale)}
+											</p>
+										</div>
+										<div className="shrink-0 text-right tabular-nums">
+											<p className={cn("text-[13px]", entry.delta > 0 && "text-accent-text")}>
+												{deltaText(entry.delta, entry.kind)}
+											</p>
+											<p className="mt-0.5 text-xs text-ink-3">
+												{entry.balanceAfter} <Trans>left</Trans>
+											</p>
+										</div>
+									</div>
+								))
 							)}
 						</div>
-						<Button variant="secondary" size="sm" onClick={() => void signOut()}>
-							<Trans>Sign out</Trans>
-						</Button>
-					</div>
-				</section>
+					</Section>
+				</div>
 
-				<section className="rounded-lg border border-line bg-surface p-5">
-					<div className="flex items-baseline justify-between gap-3">
-						<h2 className="text-sm font-semibold text-ink">
-							<Trans>Credits</Trans>
-						</h2>
-						<Link
-							to="/dashboard/beli-kredit"
-							className="flex min-h-11 items-center gap-1 text-xs text-ink-2 underline-offset-4 hover:text-ink hover:underline"
-						>
-							<Icon name="tag" size={14} />
-							<Trans>Buy</Trans>
-						</Link>
-					</div>
-					<div className="mt-2 grid grid-cols-2 divide-x divide-line">
-						<div className="pr-4">{credit(balances.data?.application, t`Application`, perCredit("lamaran"))}</div>
-						<div className="pl-4">{credit(balances.data?.interview, t`Interview`, perCredit("wawancara"))}</div>
-					</div>
-				</section>
-
-				<section className="rounded-lg border border-line bg-surface p-5 lg:col-span-2">
-					<div className="flex items-baseline justify-between gap-3">
-						<h2 className="text-sm font-semibold text-ink">
-							<Trans>Orders</Trans>
-						</h2>
-						<Link
-							to="/dashboard/transaksi"
-							className="flex min-h-11 items-center text-xs text-ink-2 underline-offset-4 hover:text-ink hover:underline"
-						>
-							<Trans>See all</Trans>
-						</Link>
-					</div>
-					{orders.isLoading ? (
-						<div className="mt-3 flex gap-8">
-							<Bar className="h-9 w-24" />
-							<Bar className="h-9 w-24" />
-						</div>
-					) : orderCells.length > 0 ? (
-						<div className="mt-3 flex flex-wrap gap-px bg-line">
-							{orderCells.map((cell) => (
+				<aside className="flex min-w-0 flex-col gap-7">
+					<Section title={<Trans>Settings</Trans>}>
+						<div className={PANEL}>
+							{SETTINGS_LINKS.map((item) => (
 								<Link
-									key={cell.label}
-									to="/dashboard/transaksi"
-									className="min-w-[calc(25%-1px)] flex-1 bg-surface p-3 hover:bg-hover sm:min-w-[120px]"
+									key={item.to}
+									to={item.to}
+									className="flex h-11 items-center gap-3 border-t border-line px-4 text-sm text-ink first:border-t-0 hover:bg-hover"
 								>
-									<p className="text-xs text-ink-3">{cell.label}</p>
-									<p className="mt-0.5 text-[22px] leading-7 text-ink tabular-nums">{cell.value}</p>
+									<Icon name={item.icon} size={16} className="shrink-0 text-ink-3" />
+									<span className="min-w-0 flex-1 truncate">{item.title}</span>
+									<Icon name="caret-right" size={16} className="shrink-0 text-ink-3" />
 								</Link>
 							))}
 						</div>
-					) : (
-						<p className="mt-3 text-sm text-ink-3">
-							<Trans>No orders yet.</Trans>
-						</p>
-					)}
-				</section>
+					</Section>
 
-				<section className="rounded-lg border border-line bg-surface p-5 lg:col-span-2">
-					<h2 className="text-sm font-semibold text-ink">
-						<Trans>Settings</Trans>
-					</h2>
-					<ul className="mt-1 grid gap-x-6 sm:grid-cols-3">
-						{SETTINGS_LINKS.map((item) => (
-							<li key={item.to} className="border-b border-line last:border-0 sm:border-0">
-								<Link to={item.to} className="flex min-h-11 items-center gap-3 py-3 hover:bg-hover">
-									<Icon name={item.icon} size={18} className="text-ink-2" />
-									<span className="min-w-0 flex-1">
-										<span className="block text-sm text-ink">{item.title}</span>
-										<span className="block text-xs text-ink-2">{item.body}</span>
-									</span>
-									<Icon name="caret-right" size={16} className="text-ink-3" />
-								</Link>
-							</li>
-						))}
-					</ul>
-				</section>
-			</div>
+					<Section
+						title={<Trans>Orders</Trans>}
+						action={
+							<Link to="/dashboard/transaksi" className="shrink-0 text-[13px] text-ink-2 hover:text-ink">
+								<Trans>See all</Trans>
+							</Link>
+						}
+					>
+						<div className={cn(PANEL, "px-4")}>
+							<div className="flex items-center justify-between gap-3 border-t border-line py-3 first:border-t-0">
+								<span className="text-sm text-ink">
+									<Trans>Paid</Trans>
+								</span>
+								<span className="text-sm text-ink tabular-nums">{orders.isLoading ? "—" : paid}</span>
+							</div>
+							<div className="flex items-center justify-between gap-3 border-t border-line py-3">
+								<span className="text-sm text-ink">
+									<Trans>Cancelled</Trans>
+								</span>
+								<span className="text-sm text-ink tabular-nums">{orders.isLoading ? "—" : cancelled}</span>
+							</div>
+						</div>
+					</Section>
 
-			<section className="mt-5 rounded-lg border border-line bg-surface p-5">
-				<h2 className="text-sm font-semibold text-ink">
-					<Trans>Credit history</Trans>
-				</h2>
-				{ledger.isLoading ? (
-					<div className="mt-3 grid gap-3">
-						<Bar className="h-4 w-52" />
-						<Bar className="h-4 w-40" />
-					</div>
-				) : entries.length > 0 ? (
-					<ul className="mt-2">
-						{entries.map((entry) => (
-							<li
-								key={entry.id}
-								className="flex items-center justify-between gap-3 border-b border-line py-2.5 last:border-0"
+					{/* Di bawah 1280 tombol keluar di baris profil disembunyikan, jadi ia dapat panelnya sendiri. */}
+					<Section title={<Trans>Session</Trans>} className="xl:hidden">
+						<div className={PANEL}>
+							<button
+								type="button"
+								onClick={() => void signOut()}
+								className="touch-target flex h-11 w-full items-center gap-3 px-4 text-left text-sm text-ink hover:bg-hover"
 							>
-								<span className="min-w-0">
-									<span className="block truncate text-sm text-ink">{reasonText(entry.reason)}</span>
-									<span className="text-xs text-ink-3">
-										{new Date(entry.createdAt).toLocaleDateString(i18n.locale)}
-									</span>
-								</span>
-								<span className="shrink-0 text-sm text-ink-2 tabular-nums">
-									{entry.delta > 0 ? `+${entry.delta}` : entry.delta} · <Trans>left</Trans> {entry.balanceAfter}
-								</span>
-							</li>
-						))}
-					</ul>
-				) : (
-					<p className="mt-2 text-sm text-ink-3">
-						<Trans>Nothing spent yet.</Trans>
-					</p>
-				)}
-			</section>
+								<Trans>Sign out</Trans>
+								<Icon name="caret-right" size={16} className="ml-auto text-ink-3" />
+							</button>
+						</div>
+					</Section>
+				</aside>
+			</div>
 		</div>
 	);
 }

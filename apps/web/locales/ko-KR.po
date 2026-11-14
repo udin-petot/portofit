@@ -1575,8 +1575,8 @@ msgid "AI providers couldn't be loaded. Reload to try again."
 msgstr "AI 제공자를 로드할 수 없습니다. 다시 시도하려면 새로고침하세요."
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI providers, API keys and integrations."
-msgstr ""
+#~ msgid "AI providers, API keys and integrations."
+#~ msgstr ""
 
 #: src/libs/locale.ts
 msgid "Albanian"
@@ -1846,10 +1846,12 @@ msgstr "입사 지원이 마감되었습니다"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
+#: src/routes/dashboard/akun.tsx
 msgid "application credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "application credits"
 msgstr ""
 
@@ -2166,7 +2168,6 @@ msgid "Avoid heavy letter-spacing effects, then re-export."
 msgstr "강한 자간 효과를 피한 뒤 다시 내보내세요."
 
 #: src/features/billing/transactions.tsx
-#: src/routes/dashboard/akun.tsx
 msgid "Awaiting payment"
 msgstr ""
 
@@ -2417,7 +2418,6 @@ msgid "Bulleted list"
 msgstr "글머리 기호 목록"
 
 #: src/features/billing/pricing.tsx
-#: src/routes/dashboard/akun.tsx
 msgid "Buy"
 msgstr ""
 
@@ -2435,6 +2435,7 @@ msgstr ""
 #: src/features/career/hooks.ts
 #: src/features/documents/new-document-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Buy credits"
 msgstr ""
@@ -5950,7 +5951,6 @@ msgstr "좋은 회사에서"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
-#: src/routes/dashboard/akun.tsx
 msgid "In review"
 msgstr ""
 
@@ -6018,10 +6018,12 @@ msgid "Interview briefings, follow-ups that are due, and finished runs land here
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "interview credit"
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "interview credits"
 msgstr ""
 
@@ -6510,8 +6512,8 @@ msgid "Language"
 msgstr "언어"
 
 #: src/routes/dashboard/akun.tsx
-msgid "Language, theme and display."
-msgstr ""
+#~ msgid "Language, theme and display."
+#~ msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -7777,7 +7779,6 @@ msgid "No orders in this tab."
 msgstr ""
 
 #: src/features/billing/transactions.tsx
-#: src/routes/dashboard/akun.tsx
 msgid "No orders yet."
 msgstr ""
 
@@ -8036,7 +8037,11 @@ msgid "Nothing scheduled. Add a search to find roles each morning, or preparatio
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "Nothing spent yet."
+#~ msgid "Nothing spent yet."
+#~ msgstr ""
+
+#: src/routes/dashboard/akun.tsx
+msgid "Nothing spent yet. Credits appear here after you use one."
 msgstr ""
 
 #: src/features/career/workspace/messages.tsx
@@ -9189,6 +9194,7 @@ msgstr "숙련도"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/settings/account/profile.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "Profile"
 msgstr "프로필"
 
@@ -9210,8 +9216,8 @@ msgid "Profile links must be public HTTPS addresses."
 msgstr "프로필 링크는 공개 HTTPS 주소여야 합니다."
 
 #: src/routes/dashboard/akun.tsx
-msgid "Profile, credits, orders and settings."
-msgstr ""
+#~ msgid "Profile, credits, orders and settings."
+#~ msgstr ""
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -10676,6 +10682,10 @@ msgstr "섹션에서는 시스템이 인식하고 업무 경험이 표시되는 
 msgid "See all"
 msgstr ""
 
+#: src/routes/dashboard/akun.tsx
+msgid "See all orders"
+msgstr ""
+
 #: src/libs/orpc/client.ts
 msgid "See allowance"
 msgstr ""
@@ -10831,6 +10841,10 @@ msgstr "{0}로 보냄"
 #: src/libs/locale.ts
 msgid "Serbian"
 msgstr "세르비아어"
+
+#: src/routes/dashboard/akun.tsx
+msgid "Session"
+msgstr ""
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Set a follow-up…"
@@ -14295,8 +14309,8 @@ msgid "Your name is missing"
 msgstr "당신의 이름이 없습니다"
 
 #: src/routes/dashboard/akun.tsx
-msgid "Your name, email, password and signed-in sessions."
-msgstr ""
+#~ msgid "Your name, email, password and signed-in sessions."
+#~ msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "your notes"
@@ -14333,6 +14347,10 @@ msgstr "전화번호가 특이한 형식으로 작성되어 있습니다."
 #: src/features/career/coach.tsx
 msgid "your preferences"
 msgstr "내 선호 사항"
+
+#: src/routes/dashboard/akun.tsx
+msgid "Your profile, your credits, and the trail of what you spent them on."
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "your provider"

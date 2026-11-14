@@ -1571,8 +1571,8 @@ msgid "AI providers couldn't be loaded. Reload to try again."
 msgstr "AI providers couldn't be loaded. Reload to try again."
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI providers, API keys and integrations."
-msgstr "AI providers, API keys and integrations."
+#~ msgid "AI providers, API keys and integrations."
+#~ msgstr "AI providers, API keys and integrations."
 
 #: src/libs/locale.ts
 msgid "Albanian"
@@ -1842,10 +1842,12 @@ msgstr "Application closed"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
+#: src/routes/dashboard/akun.tsx
 msgid "application credit"
 msgstr "application credit"
 
 #: src/features/billing/payment-dialog.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "application credits"
 msgstr "application credits"
 
@@ -2162,7 +2164,6 @@ msgid "Avoid heavy letter-spacing effects, then re-export."
 msgstr "Avoid heavy letter-spacing effects, then re-export."
 
 #: src/features/billing/transactions.tsx
-#: src/routes/dashboard/akun.tsx
 msgid "Awaiting payment"
 msgstr "Awaiting payment"
 
@@ -2413,7 +2414,6 @@ msgid "Bulleted list"
 msgstr "Bulleted list"
 
 #: src/features/billing/pricing.tsx
-#: src/routes/dashboard/akun.tsx
 msgid "Buy"
 msgstr "Buy"
 
@@ -2431,6 +2431,7 @@ msgstr "Buy a credit"
 #: src/features/career/hooks.ts
 #: src/features/documents/new-document-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Buy credits"
 msgstr "Buy credits"
@@ -5946,7 +5947,6 @@ msgstr "In good company"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/transactions.tsx
-#: src/routes/dashboard/akun.tsx
 msgid "In review"
 msgstr "In review"
 
@@ -6014,10 +6014,12 @@ msgid "Interview briefings, follow-ups that are due, and finished runs land here
 msgstr "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
 
 #: src/features/billing/payment-dialog.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "interview credit"
 msgstr "interview credit"
 
 #: src/features/billing/payment-dialog.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "interview credits"
 msgstr "interview credits"
 
@@ -6506,8 +6508,8 @@ msgid "Language"
 msgstr "Language"
 
 #: src/routes/dashboard/akun.tsx
-msgid "Language, theme and display."
-msgstr "Language, theme and display."
+#~ msgid "Language, theme and display."
+#~ msgstr "Language, theme and display."
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -7773,7 +7775,6 @@ msgid "No orders in this tab."
 msgstr "No orders in this tab."
 
 #: src/features/billing/transactions.tsx
-#: src/routes/dashboard/akun.tsx
 msgid "No orders yet."
 msgstr "No orders yet."
 
@@ -8032,8 +8033,12 @@ msgid "Nothing scheduled. Add a search to find roles each morning, or preparatio
 msgstr "Nothing scheduled. Add a search to find roles each morning, or preparation to get a briefing before an interview."
 
 #: src/routes/dashboard/akun.tsx
-msgid "Nothing spent yet."
-msgstr "Nothing spent yet."
+#~ msgid "Nothing spent yet."
+#~ msgstr "Nothing spent yet."
+
+#: src/routes/dashboard/akun.tsx
+msgid "Nothing spent yet. Credits appear here after you use one."
+msgstr "Nothing spent yet. Credits appear here after you use one."
 
 #: src/features/career/workspace/messages.tsx
 msgid "Nothing to apply"
@@ -9185,6 +9190,7 @@ msgstr "Proficiency"
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/settings/account/profile.tsx
+#: src/routes/dashboard/akun.tsx
 msgid "Profile"
 msgstr "Profile"
 
@@ -9206,8 +9212,8 @@ msgid "Profile links must be public HTTPS addresses."
 msgstr "Profile links must be public HTTPS addresses."
 
 #: src/routes/dashboard/akun.tsx
-msgid "Profile, credits, orders and settings."
-msgstr "Profile, credits, orders and settings."
+#~ msgid "Profile, credits, orders and settings."
+#~ msgstr "Profile, credits, orders and settings."
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -10672,6 +10678,10 @@ msgstr "Sections use headings systems recognise, and work experience shows."
 msgid "See all"
 msgstr "See all"
 
+#: src/routes/dashboard/akun.tsx
+msgid "See all orders"
+msgstr "See all orders"
+
 #: src/libs/orpc/client.ts
 msgid "See allowance"
 msgstr "See allowance"
@@ -10827,6 +10837,10 @@ msgstr "Sent to {0}"
 #: src/libs/locale.ts
 msgid "Serbian"
 msgstr "Serbian"
+
+#: src/routes/dashboard/akun.tsx
+msgid "Session"
+msgstr "Session"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Set a follow-up…"
@@ -14291,8 +14305,8 @@ msgid "Your name is missing"
 msgstr "Your name is missing"
 
 #: src/routes/dashboard/akun.tsx
-msgid "Your name, email, password and signed-in sessions."
-msgstr "Your name, email, password and signed-in sessions."
+#~ msgid "Your name, email, password and signed-in sessions."
+#~ msgstr "Your name, email, password and signed-in sessions."
 
 #: src/features/career/workspace/saved.tsx
 msgid "your notes"
@@ -14329,6 +14343,10 @@ msgstr "Your phone number is written in an unusual shape."
 #: src/features/career/coach.tsx
 msgid "your preferences"
 msgstr "your preferences"
+
+#: src/routes/dashboard/akun.tsx
+msgid "Your profile, your credits, and the trail of what you spent them on."
+msgstr "Your profile, your credits, and the trail of what you spent them on."
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "your provider"
