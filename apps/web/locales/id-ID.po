@@ -2865,7 +2865,7 @@ msgstr "pesan Coach"
 #: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/beli-kredit.tsx
 msgid "Coach messages"
-msgstr "Pesan pendamping"
+msgstr "Pesan Coach"
 
 #: src/features/billing/credit-dialog.tsx
 msgid "Coach messages used up"

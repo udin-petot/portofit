@@ -347,6 +347,9 @@ function ChatView(props: ChatViewProps) {
 		// The coach may have remembered a fact or saved a story.
 		void queryClient.invalidateQueries({ queryKey: orpc.career.facts.key() });
 		void queryClient.invalidateQueries({ queryKey: orpc.career.stories.key() });
+		// A sent message spends a free or paid allowance, so the composer's counter must follow.
+		void queryClient.invalidateQueries({ queryKey: orpc.quota.status.key() });
+		void queryClient.invalidateQueries({ queryKey: orpc.billing.balances.key() });
 	};
 	const { messages, sendMessage, status, error, clearError, regenerate, stop } = useAssistantChat({
 		threadId,
