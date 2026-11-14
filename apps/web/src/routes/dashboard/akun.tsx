@@ -291,7 +291,7 @@ function AccountPage() {
 							<button
 								type="button"
 								onClick={() => void signOut()}
-								className="touch-target flex h-11 w-full items-center gap-3 px-4 text-left text-sm text-ink hover:bg-hover"
+								className="touch-target relative flex h-11 w-full items-center gap-3 px-4 text-left text-sm text-ink hover:bg-hover"
 							>
 								<Trans>Sign out</Trans>
 								<Icon name="caret-right" size={16} className="ml-auto text-ink-3" />

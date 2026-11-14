@@ -228,7 +228,7 @@ export function LoginPage({ disableEmailAuth, disableSignups, allowGuestLogin }:
 						type="button"
 						onClick={() => guestSignIn.mutate()}
 						disabled={guestSignIn.isPending}
-						className="touch-target text-ink-2 hover:text-ink disabled:opacity-60"
+						className="touch-target relative text-ink-2 hover:text-ink disabled:opacity-60"
 					>
 						{guestSignIn.isPending ? <Trans>Opening the editor...</Trans> : <Trans>Continue as a guest</Trans>}
 					</button>
