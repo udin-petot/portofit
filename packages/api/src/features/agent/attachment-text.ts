@@ -8,8 +8,11 @@ export const MAX_ATTACHMENT_TEXT_CHARS = 40_000;
 const DOCX_MEDIA_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 const LEGACY_DOC_MEDIA_TYPE = "application/msword";
 
-export const isExtractableAttachment = (mediaType: string) =>
-	mediaType === "application/pdf" || mediaType === DOCX_MEDIA_TYPE;
+export const isExtractableAttachment = (mediaType: string, filename = "") =>
+	mediaType === "application/pdf" ||
+	mediaType === DOCX_MEDIA_TYPE ||
+	mediaType === LEGACY_DOC_MEDIA_TYPE ||
+	/\.doc$/i.test(filename);
 
 function decodeXmlEntities(value: string): string {
 	return value.replace(/&(#x[\da-f]+|#\d+|amp|lt|gt|quot|apos);/gi, (entity, token: string) => {
@@ -113,7 +116,7 @@ export async function extractAttachmentText(input: {
 	if (input.mediaType === "application/pdf")
 		return (await extractPdfText(input.data, input.filename)).slice(0, MAX_ATTACHMENT_TEXT_CHARS);
 	if (input.mediaType === DOCX_MEDIA_TYPE) return extractDocxText(input.data).slice(0, MAX_ATTACHMENT_TEXT_CHARS);
-	if (input.mediaType === LEGACY_DOC_MEDIA_TYPE) {
+	if (input.mediaType === LEGACY_DOC_MEDIA_TYPE || /\.doc$/i.test(input.filename)) {
 		throw new ORPCError("BAD_REQUEST", {
 			message: "Format .doc lama belum didukung. Simpan sebagai .docx atau PDF, lalu kirim lagi.",
 			data: { code: "ATTACHMENT_UNSUPPORTED" },

@@ -339,7 +339,7 @@ async function buildAttachmentModelParts(
 				};
 			}
 
-			if (isExtractableAttachment(attachment.mediaType)) {
+			if (isExtractableAttachment(attachment.mediaType, attachment.filename)) {
 				// The server AI provider accepts text and images, not arbitrary file parts. Reading the
 				// document here makes PDFs and Word files work on every text model instead of failing
 				// with "Unsupported chat content part type: 'file'".
@@ -733,7 +733,7 @@ async function readAttachment(input: { id: string; threadId: string; userId: str
 		};
 	}
 
-	if (isExtractableAttachment(attachment.mediaType)) {
+	if (isExtractableAttachment(attachment.mediaType, attachment.filename)) {
 		try {
 			const content = await extractAttachmentText({
 				filename: attachment.filename,
