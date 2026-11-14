@@ -2281,7 +2281,7 @@ msgstr "Biru"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Board"
-msgstr "Papan lamaran"
+msgstr "Papan"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgctxt "Body Text (paragraphs, lists, etc.)"
