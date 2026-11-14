@@ -172,19 +172,19 @@ function RouteComponent() {
 							}}
 						>
 							<TabsList aria-label={t`View`} className="max-w-full [scrollbar-width:none] overflow-x-auto">
-								<TabsTrigger value="list">
+								<TabsTrigger value="list" className="px-2.5">
 									<Icon name="rows" size={18} />
 									<Trans>List</Trans>
 								</TabsTrigger>
-								<TabsTrigger value="board">
+								<TabsTrigger value="board" className="px-2.5">
 									<Icon name="kanban" size={18} />
 									<Trans>Board</Trans>
 								</TabsTrigger>
-								<TabsTrigger value="insights">
+								<TabsTrigger value="insights" className="px-2.5">
 									<Icon name="chart-line-up" size={18} />
 									<Trans>Insights</Trans>
 								</TabsTrigger>
-								<TabsTrigger value="calendar">
+								<TabsTrigger value="calendar" className="px-2.5">
 									<Icon name="calendar-dots" size={18} />
 									<Trans>Calendar</Trans>
 								</TabsTrigger>
