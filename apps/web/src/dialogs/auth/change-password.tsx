@@ -156,7 +156,7 @@ export function ChangePasswordDialog(_: DialogProps<"auth.change-password">) {
 								render={<Checkbox name={field.name} checked={field.state.value} onCheckedChange={field.handleChange} />}
 							/>
 							<FormLabel>
-								<Trans>Sign out from all other devices</Trans>
+								<Trans>Log out from all other devices</Trans>
 							</FormLabel>
 						</FormItem>
 					)}

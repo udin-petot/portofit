@@ -100,7 +100,9 @@ export function AppShell({ children }: AppShellProps) {
 	const hideSupport =
 		breakpoint === "mobile" &&
 		Boolean(
-			matchRoute({ to: "/dashboard/settings", fuzzy: true }) || matchRoute({ to: "/dashboard/akun", fuzzy: true }),
+			matchRoute({ to: "/dashboard/settings", fuzzy: true }) ||
+			matchRoute({ to: "/dashboard/akun", fuzzy: true }) ||
+			matchRoute({ to: "/dashboard/career/coach", fuzzy: true }),
 		);
 
 	useHotkey("N", () => {

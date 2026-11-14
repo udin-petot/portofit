@@ -16,7 +16,6 @@ import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { Skeleton } from "@reactive-resume/ui/components/skeleton";
 import { Tabs, TabsList, TabsTrigger } from "@reactive-resume/ui/components/tabs";
-import { useBreakpoint } from "@reactive-resume/ui/hooks/use-breakpoint";
 import { cn } from "@reactive-resume/utils/style";
 import { AddApplicationDialog } from "@/features/applications/components/add-application-dialog";
 import { ApplicationDetailSheet } from "@/features/applications/components/application-detail-sheet";
@@ -72,7 +71,6 @@ function matches(application: Application, query: string) {
 function RouteComponent() {
 	const { q, view, closed, saved, create, applicationId } = Route.useSearch();
 	const navigate = useNavigate({ from: Route.fullPath });
-	const phone = useBreakpoint() === "mobile";
 	// Typing filters at once; the URL only seeds the search.
 	const [query, setQuery] = useState(q);
 	const [adding, setAdding] = useState(false);
@@ -111,8 +109,8 @@ function RouteComponent() {
 	const visible = (applications ?? []).filter((application) => saved || application.status !== "saved");
 	const filtered = visible.filter((application) => matches(application, text));
 	const selected = applications?.find((application) => application.id === selectedId) ?? null;
-	// The board needs room to drag: phones get the list instead.
-	const shown: View = phone && (view === "board" || view === "calendar") ? "list" : view;
+	// Phones keep all four views; the board scrolls sideways and the calendar stacks.
+	const shown: View = view;
 	const empty = !!applications && applications.length === 0;
 	const noMatches = !!applications && !empty && text && filtered.length === 0;
 	const allHidden = !!applications && !empty && !text && !saved && savedCount > 0 && filtered.length === 0;
@@ -125,9 +123,7 @@ function RouteComponent() {
 				</h1>
 				<div className="flex items-center gap-2">
 					<DropdownMenu>
-						<DropdownMenuTrigger
-							render={<Button variant="secondary" aria-label={t`Import or export CSV`} />}
-						>
+						<DropdownMenuTrigger render={<Button variant="secondary" aria-label={t`Import or export CSV`} />}>
 							<Icon name="file-text" />
 							<span className="max-sm:hidden">CSV</span>
 						</DropdownMenuTrigger>
@@ -175,27 +171,23 @@ function RouteComponent() {
 								setSearch({ view: value as View });
 							}}
 						>
-							<TabsList aria-label={t`View`}>
+							<TabsList aria-label={t`View`} className="max-w-full [scrollbar-width:none] overflow-x-auto">
 								<TabsTrigger value="list">
 									<Icon name="rows" size={18} />
 									<Trans>List</Trans>
 								</TabsTrigger>
-								{!phone && (
-									<TabsTrigger value="board">
-										<Icon name="kanban" size={18} />
-										<Trans>Board</Trans>
-									</TabsTrigger>
-								)}
+								<TabsTrigger value="board">
+									<Icon name="kanban" size={18} />
+									<Trans>Board</Trans>
+								</TabsTrigger>
 								<TabsTrigger value="insights">
 									<Icon name="chart-line-up" size={18} />
 									<Trans>Insights</Trans>
 								</TabsTrigger>
-								{!phone && (
-									<TabsTrigger value="calendar">
-										<Icon name="calendar-dots" size={18} />
-										<Trans>Calendar</Trans>
-									</TabsTrigger>
-								)}
+								<TabsTrigger value="calendar">
+									<Icon name="calendar-dots" size={18} />
+									<Trans>Calendar</Trans>
+								</TabsTrigger>
 							</TabsList>
 						</Tabs>
 
@@ -256,15 +248,15 @@ function RouteComponent() {
 					{isPending ? (
 						<ViewSkeleton view={shown} />
 					) : allHidden ? (
-					<div className="grid justify-items-center gap-2 py-16 text-center">
-						<p className="text-sm font-medium">
-							<Trans>Only jobs you have applied to are shown.</Trans>
-						</p>
-						<Button size="sm" variant="secondary" onClick={() => setSearch({ saved: true })}>
-							<Trans>Show unapplied</Trans>
-						</Button>
-					</div>
-				) : noMatches ? (
+						<div className="grid justify-items-center gap-2 py-16 text-center">
+							<p className="text-sm font-medium">
+								<Trans>Only jobs you have applied to are shown.</Trans>
+							</p>
+							<Button size="sm" variant="secondary" onClick={() => setSearch({ saved: true })}>
+								<Trans>Show unapplied</Trans>
+							</Button>
+						</div>
+					) : noMatches ? (
 						<div className="grid justify-items-center gap-2 py-16 text-center">
 							<p className="text-sm font-medium">
 								<Trans>No applications match “{query.trim()}”.</Trans>

@@ -1,8 +1,6 @@
 import type { AuthSession } from "@reactive-resume/auth/types";
-import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
-import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "@tanstack/react-router";
 import {
 	DropdownMenu,
@@ -18,10 +16,9 @@ import {
 	DropdownMenuTrigger,
 } from "@reactive-resume/ui/components/dropdown-menu";
 import { Icon } from "@reactive-resume/ui/components/icon";
-import { toast } from "@reactive-resume/ui/components/toast";
 import { useTheme } from "@/features/theme/provider";
+import { useSignOut } from "@/hooks/use-sign-out";
 import { authClient } from "@/libs/auth/client";
-import { getReadableErrorMessage } from "@/libs/error-message";
 import { changeLocale, localeMap } from "@/libs/locale";
 import { isTheme } from "@/libs/theme";
 
@@ -31,10 +28,10 @@ type Props = {
 
 export function UserDropdownMenu({ children }: Props) {
 	const router = useRouter();
-	const queryClient = useQueryClient();
 	const { i18n } = useLingui();
 	const { theme, setTheme } = useTheme();
 	const { data: session } = authClient.useSession();
+	const signOut = useSignOut();
 
 	const handleThemeChange = (value: string) => {
 		if (!isTheme(value)) return;
@@ -42,30 +39,7 @@ export function UserDropdownMenu({ children }: Props) {
 	};
 
 	const handleLogout = async () => {
-		const toastId = toast.add({ type: "loading", description: t`Signing out...` });
-
-		await authClient.signOut({
-			fetchOptions: {
-				onSuccess: () => {
-					toast.close(toastId);
-					queryClient.clear();
-					void router.invalidate();
-				},
-				onError: ({ error }) => {
-					toast.add({
-						type: "error",
-						description: getReadableErrorMessage(
-							error,
-							t({
-								comment: "Fallback toast when signing out fails",
-								message: "Failed to sign out. Please try again.",
-							}),
-						),
-						id: toastId,
-					});
-				},
-			},
-		});
+		await signOut();
 	};
 
 	if (!session?.user) return null;
@@ -122,7 +96,7 @@ export function UserDropdownMenu({ children }: Props) {
 
 				<DropdownMenuItem onClick={handleLogout}>
 					<Icon name="sign-out" size={16} />
-					<Trans comment="User menu action to sign out of current account">Sign out</Trans>
+					<Trans comment="User menu action to log out of current account">Log out</Trans>
 				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>

@@ -7,16 +7,11 @@ import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-type SignOutOptions = { fetchOptions: { onSuccess: () => void } };
-
 const router = vi.hoisted(() => ({ invalidate: vi.fn(), navigate: vi.fn() }));
-const signOut = vi.hoisted(() =>
-	vi.fn(({ fetchOptions }: SignOutOptions) => {
-		fetchOptions.onSuccess();
-	}),
-);
+const signOut = vi.hoisted(() => vi.fn(async () => ({})));
 
-vi.mock("@tanstack/react-router", () => ({ useRouter: () => router }));
+vi.mock("@tanstack/react-router", () => ({ useRouter: () => router, useNavigate: () => router.navigate }));
+vi.mock("@/hooks/use-confirm", () => ({ useConfirm: () => async () => true }));
 vi.mock("@/libs/auth/client", () => ({
 	authClient: { signOut, useSession: () => ({ data: { user: { id: "user-1" } } }) },
 }));
@@ -60,9 +55,10 @@ describe("UserDropdownMenu", () => {
 			</I18nProvider>,
 		);
 
-		fireEvent.click(screen.getByRole("button", { name: "Sign out" }));
+		fireEvent.click(screen.getByRole("button", { name: "Log out" }));
 
 		await waitFor(() => expect(router.invalidate).toHaveBeenCalled());
+		expect(router.navigate).toHaveBeenCalledWith({ to: "/auth/login", replace: true });
 		expect(queryClient.getQueryCache().getAll()).toHaveLength(0);
 	});
 });

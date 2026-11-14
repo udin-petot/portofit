@@ -90,7 +90,7 @@ function DeleteAccountDialog({ open, onOpenChange }: DeleteAccountDialogProps) {
 			await authClient.signOut();
 			queryClient.clear();
 			toast.add({ description: t`Your account was deleted.` });
-			void navigate({ to: "/" });
+			void navigate({ to: "/auth/login", replace: true });
 		},
 		onError: (error) =>
 			toast.add({ type: "error", description: getReadableErrorMessage(error, t`Couldn't delete the account.`) }),

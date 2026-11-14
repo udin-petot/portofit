@@ -44,7 +44,7 @@ const dropSideEffects = defaultDropAnimationSideEffects({
 
 /**
  * A column per stage (Closed only when shown). Dropping a card on a column moves it, with the same toast as the
- * other ways to change stage; each card's menu has Move to… for the keyboard. Desktop and tablet only.
+ * other ways to change stage; each card's menu has Move to… for the keyboard. Scrolls sideways on a phone.
  */
 export function ApplicationBoard({ applications, showClosed, onOpen }: BoardProps) {
 	const { moveTo, close } = useApplicationActions();

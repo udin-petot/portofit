@@ -36,7 +36,7 @@ it("sends revokeOtherSessions: true when user checks the option", async () => {
 
 	fireEvent.change(screen.getByLabelText("Current Password"), { target: { value: "oldPassword123" } });
 	fireEvent.change(screen.getByLabelText("New Password"), { target: { value: "newPassword456" } });
-	fireEvent.click(screen.getByRole("checkbox", { name: "Sign out from all other devices" }));
+	fireEvent.click(screen.getByRole("checkbox", { name: "Log out from all other devices" }));
 	fireEvent.click(screen.getByRole("button", { name: "Update Password" }));
 
 	await waitFor(() => {

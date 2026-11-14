@@ -11,7 +11,7 @@ import { getInitials } from "@reactive-resume/utils/string";
 import { cn } from "@reactive-resume/utils/style";
 import { formatRupiah } from "@/features/billing/config";
 import { getPlanCopy } from "@/features/billing/plan-copy";
-import { useConfirm } from "@/hooks/use-confirm";
+import { useSignOut } from "@/hooks/use-sign-out";
 import { authClient } from "@/libs/auth/client";
 import { orpc } from "@/libs/orpc/client";
 
@@ -65,7 +65,7 @@ const PANEL = "overflow-hidden rounded-xl border border-line bg-surface";
 
 function AccountPage() {
 	const { i18n } = useLingui();
-	const confirm = useConfirm();
+	const signOut = useSignOut();
 	const navigate = useNavigate();
 	const { data: session, isPending: sessionLoading } = authClient.useSession();
 	const balances = useQuery(orpc.billing.balances.queryOptions());
@@ -121,11 +121,6 @@ function AccountPage() {
 		return `${delta > 0 ? "+" : "−"}${Math.abs(delta)} ${unit}`;
 	};
 
-	const signOut = async () => {
-		const ok = await confirm(t`Sign out of this account?`, { description: t`You can sign back in at any time.` });
-		if (ok) await authClient.signOut();
-	};
-
 	return (
 		<div className="px-4 pt-5 pb-28 md:px-10 md:pt-7 md:pb-12">
 			<header className="grid gap-1.5">
@@ -155,7 +150,7 @@ function AccountPage() {
 									) : null}
 								</div>
 								<Button variant="secondary" size="sm" className="ml-auto max-xl:hidden" onClick={() => void signOut()}>
-									<Trans>Sign out</Trans>
+									<Trans>Log out</Trans>
 								</Button>
 							</div>
 						</div>
@@ -293,7 +288,7 @@ function AccountPage() {
 								onClick={() => void signOut()}
 								className="touch-target relative flex h-11 w-full items-center gap-3 px-4 text-left text-sm text-ink hover:bg-hover"
 							>
-								<Trans>Sign out</Trans>
+								<Trans>Log out</Trans>
 								<Icon name="caret-right" size={16} className="ml-auto text-ink-3" />
 							</button>
 						</div>

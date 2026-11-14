@@ -3444,6 +3444,10 @@ msgstr "Tidak dapat memuat file sampel. Coba lagi."
 msgid "Couldn't load this. Your saved data hasn't changed."
 msgstr "Tidak dapat memuat ini. Data tersimpan Anda tidak berubah."
 
+#: src/hooks/use-sign-out.ts
+msgid "Couldn't log out. Try again."
+msgstr "Gagal keluar. Coba lagi."
+
 #: src/features/settings/ai/providers.tsx
 msgid "Couldn't make it the default."
 msgstr "Tidak dapat menjadikannya default."
@@ -4963,11 +4967,6 @@ msgstr "Gagal mengirim email pengaturan ulang kata sandi. Silakan coba lagi."
 #: src/features/auth/pages/login.tsx
 msgid "Failed to sign in. Please try again."
 msgstr "Gagal masuk. Silakan coba lagi."
-
-#. Fallback toast when signing out fails
-#: src/features/user/dropdown-menu.tsx
-msgid "Failed to sign out. Please try again."
-msgstr "Gagal keluar. Silakan coba lagi."
 
 #. Fallback toast when unlinking a social authentication provider fails
 #: src/features/settings/account/auth-hooks.ts
@@ -6910,6 +6909,21 @@ msgstr "Catat lamaran"
 #: src/features/documents/start-guide.tsx
 msgid "Log an application and paste the posting"
 msgstr "Catat lamaran dan tempel lowongan"
+
+#. User menu action to log out of current account
+#: src/features/settings/account/page.tsx
+#: src/features/user/dropdown-menu.tsx
+#: src/routes/dashboard/akun.tsx
+msgid "Log out"
+msgstr "Keluar"
+
+#: src/dialogs/auth/change-password.tsx
+msgid "Log out from all other devices"
+msgstr "Keluar dari semua perangkat lain"
+
+#: src/hooks/use-sign-out.ts
+msgid "Log out of this account?"
+msgstr "Keluar dari akun ini?"
 
 #: src/features/ats-checker/messages.ts
 msgid "Long stretches are set in capitals."
@@ -10959,21 +10973,6 @@ msgstr "Sidebar sering kali dibaca terakhir, atau digabungkan ke dalam kolom uta
 msgid "Sign in"
 msgstr "Masuk"
 
-#. User menu action to sign out of current account
-#: src/features/settings/account/page.tsx
-#: src/features/user/dropdown-menu.tsx
-#: src/routes/dashboard/akun.tsx
-msgid "Sign out"
-msgstr "Keluar"
-
-#: src/dialogs/auth/change-password.tsx
-msgid "Sign out from all other devices"
-msgstr "Keluar dari semua perangkat lain"
-
-#: src/routes/dashboard/akun.tsx
-msgid "Sign out of this account?"
-msgstr "Keluar dari akun ini?"
-
 #. Primary action button label on registration form
 #: src/features/auth/pages/register.tsx
 msgid "Sign up"
@@ -11000,10 +10999,6 @@ msgstr "Masuk sebagai {email}"
 #: src/features/auth/pages/login.tsx
 msgid "Signing in..."
 msgstr "Masuk..."
-
-#: src/features/user/dropdown-menu.tsx
-msgid "Signing out..."
-msgstr "Keluar..."
 
 #: src/features/auth/pages/register.tsx
 msgid "Signing up..."
@@ -13904,7 +13899,7 @@ msgstr "Anda dapat menyimpan hingga 30 pertanyaan lamaran."
 msgid "You can send another proof while this order is still open."
 msgstr "Anda bisa mengirim bukti lain selama pesanan ini masih terbuka."
 
-#: src/routes/dashboard/akun.tsx
+#: src/hooks/use-sign-out.ts
 msgid "You can sign back in at any time."
 msgstr "Kamu bisa masuk lagi kapan saja."
 
