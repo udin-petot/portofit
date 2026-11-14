@@ -1498,6 +1498,10 @@ msgstr "Setelah tinjauan pertama Anda, rencana ringan untuk minggu ini muncul di
 msgid "Against your requirements"
 msgstr "Dibandingkan dengan persyaratan Anda"
 
+#: src/features/auth/pages/register.tsx
+msgid "Agree to the Terms of Service and Privacy Policy"
+msgstr "Setujui Syarat Layanan dan Kebijakan Privasi"
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
@@ -2402,6 +2406,10 @@ msgstr "Beli kredit"
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."
 msgstr "Beli kredit untuk melanjutkan."
+
+#: src/features/auth/pages/register.tsx
+msgid "By signing up with Google or GitHub, you agree to the <0>Terms of Service</0> and <1>Privacy Policy</1>."
+msgstr "Dengan mendaftar lewat Google atau GitHub, kamu menyetujui <0>Syarat Layanan</0> dan <1>Kebijakan Privasi</1>."
 
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
@@ -5721,6 +5729,10 @@ msgstr "Hungaria"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Hyphenation"
 msgstr "Pemisahan kata dengan tanda hubung"
+
+#: src/features/auth/pages/register.tsx
+msgid "I agree to the <0>Terms of Service</0> and <1>Privacy Policy</1>, including data processing to run the service."
+msgstr "Saya menyetujui <0>Syarat Layanan</0> dan <1>Kebijakan Privasi</1>, termasuk pemrosesan data untuk menjalankan layanan."
 
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/assistant-panel.tsx

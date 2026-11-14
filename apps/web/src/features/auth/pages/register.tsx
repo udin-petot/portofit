@@ -242,19 +242,15 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 										name={field.name}
 										checked={field.state.value}
 										onCheckedChange={field.handleChange}
-										aria-label="Setujui Syarat Layanan dan Kebijakan Privasi"
+										aria-label={t`Agree to the Terms of Service and Privacy Policy`}
 										className="mt-0.5"
 									/>
 									<span>
-										Saya menyetujui{" "}
-										<a href="/syarat" className="font-medium text-accent-text underline-offset-4 hover:underline">
-											Syarat Layanan
-										</a>{" "}
-										dan{" "}
-										<a href="/privasi" className="font-medium text-accent-text underline-offset-4 hover:underline">
-											Kebijakan Privasi
-										</a>
-										, termasuk pemrosesan data untuk menjalankan layanan.
+										<Trans>
+											I agree to the <a href="/syarat" className="font-medium text-accent-text underline-offset-4 hover:underline">Terms of Service</a>{" "}
+											and <a href="/privasi" className="font-medium text-accent-text underline-offset-4 hover:underline">Privacy Policy</a>, including data
+											processing to run the service.
+										</Trans>
 									</span>
 								</label>
 								<FormMessage errors={field.state.meta.errors} />
@@ -272,15 +268,11 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 				<SocialAuth />
 			</div>
 			<p className="mt-3 text-center text-[12.5px] leading-5 text-ink-3">
-				Dengan mendaftar lewat Google atau GitHub, kamu menyetujui{" "}
-				<a href="/syarat" className="underline underline-offset-4 hover:text-accent-text">
-					Syarat Layanan
-				</a>{" "}
-				dan{" "}
-				<a href="/privasi" className="underline underline-offset-4 hover:text-accent-text">
-					Kebijakan Privasi
-				</a>
-				.
+				<Trans>
+					By signing up with Google or GitHub, you agree to the{" "}
+					<a href="/syarat" className="underline underline-offset-4 hover:text-accent-text">Terms of Service</a> and{" "}
+					<a href="/privasi" className="underline underline-offset-4 hover:text-accent-text">Privacy Policy</a>.
+				</Trans>
 			</p>
 		</AuthPanel>
 	);

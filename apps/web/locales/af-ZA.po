@@ -1497,6 +1497,10 @@ msgstr "Ná jou eerste hersiening verskyn 'n ligte plan vir hierdie week hier."
 msgid "Against your requirements"
 msgstr "Teenoor jou vereistes"
 
+#: src/features/auth/pages/register.tsx
+msgid "Agree to the Terms of Service and Privacy Policy"
+msgstr ""
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
@@ -2400,6 +2404,10 @@ msgstr ""
 
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."
+msgstr ""
+
+#: src/features/auth/pages/register.tsx
+msgid "By signing up with Google or GitHub, you agree to the <0>Terms of Service</0> and <1>Privacy Policy</1>."
 msgstr ""
 
 #: src/features/homepage/footer.tsx
@@ -5720,6 +5728,10 @@ msgstr "Hongaars"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Hyphenation"
 msgstr "Aapstreep"
+
+#: src/features/auth/pages/register.tsx
+msgid "I agree to the <0>Terms of Service</0> and <1>Privacy Policy</1>, including data processing to run the service."
+msgstr ""
 
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/assistant-panel.tsx

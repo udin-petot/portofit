@@ -41,7 +41,12 @@ export const postingSearchResult = z.object({
 /** Job-specific query intent belongs here, never in the generic retrieval service. */
 export async function searchJobPostings(query: string, context: WebAccessContext) {
 	return (await searchWeb(`${query} job posting`, context))
-		.filter(({ url, title }) => !isListingUrl(url) && !/\b\d[\d,]*\+?\s+(?:[\w-]+\s+){0,4}jobs\b/i.test(title))
+		.filter(
+			({ url, title }) =>
+				!isListingUrl(url) &&
+				!/\b\d[\d,]*\+?\s+(?:[\w-]+\s+){0,4}jobs\b/i.test(title) &&
+				!/\bjobs\b|job search|lowongan kerja/i.test(title),
+		)
 		.map(({ url, title, snippet }) => ({
 			url,
 			title,
@@ -55,7 +60,7 @@ function isListingUrl(url: string) {
 		const { hostname, pathname } = new URL(url);
 		if (/(^|\.)linkedin\.com$/.test(hostname))
 			return pathname.startsWith("/jobs") && !pathname.startsWith("/jobs/view/");
-		if (/(^|\.)indeed\.com$/.test(hostname)) return pathname === "/jobs";
+		if (/(^|\.)indeed\.com$/.test(hostname)) return pathname.startsWith("/jobs") || new URL(url).searchParams.has("q");
 		if (/(^|\.)glassdoor\.[a-z.]+$/.test(hostname)) return pathname.startsWith("/Job/");
 		if (
 			/^(?:jobs\.(?:eu\.)?lever\.co|jobs\.ashbyhq\.com|(?:boards|job-boards)(?:\.eu)?\.greenhouse\.io)$/.test(hostname)

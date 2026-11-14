@@ -1493,6 +1493,10 @@ msgstr "After your first review, a light plan for this week appears here."
 msgid "Against your requirements"
 msgstr "Against your requirements"
 
+#: src/features/auth/pages/register.tsx
+msgid "Agree to the Terms of Service and Privacy Policy"
+msgstr "Agree to the Terms of Service and Privacy Policy"
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
@@ -2397,6 +2401,10 @@ msgstr "Buy credits"
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."
 msgstr "Buy credits to continue."
+
+#: src/features/auth/pages/register.tsx
+msgid "By signing up with Google or GitHub, you agree to the <0>Terms of Service</0> and <1>Privacy Policy</1>."
+msgstr "By signing up with Google or GitHub, you agree to the <0>Terms of Service</0> and <1>Privacy Policy</1>."
 
 #: src/features/homepage/footer.tsx
 msgid "By the community, for the community."
@@ -5716,6 +5724,10 @@ msgstr "Hungarian"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Hyphenation"
 msgstr "Hyphenation"
+
+#: src/features/auth/pages/register.tsx
+msgid "I agree to the <0>Terms of Service</0> and <1>Privacy Policy</1>, including data processing to run the service."
+msgstr "I agree to the <0>Terms of Service</0> and <1>Privacy Policy</1>, including data processing to run the service."
 
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/assistant-panel.tsx
