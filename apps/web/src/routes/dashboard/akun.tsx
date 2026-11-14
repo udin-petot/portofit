@@ -127,7 +127,7 @@ function AccountPage() {
 	};
 
 	return (
-		<div className="px-4 py-5 md:px-10 md:py-7">
+		<div className="px-4 pt-5 pb-28 md:px-10 md:pt-7 md:pb-12">
 			<header className="grid gap-1.5">
 				<h1 className="font-display text-[30px] leading-9 font-medium text-ink">
 					<Trans>Account</Trans>
