@@ -109,7 +109,10 @@ async function planItemsOf(
 	const rows = await tx
 		.select({ kind: billingPlanItem.kind, credits: billingPlanItem.credits })
 		.from(billingPlanItem)
-		.where(eq(billingPlanItem.planId, plan.id));
+		.where(eq(billingPlanItem.planId, plan.id))
+		.orderBy(
+			sql`case ${billingPlanItem.kind} when 'application' then 0 when 'interview' then 1 when 'coach' then 2 else 3 end`,
+		);
 	if (rows.length > 0) return rows as PlanItem[];
 	if (plan.kind === "bundle") return [];
 	return [{ kind: plan.kind as CreditKind, credits: plan.credits }];
@@ -120,7 +123,10 @@ async function orderItemsOf(tx: Tx | typeof db, order: OrderRow): Promise<PlanIt
 	const rows = await tx
 		.select({ kind: billingOrderItem.kind, credits: billingOrderItem.credits })
 		.from(billingOrderItem)
-		.where(eq(billingOrderItem.orderId, order.id));
+		.where(eq(billingOrderItem.orderId, order.id))
+		.orderBy(
+			sql`case ${billingOrderItem.kind} when 'application' then 0 when 'interview' then 1 when 'coach' then 2 else 3 end`,
+		);
 	if (rows.length > 0) return rows as PlanItem[];
 	if (order.kind === "bundle") return [];
 	return [{ kind: order.kind as CreditKind, credits: order.credits }];
@@ -133,7 +139,10 @@ async function orderItemsFor(orders: OrderRow[]): Promise<Map<string, PlanItem[]
 	const rows = await db
 		.select({ orderId: billingOrderItem.orderId, kind: billingOrderItem.kind, credits: billingOrderItem.credits })
 		.from(billingOrderItem)
-		.where(inArray(billingOrderItem.orderId, ids));
+		.where(inArray(billingOrderItem.orderId, ids))
+		.orderBy(
+			sql`case ${billingOrderItem.kind} when 'application' then 0 when 'interview' then 1 when 'coach' then 2 else 3 end`,
+		);
 	const map = new Map<string, PlanItem[]>();
 	for (const row of rows) {
 		const list = map.get(row.orderId) ?? [];
