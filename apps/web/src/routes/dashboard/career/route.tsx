@@ -1,11 +1,13 @@
 import type { IconName } from "@reactive-resume/ui/components/icon";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, Outlet, useMatchRoute } from "@tanstack/react-router";
 import { m } from "motion/react";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { cn } from "@reactive-resume/utils/style";
 import { D2, EASE } from "@/libs/motion";
+import { orpc } from "@/libs/orpc/client";
 
 export const Route = createFileRoute("/dashboard/career")({
 	component: CareerLayout,
@@ -27,7 +29,10 @@ type Place = {
 /** Career: Today, Coach, Knowledge and Offers under one header. The selected place's pill slides between them. */
 function CareerLayout() {
 	const matchRoute = useMatchRoute();
-	const places: Place[] = [
+	const offers = useQuery(orpc.career.savedItems.queryOptions({ input: { kind: "offer" } }));
+	const onOffers = Boolean(matchRoute({ to: "/dashboard/career/offers" }));
+	const hasOffer = offers.data?.some((item) => item.data.kind === "offer") ?? false;
+	const allPlaces: Place[] = [
 		{
 			to: "/dashboard/career",
 			match: "/dashboard/career/",
@@ -57,6 +62,7 @@ function CareerLayout() {
 			hint: t`Put two offers side by side and compare pay, place and what you give up.`,
 		},
 	];
+	const places = allPlaces.filter((place) => place.to !== "/dashboard/career/offers" || hasOffer || onOffers);
 	const current = places.find((place) => matchRoute({ to: place.match, fuzzy: place.match !== "/dashboard/career/" }));
 
 	return (

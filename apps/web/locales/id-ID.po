@@ -1549,6 +1549,7 @@ msgid "AI & developer"
 msgstr "AI & pengembang"
 
 #: src/features/quota/page.tsx
+#: src/features/user/dropdown-menu.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "AI allowance"
 msgstr "Penggunaan AI"
@@ -2327,6 +2328,10 @@ msgstr "Bengali"
 msgid "Best for applying"
 msgstr "Terbaik untuk melamar"
 
+#: src/features/user/dropdown-menu.tsx
+msgid "Billing"
+msgstr "Langganan"
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr "Penghalang"
@@ -2463,6 +2468,7 @@ msgstr "Beli pesan Coach"
 #: src/features/billing/credit-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/user/dropdown-menu.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/beli-kredit.tsx
@@ -2986,6 +2992,10 @@ msgstr "Bandingkan percobaan untuk melihat apa yang membaik. Pertanyaan latihan 
 #: src/features/career/workspace/shell.tsx
 msgid "Compare offers"
 msgstr "Bandingkan penawaran"
+
+#: src/features/career/shared.tsx
+msgid "Compare the posting with your experience before you apply."
+msgstr "Bandingkan lowongan dengan pengalamanmu sebelum melamar."
 
 #: src/features/career/offers.tsx
 msgid "Compared in their original currency and pay period. Comparing doesn't share anything with the coach."
@@ -4570,6 +4580,10 @@ msgstr "Setiap pengiriman dimulai dari awal dengan pesan ini dan file yang dipil
 msgid "earlier messages in this chat"
 msgstr "pesan sebelumnya di chat ini"
 
+#: src/features/career/shared.tsx
+msgid "Earlier results for this job. This view is read-only."
+msgstr "Hasil sebelumnya untuk lowongan ini. Tampilan ini hanya bisa dibaca."
+
 #: src/components/input/chip-input.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/career/knowledge/stories.tsx
@@ -5218,12 +5232,16 @@ msgstr "Pertama dijalankan"
 msgid "Fit"
 msgstr "Pas"
 
-#: src/features/career/shared.tsx
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/prepare.tsx
 msgctxt "Application workspace tab: how well a job fits your experience"
 msgid "Fit"
 msgstr "Kecocokan"
+
+#: src/features/career/shared.tsx
+msgctxt "Application workspace tab: how well a job fits your experience"
+msgid "Fit check"
+msgstr "Cek cocok"
 
 #: src/features/career/workspace/saved.tsx
 msgid "Fit checks, briefings, practice feedback, debriefs, answers and replies land here as the other tabs create them."
@@ -8966,6 +8984,10 @@ msgstr "Rencanakan ulang"
 msgid "Plan my preparation"
 msgstr "Rencanakan persiapan saya"
 
+#: src/features/career/shared.tsx
+msgid "Plan the interview with a short checklist and questions to ask."
+msgstr "Susun rencana wawancara dengan daftar singkat dan pertanyaan untuk pewawancara."
+
 #: src/features/career/offers.tsx
 msgid "Plan what to ask"
 msgstr "Rencanakan yang perlu ditanyakan"
@@ -9531,6 +9553,10 @@ msgstr "Dibacakan oleh {0}, yang mungkin memakai token di akun tersebut."
 msgid "Read aloud by your browser's voice."
 msgstr "Dibacakan dengan suara browser Anda."
 
+#: src/features/career/shared.tsx
+msgid "Read and answer the employer, and note what changed."
+msgstr "Baca dan balas pesan perusahaan, lalu catat apa yang berubah."
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Read briefing"
 msgstr "Baca briefing"
@@ -9724,6 +9750,10 @@ msgstr "Catat tawaran lain dari sebuah lamaran."
 #~ msgid "Record application"
 #~ msgstr "Catat lamaran"
 
+#: src/features/career/shared.tsx
+msgid "Record what the interviewer asked while it is still fresh."
+msgstr "Catat pertanyaan pewawancara selagi masih ingat."
+
 #: src/features/career/workspace/practise.tsx
 msgid "Record your answer"
 msgstr "Rekam jawaban Anda"
@@ -9817,6 +9847,10 @@ msgstr "Kebijakan Pengembalian Dana"
 #: src/features/career/workspace/prepare.tsx
 msgid "Rehearse aloud"
 msgstr "Latih dengan bersuara"
+
+#: src/features/career/shared.tsx
+msgid "Rehearse an answer and get feedback on what you actually said."
+msgstr "Latih jawaban dan minta masukan atas apa yang benar-benar kamu ucapkan."
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Rehearse one answer aloud"
@@ -12899,6 +12933,7 @@ msgid "Tracking"
 msgstr "Pelacakan"
 
 #: src/features/billing/transactions.tsx
+#: src/features/user/dropdown-menu.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "Transactions"
 msgstr "Transaksi"
@@ -14109,6 +14144,10 @@ msgstr "Tulis angka dengan digit"
 #: src/features/career/knowledge/stories.tsx
 msgid "Write one about something you did, in five parts. Leave a part blank until you can support it."
 msgstr "Tulis satu cerita tentang sesuatu yang Anda lakukan, dalam lima bagian. Biarkan bagian kosong sampai Anda bisa mendukungnya."
+
+#: src/features/career/shared.tsx
+msgid "Write the answers and check the files you will send."
+msgstr "Tulis jawaban dan periksa berkas yang akan kamu kirim."
 
 #: src/features/ats-checker/messages.ts
 msgid "Write the full address so it is recognised as a link."

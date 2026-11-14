@@ -1544,6 +1544,7 @@ msgid "AI & developer"
 msgstr "AI & developer"
 
 #: src/features/quota/page.tsx
+#: src/features/user/dropdown-menu.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "AI allowance"
 msgstr "AI allowance"
@@ -2322,6 +2323,10 @@ msgstr "Bengali"
 msgid "Best for applying"
 msgstr "Best for applying"
 
+#: src/features/user/dropdown-menu.tsx
+msgid "Billing"
+msgstr "Billing"
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr "Blocker"
@@ -2458,6 +2463,7 @@ msgstr "Buy Coach messages"
 #: src/features/billing/credit-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/user/dropdown-menu.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/beli-kredit.tsx
@@ -2981,6 +2987,10 @@ msgstr "Compare attempts to see what improved. Practice questions are simulated,
 #: src/features/career/workspace/shell.tsx
 msgid "Compare offers"
 msgstr "Compare offers"
+
+#: src/features/career/shared.tsx
+msgid "Compare the posting with your experience before you apply."
+msgstr "Compare the posting with your experience before you apply."
 
 #: src/features/career/offers.tsx
 msgid "Compared in their original currency and pay period. Comparing doesn't share anything with the coach."
@@ -4565,6 +4575,10 @@ msgstr "Each send starts fresh with this message and selected files. Previous co
 msgid "earlier messages in this chat"
 msgstr "earlier messages in this chat"
 
+#: src/features/career/shared.tsx
+msgid "Earlier results for this job. This view is read-only."
+msgstr "Earlier results for this job. This view is read-only."
+
 #: src/components/input/chip-input.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/career/knowledge/stories.tsx
@@ -5213,12 +5227,16 @@ msgstr "First run"
 msgid "Fit"
 msgstr "Fit"
 
-#: src/features/career/shared.tsx
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/prepare.tsx
 msgctxt "Application workspace tab: how well a job fits your experience"
 msgid "Fit"
 msgstr "Fit"
+
+#: src/features/career/shared.tsx
+msgctxt "Application workspace tab: how well a job fits your experience"
+msgid "Fit check"
+msgstr "Fit check"
 
 #: src/features/career/workspace/saved.tsx
 msgid "Fit checks, briefings, practice feedback, debriefs, answers and replies land here as the other tabs create them."
@@ -8961,6 +8979,10 @@ msgstr "Plan again"
 msgid "Plan my preparation"
 msgstr "Plan my preparation"
 
+#: src/features/career/shared.tsx
+msgid "Plan the interview with a short checklist and questions to ask."
+msgstr "Plan the interview with a short checklist and questions to ask."
+
 #: src/features/career/offers.tsx
 msgid "Plan what to ask"
 msgstr "Plan what to ask"
@@ -9526,6 +9548,10 @@ msgstr "Read aloud by {0}, which may use tokens on that account."
 msgid "Read aloud by your browser's voice."
 msgstr "Read aloud by your browser's voice."
 
+#: src/features/career/shared.tsx
+msgid "Read and answer the employer, and note what changed."
+msgstr "Read and answer the employer, and note what changed."
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Read briefing"
 msgstr "Read briefing"
@@ -9719,6 +9745,10 @@ msgstr "Record another offer from an application."
 #~ msgid "Record application"
 #~ msgstr "Record application"
 
+#: src/features/career/shared.tsx
+msgid "Record what the interviewer asked while it is still fresh."
+msgstr "Record what the interviewer asked while it is still fresh."
+
 #: src/features/career/workspace/practise.tsx
 msgid "Record your answer"
 msgstr "Record your answer"
@@ -9812,6 +9842,10 @@ msgstr "Refund Policy"
 #: src/features/career/workspace/prepare.tsx
 msgid "Rehearse aloud"
 msgstr "Rehearse aloud"
+
+#: src/features/career/shared.tsx
+msgid "Rehearse an answer and get feedback on what you actually said."
+msgstr "Rehearse an answer and get feedback on what you actually said."
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Rehearse one answer aloud"
@@ -12894,6 +12928,7 @@ msgid "Tracking"
 msgstr "Tracking"
 
 #: src/features/billing/transactions.tsx
+#: src/features/user/dropdown-menu.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "Transactions"
 msgstr "Transactions"
@@ -14104,6 +14139,10 @@ msgstr "Write numbers as digits"
 #: src/features/career/knowledge/stories.tsx
 msgid "Write one about something you did, in five parts. Leave a part blank until you can support it."
 msgstr "Write one about something you did, in five parts. Leave a part blank until you can support it."
+
+#: src/features/career/shared.tsx
+msgid "Write the answers and check the files you will send."
+msgstr "Write the answers and check the files you will send."
 
 #: src/features/ats-checker/messages.ts
 msgid "Write the full address so it is recognised as a link."

@@ -21,15 +21,15 @@ import { downloadWithAnchor } from "@reactive-resume/utils/file";
 import { getInitials } from "@reactive-resume/utils/string";
 import { cn } from "@reactive-resume/utils/style";
 import { useOverlayHistory, useSavedItems } from "../hooks";
-import { CountdownChip, Eyebrow, minutesUntil, tabLabel, useCareerTime, useNow } from "../shared";
+import { CountdownChip, Eyebrow, minutesUntil, tabHint, tabLabel, useCareerTime, useNow } from "../shared";
 import { ApplyTab } from "./apply";
 import { CoachSheet } from "./coach-sheet";
 import { DebriefTab } from "./debrief";
 import { FitTab } from "./fit";
 import { MessagesTab } from "./messages";
 import { PractiseTab } from "./practise";
-import { PrepareBar } from "./prepare-bar";
 import { PrepareTab } from "./prepare";
+import { PrepareBar } from "./prepare-bar";
 import { SavedTab } from "./saved";
 import { ApplicationNotes } from "@/features/applications/components/application-notes";
 import { InterviewDialog } from "@/features/applications/components/interview-dialog";
@@ -181,6 +181,14 @@ export function Workspace({ applicationId, tab: requested, search }: WorkspacePr
 	const newestReply = saved.data?.find((item) => item.data.kind === "reply");
 	const unreadMessages =
 		newestReply?.data.kind === "reply" && newestReply.data.changes.length > 0 && !newestReply.data.applied ? 1 : 0;
+	// Keep the first visit short: an empty archive and a debrief before any interview are noise.
+	const visibleTabs = WORKSPACE_TABS.filter((value) => {
+		if (value === tab) return true;
+		if (value === "saved") return (saved.data?.length ?? 0) > 0;
+		if (value === "debrief")
+			return Boolean(interview) || application.status === "interview" || application.status === "offer";
+		return true;
+	});
 	const editOpen = search.edit === "interview";
 	if (editOpen && !editing) setEditing({ id: interview?.id ?? null });
 	if (!editOpen && editing) setEditing(null);
@@ -240,7 +248,7 @@ export function Workspace({ applicationId, tab: requested, search }: WorkspacePr
 						variant="line"
 						className="h-[46px] w-full [scrollbar-width:none] justify-start gap-0 overflow-x-auto px-4 max-md:[mask-image:linear-gradient(to_right,#000_calc(100%-2rem),transparent)] md:px-6 [&_[data-slot=tabs-indicator]]:bg-accent"
 					>
-						{WORKSPACE_TABS.map((value) => (
+						{visibleTabs.map((value) => (
 							<TabsTrigger key={value} value={value} className="gap-1.5 px-3 data-active:font-semibold">
 								{tabLabel(value)}
 								{value === "prepare" && minutes !== null && minutes > 0 && minutes < 7 * 24 * 60 && (
@@ -255,6 +263,9 @@ export function Workspace({ applicationId, tab: requested, search }: WorkspacePr
 							</TabsTrigger>
 						))}
 					</TabsList>
+					<p className="border-b border-line bg-surface px-4 py-2 text-xs leading-5 text-ink-2 md:px-6">
+						{tabHint(tab)}
+					</p>
 					{application.resumeId &&
 					application.jobDescription &&
 					!application.sentResumeVersionId &&
