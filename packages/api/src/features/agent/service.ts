@@ -904,7 +904,8 @@ function createAgent(input: {
 		},
 	});
 
-	if (input.career) Object.assign(tools, buildCareerTools({ userId: input.userId, ...input.career }));
+	if (input.career)
+		Object.assign(tools, buildCareerTools({ userId: input.userId, threadId: input.threadId, ...input.career }));
 	const instructionsText = input.career
 		? buildCareerInstructions(input.career)
 		: buildAgentInstructions({

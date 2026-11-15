@@ -20,6 +20,7 @@ import {
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
 import { billingService } from "../billing/service";
 import { quotaService } from "../quota/service";
+import { careerActionProposals } from "./action-proposals";
 import { generateCareer } from "./generate";
 import { careerJobs } from "./jobs";
 import { careerService } from "./service";
@@ -89,6 +90,34 @@ export const careerRouter = {
 		.input(id)
 		.output(z.void())
 		.handler(({ context, input }) => careerJobs.markRead(context.user.id, input.id)),
+	acceptActionProposal: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/career/action-proposals/{id}/accept",
+			tags: ["Career"],
+			operationId: "acceptCareerActionProposal",
+			summary: "Save the jobs in a coach proposal",
+		})
+		.input(id)
+		.output(
+			z.object({
+				applicationIds: z.array(z.string()),
+				created: z.number().int().nonnegative(),
+				existing: z.number().int().nonnegative(),
+			}),
+		)
+		.handler(({ context, input }) => careerActionProposals.accept({ userId: context.user.id, id: input.id })),
+	dismissActionProposal: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/career/action-proposals/{id}/dismiss",
+			tags: ["Career"],
+			operationId: "dismissCareerActionProposal",
+			summary: "Dismiss a coach proposal",
+		})
+		.input(id)
+		.output(z.object({ ok: z.literal(true) }))
+		.handler(({ context, input }) => careerActionProposals.dismiss({ userId: context.user.id, id: input.id })),
 	opportunities: protectedProcedure
 		.route({
 			method: "GET",
@@ -309,10 +338,20 @@ export const careerRouter = {
 			try {
 				return await generateCareer({ userId: context.user.id, ...input, ...(signal ? { signal } : {}) });
 			} catch (error) {
-				if (charged) await quotaService.release({ userId: context.user.id, feature: "job_match" }).catch(() => undefined);
+				if (charged)
+					await quotaService.release({ userId: context.user.id, feature: "job_match" }).catch(() => undefined);
 				if (input.task.task === "practice") {
-					if (practiceCharge) await billingService.refundCredit({ userId: context.user.id, kind: "interview", reason: "Latihan gagal, kredit dikembalikan" }).catch(() => undefined);
-					await quotaService.releasePracticeSession({ userId: context.user.id, applicationId: input.applicationId }).catch(() => undefined);
+					if (practiceCharge)
+						await billingService
+							.refundCredit({
+								userId: context.user.id,
+								kind: "interview",
+								reason: "Latihan gagal, kredit dikembalikan",
+							})
+							.catch(() => undefined);
+					await quotaService
+						.releasePracticeSession({ userId: context.user.id, applicationId: input.applicationId })
+						.catch(() => undefined);
 				}
 				throw error;
 			}

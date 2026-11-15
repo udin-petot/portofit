@@ -1,15 +1,24 @@
 import type { WorkspaceTab } from "@reactive-resume/schema/career";
 import { tool, type ToolSet } from "ai";
-import { and, desc, eq } from "drizzle-orm";
+import { and, desc, eq, gte, isNull } from "drizzle-orm";
 import z from "zod";
 import { careerSystemPromptTemplate } from "@reactive-resume/ai/prompts";
 import { db } from "@reactive-resume/db/client";
-import { application, careerArtifact } from "@reactive-resume/db/schema";
+import {
+	application,
+	careerArtifact,
+	careerNotification,
+	careerOpportunity,
+	careerSchedule,
+} from "@reactive-resume/db/schema";
 import { careerStoryInputSchema, factCategorySchema } from "@reactive-resume/schema/career";
+import { careerActionProposals } from "./action-proposals";
+import { CAREER_PRODUCT_GUIDE } from "./guide";
 import { careerService, modelFact } from "./service";
 
 type CareerToolsInput = {
 	userId: string;
+	threadId?: string;
 	context: Awaited<ReturnType<typeof careerService.context>>;
 	shareApplication: boolean;
 	shareMemory: boolean;
@@ -49,6 +58,70 @@ function boundedItems<T>(items: T[], budget: number) {
 	return { items: selected, truncated: selected.length < items.length };
 }
 
+type ApplicationRow = typeof application.$inferSelect;
+type InterviewEntry = Extract<ApplicationRow["activity"][number], { type: "interview" }>;
+
+const DAY_MS = 86_400_000;
+
+/** Interviews still to come, soonest first; no descriptions or private document contents. */
+function upcomingInterviews(rows: ApplicationRow[], days: number, now = new Date()) {
+	const until = now.getTime() + days * DAY_MS;
+	return rows
+		.flatMap((row) =>
+			row.activity.flatMap((entry) =>
+				entry.type === "interview" &&
+				new Date(entry.at).getTime() >= now.getTime() &&
+				new Date(entry.at).getTime() <= until
+					? [
+							{
+								applicationId: row.id,
+								company: row.company,
+								role: row.role,
+								at: entry.at,
+								kind: entry.kind,
+								durationMinutes: entry.durationMinutes,
+								location: entry.location ?? null,
+							},
+						]
+					: [],
+			),
+		)
+		.sort((a, b) => new Date(a.at).getTime() - new Date(b.at).getTime());
+}
+
+function nextInterview(row: ApplicationRow, now = new Date()): InterviewEntry | null {
+	return (
+		row.activity
+			.filter(
+				(entry): entry is InterviewEntry => entry.type === "interview" && new Date(entry.at).getTime() >= now.getTime(),
+			)
+			.sort((a, b) => new Date(a.at).getTime() - new Date(b.at).getTime())[0] ?? null
+	);
+}
+
+function applicationSummary(row: ApplicationRow, now = new Date()) {
+	const interview = nextInterview(row, now);
+	return {
+		id: row.id,
+		company: row.company,
+		role: row.role,
+		status: row.status,
+		location: row.location,
+		salary: row.salary,
+		sourceUrl: row.sourceUrl,
+		requirements: row.requirements.slice(0, 12),
+		updatedAt: row.updatedAt.toISOString(),
+		nextInterview: interview
+			? {
+					at: interview.at,
+					kind: interview.kind,
+					durationMinutes: interview.durationMinutes,
+					location: interview.location ?? null,
+				}
+			: null,
+	};
+}
+
 export function buildCareerInstructions(
 	input: Pick<CareerToolsInput, "context" | "shareApplication" | "shareMemory" | "tab"> & {
 		offers?: Array<{ application: { company: string; role: string } | null; data: unknown }>;
@@ -74,6 +147,7 @@ export function buildCareerInstructions(
 	return careerSystemPromptTemplate
 		.replace("{{TASK}}", task)
 		.replace("{{MEMORY}}", input.shareMemory ? MEMORY[context.profile.memoryMode] : MEMORY.off)
+		.replace("{{PRODUCT}}", CAREER_PRODUCT_GUIDE)
 		.replace("{{CONTEXT}}", JSON.stringify(selected));
 }
 
@@ -182,6 +256,229 @@ export function buildCareerTools(input: CareerToolsInput): ToolSet {
 					.where(eq(application.userId, input.userId))
 					.orderBy(desc(application.updatedAt))
 					.limit(50),
+		});
+	if (input.shareApplication) {
+		tools.list_applications = tool({
+			description:
+				"Read the user's applications and saved jobs: status, place, salary, next interview, and source. Use this to compare applications or answer what they already have.",
+			inputSchema: z.object({}),
+			execute: async () => {
+				const rows = await db
+					.select()
+					.from(application)
+					.where(eq(application.userId, input.userId))
+					.orderBy(desc(application.updatedAt))
+					.limit(50);
+				return rows.map((row) => applicationSummary(row));
+			},
+		});
+		tools.get_application = tool({
+			description:
+				"Read one of the user's applications in more detail, including its upcoming interviews and saved offers. It never returns another user's data.",
+			inputSchema: z.object({ id: z.string().trim().min(1).max(64) }),
+			execute: async ({ id }) => {
+				const [row] = await db
+					.select()
+					.from(application)
+					.where(and(eq(application.id, id), eq(application.userId, input.userId)));
+				if (!row) return { found: false as const };
+				const artifacts = await db
+					.select({ id: careerArtifact.id, data: careerArtifact.data, createdAt: careerArtifact.createdAt })
+					.from(careerArtifact)
+					.where(and(eq(careerArtifact.userId, input.userId), eq(careerArtifact.applicationId, row.id)));
+				const offers = artifacts
+					.filter((item) => item.data.kind === "offer")
+					.map((item) => ({ id: item.id, terms: item.data, createdAt: item.createdAt.toISOString() }));
+				return {
+					found: true as const,
+					...applicationSummary(row),
+					jobDescription: row.jobDescription?.slice(0, 4_000) ?? null,
+					notes: row.notes,
+					tags: row.tags,
+					interviews: upcomingInterviews([row], 365),
+					offers,
+				};
+			},
+		});
+		tools.list_saved_offers = tool({
+			description:
+				"Read the user's saved offers, with terms in their original currency and pay period. Use this to compare offers or answer what they received.",
+			inputSchema: z.object({}),
+			execute: async () => {
+				const items = await careerService.savedItems({ userId: input.userId, kind: "offer" });
+				return items.slice(0, 20).map((item) => ({
+					id: item.id,
+					application: item.application,
+					terms: item.data,
+					createdAt: item.createdAt.toISOString(),
+				}));
+			},
+		});
+		tools.list_calendar = tool({
+			description:
+				"Read the user's upcoming interviews and career schedules. Times are ISO strings; use the user's timezone from preferences when explaining them.",
+			inputSchema: z.object({ days: z.number().int().min(1).max(90).default(30) }),
+			execute: async ({ days }) => {
+				const rows = await db
+					.select()
+					.from(application)
+					.where(eq(application.userId, input.userId))
+					.orderBy(desc(application.updatedAt))
+					.limit(100);
+				const now = new Date();
+				const schedules = await db
+					.select({
+						id: careerSchedule.id,
+						kind: careerSchedule.kind,
+						query: careerSchedule.query,
+						nextRunAt: careerSchedule.nextRunAt,
+						enabled: careerSchedule.enabled,
+					})
+					.from(careerSchedule)
+					.where(and(eq(careerSchedule.userId, input.userId), gte(careerSchedule.nextRunAt, now)))
+					.orderBy(careerSchedule.nextRunAt)
+					.limit(30);
+				return {
+					interviews: upcomingInterviews(rows, days, now),
+					schedules: schedules.map((item) => ({ ...item, nextRunAt: item.nextRunAt.toISOString() })),
+				};
+			},
+		});
+		tools.list_career_today = tool({
+			description:
+				"Read what needs the user now: unread career notices, upcoming interviews, recent discovered roles, schedules, and offers waiting for a decision.",
+			inputSchema: z.object({}),
+			execute: async () => {
+				const now = new Date();
+				const [applications, notifications, opportunities, schedules, offers] = await Promise.all([
+					db
+						.select()
+						.from(application)
+						.where(eq(application.userId, input.userId))
+						.orderBy(desc(application.updatedAt))
+						.limit(100),
+					db
+						.select({ id: careerNotification.id, notice: careerNotification.notice, url: careerNotification.url })
+						.from(careerNotification)
+						.where(and(eq(careerNotification.userId, input.userId), isNull(careerNotification.readAt)))
+						.orderBy(desc(careerNotification.createdAt))
+						.limit(10),
+					db
+						.select({
+							id: careerOpportunity.id,
+							company: careerOpportunity.company,
+							role: careerOpportunity.role,
+							url: careerOpportunity.url,
+							location: careerOpportunity.location,
+							lastSeenAt: careerOpportunity.lastSeenAt,
+						})
+						.from(careerOpportunity)
+						.where(and(eq(careerOpportunity.userId, input.userId), isNull(careerOpportunity.dismissedAt)))
+						.orderBy(desc(careerOpportunity.lastSeenAt))
+						.limit(5),
+					db
+						.select({
+							id: careerSchedule.id,
+							kind: careerSchedule.kind,
+							query: careerSchedule.query,
+							nextRunAt: careerSchedule.nextRunAt,
+							enabled: careerSchedule.enabled,
+						})
+						.from(careerSchedule)
+						.where(and(eq(careerSchedule.userId, input.userId), gte(careerSchedule.nextRunAt, now)))
+						.orderBy(careerSchedule.nextRunAt)
+						.limit(10),
+					careerService.savedItems({ userId: input.userId, kind: "offer" }),
+				]);
+				return {
+					notifications,
+					upcomingInterviews: upcomingInterviews(applications, 7, now),
+					newRoles: opportunities.map((item) => ({ ...item, lastSeenAt: item.lastSeenAt.toISOString() })),
+					schedules: schedules.map((item) => ({ ...item, nextRunAt: item.nextRunAt.toISOString() })),
+					offersWaiting: offers.slice(0, 5).map((item) => ({
+						id: item.id,
+						application: item.application,
+						terms: item.data,
+					})),
+				};
+			},
+		});
+	}
+
+	const safeHttpUrl = z
+		.string()
+		.trim()
+		.max(2_000)
+		.refine((value) => {
+			try {
+				const url = new URL(value);
+				return url.protocol === "http:" || url.protocol === "https:";
+			} catch {
+				return false;
+			}
+		}, "Use an http or https URL.");
+	const proposedJob = z.object({
+		role: z.string().trim().min(1).max(200),
+		company: z.string().trim().min(1).max(200),
+		sourceUrl: safeHttpUrl.optional(),
+		location: z.string().trim().max(200).optional(),
+		salary: z.string().trim().max(200).optional(),
+		requirements: z.array(z.string().trim().min(1).max(200)).max(20).optional(),
+		description: z.string().trim().max(3_000).optional(),
+		reason: z.string().trim().max(500).optional(),
+	});
+	const threadId = input.threadId;
+	if (input.shareApplication && threadId)
+		tools.propose_save_jobs = tool({
+			description:
+				"Propose up to five jobs to save as applications with status saved. This does not save anything: the user must accept a confirmation card. Include the source URL and why each job fits. Never claim it was saved.",
+			inputSchema: z.object({ jobs: z.array(proposedJob).min(1).max(5) }),
+			execute: async ({ jobs }) => {
+				const seen = new Set<string>();
+				const unique: Array<(typeof jobs)[number] & { duplicateApplicationId: string | null }> = [];
+				for (const job of jobs) {
+					const key = job.sourceUrl
+						? `url:${job.sourceUrl.toLowerCase()}`
+						: `name:${job.company.toLowerCase()}:${job.role.toLowerCase()}`;
+					if (seen.has(key)) continue;
+					seen.add(key);
+					const [duplicate] = await db
+						.select({ id: application.id })
+						.from(application)
+						.where(
+							and(
+								eq(application.userId, input.userId),
+								job.sourceUrl
+									? eq(application.sourceUrl, job.sourceUrl)
+									: and(eq(application.company, job.company), eq(application.role, job.role)),
+							),
+						)
+						.limit(1);
+					unique.push({ ...job, duplicateApplicationId: duplicate?.id ?? null });
+				}
+				if (unique.length === 0) throw new Error("No new jobs to propose; all of them are already in Applications.");
+				const proposal = await careerActionProposals.create({
+					userId: input.userId,
+					threadId,
+					jobs: unique.map((job) => ({
+						role: job.role,
+						company: job.company,
+						sourceUrl: job.sourceUrl ?? null,
+						location: job.location ?? null,
+						salary: job.salary ?? null,
+						requirements: job.requirements ?? [],
+						description: job.description ?? null,
+						reason: job.reason ?? null,
+						duplicateApplicationId: job.duplicateApplicationId ?? null,
+					})),
+				});
+				return {
+					status: "proposed" as const,
+					proposalId: proposal.id,
+					expiresAt: proposal.expiresAt.toISOString(),
+					jobs: proposal.jobs,
+				};
+			},
 		});
 	return tools;
 }

@@ -12,6 +12,19 @@ import { aiProvider } from "./agent";
 import { application } from "./applications";
 import { user } from "./auth";
 
+/** One job the coach proposes to save. Stored server-side so the card never trusts the browser with job fields. */
+export type CareerActionJob = {
+	role: string;
+	company: string;
+	sourceUrl: string | null;
+	location: string | null;
+	salary: string | null;
+	requirements: string[];
+	description: string | null;
+	reason: string | null;
+	duplicateApplicationId?: string | null;
+};
+
 const owned = () => ({
 	id: pg
 		.text("id")
@@ -154,6 +167,23 @@ export const careerOpportunity = pg.pgTable(
 		trackedApplicationId: pg.text("tracked_application_id").references(() => application.id, { onDelete: "set null" }),
 	},
 	(t) => [pg.uniqueIndex().on(t.userId, t.url)],
+);
+
+/**
+ * A coach proposal to save jobs. It is not an application: the user accepts it on a confirmation card, and the
+ * server re-checks ownership, expiry and duplicates before creating anything.
+ */
+export const careerActionProposal = pg.pgTable(
+	"career_action_proposal",
+	{
+		...owned(),
+		threadId: pg.text("thread_id").notNull(),
+		status: pg.text("status").$type<"pending" | "accepted" | "dismissed" | "expired">().notNull().default("pending"),
+		jobs: pg.jsonb("jobs").notNull().$type<CareerActionJob[]>(),
+		expiresAt: pg.timestamp("expires_at", { withTimezone: true }).notNull(),
+		acceptedAt: pg.timestamp("accepted_at", { withTimezone: true }),
+	},
+	(t) => [pg.index().on(t.userId, t.threadId), pg.index().on(t.status, t.expiresAt)],
 );
 
 /** One application's live workspace state: answers, checklist ticks, questions to ask. */

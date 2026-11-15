@@ -2301,6 +2301,10 @@ msgstr "Base URL"
 msgid "Basics"
 msgstr "Basics"
 
+#: src/features/career/coach-action-proposal.tsx
+msgid "Batal"
+msgstr "Batal"
+
 #: src/features/resume/share/format.ts
 msgid "Before restore"
 msgstr "Before restore"
@@ -2429,6 +2433,10 @@ msgstr "Built from the posting, Sari’s message and your two strongest stories.
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "Built-in reader"
+
+#: src/features/career/coach-action-proposal.tsx
+msgid "Buka lamaran"
+msgstr "Buka lamaran"
 
 #: src/libs/locale.ts
 msgid "Bulgarian"
@@ -2898,6 +2906,7 @@ msgstr "Close…"
 
 #: src/features/applications/next-step.ts
 #: src/features/applications/stages.ts
+#: src/routes/dashboard/applications/index.tsx
 msgid "Closed"
 msgstr "Closed"
 
@@ -4296,6 +4305,10 @@ msgstr "Discard changes?"
 #: src/features/settings/account/security.tsx
 msgid "Disconnect"
 msgstr "Disconnect"
+
+#: src/features/career/coach-action-proposal.tsx
+msgid "Disimpan ke lamaran"
+msgstr "Disimpan ke lamaran"
 
 #: src/features/documents/start-guide.tsx
 #: src/features/resume/editor/write/write-panel.tsx
@@ -8959,6 +8972,10 @@ msgstr "Picking your stories"
 msgid "Picture"
 msgstr "Picture"
 
+#: src/features/career/coach-action-proposal.tsx
+msgid "Pilih yang cocok. Baru setelah kamu menekan Simpan, lowongan masuk ke lamaran."
+msgstr "Pilih yang cocok. Baru setelah kamu menekan Simpan, lowongan masuk ke lamaran."
+
 #: src/features/applications/components/insights-view.tsx
 msgid "Pipeline flow"
 msgstr "Pipeline flow"
@@ -10450,8 +10467,8 @@ msgid "Save a job"
 msgstr "Save a job"
 
 #: src/routes/dashboard/applications/index.tsx
-msgid "Save a job first"
-msgstr "Save a job first"
+#~ msgid "Save a job first"
+#~ msgstr "Save a job first"
 
 #: src/features/career/today.tsx
 msgid "Save a job or record an application"
@@ -10518,7 +10535,6 @@ msgid "Save interview"
 msgstr "Save interview"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/routes/dashboard/applications/index.tsx
 msgid "Save job"
 msgstr "Save job"
 
@@ -10564,6 +10580,7 @@ msgstr "saved"
 #: src/features/homepage/tailor.tsx
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
+#: src/routes/dashboard/applications/index.tsx
 msgid "Saved"
 msgstr "Saved"
 
@@ -11286,6 +11303,14 @@ msgstr "Signing in..."
 msgid "Signing up..."
 msgstr "Signing up..."
 
+#: src/features/career/coach-action-proposal.tsx
+msgid "Simpan ke lamaran"
+msgstr "Simpan ke lamaran"
+
+#: src/features/career/coach-action-proposal.tsx
+msgid "Simpan lowongan ini?"
+msgstr "Simpan lowongan ini?"
+
 #: src/features/homepage/check.tsx
 msgid "Sinarpagi Labs"
 msgstr "Sinarpagi Labs"
@@ -11826,6 +11851,10 @@ msgstr "Submitted attached resume: {0}"
 #: src/features/career/workspace/prepare.tsx
 msgid "Success at 90 days · next step"
 msgstr "Success at 90 days · next step"
+
+#: src/features/career/coach-action-proposal.tsx
+msgid "Sudah ada di lamaran"
+msgstr "Sudah ada di lamaran"
 
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Suggest again"

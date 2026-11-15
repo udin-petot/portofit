@@ -22,6 +22,7 @@ import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
 import { cn } from "@reactive-resume/utils/style";
+import { CoachActionProposal, actionProposalSchema } from "./coach-action-proposal";
 import { useSessionDraft } from "./hooks";
 import { Eyebrow, MemoryProposal, useCareerTime, useNow, withUndo, Working, workingSteps } from "./shared";
 import { attachmentPart, fileToBase64, useAssistantChat } from "@/features/assistant/chat";
@@ -551,6 +552,10 @@ function MessageView({ message, used, streaming, enter, knowledge, company, scop
 		const parsed = opportunitiesSchema.safeParse(part.output);
 		return parsed.success ? parsed.data : [];
 	});
+	const proposals = outputsOf(message, "propose_save_jobs").flatMap((part) => {
+		const parsed = actionProposalSchema.safeParse(part.output);
+		return parsed.success ? [parsed.data] : [];
+	});
 
 	return (
 		<div className={cn("grid min-w-0 gap-3", enter && ENTER_CLASS)}>
@@ -597,6 +602,8 @@ function MessageView({ message, used, streaming, enter, knowledge, company, scop
 			))}
 
 			{!streaming && <MemoryNotes message={message} knowledge={knowledge} company={company} />}
+
+			{!streaming && proposals.map((proposal) => <CoachActionProposal key={proposal.proposalId} output={proposal} />)}
 
 			{!streaming && text && (
 				<div className="flex gap-1">
