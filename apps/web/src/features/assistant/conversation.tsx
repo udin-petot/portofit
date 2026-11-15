@@ -69,15 +69,16 @@ export function Conversation(props: ConversationProps) {
 	// Messages already in the thread when it opens are history; only new ones rise in.
 	const [initialIds] = useState(() => new Set(props.initialMessages.map((message) => message.id)));
 
-	const refresh = () => {
+	// `onFinish` hands over `isError`; `record` calls this through `.then`, where the value is a count.
+	const refresh = (outcome?: unknown) => {
 		void queryClient.invalidateQueries({
 			queryKey: orpc.agent.threads.list.key(),
 		});
 		// Every assistant message claims Coach allowance or paid Coach credits; keep the remaining count current.
 		void queryClient.invalidateQueries({ queryKey: orpc.quota.status.key() });
 		void queryClient.invalidateQueries({ queryKey: orpc.billing.balances.key() });
-		// A finished run means the message was delivered, so there is nothing left to copy.
-		setUnsent(null);
+		// onFinish also runs for a failed send, and a failed send is exactly what the user may still want to copy.
+		if (!(outcome as { isError?: boolean } | undefined)?.isError) setUnsent(null);
 	};
 	const { messages, sendMessage, status, error, clearError, regenerate, stop, addToolOutput } = useAssistantChat({
 		threadId,
