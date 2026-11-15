@@ -125,12 +125,12 @@ function RouteComponent() {
 	const allHidden = !!applications && !empty && !text && !saved && savedCount > 0 && filtered.length === 0;
 
 	return (
-		<div className="mx-auto grid w-full max-w-[1180px] content-start gap-5 px-8 py-8 max-sm:px-4 max-sm:py-5">
-			<header className="flex flex-wrap items-center justify-between gap-3">
-				<h1 className="font-display text-[30px] leading-9 font-medium">
+		<div className="mx-auto grid w-full max-w-[1180px] content-start gap-5 px-8 py-8 max-sm:px-4 max-sm:py-5 max-sm:pb-28">
+			<header className="flex min-w-0 items-center justify-between gap-3">
+				<h1 className="min-w-0 truncate font-display text-[26px] leading-8 font-medium sm:text-[30px] sm:leading-9">
 					<Trans>Applications</Trans>
 				</h1>
-				<div className="flex flex-wrap items-center justify-end gap-2">
+				<div className="flex shrink-0 items-center gap-2">
 					<DropdownMenu>
 						<DropdownMenuTrigger render={<Button variant="secondary" aria-label={t`Import or export CSV`} />}>
 							<Icon name="file-text" />
@@ -145,13 +145,11 @@ function RouteComponent() {
 							</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>
-					<Button variant="secondary" onClick={() => openAdd("saved")}>
-						<Icon name="bookmark-simple" />
-						<Trans>Save job</Trans>
-					</Button>
-					<Button onClick={() => openAdd("applied")}>
+					<Button className="max-sm:px-3" aria-label={t`Add application`} onClick={() => openAdd("applied")}>
 						<Icon name="plus" />
-						<Trans>Add application</Trans>
+						<span className="max-[360px]:sr-only">
+							<Trans>Add application</Trans>
+						</span>
 					</Button>
 				</div>
 			</header>
@@ -176,7 +174,7 @@ function RouteComponent() {
 				<EmptyState onAdd={openAdd} onImport={() => setImporting(true)} />
 			) : (
 				<>
-					<div className="flex flex-wrap items-center gap-2">
+					<div className="grid gap-2 sm:grid-cols-[auto_minmax(0,1fr)_auto_auto] sm:items-center">
 						<Tabs
 							value={shown}
 							onValueChange={(value) => {
@@ -184,7 +182,10 @@ function RouteComponent() {
 								setSearch({ view: value as View });
 							}}
 						>
-							<TabsList aria-label={t`View`} className="max-w-full [scrollbar-width:none] overflow-x-auto">
+							<TabsList
+								aria-label={t`View`}
+								className="grid w-full [scrollbar-width:none] grid-cols-4 sm:flex sm:w-auto"
+							>
 								<TabsTrigger value="list" className="px-2.5">
 									<Icon name="rows" size={16} />
 									<Trans>List</Trans>
@@ -204,7 +205,7 @@ function RouteComponent() {
 							</TabsList>
 						</Tabs>
 
-						<div className="relative min-w-40 basis-full sm:max-w-72 sm:flex-1 sm:basis-auto">
+						<div className="relative min-w-0 sm:max-w-72">
 							<Icon
 								name="magnifying-glass"
 								size={18}
@@ -220,30 +221,32 @@ function RouteComponent() {
 							/>
 						</div>
 
-						{savedCount > 0 && (
-							<Button
-								variant="secondary"
-								aria-pressed={saved}
-								onClick={() => setSearch({ saved: !saved })}
-								className={cn(saved && "bg-sunken")}
-							>
-								<Icon name={saved ? "check-square" : "square"} size={18} />
-								<Trans>Saved jobs</Trans>
-								<span className="font-mono text-xs text-ink-3">{savedCount}</span>
-							</Button>
-						)}
+						<div className="flex min-w-0 [scrollbar-width:none] gap-2 overflow-x-auto pb-0.5 sm:contents">
+							{savedCount > 0 && (
+								<Button
+									variant="secondary"
+									aria-pressed={saved}
+									onClick={() => setSearch({ saved: !saved })}
+									className={cn("shrink-0", saved && "bg-sunken")}
+								>
+									<Icon name={saved ? "check-square" : "square"} size={18} />
+									<Trans>Saved jobs</Trans>
+									<span className="font-mono text-xs text-ink-3">{savedCount}</span>
+								</Button>
+							)}
 
-						{shown !== "insights" && (
-							<Button
-								variant="secondary"
-								aria-pressed={closed}
-								onClick={() => setSearch({ closed: !closed })}
-								className={cn(closed && "bg-sunken")}
-							>
-								<Icon name={closed ? "check-square" : "square"} size={18} />
-								<Trans>Show closed</Trans>
-							</Button>
-						)}
+							{shown !== "insights" && (
+								<Button
+									variant="secondary"
+									aria-pressed={closed}
+									onClick={() => setSearch({ closed: !closed })}
+									className={cn("shrink-0", closed && "bg-sunken")}
+								>
+									<Icon name={closed ? "check-square" : "square"} size={18} />
+									<Trans>Show closed</Trans>
+								</Button>
+							)}
+						</div>
 					</div>
 
 					<p className="text-xs leading-[18px] text-ink-3">
@@ -443,10 +446,6 @@ function EmptyState({ onAdd, onImport }: { onAdd: (stage: ApplicationStartStage)
 				<Button onClick={() => onAdd("applied")}>
 					<Icon name="plus" />
 					<Trans>Record an application</Trans>
-				</Button>
-				<Button variant="secondary" onClick={() => onAdd("saved")}>
-					<Icon name="bookmark-simple" />
-					<Trans>Save a job first</Trans>
 				</Button>
 			</div>
 			<Button variant="link" size="sm" onClick={onImport} className="text-xs text-ink-3">
