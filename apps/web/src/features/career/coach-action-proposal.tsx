@@ -48,7 +48,6 @@ export function CoachActionProposal({ output }: { output: ActionProposalOutput }
 		() => new Set(output.jobs.flatMap((job, index) => (job.duplicateApplicationId ? [] : [String(index)]))),
 	);
 	const [done, setDone] = useState<"accepted" | "dismissed" | null>(null);
-	const [acceptedId, setAcceptedId] = useState<string | null>(null);
 	const accept = useMutation(orpc.career.acceptActionProposal.mutationOptions());
 	const dismiss = useMutation(orpc.career.dismissActionProposal.mutationOptions());
 	const selectedJobs = output.jobs.filter((_, index) => selected.has(String(index)));
@@ -67,7 +66,6 @@ export function CoachActionProposal({ output }: { output: ActionProposalOutput }
 	const submit = async () => {
 		try {
 			const result = await accept.mutateAsync({ id: output.proposalId });
-			setAcceptedId(result.applicationIds[0] ?? null);
 			setDone("accepted");
 			void queryClient.invalidateQueries({ queryKey: orpc.applications.list.key() });
 			toast.add({
@@ -105,7 +103,6 @@ export function CoachActionProposal({ output }: { output: ActionProposalOutput }
 				</p>
 				<Link to="/dashboard/applications" className="text-sm text-accent-text underline underline-offset-2">
 					<Trans>Buka lamaran</Trans>
-					{acceptedId ? <span className="sr-only"> {acceptedId}</span> : null}
 				</Link>
 			</div>
 		);

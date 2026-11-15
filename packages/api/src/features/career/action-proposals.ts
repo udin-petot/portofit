@@ -79,13 +79,13 @@ export const careerActionProposals = {
 					),
 				);
 			const remaining = MAX_SAVED_PER_DAY - (savedToday?.count ?? 0);
-			if (remaining <= 0)
+			if (remaining < proposal.jobs.length)
 				throw new ORPCError("TOO_MANY_REQUESTS", { message: "Daily save limit reached. Try again tomorrow." });
 
 			const applicationIds: string[] = [];
 			let created = 0;
 			let existing = 0;
-			for (const job of proposal.jobs.slice(0, Math.min(MAX_JOBS, remaining))) {
+			for (const job of proposal.jobs.slice(0, MAX_JOBS)) {
 				const [duplicate] = await tx
 					.select({ id: application.id })
 					.from(application)

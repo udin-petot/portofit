@@ -428,12 +428,16 @@ export function buildCareerTools(input: CareerToolsInput): ToolSet {
 		reason: z.string().trim().max(500).optional(),
 	});
 	const threadId = input.threadId;
+	let proposalIssued = false;
 	if (input.shareApplication && threadId)
 		tools.propose_save_jobs = tool({
 			description:
 				"Propose up to five jobs to save as applications with status saved. This does not save anything: the user must accept a confirmation card. Include the source URL and why each job fits. Never claim it was saved.",
 			inputSchema: z.object({ jobs: z.array(proposedJob).min(1).max(5) }),
 			execute: async ({ jobs }) => {
+				if (proposalIssued)
+					throw new Error("Only one save proposal is allowed per reply. Ask the user to handle this card first.");
+				proposalIssued = true;
 				const seen = new Set<string>();
 				const unique: Array<(typeof jobs)[number] & { duplicateApplicationId: string | null }> = [];
 				for (const job of jobs) {
