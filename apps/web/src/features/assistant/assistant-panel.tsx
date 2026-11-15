@@ -83,7 +83,11 @@ export function AssistantPanel({ document, onClose }: AssistantPanelProps) {
 	}, [queryClient]);
 	const open = useEditorStore((state) => state.assistantOpen);
 	useEffect(() => {
-		if (!open) discardDraft();
+		if (open) return;
+		// The thread is gone with the draft, so its attachments cannot be sent any more; start the composer clean.
+		discardDraft();
+		setPromptAttachments([]);
+		setDraftKey((key) => key + 1);
 	}, [open, discardDraft]);
 	useEffect(() => discardDraft, [discardDraft]);
 
