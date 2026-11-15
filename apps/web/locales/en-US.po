@@ -14728,3 +14728,7 @@ msgstr "Zoom out"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "CV"
+msgstr "CV"

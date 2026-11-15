@@ -149,7 +149,7 @@ msgstr "{0, plural, one {# temuan diabaikan.} other {# temuan diabaikan.}}"
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "{0, plural, one {# proposed edit} other {# proposed edits}}"
-msgstr "{0, plural, one {# mengusulkan pengeditan} other {# mengusulkan pengeditan}}"
+msgstr "{0, plural, one {# usulan pengeditan} other {# usulan pengeditan}}"
 
 #. placeholder {0}: result.skipped
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -352,7 +352,7 @@ msgstr "{0} dari {1} pemeriksaan yang berlaku berhasil."
 #. placeholder {1}: thread.editsProposed
 #: src/features/assistant/assistant-panel.tsx
 msgid "{0} of {1} edits accepted"
-msgstr "{0} dari pengeditan {1} diterima"
+msgstr "{0} dari {1} pengeditan diterima"
 
 #. placeholder {0}: result.found.length
 #. placeholder {1}: result.total
@@ -14733,3 +14733,7 @@ msgstr "Perkecil"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "CV"
+msgstr "CV"

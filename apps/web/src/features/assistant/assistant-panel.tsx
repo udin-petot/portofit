@@ -70,6 +70,20 @@ export function AssistantPanel({ document, onClose }: AssistantPanelProps) {
 	const draftThread = useRef<string | null>(null);
 	const creatingThread = useRef<Promise<string> | null>(null);
 
+	// A draft thread exists only so an attachment has somewhere to belong. Closing the panel without sending would
+	// leave an empty conversation in the history, so the draft is removed when the panel goes away.
+	useEffect(() => {
+		return () => {
+			const draft = draftThread.current;
+			if (!draft) return;
+			draftThread.current = null;
+			void client.agent.threads
+				.delete({ id: draft })
+				.then(() => queryClient.invalidateQueries({ queryKey: orpc.agent.threads.list.key() }))
+				.catch(() => undefined);
+		};
+	}, [queryClient]);
+
 	const mine = (threads.data ?? []).filter((thread) => belongsTo(thread, document));
 	// Opens the document's latest conversation unless a new one (or another) was asked for.
 	const threadId = selected === "new" ? null : (selected ?? mine[0]?.id ?? null);
@@ -410,7 +424,7 @@ function suggestionsFor(document: AssistantDocument, prepare: boolean): Suggesti
 type EmptyStateProps = { document: AssistantDocument; disabled: boolean; onPick: (text: string) => void };
 
 function EmptyState({ document, disabled, onPick }: EmptyStateProps) {
-	const kind = document.kind === "letter" ? t`letter` : t`resume`;
+	const kind = document.kind === "letter" ? t`letter` : t`CV`;
 	const prepare = useEditorStore((state) => state.assistantSuggestions === "prepare");
 
 	return (

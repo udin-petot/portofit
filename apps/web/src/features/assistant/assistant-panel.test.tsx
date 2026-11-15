@@ -13,6 +13,7 @@ const mocks = vi.hoisted(() => ({
 	setSelected: vi.fn(),
 	setPrompt: vi.fn(),
 	invalidate: vi.fn(),
+	remove: vi.fn(),
 }));
 vi.mock("@tanstack/react-query", async (importOriginal) => ({
 	...(await importOriginal<typeof import("@tanstack/react-query")>()),
@@ -40,7 +41,7 @@ vi.mock("@/features/settings/integrations/hooks/use-has-usable-ai-provider", () 
 	}),
 }));
 vi.mock("@/libs/orpc/client", () => ({
-	client: { agent: { threads: { start: mocks.start }, attachments: { create: mocks.attach } } },
+	client: { agent: { threads: { start: mocks.start, delete: mocks.remove }, attachments: { create: mocks.attach } } },
 	orpc: {
 		agent: {
 			threads: {
@@ -75,6 +76,7 @@ beforeEach(() => {
 		mocks.selected = selected;
 	});
 	mocks.start.mockResolvedValue({ id: "draft-thread" });
+	mocks.remove.mockResolvedValue(undefined);
 	mocks.attach.mockResolvedValue({ id: "file-1", filename: "posting.txt", mediaType: "text/plain" });
 	i18n.loadAndActivate({ locale: "en-US", messages: {} });
 });
@@ -103,6 +105,9 @@ it("keeps first-message text and attachments when the draft appears in a backgro
 	expect((screen.getByRole("textbox") as HTMLTextAreaElement).value).toBe("Keep my first message");
 	expect(screen.getByText("posting.txt")).toBeDefined();
 	expect(mocks.setSelected).toHaveBeenCalledWith("new");
+	// Closing the panel must not leave the empty draft conversation behind.
+	cleanup();
+	await waitFor(() => expect(mocks.remove).toHaveBeenCalledWith({ id: "draft-thread" }));
 });
 
 it("shows the managed connection as AI PortoFit and hides its model", () => {
