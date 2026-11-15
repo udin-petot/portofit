@@ -1,7 +1,8 @@
 import { z } from "zod";
 import { improveSystemPrompt, improveUserPromptTemplate } from "@reactive-resume/ai/prompts";
 import { generateJson } from "./generate-json";
-import { getModel } from "./service";
+import type { getModel } from "./service";
+import { getModelWithFallback } from "./service";
 
 const REQUESTS = {
 	verb: "Stronger verb",
@@ -61,7 +62,7 @@ function buildUserPrompt(input: ImproveInput): string {
 /** One suggested rewrite of one line. Nothing is written: the user replaces the line or keeps theirs. */
 export function improveLine(input: ImproveServiceInput): Promise<ImproveOutput> {
 	return generateJson(
-		getModel(input),
+		getModelWithFallback(input),
 		{ system: improveSystemPrompt, prompt: buildUserPrompt(input) },
 		improveOutputSchema,
 	);

@@ -1,7 +1,8 @@
 import { z } from "zod";
 import { atsReviewSystemPrompt, atsReviewUserPromptTemplate } from "@reactive-resume/ai/prompts";
 import { generateJson } from "./generate-json";
-import { getModel } from "./service";
+import type { getModel } from "./service";
+import { getModelWithFallback } from "./service";
 
 /** Roughly a very long resume. The client truncates the extracted text to this before sending. */
 const MAX_EXTRACTED_TEXT_CHARS = 50_000;
@@ -144,7 +145,7 @@ function buildUserPrompt(input: AtsReviewServiceInput): string {
 
 /** Qualitative review of the writing. Never returns a score — see {@link atsReviewOutputSchema}. */
 export function reviewResumeText(input: AtsReviewServiceInput): Promise<AtsReviewOutput> {
-	const model = getModel(input);
+	const model = getModelWithFallback(input);
 
 	return generateJson(model, { system: atsReviewSystemPrompt, prompt: buildUserPrompt(input) }, atsReviewOutputSchema);
 }

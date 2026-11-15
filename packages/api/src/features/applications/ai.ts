@@ -11,7 +11,7 @@ import { aiProvidersService } from "../ai-providers/service";
 import { billingService } from "../billing/service";
 import { recordUsage } from "../usage/record";
 import { generateJson as sharedGenerateJson } from "../ai/generate-json";
-import { getModel } from "../ai/service";
+import { getModelWithFallback } from "../ai/service";
 import { coverLetterService } from "../cover-letters/service";
 import { resumeService } from "../resume/service";
 import { webAccessService } from "../web-access/credentials";
@@ -36,7 +36,7 @@ async function resolveModel(userId: string) {
 			message: "No AI provider is configured. Add one in Settings → Integrations to use AI features.",
 		});
 	}
-	return getModel({
+	return getModelWithFallback({
 		provider: provider.provider,
 		model: provider.model,
 		apiKey: provider.apiKey,
@@ -365,7 +365,7 @@ export const aiRouter = {
 				const provider = await aiProvidersService.getDefaultRunnable({ userId: context.user.id });
 				if (!provider) return fallback;
 
-				const model = getModel({
+				const model = getModelWithFallback({
 					provider: provider.provider,
 					model: provider.model,
 					apiKey: provider.apiKey,

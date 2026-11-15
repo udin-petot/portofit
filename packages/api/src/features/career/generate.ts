@@ -3,7 +3,7 @@ import { ORPCError } from "@orpc/client";
 import z from "zod";
 import { careerWorkspaceSchema, savedItemDataSchema } from "@reactive-resume/schema/career";
 import { aiProvidersService } from "../ai-providers/service";
-import { getModel } from "../ai/service";
+import { getModelWithFallback } from "../ai/service";
 import { generateJson } from "../applications/ai";
 import { careerService } from "./service";
 
@@ -123,7 +123,7 @@ export async function generateCareer(input: GenerateInput) {
 	const provider = chosen ?? (await aiProvidersService.getDefaultRunnable({ userId: input.userId }));
 	if (!provider)
 		throw new ORPCError("PRECONDITION_FAILED", { message: "Connect an AI provider in Settings to use the coach." });
-	const model = getModel({
+	const model = getModelWithFallback({
 		provider: provider.provider,
 		model: provider.model,
 		apiKey: provider.apiKey,

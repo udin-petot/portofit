@@ -242,7 +242,7 @@ export async function testConnection(input: TestConnectionInput): Promise<TestCo
 
 	// Resolved outside the try so the base-URL policy error still reaches the router, which turns it
 	// into an invalid-configuration response rather than a provider failure.
-	const model = getModel(input);
+	const model = getModelWithFallback(input);
 
 	let result: Awaited<ReturnType<typeof generateText>>;
 
@@ -315,7 +315,7 @@ function buildResumeParsingTextMessages({ userPrompt, text }: { userPrompt: stri
 }
 
 async function parsePdf(input: ParsePdfInput): Promise<ResumeData> {
-	const model = getModel(input);
+	const model = getModelWithFallback(input);
 
 	const result = await generateText({
 		model,
@@ -380,7 +380,7 @@ function extractDocxText(file: z.infer<typeof fileInputSchema>): string {
 }
 
 async function parseDocx(input: ParseDocxInput): Promise<ResumeData> {
-	const model = getModel(input);
+	const model = getModelWithFallback(input);
 	const messages =
 		input.mediaType === "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 			? buildResumeParsingTextMessages({ userPrompt: docxParserUserPrompt, text: extractDocxText(input.file) })
@@ -404,6 +404,21 @@ export const aiService = {
 	parsePdf,
 	testConnection,
 };
+
+/** The same fallback chain for features that call getModel directly (review, letters, matching, support). */
+export function getModelWithFallback(input: GetModelInput): ReturnType<typeof getModel> {
+	const ids = fallbackModelIds(input.model);
+	if (ids.length === 0) return getModel(input);
+
+	const models = [getModel(input), ...ids.map((model) => getModel({ ...input, model }))];
+	const firstTokenMs = env.AI_FALLBACK_FIRST_TOKEN_MS ?? 20_000;
+
+	return withModelFallback(models, {
+		ids: [input.model, ...ids],
+		forcePrimaryFailure: env.AI_FORCE_PRIMARY_FAILURE,
+		firstTokenMs: [firstTokenMs, 12_000, 12_000],
+	}) as unknown as ReturnType<typeof getModel>;
+}
 
 /** At most two models after the primary, from AI_FALLBACK_MODELS; the same provider, key, and base URL. */
 export function fallbackModelIds(primary: string): string[] {

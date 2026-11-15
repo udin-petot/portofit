@@ -4,7 +4,7 @@ import { generateText } from "ai";
 import { db } from "@reactive-resume/db/client";
 import { supportConversation, supportMessage } from "@reactive-resume/db/schema";
 import { SUPPORT_FAQ, SUPPORT_WHATSAPP_NUMBER } from "@reactive-resume/utils/support-faq";
-import { getModel } from "../ai/service";
+import { getModelWithFallback } from "../ai/service";
 import { aiProvidersService } from "../ai-providers/service";
 import { billingService } from "../billing/service";
 import { enforceSupportGuard } from "./guard";
@@ -117,7 +117,7 @@ export const supportService = {
 				.join("\n");
 
 			const { text } = await generateText({
-				model: getModel({
+				model: getModelWithFallback({
 					provider: provider.provider,
 					model: provider.model,
 					apiKey: provider.apiKey,

@@ -4,7 +4,7 @@ import { streamText } from "ai";
 import { letterDraftSystemPrompt } from "@reactive-resume/ai/prompts";
 import { buildMarkdown } from "@reactive-resume/resume/markdown";
 import { aiProvidersService } from "../ai-providers/service";
-import { getModel } from "../ai/service";
+import { getModelWithFallback } from "../ai/service";
 import { applicationService } from "../applications/service";
 import { resumeService } from "../resume/service";
 import { coverLetterService } from "./service";
@@ -67,7 +67,7 @@ export async function* draftLetterBody(
 		application?.jobDescription?.trim() ||
 		(application?.requirements.length ? application.requirements.map((item) => `- ${item}`).join("\n") : undefined);
 	const result = streamText({
-		model: getModel({
+		model: getModelWithFallback({
 			provider: provider.provider,
 			model: provider.model,
 			apiKey: provider.apiKey,
