@@ -221,16 +221,22 @@ function RouteComponent() {
 							/>
 						</div>
 
-						<div className="flex min-w-0 [scrollbar-width:none] gap-2 overflow-x-auto pb-0.5 sm:contents">
+						<div className="flex min-w-0 flex-wrap gap-2 sm:contents">
 							{savedCount > 0 && (
 								<Button
 									variant="secondary"
 									aria-pressed={saved}
+									aria-label={t`Saved jobs`}
 									onClick={() => setSearch({ saved: !saved })}
 									className={cn("shrink-0", saved && "bg-sunken")}
 								>
 									<Icon name={saved ? "check-square" : "square"} size={18} />
-									<Trans>Saved jobs</Trans>
+									<span className="sm:hidden">
+										<Trans>Saved</Trans>
+									</span>
+									<span className="max-sm:hidden">
+										<Trans>Saved jobs</Trans>
+									</span>
 									<span className="font-mono text-xs text-ink-3">{savedCount}</span>
 								</Button>
 							)}
@@ -239,11 +245,17 @@ function RouteComponent() {
 								<Button
 									variant="secondary"
 									aria-pressed={closed}
+									aria-label={t`Show closed`}
 									onClick={() => setSearch({ closed: !closed })}
 									className={cn("shrink-0", closed && "bg-sunken")}
 								>
 									<Icon name={closed ? "check-square" : "square"} size={18} />
-									<Trans>Show closed</Trans>
+									<span className="sm:hidden">
+										<Trans>Closed</Trans>
+									</span>
+									<span className="max-sm:hidden">
+										<Trans>Show closed</Trans>
+									</span>
 								</Button>
 							)}
 						</div>
