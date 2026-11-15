@@ -86,7 +86,9 @@ export function AssistantPanel({ document, onClose }: AssistantPanelProps) {
 		if (open) return;
 		// The thread is gone with the draft, so its attachments cannot be sent any more; start the composer clean.
 		discardDraft();
+		// oxlint-disable-next-line react/set-state-in-effect -- the panel stays mounted while hidden, so closing resets it here
 		setPromptAttachments([]);
+		// oxlint-disable-next-line react/set-state-in-effect -- remounts the composer, which clears its text and files
 		setDraftKey((key) => key + 1);
 	}, [open, discardDraft]);
 	useEffect(() => discardDraft, [discardDraft]);
