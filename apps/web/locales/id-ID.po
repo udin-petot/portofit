@@ -14757,3 +14757,15 @@ msgstr "Disediakan oleh PortoFit: {connectedProvider}."
 #: src/features/settings/ai/web-access.tsx
 msgid "Search and reading are set up for everyone here."
 msgstr "Pencarian dan membaca diatur untuk semua orang di sini."
+
+#: src/features/settings/ai/web-access.tsx
+msgid "Read the job links you save. Saving and preparing jobs still works when web access isn't connected."
+msgstr "Baca tautan pekerjaan yang Anda simpan. Menyimpan dan menyiapkan lamaran tetap jalan walau akses web belum dihubungkan."
+
+#: src/features/settings/ai/web-access.tsx
+msgid "The assistant searches and reads pages with {connectedProvider}, whichever AI provider you use."
+msgstr "Asisten mencari dan membaca halaman dengan {connectedProvider}, apa pun penyedia AI yang Anda pilih."
+
+#: src/features/settings/ai/web-access.tsx
+msgid "The assistant uses your provider's own web search where supported, and reads links with the built-in reader."
+msgstr "Asisten memakai pencarian web penyedia AI Anda bila didukung, dan membaca tautan dengan pembaca bawaan."

@@ -63,7 +63,7 @@ export function WebAccessSection() {
 					<Trans>Web access</Trans>
 				</h2>
 				<p className="max-w-[60ch] text-[13px] leading-5 text-ink-3">
-					<Trans>Read the job links you save. Saving and preparing jobs works without a connection.</Trans>
+					<Trans>Read the job links you save. Saving and preparing jobs still works when web access isn't connected.</Trans>
 				</p>
 			</header>
 
@@ -355,9 +355,6 @@ export function WebAccessSection() {
 			<footer className="flex items-start gap-2 border-t border-line bg-bg px-5 py-3 text-xs leading-5 text-ink-2 max-sm:px-4">
 				<Icon name="sparkle" size={16} className="mt-0.5 shrink-0 text-ink-3" />
 				<div>
-					<span className="font-medium">
-						<Trans>Assistant.</Trans>
-					</span>{" "}
 					{providerState.isUnavailable ? (
 						<AiProviderLoadState state={providerState} />
 					) : !hasUsableProvider ? (
@@ -365,10 +362,10 @@ export function WebAccessSection() {
 							Connect an AI provider above to use the assistant. Saving and preparing jobs doesn't need one.
 						</Trans>
 					) : connectedProvider ? (
-						<Trans>Searches and reads pages with {connectedProvider}, whichever AI provider you use.</Trans>
+						<Trans>The assistant searches and reads pages with {connectedProvider}, whichever AI provider you use.</Trans>
 					) : (
 						<Trans>
-							Uses your AI provider's own web search where supported, and reads links with the built-in reader.
+							The assistant uses your provider's own web search where supported, and reads links with the built-in reader.
 						</Trans>
 					)}
 				</div>
