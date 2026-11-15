@@ -14736,3 +14736,19 @@ msgstr "CV"
 #: src/features/assistant/conversation.tsx
 msgid "Send {0} again"
 msgstr "Send {0} again"
+
+#: src/features/settings/ai/providers.tsx
+msgid "Managed by PortoFit"
+msgstr "Managed by PortoFit"
+
+#: src/features/settings/ai/providers.tsx
+msgid "Writing help, tailored suggestions and the assistant, included with your PortoFit account."
+msgstr "Writing help, tailored suggestions and the assistant, included with your PortoFit account."
+
+#: src/features/settings/ai/web-access.tsx
+msgid "Provided by PortoFit: {connectedProvider}."
+msgstr "Provided by PortoFit: {connectedProvider}."
+
+#: src/features/settings/ai/web-access.tsx
+msgid "Search and reading are set up for everyone here."
+msgstr "Search and reading are set up for everyone here."

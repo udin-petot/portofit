@@ -68,10 +68,14 @@ export function ProvidersSection() {
 					<Trans>AI providers</Trans>
 				</h2>
 				<p className="max-w-[60ch] text-[13px] leading-5 text-ink-3">
-					<Trans>
-						Writing help, tailored suggestions and the assistant. The default provider is used wherever you don't pick
-						one. Your keys stay encrypted.
-					</Trans>
+					{managed ? (
+						<Trans>Writing help, tailored suggestions and the assistant, included with your PortoFit account.</Trans>
+					) : (
+						<Trans>
+							Writing help, tailored suggestions and the assistant. The default provider is used wherever you don't pick
+							one. Your keys stay encrypted.
+						</Trans>
+					)}
 				</p>
 			</header>
 			<div className="grid gap-4 p-5">
@@ -81,7 +85,7 @@ export function ProvidersSection() {
 						<div className="grid min-w-0 gap-1">
 							<p className="text-sm font-medium">AI PortoFit</p>
 							<p className="text-xs text-ink-2">
-								<Trans>Managed by your server</Trans>
+								<Trans>Managed by PortoFit</Trans>
 							</p>
 						</div>
 					</div>

@@ -146,10 +146,10 @@ export function WebAccessSection() {
 						{status.managed && (
 							<div className="grid gap-2 rounded-lg bg-info-soft p-3 text-[13px] leading-5 text-info-text">
 								<p className="font-medium">
-									<Trans>Provided by your server: {connectedProvider}.</Trans>
+									<Trans>Provided by PortoFit: {connectedProvider}.</Trans>
 								</p>
 								<p>
-									<Trans>Search and reading are set up for everyone here. Ask your administrator about changes.</Trans>
+									<Trans>Search and reading are set up for everyone here.</Trans>
 								</p>
 								<Button
 									variant="secondary"
