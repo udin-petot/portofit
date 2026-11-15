@@ -1,9 +1,28 @@
+import { ORPCError } from "@orpc/client";
 import z from "zod";
 import { protectedProcedure } from "../../context";
 import { agentThreadSchema, agentConversationSchema } from "../../dto/agent";
 import { paginate, paginationShape } from "../../pagination";
 import { mapAgentEnvironmentError } from "./routing";
+import { billingService } from "../billing/service";
+import { quotaService } from "../quota/service";
 import { agentService } from "./service";
+
+/**
+ * A send the Coach allowance cannot pay for is rejected before anything is stored, so opening the conversation first
+ * would only leave an empty thread in the history. Check the allowance before the thread is created.
+ */
+async function assertCoachAllowance(userId: string) {
+	const status = await quotaService.status(userId);
+	const coach = status.features.find((feature) => feature.feature === "coach");
+	if (!coach || coach.remaining > 0) return;
+	const balances = await billingService.balances(userId);
+	if ((balances.coach ?? 0) > 0) return;
+	throw new ORPCError("FORBIDDEN", {
+		message: "Pesan Coach habis. Beli paket Coach untuk melanjutkan.",
+		data: { code: "QUOTA_EXHAUSTED", feature: "coach", balance: balances.coach ?? 0 },
+	});
+}
 
 export const threadsRouter = {
 	list: protectedProcedure
@@ -54,7 +73,10 @@ export const threadsRouter = {
 		)
 		.use(mapAgentEnvironmentError)
 		.output(agentThreadSchema)
-		.handler(({ context, input }) => agentService.threads.start({ userId: context.user.id, ...input })),
+		.handler(async ({ context, input }) => {
+			await assertCoachAllowance(context.user.id);
+			return agentService.threads.start({ userId: context.user.id, ...input });
+		}),
 
 	get: protectedProcedure
 		.route({

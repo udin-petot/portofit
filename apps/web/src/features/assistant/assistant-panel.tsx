@@ -144,7 +144,10 @@ export function AssistantPanel({ document, onClose }: AssistantPanelProps) {
 		} catch (error) {
 			toast.add({
 				type: "error",
-				description: getOrpcErrorMessage(error, { fallback: t`Couldn't start the conversation. Try again.` }),
+				description: getOrpcErrorMessage(error, {
+					fallback: t`Couldn't start the conversation. Try again.`,
+					allowServerMessage: true,
+				}),
 			});
 		}
 		setStarting(false);
