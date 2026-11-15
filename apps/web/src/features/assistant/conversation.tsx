@@ -7,7 +7,6 @@ import type { UIMessage } from "ai";
 import type { ReactNode } from "react";
 import { t } from "@lingui/core/macro";
 import { Plural, Trans } from "@lingui/react/macro";
-import { ORPCError } from "@orpc/client";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
@@ -88,9 +87,12 @@ export function Conversation(props: ConversationProps) {
 		onFinish: refresh,
 	});
 	const streaming = status === "submitted" || status === "streaming";
-	// A quota or credit rejection happens before the server stores the message, so the UI must not claim it was kept.
-	const quotaBlocked =
-		error instanceof ORPCError && (error.code === "QUOTA_EXHAUSTED" || error.code === "CREDIT_REQUIRED");
+	// Both quota rejections arrive as FORBIDDEN with the machine code in `data.code`. Read the field rather than
+	// testing instanceof: the client can hold a second copy of the error class. The server rejects the message
+	// before storing it, so the UI must not claim it was kept.
+	const rejection = error as { code?: string; data?: { code?: string } } | null | undefined;
+	const rejectionCode = rejection?.data?.code ?? rejection?.code;
+	const quotaBlocked = rejectionCode === "QUOTA_EXHAUSTED" || rejectionCode === "CREDIT_REQUIRED";
 
 	const send = (text: string, attachments: ChatAttachment[] = []) => {
 		if (streaming || readOnly) return;

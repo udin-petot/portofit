@@ -254,7 +254,10 @@ it("does not claim a quota-rejected message was kept", () => {
 		messages: [],
 		sendMessage: vi.fn(),
 		status: "ready",
-		error: new ORPCError("QUOTA_EXHAUSTED", { message: "Coach messages are used up." }),
+		error: new ORPCError("FORBIDDEN", {
+			message: "Coach messages are used up.",
+			data: { code: "QUOTA_EXHAUSTED" },
+		}),
 		clearError: vi.fn(),
 	});
 	render(
@@ -287,7 +290,10 @@ it("offers the rejected message for copying so it isn't lost", async () => {
 		messages: [],
 		sendMessage: vi.fn(),
 		status: "ready",
-		error: new ORPCError("QUOTA_EXHAUSTED", { message: "Coach messages are used up." }),
+		error: new ORPCError("FORBIDDEN", {
+			message: "Coach messages are used up.",
+			data: { code: "CREDIT_REQUIRED" },
+		}),
 		clearError: vi.fn(),
 	});
 	render(
