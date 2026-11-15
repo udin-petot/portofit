@@ -140,7 +140,7 @@ function BuyCreditsPage() {
 				<HowToPay collapsible />
 			</div>
 
-			<PaymentDialog orderId={orderId} onClose={closePayment} onRestart={setOrderId} />
+			<PaymentDialog key={orderId ?? "none"} orderId={orderId} onClose={closePayment} onRestart={setOrderId} />
 		</div>
 	);
 }

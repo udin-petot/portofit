@@ -395,7 +395,7 @@ export function practiceBankFor(locale: string): BankQuestion[] {
 	if (!isEnglishLocale(locale)) return PRACTICE_BANK;
 	return PRACTICE_BANK.map((question) => ({
 		...question,
-		...(PRACTICE_BANK_EN[question.id] ?? {}),
+		...PRACTICE_BANK_EN[question.id],
 	}));
 }
 

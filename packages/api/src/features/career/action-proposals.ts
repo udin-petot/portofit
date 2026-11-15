@@ -48,7 +48,7 @@ export const careerActionProposals = {
 		return row;
 	},
 
-	async accept(input: { userId: string; id: string }) {
+	accept(input: { userId: string; id: string }) {
 		return db.transaction(async (tx) => {
 			const [proposal] = await tx
 				.select()

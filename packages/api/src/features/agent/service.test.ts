@@ -141,16 +141,17 @@ vi.mock("ai", async (importOriginal) => ({
 }));
 
 // Minimal V4 model stub: the real wrapLanguageModel/addToolInputExamplesMiddleware run against it.
-vi.mock("../ai/service", () => ({
-	getAgentModel: vi.fn(() => ({
+vi.mock("../ai/service", () => {
+	const mockModel = () => ({
 		specificationVersion: "v4",
 		provider: "mock",
 		modelId: "mock-model",
 		supportedUrls: {},
 		doGenerate: vi.fn(),
 		doStream: vi.fn(),
-	})),
-}));
+	});
+	return { getAgentModel: vi.fn(mockModel), getAgentModelWithFallback: vi.fn(mockModel) };
+});
 vi.mock("../ai/credentials", () => ({ assertAgentEnvironment: vi.fn() }));
 vi.mock("../ai-providers/service", () => ({
 	aiProvidersService: aiProvidersServiceMock,

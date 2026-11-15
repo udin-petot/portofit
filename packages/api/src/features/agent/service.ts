@@ -318,7 +318,7 @@ function attachmentLabel(attachment: AgentAttachmentRecord) {
 	return `${attachment.filename} (${attachment.mediaType}, ${attachment.size} bytes, attachmentId: ${attachment.id})`;
 }
 
-async function buildAttachmentModelParts(
+function buildAttachmentModelParts(
 	input: AttachmentModelInput[],
 ): Promise<Array<TextPart | ImagePart | FilePart>> {
 	return Promise.all(

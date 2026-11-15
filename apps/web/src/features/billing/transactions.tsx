@@ -362,6 +362,7 @@ export function TransactionsPage({ selectedOrderId }: TransactionsPageProps) {
 
 			<InvoiceSheet invoiceId={invoiceOpen} onClose={() => setInvoiceOpen(null)} />
 			<PaymentDialog
+				key={selectedOrderId ?? "none"}
 				orderId={selectedOrderId ?? null}
 				onClose={() => void navigate({ to: "/dashboard/transaksi", search: {} })}
 				onRestart={(next) => void navigate({ to: "/dashboard/transaksi", search: { order: next } })}

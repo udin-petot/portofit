@@ -204,7 +204,7 @@ describe("applicationService sent resume", () => {
 					userId: "user-1",
 					...(kind === "resume" ? { resumeId: "resume-2" } : { coverLetterId: "letter-2" }),
 				}),
-			).rejects.toMatchObject({ code: "BAD_REQUEST" });
+			).rejects.toMatchObject({ code: "PRECONDITION_FAILED" });
 			expect(dbMock.update).not.toHaveBeenCalled();
 		},
 	);

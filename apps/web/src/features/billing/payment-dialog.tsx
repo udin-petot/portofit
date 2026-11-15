@@ -74,11 +74,12 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 	const fileInput = useRef<HTMLInputElement>(null);
 	const proof = useProofUpload(orderId, "Bukti dari popup pembayaran");
 
+	const [now, setNow] = useState(() => new Date());
+
 	useEffect(() => {
-		setExpired(false);
-		setCopied(false);
-		setUploadedAt(null);
-	}, [orderId]);
+		const timer = window.setInterval(() => setNow(new Date()), 1000);
+		return () => window.clearInterval(timer);
+	}, []);
 
 	const status = useQuery({
 		...orpc.billing.orderStatus.queryOptions({ input: { orderId: orderId ?? "" } }),
@@ -100,7 +101,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 	const phase = paymentPhase({
 		status: order?.status,
 		expiresAt: expired ? new Date(0) : expiresAt,
-		now: new Date(),
+		now,
 		isPending: proof.isPending,
 		statusErrors: status.failureCount,
 	});

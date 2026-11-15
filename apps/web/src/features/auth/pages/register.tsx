@@ -237,8 +237,9 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 					<form.Field name="accepted">
 						{(field) => (
 							<FormItem hasError={field.state.meta.isTouched && field.state.meta.errors.length > 0}>
-								<label className="flex items-start gap-2.5 text-[13px] leading-5 text-ink-2">
+								<label htmlFor={field.name} className="flex items-start gap-2.5 text-[13px] leading-5 text-ink-2">
 									<Checkbox
+										id={field.name}
 										name={field.name}
 										checked={field.state.value}
 										onCheckedChange={field.handleChange}

@@ -8,11 +8,12 @@ describe("template metadata", () => {
 	});
 
 	it("puts the Phase 1 templates first and gives them a style", () => {
-		expect(Object.keys(templates).slice(0, 3)).toEqual(["swiss", "compact", "studio"]);
-		for (const id of ["swiss", "compact", "studio"] as const) {
+		expect(Object.keys(templates).slice(0, 4)).toEqual(["swiss", "compact", "rapi", "bersih"]);
+		for (const id of ["swiss", "compact", "rapi", "bersih"] as const) {
 			expect(templates[id].name).toBeTruthy();
 			expect(templates[id].imageUrl).toBe(`/templates/jpg/${id}.jpg`);
-			expect(templates[id].style).toBe(id);
 		}
+		// Rapi dan Bersih memakai gaya yang sudah ada, jadi hanya gaya asli yang harus sama dengan id-nya.
+		for (const id of ["swiss", "compact", "studio"] as const) expect(templates[id].style).toBe(id);
 	});
 });

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { cn } from "@reactive-resume/utils/style";
 
 /** Satu putaran jarum panjang. 12 detik cukup cepat untuk terbaca hidup, belum sampai mengganggu. */
@@ -13,7 +14,7 @@ export function startOffset(date: Date, periodSeconds: number = SWEEP_SECONDS): 
  * Satu putaran per 12 detik, linear, dan berhenti di posisi sekarang kalau pengguna meminta gerak dikurangi.
  */
 export function WaitingClock({ className }: { className?: string }) {
-	const delay = startOffset(new Date());
+	const [delay] = useState(() => startOffset(new Date()));
 
 	return (
 		<span
