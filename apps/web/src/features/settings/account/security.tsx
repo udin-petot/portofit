@@ -2,12 +2,12 @@ import type { AuthProvider } from "@reactive-resume/auth/types";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { Link } from "@tanstack/react-router";
-import { authClient } from "@/libs/auth/client";
 import { Button, buttonVariants } from "@reactive-resume/ui/components/button";
 import { Switch } from "@reactive-resume/ui/components/switch";
 import { SettingsRow, SettingsSection } from "../section";
 import { getProviderName, useAuthAccounts, useAuthProviderActions, useEnabledProviders } from "./auth-hooks";
 import { useDialogStore } from "@/dialogs/store";
+import { authClient } from "@/libs/auth/client";
 
 const SOCIAL: AuthProvider[] = ["google", "github", "custom"];
 
@@ -32,17 +32,17 @@ export function SecuritySection() {
 					password ? (
 						<Trans>Last changed in {monthYear(new Date(password.updatedAt))}</Trans>
 					) : (
-						<Trans>You sign in without one</Trans>
+						<Trans>Change your password</Trans>
 					)
 				}
 			>
 				{password ? (
 					<Button size="sm" variant="secondary" onClick={() => openDialog("auth.change-password", undefined)}>
-						<Trans>Change</Trans>
+						<Trans>Change password</Trans>
 					</Button>
 				) : (
 					<Link to="/auth/forgot-password" className={buttonVariants({ size: "sm", variant: "secondary" })}>
-						<Trans>Set a password</Trans>
+						<Trans>Change password</Trans>
 					</Link>
 				)}
 			</SettingsRow>

@@ -2238,6 +2238,7 @@ msgstr "Back to now"
 
 #. Action returning the visitor to the sign-in page after a failed sign-in
 #. Secondary navigation button on 2FA verification screen
+#: src/features/auth/layout.tsx
 #: src/features/auth/pages/error.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Back to sign in"
@@ -2559,7 +2560,6 @@ msgstr "Certifications"
 
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
-#: src/features/settings/account/security.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Change"
 msgstr "Change"
@@ -2580,6 +2580,10 @@ msgstr "Change language"
 #: src/features/command-palette/pages/preferences/index.tsx
 msgid "Change language to…"
 msgstr "Change language to…"
+
+#: src/features/settings/account/security.tsx
+msgid "Change password"
+msgstr "Change password"
 
 #: src/features/settings/account/profile.tsx
 msgid "Change photo"
@@ -2604,6 +2608,10 @@ msgstr "Change this timeline entry."
 #: src/features/career/knowledge/preferences.tsx
 msgid "Change timezone"
 msgstr "Change timezone"
+
+#: src/features/settings/account/security.tsx
+msgid "Change your password"
+msgstr "Change your password"
 
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Changed elsewhere"
@@ -11015,8 +11023,8 @@ msgid "Set a follow-up…"
 msgstr "Set a follow-up…"
 
 #: src/features/settings/account/security.tsx
-msgid "Set a password"
-msgstr "Set a password"
+#~ msgid "Set a password"
+#~ msgstr "Set a password"
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set Password"
@@ -14284,8 +14292,8 @@ msgid "You send it from your own email."
 msgstr "You send it from your own email."
 
 #: src/features/settings/account/security.tsx
-msgid "You sign in without one"
-msgstr "You sign in without one"
+#~ msgid "You sign in without one"
+#~ msgstr "You sign in without one"
 
 #: src/features/career/workspace/apply.tsx
 msgid "You submit on the employer's site yourself. Marking it applied keeps the exact versions you sent."

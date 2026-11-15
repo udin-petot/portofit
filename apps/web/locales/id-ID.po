@@ -2243,6 +2243,7 @@ msgstr "Kembali ke sekarang"
 
 #. Action returning the visitor to the sign-in page after a failed sign-in
 #. Secondary navigation button on 2FA verification screen
+#: src/features/auth/layout.tsx
 #: src/features/auth/pages/error.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Back to sign in"
@@ -2564,7 +2565,6 @@ msgstr "Sertifikasi"
 
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
-#: src/features/settings/account/security.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Change"
 msgstr "Ubah"
@@ -2585,6 +2585,10 @@ msgstr "Ubah bahasa"
 #: src/features/command-palette/pages/preferences/index.tsx
 msgid "Change language to…"
 msgstr "Ubah bahasa menjadi…"
+
+#: src/features/settings/account/security.tsx
+msgid "Change password"
+msgstr "Ganti password"
 
 #: src/features/settings/account/profile.tsx
 msgid "Change photo"
@@ -2609,6 +2613,10 @@ msgstr "Ubah entri garis waktu ini."
 #: src/features/career/knowledge/preferences.tsx
 msgid "Change timezone"
 msgstr "Ubah zona waktu"
+
+#: src/features/settings/account/security.tsx
+msgid "Change your password"
+msgstr "Ganti password Anda"
 
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Changed elsewhere"
@@ -11020,8 +11028,8 @@ msgid "Set a follow-up…"
 msgstr "Tetapkan tindak lanjut…"
 
 #: src/features/settings/account/security.tsx
-msgid "Set a password"
-msgstr "Tetapkan kata sandi"
+#~ msgid "Set a password"
+#~ msgstr "Tetapkan kata sandi"
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set Password"
@@ -14289,8 +14297,8 @@ msgid "You send it from your own email."
 msgstr "Anda mengirimnya dari email Anda sendiri."
 
 #: src/features/settings/account/security.tsx
-msgid "You sign in without one"
-msgstr "Anda masuk tanpa satu pun"
+#~ msgid "You sign in without one"
+#~ msgstr "Anda masuk tanpa satu pun"
 
 #: src/features/career/workspace/apply.tsx
 msgid "You submit on the employer's site yourself. Marking it applied keeps the exact versions you sent."
