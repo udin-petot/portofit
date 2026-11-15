@@ -64,6 +64,8 @@ export function Conversation(props: ConversationProps) {
 	const [context, setContext] = useState<MessageContext>(props.initialContext);
 	const [statuses, setStatuses] = useState<ReadonlyMap<string, EditStatus>>(new Map());
 	const [stopped, setStopped] = useState(false);
+	// A message the quota gate rejects never reaches the server or the transcript; keep its text to offer a copy.
+	const [unsent, setUnsent] = useState<string | null>(null);
 	const scroller = useRef<HTMLDivElement>(null);
 	// Messages already in the thread when it opens are history; only new ones rise in.
 	const [initialIds] = useState(() => new Set(props.initialMessages.map((message) => message.id)));
@@ -75,6 +77,8 @@ export function Conversation(props: ConversationProps) {
 		// Every assistant message claims Coach allowance or paid Coach credits; keep the remaining count current.
 		void queryClient.invalidateQueries({ queryKey: orpc.quota.status.key() });
 		void queryClient.invalidateQueries({ queryKey: orpc.billing.balances.key() });
+		// A finished run means the message was delivered, so there is nothing left to copy.
+		setUnsent(null);
 	};
 	const { messages, sendMessage, status, error, clearError, regenerate, stop, addToolOutput } = useAssistantChat({
 		threadId,
@@ -92,6 +96,7 @@ export function Conversation(props: ConversationProps) {
 		if (streaming || readOnly) return;
 		clearError();
 		setStopped(false);
+		setUnsent(text);
 		const files = attachments.map(attachmentPart);
 		sendMessage(files.length > 0 ? { text, files } : { text }, {
 			body: { attachmentIds: attachments.map((attachment) => attachment.id) },
@@ -105,6 +110,7 @@ export function Conversation(props: ConversationProps) {
 		if (!prompt || sentPrompt.current) return;
 		sentPrompt.current = true;
 		onPromptSent();
+		setUnsent(prompt);
 		const files = promptAttachments.map(attachmentPart);
 		sendMessage(files.length > 0 ? { text: prompt, files } : { text: prompt }, {
 			body: {
@@ -251,6 +257,12 @@ export function Conversation(props: ConversationProps) {
 							</span>
 						</span>
 						<span className="flex gap-1.5">
+							{quotaBlocked && unsent ? (
+								<Button size="sm" variant="secondary" onClick={() => void copyMessage(unsent)}>
+									<Icon name="copy" size={16} />
+									<Trans>Copy message</Trans>
+								</Button>
+							) : null}
 							<Button size="sm" variant="secondary" onClick={retry}>
 								<Trans>Retry</Trans>
 							</Button>
@@ -891,5 +903,15 @@ async function copyTranscript(messages: readonly UIMessage[]) {
 		toast.add({ description: t`Transcript copied` });
 	} catch {
 		toast.add({ description: t`Couldn't copy the transcript.` });
+	}
+}
+
+/** The rejected message itself, so it can be sent again after the user buys Coach messages. */
+async function copyMessage(text: string) {
+	try {
+		await navigator.clipboard.writeText(text);
+		toast.add({ description: t`Message copied` });
+	} catch {
+		toast.add({ description: t`Couldn't copy the message.` });
 	}
 }

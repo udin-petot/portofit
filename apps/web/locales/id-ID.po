@@ -3312,6 +3312,10 @@ msgstr "Salin sekarang. Demi keamanan Anda, ini tidak akan ditampilkan lagi."
 msgid "Copy link"
 msgstr "Salin tautan"
 
+#: src/features/assistant/conversation.tsx
+msgid "Copy message"
+msgstr "Salin pesan"
+
 #: src/features/documents/document-actions.tsx
 msgid "Copy public link"
 msgstr "Salin tautan publik"
@@ -3451,6 +3455,10 @@ msgstr "Tidak dapat terhubung. Periksa kuncinya dan coba lagi."
 #: src/features/auth/pages/login.tsx
 msgid "Couldn't continue as a guest. Please try again."
 msgstr "Tidak dapat melanjutkan sebagai tamu. Silakan coba lagi."
+
+#: src/features/assistant/conversation.tsx
+msgid "Couldn't copy the message."
+msgstr "Tidak dapat menyalin pesannya."
 
 #: src/features/career/offers.tsx
 msgid "Couldn't copy the questions. Select the text and copy it manually."
@@ -7298,6 +7306,10 @@ msgstr "Sedang"
 #: src/features/homepage/prepare.tsx
 msgid "Mentor other designers"
 msgstr "Membimbing desainer lain"
+
+#: src/features/assistant/conversation.tsx
+msgid "Message copied"
+msgstr "Pesan disalin"
 
 #: src/features/assistant/conversation.tsx
 msgid "Message the assistant"

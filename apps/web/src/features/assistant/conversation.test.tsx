@@ -279,3 +279,38 @@ it("does not claim a quota-rejected message was kept", () => {
 	expect(alert.textContent).toContain("Your message was not sent.");
 	expect(alert.textContent).not.toContain("Your message is kept.");
 });
+
+it("offers the rejected message for copying so it isn't lost", async () => {
+	const writeText = vi.fn(async () => {});
+	Object.defineProperty(navigator, "clipboard", { value: { writeText }, configurable: true });
+	mocks.chat.mockReturnValue({
+		messages: [],
+		sendMessage: vi.fn(),
+		status: "ready",
+		error: new ORPCError("QUOTA_EXHAUSTED", { message: "Coach messages are used up." }),
+		clearError: vi.fn(),
+	});
+	render(
+		<I18nProvider i18n={i18n}>
+			<Conversation
+				document={document}
+				threadId="thread-1"
+				initialMessages={[]}
+				activeRun={false}
+				readOnly={false}
+				providerLabel="AI PortoFit"
+				managed
+				initialContext={{ document: true, posting: true }}
+				prompt={null}
+				promptAttachments={[]}
+				onPromptSent={() => {}}
+				onSwitchModel={() => {}}
+			/>
+		</I18nProvider>,
+	);
+	fireEvent.change(screen.getByRole("textbox"), { target: { value: "Perbaiki ringkasan ini" } });
+	fireEvent.click(screen.getByRole("button", { name: "Send" }));
+	await waitFor(() => expect(screen.getByRole("button", { name: "Copy message" })).toBeDefined());
+	fireEvent.click(screen.getByRole("button", { name: "Copy message" }));
+	await waitFor(() => expect(writeText).toHaveBeenCalledWith("Perbaiki ringkasan ini"));
+});

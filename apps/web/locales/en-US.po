@@ -3307,6 +3307,10 @@ msgstr "Copy it now. For your security, it won't be shown again."
 msgid "Copy link"
 msgstr "Copy link"
 
+#: src/features/assistant/conversation.tsx
+msgid "Copy message"
+msgstr "Copy message"
+
 #: src/features/documents/document-actions.tsx
 msgid "Copy public link"
 msgstr "Copy public link"
@@ -3446,6 +3450,10 @@ msgstr "Couldn't connect. Check the key and try again."
 #: src/features/auth/pages/login.tsx
 msgid "Couldn't continue as a guest. Please try again."
 msgstr "Couldn't continue as a guest. Please try again."
+
+#: src/features/assistant/conversation.tsx
+msgid "Couldn't copy the message."
+msgstr "Couldn't copy the message."
 
 #: src/features/career/offers.tsx
 msgid "Couldn't copy the questions. Select the text and copy it manually."
@@ -7293,6 +7301,10 @@ msgstr "Medium"
 #: src/features/homepage/prepare.tsx
 msgid "Mentor other designers"
 msgstr "Mentor other designers"
+
+#: src/features/assistant/conversation.tsx
+msgid "Message copied"
+msgstr "Message copied"
 
 #: src/features/assistant/conversation.tsx
 msgid "Message the assistant"
