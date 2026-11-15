@@ -26,6 +26,7 @@ vi.mock("@/features/resume/editor/store", () => ({
 	useEditorStore: Object.assign(
 		(select: (state: unknown) => unknown) =>
 			select({
+				assistantOpen: true,
 				assistantThread: mocks.selected,
 				setAssistantThread: mocks.setSelected,
 				assistantPrompt: null,

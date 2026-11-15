@@ -9,7 +9,7 @@ import { Trans } from "@lingui/react/macro";
 import { ORPCError } from "@orpc/client";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -71,18 +71,21 @@ export function AssistantPanel({ document, onClose }: AssistantPanelProps) {
 	const creatingThread = useRef<Promise<string> | null>(null);
 
 	// A draft thread exists only so an attachment has somewhere to belong. Closing the panel without sending would
-	// leave an empty conversation in the history, so the draft is removed when the panel goes away.
-	useEffect(() => {
-		return () => {
-			const draft = draftThread.current;
-			if (!draft) return;
-			draftThread.current = null;
-			void client.agent.threads
-				.delete({ id: draft })
-				.then(() => queryClient.invalidateQueries({ queryKey: orpc.agent.threads.list.key() }))
-				.catch(() => undefined);
-		};
+	// leave an empty conversation in the history, so the draft is removed when the panel closes or unmounts.
+	const discardDraft = useCallback(() => {
+		const draft = draftThread.current;
+		if (!draft) return;
+		draftThread.current = null;
+		void client.agent.threads
+			.delete({ id: draft })
+			.then(() => queryClient.invalidateQueries({ queryKey: orpc.agent.threads.list.key() }))
+			.catch(() => undefined);
 	}, [queryClient]);
+	const open = useEditorStore((state) => state.assistantOpen);
+	useEffect(() => {
+		if (!open) discardDraft();
+	}, [open, discardDraft]);
+	useEffect(() => discardDraft, [discardDraft]);
 
 	const mine = (threads.data ?? []).filter((thread) => belongsTo(thread, document));
 	// Opens the document's latest conversation unless a new one (or another) was asked for.
