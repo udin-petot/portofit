@@ -1,6 +1,6 @@
 import type { WorkspaceTab } from "@reactive-resume/schema/career";
 import { tool, type ToolSet } from "ai";
-import { and, desc, eq, gte, isNull } from "drizzle-orm";
+import { and, desc, eq, gte, isNull, or } from "drizzle-orm";
 import z from "zod";
 import { careerSystemPromptTemplate } from "@reactive-resume/ai/prompts";
 import { db } from "@reactive-resume/db/client";
@@ -453,7 +453,10 @@ export function buildCareerTools(input: CareerToolsInput): ToolSet {
 							and(
 								eq(application.userId, input.userId),
 								job.sourceUrl
-									? eq(application.sourceUrl, job.sourceUrl)
+									? or(
+											eq(application.sourceUrl, job.sourceUrl),
+											and(eq(application.company, job.company), eq(application.role, job.role)),
+										)
 									: and(eq(application.company, job.company), eq(application.role, job.role)),
 							),
 						)

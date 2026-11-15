@@ -1,6 +1,6 @@
 import type { CareerActionJob } from "@reactive-resume/db/schema";
 import { ORPCError } from "@orpc/client";
-import { and, eq, sql } from "drizzle-orm";
+import { and, eq, or, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import { application, careerActionProposal } from "@reactive-resume/db/schema";
 import { generateId } from "@reactive-resume/utils/string";
@@ -13,7 +13,7 @@ const MAX_SAVED_PER_DAY = 50;
 function duplicateWhere(userId: string, job: CareerActionJob) {
 	const byUrl = job.sourceUrl ? eq(application.sourceUrl, job.sourceUrl) : undefined;
 	const byName = and(eq(application.company, job.company), eq(application.role, job.role));
-	return and(eq(application.userId, userId), byUrl ?? byName);
+	return and(eq(application.userId, userId), byUrl ? or(byUrl, byName) : byName);
 }
 
 /**
