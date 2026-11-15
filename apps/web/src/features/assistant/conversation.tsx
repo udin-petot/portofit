@@ -91,6 +91,10 @@ export function Conversation(props: ConversationProps) {
 	// Both quota rejections arrive as FORBIDDEN with the machine code in `data.code`. Read the field rather than
 	// testing instanceof: the client can hold a second copy of the error class. The server rejects the message
 	// before storing it, so the UI must not claim it was kept.
+	// The server's own message usually ends with a full stop; drop it before the sentence quotes it.
+	const errorText = error
+		? getOrpcErrorMessage(error, { fallback: t`an error`, allowServerMessage: true }).replace(/\.$/, "")
+		: "";
 	const rejection = error as { code?: string; data?: { code?: string } } | null | undefined;
 	const rejectionCode = rejection?.data?.code ?? rejection?.code;
 	const quotaBlocked = rejectionCode === "QUOTA_EXHAUSTED" || rejectionCode === "CREDIT_REQUIRED";
@@ -249,12 +253,7 @@ export function Conversation(props: ConversationProps) {
 							<Icon name="warning-circle" size={18} className="shrink-0" />
 							<span>
 								<Trans>
-									{props.providerLabel} returned “
-									{getOrpcErrorMessage(error, {
-										fallback: t`an error`,
-										allowServerMessage: true,
-									})}
-									”.
+									{props.providerLabel} returned “{errorText}”.
 								</Trans>{" "}
 								{quotaBlocked ? <Trans>Your message was not sent.</Trans> : <Trans>Your message is kept.</Trans>}
 							</span>
@@ -732,6 +731,23 @@ export function Composer(props: ComposerProps) {
 				]
 			: []),
 	].filter((chip) => context[chip.key]);
+	// A removed chip is one click away from coming back, so the context can never be lost for good.
+	const restore = [
+		{
+			key: "document" as const,
+			icon: document.kind === "letter" ? ("envelope-simple" as const) : ("file-text" as const),
+			label: document.name,
+		},
+		...(document.posting
+			? [
+					{
+						key: "posting" as const,
+						icon: "briefcase" as const,
+						label: t`${document.posting.company} posting`,
+					},
+				]
+			: []),
+	].filter((chip) => !context[chip.key]);
 
 	const provider = props.providerLabel;
 	const sharesPosting = context.posting && document.posting;
@@ -773,7 +789,7 @@ export function Composer(props: ComposerProps) {
 					) : null}
 				</div>
 			) : null}
-			{(chips.length > 0 || attachments.length > 0) && (
+			{(chips.length > 0 || restore.length > 0 || attachments.length > 0) && (
 				<div className="flex flex-wrap gap-1.5">
 					{chips.map((chip) => (
 						<RemovableChip
@@ -784,6 +800,18 @@ export function Composer(props: ComposerProps) {
 							removeLabel={t`Don't send ${chip.label}`}
 							onRemove={() => onContextChange({ ...context, [chip.key]: false })}
 						/>
+					))}
+					{restore.map((chip) => (
+						<button
+							key={chip.key}
+							type="button"
+							aria-label={t`Send ${chip.label} again`}
+							onClick={() => onContextChange({ ...context, [chip.key]: true })}
+							className="flex h-[26px] items-center gap-1 rounded-md border border-dashed border-line-2 px-2 text-xs text-ink-3 transition-colors hover:bg-hover hover:text-ink"
+						>
+							<Icon name="plus" size={14} />
+							<span className="max-w-[160px] truncate">{chip.label}</span>
+						</button>
 					))}
 					{attachments.map((attachment) => (
 						<RemovableChip

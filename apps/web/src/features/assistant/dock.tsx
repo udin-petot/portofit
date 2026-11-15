@@ -1,8 +1,10 @@
 import type { Breakpoint } from "@reactive-resume/ui/hooks/use-breakpoint";
 import type { Variants } from "motion/react";
 import type { ReactNode } from "react";
+import { t } from "@lingui/core/macro";
 import { useDirection } from "@base-ui/react/direction-provider";
 import { AnimatePresence, m } from "motion/react";
+import { useEffect, useRef } from "react";
 import { AssistantPanel } from "./assistant-panel";
 import { useLetterAssistantDocument, useResumeAssistantDocument } from "./document";
 import { useEditorStore } from "@/features/resume/editor/store";
@@ -137,19 +139,73 @@ const overlayMotion: Variants = {
 };
 
 /** Tablets: a 400px drawer that slides in from the end edge, under the bar. Phones: the whole screen, rising. */
+const FOCUSABLE =
+	'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 export function AssistantOverlay({ place, children }: AssistantOverlayProps) {
 	const open = useEditorStore((state) => state.assistantOpen);
 	const instant = useEditorStore((state) => state.assistantInstant);
 	const rtl = useDirection() === "rtl";
+	const panel = useRef<HTMLDivElement>(null);
 	const custom: OverlayCustom =
 		place === "drawer"
 			? { instant, hidden: rtl ? "translateX(-100%)" : "translateX(100%)", shown: "translateX(0%)" }
 			: { instant, hidden: "translateY(100%)", shown: "translateY(0%)" };
 
+	// The drawer and the phone sheet cover the page, so the keyboard must not reach the editor behind them.
+	useEffect(() => {
+		if (!open) return;
+		const element = panel.current;
+		if (!element) return;
+		const previous = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+		const focusable = () =>
+			Array.from(element.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(
+				(item) => item.getClientRects().length > 0,
+			);
+
+		const start = element.querySelector<HTMLElement>("[data-assistant-initial-focus]") ?? focusable()[0] ?? element;
+		start.focus({ preventScroll: true });
+
+		const onKeyDown = (event: KeyboardEvent) => {
+			if (event.key === "Escape") {
+				event.preventDefault();
+				event.stopPropagation();
+				closeAssistant();
+				return;
+			}
+			if (event.key !== "Tab") return;
+			const items = focusable();
+			if (items.length === 0) {
+				event.preventDefault();
+				return;
+			}
+			const first = items[0];
+			const last = items[items.length - 1];
+			if (!first || !last) return;
+			const active = document.activeElement;
+			const outside = !(active instanceof HTMLElement) || !element.contains(active);
+			if (event.shiftKey ? active === first || outside : active === last || outside) {
+				event.preventDefault();
+				(event.shiftKey ? last : first).focus();
+			}
+		};
+
+		document.addEventListener("keydown", onKeyDown);
+		return () => {
+			document.removeEventListener("keydown", onKeyDown);
+			previous?.focus({ preventScroll: true });
+		};
+	}, [open]);
+
 	return (
 		<AnimatePresence initial={false} custom={custom}>
 			{open && (
 				<m.div
+					ref={panel}
+					role="dialog"
+					aria-modal="true"
+					aria-label={t`Assistant`}
+					tabIndex={-1}
 					key={place}
 					custom={custom}
 					variants={overlayMotion}

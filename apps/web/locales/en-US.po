@@ -14732,3 +14732,7 @@ msgstr "Zulu"
 #: src/features/assistant/assistant-panel.tsx
 msgid "CV"
 msgstr "CV"
+
+#: src/features/assistant/conversation.tsx
+msgid "Send {0} again"
+msgstr "Send {0} again"

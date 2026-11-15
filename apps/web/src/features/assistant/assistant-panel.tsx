@@ -212,7 +212,14 @@ export function AssistantPanel({ document, onClose }: AssistantPanelProps) {
 					className={cn("text-ink-2", view === "history" && "bg-accent-soft text-accent-text")}
 					onClick={() => setView(view === "history" ? "thread" : "history")}
 				/>
-				<IconButton icon="x" label={t`Close the assistant`} shortcut="⌘J" className="text-ink-2" onClick={onClose} />
+				<IconButton
+					icon="x"
+					label={t`Close the assistant`}
+					shortcut="⌘J"
+					className="text-ink-2"
+					data-assistant-initial-focus=""
+					onClick={onClose}
+				/>
 			</header>
 
 			{notSetUp ? (
