@@ -91,10 +91,6 @@ export function Conversation(props: ConversationProps) {
 	// Both quota rejections arrive as FORBIDDEN with the machine code in `data.code`. Read the field rather than
 	// testing instanceof: the client can hold a second copy of the error class. The server rejects the message
 	// before storing it, so the UI must not claim it was kept.
-	// The server's own message usually ends with a full stop; drop it before the sentence quotes it.
-	const errorText = error
-		? getOrpcErrorMessage(error, { fallback: t`an error`, allowServerMessage: true }).replace(/\.$/, "")
-		: "";
 	const rejection = error as { code?: string; data?: { code?: string } } | null | undefined;
 	const rejectionCode = rejection?.data?.code ?? rejection?.code;
 	const quotaBlocked = rejectionCode === "QUOTA_EXHAUSTED" || rejectionCode === "CREDIT_REQUIRED";
@@ -253,7 +249,12 @@ export function Conversation(props: ConversationProps) {
 							<Icon name="warning-circle" size={18} className="shrink-0" />
 							<span>
 								<Trans>
-									{props.providerLabel} returned “{errorText}”.
+									{props.providerLabel} returned “
+									{getOrpcErrorMessage(error, {
+										fallback: t`an error`,
+										allowServerMessage: true,
+									}).replace(/\.$/, "")}
+									”.
 								</Trans>{" "}
 								{quotaBlocked ? <Trans>Your message was not sent.</Trans> : <Trans>Your message is kept.</Trans>}
 							</span>
