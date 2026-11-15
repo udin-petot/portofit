@@ -28,7 +28,9 @@ import {
 import { buildAiExtractionTemplate } from "@reactive-resume/ai/resume/extraction-template";
 import { sanitizeAndParseResumeJson } from "@reactive-resume/ai/resume/sanitize";
 import { AI_PROVIDER_DEFAULT_BASE_URLS, AI_PROVIDER_DISPLAY_NAMES, aiProviderSchema } from "@reactive-resume/ai/types";
+import { env } from "@reactive-resume/env/server";
 import { isDirectOpenAIProvider } from "./capabilities";
+import { withModelFallback } from "./fallback";
 import { resolveAiBaseUrl } from "./url-policy";
 
 const aiExtractionTemplate = buildAiExtractionTemplate();
@@ -402,3 +404,40 @@ export const aiService = {
 	parsePdf,
 	testConnection,
 };
+
+/** At most two models after the primary, from AI_FALLBACK_MODELS; the same provider, key, and base URL. */
+export function fallbackModelIds(primary: string): string[] {
+	const configured = env.AI_FALLBACK_MODELS;
+	if (!configured) return [];
+
+	const seen = new Set([primary]);
+	const ids: string[] = [];
+
+	for (const raw of configured.split(",")) {
+		const id = raw.trim();
+		if (!id || seen.has(id)) continue;
+		seen.add(id);
+		ids.push(id);
+		if (ids.length === 2) break;
+	}
+
+	return ids;
+}
+
+/**
+ * The agent's connection with the configured fallbacks behind it. An empty AI_FALLBACK_MODELS hands back the single
+ * model, so a deployment without the setting behaves exactly like before.
+ */
+export function getAgentModelWithFallback(input: GetModelInput): ReturnType<typeof getAgentModel> {
+	const ids = fallbackModelIds(input.model);
+	if (ids.length === 0) return getAgentModel(input);
+
+	const models = [getAgentModel(input), ...ids.map((model) => getAgentModel({ ...input, model }))];
+	const firstTokenMs = env.AI_FALLBACK_FIRST_TOKEN_MS ?? 20_000;
+
+	return withModelFallback(models, {
+		ids: [input.model, ...ids],
+		forcePrimaryFailure: env.AI_FORCE_PRIMARY_FAILURE,
+		firstTokenMs: [firstTokenMs, 12_000, 12_000],
+	}) as unknown as ReturnType<typeof getAgentModel>;
+}

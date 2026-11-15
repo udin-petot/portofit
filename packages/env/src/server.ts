@@ -177,6 +177,12 @@ export const env = createEnv({
 		AI_MODEL: z.string().trim().min(1).optional(),
 		AI_API_KEY: z.string().trim().min(1).optional(),
 		AI_BASE_URL: z.url({ protocol: /^https?$/ }).optional(),
+		// Comma separated, same provider and key as AI_MODEL. Empty means the fallback chain is off.
+		AI_FALLBACK_MODELS: z.string().trim().optional(),
+		// How long an attempt may take to start answering before the next model is tried.
+		AI_FALLBACK_FIRST_TOKEN_MS: z.coerce.number().int().positive().max(120_000).optional(),
+		// Drill only: makes the primary model fail once per request so the chain can be proven in production.
+		AI_FORCE_PRIMARY_FAILURE: z.stringbool().default(false),
 
 		// Feature Flags
 		FLAG_DISABLE_SIGNUPS: z.stringbool().default(false),

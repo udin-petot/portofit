@@ -22,7 +22,7 @@ import * as schema from "@reactive-resume/db/schema";
 import { generateId } from "@reactive-resume/utils/string";
 import { aiProvidersService } from "../ai-providers/service";
 import { assertAgentEnvironment } from "../ai/credentials";
-import { getAgentModel } from "../ai/service";
+import { getAgentModelWithFallback } from "../ai/service";
 import { careerService, requireCareerApplication } from "../career/service";
 import { buildCareerTools, buildCareerInstructions } from "../career/tools";
 import { coverLetterService } from "../cover-letters/service";
@@ -1446,7 +1446,7 @@ export const agentService = {
 						apiKey: runnableProvider.apiKey,
 						baseURL: runnableProvider.baseURL ?? "",
 					},
-					model: getAgentModel({
+					model: getAgentModelWithFallback({
 						provider: runnableProvider.provider,
 						model: runnableProvider.model,
 						apiKey: runnableProvider.apiKey,
