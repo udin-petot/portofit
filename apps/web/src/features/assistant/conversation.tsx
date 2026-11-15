@@ -7,7 +7,9 @@ import type { UIMessage } from "ai";
 import type { ReactNode } from "react";
 import { t } from "@lingui/core/macro";
 import { Plural, Trans } from "@lingui/react/macro";
-import { useQueryClient } from "@tanstack/react-query";
+import { ORPCError } from "@orpc/client";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
 import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
 import { useEffect, useEffectEvent, useId, useMemo, useRef, useState } from "react";
 import { agentWebSources, readPageOutputSchema } from "@reactive-resume/ai/tools/agent-tool-contracts";
@@ -44,6 +46,8 @@ type ConversationProps = {
 	document: AssistantDocument;
 	readOnly: boolean;
 	providerLabel: string;
+	/** A managed connection uses PortoFit's key, so privacy copy must not claim otherwise. */
+	managed: boolean;
 	/** A message to send as soon as the conversation opens (the first message, ⌘K Ask). */
 	prompt: string | null;
 	promptAttachments: ChatAttachment[];
@@ -64,10 +68,14 @@ export function Conversation(props: ConversationProps) {
 	// Messages already in the thread when it opens are history; only new ones rise in.
 	const [initialIds] = useState(() => new Set(props.initialMessages.map((message) => message.id)));
 
-	const refresh = () =>
+	const refresh = () => {
 		void queryClient.invalidateQueries({
 			queryKey: orpc.agent.threads.list.key(),
 		});
+		// Every assistant message claims Coach allowance or paid Coach credits; keep the remaining count current.
+		void queryClient.invalidateQueries({ queryKey: orpc.quota.status.key() });
+		void queryClient.invalidateQueries({ queryKey: orpc.billing.balances.key() });
+	};
 	const { messages, sendMessage, status, error, clearError, regenerate, stop, addToolOutput } = useAssistantChat({
 		threadId,
 		initialMessages: props.initialMessages,
@@ -76,6 +84,9 @@ export function Conversation(props: ConversationProps) {
 		onFinish: refresh,
 	});
 	const streaming = status === "submitted" || status === "streaming";
+	// A quota or credit rejection happens before the server stores the message, so the UI must not claim it was kept.
+	const quotaBlocked =
+		error instanceof ORPCError && (error.code === "QUOTA_EXHAUSTED" || error.code === "CREDIT_REQUIRED");
 
 	const send = (text: string, attachments: ChatAttachment[] = []) => {
 		if (streaming || readOnly) return;
@@ -227,14 +238,17 @@ export function Conversation(props: ConversationProps) {
 					>
 						<span className="flex gap-2">
 							<Icon name="warning-circle" size={18} className="shrink-0" />
-							<Trans>
-								{props.providerLabel} returned “
-								{getOrpcErrorMessage(error, {
-									fallback: t`an error`,
-									allowServerMessage: true,
-								})}
-								”. Your message is kept.
-							</Trans>
+							<span>
+								<Trans>
+									{props.providerLabel} returned “
+									{getOrpcErrorMessage(error, {
+										fallback: t`an error`,
+										allowServerMessage: true,
+									})}
+									”.
+								</Trans>{" "}
+								{quotaBlocked ? <Trans>Your message was not sent.</Trans> : <Trans>Your message is kept.</Trans>}
+							</span>
 						</span>
 						<span className="flex gap-1.5">
 							<Button size="sm" variant="secondary" onClick={retry}>
@@ -262,6 +276,7 @@ export function Conversation(props: ConversationProps) {
 				context={context}
 				onContextChange={setContext}
 				providerLabel={props.providerLabel}
+				managed={props.managed}
 				streaming={streaming}
 				disabled={readOnly}
 				threadId={threadId}
@@ -613,6 +628,8 @@ type ComposerProps = {
 	context: MessageContext;
 	onContextChange: (context: MessageContext) => void;
 	providerLabel: string;
+	/** A managed connection uses PortoFit's key, so privacy copy must not claim otherwise. */
+	managed: boolean;
 	streaming: boolean;
 	disabled: boolean;
 	/** Attachments need a conversation to belong to. */
@@ -635,9 +652,15 @@ export function Composer(props: ComposerProps) {
 	const [uploading, setUploading] = useState(false);
 	const fileInput = useRef<HTMLInputElement>(null);
 	const hasText = text.trim().length > 0;
+	const quota = useQuery(orpc.quota.status.queryOptions());
+	const balances = useQuery(orpc.billing.balances.queryOptions());
+	const freeCoach = quota.data?.features.find((feature) => feature.feature === "coach");
+	const paidCoach = balances.data?.coach ?? 0;
+	const balancesLoaded = balances.data !== undefined;
+	const noCoachLeft = freeCoach !== undefined && freeCoach.remaining === 0 && balancesLoaded && paidCoach === 0;
 
 	const submit = () => {
-		if (!hasText || streaming || disabled || uploading) return;
+		if (!hasText || streaming || disabled || uploading || noCoachLeft) return;
 		props.onSend(text.trim(), attachments);
 		setText("");
 		setAttachments([]);
@@ -697,20 +720,44 @@ export function Composer(props: ComposerProps) {
 
 	const provider = props.providerLabel;
 	const sharesPosting = context.posting && document.posting;
+	const withKey = props.managed ? "" : t` with your key`;
 	const disclosure = context.document
 		? document.kind === "letter"
 			? sharesPosting
-				? t`Sends this letter and the posting to ${provider} with your key, only when you press send.`
-				: t`Sends this letter to ${provider} with your key, only when you press send.`
+				? t`Sends this letter and the posting to ${provider}${withKey} only when you press send.`
+				: t`Sends this letter to ${provider}${withKey} only when you press send.`
 			: sharesPosting
-				? t`Sends this resume and the posting to ${provider} with your key, only when you press send.`
-				: t`Sends this resume to ${provider} with your key, only when you press send.`
+				? t`Sends this resume and the posting to ${provider}${withKey} only when you press send.`
+				: t`Sends this resume to ${provider}${withKey} only when you press send.`
 		: sharesPosting
-			? t`Sends your message and the posting to ${provider} with your key, only when you press send.`
-			: t`Sends your message to ${provider} with your key, only when you press send.`;
+			? t`Sends your message and the posting to ${provider}${withKey} only when you press send.`
+			: t`Sends your message to ${provider}${withKey} only when you press send.`;
 
 	return (
 		<div className="grid gap-2 border-t border-line bg-surface px-3 pt-2.5 pb-3">
+			{freeCoach ? (
+				<div className="flex flex-wrap items-center justify-between gap-2 text-[11px] leading-4 text-ink-3">
+					<span>
+						{freeCoach.remaining > 0 ? (
+							<Trans>{freeCoach.remaining} free Coach messages left this week.</Trans>
+						) : balancesLoaded ? (
+							paidCoach > 0 ? (
+								<Trans>{paidCoach} paid Coach messages left.</Trans>
+							) : (
+								<Trans>Free Coach messages are used up.</Trans>
+							)
+						) : null}
+					</span>
+					{noCoachLeft ? (
+						<Link
+							to="/dashboard/beli-kredit"
+							className="font-medium text-accent-text underline underline-offset-4 hover:text-accent-hover"
+						>
+							<Trans>Buy Coach messages</Trans>
+						</Link>
+					) : null}
+				</div>
+			) : null}
 			{(chips.length > 0 || attachments.length > 0) && (
 				<div className="flex flex-wrap gap-1.5">
 					{chips.map((chip) => (
@@ -781,7 +828,7 @@ export function Composer(props: ComposerProps) {
 				<button
 					type="button"
 					aria-label={streaming ? t`Stop` : t`Send`}
-					disabled={!streaming && (!hasText || disabled || uploading)}
+					disabled={!streaming && (!hasText || disabled || uploading || noCoachLeft)}
 					onClick={streaming ? props.onStop : submit}
 					className={cn(
 						"grid size-[34px] shrink-0 place-items-center rounded-lg transition-[background-color,color,scale] duration-quick ease-enter enabled:active:scale-[0.97]",

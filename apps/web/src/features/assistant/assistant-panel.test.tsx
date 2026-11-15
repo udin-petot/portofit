@@ -34,7 +34,10 @@ vi.mock("@/features/resume/editor/store", () => ({
 	),
 }));
 vi.mock("@/features/settings/integrations/hooks/use-has-usable-ai-provider", () => ({
-	useHasUsableAiProvider: () => ({ usableProviders: [{ id: "provider-1", label: "Local" }], hasUsableProvider: true }),
+	useHasUsableAiProvider: () => ({
+		usableProviders: [{ id: "provider-1", label: "Server AI", managed: true, model: "zai-org/GLM-5.3-Flash" }],
+		hasUsableProvider: true,
+	}),
 }));
 vi.mock("@/libs/orpc/client", () => ({
 	client: { agent: { threads: { start: mocks.start }, attachments: { create: mocks.attach } } },
@@ -45,6 +48,8 @@ vi.mock("@/libs/orpc/client", () => ({
 				get: { queryOptions: () => ({ queryKey: ["thread"] }) },
 			},
 		},
+		quota: { status: { key: () => ["quota"], queryOptions: () => ({ queryKey: ["quota"] }) } },
+		billing: { balances: { key: () => ["billing"], queryOptions: () => ({ queryKey: ["billing"] }) } },
 	},
 }));
 vi.mock("@reactive-resume/ui/components/toast", () => ({ toast: { add: vi.fn() } }));
@@ -98,4 +103,16 @@ it("keeps first-message text and attachments when the draft appears in a backgro
 	expect((screen.getByRole("textbox") as HTMLTextAreaElement).value).toBe("Keep my first message");
 	expect(screen.getByText("posting.txt")).toBeDefined();
 	expect(mocks.setSelected).toHaveBeenCalledWith("new");
+});
+
+it("shows the managed connection as AI PortoFit and hides its model", () => {
+	render(
+		<I18nProvider i18n={i18n}>
+			<AssistantPanel document={document} onClose={() => {}} />
+		</I18nProvider>,
+	);
+	const model = screen.getByRole("button", { name: "Model: AI PortoFit" });
+	expect(model.textContent).toContain("AI PortoFit");
+	expect(model.textContent).not.toContain("zai-org");
+	expect(model.textContent).not.toContain("GLM");
 });

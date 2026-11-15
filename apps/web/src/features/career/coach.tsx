@@ -43,6 +43,11 @@ import { CareerLoadError } from "./load-state";
 import { ContextChip, Eyebrow, PrivacyLine } from "./shared";
 import { transcriptOf, useConversationConnection } from "@/features/assistant/chat";
 import { ProviderSetup } from "@/features/assistant/provider-setup";
+import {
+	AI_PORTOFIT,
+	displayProviderName,
+	displayStoredProviderName,
+} from "@/features/settings/integrations/ai-provider-display";
 import { AiProviderLoadState } from "@/features/settings/integrations/ai-provider-load-state";
 import { useHasUsableAiProvider } from "@/features/settings/integrations/hooks/use-has-usable-ai-provider";
 import { getOrpcErrorMessage } from "@/libs/error-message";
@@ -50,13 +55,6 @@ import { client, orpc } from "@/libs/orpc/client";
 
 type ThreadSummary = RouterOutput["agent"]["threads"]["list"][number];
 type UsableProvider = ReturnType<typeof useHasUsableAiProvider>["usableProviders"][number];
-
-/** The managed server connection is a product name, not a model selector; hide its model everywhere. */
-const AI_PORTOFIT = "AI PortoFit";
-const displayProviderName = (provider: { label: string; managed?: boolean }) =>
-	provider.managed ? AI_PORTOFIT : provider.label;
-const displayStoredProviderName = (label: string | null | undefined) =>
-	label === "Server AI" ? AI_PORTOFIT : (label ?? t`Your AI`);
 
 // ---- Context chips: per conversation, in this browser; new conversations start from the defaults. ----
 

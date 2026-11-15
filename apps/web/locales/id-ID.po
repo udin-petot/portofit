@@ -19,6 +19,10 @@ msgstr ""
 "X-Crowdin-Project-ID: 503410\n"
 "X-Generator: @lingui/cli\n"
 
+#: src/features/assistant/conversation.tsx
+msgid " with your key"
+msgstr " dengan kunci Anda"
+
 #. placeholder {0}: application.role
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
@@ -286,6 +290,7 @@ msgid "{0} found, {unreadable} unreadable"
 msgstr "{0} ditemukan, {unreadable} tidak dapat dibaca"
 
 #. placeholder {0}: freeCoach.remaining
+#: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "{0} free Coach messages left this week."
 msgstr "Sisa {0} pesan Coach gratis minggu ini."
@@ -383,8 +388,14 @@ msgstr "Postingan pekerjaan {0}"
 #. placeholder {0}: props.providerLabel
 #. placeholder {1}: getOrpcErrorMessage(error, { fallback: t`an error`, allowServerMessage: true, })
 #: src/features/assistant/conversation.tsx
-msgid "{0} returned “{1}”. Your message is kept."
-msgstr "{0} mengembalikan “{1}”. Pesan Anda disimpan."
+msgid "{0} returned “{1}”."
+msgstr "{0} mengembalikan “{1}”."
+
+#. placeholder {0}: props.providerLabel
+#. placeholder {1}: getOrpcErrorMessage(error, { fallback: t`an error`, allowServerMessage: true, })
+#: src/features/assistant/conversation.tsx
+#~ msgid "{0} returned “{1}”. Your message is kept."
+#~ msgstr "{0} mengembalikan “{1}”. Pesan Anda disimpan."
 
 #. placeholder {0}: step.sections
 #. placeholder {0}: summary.sections
@@ -661,6 +672,7 @@ msgstr "{open, plural, one {# hal yang perlu ditinjau.} other {# hal yang perlu 
 msgid "{pageCount, plural, one {# page} other {# pages}}"
 msgstr "{pageCount, plural, one {halaman #} other {# halaman}}"
 
+#: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "{paidCoach} paid Coach messages left."
 msgstr "Sisa {paidCoach} pesan Coach berbayar."
@@ -2465,6 +2477,7 @@ msgstr "Beli"
 msgid "Buy a credit"
 msgstr "Beli satu kredit"
 
+#: src/features/assistant/conversation.tsx
 #: src/features/billing/credit-dialog.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/quota/page.tsx
@@ -5468,6 +5481,7 @@ msgstr "Penggunaan AI gratis kembali penuh setiap Senin pukul 00.00 WIB. Sisa pe
 msgid "Free ATS resume checker"
 msgstr "Pemeriksa resume ATS gratis"
 
+#: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Free Coach messages are used up."
 msgstr "Pesan Coach gratis sudah habis."
@@ -10980,32 +10994,56 @@ msgid "Sends this application's posting, notes and documents, plus Knowledge tha
 msgstr "Mengirim lowongan, catatan, dan dokumen lamaran ini, serta Profil Karier yang diaktifkan, ke koneksi ini. Penyedia Anda mungkin mengenakan biaya."
 
 #: src/features/assistant/conversation.tsx
-msgid "Sends this letter and the posting to {provider} with your key, only when you press send."
-msgstr "Kirimkan surat ini dan postingan pekerjaan ke {provider} dengan kunci Anda, hanya ketika Anda menekan kirim."
+#~ msgid "Sends this letter and the posting to {provider} with your key, only when you press send."
+#~ msgstr "Kirimkan surat ini dan postingan pekerjaan ke {provider} dengan kunci Anda, hanya ketika Anda menekan kirim."
 
 #: src/features/assistant/conversation.tsx
-msgid "Sends this letter to {provider} with your key, only when you press send."
-msgstr "Kirimkan surat ini ke {provider} dengan kunci Anda, hanya ketika Anda menekan kirim."
+msgid "Sends this letter and the posting to {provider}{withKey} only when you press send."
+msgstr "Mengirim surat ini dan lowongan ke {provider}{withKey}, hanya saat Anda menekan kirim."
 
 #: src/features/assistant/conversation.tsx
-msgid "Sends this resume and the posting to {provider} with your key, only when you press send."
-msgstr "Kirimkan resume ini dan postingan pekerjaan ke {provider} dengan kunci Anda, hanya ketika Anda menekan kirim."
+#~ msgid "Sends this letter to {provider} with your key, only when you press send."
+#~ msgstr "Kirimkan surat ini ke {provider} dengan kunci Anda, hanya ketika Anda menekan kirim."
 
 #: src/features/assistant/conversation.tsx
-msgid "Sends this resume to {provider} with your key, only when you press send."
-msgstr "Kirimkan resume ini ke {provider} dengan kunci Anda, hanya ketika Anda menekan kirim."
+msgid "Sends this letter to {provider}{withKey} only when you press send."
+msgstr "Mengirim surat ini ke {provider}{withKey}, hanya saat Anda menekan kirim."
+
+#: src/features/assistant/conversation.tsx
+#~ msgid "Sends this resume and the posting to {provider} with your key, only when you press send."
+#~ msgstr "Kirimkan resume ini dan postingan pekerjaan ke {provider} dengan kunci Anda, hanya ketika Anda menekan kirim."
+
+#: src/features/assistant/conversation.tsx
+msgid "Sends this resume and the posting to {provider}{withKey} only when you press send."
+msgstr "Mengirim CV ini dan lowongan ke {provider}{withKey}, hanya saat Anda menekan kirim."
+
+#: src/features/assistant/conversation.tsx
+#~ msgid "Sends this resume to {provider} with your key, only when you press send."
+#~ msgstr "Kirimkan resume ini ke {provider} dengan kunci Anda, hanya ketika Anda menekan kirim."
+
+#: src/features/assistant/conversation.tsx
+msgid "Sends this resume to {provider}{withKey} only when you press send."
+msgstr "Mengirim CV ini ke {provider}{withKey}, hanya saat Anda menekan kirim."
 
 #: src/features/homepage/remember.tsx
 msgid "Sends this story and the facts switched on to the AI service you use, only when you ask the coach."
 msgstr "Mengirim cerita ini dan fakta yang diaktifkan ke layanan AI yang kamu pakai, hanya saat kamu bertanya ke coach."
 
 #: src/features/assistant/conversation.tsx
-msgid "Sends your message and the posting to {provider} with your key, only when you press send."
-msgstr "Mengirim pesan Anda dan postingan pekerjaan ke {provider} dengan kunci Anda, hanya ketika Anda menekan kirim."
+#~ msgid "Sends your message and the posting to {provider} with your key, only when you press send."
+#~ msgstr "Mengirim pesan Anda dan postingan pekerjaan ke {provider} dengan kunci Anda, hanya ketika Anda menekan kirim."
 
 #: src/features/assistant/conversation.tsx
-msgid "Sends your message to {provider} with your key, only when you press send."
-msgstr "Mengirim pesan Anda ke {provider} dengan kunci Anda, hanya ketika Anda menekan kirim."
+msgid "Sends your message and the posting to {provider}{withKey} only when you press send."
+msgstr "Mengirim pesan Anda dan lowongan ke {provider}{withKey}, hanya saat Anda menekan kirim."
+
+#: src/features/assistant/conversation.tsx
+#~ msgid "Sends your message to {provider} with your key, only when you press send."
+#~ msgstr "Mengirim pesan Anda ke {provider} dengan kunci Anda, hanya ketika Anda menekan kirim."
+
+#: src/features/assistant/conversation.tsx
+msgid "Sends your message to {provider}{withKey} only when you press send."
+msgstr "Mengirim pesan Anda ke {provider}{withKey}, hanya saat Anda menekan kirim."
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Sends your message, this application (posting, notes, documents sent) and Knowledge that's switched on to {connection}."
@@ -14366,7 +14404,6 @@ msgstr "Anda mendapat email!"
 msgid "Your account was deleted."
 msgstr "Akun Anda telah dihapus."
 
-#: src/features/career/coach.tsx
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Your AI"
 msgstr "AI Anda"
@@ -14530,6 +14567,14 @@ msgstr "Margin Anda sangat sempit."
 msgid "your message"
 msgstr "pesan Anda"
 
+#: src/features/assistant/conversation.tsx
+msgid "Your message is kept."
+msgstr "Pesan Anda disimpan."
+
+#: src/features/assistant/conversation.tsx
+msgid "Your message was not sent."
+msgstr "Pesan Anda tidak terkirim."
+
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Your name"
 msgstr "Nama Anda"
@@ -14591,6 +14636,7 @@ msgid "Your profile, your credits, and the trail of what you spent them on."
 msgstr "Profil, kredit, dan riwayat pemakaian kredit Anda."
 
 #: src/features/assistant/assistant-panel.tsx
+#: src/features/settings/integrations/ai-provider-display.ts
 msgid "your provider"
 msgstr "penyedia Anda"
 

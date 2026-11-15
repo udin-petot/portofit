@@ -4,15 +4,36 @@ import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/re
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
+import { ORPCError } from "@orpc/client";
 
-const mocks = vi.hoisted(() => ({ chat: vi.fn(), send: vi.fn(), attach: vi.fn(), publish: vi.fn() }));
-vi.mock("@tanstack/react-query", () => ({ useQueryClient: () => ({ invalidateQueries: vi.fn() }) }));
+const mocks = vi.hoisted(() => ({
+	chat: vi.fn(),
+	send: vi.fn(),
+	attach: vi.fn(),
+	publish: vi.fn(),
+	quota: undefined as unknown,
+	balances: undefined as unknown,
+}));
+vi.mock("@tanstack/react-query", () => ({
+	useQuery: (options: { queryKey: string[] }) =>
+		options.queryKey[0] === "quota"
+			? { data: mocks.quota }
+			: options.queryKey[0] === "billing"
+				? { data: mocks.balances }
+				: { data: undefined },
+	useQueryClient: () => ({ invalidateQueries: vi.fn() }),
+}));
+vi.mock("@tanstack/react-router", () => ({ Link: () => null }));
 vi.mock("@/features/resume/editor/store", () => ({
 	useEditorStore: (select: (state: unknown) => unknown) => select({ setAssistantProposals: mocks.publish }),
 }));
 vi.mock("@/libs/orpc/client", () => ({
 	client: { agent: { attachments: { create: mocks.attach } } },
-	orpc: { agent: { threads: { list: { key: () => ["threads"] } } } },
+	orpc: {
+		agent: { threads: { list: { key: () => ["threads"] } } },
+		quota: { status: { key: () => ["quota"], queryOptions: () => ({ queryKey: ["quota"] }) } },
+		billing: { balances: { key: () => ["billing"], queryOptions: () => ({ queryKey: ["billing"] }) } },
+	},
 }));
 vi.mock("@reactive-resume/ui/components/toast", () => ({ toast: { add: vi.fn() } }));
 vi.mock("./chat", () => ({
@@ -41,6 +62,8 @@ const document: AssistantDocument = {
 };
 beforeEach(() => {
 	vi.clearAllMocks();
+	mocks.quota = undefined;
+	mocks.balances = undefined;
 	i18n.loadAndActivate({ locale: "en-US", messages: {} });
 	mocks.chat.mockReturnValue({ messages: [], sendMessage: mocks.send, status: "ready", clearError: vi.fn() });
 	mocks.attach.mockResolvedValue({ id: "file-1", filename: "posting.txt", mediaType: "text/plain" });
@@ -57,6 +80,7 @@ it("uploads a file in the initial composer before sending its first message", as
 				context={{ document: false, posting: false }}
 				onContextChange={() => {}}
 				providerLabel="Local"
+				managed={false}
 				streaming={false}
 				disabled={false}
 				threadId={null}
@@ -95,6 +119,7 @@ it("preserves first-message context exclusions, selected application and attachm
 				activeRun={false}
 				readOnly={false}
 				providerLabel="Local"
+				managed={false}
 				initialContext={context}
 				prompt="Prepare"
 				promptAttachments={[{ id: "file-1", filename: "posting.txt", mediaType: "text/plain" }]}
@@ -156,6 +181,7 @@ it("reopens native and custom web results with sources, clipping and failed or u
 				activeRun={false}
 				readOnly={false}
 				providerLabel="Local"
+				managed={false}
 				initialContext={{ document: true, posting: true }}
 				prompt={null}
 				promptAttachments={[]}
@@ -172,4 +198,84 @@ it("reopens native and custom web results with sources, clipping and failed or u
 	expect(screen.getByRole("link", { name: "https://careers.example/role" }).getAttribute("href")).toBe(
 		"https://careers.example/role",
 	);
+});
+
+it("omits the key phrase for a managed connection", () => {
+	const { container } = render(
+		<I18nProvider i18n={i18n}>
+			<Composer
+				document={document}
+				context={{ document: true, posting: false }}
+				onContextChange={() => {}}
+				providerLabel="AI PortoFit"
+				managed
+				streaming={false}
+				disabled={false}
+				threadId="thread-1"
+				onSend={() => {}}
+				onStop={() => {}}
+			/>
+		</I18nProvider>,
+	);
+	const lines = screen.getAllByText((_, element) =>
+		Boolean(element?.textContent?.includes("Sends this resume to AI PortoFit only when you press send.")),
+	);
+	expect(lines.length).toBeGreaterThan(0);
+	expect(container.textContent).not.toContain("with your key");
+});
+
+it("shows the Coach count and blocks sending when none are left", () => {
+	mocks.quota = { features: [{ feature: "coach", remaining: 0 }] };
+	mocks.balances = { coach: 0 };
+	render(
+		<I18nProvider i18n={i18n}>
+			<Composer
+				document={document}
+				context={{ document: true, posting: false }}
+				onContextChange={() => {}}
+				providerLabel="Local"
+				managed={false}
+				streaming={false}
+				disabled={false}
+				threadId="thread-1"
+				onSend={() => {}}
+				onStop={() => {}}
+			/>
+		</I18nProvider>,
+	);
+	expect(screen.getByText("Free Coach messages are used up.")).toBeDefined();
+	fireEvent.change(screen.getByRole("textbox"), { target: { value: "Please review this" } });
+	const send = screen.getByRole("button", { name: "Send" }) as HTMLButtonElement;
+	expect(send.disabled).toBe(true);
+});
+
+it("does not claim a quota-rejected message was kept", () => {
+	mocks.chat.mockReturnValue({
+		messages: [],
+		sendMessage: vi.fn(),
+		status: "ready",
+		error: new ORPCError("QUOTA_EXHAUSTED", { message: "Coach messages are used up." }),
+		clearError: vi.fn(),
+	});
+	render(
+		<I18nProvider i18n={i18n}>
+			<Conversation
+				document={document}
+				threadId="thread-1"
+				initialMessages={[]}
+				activeRun={false}
+				readOnly={false}
+				providerLabel="AI PortoFit"
+				managed
+				initialContext={{ document: true, posting: true }}
+				prompt={null}
+				promptAttachments={[]}
+				onPromptSent={() => {}}
+				onSwitchModel={() => {}}
+			/>
+		</I18nProvider>,
+	);
+	const alert = screen.getByRole("alert");
+	expect(alert.textContent).toContain("Your message was not sent.");
+	expect(alert.textContent).not.toContain("Your message is kept.");
 });

@@ -27,6 +27,7 @@ import { Composer, Conversation } from "./conversation";
 import { ProviderSetup } from "./provider-setup";
 import { useEditorStore } from "@/features/resume/editor/store";
 import { formatVersionTime } from "@/features/resume/share/format";
+import { displayProviderName, displayStoredProviderName } from "@/features/settings/integrations/ai-provider-display";
 import { AiProviderLoadState } from "@/features/settings/integrations/ai-provider-load-state";
 import { useHasUsableAiProvider } from "@/features/settings/integrations/hooks/use-has-usable-ai-provider";
 import { useConfirm } from "@/hooks/use-confirm";
@@ -78,7 +79,11 @@ export function AssistantPanel({ document, onClose }: AssistantPanelProps) {
 	// A conversation runs on its own connection; one switched off or removed moves to the default.
 	const provider = usable.find((item) => item.id === (threadId ? summary?.aiProviderId : providerId)) ?? usable[0];
 	useConversationConnection(threadId ? summary : undefined, provider);
-	const providerLabel = provider?.label ?? summary?.providerLabel ?? t`your provider`;
+	const providerLabel = provider
+		? displayProviderName(provider)
+		: summary?.providerLabel
+			? displayStoredProviderName(summary.providerLabel)
+			: t`your provider`;
 
 	const ensureThread = async (): Promise<string> => {
 		if (draftThread.current) return draftThread.current;
@@ -228,6 +233,7 @@ export function AssistantPanel({ document, onClose }: AssistantPanelProps) {
 					threadId={threadId}
 					document={document}
 					providerLabel={providerLabel}
+					managed={Boolean(provider?.managed)}
 					prompt={selected === threadId ? prompt : null}
 					promptAttachments={promptAttachments}
 					initialContext={{ ...context, ...(document.posting ? { applicationId: document.posting.id } : {}) }}
@@ -246,6 +252,7 @@ export function AssistantPanel({ document, onClose }: AssistantPanelProps) {
 						context={context}
 						onContextChange={setContext}
 						providerLabel={providerLabel}
+						managed={Boolean(provider?.managed)}
 						streaming={starting}
 						disabled={document.locked}
 						threadId={null}
@@ -263,6 +270,7 @@ type ConversationLoaderProps = {
 	threadId: string;
 	document: AssistantDocument;
 	providerLabel: string;
+	managed: boolean;
 	prompt: string | null;
 	promptAttachments: ChatAttachment[];
 	initialContext: MessageContext;
@@ -327,15 +335,15 @@ function ModelMenu({ open, onOpenChange, providers, current, label, onChoose }: 
 					/>
 				}
 			>
-				<span className="truncate">{current?.model ?? label}</span>
+				<span className="truncate">{label}</span>
 				<Icon name="caret-down" size={16} />
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end" className="w-64">
 				{providers.map((item) => (
 					<DropdownMenuItem key={item.id} onClick={() => onChoose(item.id)}>
 						<span className="grid min-w-0 flex-1">
-							<span className="truncate">{item.label}</span>
-							<span className="truncate text-xs text-ink-3">{item.model}</span>
+							<span className="truncate">{displayProviderName(item)}</span>
+							{!item.managed && <span className="truncate text-xs text-ink-3">{item.model}</span>}
 						</span>
 						{item.id === current?.id && <Icon name="check" size={16} />}
 					</DropdownMenuItem>
