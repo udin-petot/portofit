@@ -1,7 +1,8 @@
 import { RouterProvider } from "@tanstack/react-router";
 import ReactDOM from "react-dom/client";
-import { followReducedMotion } from "./libs/motion";
 import { trackClientErrors } from "./libs/client-errors";
+import { followReducedMotion } from "./libs/motion";
+import { ignoreSkippedViewTransitions } from "./libs/view-transitions";
 import { getRouter } from "./router";
 import "./index.css";
 
@@ -10,6 +11,7 @@ if (!rootElement) throw new Error("Root element not found");
 
 followReducedMotion();
 trackClientErrors();
+ignoreSkippedViewTransitions();
 
 const router = await getRouter();
 
