@@ -98,6 +98,8 @@ const BASE_SECURITY_HEADERS = {
 	"X-Frame-Options": "DENY",
 	"X-Content-Type-Options": "nosniff",
 	"Referrer-Policy": "strict-origin-when-cross-origin",
+	// Enforced, not report-only: framing is a clickjacking control, so it must not depend on X-Frame-Options alone.
+	"Content-Security-Policy": "frame-ancestors 'none'",
 	// `wasm-unsafe-eval` lets the PDF engine (Forme, WebAssembly) start in the browser.
 	"Content-Security-Policy-Report-Only":
 		"default-src 'self'; img-src 'self' data: blob:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'",

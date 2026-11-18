@@ -83,7 +83,9 @@ function isValidPathSegments(path: string): boolean {
 }
 
 function isPrivateUploadPath(path: string): boolean {
-	return path.split("/")[0] === "agent";
+	// Case-insensitive on purpose: Windows and macOS resolve `Agent` to the same directory, so a
+	// case-sensitive check here would let the private namespace be served as a public picture.
+	return path.split("/")[0]?.toLowerCase() === "agent";
 }
 
 function isNotModified(headers: Headers, etag: string): boolean {
