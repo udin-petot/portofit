@@ -378,7 +378,8 @@ describe("builder resume autosave", () => {
 		const initial = makeResume("resume-restore");
 		window.localStorage.setItem(
 			"reactive-resume:unsaved:resume-restore",
-			JSON.stringify({ data: withBasicsName(initial, "Kept locally").data, storedAt: 1 }),
+			// Newer than the server copy's updatedAt, which is what makes it a restore rather than a stale draft.
+			JSON.stringify({ data: withBasicsName(initial, "Kept locally").data, storedAt: initial.updatedAt.getTime() + 60_000 }),
 		);
 		orpcMocks.updateResume.mockImplementation((input: { id: string; data: ResumeData }) =>
 			Promise.resolve({ ...makeResume(input.id), data: input.data }),
@@ -395,6 +396,21 @@ describe("builder resume autosave", () => {
 		expect(toastMocks.add).toHaveBeenCalledWith(
 			expect.objectContaining({ description: "Restored changes that hadn't been saved yet." }),
 		);
+	});
+
+	it("discards a draft older than the server copy instead of rolling the document back", async () => {
+		const initial = makeResume("resume-stale");
+		window.localStorage.setItem(
+			"reactive-resume:unsaved:resume-stale",
+			JSON.stringify({ data: withBasicsName(initial, "Stale draft").data, storedAt: initial.updatedAt.getTime() - 60_000 }),
+		);
+
+		useResumeStore.getState().initialize(initial);
+		await flushMicrotasks();
+
+		expect(useResumeStore.getState().resume?.data.basics.name).not.toBe("Stale draft");
+		expect(orpcMocks.updateResume).not.toHaveBeenCalled();
+		expect(window.localStorage.getItem("reactive-resume:unsaved:resume-stale")).toBeNull();
 	});
 });
 

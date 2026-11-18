@@ -162,15 +162,21 @@ function clearUnsavedResume(id: string) {
 	}
 }
 
-export function readUnsavedResumeData(id: string): ResumeData | undefined {
+/** The stored draft with the time it was written, so a restore can tell it apart from newer server state. */
+export function readUnsavedResume(id: string): { data: ResumeData; storedAt: number } | undefined {
 	try {
 		const raw = window.localStorage.getItem(`${UNSAVED_STORAGE_PREFIX}${id}`);
 		if (!raw) return undefined;
-		const parsed = JSON.parse(raw) as { data?: ResumeData };
-		return parsed.data;
+		const parsed = JSON.parse(raw) as { data?: ResumeData; storedAt?: number };
+		if (!parsed.data) return undefined;
+		return { data: parsed.data, storedAt: typeof parsed.storedAt === "number" ? parsed.storedAt : 0 };
 	} catch {
 		return undefined;
 	}
+}
+
+export function readUnsavedResumeData(id: string): ResumeData | undefined {
+	return readUnsavedResume(id)?.data;
 }
 
 function isBrowserOffline() {
@@ -412,9 +418,13 @@ export const useResumeStore = create<ResumeStore>()(
 			if (resume) setRuntimeBaseline(resume);
 			resetHistoryRuntime();
 
-			// Changes that couldn't be saved last time (offline, closed tab) come back and are sent again.
-			const unsaved = resume ? readUnsavedResumeData(resume.id) : undefined;
-			const restored = resume && unsaved && !isEqual(unsaved, resume.data) ? { ...resume, data: unsaved } : null;
+			// Changes that couldn't be saved last time (offline, closed tab) come back and are sent again, but only
+			// when they are newer than the server copy. Restoring an older draft over a row edited elsewhere would
+			// silently roll the document back.
+			const unsaved = resume ? readUnsavedResume(resume.id) : undefined;
+			const isNewer = resume && unsaved ? unsaved.storedAt > resume.updatedAt.getTime() : false;
+			const restored =
+				resume && unsaved && isNewer && !isEqual(unsaved.data, resume.data) ? { ...resume, data: unsaved.data } : null;
 			if (resume && unsaved && !restored) clearUnsavedResume(resume.id);
 
 			set((state) => {
