@@ -2,7 +2,16 @@ import type { MessageDescriptor } from "@lingui/core";
 import type { Template } from "@reactive-resume/schema/templates";
 import { msg } from "@lingui/core/macro";
 
-export type TemplateStyle = "editorial" | "swiss" | "studio" | "compact" | "technical" | "academic" | "humanist";
+export type TemplateStyle =
+	| "editorial"
+	| "swiss"
+	| "studio"
+	| "compact"
+	| "technical"
+	| "academic"
+	| "humanist"
+	| "timeline"
+	| "banner";
 
 export type TemplateMetadata = {
 	name: string;
@@ -26,6 +35,41 @@ export const templates = {
 		imageUrl: "/templates/jpg/compact.jpg",
 		tags: ["One column", "ATS friendly", "Compact", "Fresh graduate", "Job portal"],
 		style: "compact",
+	},
+	timeline: {
+		name: "Timeline",
+		description: msg`One column with every section on an accent rail: a thin line and a dot per entry. Dates stay right-aligned and the text order stays ATS-safe.`,
+		imageUrl: "/templates/jpg/timeline.jpg",
+		tags: ["One column", "ATS friendly", "Timeline", "Modern", "Fresh graduate", "Job portal"],
+		style: "timeline",
+	},
+	banner: {
+		name: "Banner",
+		description: msg`A full-width band in your accent color carries the name and contact, and the body below stays one plain column. Bold first impression without giving up ATS parsing.`,
+		imageUrl: "/templates/jpg/banner.jpg",
+		tags: ["One column", "ATS friendly", "Color band", "Bold", "Marketing", "Fresh graduate"],
+		style: "banner",
+	},
+	technical: {
+		name: "Technical",
+		description: msg`A dense single column with colored section labels and a double rule under the header. Built for software, data and engineering resumes that scan fast.`,
+		imageUrl: "/templates/jpg/technical.jpg",
+		tags: ["One column", "ATS friendly", "Dense", "Engineering", "Software", "Data"],
+		style: "technical",
+	},
+	academic: {
+		name: "Academic",
+		description: msg`Centred header and centred section headings over one generous column, ready for publications and research sections. For scholarships, research assistantships and campus applications.`,
+		imageUrl: "/templates/jpg/academic.jpg",
+		tags: ["One column", "ATS friendly", "Centred", "Scholarship", "Research", "Campus"],
+		style: "academic",
+	},
+	humanist: {
+		name: "Humanist",
+		description: msg`A warm tinted band with the photo on the right, then one calm column with hairline rules. For HR, education, healthcare and social-impact roles.`,
+		imageUrl: "/templates/jpg/humanist.jpg",
+		tags: ["One column", "ATS friendly", "Warm", "Photo", "HR", "Education", "Social impact"],
+		style: "humanist",
 	},
 	rapi: {
 		name: "Rapi",

@@ -16,7 +16,7 @@ export const Route = createFileRoute("/templates/$")({
 			{
 				name: "description",
 				content:
-					"All 23 PortoFit resume templates in one place. Every one exports a text-based PDF that applicant tracking systems can read.",
+					"All 28 PortoFit resume templates in one place. Every one exports a text-based PDF that applicant tracking systems can read.",
 			},
 		],
 	}),
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/templates/$")({
 
 /**
  * Browsing templates used to be impossible without an account: a bare /templates answered "Template tidak ditemukan",
- * so the 23 layouts the homepage advertises were never seen before sign-up. The list now lives here, and each card
+ * so the 28 layouts the homepage advertises were never seen before sign-up. The list now lives here, and each card
  * opens the PDF preview that already existed.
  */
 function TemplateGallery() {

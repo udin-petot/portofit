@@ -167,8 +167,6 @@ const useBersihTemplate = (): BersihTemplate => {
 			},
 			picture: {
 				...base.picture,
-				width: 64,
-				height: 64,
 			},
 			section: {
 				borderTopWidth: 1,

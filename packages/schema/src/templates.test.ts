@@ -10,5 +10,8 @@ describe("template registry", () => {
 		expect(templateLayouts.swiss).toMatchObject({ columns: 1, atsSafe: true });
 		expect(templateLayouts.compact).toMatchObject({ columns: 1, atsSafe: true });
 		expect(templateLayouts.studio).toMatchObject({ columns: 2, sidebarSide: "left", atsSafe: false });
+		for (const id of ["timeline", "banner", "technical", "academic", "humanist"] as const) {
+			expect(templateLayouts[id]).toMatchObject({ columns: 1, atsSafe: true });
+		}
 	});
 });

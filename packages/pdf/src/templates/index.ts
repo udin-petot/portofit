@@ -23,6 +23,11 @@ import { ScizorPage } from "./scizor/ScizorPage";
 import { SmearglePage } from "./smeargle/SmearglePage";
 import { StudioPage } from "./studio/StudioPage";
 import { SwissPage } from "./swiss/SwissPage";
+import { TimelinePage } from "./timeline/TimelinePage";
+import { BannerPage } from "./banner/BannerPage";
+import { TechnicalPage } from "./technical/TechnicalPage";
+import { AcademicPage } from "./academic/AcademicPage";
+import { HumanistPage } from "./humanist/HumanistPage";
 
 const templatePages: Partial<Record<Template, TemplatePage>> = {
 	azurill: AzurillPage,
@@ -48,6 +53,11 @@ const templatePages: Partial<Record<Template, TemplatePage>> = {
 	swiss: SwissPage,
 	bersih: BersihPage,
 	rapi: RapiPage,
+	timeline: TimelinePage,
+	banner: BannerPage,
+	technical: TechnicalPage,
+	academic: AcademicPage,
+	humanist: HumanistPage,
 };
 
 const defaultTemplatePage = AzurillPage;

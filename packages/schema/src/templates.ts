@@ -24,6 +24,11 @@ export const templateSchema = z.enum([
 	"studio",
 	"bersih",
 	"rapi",
+	"timeline",
+	"banner",
+	"technical",
+	"academic",
+	"humanist",
 ]);
 
 export type Template = z.infer<typeof templateSchema>;
@@ -69,4 +74,14 @@ export const templateLayouts = {
 	bersih: oneColumn,
 	// Rapi sets a narrow right column behind a hairline, with no rules between sections.
 	rapi: { columns: 2, sidebarSide: "right", headerPlacement: "full-width", atsSafe: false },
+	// Timeline prints experience on a dated rail with a dot per entry, in one reading order.
+	timeline: oneColumn,
+	// Banner opens with a full-width accent band and keeps the body in one plain column.
+	banner: oneColumn,
+	// Technical sets a dense single column with mono-feeling rules and colored section labels.
+	technical: oneColumn,
+	// Academic centres the header and every section heading, for research and scholarship CVs.
+	academic: oneColumn,
+	// Humanist opens with a warm tinted band and a round photo slot, body in one plain column.
+	humanist: oneColumn,
 } as const satisfies Record<Template, TemplateLayout>;

@@ -25,6 +25,11 @@ import { scizorSemanticManifest } from "../templates/scizor/semantic";
 import { smeargleSemanticManifest } from "../templates/smeargle/semantic";
 import { studioSemanticManifest } from "../templates/studio/semantic";
 import { swissSemanticManifest } from "../templates/swiss/semantic";
+import { timelineSemanticManifest } from "../templates/timeline/semantic";
+import { bannerSemanticManifest } from "../templates/banner/semantic";
+import { technicalSemanticManifest } from "../templates/technical/semantic";
+import { academicSemanticManifest } from "../templates/academic/semantic";
+import { humanistSemanticManifest } from "../templates/humanist/semantic";
 import { SHARED_BINDING_REGISTRY } from "./binding-inventory";
 
 export type TemplateSemanticPlacement = "main" | "sidebar";
@@ -163,6 +168,11 @@ const TEMPLATE_SEMANTIC_MANIFESTS = {
 	studio: studioSemanticManifest,
 	bersih: bersihSemanticManifest,
 	rapi: rapiSemanticManifest,
+	timeline: timelineSemanticManifest,
+	banner: bannerSemanticManifest,
+	technical: technicalSemanticManifest,
+	academic: academicSemanticManifest,
+	humanist: humanistSemanticManifest,
 } as const satisfies Readonly<Record<Template, TemplateSemanticManifest>>;
 
 export function getTemplateSemanticManifest(template: Template): TemplateSemanticManifest {

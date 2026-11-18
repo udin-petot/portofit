@@ -179,8 +179,6 @@ const useRapiTemplate = (): RapiTemplate => {
 			},
 			picture: {
 				...base.picture,
-				width: 64,
-				height: 64,
 			},
 			contentRow: {
 				flexDirection: r.row,
