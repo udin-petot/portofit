@@ -78,7 +78,7 @@ const getFragments = () => [
 		className: cn(fragmentKind.pill, pillAccent),
 	},
 	{
-		text: "bagus@maulana.id",
+		text: "alex@morgan.id",
 		at: ["25vw", "29vh", "4vw", "9vh", "2deg", 1, 0.4],
 		className: cn(fragmentKind.mono, "text-ink-3"),
 	},
