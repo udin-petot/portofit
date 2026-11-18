@@ -516,6 +516,10 @@ export const applicationService = {
 			input.items.map((item) => item.resumeId),
 		);
 
+		// The import DTO can carry a cover letter, and create/update both validate it. Importing did not.
+		for (const coverLetterId of new Set(input.items.map((item) => item.coverLetterId).filter(Boolean)))
+			await assertOwnedCoverLetter(input.userId, coverLetterId);
+
 		const values = input.items.map(({ status, stageEnteredAt, ...fields }) => {
 			const initialStatus = status ?? ("saved" as ApplicationStatus);
 			const activity = [stageEntry(initialStatus, stageEnteredAt)];

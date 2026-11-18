@@ -68,6 +68,10 @@ export const careerActionProposals = {
 
 			const startOfDay = new Date();
 			startOfDay.setUTCHours(0, 0, 0, 0);
+			// Serialize accepts per user. The cap below and the duplicate lookup further down are both
+			// read-then-write, and the row lock above covers only this proposal, so two accepts of different
+			// proposals could otherwise both pass the cap and both insert the same job.
+			await tx.execute(sql`select pg_advisory_xact_lock(hashtextextended(${input.userId}, 0))`);
 			const [savedToday] = await tx
 				.select({ count: sql<number>`count(*)::int` })
 				.from(application)
