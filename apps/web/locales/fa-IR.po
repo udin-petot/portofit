@@ -18,6 +18,10 @@ msgstr ""
 "X-Crowdin-File: /apps/web/locales/en-US.po\n"
 "X-Crowdin-File-ID: 545\n"
 
+#: src/features/assistant/conversation.tsx
+msgid " with your key"
+msgstr ""
+
 #. placeholder {0}: application.role
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
@@ -284,6 +288,12 @@ msgstr "{0} پیدا شد"
 msgid "{0} found, {unreadable} unreadable"
 msgstr "{0} پیدا شد، {unreadable} غیرقابل خواندن است"
 
+#. placeholder {0}: freeCoach.remaining
+#: src/features/assistant/conversation.tsx
+#: src/features/career/coach-thread.tsx
+msgid "{0} free Coach messages left this week."
+msgstr ""
+
 #. placeholder {0}: Math.round(minutes / 60)
 #: src/features/career/workspace/shell.tsx
 msgid "{0} h"
@@ -375,10 +385,10 @@ msgid "{0} posting"
 msgstr "آگهی استخدام {0}"
 
 #. placeholder {0}: props.providerLabel
-#. placeholder {1}: getOrpcErrorMessage(error, { fallback: t`an error`, allowServerMessage: true, })
+#. placeholder {1}: getOrpcErrorMessage(error, { fallback: t`an error`, allowServerMessage: true, }).replace(/\.$/, "")
 #: src/features/assistant/conversation.tsx
-msgid "{0} returned “{1}”. Your message is kept."
-msgstr "{0} \"{1}\" را برگرداند. پیام شما حفظ می شود"
+msgid "{0} returned “{1}”."
+msgstr ""
 
 #. placeholder {0}: step.sections
 #. placeholder {0}: summary.sections
@@ -655,6 +665,11 @@ msgstr "{open, plural, one {چیزی برای بررسی #.} other {چیزهای
 msgid "{pageCount, plural, one {# page} other {# pages}}"
 msgstr "{pageCount, plural, one {صفحه #} other {صفحات #}}"
 
+#: src/features/assistant/conversation.tsx
+#: src/features/career/coach-thread.tsx
+msgid "{paidCoach} paid Coach messages left."
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "{pairing} type"
 msgstr "نوع {pairing}"
@@ -917,6 +932,10 @@ msgstr "یک بازهٔ تاریخ به شکلی نوشته شده که بیشت
 msgid "A date won't be read"
 msgstr "تاریخ خوانده نمی شود"
 
+#: src/dialogs/resume/template/data.ts
+msgid "A dense single column with colored section labels and a double rule under the header. Built for software, data and engineering resumes that scan fast."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
 msgstr "یک واقعیت تغییر کرده است. این داستان را بازبینی کنید."
@@ -940,6 +959,10 @@ msgstr "یک فونت ارجاع داده شده اما جاسازی نشده ا
 #: src/features/ats-checker/messages.ts
 msgid "A full-height gap splits this page into two columns."
 msgstr "یک شکاف تمام‌قد این صفحه را به دو ستون تقسیم می‌کند."
+
+#: src/dialogs/resume/template/data.ts
+msgid "A full-width band in your accent color carries the name and contact, and the body below stays one plain column. Bold first impression without giving up ATS parsing."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A gap is not a problem. Add a one-line explanation if you want to; many strong resumes simply do not."
@@ -1009,6 +1032,10 @@ msgstr ""
 msgid "A timed plan, your opening, the stories to bring and questions to ask. It becomes your checklist 10 minutes before the call."
 msgstr "یک برنامهٔ زمان‌بندی‌شده، شروع صحبت شما، داستان‌هایی که باید بیاورید و پرسش‌هایی که باید بپرسید. ۱۰ دقیقه پیش از تماس، به چک‌لیست شما تبدیل می‌شود."
 
+#: src/dialogs/resume/template/data.ts
+msgid "A warm tinted band with the photo on the right, then one calm column with hairline rules. For HR, education, healthcare and social-impact roles."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "A web address is written without https://."
 msgstr "یک آدرس اینترنتی بدون https:// نوشته شده است."
@@ -1066,10 +1093,8 @@ msgid "Accomplishment"
 msgstr "دستاورد"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/settings/root.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/akun.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Account"
 msgstr "حساب کاربری"
 
@@ -1115,10 +1140,6 @@ msgstr "افزودن"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Add “{0}”"
 msgstr "افزودن \"{0}\""
-
-#: src/features/career/knowledge/facts.tsx
-msgid "Add a fact, for example “I mentored two associate PMs in 2025”"
-msgstr "یک واقعیت اضافه کنید، مثلاً «در سال ۲۰۲۵ مربی دو مدیر محصول تازه‌کار بودم»"
 
 #: src/components/input/chip-input.tsx
 msgid "Add a keyword..."
@@ -1217,7 +1238,10 @@ msgstr "ابتدا یک درخواست اضافه کنید"
 msgid "Add an email"
 msgstr "یک ایمیل اضافه کنید"
 
-#: src/features/career/workspace/prepare.tsx
+#: src/features/career/knowledge/facts.tsx
+msgid "Add an experience, skill or preference"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "Add an interview"
 msgstr "افزودن مصاحبه"
@@ -1234,8 +1258,14 @@ msgstr "ابتدا در یک درخواست، مصاحبه‌ای اضافه ک�
 msgid "Add an interview to plan for it"
 msgstr "مصاحبه‌ای اضافه کنید تا برایش برنامه بریزید"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Add and prepare resume"
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "افزودن درخواست"
 
@@ -1299,6 +1329,10 @@ msgstr "کلمه کلیدی اضافه کنید"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "زبان اضافه کنید"
+
+#: src/features/career/today.tsx
+msgid "Add my first job"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Add one link that shows your work."
@@ -1398,9 +1432,21 @@ msgstr "داوطلبی را اضافه کنید"
 msgid "Add what happened before you can save."
 msgstr "برای ذخیره، ابتدا بنویسید چه اتفاقی افتاد."
 
+#: src/features/career/today.tsx
+msgid "Add your first experience"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Add your name"
 msgstr "نام خود را اضافه کنید"
+
+#: src/features/career/workspace/practise.tsx
+msgid "Add your own"
+msgstr ""
+
+#: src/features/career/workspace/bank-dialog.tsx
+msgid "Add your own question"
+msgstr ""
 
 #. placeholder {0}: role.trim()
 #. placeholder {1}: company.trim()
@@ -1513,6 +1559,7 @@ msgid "AI & developer"
 msgstr "هوش مصنوعی و توسعه دهنده"
 
 #: src/features/quota/page.tsx
+#: src/features/user/dropdown-menu.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "AI allowance"
 msgstr ""
@@ -1561,6 +1608,11 @@ msgstr "ارائه دهندگان هوش مصنوعی بارگیری نشدند.
 #: src/libs/locale.ts
 msgid "Albanian"
 msgstr "آلبانیایی"
+
+#: src/features/homepage/check.tsx
+#: src/features/homepage/sheet.tsx
+msgid "Alex Morgan"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Align centre"
@@ -1613,6 +1665,10 @@ msgstr "تقریباً هیچ‌کدام از موارد فهرست‌وار ش�
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already applied"
 msgstr "قبلاً ارسال شده"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Already applied? Record it here. Still looking? Save the job first, then mark it applied when you send your application."
+msgstr ""
 
 #: src/features/ats-checker/report/jd-coverage.tsx
 msgid "Already covered"
@@ -1706,6 +1762,10 @@ msgstr "پاسخ کپی شد"
 msgid "Answer in your own words"
 msgstr "با کلمات خودتان پاسخ دهید"
 
+#: src/features/career/workspace/practise.tsx
+msgid "Answer this question, then get feedback. The next question opens after that."
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "Answers"
 msgstr "پاسخ‌ها"
@@ -1795,6 +1855,10 @@ msgstr "هنگامی که یک سازمان داشته باشد در صفحه ظ
 #: src/features/ats-checker/checker.tsx
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "سیستم‌های ردیابی متقاضی، PDF شما را قبل از خواندن آن به متن ساده تبدیل می‌کنند. جستجوگر همین کار را انجام می‌دهد، با کتابخانه PDF.js در مرورگر شما، سپس میزان باقی‌مانده رزومه‌تان را از 0 تا 100 امتیاز می‌دهد، نه از میزان قابل اعتماد بودن متن، نه از شانس شما برای به دست آوردن شغل."
+
+#: src/features/billing/pricing.tsx
+msgid "application"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -2026,6 +2090,7 @@ msgstr "از دستیار \"{question}\" بپرسید"
 msgid "Ask the assistant to work it in"
 msgstr "از دستیار بخواهید آن را کار کند"
 
+#: src/features/career/today.tsx
 #: src/features/career/workspace/shell.tsx
 msgid "Ask the coach"
 msgstr "از مربی بپرسید"
@@ -2053,6 +2118,7 @@ msgstr "نسبت تصویر"
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
+#: src/features/assistant/dock.tsx
 #: src/features/command-palette/pages/resumes.tsx
 #: src/features/homepage/sections.tsx
 #: src/features/homepage/write.tsx
@@ -2062,10 +2128,6 @@ msgstr "دستیار"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "مکالمات دستیار"
-
-#: src/features/settings/ai/web-access.tsx
-msgid "Assistant."
-msgstr "دستیار."
 
 #: src/features/homepage/prepare.tsx
 msgid "At Sinarpagi Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
@@ -2114,6 +2176,10 @@ msgstr "به جای آن یک فایل پیوست کنید"
 msgid "Attach a resume file (PDF)"
 msgstr "پیوست کردن فایل رزومه (PDF)"
 
+#: src/routes/dashboard/applications/index.tsx
+msgid "Attach the resume and cover letter you sent."
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 msgid "Attachment"
@@ -2122,6 +2188,10 @@ msgstr "پیوست"
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Auto-fill failed."
 msgstr "تکمیل خودکار ناموفق بود."
+
+#: src/features/career/today.tsx
+msgid "Automatic searches"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Automatically"
@@ -2188,6 +2258,7 @@ msgstr "برگشت به الان"
 
 #. Action returning the visitor to the sign-in page after a failed sign-in
 #. Secondary navigation button on 2FA verification screen
+#: src/features/auth/layout.tsx
 #: src/features/auth/pages/error.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Back to sign in"
@@ -2214,11 +2285,6 @@ msgstr "کد پشتیبان"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Backup codes copied to clipboard."
 msgstr "کدهای پشتیبان در کلیپ‌بورد کپی شدند."
-
-#: src/features/homepage/check.tsx
-#: src/features/homepage/sheet.tsx
-msgid "Bagus Maulana"
-msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
 msgid "Balance now"
@@ -2250,6 +2316,10 @@ msgstr "آدرس اینترنتی پایه"
 msgid "Basics"
 msgstr "اطلاعات پایه"
 
+#: src/features/career/coach-action-proposal.tsx
+msgid "Batal"
+msgstr ""
+
 #: src/features/resume/share/format.ts
 msgid "Before restore"
 msgstr "قبل از بازیابی"
@@ -2269,6 +2339,10 @@ msgstr "بنگالی"
 #: src/features/resume/share/download-tab.tsx
 msgid "Best for applying"
 msgstr "بهترین برای درخواست"
+
+#: src/features/user/dropdown-menu.tsx
+msgid "Billing"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
@@ -2375,6 +2449,10 @@ msgstr ""
 msgid "Built-in reader"
 msgstr "خواننده داخلی"
 
+#: src/features/career/coach-action-proposal.tsx
+msgid "Buka lamaran"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bulgarian"
 msgstr "بلغاری"
@@ -2397,6 +2475,13 @@ msgstr ""
 msgid "Buy a credit"
 msgstr ""
 
+#: src/features/assistant/conversation.tsx
+#: src/features/billing/credit-dialog.tsx
+#: src/features/career/coach-thread.tsx
+#: src/features/quota/page.tsx
+msgid "Buy Coach messages"
+msgstr ""
+
 #: src/features/billing/credit-dialog.tsx
 #: src/features/billing/transactions.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2408,6 +2493,10 @@ msgstr ""
 
 #: src/features/billing/credit-dialog.tsx
 msgid "Buy credits to continue."
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Buy only what you need right now."
 msgstr ""
 
 #: src/features/auth/pages/register.tsx
@@ -2471,13 +2560,26 @@ msgstr ""
 msgid "Career"
 msgstr "مسیر شغلی"
 
+#: src/features/billing/pricing.tsx
+msgid "Career bundles"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Career coach"
+msgstr ""
+
+#: src/routes/dashboard/career/knowledge/route.tsx
+#: src/routes/dashboard/career/route.tsx
+msgid "Career Profile"
 msgstr ""
 
 #: src/libs/locale.ts
 msgid "Catalan"
 msgstr "کاتالان"
+
+#: src/dialogs/resume/template/data.ts
+msgid "Centred header and centred section headings over one generous column, ready for publications and research sections. For scholarships, research assistantships and campus applications."
+msgstr ""
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -2486,7 +2588,6 @@ msgstr "گواهینامه‌ها"
 
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
-#: src/features/settings/account/security.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Change"
 msgstr "تغییر دهید"
@@ -2507,6 +2608,10 @@ msgstr "تغییر زبان"
 #: src/features/command-palette/pages/preferences/index.tsx
 msgid "Change language to…"
 msgstr "زبان را به… تغییر دهید"
+
+#: src/features/settings/account/security.tsx
+msgid "Change password"
+msgstr ""
 
 #: src/features/settings/account/profile.tsx
 msgid "Change photo"
@@ -2531,6 +2636,10 @@ msgstr "این ورودی جدول زمانی را تغییر دهید."
 #: src/features/career/knowledge/preferences.tsx
 msgid "Change timezone"
 msgstr "تغییر منطقهٔ زمانی"
+
+#: src/features/settings/account/security.tsx
+msgid "Change your password"
+msgstr ""
 
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Changed elsewhere"
@@ -2817,17 +2926,31 @@ msgstr "بستن…"
 
 #: src/features/applications/next-step.ts
 #: src/features/applications/stages.ts
+#: src/routes/dashboard/applications/index.tsx
 msgid "Closed"
 msgstr "بسته شد"
 
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/coach-sheet.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Coach"
 msgstr "مربی"
 
+#: src/features/billing/pricing.tsx
+#: src/routes/dashboard/akun.tsx
+msgid "Coach message"
+msgstr ""
+
+#: src/features/billing/plan-copy.ts
 #: src/features/quota/page.tsx
+#: src/routes/dashboard/akun.tsx
+#: src/routes/dashboard/beli-kredit.tsx
 msgid "Coach messages"
+msgstr ""
+
+#: src/features/billing/credit-dialog.tsx
+msgid "Coach messages used up"
 msgstr ""
 
 #: src/features/billing/transactions.tsx
@@ -2897,6 +3020,10 @@ msgstr "تلاش‌ها را مقایسه کنید تا ببینید چه چیز
 #: src/features/career/workspace/shell.tsx
 msgid "Compare offers"
 msgstr "مقایسهٔ پیشنهادها"
+
+#: src/features/career/shared.tsx
+msgid "Compare the posting with your experience before you apply."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Compared in their original currency and pay period. Comparing doesn't share anything with the coach."
@@ -3187,6 +3314,10 @@ msgstr "الان کپی کن برای امنیت شما، دیگر نشان دا
 msgid "Copy link"
 msgstr "لینک را کپی کنید"
 
+#: src/features/assistant/conversation.tsx
+msgid "Copy message"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Copy public link"
 msgstr "کپی پیوند عمومی"
@@ -3327,6 +3458,10 @@ msgstr "وصل نشد. کلید را بررسی کنید و دوباره امت�
 msgid "Couldn't continue as a guest. Please try again."
 msgstr "ادامه به‌عنوان مهمان ممکن نشد. لطفاً دوباره تلاش کنید."
 
+#: src/features/assistant/conversation.tsx
+msgid "Couldn't copy the message."
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Couldn't copy the questions. Select the text and copy it manually."
 msgstr "پرسش‌ها کپی نشدند. متن را انتخاب کنید و دستی کپی کنید."
@@ -3442,6 +3577,10 @@ msgstr "فایل نمونه بارگیری نشد. دوباره امتحان ک�
 #: src/features/career/load-state.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
 msgstr "این مورد بارگیری نشد. داده‌های ذخیره‌شدهٔ شما تغییری نکرده‌اند."
+
+#: src/hooks/use-sign-out.ts
+msgid "Couldn't log out. Try again."
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Couldn't make it the default."
@@ -3834,6 +3973,10 @@ msgstr "سبک‌های سفارشی"
 msgid "Custom styles aren't applied. Fix these errors to apply them:"
 msgstr "سبک های سفارشی اعمال نمی شوند. برای اعمال این خطاها را برطرف کنید:"
 
+#: src/features/assistant/assistant-panel.tsx
+msgid "CV"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Czech"
 msgstr "چکی"
@@ -4195,6 +4338,10 @@ msgstr "تغییرات کنار گذاشته شود؟"
 msgid "Disconnect"
 msgstr "قطع اتصال"
 
+#: src/features/career/coach-action-proposal.tsx
+msgid "Disimpan ke lamaran"
+msgstr ""
+
 #: src/features/documents/start-guide.tsx
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
@@ -4476,6 +4623,10 @@ msgstr "هر ارسال با این پیام و فایل‌های انتخابی
 #: src/features/career/coach.tsx
 msgid "earlier messages in this chat"
 msgstr "پیام‌های قبلی این گفتگو"
+
+#: src/features/career/shared.tsx
+msgid "Earlier results for this job. This view is read-only."
+msgstr ""
 
 #: src/components/input/chip-input.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
@@ -4760,10 +4911,6 @@ msgstr "هر {days} روز ساعت {clock} · بعدی: {next}"
 msgid "Every 3 days"
 msgstr "هر ۳ روز"
 
-#: src/routes/dashboard/applications/index.tsx
-msgid "Every application in one table. Sort by what needs attention."
-msgstr ""
-
 #: src/features/quota/page.tsx
 msgid "Every ATS scan, issue list and basic job match stays free with no limit. Only actions that call a model use this allowance."
 msgstr ""
@@ -4805,6 +4952,10 @@ msgstr "هر هفته"
 msgid "Everything"
 msgstr ""
 
+#: src/features/billing/pricing.tsx
+msgid "Everything for one job hunt, at a lower price."
+msgstr ""
+
 #. placeholder {0}: application.company
 #: src/features/career/workspace/saved.tsx
 msgid "Everything the coach wrote for {0}, newest first."
@@ -4824,6 +4975,7 @@ msgstr "خروج از حالت فوکوس"
 #: src/features/homepage/write.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
+#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Experience"
 msgstr "تجربه"
 
@@ -4910,13 +5062,8 @@ msgid "Fact type"
 msgstr "نوع واقعیت"
 
 #: src/features/career/coach-thread.tsx
-#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Facts"
 msgstr "واقعیت‌ها"
-
-#: src/routes/dashboard/career/route.tsx
-msgid "Facts, stories and preferences about you. The coach and interview prep read these."
-msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "Facts, stories and preferences that are switched on in Knowledge"
@@ -4962,11 +5109,6 @@ msgstr "ارسال ایمیل بازیابی رمز عبور ناموفق بود
 #: src/features/auth/pages/login.tsx
 msgid "Failed to sign in. Please try again."
 msgstr "ورود ناموفق بود. لطفاً دوباره تلاش کنید."
-
-#. Fallback toast when signing out fails
-#: src/features/user/dropdown-menu.tsx
-msgid "Failed to sign out. Please try again."
-msgstr "خروج ناموفق بود. لطفاً دوباره تلاش کنید."
 
 #. Fallback toast when unlinking a social authentication provider fails
 #: src/features/settings/account/auth-hooks.ts
@@ -5126,12 +5268,16 @@ msgstr "نخستین اجرا"
 msgid "Fit"
 msgstr "تناسب"
 
-#: src/features/career/shared.tsx
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/prepare.tsx
 msgctxt "Application workspace tab: how well a job fits your experience"
 msgid "Fit"
 msgstr "مناسب"
+
+#: src/features/career/shared.tsx
+msgctxt "Application workspace tab: how well a job fits your experience"
+msgid "Fit check"
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "Fit checks, briefings, practice feedback, debriefs, answers and replies land here as the other tabs create them."
@@ -5156,6 +5302,10 @@ msgstr "مناسب برای صفحات {authored}: {details}"
 #: src/features/resume/editor/design/fit.ts
 msgid "Fits on one page: {details}"
 msgstr "متناسب با یک صفحه: {details}"
+
+#: src/features/quota/page.tsx
+msgid "Five messages are free every week. After they run out, Coach uses paid messages from a Coach package. Paid messages do not expire and are not reset on Monday."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Fix the date"
@@ -5337,6 +5487,11 @@ msgstr ""
 msgid "Free ATS resume checker"
 msgstr "بررسی رایگان رزومه ATS"
 
+#: src/features/assistant/conversation.tsx
+#: src/features/career/coach-thread.tsx
+msgid "Free Coach messages are used up."
+msgstr ""
+
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
 msgstr ""
@@ -5472,6 +5627,10 @@ msgstr "بازگشت"
 msgid "Go home"
 msgstr "برو به خانه"
 
+#: src/features/career/offers.tsx
+msgid "Go to applications"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 #: src/components/layout/not-found-screen.tsx
 #: src/routes/_home/-sections/header.tsx
@@ -5586,7 +5745,7 @@ msgid "Help translate"
 msgstr "کمک به ترجمه"
 
 #: src/features/homepage/prepare.tsx
-msgid "Hi Bagus, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
+msgid "Hi Alex, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
 msgstr ""
 
 #: src/components/level/combobox.tsx
@@ -5961,7 +6120,7 @@ msgid "Interview"
 msgstr "مصاحبه"
 
 #: src/features/career/today.tsx
-msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
+msgid "Interview briefings, follow-ups that are due, and search results land here when they are ready."
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
@@ -6032,6 +6191,10 @@ msgstr "مصاحبه ذخیره شد"
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Interview saved · briefing moves to {0}"
 msgstr "مصاحبه ذخیره شد · گزارش توجیهی به {0} منتقل شد"
+
+#: src/features/billing/pricing.tsx
+msgid "interview session"
+msgstr ""
 
 #: src/features/billing/plan-copy.ts
 msgid "interview session credit"
@@ -6132,6 +6295,10 @@ msgstr "ورودی دارد اما در صفحه ای قرار نمی گیرد."
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/bank-dialog.tsx
 msgid "IT interview question bank"
+msgstr ""
+
+#: src/routes/dashboard/career/knowledge/route.tsx
+msgid "It is not an article. It is a record of your experience, stories and work preferences. The coach and interview practice read it to give answers that are actually yours. Start with one experience, then add more when you need them."
 msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
@@ -6407,11 +6574,6 @@ msgstr "خمری"
 #: src/features/letters/compose.ts
 msgid "Kind regards,"
 msgstr "با احترام"
-
-#: src/routes/dashboard/career/knowledge/route.tsx
-#: src/routes/dashboard/career/route.tsx
-msgid "Knowledge"
-msgstr "دانسته‌ها"
 
 #: src/features/career/coach.tsx
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
@@ -6910,6 +7072,21 @@ msgstr ""
 msgid "Log an application and paste the posting"
 msgstr ""
 
+#. User menu action to log out of current account
+#: src/features/settings/account/page.tsx
+#: src/features/user/dropdown-menu.tsx
+#: src/routes/dashboard/akun.tsx
+msgid "Log out"
+msgstr ""
+
+#: src/dialogs/auth/change-password.tsx
+msgid "Log out from all other devices"
+msgstr ""
+
+#: src/hooks/use-sign-out.ts
+msgid "Log out of this account?"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Long stretches are set in capitals."
 msgstr "بخش‌های طولانی با حروف بزرگ نوشته شده‌اند."
@@ -6993,13 +7170,13 @@ msgstr "مالایی"
 msgid "Malayalam"
 msgstr "مالایالام"
 
+#: src/features/settings/ai/providers.tsx
+msgid "Managed by PortoFit"
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Managed by server"
 msgstr "توسط سرور مدیریت می شود"
-
-#: src/features/settings/ai/providers.tsx
-msgid "Managed by your server"
-msgstr "توسط سرور شما مدیریت می شود"
 
 #: src/features/ats-checker/messages.ts
 msgid "Many bullets start with the same phrase."
@@ -7120,6 +7297,10 @@ msgid "Mentor other designers"
 msgstr "راهنمایی طراحان دیگر"
 
 #: src/features/assistant/conversation.tsx
+msgid "Message copied"
+msgstr ""
+
+#: src/features/assistant/conversation.tsx
 msgid "Message the assistant"
 msgstr "به دستیار پیام دهید"
 
@@ -7160,6 +7341,10 @@ msgstr "مجوز MIT"
 #: src/features/homepage/prepare.tsx
 msgid "Mixed"
 msgstr "بینابین"
+
+#: src/features/billing/plan-copy.ts
+msgid "mixed credits"
+msgstr ""
 
 #: src/features/homepage/check.tsx
 msgid "mixed format"
@@ -7234,6 +7419,10 @@ msgstr "بیشتر ورودی‌ها تاریخ ندارند."
 
 #: src/features/homepage/remember.tsx
 msgid "Most new teams at Sinarpagi Labs stalled during setup and never reached activation."
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "Most popular"
 msgstr ""
 
 #: src/routes/builder/letter/-components/write-panel.tsx
@@ -7430,13 +7619,13 @@ msgstr "باریک"
 msgid "narrow margins"
 msgstr "حاشیه های باریک"
 
+#: src/features/career/today.tsx
+msgid "Needs action"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Needs attention"
 msgstr "نیاز به توجه دارد"
-
-#: src/features/career/today.tsx
-msgid "Needs you"
-msgstr "نیازمند اقدام شما"
 
 #: src/libs/locale.ts
 msgid "Nepali"
@@ -7453,7 +7642,6 @@ msgstr "هرگز"
 
 #: src/features/documents/document-card.tsx
 #: src/features/documents/documents-page.tsx
-#: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
 msgstr "جدید"
 
@@ -7483,6 +7671,7 @@ msgstr "در عوض پوشش نامه جدید"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/-components/app-shell.tsx
 msgid "New document"
 msgstr "سند جدید"
 
@@ -7509,8 +7698,8 @@ msgid "New Password"
 msgstr "گذرواژهٔ جدید"
 
 #: src/features/career/today.tsx
-msgid "New roles from your search"
-msgstr "موقعیت‌های جدید از جستجوی شما"
+msgid "New roles for you"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "New schedule"
@@ -7650,16 +7839,16 @@ msgid "No evidence yet"
 msgstr "هنوز بدون شاهد"
 
 #: src/features/career/knowledge/facts.tsx
-msgid "No facts match. Try another word or type."
-msgstr "هیچ واقعیتی مطابقت ندارد. کلمه یا نوع دیگری را امتحان کنید."
+msgid "No experience matches. Try another word or type."
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "No experience yet. Add one above."
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "No facts to link yet. Add them in Facts."
 msgstr "هنوز واقعیتی برای پیوند نیست. آن‌ها را در «واقعیت‌ها» اضافه کنید."
-
-#: src/features/career/knowledge/facts.tsx
-msgid "No facts yet. Add one above."
-msgstr "هنوز واقعیتی نیست. یکی در بالا اضافه کنید."
 
 #: src/features/applications/components/list-view.tsx
 #: src/features/career/workspace/shell.tsx
@@ -7695,21 +7884,21 @@ msgid "No name"
 msgstr ""
 
 #: src/features/career/today.tsx
-msgid "No new roles. Discovery is paused."
-msgstr "موقعیت جدیدی نیست. جستجو متوقف است."
+msgid "No new roles. Automatic search is paused."
+msgstr ""
 
 #. placeholder {0}: day(active.nextRunAt)
 #: src/features/career/today.tsx
-msgid "No new roles. Discovery runs again on {0} at {clock}."
-msgstr "موقعیت جدیدی نیست. جستجو دوباره در {0} ساعت {clock} اجرا می‌شود."
+msgid "No new roles. Automatic search runs again on {0} at {clock}."
+msgstr ""
 
 #: src/features/career/today.tsx
-msgid "No new roles. Discovery runs again today at {clock}."
-msgstr "موقعیت جدیدی نیست. جستجو دوباره امروز ساعت {clock} اجرا می‌شود."
+msgid "No new roles. Automatic search runs again today at {clock}."
+msgstr ""
 
 #: src/features/career/today.tsx
-msgid "No new roles. Discovery runs again tomorrow at {clock}."
-msgstr "موقعیت جدیدی نیست. جستجو دوباره فردا ساعت {clock} اجرا می‌شود."
+msgid "No new roles. Automatic search runs again tomorrow at {clock}."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "No offers to compare yet"
@@ -7843,6 +8032,7 @@ msgstr "نروژی"
 msgid "Not applied"
 msgstr "اعمال نشد"
 
+#: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/next-step.ts
 msgid "Not applied yet"
 msgstr "هنوز ارسال نشده"
@@ -7972,6 +8162,10 @@ msgstr "هیچ چیزی مطابق با \"{0}\" نیست"
 #: src/features/documents/documents-page.tsx
 msgid "Nothing matches these filters"
 msgstr "هیچ چیز با این فیلترها مطابقت ندارد"
+
+#: src/features/career/today.tsx
+msgid "Nothing needs you right now"
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 msgid "Nothing saved yet"
@@ -8121,8 +8315,16 @@ msgstr ""
 msgid "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
 msgstr ""
 
+#: src/dialogs/resume/template/data.ts
+msgid "One column with every section on an accent rail: a thin line and a dot per entry. Dates stay right-aligned and the text order stays ATS-safe."
+msgstr ""
+
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "One credit: a tailored resume, a cover letter, and a match score for this job."
+msgstr ""
+
+#: src/features/billing/pricing.tsx
+msgid "One feature, enough for a few tries."
 msgstr ""
 
 #: src/features/homepage/check.tsx
@@ -8141,10 +8343,6 @@ msgstr "فقط برنامه‌هایی را که به آن‌ها اعتماد �
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Only applies when the section fits on a single page."
 msgstr "فقط زمانی اعمال می‌شود که بخش در یک صفحه جا شود."
-
-#: src/routes/dashboard/applications/index.tsx
-msgid "Only jobs you have applied to are shown."
-msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Only one recognisable section heading was found."
@@ -8416,6 +8614,10 @@ msgstr "تاریخ گذشته: متن تغییر کرده است."
 msgid "Outdent"
 msgstr "کاهش تورفتگی"
 
+#: src/routes/dashboard/career/route.tsx
+msgid "Overview"
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Own and evolve a design system"
 msgstr "مالکیت و توسعهٔ یک سیستم طراحی"
@@ -8478,6 +8680,10 @@ msgstr ""
 #. placeholder {0}: tanggal(data.snapshot.paidAt)
 #: src/features/billing/invoice-sheet.tsx
 msgid "Paid {0}"
+msgstr ""
+
+#: src/features/quota/page.tsx
+msgid "paid Coach messages left"
 msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
@@ -8552,10 +8758,6 @@ msgstr "کلمات عبور مطابقت ندارند."
 msgid "Past conversations"
 msgstr "گفتگوهای گذشته"
 
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Paste a job link or posting, then check the role and company."
-msgstr "پیوند شغل یا آگهی شغلی را جایگذاری کنید، سپس نقش و شرکت را بررسی کنید."
-
 #: src/features/homepage/tailor.tsx
 msgid "Paste a job posting once. It feeds a tailored copy of your resume, a match score, a cover letter draft and a place to track the role."
 msgstr "یک بار آگهی شغلی را بچسبانید. از آن یک نسخهٔ تطبیق‌یافته از رزومه، امتیاز تطابق، پیش‌نویس نامهٔ پوششی و جایی برای پیگیری موقعیت ساخته می‌شود."
@@ -8568,10 +8770,6 @@ msgstr "چسباندن یک آگهی استخدام…"
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
 msgstr "پیامی از {0} بچسبانید"
-
-#: src/features/career/offers.tsx
-msgid "Paste an offer into an application's Messages tab."
-msgstr "یک پیشنهاد را در برگهٔ «پیام‌ها»ی یک درخواست بچسبانید."
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Paste description instead"
@@ -8687,6 +8885,10 @@ msgstr "افرادی که از آن استفاده می کنند"
 msgid "per credit"
 msgstr ""
 
+#: src/routes/dashboard/akun.tsx
+msgid "per message"
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 msgid "Permanently removes everything. Export first if you want a copy."
 msgstr "به طور دائم همه چیز را حذف می کند. اگر کپی می خواهید ابتدا صادر کنید."
@@ -8733,6 +8935,10 @@ msgstr "از بین {templateCount} قالب انتخاب کنید، سپس فو
 msgid "Pick one format and use it everywhere."
 msgstr "یک قالب انتخاب کنید و همه‌جا از آن استفاده کنید."
 
+#: src/features/career/workspace/practise.tsx
+msgid "Pick one question, answer it, then get feedback. The bank is a starting point; you can add your own question too."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Pick two examples"
 msgstr "دو نمونه انتخاب کنید"
@@ -8744,6 +8950,10 @@ msgstr "در حال انتخاب داستان‌های شما"
 #: src/libs/resume/section.tsx
 msgid "Picture"
 msgstr "تصویر"
+
+#: src/features/career/coach-action-proposal.tsx
+msgid "Pilih yang cocok. Baru setelah kamu menekan Simpan, lowongan masuk ke lamaran."
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Pipeline flow"
@@ -8768,6 +8978,10 @@ msgstr "برنامه‌ریزی دوباره"
 #: src/features/career/workspace/prepare.tsx
 msgid "Plan my preparation"
 msgstr "برنامه‌ریزی آمادگی من"
+
+#: src/features/career/shared.tsx
+msgid "Plan the interview with a short checklist and questions to ask."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Plan what to ask"
@@ -8890,10 +9104,6 @@ msgstr "تمرین"
 msgid "Practice for your {company} interviews."
 msgstr "تمرین برای مصاحبه‌های {company}."
 
-#: src/features/career/workspace/practise.tsx
-msgid "Practice from an application question or your own story."
-msgstr ""
-
 #: src/features/career/workspace/debrief.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Practice priorities, not conclusions about why an employer decided anything."
@@ -8910,6 +9120,7 @@ msgstr "پرسش‌های تمرینی شبیه‌سازی‌شده‌اند، �
 
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/shared.tsx
+#: src/features/career/workspace/bank-dialog.tsx
 #: src/features/career/workspace/prepare.tsx
 #: src/features/career/workspace/shell.tsx
 #: src/features/homepage/prepare.tsx
@@ -8949,7 +9160,6 @@ msgid "Preferences"
 msgstr "ترجیحات"
 
 #: src/features/career/coach-thread.tsx
-#: src/routes/dashboard/career/knowledge/route.tsx
 msgctxt "Career preferences: the roles, places, pay and ways of working you want"
 msgid "Preferences"
 msgstr "ترجیحات"
@@ -9113,7 +9323,10 @@ msgstr "مهارت"
 msgid "Profile"
 msgstr "پروفایل"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/root.tsx
 #: src/routes/dashboard/akun.tsx
+#: src/routes/dashboard/settings/route.tsx
 msgid "Profile and security"
 msgstr ""
 
@@ -9179,8 +9392,8 @@ msgid "Prototyping"
 msgstr "نمونه‌سازی"
 
 #: src/features/settings/ai/web-access.tsx
-msgid "Provided by your server: {connectedProvider}."
-msgstr "ارائه شده توسط سرور شما: {connectedProvider}."
+msgid "Provided by PortoFit: {connectedProvider}."
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -9334,6 +9547,10 @@ msgstr "توسط {0} خوانده می‌شود که ممکن است از توک
 msgid "Read aloud by your browser's voice."
 msgstr "با صدای مرورگر شما خوانده می‌شود."
 
+#: src/features/career/shared.tsx
+msgid "Read and answer the employer, and note what changed."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Read briefing"
 msgstr "خواندن گزارش توجیهی"
@@ -9361,8 +9578,8 @@ msgid "Read the attachment"
 msgstr "پیوست را بخوانید"
 
 #: src/features/settings/ai/web-access.tsx
-msgid "Read the job links you save. Saving and preparing jobs works without a connection."
-msgstr "پیوندهای شغلی را که ذخیره می کنید بخوانید. ذخیره و آماده سازی مشاغل بدون اتصال کار می کند."
+msgid "Read the job links you save. Saving and preparing jobs still works when web access isn't connected."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Read the letter"
@@ -9503,13 +9720,29 @@ msgstr "اخیر"
 msgid "Recipient"
 msgstr "گیرنده"
 
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Record a job you already applied to, including the date and files you sent."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Record again"
 msgstr "ضبط دوباره"
 
-#: src/features/applications/components/add-application-dialog.tsx
-msgid "Record application"
-msgstr "ثبت درخواست شغل"
+#: src/routes/dashboard/applications/index.tsx
+msgid "Record an application"
+msgstr ""
+
+#: src/features/career/offers.tsx
+msgid "Record an offer from an application, then compare pay, place and what you give up here."
+msgstr ""
+
+#: src/features/career/offers.tsx
+msgid "Record another offer from an application."
+msgstr ""
+
+#: src/features/career/shared.tsx
+msgid "Record what the interviewer asked while it is still fresh."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Record your answer"
@@ -9604,6 +9837,10 @@ msgstr ""
 #: src/features/career/workspace/prepare.tsx
 msgid "Rehearse aloud"
 msgstr "تمرین با صدای بلند"
+
+#: src/features/career/shared.tsx
+msgid "Rehearse an answer and get feedback on what you actually said."
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Rehearse one answer aloud"
@@ -9890,10 +10127,6 @@ msgstr "نتیجه"
 #: src/features/homepage/remember.tsx
 msgid "Result left out: no fact backs it. Switch it on, or add one, and it comes back."
 msgstr "نتیجه کنار گذاشته شد: هیچ واقعیتی پشتوانهٔ آن نیست. آن را روشن کنید یا یکی اضافه کنید تا برگردد."
-
-#: src/features/assistant/assistant-panel.tsx
-msgid "resume"
-msgstr "رزومه"
 
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/list-view.tsx
@@ -10192,12 +10425,24 @@ msgstr ""
 msgid "Save"
 msgstr "ذخیره"
 
+#: src/features/billing/pricing.tsx
+msgid "Save {savings}%"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save a job"
 msgstr "یک شغل را ذخیره کنید"
 
+#: src/features/career/today.tsx
+msgid "Save a job or record an application"
+msgstr ""
+
 #: src/routes/dashboard/applications/index.tsx
-msgid "Save a job, then move it along as the company replies: applied, screening, interview, offer. Every stage you update feeds the funnel in Insights."
+msgid "Save a job or record one you already applied to."
+msgstr ""
+
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Save a job you have not applied to yet. It stays out of your applications until you mark it applied."
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -10249,7 +10494,6 @@ msgid "Save interview"
 msgstr "ذخیرهٔ مصاحبه"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/routes/dashboard/applications/index.tsx
 msgid "Save job"
 msgstr "شغل را ذخیره کنید"
 
@@ -10289,13 +10533,13 @@ msgstr "در درخواست ذخیره کنید"
 msgid "saved"
 msgstr "ذخیره شده است"
 
-#: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/stages.ts
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/homepage/sections.tsx
 #: src/features/homepage/tailor.tsx
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
+#: src/routes/dashboard/applications/index.tsx
 msgid "Saved"
 msgstr "ذخیره شده"
 
@@ -10318,6 +10562,12 @@ msgstr "“{trimmed}” ذخیره شد"
 msgid "saved {0}"
 msgstr "ذخیره‌شده در {0}"
 
+#. placeholder {0}: role.trim()
+#. placeholder {1}: company.trim()
+#: src/features/applications/components/add-application-dialog.tsx
+msgid "Saved {0} at {1} to saved jobs. This is not an application yet."
+msgstr ""
+
 #. placeholder {0}: companyOf(row)
 #: src/features/career/today.tsx
 msgid "Saved {0} to Applications"
@@ -10335,6 +10585,14 @@ msgstr "به عنوان یک درخواست شغلی ذخیره شده و پیو
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Saved description"
 msgstr "توضیحات ذخیره شده"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Saved jobs"
+msgstr ""
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Saved jobs are hidden from this list."
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Saved just now"
@@ -10416,10 +10674,6 @@ msgstr "زمان‌بندی ذخیره شد"
 msgid "Scheduled work isn't available on this server."
 msgstr "کارهای زمان‌بندی‌شده در این سرور در دسترس نیستند."
 
-#: src/features/career/today.tsx
-msgid "Schedules"
-msgstr "زمان‌بندی‌ها"
-
 #: src/features/resume/editor/write/entries.tsx
 msgid "School"
 msgstr "مدرسه"
@@ -10444,8 +10698,8 @@ msgid "Search and enhanced reading"
 msgstr "جستجو و خواندن پیشرفته"
 
 #: src/features/settings/ai/web-access.tsx
-msgid "Search and reading are set up for everyone here. Ask your administrator about changes."
-msgstr "جستجو و خواندن برای همه در اینجا تنظیم شده است. تغییرات را از سرپرست خود بپرسید."
+msgid "Search and reading are set up for everyone here."
+msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Search applications"
@@ -10465,8 +10719,8 @@ msgid "Search documents"
 msgstr "جستجوی اسناد"
 
 #: src/features/career/knowledge/facts.tsx
-msgid "Search facts"
-msgstr "جستجوی واقعیت‌ها"
+msgid "Search experience"
+msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Search failed"
@@ -10526,10 +10780,6 @@ msgstr "جستجو…"
 #: src/features/assistant/conversation.tsx
 msgid "Searched the web"
 msgstr "در وب جستجو کرد"
-
-#: src/features/settings/ai/web-access.tsx
-msgid "Searches and reads pages with {connectedProvider}, whichever AI provider you use."
-msgstr "صفحات را با {connectedProvider}، از هر ارائه دهنده هوش مصنوعی که استفاده می کنید، جستجو و می خواند."
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Searching job postings…"
@@ -10633,6 +10883,11 @@ msgstr "شیوه‌نامه CSS معنایی"
 msgid "Send"
 msgstr "ارسال کنید"
 
+#. placeholder {0}: chip.label
+#: src/features/assistant/conversation.tsx
+msgid "Send {0} again"
+msgstr ""
+
 #: src/features/billing/invoice-sheet.tsx
 msgid "Send again"
 msgstr ""
@@ -10672,32 +10927,32 @@ msgid "Sends this application's posting, notes and documents, plus Knowledge tha
 msgstr "آگهی، یادداشت‌ها و اسناد این درخواست را به‌همراه دانسته‌های روشن به این اتصال می‌فرستد. ممکن است ارائه‌دهندهٔ شما برای آن هزینه دریافت کند."
 
 #: src/features/assistant/conversation.tsx
-msgid "Sends this letter and the posting to {provider} with your key, only when you press send."
-msgstr "این نامه و آگهی استخدام را با کلید خود به {provider} ارسال می کند، فقط زمانی که ارسال را فشار دهید."
+msgid "Sends this letter and the posting to {provider}{withKey} only when you press send."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
-msgid "Sends this letter to {provider} with your key, only when you press send."
-msgstr "این نامه را با کلید خود به {provider} ارسال می کند، فقط زمانی که ارسال را فشار دهید."
+msgid "Sends this letter to {provider}{withKey} only when you press send."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
-msgid "Sends this resume and the posting to {provider} with your key, only when you press send."
-msgstr "این رزومه و آگهی شغلی را با کلید خود به {provider} ارسال می کند، فقط زمانی که ارسال را فشار دهید."
+msgid "Sends this resume and the posting to {provider}{withKey} only when you press send."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
-msgid "Sends this resume to {provider} with your key, only when you press send."
-msgstr "این رزومه را با کلید خود به {provider} ارسال می کند، تنها زمانی که ارسال را فشار دهید."
+msgid "Sends this resume to {provider}{withKey} only when you press send."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Sends this story and the facts switched on to the AI service you use, only when you ask the coach."
 msgstr ""
 
 #: src/features/assistant/conversation.tsx
-msgid "Sends your message and the posting to {provider} with your key, only when you press send."
-msgstr "پیام شما و آگهی شغلی را با کلید خود به {provider} ارسال می کند، فقط زمانی که ارسال را فشار دهید."
+msgid "Sends your message and the posting to {provider}{withKey} only when you press send."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
-msgid "Sends your message to {provider} with your key, only when you press send."
-msgstr "پیام شما را با کلید خود به {provider} ارسال می کند، فقط زمانی که ارسال را فشار دهید."
+msgid "Sends your message to {provider}{withKey} only when you press send."
+msgstr ""
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Sends your message, this application (posting, notes, documents sent) and Knowledge that's switched on to {connection}."
@@ -10736,10 +10991,6 @@ msgstr ""
 msgid "Set a follow-up…"
 msgstr "تنظیم پیگیری…"
 
-#: src/features/settings/account/security.tsx
-msgid "Set a password"
-msgstr "رمز عبور تعیین کنید"
-
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set Password"
 msgstr "تنظیم گذرواژه"
@@ -10749,8 +11000,8 @@ msgid "Set the document language when exporting."
 msgstr "هنگام خروجی گرفتن، زبان سند را تنظیم کنید."
 
 #: src/features/career/today.tsx
-msgid "Set up discovery"
-msgstr "راه‌اندازی جستجوی فرصت‌ها"
+msgid "Set up automatic search"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Set up web search in Settings"
@@ -10758,11 +11009,14 @@ msgstr "جستجوی وب را در تنظیمات راه‌اندازی کنی�
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/root.tsx
-#: src/features/user/dropdown-menu.tsx
 #: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Settings"
 msgstr "تنظیمات"
+
+#: src/features/user/dropdown-menu.tsx
+msgid "Settings and account"
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Setup Authenticator App"
@@ -10903,6 +11157,10 @@ msgstr "نمایش رمز عبور"
 msgid "Show picture"
 msgstr "نمایش تصویر"
 
+#: src/routes/dashboard/applications/index.tsx
+msgid "Show saved jobs"
+msgstr ""
+
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Show templates"
 msgstr "نمایش الگوها"
@@ -10910,10 +11168,6 @@ msgstr "نمایش الگوها"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Show them again"
 msgstr "دوباره بهشون نشون بده"
-
-#: src/routes/dashboard/applications/index.tsx
-msgid "Show unapplied"
-msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Shown in your timezone."
@@ -10958,21 +11212,6 @@ msgstr "نوارهای کناری اغلب آخرین خوانده می شوند
 msgid "Sign in"
 msgstr "ورود"
 
-#. User menu action to sign out of current account
-#: src/features/settings/account/page.tsx
-#: src/features/user/dropdown-menu.tsx
-#: src/routes/dashboard/akun.tsx
-msgid "Sign out"
-msgstr "خروج"
-
-#: src/dialogs/auth/change-password.tsx
-msgid "Sign out from all other devices"
-msgstr "خروج از همهٔ دستگاه‌های دیگر"
-
-#: src/routes/dashboard/akun.tsx
-msgid "Sign out of this account?"
-msgstr ""
-
 #. Primary action button label on registration form
 #: src/features/auth/pages/register.tsx
 msgid "Sign up"
@@ -11000,13 +11239,17 @@ msgstr "وارد شده به عنوان {email}"
 msgid "Signing in..."
 msgstr "در حال ورود..."
 
-#: src/features/user/dropdown-menu.tsx
-msgid "Signing out..."
-msgstr "در حال خروج..."
-
 #: src/features/auth/pages/register.tsx
 msgid "Signing up..."
 msgstr "در حال عضویت..."
+
+#: src/features/career/coach-action-proposal.tsx
+msgid "Simpan ke lamaran"
+msgstr ""
+
+#: src/features/career/coach-action-proposal.tsx
+msgid "Simpan lowongan ini?"
+msgstr ""
 
 #: src/features/homepage/check.tsx
 msgid "Sinarpagi Labs"
@@ -11020,6 +11263,10 @@ msgstr ""
 #: src/features/resume/share/link-tab.tsx
 msgid "since last view"
 msgstr "از آخرین مشاهده"
+
+#: src/features/billing/pricing.tsx
+msgid "Single credits"
+msgstr ""
 
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or applications in Japan."
@@ -11358,6 +11605,10 @@ msgstr "از یکی که دارید شروع کنید و درخواست کار �
 msgid "Start from scratch or import what you have. It takes a few minutes, and you can come back to it anytime."
 msgstr "از صفر شروع کنید یا آنچه دارید را وارد کنید. چند دقیقه طول می‌کشد و هر وقت بخواهید می‌توانید برگردید."
 
+#: src/features/career/today.tsx
+msgid "Start here"
+msgstr ""
+
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Start on a new page"
 msgstr "از یک صفحه جدید شروع کنید"
@@ -11387,6 +11638,10 @@ msgstr "شروع به تایپ کردن کنید، یا از آنچه ما می 
 msgid "Start typing. To draft one, link a resume or an application first."
 msgstr "شروع به تایپ کنید. برای پیش‌نویس، ابتدا یک رزومه یا یک درخواست شغلی را پیوند دهید."
 
+#: src/features/career/today.tsx
+msgid "Start with the job you are chasing now."
+msgstr ""
+
 #: src/features/resume/editor/write/add-section.tsx
 msgid "Start with the sections most resumes have."
 msgstr "با بخش هایی شروع کنید که اکثر رزومه ها دارند."
@@ -11398,6 +11653,10 @@ msgstr ""
 #: src/features/career/shared.tsx
 msgid "Started"
 msgstr "شروع شده"
+
+#: src/features/billing/pricing.tsx
+msgid "Starter packages"
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Starts in {minutes} minutes"
@@ -11532,6 +11791,10 @@ msgstr "رزومه ضمیمه ارسال شده: {0}"
 #: src/features/career/workspace/prepare.tsx
 msgid "Success at 90 days · next step"
 msgstr "موفقیت در ۹۰ روز · گام بعدی"
+
+#: src/features/career/coach-action-proposal.tsx
+msgid "Sudah ada di lamaran"
+msgstr ""
 
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "Suggest again"
@@ -11927,9 +12190,17 @@ msgstr "درخواست شغلی این نامه برای آن است."
 msgid "The assistant isn't set up on this server. Whoever runs it needs to set ENCRYPTION_SECRET. Everything else works without it."
 msgstr "دستیار در این سرور تنظیم نشده است. هر کسی که آن را اجرا می کند باید ENCRYPTION_SECRET را تنظیم کند. همه چیز دیگر بدون آن کار می کند."
 
+#: src/features/settings/ai/web-access.tsx
+msgid "The assistant searches and reads pages with {connectedProvider}, whichever AI provider you use."
+msgstr ""
+
 #: src/features/assistant/provider-setup.tsx
 msgid "The assistant uses your own key. Nothing is sent anywhere until you connect one."
 msgstr "دستیار از کلید شما استفاده می کند. تا زمانی که یکی را وصل نکنید، هیچ چیز به جایی ارسال نمی شود."
+
+#: src/features/settings/ai/web-access.tsx
+msgid "The assistant uses your provider's own web search where supported, and reads links with the built-in reader."
+msgstr ""
 
 #: src/features/settings/ai/web-access.tsx
 msgid "The built-in reader remains active."
@@ -11989,6 +12260,10 @@ msgstr "فایل به عنوان رزومه خوانده نشد."
 
 #: src/features/career/workspace/fit.tsx
 msgid "The fit check didn't finish. Try again in a moment."
+msgstr ""
+
+#: src/features/billing/credit-dialog.tsx
+msgid "The five free Coach messages this week are used up. A Coach package adds paid messages that do not expire."
 msgstr ""
 
 #: src/routes/builder/letter/-components/write-panel.tsx
@@ -12383,6 +12658,10 @@ msgstr "این یک فرم XFA است، پس بیشتر نرم‌افزارها 
 msgid "This is not a common resume page size."
 msgstr "این اندازهٔ صفحهٔ رایجی برای رزومه نیست."
 
+#: src/features/career/today.tsx
+msgid "This is what the coach uses to ground its answers."
+msgstr ""
+
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "This letter and “{resumeName}” as two PDFs, named to match."
 msgstr "این حرف و \"{resumeName}\" به عنوان دو PDFs نامگذاری شده است."
@@ -12515,6 +12794,10 @@ msgstr "این فضای کاری بارگیری نشد."
 msgid "Threads"
 msgstr "موضوعات"
 
+#: src/features/career/today.tsx
+msgid "Three small steps. You can stop and come back at any time."
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
 msgstr "فشرده‌سازی"
@@ -12571,7 +12854,6 @@ msgstr "به"
 
 #: src/features/applications/components/calendar-view.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/routes/dashboard/career/route.tsx
 msgid "Today"
 msgstr "امروز"
 
@@ -12612,19 +12894,24 @@ msgstr ""
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "شغلی را که برایش درخواست می‌دهید پیگیری کنید و رزومهٔ ارسالی را پیوند دهید."
 
+#: src/routes/dashboard/applications/index.tsx
+msgid "Track each application and see what needs attention next."
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Track in Applications"
 msgstr "پیگیری در درخواست‌ها"
 
 #: src/routes/dashboard/applications/index.tsx
-msgid "Track your first job"
-msgstr "اولین شغل خود را دنبال کنید"
+msgid "Track your first application"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Tracking"
 msgstr "ردیابی"
 
 #: src/features/billing/transactions.tsx
+#: src/features/user/dropdown-menu.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "Transactions"
 msgstr ""
@@ -12831,6 +13118,10 @@ msgstr "برای تایید <0>{CONFIRMATION}</0> را تایپ کنید"
 msgid "Type a command or search…"
 msgstr "یک دستور تایپ کنید یا… را جستجو کنید"
 
+#: src/features/career/workspace/bank-dialog.tsx
+msgid "Type a question you want to practise…"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Type instead"
 msgstr "به‌جای آن تایپ کنید"
@@ -12846,10 +13137,6 @@ msgstr "تایپوگرافی"
 #: src/libs/locale.ts
 msgid "Ukrainian"
 msgstr "اوکراینی"
-
-#: src/routes/dashboard/applications/index.tsx
-msgid "Unapplied"
-msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Under 150 words were found. Add what the role needed, what you did, and what changed. Aim for 200 words or more."
@@ -12970,6 +13257,10 @@ msgstr "به‌روزرسانی گذرواژه"
 #: src/dialogs/resume/index.tsx
 msgid "Update Resume"
 msgstr "به‌روزرسانی رزومه"
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Update the stage when the company replies."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Update this application's details."
@@ -13102,6 +13393,10 @@ msgstr "استفاده برای همهٔ درخواست‌ها"
 msgid "Use in coaching: {excerpt}"
 msgstr "استفاده در مربیگری: {excerpt}"
 
+#: src/features/career/today.tsx
+msgid "Use it for a CV review or an interview you have coming up."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Use lowercase letters, numbers and single dashes."
 msgstr "از حروف کوچک، اعداد و خط تیره استفاده کنید."
@@ -13210,10 +13505,6 @@ msgstr "از درخواست مرتبط استفاده می‌کند"
 #: src/features/career/schedule-sheet.tsx
 msgid "Uses the web search service set up in Settings. Results wait in Today for your review; applications and documents are never created for you."
 msgstr "از سرویس جستجوی وبی که در تنظیمات راه‌اندازی شده استفاده می‌کند. نتایج در «امروز» منتظر بررسی شما می‌مانند؛ هرگز درخواست یا سندی به‌جای شما ساخته نمی‌شود."
-
-#: src/features/settings/ai/web-access.tsx
-msgid "Uses your AI provider's own web search where supported, and reads links with the built-in reader."
-msgstr "از جستجوی وب خود ارائه‌دهنده هوش مصنوعی در صورت پشتیبانی استفاده می‌کند و پیوندها را با خواننده داخلی می‌خواند."
 
 #: src/features/homepage/prepare.tsx
 msgid "Uses your browser’s voice"
@@ -13405,8 +13696,8 @@ msgid "We read \"{0}\". Pick a month so it sorts and prints consistently."
 msgstr "«{0}» را می خوانیم. یک ماه را انتخاب کنید تا مرتباً مرتب شود و چاپ شود."
 
 #: src/features/applications/components/add-application-dialog.tsx
-msgid "We read the page and save the posting for Check, the assistant and your letter."
-msgstr "ما صفحه را می خوانیم و آگهی استخدام را برای چک، دستیار و نامه شما ذخیره می کنیم."
+msgid "We read the page and save the posting for fit checks, the coach and your cover letter."
+msgstr ""
 
 #: src/features/settings/account/profile.tsx
 msgid "We sent a confirmation link to {email}. Open it to finish the change."
@@ -13504,6 +13795,10 @@ msgstr "چه چیزی در آن می رود؟"
 msgid "What interview answers should I practise?"
 msgstr "کدام پاسخ‌های مصاحبه را تمرین کنم؟"
 
+#: src/routes/dashboard/career/knowledge/route.tsx
+msgid "What is Career Profile?"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "What is the base salary, and is it negotiable?"
 msgstr "حقوق پایه چقدر است و آیا قابل مذاکره است؟"
@@ -13529,7 +13824,7 @@ msgid "What matters to you"
 msgstr "آنچه برای شما مهم است"
 
 #: src/routes/dashboard/career/route.tsx
-msgid "What needs you today, new roles from your saved search, and scheduled runs."
+msgid "What needs your attention, new roles, and the searches you saved."
 msgstr ""
 
 #: src/features/resume/editor/write/improve.tsx
@@ -13729,6 +14024,11 @@ msgstr "بدون رزومه، شما شخص دریافت کننده را پر م
 msgid "Words run together when the text is extracted."
 msgstr "کلمات هنگام استخراج متن به‌هم می‌چسبند."
 
+#: src/routes/dashboard/career/knowledge/route.tsx
+msgctxt "Career preferences: the roles, places, pay and ways of working you want"
+msgid "Work preferences"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Works without AI or new research"
 msgstr "بدون هوش مصنوعی یا پژوهش تازه کار می‌کند"
@@ -13807,6 +14107,10 @@ msgstr "نوشتن اعداد به رقم"
 msgid "Write one about something you did, in five parts. Leave a part blank until you can support it."
 msgstr "یکی دربارهٔ کاری که انجام دادید، در پنج بخش بنویسید. تا وقتی نتوانید بخشی را مستند کنید، آن را خالی بگذارید."
 
+#: src/features/career/shared.tsx
+msgid "Write the answers and check the files you will send."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Write the full address so it is recognised as a link."
 msgstr "آدرس کامل را بنویسید تا به‌عنوان لینک شناخته شود."
@@ -13828,6 +14132,10 @@ msgstr "نوشتار"
 #: src/features/career/coach-thread.tsx
 msgid "Writing an answer…"
 msgstr "در حال نوشتن پاسخ…"
+
+#: src/features/settings/ai/providers.tsx
+msgid "Writing help, tailored suggestions and the assistant, included with your PortoFit account."
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Writing help, tailored suggestions and the assistant. The default provider is used wherever you don't pick one. Your keys stay encrypted."
@@ -13903,7 +14211,7 @@ msgstr "می‌توانید حداکثر ۳۰ پرسش درخواست نگه د�
 msgid "You can send another proof while this order is still open."
 msgstr ""
 
-#: src/routes/dashboard/akun.tsx
+#: src/hooks/use-sign-out.ts
 msgid "You can sign back in at any time."
 msgstr ""
 
@@ -13944,10 +14252,6 @@ msgstr "گفتید: «{said}» پیش از تصمیم‌گیری از هر دو 
 msgid "You send it from your own email."
 msgstr "آن را از ایمیل خودتان می‌فرستید."
 
-#: src/features/settings/account/security.tsx
-msgid "You sign in without one"
-msgstr "شما بدون یکی وارد سیستم می شوید"
-
 #: src/features/career/workspace/apply.tsx
 msgid "You submit on the employer's site yourself. Marking it applied keeps the exact versions you sent."
 msgstr "درخواست را خودتان در سایت کارفرما ارسال می‌کنید. علامت زدن به‌عنوان ارسال‌شده، دقیقاً همان نسخه‌هایی را که فرستادید نگه می‌دارد."
@@ -13968,10 +14272,6 @@ msgstr "در حال مشاهدهٔ یک نسخهٔ ذخیره‌شده هستی�
 msgid "You're offline. Reconnect to save your changes before leaving."
 msgstr "شما آفلاین هستید. برای ذخیره تغییرات قبل از خروج دوباره وصل شوید."
 
-#: src/features/career/today.tsx
-msgid "You're up to date"
-msgstr "همه‌چیز به‌روز است"
-
 #: src/features/auth/components/guest-banner.tsx
 msgid "You're using a guest account"
 msgstr "شما از حساب مهمان استفاده می‌کنید"
@@ -13985,7 +14285,6 @@ msgstr "یک ایمیل دریافت کردید!"
 msgid "Your account was deleted."
 msgstr "اکانت شما حذف شد"
 
-#: src/features/career/coach.tsx
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Your AI"
 msgstr "هوش مصنوعی شما"
@@ -14085,13 +14384,17 @@ msgstr "آدرس ایمیل شما بین چند تکه متن شکسته شده
 msgid "Your email address isn't verified with the provider."
 msgstr "نشانی ایمیل شما نزد ارائه‌دهنده تأیید نشده است."
 
-#: src/routes/dashboard/career/knowledge/route.tsx
-msgid "Your enabled facts, stories and preferences can be sent to your AI connection when you use coaching tools or scheduled interview preparation. In chat, the Knowledge switch controls what is added to each message."
-msgstr "واقعیت‌ها، داستان‌ها و ترجیحات فعال شما ممکن است هنگام استفاده از ابزارهای مربیگری یا آماده‌سازی زمان‌بندی‌شدهٔ مصاحبه به اتصال هوش مصنوعی شما فرستاده شوند. در گفتگو، کلید «دانسته‌ها» تعیین می‌کند چه چیزی به هر پیام افزوده شود."
-
 #: src/features/career/workspace/fit.tsx
 msgid "Your evidence"
 msgstr "شواهد شما"
+
+#: src/routes/dashboard/career/knowledge/route.tsx
+msgid "Your experience, stories and work preferences can be sent to your AI connection when you use coaching tools or scheduled interview preparation. In chat, the Career Profile switch controls what is added to each message."
+msgstr ""
+
+#: src/routes/dashboard/career/route.tsx
+msgid "Your experience, stories and work preferences. The coach and interview practice use them."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Your file"
@@ -14141,6 +14444,14 @@ msgstr "حاشیه‌های شما بسیار باریک هستند."
 msgid "your message"
 msgstr "پیام شما"
 
+#: src/features/assistant/conversation.tsx
+msgid "Your message is kept."
+msgstr ""
+
+#: src/features/assistant/conversation.tsx
+msgid "Your message was not sent."
+msgstr ""
+
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Your name"
 msgstr "نام شما"
@@ -14173,6 +14484,10 @@ msgstr "شروع صحبت شما"
 msgid "Your opening, the stories to bring and questions to ask. It becomes your checklist 10 minutes before the call."
 msgstr "شروع صحبت شما، داستان‌هایی که باید بیاورید و پرسش‌هایی که باید بپرسید. ۱۰ دقیقه پیش از تماس، به چک‌لیست شما تبدیل می‌شود."
 
+#: src/features/career/workspace/practise.tsx
+msgid "Your own question"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Your password has been reset. You can now sign in with your new password."
 msgstr "رمز عبور شما بازنشانی شد. اکنون می‌توانید با رمز عبور تازه وارد شوید."
@@ -14198,6 +14513,7 @@ msgid "Your profile, your credits, and the trail of what you spent them on."
 msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
+#: src/features/settings/integrations/ai-provider-display.ts
 msgid "your provider"
 msgstr "ارائه دهنده شما"
 

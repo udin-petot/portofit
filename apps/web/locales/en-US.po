@@ -381,16 +381,10 @@ msgid "{0} posting"
 msgstr "{0} posting"
 
 #. placeholder {0}: props.providerLabel
-#. placeholder {1}: getOrpcErrorMessage(error, { fallback: t`an error`, allowServerMessage: true, })
+#. placeholder {1}: getOrpcErrorMessage(error, { fallback: t`an error`, allowServerMessage: true, }).replace(/\.$/, "")
 #: src/features/assistant/conversation.tsx
 msgid "{0} returned “{1}”."
 msgstr "{0} returned “{1}”."
-
-#. placeholder {0}: props.providerLabel
-#. placeholder {1}: getOrpcErrorMessage(error, { fallback: t`an error`, allowServerMessage: true, })
-#: src/features/assistant/conversation.tsx
-#~ msgid "{0} returned “{1}”. Your message is kept."
-#~ msgstr "{0} returned “{1}”. Your message is kept."
 
 #. placeholder {0}: step.sections
 #. placeholder {0}: summary.sections
@@ -934,6 +928,10 @@ msgstr "A date range is written in a form most software cannot read."
 msgid "A date won't be read"
 msgstr "A date won't be read"
 
+#: src/dialogs/resume/template/data.ts
+msgid "A dense single column with colored section labels and a double rule under the header. Built for software, data and engineering resumes that scan fast."
+msgstr "A dense single column with colored section labels and a double rule under the header. Built for software, data and engineering resumes that scan fast."
+
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
 msgstr "A fact changed. Review this story."
@@ -957,6 +955,10 @@ msgstr "A font is referenced but not embedded."
 #: src/features/ats-checker/messages.ts
 msgid "A full-height gap splits this page into two columns."
 msgstr "A full-height gap splits this page into two columns."
+
+#: src/dialogs/resume/template/data.ts
+msgid "A full-width band in your accent color carries the name and contact, and the body below stays one plain column. Bold first impression without giving up ATS parsing."
+msgstr "A full-width band in your accent color carries the name and contact, and the body below stays one plain column. Bold first impression without giving up ATS parsing."
 
 #: src/features/ats-checker/messages.ts
 msgid "A gap is not a problem. Add a one-line explanation if you want to; many strong resumes simply do not."
@@ -1025,6 +1027,10 @@ msgstr "A tailored resume and a cover letter are one click on the Prepare tab."
 #: src/features/career/workspace/prepare.tsx
 msgid "A timed plan, your opening, the stories to bring and questions to ask. It becomes your checklist 10 minutes before the call."
 msgstr "A timed plan, your opening, the stories to bring and questions to ask. It becomes your checklist 10 minutes before the call."
+
+#: src/dialogs/resume/template/data.ts
+msgid "A warm tinted band with the photo on the right, then one calm column with hairline rules. For HR, education, healthcare and social-impact roles."
+msgstr "A warm tinted band with the photo on the right, then one calm column with hairline rules. For HR, education, healthcare and social-impact roles."
 
 #: src/features/ats-checker/messages.ts
 msgid "A web address is written without https://."
@@ -1130,10 +1136,6 @@ msgstr "Add"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Add “{0}”"
 msgstr "Add “{0}”"
-
-#: src/features/career/knowledge/facts.tsx
-#~ msgid "Add a fact, for example “I mentored two associate PMs in 2025”"
-#~ msgstr "Add a fact, for example “I mentored two associate PMs in 2025”"
 
 #: src/components/input/chip-input.tsx
 msgid "Add a keyword..."
@@ -1602,6 +1604,11 @@ msgstr "AI providers couldn't be loaded. Reload to try again."
 #: src/libs/locale.ts
 msgid "Albanian"
 msgstr "Albanian"
+
+#: src/features/homepage/check.tsx
+#: src/features/homepage/sheet.tsx
+msgid "Alex Morgan"
+msgstr "Alex Morgan"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Align centre"
@@ -2107,6 +2114,7 @@ msgstr "Aspect Ratio"
 #: src/features/assistant/assistant-button.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/assistant/conversation.tsx
+#: src/features/assistant/dock.tsx
 #: src/features/command-palette/pages/resumes.tsx
 #: src/features/homepage/sections.tsx
 #: src/features/homepage/write.tsx
@@ -2116,10 +2124,6 @@ msgstr "Assistant"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "Assistant conversations"
-
-#: src/features/settings/ai/web-access.tsx
-msgid "Assistant."
-msgstr "Assistant."
 
 #: src/features/homepage/prepare.tsx
 msgid "At Sinarpagi Labs I led research for our onboarding redesign. I interviewed 14 customers, found three drop-off points, and we shipped a shorter setup. Activation rose from 31% to 44%."
@@ -2277,11 +2281,6 @@ msgstr "Backup code"
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Backup codes copied to clipboard."
 msgstr "Backup codes copied to clipboard."
-
-#: src/features/homepage/check.tsx
-#: src/features/homepage/sheet.tsx
-msgid "Bagus Maulana"
-msgstr "Bagus Maulana"
 
 #: src/features/billing/payment-dialog.tsx
 msgid "Balance now"
@@ -2573,6 +2572,10 @@ msgstr "Career Profile"
 #: src/libs/locale.ts
 msgid "Catalan"
 msgstr "Catalan"
+
+#: src/dialogs/resume/template/data.ts
+msgid "Centred header and centred section headings over one generous column, ready for publications and research sections. For scholarships, research assistantships and campus applications."
+msgstr "Centred header and centred section headings over one generous column, ready for publications and research sections. For scholarships, research assistantships and campus applications."
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -3966,6 +3969,10 @@ msgstr "Custom Styles"
 msgid "Custom styles aren't applied. Fix these errors to apply them:"
 msgstr "Custom styles aren't applied. Fix these errors to apply them:"
 
+#: src/features/assistant/assistant-panel.tsx
+msgid "CV"
+msgstr "CV"
+
 #: src/libs/locale.ts
 msgid "Czech"
 msgstr "Czech"
@@ -4900,10 +4907,6 @@ msgstr "Every {days} days at {clock} · next {next}"
 msgid "Every 3 days"
 msgstr "Every 3 days"
 
-#: src/routes/dashboard/applications/index.tsx
-#~ msgid "Every application in one table. Sort by what needs attention."
-#~ msgstr "Every application in one table. Sort by what needs attention."
-
 #: src/features/quota/page.tsx
 msgid "Every ATS scan, issue list and basic job match stays free with no limit. Only actions that call a model use this allowance."
 msgstr "Every ATS scan, issue list and basic job match stays free with no limit. Only actions that call a model use this allowance."
@@ -5057,10 +5060,6 @@ msgstr "Fact type"
 #: src/features/career/coach-thread.tsx
 msgid "Facts"
 msgstr "Facts"
-
-#: src/routes/dashboard/career/route.tsx
-#~ msgid "Facts, stories and preferences about you. The coach and interview prep read these."
-#~ msgstr "Facts, stories and preferences about you. The coach and interview prep read these."
 
 #: src/features/career/coach.tsx
 msgid "Facts, stories and preferences that are switched on in Knowledge"
@@ -5742,8 +5741,8 @@ msgid "Help translate"
 msgstr "Help translate"
 
 #: src/features/homepage/prepare.tsx
-msgid "Hi Bagus, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
-msgstr "Hi Bagus, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
+msgid "Hi Alex, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
+msgstr "Hi Alex, great to confirm: you’ll meet our design team today at {time}, by video. Could you bring an example of your onboarding work?"
 
 #: src/components/level/combobox.tsx
 #: src/features/resume/editor/write/entries.tsx
@@ -6115,10 +6114,6 @@ msgstr "Interface only. Each resume sets its own language in Design."
 #: src/routes/dashboard/akun.tsx
 msgid "Interview"
 msgstr "Interview"
-
-#: src/features/career/today.tsx
-#~ msgid "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
-#~ msgstr "Interview briefings, follow-ups that are due, and finished runs land here when they are ready."
 
 #: src/features/career/today.tsx
 msgid "Interview briefings, follow-ups that are due, and search results land here when they are ready."
@@ -6575,11 +6570,6 @@ msgstr "Khmer"
 #: src/features/letters/compose.ts
 msgid "Kind regards,"
 msgstr "Kind regards,"
-
-#: src/routes/dashboard/career/knowledge/route.tsx
-#: src/routes/dashboard/career/route.tsx
-#~ msgid "Knowledge"
-#~ msgstr "Knowledge"
 
 #: src/features/career/coach.tsx
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
@@ -7176,13 +7166,13 @@ msgstr "Malay"
 msgid "Malayalam"
 msgstr "Malayalam"
 
+#: src/features/settings/ai/providers.tsx
+msgid "Managed by PortoFit"
+msgstr "Managed by PortoFit"
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Managed by server"
 msgstr "Managed by server"
-
-#: src/features/settings/ai/providers.tsx
-msgid "Managed by your server"
-msgstr "Managed by your server"
 
 #: src/features/ats-checker/messages.ts
 msgid "Many bullets start with the same phrase."
@@ -7633,10 +7623,6 @@ msgstr "Needs action"
 msgid "Needs attention"
 msgstr "Needs attention"
 
-#: src/features/career/today.tsx
-#~ msgid "Needs you"
-#~ msgstr "Needs you"
-
 #: src/libs/locale.ts
 msgid "Nepali"
 msgstr "Nepali"
@@ -7710,10 +7696,6 @@ msgstr "New Password"
 #: src/features/career/today.tsx
 msgid "New roles for you"
 msgstr "New roles for you"
-
-#: src/features/career/today.tsx
-#~ msgid "New roles from your search"
-#~ msgstr "New roles from your search"
 
 #: src/features/career/schedule-sheet.tsx
 msgid "New schedule"
@@ -7860,17 +7842,9 @@ msgstr "No experience matches. Try another word or type."
 msgid "No experience yet. Add one above."
 msgstr "No experience yet. Add one above."
 
-#: src/features/career/knowledge/facts.tsx
-#~ msgid "No facts match. Try another word or type."
-#~ msgstr "No facts match. Try another word or type."
-
 #: src/features/career/knowledge/stories.tsx
 msgid "No facts to link yet. Add them in Facts."
 msgstr "No facts to link yet. Add them in Facts."
-
-#: src/features/career/knowledge/facts.tsx
-#~ msgid "No facts yet. Add one above."
-#~ msgstr "No facts yet. Add one above."
 
 #: src/features/applications/components/list-view.tsx
 #: src/features/career/workspace/shell.tsx
@@ -7921,23 +7895,6 @@ msgstr "No new roles. Automatic search runs again today at {clock}."
 #: src/features/career/today.tsx
 msgid "No new roles. Automatic search runs again tomorrow at {clock}."
 msgstr "No new roles. Automatic search runs again tomorrow at {clock}."
-
-#: src/features/career/today.tsx
-#~ msgid "No new roles. Discovery is paused."
-#~ msgstr "No new roles. Discovery is paused."
-
-#. placeholder {0}: day(active.nextRunAt)
-#: src/features/career/today.tsx
-#~ msgid "No new roles. Discovery runs again on {0} at {clock}."
-#~ msgstr "No new roles. Discovery runs again on {0} at {clock}."
-
-#: src/features/career/today.tsx
-#~ msgid "No new roles. Discovery runs again today at {clock}."
-#~ msgstr "No new roles. Discovery runs again today at {clock}."
-
-#: src/features/career/today.tsx
-#~ msgid "No new roles. Discovery runs again tomorrow at {clock}."
-#~ msgstr "No new roles. Discovery runs again tomorrow at {clock}."
 
 #: src/features/career/offers.tsx
 msgid "No offers to compare yet"
@@ -8354,6 +8311,10 @@ msgstr "One column with a strict grid, right-aligned dates and no icons. A calm,
 msgid "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
 msgstr "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
 
+#: src/dialogs/resume/template/data.ts
+msgid "One column with every section on an accent rail: a thin line and a dot per entry. Dates stay right-aligned and the text order stays ATS-safe."
+msgstr "One column with every section on an accent rail: a thin line and a dot per entry. Dates stay right-aligned and the text order stays ATS-safe."
+
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "One credit: a tailored resume, a cover letter, and a match score for this job."
 msgstr "One credit: a tailored resume, a cover letter, and a match score for this job."
@@ -8378,10 +8339,6 @@ msgstr "Only allow applications you trust. This application will be able to:"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Only applies when the section fits on a single page."
 msgstr "Only applies when the section fits on a single page."
-
-#: src/routes/dashboard/applications/index.tsx
-#~ msgid "Only jobs you have applied to are shown."
-#~ msgstr "Only jobs you have applied to are shown."
 
 #: src/features/ats-checker/messages.ts
 msgid "Only one recognisable section heading was found."
@@ -8797,10 +8754,6 @@ msgstr "Passwords do not match."
 msgid "Past conversations"
 msgstr "Past conversations"
 
-#: src/features/applications/components/add-application-dialog.tsx
-#~ msgid "Paste a job link or posting, then check the role and company."
-#~ msgstr "Paste a job link or posting, then check the role and company."
-
 #: src/features/homepage/tailor.tsx
 msgid "Paste a job posting once. It feeds a tailored copy of your resume, a match score, a cover letter draft and a place to track the role."
 msgstr "Paste a job posting once. It feeds a tailored copy of your resume, a match score, a cover letter draft and a place to track the role."
@@ -8813,10 +8766,6 @@ msgstr "Paste a job posting…"
 #: src/features/career/workspace/messages.tsx
 msgid "Paste a message from {0}"
 msgstr "Paste a message from {0}"
-
-#: src/features/career/offers.tsx
-#~ msgid "Paste an offer into an application's Messages tab."
-#~ msgstr "Paste an offer into an application's Messages tab."
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Paste description instead"
@@ -9151,10 +9100,6 @@ msgstr "Practice"
 msgid "Practice for your {company} interviews."
 msgstr "Practice for your {company} interviews."
 
-#: src/features/career/workspace/practise.tsx
-#~ msgid "Practice from an application question or your own story."
-#~ msgstr "Practice from an application question or your own story."
-
 #: src/features/career/workspace/debrief.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Practice priorities, not conclusions about why an employer decided anything."
@@ -9443,8 +9388,8 @@ msgid "Prototyping"
 msgstr "Prototyping"
 
 #: src/features/settings/ai/web-access.tsx
-msgid "Provided by your server: {connectedProvider}."
-msgstr "Provided by your server: {connectedProvider}."
+msgid "Provided by PortoFit: {connectedProvider}."
+msgstr "Provided by PortoFit: {connectedProvider}."
 
 #: src/features/settings/ai/providers.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -9629,8 +9574,8 @@ msgid "Read the attachment"
 msgstr "Read the attachment"
 
 #: src/features/settings/ai/web-access.tsx
-msgid "Read the job links you save. Saving and preparing jobs works without a connection."
-msgstr "Read the job links you save. Saving and preparing jobs works without a connection."
+msgid "Read the job links you save. Saving and preparing jobs still works when web access isn't connected."
+msgstr "Read the job links you save. Saving and preparing jobs still works when web access isn't connected."
 
 #: src/features/assistant/conversation.tsx
 msgid "Read the letter"
@@ -9790,10 +9735,6 @@ msgstr "Record an offer from an application, then compare pay, place and what yo
 #: src/features/career/offers.tsx
 msgid "Record another offer from an application."
 msgstr "Record another offer from an application."
-
-#: src/features/applications/components/add-application-dialog.tsx
-#~ msgid "Record application"
-#~ msgstr "Record application"
 
 #: src/features/career/shared.tsx
 msgid "Record what the interviewer asked while it is still fresh."
@@ -10183,10 +10124,6 @@ msgstr "Result"
 msgid "Result left out: no fact backs it. Switch it on, or add one, and it comes back."
 msgstr "Result left out: no fact backs it. Switch it on, or add one, and it comes back."
 
-#: src/features/assistant/assistant-panel.tsx
-msgid "resume"
-msgstr "resume"
-
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/list-view.tsx
 #: src/features/documents/document-card.tsx
@@ -10492,10 +10429,6 @@ msgstr "Save {savings}%"
 msgid "Save a job"
 msgstr "Save a job"
 
-#: src/routes/dashboard/applications/index.tsx
-#~ msgid "Save a job first"
-#~ msgstr "Save a job first"
-
 #: src/features/career/today.tsx
 msgid "Save a job or record an application"
 msgstr "Save a job or record an application"
@@ -10507,10 +10440,6 @@ msgstr "Save a job or record one you already applied to."
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save a job you have not applied to yet. It stays out of your applications until you mark it applied."
 msgstr "Save a job you have not applied to yet. It stays out of your applications until you mark it applied."
-
-#: src/routes/dashboard/applications/index.tsx
-#~ msgid "Save a job, then move it along as the company replies: applied, screening, interview, offer. Every stage you update feeds the funnel in Insights."
-#~ msgstr "Save a job, then move it along as the company replies: applied, screening, interview, offer. Every stage you update feeds the funnel in Insights."
 
 #: src/features/ats-checker/messages.ts
 msgid "Save an unprotected copy, with no password and no permissions restrictions."
@@ -10741,10 +10670,6 @@ msgstr "Schedule saved"
 msgid "Scheduled work isn't available on this server."
 msgstr "Scheduled work isn't available on this server."
 
-#: src/features/career/today.tsx
-#~ msgid "Schedules"
-#~ msgstr "Schedules"
-
 #: src/features/resume/editor/write/entries.tsx
 msgid "School"
 msgstr "School"
@@ -10769,8 +10694,8 @@ msgid "Search and enhanced reading"
 msgstr "Search and enhanced reading"
 
 #: src/features/settings/ai/web-access.tsx
-msgid "Search and reading are set up for everyone here. Ask your administrator about changes."
-msgstr "Search and reading are set up for everyone here. Ask your administrator about changes."
+msgid "Search and reading are set up for everyone here."
+msgstr "Search and reading are set up for everyone here."
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Search applications"
@@ -10792,10 +10717,6 @@ msgstr "Search documents"
 #: src/features/career/knowledge/facts.tsx
 msgid "Search experience"
 msgstr "Search experience"
-
-#: src/features/career/knowledge/facts.tsx
-#~ msgid "Search facts"
-#~ msgstr "Search facts"
 
 #: src/features/settings/ai/web-access.tsx
 msgid "Search failed"
@@ -10855,10 +10776,6 @@ msgstr "Search…"
 #: src/features/assistant/conversation.tsx
 msgid "Searched the web"
 msgstr "Searched the web"
-
-#: src/features/settings/ai/web-access.tsx
-msgid "Searches and reads pages with {connectedProvider}, whichever AI provider you use."
-msgstr "Searches and reads pages with {connectedProvider}, whichever AI provider you use."
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Searching job postings…"
@@ -10962,6 +10879,11 @@ msgstr "Semantic CSS stylesheet"
 msgid "Send"
 msgstr "Send"
 
+#. placeholder {0}: chip.label
+#: src/features/assistant/conversation.tsx
+msgid "Send {0} again"
+msgstr "Send {0} again"
+
 #: src/features/billing/invoice-sheet.tsx
 msgid "Send again"
 msgstr "Send again"
@@ -11001,32 +10923,16 @@ msgid "Sends this application's posting, notes and documents, plus Knowledge tha
 msgstr "Sends this application's posting, notes and documents, plus Knowledge that's switched on, to this connection. Your provider may charge for it."
 
 #: src/features/assistant/conversation.tsx
-#~ msgid "Sends this letter and the posting to {provider} with your key, only when you press send."
-#~ msgstr "Sends this letter and the posting to {provider} with your key, only when you press send."
-
-#: src/features/assistant/conversation.tsx
 msgid "Sends this letter and the posting to {provider}{withKey} only when you press send."
 msgstr "Sends this letter and the posting to {provider}{withKey} only when you press send."
-
-#: src/features/assistant/conversation.tsx
-#~ msgid "Sends this letter to {provider} with your key, only when you press send."
-#~ msgstr "Sends this letter to {provider} with your key, only when you press send."
 
 #: src/features/assistant/conversation.tsx
 msgid "Sends this letter to {provider}{withKey} only when you press send."
 msgstr "Sends this letter to {provider}{withKey} only when you press send."
 
 #: src/features/assistant/conversation.tsx
-#~ msgid "Sends this resume and the posting to {provider} with your key, only when you press send."
-#~ msgstr "Sends this resume and the posting to {provider} with your key, only when you press send."
-
-#: src/features/assistant/conversation.tsx
 msgid "Sends this resume and the posting to {provider}{withKey} only when you press send."
 msgstr "Sends this resume and the posting to {provider}{withKey} only when you press send."
-
-#: src/features/assistant/conversation.tsx
-#~ msgid "Sends this resume to {provider} with your key, only when you press send."
-#~ msgstr "Sends this resume to {provider} with your key, only when you press send."
 
 #: src/features/assistant/conversation.tsx
 msgid "Sends this resume to {provider}{withKey} only when you press send."
@@ -11037,16 +10943,8 @@ msgid "Sends this story and the facts switched on to the AI service you use, onl
 msgstr "Sends this story and the facts switched on to the AI service you use, only when you ask the coach."
 
 #: src/features/assistant/conversation.tsx
-#~ msgid "Sends your message and the posting to {provider} with your key, only when you press send."
-#~ msgstr "Sends your message and the posting to {provider} with your key, only when you press send."
-
-#: src/features/assistant/conversation.tsx
 msgid "Sends your message and the posting to {provider}{withKey} only when you press send."
 msgstr "Sends your message and the posting to {provider}{withKey} only when you press send."
-
-#: src/features/assistant/conversation.tsx
-#~ msgid "Sends your message to {provider} with your key, only when you press send."
-#~ msgstr "Sends your message to {provider} with your key, only when you press send."
 
 #: src/features/assistant/conversation.tsx
 msgid "Sends your message to {provider}{withKey} only when you press send."
@@ -11089,10 +10987,6 @@ msgstr "Session"
 msgid "Set a follow-up…"
 msgstr "Set a follow-up…"
 
-#: src/features/settings/account/security.tsx
-#~ msgid "Set a password"
-#~ msgstr "Set a password"
-
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set Password"
 msgstr "Set Password"
@@ -11104,10 +10998,6 @@ msgstr "Set the document language when exporting."
 #: src/features/career/today.tsx
 msgid "Set up automatic search"
 msgstr "Set up automatic search"
-
-#: src/features/career/today.tsx
-#~ msgid "Set up discovery"
-#~ msgstr "Set up discovery"
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Set up web search in Settings"
@@ -11274,10 +11164,6 @@ msgstr "Show templates"
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Show them again"
 msgstr "Show them again"
-
-#: src/routes/dashboard/applications/index.tsx
-#~ msgid "Show unapplied"
-#~ msgstr "Show unapplied"
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Shown in your timezone."
@@ -12300,9 +12186,17 @@ msgstr "The application this letter is for."
 msgid "The assistant isn't set up on this server. Whoever runs it needs to set ENCRYPTION_SECRET. Everything else works without it."
 msgstr "The assistant isn't set up on this server. Whoever runs it needs to set ENCRYPTION_SECRET. Everything else works without it."
 
+#: src/features/settings/ai/web-access.tsx
+msgid "The assistant searches and reads pages with {connectedProvider}, whichever AI provider you use."
+msgstr "The assistant searches and reads pages with {connectedProvider}, whichever AI provider you use."
+
 #: src/features/assistant/provider-setup.tsx
 msgid "The assistant uses your own key. Nothing is sent anywhere until you connect one."
 msgstr "The assistant uses your own key. Nothing is sent anywhere until you connect one."
+
+#: src/features/settings/ai/web-access.tsx
+msgid "The assistant uses your provider's own web search where supported, and reads links with the built-in reader."
+msgstr "The assistant uses your provider's own web search where supported, and reads links with the built-in reader."
 
 #: src/features/settings/ai/web-access.tsx
 msgid "The built-in reader remains active."
@@ -13008,10 +12902,6 @@ msgstr "Track in Applications"
 msgid "Track your first application"
 msgstr "Track your first application"
 
-#: src/routes/dashboard/applications/index.tsx
-#~ msgid "Track your first job"
-#~ msgstr "Track your first job"
-
 #: src/features/homepage/sections.tsx
 msgid "Tracking"
 msgstr "Tracking"
@@ -13243,10 +13133,6 @@ msgstr "Typography"
 #: src/libs/locale.ts
 msgid "Ukrainian"
 msgstr "Ukrainian"
-
-#: src/routes/dashboard/applications/index.tsx
-#~ msgid "Unapplied"
-#~ msgstr "Unapplied"
 
 #: src/features/ats-checker/messages.ts
 msgid "Under 150 words were found. Add what the role needed, what you did, and what changed. Aim for 200 words or more."
@@ -13616,10 +13502,6 @@ msgstr "Uses the linked application"
 msgid "Uses the web search service set up in Settings. Results wait in Today for your review; applications and documents are never created for you."
 msgstr "Uses the web search service set up in Settings. Results wait in Today for your review; applications and documents are never created for you."
 
-#: src/features/settings/ai/web-access.tsx
-msgid "Uses your AI provider's own web search where supported, and reads links with the built-in reader."
-msgstr "Uses your AI provider's own web search where supported, and reads links with the built-in reader."
-
 #: src/features/homepage/prepare.tsx
 msgid "Uses your browser’s voice"
 msgstr "Uses your browser’s voice"
@@ -13810,10 +13692,6 @@ msgid "We read \"{0}\". Pick a month so it sorts and prints consistently."
 msgstr "We read \"{0}\". Pick a month so it sorts and prints consistently."
 
 #: src/features/applications/components/add-application-dialog.tsx
-#~ msgid "We read the page and save the posting for Check, the assistant and your letter."
-#~ msgstr "We read the page and save the posting for Check, the assistant and your letter."
-
-#: src/features/applications/components/add-application-dialog.tsx
 msgid "We read the page and save the posting for fit checks, the coach and your cover letter."
 msgstr "We read the page and save the posting for fit checks, the coach and your cover letter."
 
@@ -13940,10 +13818,6 @@ msgstr "What matters"
 #: src/features/career/knowledge/preferences.tsx
 msgid "What matters to you"
 msgstr "What matters to you"
-
-#: src/routes/dashboard/career/route.tsx
-#~ msgid "What needs you today, new roles from your saved search, and scheduled runs."
-#~ msgstr "What needs you today, new roles from your saved search, and scheduled runs."
 
 #: src/routes/dashboard/career/route.tsx
 msgid "What needs your attention, new roles, and the searches you saved."
@@ -14256,6 +14130,10 @@ msgid "Writing an answer…"
 msgstr "Writing an answer…"
 
 #: src/features/settings/ai/providers.tsx
+msgid "Writing help, tailored suggestions and the assistant, included with your PortoFit account."
+msgstr "Writing help, tailored suggestions and the assistant, included with your PortoFit account."
+
+#: src/features/settings/ai/providers.tsx
 msgid "Writing help, tailored suggestions and the assistant. The default provider is used wherever you don't pick one. Your keys stay encrypted."
 msgstr "Writing help, tailored suggestions and the assistant. The default provider is used wherever you don't pick one. Your keys stay encrypted."
 
@@ -14370,10 +14248,6 @@ msgstr "You said: “{said}” Ask both companies before deciding."
 msgid "You send it from your own email."
 msgstr "You send it from your own email."
 
-#: src/features/settings/account/security.tsx
-#~ msgid "You sign in without one"
-#~ msgstr "You sign in without one"
-
 #: src/features/career/workspace/apply.tsx
 msgid "You submit on the employer's site yourself. Marking it applied keeps the exact versions you sent."
 msgstr "You submit on the employer's site yourself. Marking it applied keeps the exact versions you sent."
@@ -14393,10 +14267,6 @@ msgstr "You're looking at a saved version. It can't be edited."
 #: src/features/resume/builder/draft.ts
 msgid "You're offline. Reconnect to save your changes before leaving."
 msgstr "You're offline. Reconnect to save your changes before leaving."
-
-#: src/features/career/today.tsx
-#~ msgid "You're up to date"
-#~ msgstr "You're up to date"
 
 #: src/features/auth/components/guest-banner.tsx
 msgid "You're using a guest account"
@@ -14509,10 +14379,6 @@ msgstr "Your email address is broken across pieces of text."
 #: src/features/auth/pages/error.tsx
 msgid "Your email address isn't verified with the provider."
 msgstr "Your email address isn't verified with the provider."
-
-#: src/routes/dashboard/career/knowledge/route.tsx
-#~ msgid "Your enabled facts, stories and preferences can be sent to your AI connection when you use coaching tools or scheduled interview preparation. In chat, the Knowledge switch controls what is added to each message."
-#~ msgstr "Your enabled facts, stories and preferences can be sent to your AI connection when you use coaching tools or scheduled interview preparation. In chat, the Knowledge switch controls what is added to each message."
 
 #: src/features/career/workspace/fit.tsx
 msgid "Your evidence"
@@ -14728,39 +14594,3 @@ msgstr "Zoom out"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-
-#: src/features/assistant/assistant-panel.tsx
-msgid "CV"
-msgstr "CV"
-
-#: src/features/assistant/conversation.tsx
-msgid "Send {0} again"
-msgstr "Send {0} again"
-
-#: src/features/settings/ai/providers.tsx
-msgid "Managed by PortoFit"
-msgstr "Managed by PortoFit"
-
-#: src/features/settings/ai/providers.tsx
-msgid "Writing help, tailored suggestions and the assistant, included with your PortoFit account."
-msgstr "Writing help, tailored suggestions and the assistant, included with your PortoFit account."
-
-#: src/features/settings/ai/web-access.tsx
-msgid "Provided by PortoFit: {connectedProvider}."
-msgstr "Provided by PortoFit: {connectedProvider}."
-
-#: src/features/settings/ai/web-access.tsx
-msgid "Search and reading are set up for everyone here."
-msgstr "Search and reading are set up for everyone here."
-
-#: src/features/settings/ai/web-access.tsx
-msgid "Read the job links you save. Saving and preparing jobs still works when web access isn't connected."
-msgstr "Read the job links you save. Saving and preparing jobs still works when web access isn't connected."
-
-#: src/features/settings/ai/web-access.tsx
-msgid "The assistant searches and reads pages with {connectedProvider}, whichever AI provider you use."
-msgstr "The assistant searches and reads pages with {connectedProvider}, whichever AI provider you use."
-
-#: src/features/settings/ai/web-access.tsx
-msgid "The assistant uses your provider's own web search where supported, and reads links with the built-in reader."
-msgstr "The assistant uses your provider's own web search where supported, and reads links with the built-in reader."
