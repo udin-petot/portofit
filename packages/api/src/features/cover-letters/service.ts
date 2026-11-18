@@ -438,8 +438,10 @@ export const coverLetterService = {
 			{ id: input.id, userId: input.userId, expectedRevision: current.revision },
 			{
 				name: data.name,
-				recipient: data.recipient,
-				content: data.content,
+				// A version row is sanitized when it is written, but restore is the one path that copies
+				// stored HTML straight into the live row, so the invariant is enforced here as well.
+				recipient: sanitizeCoverLetterHtml(data.recipient),
+				content: sanitizeCoverLetterHtml(data.content),
 				greeting: data.greeting ?? null,
 				signOff: data.signOff ?? null,
 				style: data.style,
