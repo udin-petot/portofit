@@ -10,7 +10,7 @@ import { InvoiceDocument, type InvoicePdfInput } from "./invoice";
 
 export type { InvoicePdfInput } from "./invoice";
 
-export { configureOwnPictureReader } from "./forme/images.node";
+export { configureOwnPictureReader } from "./forme/images.node.ts";
 
 export type CreateResumePdfFileOptions = {
 	data: ResumeData;
