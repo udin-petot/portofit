@@ -281,6 +281,9 @@ const getAuthConfig = () => {
 			minPasswordLength: 8,
 			maxPasswordLength: 64,
 			requireEmailVerification: false,
+			// A completed reset rewrites the password hash only. Without this, every session issued before the
+			// reset keeps full access, which is exactly the case a reset is supposed to end.
+			revokeSessionsOnPasswordReset: true,
 			disableSignUp: env.FLAG_DISABLE_SIGNUPS || env.FLAG_DISABLE_EMAIL_AUTH,
 			sendResetPassword: async ({ user, url }) => {
 				await sendEmail({
@@ -297,7 +300,10 @@ const getAuthConfig = () => {
 
 		emailVerification: {
 			sendOnSignUp: true,
-			autoSignInAfterVerification: true,
+			// Sign-up cannot prove the address belongs to the person registering, so verifying the address must not
+			// hand the clicker a session in an account whose password someone else chose. Verification only marks
+			// the address verified; the sign-up path already signs its own user in.
+			autoSignInAfterVerification: false,
 			sendVerificationEmail: async ({ user, url }) => {
 				await sendEmail({
 					to: user.email,
