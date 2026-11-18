@@ -120,9 +120,39 @@ async function purgeExpired(userId: string) {
 	]);
 }
 
+/** Documents one maintenance tick takes, so a large backlog never runs as one long transaction. */
+const PURGE_BATCH = 200;
+
+/**
+ * Trash retention across every account. The authenticated `purgeExpired` only runs when a user opens
+ * Trash, so without a server-side sweep the 30-day promise holds only for users who come back.
+ */
+async function purgeExpiredAll(): Promise<number> {
+	const cutoff = new Date(Date.now() - TRASH_RETENTION_MS);
+	const [resumes, letters] = await Promise.all([
+		db
+			.select({ id: schema.resume.id, userId: schema.resume.userId })
+			.from(schema.resume)
+			.where(lt(schema.resume.trashedAt, cutoff))
+			.limit(PURGE_BATCH),
+		db
+			.select({ id: schema.coverLetter.id, userId: schema.coverLetter.userId })
+			.from(schema.coverLetter)
+			.where(lt(schema.coverLetter.trashedAt, cutoff))
+			.limit(PURGE_BATCH),
+	]);
+
+	const results = await Promise.allSettled([
+		...resumes.map(({ id, userId }) => deleteForGood({ userId, type: "resume" as const, id })),
+		...letters.map(({ id, userId }) => deleteForGood({ userId, type: "letter" as const, id })),
+	]);
+	return results.filter((result) => result.status === "fulfilled").length;
+}
+
 export const documentsService = {
 	/** Every live resume and letter (or everything in Trash), newest edit first. The app filters and sorts them. */
 	purgeExpired,
+	purgeExpiredAll,
 
 	list: async (input: { userId: string; trashed: boolean }): Promise<DocumentSummary[]> => {
 		const [resumes, letters] = await Promise.all([
