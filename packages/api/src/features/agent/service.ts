@@ -819,6 +819,8 @@ function createAgent(input: {
 	};
 	model: ReturnType<typeof getModel>;
 	connection: WebAccessConnection | null;
+	/** URLs the user themselves wrote in this message. read_page may only follow these or a search result. */
+	userSources?: Iterable<string>;
 	signal: AbortSignal;
 }) {
 	// One greppable JSON line per tool execution.
@@ -847,6 +849,9 @@ function createAgent(input: {
 
 	const { document } = input;
 	const allowedSources = input.career?.allowedSources ?? new Set<string>();
+	// Document-scope runs start with no sources, so seed them from the user's own message. The career set already
+	// carries those URLs; adding them again is a no-op.
+	for (const url of input.userSources ?? []) allowedSources.add(url);
 	if (input.career?.shareApplication) {
 		const application = input.career.context.application;
 		if (application?.sourceUrl) allowedSources.add(application.sourceUrl);
@@ -871,7 +876,8 @@ function createAgent(input: {
 				return result;
 			}),
 			readPage: timedToolHandler("read_page", async (url: string, signal: AbortSignal) => {
-				if (input.career && !allowedSources.has(url))
+				// Applies in every scope: a URL the model invented came from untrusted text, not from the user.
+				if (!allowedSources.has(url))
 					throw new Error("Read only retrieved URLs or public links supplied by the user.");
 				const { html: _html, ...page } = await readPage(url, {
 					connection: input.connection,
@@ -1439,6 +1445,8 @@ export const agentService = {
 						: {}),
 					posting,
 					connection,
+					// Any scope may fetch a URL the user typed in this message. Nothing else is auto-allowed.
+					userSources: messageText(input.message).match(/https?:\/\/[^\s<>")]+/g) ?? [],
 					signal: controller.signal,
 					provider: {
 						provider: runnableProvider.provider,
