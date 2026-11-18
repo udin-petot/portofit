@@ -105,7 +105,8 @@ function contactPills(basics: ResumeData["basics"]): ContactPill[] {
 		pills.push({
 			icon: "globe",
 			label: basics.website.label || basics.website.url.replace(/^https?:\/\//, ""),
-			href: basics.website.url,
+			// The schema stores any string, so only http(s) becomes a link. Same rule as the custom fields below.
+			...(/^https?:/i.test(basics.website.url) ? { href: basics.website.url } : {}),
 		});
 	for (const field of basics.customFields)
 		if (field.text)
