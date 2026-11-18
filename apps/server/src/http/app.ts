@@ -114,6 +114,19 @@ export function createApp(options: AppOptions = {}) {
 		}),
 	);
 
+	// The RPC route carries agent attachments as base64 (25 MiB decoded, about 34 MiB encoded). Without a transport
+	// cap the whole body is read and parsed before zod can reject it on size, so one request can exhaust a shared
+	// single-process deployment. 48 MiB fits one maximum attachment with framing and rejects anything larger first.
+	const rpcBodyLimit = bodyLimit({
+		maxSize: 48 * 1024 * 1024,
+		onError: (c) => {
+			c.header("Cache-Control", "no-store");
+			return c.json({ defined: false, code: "PAYLOAD_TOO_LARGE", status: 413, message: "Payload too large" }, 413);
+		},
+	});
+	app.use("/api/rpc", rpcBodyLimit);
+	app.use("/api/rpc/*", rpcBodyLimit);
+
 	app.post("/api/storage/stage", (c) => prepareStagedBody(c.req.raw));
 	app.post("/api/client-error", bodyLimit({ maxSize: 16 * 1024, onError: (c) => c.body(null, 413) }), async (c) => {
 		if (!allowClientError(client(c))) return c.body(null, 429);

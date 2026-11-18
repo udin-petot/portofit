@@ -18,6 +18,26 @@ describe("attachment text", () => {
 		).resolves.toBe("Backend Engineer\nYogyakarta");
 	});
 
+	it("refuses a DOCX whose entry declares a decompressed size over the cap", async () => {
+		const docx = zipSync({ "word/document.xml": strToU8("<w:document/>") });
+		const view = new DataView(docx.buffer, docx.byteOffset, docx.byteLength);
+		// Uncompressed size sits at offset 24 of a central-directory header. fflate allocates from this value
+		// before inflating, so a lying declaration is the decompression-bomb shape this cap exists to stop.
+		for (let offset = 0; offset + 46 <= docx.byteLength; offset++) {
+			if (view.getUint32(offset, true) === 0x02014b50) {
+				view.setUint32(offset + 24, 64 * 1024 * 1024, true);
+				break;
+			}
+		}
+		await expect(
+			extractAttachmentText({
+				filename: "cv.docx",
+				mediaType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+				data: docx,
+			}),
+		).rejects.toMatchObject({ message: expect.stringContaining("terlalu besar") });
+	});
+
 	it("marks PDF and DOCX as extractable, and rejects legacy DOC with a clear message", async () => {
 		expect(isExtractableAttachment("application/pdf")).toBe(true);
 		expect(

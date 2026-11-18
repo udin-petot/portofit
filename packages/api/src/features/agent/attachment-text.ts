@@ -5,6 +5,9 @@ import { buildExtractedDocument, harvestPdfDocument } from "@reactive-resume/res
 /** Text long enough to keep a CV, short enough not to flood a chat turn. */
 export const MAX_ATTACHMENT_TEXT_CHARS = 40_000;
 
+/** Decompressed `word/document.xml` ceiling. The sibling LinkedIn importer caps declared sizes the same way. */
+const MAX_DOCX_XML_BYTES = 20 * 1024 * 1024;
+
 const DOCX_MEDIA_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 const LEGACY_DOC_MEDIA_TYPE = "application/msword";
 
@@ -29,12 +32,28 @@ function decodeXmlEntities(value: string): string {
 
 function extractDocxText(data: Uint8Array): string {
 	let entries: Record<string, Uint8Array>;
+	// fflate allocates the output buffer from the entry's declared originalSize before inflating, and the 25 MiB
+	// attachment cap applies to the compressed bytes. Reject an oversized declaration inside the filter so the
+	// allocation never happens, then check again after inflation for a stream that lies about its size.
+	let declaredSize = 0;
 	try {
-		entries = unzipSync(data, { filter: (file) => file.name === "word/document.xml" });
+		entries = unzipSync(data, {
+			filter: (file) => {
+				if (file.name !== "word/document.xml") return false;
+				declaredSize = file.originalSize;
+				return declaredSize <= MAX_DOCX_XML_BYTES;
+			},
+		});
 	} catch {
 		throw new ORPCError("BAD_REQUEST", {
 			message: "Dokumen Word ini tidak bisa dibuka. Simpan ulang sebagai .docx atau PDF.",
 			data: { code: "ATTACHMENT_UNREADABLE" },
+		});
+	}
+	if (declaredSize > MAX_DOCX_XML_BYTES) {
+		throw new ORPCError("BAD_REQUEST", {
+			message: "Isi dokumen Word ini terlalu besar untuk dibaca. Kirim versi yang lebih ringkas.",
+			data: { code: "ATTACHMENT_TOO_LARGE" },
 		});
 	}
 	const xml = entries["word/document.xml"];
@@ -42,6 +61,12 @@ function extractDocxText(data: Uint8Array): string {
 		throw new ORPCError("BAD_REQUEST", {
 			message: "Isi dokumen Word tidak ditemukan. Simpan ulang sebagai .docx atau PDF.",
 			data: { code: "ATTACHMENT_UNREADABLE" },
+		});
+	}
+	if (xml.byteLength > MAX_DOCX_XML_BYTES) {
+		throw new ORPCError("BAD_REQUEST", {
+			message: "Isi dokumen Word ini terlalu besar untuk dibaca. Kirim versi yang lebih ringkas.",
+			data: { code: "ATTACHMENT_TOO_LARGE" },
 		});
 	}
 
