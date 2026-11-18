@@ -412,10 +412,13 @@ export const billingService = {
 				status: "menunggu_verifikasi",
 				rejectionReason: null,
 			})
-			.where(eq(billingOrder.id, order.id))
+			// Only the two states that can still take a proof. Without this, a request that read the order
+			// before an admin verified or the sweep expired it would overwrite that decision.
+			.where(and(eq(billingOrder.id, order.id), inArray(billingOrder.status, ["menunggu_bayar", "ditolak"])))
 			.returning();
 
-		if (!updated) throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "Bukti gagal disimpan." });
+		if (!updated)
+			throw new ORPCError("CONFLICT", { message: "Status pesanan berubah. Muat ulang lalu kirim bukti lagi." });
 
 		// Masukkan ke antrean WhatsApp admin. Pengirimannya lewat cron, bukan di request ini,
 		// supaya pembeli tidak menunggu penyedia pesan yang bisa lambat atau mati.
