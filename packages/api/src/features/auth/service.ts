@@ -81,13 +81,24 @@ export const authService = {
 	deleteAccount: async (input: { userId: string }): Promise<void> => {
 		const storageService = getStorageService();
 
-		// Delete all user files in one call (pictures, screenshots, pdfs)
-		// The storage service delete method supports recursive deletion via prefix
-		try {
-			await storageService.delete(`uploads/${input.userId}`);
-		} catch (err) {
-			// Log orphaned-file failures (GDPR erasure signal) but proceed with deleting the user.
-			console.error("Failed to delete storage for user %s:", input.userId, err);
+		// Files, screenshots and PDFs live under one prefix. Purging them is part of the erasure promise, so a
+		// failure must not delete the row and leave the objects behind: retry once, then keep the account so the
+		// user can try again.
+		let purgeError: unknown;
+		for (let attempt = 0; attempt < 2; attempt++) {
+			try {
+				await storageService.delete(`uploads/${input.userId}`);
+				purgeError = undefined;
+				break;
+			} catch (err) {
+				purgeError = err;
+			}
+		}
+		if (purgeError) {
+			console.error("Failed to delete storage for user %s:", input.userId, purgeError);
+			throw new ORPCError("BAD_GATEWAY", {
+				message: "Penyimpanan sedang tidak bisa dihubungi. Coba hapus akun lagi sebentar lagi.",
+			});
 		}
 
 		try {
