@@ -22,6 +22,12 @@ vi.mock("@reactive-resume/api/context", () => ({
 	resolveUserFromRequestHeaders: async (headers: Headers) => (await resolveAuthentication(headers))?.user ?? null,
 }));
 
+// The picture owner check asks the database; this test serves stored objects over the proxy without one.
+vi.mock("@reactive-resume/api/features/storage", async (importOriginal) => {
+	const actual = await importOriginal<typeof import("@reactive-resume/api/features/storage")>();
+	return { ...actual, isPublicUploadOwner: async () => true };
+});
+
 const objects = new Map<string, StoredObject>();
 const requests: StorageRequest[] = [];
 

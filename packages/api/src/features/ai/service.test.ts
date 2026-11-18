@@ -8,6 +8,13 @@ const envMock = vi.hoisted(() => ({
 
 vi.mock("@reactive-resume/env/server", () => ({ env: envMock }));
 
+// The AI transport reaches user-chosen endpoints through fetchPublic, which owns its sockets instead of using the
+// global fetch these tests stub. Route it back to the stub so the same request assertions still apply.
+vi.mock("@reactive-resume/utils/url-security.node", async (importOriginal) => {
+	const actual = await importOriginal<typeof import("@reactive-resume/utils/url-security.node")>();
+	return { ...actual, fetchPublic: (input: RequestInfo | URL, init?: RequestInit) => fetch(input, init) };
+});
+
 afterEach(() => {
 	vi.unstubAllGlobals();
 });

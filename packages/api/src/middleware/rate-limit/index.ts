@@ -45,6 +45,7 @@ function getInputKeyPart(input: unknown): string {
 
 const resumePasswordLimiter = createRateLimiter("resumePasswordLimiter", rateLimitConfig.orpc.resumePassword);
 const pdfLimiter = createRateLimiter("pdfLimiter", rateLimitConfig.orpc.pdfExport);
+const pdfAccountLimiter = createRateLimiter("pdfAccountLimiter", { maxRequests: 30, window: 60 * 1000 });
 const resumeDownloadLimiter = createRateLimiter("resumeDownloadLimiter", rateLimitConfig.orpc.pdfExport);
 const aiLimiter = createRateLimiter("aiLimiter", rateLimitConfig.orpc.aiRequest);
 const supportLimiter = createRateLimiter("supportLimiter", rateLimitConfig.orpc.supportRequest);
@@ -78,7 +79,10 @@ export const pdfExportRateLimit = createRatelimitMiddleware<ContextWithHeaders, 
 
 /** Shared by REST exports and signed download links, at the actual rendering boundary. */
 export async function consumePdfExportLimit(input: { id: string; userId: string; resHeaders?: Headers }) {
-	const result = await productionLimiter(pdfLimiter).limit(`pdf-export:${input.userId}:${input.id}`);
+	// Each document has its own small budget; this one bounds an account rendering many documents.
+	const account = await productionLimiter(pdfAccountLimiter).limit(`pdf-export-account:${input.userId}`);
+	const document = await productionLimiter(pdfLimiter).limit(`pdf-export:${input.userId}:${input.id}`);
+	const result = account.success ? document : account;
 	const reset = result.reset ?? Date.now() + 60_000;
 	input.resHeaders?.set("ratelimit-remaining", String(result.remaining));
 	input.resHeaders?.set("ratelimit-reset", String(reset));
@@ -97,9 +101,11 @@ export const resumeDownloadRateLimit = createRatelimitMiddleware<
 		`resume-download:${input.username}:${input.slug}:${getUserKey(context)}:${getClientKey(context.trustedClient)}`,
 });
 
+// Per account, not per document or thread: each new ID would otherwise get a fresh budget, and server-managed AI is
+// paid for by the operator.
 export const aiRequestRateLimit = createRatelimitMiddleware<ContextWithHeaders, unknown>({
 	limiter: productionLimiter(aiLimiter),
-	key: ({ context }, input) => `ai-request:${getUserKey(context)}:${getInputKeyPart(input)}`,
+	key: ({ context }) => `ai-request:${getUserKey(context)}`,
 });
 
 export const supportRequestRateLimit = createRatelimitMiddleware<ContextWithHeaders, unknown>({
@@ -118,9 +124,10 @@ export const storageUploadRateLimit = createRatelimitMiddleware<ContextWithHeade
 	key: ({ context }) => `storage-upload:${getUserKey(context)}`,
 });
 
+// Per account: spellings of one filename (`a.jpg`, `/a.jpg`, `//a.jpg`) name the same file but would each get a budget.
 export const storageDeleteRateLimit = createRatelimitMiddleware<ContextWithHeaders, { filename: string }>({
 	limiter: productionLimiter(storageDeleteLimiter),
-	key: ({ context }, input) => `storage-delete:${getUserKey(context)}:${input.filename}`,
+	key: ({ context }) => `storage-delete:${getUserKey(context)}`,
 });
 
 export const resumeMutationRateLimit = createRatelimitMiddleware<ContextWithHeaders, unknown>({

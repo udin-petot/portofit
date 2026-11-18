@@ -264,7 +264,7 @@ function createPageSeoMarkup(options: PageSeoOptions) {
 		<meta name="twitter:title" content="${options.title}">
 		<meta name="twitter:description" content="${options.description}">
 		<meta name="twitter:image" content="${options.imageUrl}">
-		<script type="application/ld+json">${JSON.stringify(options.structuredData)}</script>
+		<script type="application/ld+json">${JSON.stringify(options.structuredData).replaceAll("<", "\\u003c")}</script>
 	`;
 }
 
@@ -296,7 +296,7 @@ async function createPublicResumeSeoMarkup(pathname: string, origin: string) {
 		.catch(() => null);
 	if (!meta) return null;
 
-	const canonicalUrl = `${origin}/${username}/${slug}`;
+	const canonicalUrl = escapeAttribute(`${origin}/${username}/${slug}`);
 	const imageUrl = `${origin}/opengraph/banner.jpg`;
 	const pageTitle = escapeAttribute(`${meta.name} - PortoFit`);
 	const title = escapeAttribute(meta.title);

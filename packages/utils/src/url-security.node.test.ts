@@ -1,5 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { fetchWorkerPublicUrl, isAllowedOAuthRedirectUri, isPrivateOrLoopbackHost } from "./url-security.node";
+import {
+	fetchPublic,
+	fetchWorkerPublicUrl,
+	isAllowedOAuthRedirectUri,
+	isPrivateOrLoopbackHost,
+} from "./url-security.node";
 
 const dns = vi.hoisted(() => ({ lookup: vi.fn(), resolve4: vi.fn(), resolve6: vi.fn() }));
 vi.mock("node:dns/promises", () => dns);
@@ -192,4 +197,20 @@ describe("fetchWorkerPublicUrl", () => {
 			expect(network).toHaveBeenCalledTimes(1);
 		},
 	);
+});
+
+describe("fetchPublic", () => {
+	it.each([
+		"http://127.0.0.1/",
+		"http://169.254.169.254/latest/meta-data/",
+		"http://[::1]/",
+		"http://localhost/",
+		"http://10.0.0.1/",
+	])("refuses the private destination %s before opening a connection", async (url) => {
+		await expect(fetchPublic(url)).rejects.toMatchObject({ cause: "unsafe-url" });
+	});
+
+	it.each(["file:///etc/passwd", "javascript:alert(1)"])("refuses the %s scheme", async (url) => {
+		await expect(fetchPublic(url)).rejects.toThrow();
+	});
 });

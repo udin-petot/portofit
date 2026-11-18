@@ -17,7 +17,13 @@ import { adoptEmbeddedLetters } from "../cover-letters/embedded";
 import { lockDocumentOwner } from "../documents/ownership";
 import { getStorageService } from "../storage/service";
 import { grantResumeAccess, hasResumeAccess } from "./access";
-import { assertCanView, isOwner, redactResumeForViewer, shouldCountForStatistics } from "./access-policy";
+import {
+	assertCanView,
+	isOwner,
+	ownerIsNotBanned,
+	redactResumeForViewer,
+	shouldCountForStatistics,
+} from "./access-policy";
 import { publishResumeUpdated } from "./events";
 import { parseStoredResumeData, parseWritableResumeData } from "./resume-data-validation";
 import { checkSlug, findFreeSlug, matchesSlug, recordSlugChange, SLUG_PATTERN } from "./slugs";
@@ -198,6 +204,7 @@ const statistics = {
 					eq(schema.resume.slug, input.slug),
 					eq(schema.user.username, input.username),
 					isNull(schema.resume.trashedAt),
+					ownerIsNotBanned(),
 				),
 			);
 
@@ -378,6 +385,9 @@ async function updateResumePassword(input: { id: string; userId: string; passwor
 	});
 }
 
+let unusedHash: Promise<string> | undefined;
+const unusedPasswordHash = () => (unusedHash ??= hash(generateId(), 10));
+
 export const resumeService = {
 	tags,
 	statistics,
@@ -516,7 +526,14 @@ export const resumeService = {
 			})
 			.from(schema.resume)
 			.innerJoin(schema.user, eq(schema.resume.userId, schema.user.id))
-			.where(and(matchesSlug(input.slug), eq(schema.user.username, input.username), isNull(schema.resume.trashedAt)))
+			.where(
+				and(
+					matchesSlug(input.slug),
+					eq(schema.user.username, input.username),
+					isNull(schema.resume.trashedAt),
+					ownerIsNotBanned(),
+				),
+			)
 			// A resume's current slug wins over another's redirect (renames delete clashing redirects anyway).
 			.orderBy(desc(sql`${schema.resume.slug} = ${input.slug}`))
 			.limit(1);
@@ -786,7 +803,9 @@ export const resumeService = {
 			.where(
 				and(
 					isNotNull(schema.resume.password),
+					eq(schema.resume.isPublic, true),
 					matchesSlug(input.slug),
+					ownerIsNotBanned(),
 					eq(schema.user.username, input.username),
 					isNull(schema.resume.trashedAt),
 				),
@@ -794,10 +813,10 @@ export const resumeService = {
 			.orderBy(desc(sql`${schema.resume.slug} = ${input.slug}`))
 			.limit(1);
 
-		if (!resume) throw new ORPCError("INVALID_PASSWORD", { status: 401 });
-
-		const passwordHash = resume.password as string;
+		// A miss costs the same bcrypt work as a wrong password, so timing doesn't reveal which addresses exist.
+		const passwordHash = resume?.password ?? (await unusedPasswordHash());
 		const isValid = await compare(input.password, passwordHash);
+		if (!resume) throw new ORPCError("INVALID_PASSWORD", { status: 401 });
 
 		if (!isValid) throw new ORPCError("INVALID_PASSWORD", { status: 401 });
 

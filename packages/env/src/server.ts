@@ -96,7 +96,13 @@ export const env = createEnv({
 		STRICT_SCHEMA_CHECK: z.stringbool().default(false),
 
 		// Authentication
-		AUTH_SECRET: z.string().min(1),
+		// It keys every session, auth token and signed link: production needs a random value, not a word.
+		AUTH_SECRET: z
+			.string()
+			.min(1)
+			.refine((value) => process.env.NODE_ENV !== "production" || value.length >= 32, {
+				message: "AUTH_SECRET must be at least 32 characters in production. Generate one with openssl rand -hex 32.",
+			}),
 		BETTER_AUTH_API_KEY: z.string().min(1).optional(),
 		// Domain verification token from the OpenAI plugin portal, served at /.well-known/openai-apps-challenge.
 		OPENAI_APPS_CHALLENGE_TOKEN: z.string().trim().min(1).optional(),
@@ -217,4 +223,16 @@ if (
 
 if (env.AI_PROVIDER === "openai-compatible" && !env.AI_BASE_URL) {
 	throw new Error("The openai-compatible server AI provider requires AI_BASE_URL.");
+}
+
+// `.env.example` is public, and production Compose loads it as the base `env_file`: its secrets would let anyone sign
+// auth tokens or read stored provider keys.
+if (process.env.NODE_ENV === "production") {
+	for (const [name, value] of [
+		["AUTH_SECRET", env.AUTH_SECRET],
+		["ENCRYPTION_SECRET", env.ENCRYPTION_SECRET],
+	] as const) {
+		if (value?.startsWith("change-me-to-a-secure-"))
+			throw new Error(`${name} still has the example value from .env.example. Set a random one: openssl rand -hex 32`);
+	}
 }

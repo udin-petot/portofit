@@ -12,7 +12,7 @@ import { admin, anonymous, jwt, openAPI } from "better-auth/plugins";
 import { genericOAuth } from "better-auth/plugins/generic-oauth";
 import { twoFactor } from "better-auth/plugins/two-factor";
 import { username } from "better-auth/plugins/username";
-import { and, eq, gt, sql } from "drizzle-orm";
+import { and, eq, gt, ne, sql } from "drizzle-orm";
 import { createLocalJWKSet, jwtVerify } from "jose";
 import { createElement } from "react";
 import { db } from "@reactive-resume/db/client";
@@ -202,6 +202,25 @@ const getAuthConfig = () => {
 				if (ctx.path === "/sign-in/anonymous" && (!env.FLAG_ENABLE_GUEST_LOGIN || env.FLAG_DISABLE_SIGNUPS)) {
 					throw new APIError("FORBIDDEN", { message: "Guest login is disabled." });
 				}
+				if (ctx.path === "/verify-email") {
+					// A verification link signs in as its account, and the anonymous plugin would then move the
+					// guest's documents into it, even when the link belongs to someone else.
+					const current = await auth.api.getSession({ headers: ctx.headers ?? new Headers() });
+					if (current?.user.isAnonymous) {
+						throw new APIError("FORBIDDEN", {
+							message: "Sign out of the guest session before verifying an email address.",
+						});
+					}
+					return;
+				}
+				if (ctx.path === "/passkey/generate-register-options" || ctx.path === "/passkey/verify-registration") {
+					// freshAge is 0 so old sessions can unlink providers; adding a passkey still needs a recent sign-in.
+					const current = await auth.api.getSession({ headers: ctx.headers ?? new Headers() });
+					if (current && Date.now() - new Date(current.session.createdAt).getTime() > 24 * 60 * 60 * 1000) {
+						throw new APIError("FORBIDDEN", { message: "For your security, sign in again to add a passkey." });
+					}
+					return;
+				}
 				if (ctx.path === "/oauth2/delete-consent") {
 					const origin = ctx.headers?.get("origin");
 					if ((origin && !TRUSTED_ORIGINS.includes(origin)) || ctx.headers?.get("sec-fetch-site") === "cross-site") {
@@ -292,6 +311,28 @@ const getAuthConfig = () => {
 					react: createElement(ResetPasswordEmail, { url }),
 				});
 			},
+			// The reset link proved control of the inbox. Drop credentials someone else may hold, such as on an
+			// account registered with this address before its owner.
+			onPasswordReset: async ({ user }) => {
+				await db.transaction(async (tx) => {
+					await tx.delete(schema.apikey).where(eq(schema.apikey.referenceId, user.id));
+					await tx.delete(schema.oauthAccessToken).where(eq(schema.oauthAccessToken.userId, user.id));
+					await tx.delete(schema.oauthRefreshToken).where(eq(schema.oauthRefreshToken.userId, user.id));
+					await tx.delete(schema.oauthConsent).where(eq(schema.oauthConsent.userId, user.id));
+					// Nobody had proved this address before: whoever signed up with it may have added other ways in.
+					if (!user.emailVerified) {
+						await tx.delete(schema.passkey).where(eq(schema.passkey.userId, user.id));
+						await tx.delete(schema.twoFactor).where(eq(schema.twoFactor.userId, user.id));
+						await tx
+							.delete(schema.account)
+							.where(and(eq(schema.account.userId, user.id), ne(schema.account.providerId, "credential")));
+					}
+					await tx
+						.update(schema.user)
+						.set({ emailVerified: true, ...(user.emailVerified ? {} : { twoFactorEnabled: false }) })
+						.where(eq(schema.user.id, user.id));
+				});
+			},
 			password: {
 				hash: (password) => hash(password, 10),
 				verify: ({ password, hash }) => compare(password, hash),
@@ -316,10 +357,13 @@ const getAuthConfig = () => {
 		user: {
 			changeEmail: {
 				enabled: true,
+				// Better Auth's two-step change: the current address approves first, then the new address gets its own
+				// verification link. Sending this step to the new address would let anyone holding a session move the
+				// account to an address they control without the owner's approval.
 				sendChangeEmailConfirmation: async ({ user, newEmail, url }) => {
 					await sendEmail({
-						to: newEmail,
-						subject: "Verify your new email",
+						to: user.email,
+						subject: "Approve your email change",
 						react: createElement(VerifyEmailChange, { url, previousEmail: user.email, newEmail }),
 					});
 				},
@@ -345,10 +389,9 @@ const getAuthConfig = () => {
 		session: { freshAge: 0 },
 
 		account: {
-			accountLinking: {
-				enabled: true,
-				trustedProviders: ["google", "github", "linkedin"],
-			},
+			// Linking by email needs the provider to report that email as verified.
+			accountLinking: { enabled: true },
+			encryptOAuthTokens: true,
 		},
 
 		socialProviders: {
@@ -387,7 +430,8 @@ const getAuthConfig = () => {
 
 		plugins: [
 			openAPI({ disableDefaultReference: true }),
-			jwt(),
+			// The session JWT stays in the cookie: setting it as a readable header would hand it to any script on the page.
+			jwt({ disableSettingJwtHeader: true }),
 			admin(),
 			passkey(),
 			genericOAuth({ config: authConfigs }),
