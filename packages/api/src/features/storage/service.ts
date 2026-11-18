@@ -104,7 +104,8 @@ export async function processImageForUpload(file: File): Promise<ProcessedImage>
 		};
 	}
 
-	const processedBuffer = await sharp(fileBuffer)
+	// The pixel ceiling bounds a decompression bomb: a small PNG can otherwise expand to hundreds of megapixels.
+	const processedBuffer = await sharp(fileBuffer, { limitInputPixels: 40_000_000 })
 		.resize(800, 800, { fit: "inside", withoutEnlargement: true })
 		.jpeg({ quality: 80 })
 		.toBuffer();
