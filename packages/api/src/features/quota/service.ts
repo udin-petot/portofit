@@ -197,13 +197,31 @@ export const quotaService = {
 			.onConflictDoNothing({ target: [interviewSession.userId, interviewSession.interviewId] })
 			.returning({ id: interviewSession.id });
 
-		if (free.length > 0) return { charged: false as const };
+		if (free.length > 0) return { charged: false as const, freeClaimed: true as const };
 
-		return claimInterviewSession({
-			userId: input.userId,
-			interviewId: `practice:${input.applicationId}`,
-			reason: input.reason,
-		});
+		return {
+			...(await claimInterviewSession({
+				userId: input.userId,
+				interviewId: `practice:${input.applicationId}`,
+				reason: input.reason,
+			})),
+			freeClaimed: false as const,
+		};
+	},
+
+	/**
+	 * Melepas klaim sesi wawancara ketika pekerjaan AI gagal, supaya kredit yang sudah dikembalikan tidak
+	 * menyisakan klaim yang membuat percobaan berikutnya gratis.
+	 */
+	async releaseInterviewSession(input: { userId: string; interviewId: string }) {
+		await db
+			.delete(interviewSession)
+			.where(
+				and(
+					eq(interviewSession.userId, input.userId),
+					eq(interviewSession.interviewId, input.interviewId),
+				),
+			);
 	},
 
 	/**

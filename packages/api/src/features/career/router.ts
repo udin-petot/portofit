@@ -316,6 +316,7 @@ export const careerRouter = {
 
 			// Satu kredit wawancara per wawancara, bukan per jawaban: sesi pertama yang membayar, latihan ulang gratis.
 			let practiceCharge = false;
+			let freePractice = false;
 			if (input.task.task === "practice") {
 				if (input.task.interviewId) {
 					const claimed = await quotaService.claimInterviewSession({
@@ -332,6 +333,7 @@ export const careerRouter = {
 						reason: "Sesi latihan wawancara",
 					});
 					practiceCharge = claimed.charged;
+					freePractice = claimed.freeClaimed;
 				}
 			}
 
@@ -340,7 +342,7 @@ export const careerRouter = {
 			} catch (error) {
 				if (charged)
 					await quotaService.release({ userId: context.user.id, feature: "job_match" }).catch(() => undefined);
-				if (input.task.task === "practice") {
+				if (input.task.task === "practice" && (practiceCharge || freePractice)) {
 					if (practiceCharge)
 						await billingService
 							.refundCredit({
@@ -349,9 +351,20 @@ export const careerRouter = {
 								reason: "Latihan gagal, kredit dikembalikan",
 							})
 							.catch(() => undefined);
-					await quotaService
-						.releasePracticeSession({ userId: context.user.id, applicationId: input.applicationId })
-						.catch(() => undefined);
+					// Undo only the claim this request created. Releasing the interview-keyed row keeps the next
+					// attempt chargeable instead of leaving a free pass behind, and a failed free attempt gives the
+					// free session back.
+					if (practiceCharge && input.task.interviewId)
+						await quotaService
+							.releaseInterviewSession({
+								userId: context.user.id,
+								interviewId: input.task.interviewId,
+							})
+							.catch(() => undefined);
+					else
+						await quotaService
+							.releasePracticeSession({ userId: context.user.id, applicationId: input.applicationId })
+							.catch(() => undefined);
 				}
 				throw error;
 			}
