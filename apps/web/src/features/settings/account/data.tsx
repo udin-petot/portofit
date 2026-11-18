@@ -20,6 +20,7 @@ import { downloadWithAnchor } from "@reactive-resume/utils/file";
 import { SettingsRow, SettingsSection } from "../section";
 import { buildAccountZip } from "./export";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
+import { clearPendingImport } from "@/features/ats-checker/pending-import";
 import { authClient } from "@/libs/auth/client";
 import { getReadableErrorMessage } from "@/libs/error-message";
 import { client, orpc } from "@/libs/orpc/client";
@@ -88,6 +89,7 @@ function DeleteAccountDialog({ open, onOpenChange }: DeleteAccountDialogProps) {
 		mutationFn: () => client.auth.deleteAccount(),
 		onSuccess: async () => {
 			await authClient.signOut();
+			void clearPendingImport();
 			queryClient.clear();
 			toast.add({ description: t`Your account was deleted.` });
 			void navigate({ to: "/auth/login", replace: true });

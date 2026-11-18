@@ -36,7 +36,7 @@ const pages = {
 		render: () => (
 			<>
 				<Header />
-				<AtsCheckerPage signedIn={false} importPending={false} />
+				<AtsCheckerPage signedIn={false} />
 			</>
 		),
 	},

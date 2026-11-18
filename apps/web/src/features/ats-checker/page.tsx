@@ -1,6 +1,6 @@
 import { AtsChecker } from "./checker";
 
-type AtsCheckerPageProps = { signedIn: boolean; importPending: boolean };
+type AtsCheckerPageProps = { signedIn: boolean; importPending?: string | undefined };
 
 /**
  * The /ats-checker page, which the build also prerenders (features/homepage/prerender.tsx). The checker's first screen

@@ -2,6 +2,7 @@ import { t } from "@lingui/core/macro";
 import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate, useRouter } from "@tanstack/react-router";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { clearPendingImport } from "@/features/ats-checker/pending-import";
 import { useConfirm } from "@/hooks/use-confirm";
 import { authClient } from "@/libs/auth/client";
 import { getReadableErrorMessage } from "@/libs/error-message";
@@ -40,6 +41,8 @@ export function useSignOut() {
 		}
 
 		queryClient.clear();
+		// The parked ATS file belongs to the session that could import it.
+		void clearPendingImport();
 		await router.invalidate();
 		await navigate({ to: "/auth/login", replace: true });
 		return true;

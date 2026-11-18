@@ -49,8 +49,8 @@ function describeError(error: unknown) {
 
 type AtsCheckerProps = {
 	signedIn: boolean;
-	/** Back from signing up with a file waiting to be imported. */
-	importPending: boolean;
+	/** Back from signing up with a file waiting to be imported. The value is the token that parked it. */
+	importPending?: string | undefined;
 };
 
 /**
@@ -106,16 +106,16 @@ export function AtsChecker({ signedIn, importPending }: AtsCheckerProps) {
 
 	const fix = async (file: File) => {
 		if (signedIn) return importAndOpen(file);
-		await savePendingImport(file);
-		await navigate({ to: "/auth/register", search: { callbackURL: "/ats-checker?import=1" } });
+		const token = await savePendingImport(file);
+		await navigate({ to: "/auth/register", search: { callbackURL: `/ats-checker?import=${token}` } });
 	};
 
-	// Signed up (or in) with a file waiting: import it straight away.
+	// Signed up (or in) with a file waiting: import it straight away, but only the file this URL's token parked.
 	const resumed = useRef(false);
 	useEffect(() => {
 		if (!signedIn || !importPending || resumed.current) return;
 		resumed.current = true;
-		void takePendingImport().then((file) => {
+		void takePendingImport(importPending).then((file) => {
 			if (file) void importAndOpen(file);
 			else void navigate({ to: "/ats-checker", replace: true });
 		});
