@@ -1495,6 +1495,14 @@ msgstr "Додає нагадування в «Сьогодні», якщо до
 msgid "Admin"
 msgstr ""
 
+#: src/routes/dashboard/beli-kredit.tsx
+#~ msgid "Admin is online 06.00–22.00 WIB. Payment proofs are checked by hand in that window; anything sent after hours is checked the next morning. An order with an uploaded proof does not expire."
+#~ msgstr ""
+
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Admin is online 06.00–22.00 WIB. Payment proofs are checked by hand in that window. Anything sent after hours is checked the next morning."
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "Оголошення"
@@ -9365,13 +9373,17 @@ msgstr "Підвищений до керівника, 2021"
 msgid "Proof rejected"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof sent. An admin checks it by hand, 06.00–22.00 WIB. Anything sent after hours is checked the next morning."
+msgstr ""
+
 #: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
 msgstr ""
 
 #: src/features/billing/payment-dialog.tsx
-msgid "Proof sent. An admin checks it by hand, usually within one working day."
-msgstr ""
+#~ msgid "Proof sent. An admin checks it by hand, usually within one working day."
+#~ msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"

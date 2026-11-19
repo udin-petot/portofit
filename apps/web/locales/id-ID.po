@@ -1496,6 +1496,14 @@ msgstr "Menambahkan pengingat ke Hari ini jika Anda belum mendapat balasan saat 
 msgid "Admin"
 msgstr "Admin"
 
+#: src/routes/dashboard/beli-kredit.tsx
+#~ msgid "Admin is online 06.00–22.00 WIB. Payment proofs are checked by hand in that window; anything sent after hours is checked the next morning. An order with an uploaded proof does not expire."
+#~ msgstr "Admin online jam 06.00–22.00 WIB. Bukti bayar dicek manual pada jam itu; bukti yang masuk di luar jam itu dicek pagi berikutnya. Pesanan yang buktinya sudah terunggah tidak hangus."
+
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Admin is online 06.00–22.00 WIB. Payment proofs are checked by hand in that window. Anything sent after hours is checked the next morning."
+msgstr "Admin online jam 06.00–22.00 WIB. Bukti bayar dicek manual pada jam itu, bukti yang masuk di luar jam itu dicek pagi berikutnya."
+
 #: src/features/homepage/sections.tsx
 msgid "Ads"
 msgstr "Iklan"
@@ -9366,13 +9374,17 @@ msgstr "Dipromosikan untuk memimpin, 2021"
 msgid "Proof rejected"
 msgstr "Bukti ditolak"
 
+#: src/features/billing/payment-dialog.tsx
+msgid "Proof sent. An admin checks it by hand, 06.00–22.00 WIB. Anything sent after hours is checked the next morning."
+msgstr "Bukti terkirim. Admin memeriksa manual, jam 06.00–22.00 WIB. Bukti yang masuk di luar jam itu dicek pagi berikutnya."
+
 #: src/features/billing/use-proof-upload.ts
 msgid "Proof sent. An admin checks it by hand, then the credits arrive automatically."
 msgstr "Bukti terkirim. Admin memverifikasi manual, lalu kredit masuk otomatis."
 
 #: src/features/billing/payment-dialog.tsx
-msgid "Proof sent. An admin checks it by hand, usually within one working day."
-msgstr "Bukti terkirim. Admin memeriksanya manual, biasanya dalam satu hari kerja."
+#~ msgid "Proof sent. An admin checks it by hand, usually within one working day."
+#~ msgstr "Bukti terkirim. Admin memeriksanya manual, biasanya dalam satu hari kerja."
 
 #: src/features/career/workspace/messages.tsx
 msgid "Proposed changes"

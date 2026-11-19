@@ -252,7 +252,10 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 		<>
 			<QrMorph phase={phase} />
 			<p className="mx-auto max-w-[330px] text-center text-[13px] leading-5 text-ink-2">
-				<Trans>Proof sent. An admin checks it by hand, usually within one working day.</Trans>
+				<Trans>
+					Proof sent. An admin checks it by hand, 06.00–22.00 WIB. Anything sent after hours is checked the next
+					morning.
+				</Trans>
 				<br />
 				<span className="text-ink-3">
 					<Trans>Credits land in your account the moment it passes.</Trans>

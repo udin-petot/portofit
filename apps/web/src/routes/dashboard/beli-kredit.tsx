@@ -86,6 +86,14 @@ function BuyCreditsPage() {
 				</Button>
 			</div>
 
+			{/* Jam verifikasi manual: satu pita penuh, bukan kartu, supaya terbaca sebelum memilih paket. */}
+			<p className="mt-5 rounded-lg border border-line bg-sunken px-4 py-3 text-[13px] leading-5 text-ink-2">
+				<Trans>
+					Admin is online 06.00–22.00 WIB. Payment proofs are checked by hand in that window. Anything sent after
+					hours is checked the next morning.
+				</Trans>
+			</p>
+
 			{/* Ponsel: saldo di atas paket, karena yang dibaca pertama adalah sisa kredit. */}
 			<div className="mt-5 xl:hidden">
 				<BalanceTiles data={balances.data} />
