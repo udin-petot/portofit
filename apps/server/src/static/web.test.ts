@@ -80,18 +80,31 @@ describe("web app fallback classification", () => {
 		const german = await handleWebApp(new Request("https://example.com/?locale=de-DE"));
 		const html = await german.text();
 		expect(html).toContain('<div id="app">de-DE</div>');
-		expect(html).toContain('<link rel="canonical" href="https://rxresu.me/?locale=de-DE">');
+		// A translation search engines were not offered points them at Indonesian instead.
+		expect(html).toContain('<link rel="canonical" href="https://rxresu.me/">');
 		expect(html).toContain('<link rel="alternate" hreflang="x-default" href="https://rxresu.me/">');
+		expect(html).toContain('<link rel="alternate" hreflang="en-US" href="https://rxresu.me/?locale=en-US">');
+		expect(html).not.toContain('hreflang="de-DE"');
+		expect(german.headers.get("X-Robots-Tag")).toBe("noindex, follow");
 		expect(german.headers.get("Vary")).toBe("Cookie");
 
+		const english = await handleWebApp(new Request("https://example.com/?locale=en-US"));
+		const englishHtml = await english.text();
+		expect(englishHtml).toContain('<div id="app">en-US</div>');
+		expect(englishHtml).toContain('<link rel="canonical" href="https://rxresu.me/?locale=en-US">');
+		expect(english.headers.get("X-Robots-Tag")).toBeNull();
+
 		const saved = new Request("https://example.com/", { headers: { cookie: "theme=dark; locale=ar-SA" } });
-		const savedHtml = await (await handleWebApp(saved)).text();
+		const savedResponse = await handleWebApp(saved);
+		const savedHtml = await savedResponse.text();
 		expect(savedHtml).toContain('<div id="app">ar-SA</div>');
 		expect(savedHtml).toContain('<link rel="canonical" href="https://rxresu.me/">');
+		// A saved cookie only changes what this visitor sees, never what a crawler is told.
+		expect(savedResponse.headers.get("X-Robots-Tag")).toBeNull();
 
 		// Only known locales name a file, so the parameter can't point anywhere else.
 		const unknown = await handleWebApp(new Request("https://example.com/?locale=../../index"));
-		expect(await unknown.text()).toContain('<div id="app">en-US</div>');
+		expect(await unknown.text()).toContain('<div id="app">id-ID</div>');
 	});
 
 	describe("the ATS checker page", () => {
@@ -119,7 +132,7 @@ describe("web app fallback classification", () => {
 			const html = await (await handleWebApp(new Request("https://example.com/ats-checker?locale=de-DE"))).text();
 
 			expect(html).toContain('<div id="app">de-DE</div>');
-			expect(html).toContain('<link rel="canonical" href="https://rxresu.me/ats-checker?locale=de-DE">');
+			expect(html).toContain('<link rel="canonical" href="https://rxresu.me/ats-checker">');
 			expect(html).toContain('<meta property="og:title" content="ATS-Prüfung &amp; mehr">');
 			expect(html).toContain('<meta property="og:locale" content="de_DE">');
 		});
@@ -183,7 +196,7 @@ describe("web app fallback classification", () => {
 	);
 
 	it("paints the dashboard title before the client renders", async () => {
-		vi.mocked(fs.readFile).mockResolvedValue("<html><body><div id=\"app\"></div></body></html>");
+		vi.mocked(fs.readFile).mockResolvedValue('<html><body><div id="app"></div></body></html>');
 		const response = await handleWebApp(new Request("https://example.com/dashboard"));
 
 		expect(response.status).toBe(200);

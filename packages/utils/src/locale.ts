@@ -69,9 +69,15 @@ export function isLocale(value: unknown): value is Locale {
 }
 
 /**
+ * The languages the marketing pages offer search engines. Every other translation stays reachable through the
+ * language picker, but its page canonicalises to one of these, so 53 translations don't compete with Indonesian in
+ * search results.
+ */
+export const indexedLocales: readonly Locale[] = ["id-ID", "en-US"];
+
+/**
  * A page's address in a locale: the `locale` search parameter picks the language, and the default locale's address
- * is the plain one. The server and the app both read the parameter, so each language has a URL search engines can
- * index.
+ * is the plain one. Only `indexedLocales` are advertised to search engines.
  */
 export function localizedUrl(pageUrl: string, locale?: Locale) {
 	const url = new URL(pageUrl);
@@ -80,14 +86,12 @@ export function localizedUrl(pageUrl: string, locale?: Locale) {
 	return url.href;
 }
 
-// Lingui's pseudo-locale (lingui.config.ts): accented, stretched English for testing layouts, not a translation.
-const pseudoLocale: Locale = "zu-ZA";
-
-/** hreflang alternates for a page: every real locale plus x-default. "sr-SP" isn't a valid region, so it's "sr". */
+/** hreflang alternates for a page: the indexed languages plus x-default. */
 export function getLocaleAlternates(pageUrl: string) {
-	const alternates = localeSchema.options
-		.filter((locale) => locale !== pseudoLocale)
-		.map((locale) => ({ hreflang: locale === "sr-SP" ? "sr" : locale, href: localizedUrl(pageUrl, locale) }));
+	const alternates = indexedLocales.map((locale) => ({
+		hreflang: locale === "sr-SP" ? "sr" : locale,
+		href: localizedUrl(pageUrl, locale),
+	}));
 	return [...alternates, { hreflang: "x-default", href: localizedUrl(pageUrl) }];
 }
 

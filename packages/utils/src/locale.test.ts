@@ -7,11 +7,15 @@ describe("locale URLs", () => {
 		expect(localizedUrl("https://rxresu.me/", "de-DE")).toBe("https://rxresu.me/?locale=de-DE");
 	});
 
-	it("lists valid hreflang alternates without the pseudo-locale", () => {
+	it("advertises only the indexed languages plus x-default", () => {
 		const alternates = getLocaleAlternates("https://rxresu.me/");
 
-		expect(alternates).toContainEqual({ hreflang: "x-default", href: "https://rxresu.me/" });
-		expect(alternates).toContainEqual({ hreflang: "sr", href: "https://rxresu.me/?locale=sr-SP" });
+		expect(alternates).toEqual([
+			{ hreflang: "id-ID", href: "https://rxresu.me/" },
+			{ hreflang: "en-US", href: "https://rxresu.me/?locale=en-US" },
+			{ hreflang: "x-default", href: "https://rxresu.me/" },
+		]);
 		expect(alternates.map((alternate) => alternate.hreflang)).not.toContain("zu-ZA");
+		expect(alternates.map((alternate) => alternate.hreflang)).not.toContain("sr");
 	});
 });

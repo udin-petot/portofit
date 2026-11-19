@@ -43,7 +43,8 @@ const sitemapPaths = ["/", "/harga", "/ats-checker", "/syarat", "/privasi", "/re
 
 export function handleSitemap(options?: StaticSeoOptions) {
 	const baseUrl = appUrl();
-	// Each page lists its languages, so every `?locale=` address is discoverable without a sitemap entry of its own.
+	// Each page lists the languages offered to search engines, so those `?locale=` addresses are discoverable
+	// without a sitemap entry of its own.
 	const urls = sitemapPaths.map((path) => {
 		const pageUrl = `${baseUrl}${path}`;
 		const alternates = getLocaleAlternates(pageUrl).map(

@@ -5,7 +5,13 @@ import { fileURLToPath } from "node:url";
 import { serveStatic } from "@hono/node-server/serve-static";
 import { env } from "@reactive-resume/env/server";
 import { templateSchema } from "@reactive-resume/schema/templates";
-import { defaultLocale, getLocaleAlternates, isLocale, localizedUrl } from "@reactive-resume/utils/locale";
+import {
+	defaultLocale,
+	getLocaleAlternates,
+	indexedLocales,
+	isLocale,
+	localizedUrl,
+} from "@reactive-resume/utils/locale";
 import { SUPPORT_FAQ } from "@reactive-resume/utils/support-faq";
 
 function resolveWebDistPath() {
@@ -244,8 +250,15 @@ type PageSeoOptions = {
 	structuredData: StructuredData;
 };
 
+/** The indexed language a translation folds into: English editions to en-US, everything else to Indonesian. */
+function indexedLocaleFor(locale: Locale): Locale {
+	return locale.startsWith("en") ? "en-US" : defaultLocale;
+}
+
 function createPageSeoMarkup(options: PageSeoOptions) {
-	const pageUrl = options.requested ? localizedUrl(options.canonicalUrl, options.locale) : options.canonicalUrl;
+	const pageUrl = options.requested
+		? localizedUrl(options.canonicalUrl, indexedLocaleFor(options.locale))
+		: options.canonicalUrl;
 	const alternates = getLocaleAlternates(options.canonicalUrl)
 		.map(({ hreflang, href }) => `<link rel="alternate" hreflang="${hreflang}" href="${escapeAttribute(href)}">`)
 		.join("");
@@ -505,6 +518,9 @@ export async function handleWebApp(request: Request, readFile: ReadWebFile = (pa
 	const prerendered = prerenderedPages[pathname];
 	if (prerendered) {
 		const { locale, requested } = getPageLocale(request);
+		// A language the pages don't offer search engines stays usable, but tells crawlers to keep the indexed one.
+		const pageHeaders =
+			requested && !indexedLocales.includes(locale) ? { ...headers, "X-Robots-Tag": "noindex, follow" } : headers;
 		const origin = new URL(env.APP_URL).origin;
 		// Without a prerendered page (a build that skipped it), the app renders the page in the browser.
 		const page = await readFile(`${prerenderRoot}/${prerendered.name}/${locale}.html`).catch(() =>
@@ -522,7 +538,7 @@ export async function handleWebApp(request: Request, readFile: ReadWebFile = (pa
 		// The saved locale changes what this address shows, so caches have to key on the cookie.
 		return new Response(
 			page.replace("</head>", () => `${markup}</head>`),
-			{ headers: { ...headers, Vary: "Cookie" } },
+			{ headers: { ...pageHeaders, Vary: "Cookie" } },
 		);
 	}
 
