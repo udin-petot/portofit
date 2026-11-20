@@ -26,8 +26,21 @@ msgstr ""
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
-msgstr "تم حذف \"{0} · {1}\" والمخطط الزمني الخاص به نهائيًا. لا يمكن التراجع عن هذا."
+#~ msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgstr "تم حذف \"{0} · {1}\" والمخطط الزمني الخاص به نهائيًا. لا يمكن التراجع عن هذا."
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/routes/dashboard/applications/trash.tsx
+msgid "“{0} · {1}” and its timeline are removed for good. This can't be undone."
+msgstr ""
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "“{0} · {1}” leaves the pipeline but can be restored for 30 days."
+msgstr ""
 
 #. placeholder {0}: term.label
 #: src/features/resume/editor/check/job-match.tsx
@@ -1937,6 +1950,10 @@ msgstr "تاريخ التقديم إلى"
 msgid "Application deleted"
 msgstr "تم حذف طلب الوظيفة"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application deleted permanently"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "Application details"
 msgstr "تفاصيل الطلب"
@@ -1947,6 +1964,10 @@ msgstr "خيارات التقدم للوظيفة"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Application questions"
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application restored"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -1974,6 +1995,10 @@ msgstr "تم تحديث الطلب."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
 msgstr "الطلبات"
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Applications here are deleted automatically after 30 days."
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Applications over time"
@@ -2244,6 +2269,7 @@ msgid "Azerbaijani"
 msgstr "الأذرية"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Back"
 msgstr "خلف"
 
@@ -3523,9 +3549,13 @@ msgstr "تعذّر حذف تلك القصة."
 msgid "Couldn't delete the account."
 msgstr "تعذر حذف الحساب."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't delete the application. Try again."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
-msgid "Couldn't delete the applications. Try again."
-msgstr "لا يمكن حذف طلبات العمل. حاول ثانية."
+#~ msgid "Couldn't delete the applications. Try again."
+#~ msgstr "لا يمكن حذف طلبات العمل. حاول ثانية."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Couldn't delete the interview."
@@ -3587,6 +3617,10 @@ msgstr "تعذّر تحميل الطلبات. حاول مرة أخرى."
 msgid "Couldn't load documents"
 msgstr "تعذر تحميل المستندات"
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Couldn't load insights. Try again."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't load interviews. Retry"
 msgstr "تعذّر تحميل المقابلات. أعد المحاولة"
@@ -3594,6 +3628,10 @@ msgstr "تعذّر تحميل المقابلات. أعد المحاولة"
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't load the sample file. Try again."
 msgstr "تعذر تحميل ملف العينة. حاول ثانية."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't load the trash. Try again."
+msgstr ""
 
 #: src/features/career/load-state.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
@@ -3614,6 +3652,10 @@ msgstr "تعذّر تحديده كمُقدَّم."
 #: src/features/career/today.tsx
 msgid "Couldn't mark this as read."
 msgstr "تعذّر تحديد هذا كمقروء."
+
+#: src/features/applications/components/list-view.tsx
+msgid "Couldn't move the applications to the trash. Try again."
+msgstr ""
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Couldn't prepare the documents."
@@ -3653,6 +3695,10 @@ msgstr "تعذّرت إزالته من الطلبات."
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "تعذّرت إعادة التسمية."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't restore the application. Try again."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 #~ msgid "Couldn't revoke the key."
@@ -4097,11 +4143,8 @@ msgstr "الافتراضي"
 msgid "Degree"
 msgstr "الدرجة"
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4129,8 +4172,8 @@ msgstr "حذف {0}"
 
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
-msgid "Delete {0} applications?"
-msgstr "هل تريد حذف {0} من الطلبات؟"
+#~ msgid "Delete {0} applications?"
+#~ msgstr "هل تريد حذف {0} من الطلبات؟"
 
 #: src/features/settings/account/data.tsx
 msgid "Delete account"
@@ -4160,6 +4203,10 @@ msgstr "احذف الآن..."
 msgid "Delete Page"
 msgstr "حذف الصفحة"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete permanently"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Delete picture"
 msgstr "حذف الصورة"
@@ -4176,10 +4223,14 @@ msgstr "حذف القسم"
 msgid "Delete story"
 msgstr "احذف القصة"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete this application permanently?"
+msgstr ""
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Delete this application?"
-msgstr "هل تريد حذف هذا الطلب؟"
+#~ msgid "Delete this application?"
+#~ msgstr "هل تريد حذف هذا الطلب؟"
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Delete this conversation"
@@ -4205,10 +4256,7 @@ msgstr "هل تريد حذف حسابك؟"
 msgid "Delete your documents and account data."
 msgstr "احذف مستنداتك وبيانات حسابك."
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/settings/account/data.tsx
 msgid "Delete…"
 msgstr "يمسح…"
@@ -4226,8 +4274,8 @@ msgstr "تم حذف \"{0}\""
 msgid "Deleted “{title}”"
 msgstr "تم حذف \"{title}\""
 
-#. placeholder {0}: result.deleted
-#: src/features/applications/components/list-view.tsx
+#. placeholder {0}: formatDate(application.trashedAt)
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Deleted {0}"
 msgstr "تم حذف {0}"
 
@@ -7470,6 +7518,11 @@ msgstr "تقدم معظم الأنظمة المرشحين عن طريق عنوا
 msgid "Mostly readable"
 msgstr "قابلة للقراءة في الغالب"
 
+#. placeholder {0}: ids.length
+#: src/features/applications/components/list-view.tsx
+msgid "Move {0} applications to the trash?"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "انقل كل المحتوى إلى داخل حدود الصفحة ثم أعد التصدير."
@@ -7502,6 +7555,11 @@ msgstr "نقل الدور لأعلى"
 msgid "Move section to another column or page"
 msgstr "انقل القسم إلى عمود أو صفحة أخرى"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Move this application to the trash?"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr "نقل إلى"
@@ -7519,12 +7577,24 @@ msgstr "انقل إلى {stage}"
 msgid "Move to Interview"
 msgstr "انقل إلى المقابلة"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Move to Trash"
 msgstr "نقل إلى سلة المهملات"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash…"
+msgstr ""
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/list-view.tsx
@@ -7546,12 +7616,21 @@ msgstr "انقل بريدك الإلكتروني ورقم هاتفك إلى أع
 msgid "Moved {0} of {1} to Trash. Locked documents were skipped."
 msgstr "تم نقل {0} من {1} إلى سلة المهملات. تم تخطي المستندات المقفلة."
 
+#. placeholder {0}: result.trashed
+#: src/features/applications/components/list-view.tsx
+msgid "Moved {0} to the trash"
+msgstr ""
+
 #. placeholder {0}: getStageLabel(entry.stage)
 #. placeholder {0}: getStageLabel(status)
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/use-application-actions.ts
 msgid "Moved to {0}"
 msgstr "تم النقل إلى {0}"
+
+#: src/features/applications/use-application-actions.ts
+msgid "Moved to the trash. You can restore it for 30 days."
+msgstr ""
 
 #. placeholder {0}: getStageLabel(application.status)
 #: src/features/career/workspace/messages.tsx
@@ -10132,6 +10211,7 @@ msgid "Responsible for the design system and helping other teams with their desi
 msgstr "مسؤول عن نظام التصميم ومساعدة الفرق الأخرى في تصميماتهم."
 
 #: src/features/documents/document-actions.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Restore"
 msgstr "يعيد"
 
@@ -10249,6 +10329,7 @@ msgstr "تم الاسترجاع {0}. نضارة الأصل غير معروفة �
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Retry"
 msgstr "إعادة المحاولة"
 
@@ -12531,6 +12612,10 @@ msgstr "يخرج النص غير قابل للقراءة."
 msgid "The top of the first page does not look like a name."
 msgstr "لا يبدو أعلى الصفحة الأولى كاسم."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "The trash is empty."
+msgstr ""
+
 #. Menu item that opens appearance theme selection submenu
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/theme.tsx
@@ -12560,8 +12645,12 @@ msgid "These are the answers saved when you applied."
 msgstr "هذه هي الإجابات التي حُفظت عند التقديم."
 
 #: src/features/applications/components/list-view.tsx
-msgid "They and their timelines are deleted permanently. This can't be undone."
-msgstr "يتم حذفهم والجداول الزمنية الخاصة بهم نهائيًا. لا يمكن التراجع عن هذا."
+#~ msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgstr "يتم حذفهم والجداول الزمنية الخاصة بهم نهائيًا. لا يمكن التراجع عن هذا."
+
+#: src/features/applications/components/list-view.tsx
+msgid "They leave the pipeline but can be restored for 30 days."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "They look for headings such as Experience, Education and Skills."
@@ -12985,6 +13074,8 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Trash"
 msgstr "سلة المهملات"
 
@@ -13010,6 +13101,7 @@ msgid "Try a sample"
 msgstr "جرب عينة"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/applications/components/insights-view.tsx
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx

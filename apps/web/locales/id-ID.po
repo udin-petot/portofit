@@ -27,8 +27,21 @@ msgstr " dengan kunci Anda"
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
-msgstr "“{0} · {1}” dan garis waktunya dihapus secara permanen. Hal ini tidak dapat dibatalkan."
+#~ msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgstr "“{0} · {1}” dan garis waktunya dihapus secara permanen. Hal ini tidak dapat dibatalkan."
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/routes/dashboard/applications/trash.tsx
+msgid "“{0} · {1}” and its timeline are removed for good. This can't be undone."
+msgstr "“{0} · {1}” dan linimasa dihapus permanen. Tindakan ini tidak bisa dibatalkan."
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "“{0} · {1}” leaves the pipeline but can be restored for 30 days."
+msgstr "“{0} · {1}” keluar dari pipeline tapi bisa dipulihkan selama 30 hari."
 
 #. placeholder {0}: term.label
 #: src/features/resume/editor/check/job-match.tsx
@@ -1938,6 +1951,10 @@ msgstr "Tanggal lamaran sampai"
 msgid "Application deleted"
 msgstr "lamaran kerja dihapus"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application deleted permanently"
+msgstr "Lamaran dihapus permanen"
+
 #: src/features/career/workspace/shell.tsx
 msgid "Application details"
 msgstr "Detail lamaran"
@@ -1949,6 +1966,10 @@ msgstr "pilihan lamaran pekerjaan"
 #: src/features/career/workspace/practise.tsx
 msgid "Application questions"
 msgstr "Soal lamaran"
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application restored"
+msgstr "Lamaran dipulihkan"
 
 #: src/features/career/coach.tsx
 msgid "application summaries"
@@ -1975,6 +1996,10 @@ msgstr "Lamaran diperbarui."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
 msgstr "Lamaran"
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Applications here are deleted automatically after 30 days."
+msgstr "Lamaran di sini dihapus otomatis setelah 30 hari."
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Applications over time"
@@ -2245,6 +2270,7 @@ msgid "Azerbaijani"
 msgstr "Azerbaijani"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Back"
 msgstr "Kembali"
 
@@ -3524,9 +3550,13 @@ msgstr "Tidak dapat menghapus cerita itu."
 msgid "Couldn't delete the account."
 msgstr "Tidak dapat menghapus akun."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't delete the application. Try again."
+msgstr "Gagal menghapus lamaran. Coba lagi."
+
 #: src/features/applications/components/list-view.tsx
-msgid "Couldn't delete the applications. Try again."
-msgstr "Tidak dapat menghapus lamaran pekerjaan. Coba lagi."
+#~ msgid "Couldn't delete the applications. Try again."
+#~ msgstr "Tidak dapat menghapus lamaran pekerjaan. Coba lagi."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Couldn't delete the interview."
@@ -3588,6 +3618,10 @@ msgstr "Tidak dapat memuat lamaran. Coba lagi."
 msgid "Couldn't load documents"
 msgstr "Tidak dapat memuat dokumen"
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Couldn't load insights. Try again."
+msgstr "Gagal memuat insight. Coba lagi."
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't load interviews. Retry"
 msgstr "Tidak dapat memuat wawancara. Coba lagi"
@@ -3595,6 +3629,10 @@ msgstr "Tidak dapat memuat wawancara. Coba lagi"
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't load the sample file. Try again."
 msgstr "Tidak dapat memuat file sampel. Coba lagi."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't load the trash. Try again."
+msgstr "Gagal memuat sampah. Coba lagi."
 
 #: src/features/career/load-state.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
@@ -3615,6 +3653,10 @@ msgstr "Tidak dapat menandainya sudah melamar."
 #: src/features/career/today.tsx
 msgid "Couldn't mark this as read."
 msgstr "Tidak dapat menandai ini sudah dibaca."
+
+#: src/features/applications/components/list-view.tsx
+msgid "Couldn't move the applications to the trash. Try again."
+msgstr "Gagal memindahkan lamaran ke sampah. Coba lagi."
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Couldn't prepare the documents."
@@ -3654,6 +3696,10 @@ msgstr "Tidak dapat menghapusnya dari Lamaran."
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "Tidak dapat mengganti namanya."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't restore the application. Try again."
+msgstr "Gagal memulihkan lamaran. Coba lagi."
 
 #: src/features/settings/ai/api-keys.tsx
 #~ msgid "Couldn't revoke the key."
@@ -4098,11 +4144,8 @@ msgstr "Default"
 msgid "Degree"
 msgstr "Gelar"
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4130,8 +4173,8 @@ msgstr "Hapus {0}"
 
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
-msgid "Delete {0} applications?"
-msgstr "Hapus lamaran kerja {0}?"
+#~ msgid "Delete {0} applications?"
+#~ msgstr "Hapus lamaran kerja {0}?"
 
 #: src/features/settings/account/data.tsx
 msgid "Delete account"
@@ -4161,6 +4204,10 @@ msgstr "Hapus sekarang…"
 msgid "Delete Page"
 msgstr "Hapus Halaman"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete permanently"
+msgstr "Hapus permanen"
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Delete picture"
 msgstr "Menghapus gambar"
@@ -4177,10 +4224,14 @@ msgstr "Hapus bagian"
 msgid "Delete story"
 msgstr "Hapus cerita"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete this application permanently?"
+msgstr "Hapus lamaran ini secara permanen?"
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Delete this application?"
-msgstr "Hapus lamaran ini?"
+#~ msgid "Delete this application?"
+#~ msgstr "Hapus lamaran ini?"
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Delete this conversation"
@@ -4206,10 +4257,7 @@ msgstr "Hapus akun Anda?"
 msgid "Delete your documents and account data."
 msgstr "Hapus dokumen dan data akun Anda."
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/settings/account/data.tsx
 msgid "Delete…"
 msgstr "Hapus…"
@@ -4227,8 +4275,8 @@ msgstr "“{0}” dihapus"
 msgid "Deleted “{title}”"
 msgstr "“{title}” dihapus"
 
-#. placeholder {0}: result.deleted
-#: src/features/applications/components/list-view.tsx
+#. placeholder {0}: formatDate(application.trashedAt)
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Deleted {0}"
 msgstr "{0} dihapus"
 
@@ -7471,6 +7519,11 @@ msgstr "Sebagian besar sistem menyimpan kandidat berdasarkan alamat email."
 msgid "Mostly readable"
 msgstr "Sebagian besar dapat dibaca"
 
+#. placeholder {0}: ids.length
+#: src/features/applications/components/list-view.tsx
+msgid "Move {0} applications to the trash?"
+msgstr "Pindahkan {0} lamaran ke sampah?"
+
 #: src/features/ats-checker/messages.ts
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "Pindahkan semua konten ke dalam batas halaman dan ekspor ulang."
@@ -7503,6 +7556,11 @@ msgstr "Naikkan peran"
 msgid "Move section to another column or page"
 msgstr "Pindahkan bagian ke kolom atau halaman lain."
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Move this application to the trash?"
+msgstr "Pindahkan lamaran ini ke sampah?"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr "Pindahkan ke"
@@ -7520,12 +7578,24 @@ msgstr "Pindahkan ke {stage}"
 msgid "Move to Interview"
 msgstr "Pindahkan ke Wawancara"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash"
+msgstr "Pindahkan ke sampah"
+
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Move to Trash"
 msgstr "Pindah ke Sampah"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash…"
+msgstr "Pindahkan ke sampah…"
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/list-view.tsx
@@ -7547,12 +7617,21 @@ msgstr "Pindahkan alamat email dan nomor telepon Anda ke bagian atas halaman per
 msgid "Moved {0} of {1} to Trash. Locked documents were skipped."
 msgstr "{0} dari {1} dipindahkan ke Sampah. Dokumen terkunci dilewati."
 
+#. placeholder {0}: result.trashed
+#: src/features/applications/components/list-view.tsx
+msgid "Moved {0} to the trash"
+msgstr "{0} dipindahkan ke sampah"
+
 #. placeholder {0}: getStageLabel(entry.stage)
 #. placeholder {0}: getStageLabel(status)
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/use-application-actions.ts
 msgid "Moved to {0}"
 msgstr "Dipindahkan ke {0}"
+
+#: src/features/applications/use-application-actions.ts
+msgid "Moved to the trash. You can restore it for 30 days."
+msgstr "Dipindahkan ke sampah. Bisa dipulihkan selama 30 hari."
 
 #. placeholder {0}: getStageLabel(application.status)
 #: src/features/career/workspace/messages.tsx
@@ -10133,6 +10212,7 @@ msgid "Responsible for the design system and helping other teams with their desi
 msgstr "Bertanggung jawab atas sistem desain dan membantu tim lain dengan desain mereka."
 
 #: src/features/documents/document-actions.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Restore"
 msgstr "Pulihkan"
 
@@ -10250,6 +10330,7 @@ msgstr "Diambil {0}. Kesegaran asal tidak diketahui kecuali dilaporkan."
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Retry"
 msgstr "Coba lagi"
 
@@ -12532,6 +12613,10 @@ msgstr "Teks yang dihasilkan tidak dapat dibaca."
 msgid "The top of the first page does not look like a name."
 msgstr "Bagian atas halaman pertama tidak tampak seperti sebuah nama."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "The trash is empty."
+msgstr "Sampah kosong."
+
 #. Menu item that opens appearance theme selection submenu
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/theme.tsx
@@ -12561,8 +12646,12 @@ msgid "These are the answers saved when you applied."
 msgstr "Ini adalah jawaban yang disimpan saat Anda melamar."
 
 #: src/features/applications/components/list-view.tsx
-msgid "They and their timelines are deleted permanently. This can't be undone."
-msgstr "Mereka dan garis waktunya dihapus secara permanen. Hal ini tidak dapat dibatalkan."
+#~ msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgstr "Mereka dan garis waktunya dihapus secara permanen. Hal ini tidak dapat dibatalkan."
+
+#: src/features/applications/components/list-view.tsx
+msgid "They leave the pipeline but can be restored for 30 days."
+msgstr "Lamaran keluar dari pipeline tapi bisa dipulihkan selama 30 hari."
 
 #: src/features/resume/editor/check/issues.ts
 msgid "They look for headings such as Experience, Education and Skills."
@@ -12986,6 +13075,8 @@ msgstr "Diterjemahkan ke {languageCount} bahasa oleh sukarelawan."
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Trash"
 msgstr "Sampah"
 
@@ -13011,6 +13102,7 @@ msgid "Try a sample"
 msgstr "Coba sampel"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/applications/components/insights-view.tsx
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx

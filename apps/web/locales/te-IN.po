@@ -26,8 +26,21 @@ msgstr ""
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
-msgstr "“{0} · {1}” మరియు దాని కాలక్రమం శాశ్వతంగా తొలగించబడతాయి. దీన్ని రద్దు చేయడం సాధ్యం కాదు."
+#~ msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgstr "“{0} · {1}” మరియు దాని కాలక్రమం శాశ్వతంగా తొలగించబడతాయి. దీన్ని రద్దు చేయడం సాధ్యం కాదు."
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/routes/dashboard/applications/trash.tsx
+msgid "“{0} · {1}” and its timeline are removed for good. This can't be undone."
+msgstr ""
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "“{0} · {1}” leaves the pipeline but can be restored for 30 days."
+msgstr ""
 
 #. placeholder {0}: term.label
 #: src/features/resume/editor/check/job-match.tsx
@@ -1937,6 +1950,10 @@ msgstr "దరఖాస్తు తేదీ వరకు"
 msgid "Application deleted"
 msgstr "ఉద్యోగ దరఖాస్తు తొలగించబడింది"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application deleted permanently"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "Application details"
 msgstr "దరఖాస్తు వివరాలు"
@@ -1947,6 +1964,10 @@ msgstr "ఉద్యోగ దరఖాస్తు ఎంపికలు"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Application questions"
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application restored"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -1974,6 +1995,10 @@ msgstr "దరఖాస్తు నవీకరించబడింది."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
 msgstr "దరఖాస్తులు"
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Applications here are deleted automatically after 30 days."
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Applications over time"
@@ -2244,6 +2269,7 @@ msgid "Azerbaijani"
 msgstr "అజర్బైజానీ"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Back"
 msgstr "వెనుకకు"
 
@@ -3523,9 +3549,13 @@ msgstr "ఆ కథను తొలగించడం సాధ్యపడలే
 msgid "Couldn't delete the account."
 msgstr "ఖాతాను తొలగించడం సాధ్యపడలేదు."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't delete the application. Try again."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
-msgid "Couldn't delete the applications. Try again."
-msgstr "ఉద్యోగ దరఖాస్తులను తొలగించడం సాధ్యపడలేదు. మళ్లీ ప్రయత్నించండి."
+#~ msgid "Couldn't delete the applications. Try again."
+#~ msgstr "ఉద్యోగ దరఖాస్తులను తొలగించడం సాధ్యపడలేదు. మళ్లీ ప్రయత్నించండి."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Couldn't delete the interview."
@@ -3587,6 +3617,10 @@ msgstr "దరఖాస్తులను లోడ్ చేయడం సాధ
 msgid "Couldn't load documents"
 msgstr "పత్రాలను లోడ్ చేయడం సాధ్యపడలేదు"
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Couldn't load insights. Try again."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't load interviews. Retry"
 msgstr "ఇంటర్వ్యూలను లోడ్ చేయడం సాధ్యపడలేదు. మళ్లీ ప్రయత్నించండి"
@@ -3594,6 +3628,10 @@ msgstr "ఇంటర్వ్యూలను లోడ్ చేయడం సా
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't load the sample file. Try again."
 msgstr "నమూనా ఫైల్‌ను లోడ్ చేయడం సాధ్యపడలేదు. మళ్లీ ప్రయత్నించండి."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't load the trash. Try again."
+msgstr ""
 
 #: src/features/career/load-state.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
@@ -3614,6 +3652,10 @@ msgstr "దరఖాస్తు చేసినట్లు గుర్తి�
 #: src/features/career/today.tsx
 msgid "Couldn't mark this as read."
 msgstr "దీన్ని చదివినట్లు గుర్తించడం సాధ్యపడలేదు."
+
+#: src/features/applications/components/list-view.tsx
+msgid "Couldn't move the applications to the trash. Try again."
+msgstr ""
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Couldn't prepare the documents."
@@ -3653,6 +3695,10 @@ msgstr "దరఖాస్తుల నుండి దాన్ని తీస
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "పేరు మార్చడం సాధ్యపడలేదు."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't restore the application. Try again."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 #~ msgid "Couldn't revoke the key."
@@ -4097,11 +4143,8 @@ msgstr "డిఫాల్ట్"
 msgid "Degree"
 msgstr "డిగ్రీ"
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4129,8 +4172,8 @@ msgstr "{0}ని తొలగించండి"
 
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
-msgid "Delete {0} applications?"
-msgstr "{0} ఉద్యోగ దరఖాస్తులను తొలగించాలా?"
+#~ msgid "Delete {0} applications?"
+#~ msgstr "{0} ఉద్యోగ దరఖాస్తులను తొలగించాలా?"
 
 #: src/features/settings/account/data.tsx
 msgid "Delete account"
@@ -4160,6 +4203,10 @@ msgstr "ఇప్పుడే తొలగించు..."
 msgid "Delete Page"
 msgstr "పేజీ తొలగించండి"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete permanently"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Delete picture"
 msgstr "చిత్రాన్ని తొలగించండి"
@@ -4176,10 +4223,14 @@ msgstr "విభాగాన్ని తొలగించండి"
 msgid "Delete story"
 msgstr "కథను తొలగించు"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete this application permanently?"
+msgstr ""
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Delete this application?"
-msgstr "ఈ దరఖాస్తును తొలగించాలా?"
+#~ msgid "Delete this application?"
+#~ msgstr "ఈ దరఖాస్తును తొలగించాలా?"
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Delete this conversation"
@@ -4205,10 +4256,7 @@ msgstr "మీ ఖాతాను తొలగించాలా?"
 msgid "Delete your documents and account data."
 msgstr "మీ పత్రాలు మరియు ఖాతా డేటాను తొలగించండి."
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/settings/account/data.tsx
 msgid "Delete…"
 msgstr "తొలగించు..."
@@ -4226,8 +4274,8 @@ msgstr "\"{0}\" తొలగించబడింది"
 msgid "Deleted “{title}”"
 msgstr "\"{title}\" తొలగించబడింది"
 
-#. placeholder {0}: result.deleted
-#: src/features/applications/components/list-view.tsx
+#. placeholder {0}: formatDate(application.trashedAt)
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Deleted {0}"
 msgstr "{0} తొలగించబడింది"
 
@@ -7470,6 +7518,11 @@ msgstr "చాలా సిస్టమ్‌లు ఇమెయిల్ చి
 msgid "Mostly readable"
 msgstr "ఎక్కువగా చదవగలిగేది"
 
+#. placeholder {0}: ids.length
+#: src/features/applications/components/list-view.tsx
+msgid "Move {0} applications to the trash?"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "మొత్తం కంటెంట్‌ను పేజీ హద్దుల లోపలికి తరలించి, తిరిగి ఎగుమతి చేయండి."
@@ -7502,6 +7555,11 @@ msgstr "పాత్రను పైకి తరలించండి"
 msgid "Move section to another column or page"
 msgstr "విభాగాన్ని వేరొక కాలమ్‌కు లేదా పేజీకి తరలించండి"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Move this application to the trash?"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr "కి తరలించండి"
@@ -7519,12 +7577,24 @@ msgstr "{stage}కి తరలించు"
 msgid "Move to Interview"
 msgstr "ఇంటర్వ్యూకు తరలించు"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Move to Trash"
 msgstr "ట్రాష్‌కి తరలించండి"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash…"
+msgstr ""
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/list-view.tsx
@@ -7546,12 +7616,21 @@ msgstr "మీ ఇమెయిల్ మరియు ఫోన్ నంబర�
 msgid "Moved {0} of {1} to Trash. Locked documents were skipped."
 msgstr "{1} పత్రాలలో {0} ట్రాష్‌కి తరలించబడ్డాయి. లాక్ చేయబడిన పత్రాలు దాటవేయబడ్డాయి."
 
+#. placeholder {0}: result.trashed
+#: src/features/applications/components/list-view.tsx
+msgid "Moved {0} to the trash"
+msgstr ""
+
 #. placeholder {0}: getStageLabel(entry.stage)
 #. placeholder {0}: getStageLabel(status)
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/use-application-actions.ts
 msgid "Moved to {0}"
 msgstr "{0}కి తరలించబడింది"
+
+#: src/features/applications/use-application-actions.ts
+msgid "Moved to the trash. You can restore it for 30 days."
+msgstr ""
 
 #. placeholder {0}: getStageLabel(application.status)
 #: src/features/career/workspace/messages.tsx
@@ -10132,6 +10211,7 @@ msgid "Responsible for the design system and helping other teams with their desi
 msgstr "డిజైన్ సిస్టమ్‌కు బాధ్యత వహిస్తుంది మరియు ఇతర బృందాలకు వారి డిజైన్‌లతో సహాయం చేస్తుంది."
 
 #: src/features/documents/document-actions.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Restore"
 msgstr "పునరుద్ధరించండి"
 
@@ -10249,6 +10329,7 @@ msgstr "{0} తిరిగి పొందబడింది. నివేద�
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Retry"
 msgstr "మళ్ళీ ప్రయత్నించండి"
 
@@ -12531,6 +12612,10 @@ msgstr "టెక్స్ట్ చదవలేనిదిగా వస్త�
 msgid "The top of the first page does not look like a name."
 msgstr "మొదటి పేజీ పైభాగం పేరులా కనిపించడం లేదు."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "The trash is empty."
+msgstr ""
+
 #. Menu item that opens appearance theme selection submenu
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/theme.tsx
@@ -12560,8 +12645,12 @@ msgid "These are the answers saved when you applied."
 msgstr "మీరు దరఖాస్తు చేసినప్పుడు సేవ్ చేయబడిన సమాధానాలు ఇవి."
 
 #: src/features/applications/components/list-view.tsx
-msgid "They and their timelines are deleted permanently. This can't be undone."
-msgstr "అవి మరియు వాటి టైమ్‌లైన్‌లు శాశ్వతంగా తొలగించబడతాయి. దీన్ని రద్దు చేయడం సాధ్యం కాదు."
+#~ msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgstr "అవి మరియు వాటి టైమ్‌లైన్‌లు శాశ్వతంగా తొలగించబడతాయి. దీన్ని రద్దు చేయడం సాధ్యం కాదు."
+
+#: src/features/applications/components/list-view.tsx
+msgid "They leave the pipeline but can be restored for 30 days."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "They look for headings such as Experience, Education and Skills."
@@ -12985,6 +13074,8 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Trash"
 msgstr "ట్రాష్"
 
@@ -13010,6 +13101,7 @@ msgid "Try a sample"
 msgstr "నమూనా ప్రయత్నించండి"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/applications/components/insights-view.tsx
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx

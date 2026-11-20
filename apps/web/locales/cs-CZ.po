@@ -26,8 +26,21 @@ msgstr ""
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
-msgstr "„{0} · {1}“ a jeho časová osa budou trvale odstraněny. Toto nelze vrátit zpět."
+#~ msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgstr "„{0} · {1}“ a jeho časová osa budou trvale odstraněny. Toto nelze vrátit zpět."
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/routes/dashboard/applications/trash.tsx
+msgid "“{0} · {1}” and its timeline are removed for good. This can't be undone."
+msgstr ""
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "“{0} · {1}” leaves the pipeline but can be restored for 30 days."
+msgstr ""
 
 #. placeholder {0}: term.label
 #: src/features/resume/editor/check/job-match.tsx
@@ -1937,6 +1950,10 @@ msgstr "Datum přihlášky do"
 msgid "Application deleted"
 msgstr "Žádost o zaměstnání smazána"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application deleted permanently"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "Application details"
 msgstr "Podrobnosti žádosti"
@@ -1947,6 +1964,10 @@ msgstr "Možnosti žádosti"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Application questions"
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application restored"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -1974,6 +1995,10 @@ msgstr "Žádost aktualizována."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
 msgstr "Žádosti"
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Applications here are deleted automatically after 30 days."
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Applications over time"
@@ -2244,6 +2269,7 @@ msgid "Azerbaijani"
 msgstr "Ázerbájdžánština"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Back"
 msgstr "Zadní"
 
@@ -3523,9 +3549,13 @@ msgstr "Příběh se nepodařilo smazat."
 msgid "Couldn't delete the account."
 msgstr "Účet se nepodařilo smazat."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't delete the application. Try again."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
-msgid "Couldn't delete the applications. Try again."
-msgstr "Žádosti o zaměstnání se nepodařilo smazat. Zkuste to znovu."
+#~ msgid "Couldn't delete the applications. Try again."
+#~ msgstr "Žádosti o zaměstnání se nepodařilo smazat. Zkuste to znovu."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Couldn't delete the interview."
@@ -3587,6 +3617,10 @@ msgstr "Žádosti se nepodařilo načíst. Zkuste to znovu."
 msgid "Couldn't load documents"
 msgstr "Dokumenty se nepodařilo načíst"
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Couldn't load insights. Try again."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't load interviews. Retry"
 msgstr "Pohovory se nepodařilo načíst. Zkusit znovu"
@@ -3594,6 +3628,10 @@ msgstr "Pohovory se nepodařilo načíst. Zkusit znovu"
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't load the sample file. Try again."
 msgstr "Nepodařilo se načíst ukázkový soubor. Zkuste to znovu."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't load the trash. Try again."
+msgstr ""
 
 #: src/features/career/load-state.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
@@ -3614,6 +3652,10 @@ msgstr "Žádost se nepodařilo označit jako podanou."
 #: src/features/career/today.tsx
 msgid "Couldn't mark this as read."
 msgstr "Nepodařilo se označit jako přečtené."
+
+#: src/features/applications/components/list-view.tsx
+msgid "Couldn't move the applications to the trash. Try again."
+msgstr ""
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Couldn't prepare the documents."
@@ -3653,6 +3695,10 @@ msgstr "Nepodařilo se odebrat ze Žádostí."
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "Nepodařilo se přejmenovat."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't restore the application. Try again."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 #~ msgid "Couldn't revoke the key."
@@ -4097,11 +4143,8 @@ msgstr "Výchozí"
 msgid "Degree"
 msgstr "Titul"
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4129,8 +4172,8 @@ msgstr "Smazat {0}"
 
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
-msgid "Delete {0} applications?"
-msgstr "Smazat žádosti ({0})?"
+#~ msgid "Delete {0} applications?"
+#~ msgstr "Smazat žádosti ({0})?"
 
 #: src/features/settings/account/data.tsx
 msgid "Delete account"
@@ -4160,6 +4203,10 @@ msgstr "Smazat nyní…"
 msgid "Delete Page"
 msgstr "Smazat stránku"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete permanently"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Delete picture"
 msgstr "Smazat obrázek"
@@ -4176,10 +4223,14 @@ msgstr "Smazat sekci"
 msgid "Delete story"
 msgstr "Smazat příběh"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete this application permanently?"
+msgstr ""
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Delete this application?"
-msgstr "Smazat tuto žádost?"
+#~ msgid "Delete this application?"
+#~ msgstr "Smazat tuto žádost?"
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Delete this conversation"
@@ -4205,10 +4256,7 @@ msgstr "Smazat svůj účet?"
 msgid "Delete your documents and account data."
 msgstr "Odstraňte své dokumenty a data účtu."
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/settings/account/data.tsx
 msgid "Delete…"
 msgstr "Vymazat…"
@@ -4226,8 +4274,8 @@ msgstr "Smazáno „{0}“"
 msgid "Deleted “{title}”"
 msgstr "Smazáno „{title}“"
 
-#. placeholder {0}: result.deleted
-#: src/features/applications/components/list-view.tsx
+#. placeholder {0}: formatDate(application.trashedAt)
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Deleted {0}"
 msgstr "Smazáno {0}"
 
@@ -7470,6 +7518,11 @@ msgstr "Většina systémů ukládá kandidáty podle e-mailové adresy."
 msgid "Mostly readable"
 msgstr "Většinou čtivé"
 
+#. placeholder {0}: ids.length
+#: src/features/applications/components/list-view.tsx
+msgid "Move {0} applications to the trash?"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "Přesuňte veškerý obsah dovnitř hranic stránky a znovu exportujte."
@@ -7502,6 +7555,11 @@ msgstr "Posuňte roli nahoru"
 msgid "Move section to another column or page"
 msgstr "Přesunout sekci do jiného sloupce nebo na jinou stránku"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Move this application to the trash?"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr "Přesunout do"
@@ -7519,12 +7577,24 @@ msgstr "Přesunout do fáze {stage}"
 msgid "Move to Interview"
 msgstr "Přesunout do fáze Pohovor"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Move to Trash"
 msgstr "Přesunout do koše"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash…"
+msgstr ""
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/list-view.tsx
@@ -7546,12 +7616,21 @@ msgstr "Přesuňte svůj e-mail a telefonní číslo na začátek první stránk
 msgid "Moved {0} of {1} to Trash. Locked documents were skipped."
 msgstr "Do koše přesunuto {0} z {1}. Zamčené dokumenty byly přeskočeny."
 
+#. placeholder {0}: result.trashed
+#: src/features/applications/components/list-view.tsx
+msgid "Moved {0} to the trash"
+msgstr ""
+
 #. placeholder {0}: getStageLabel(entry.stage)
 #. placeholder {0}: getStageLabel(status)
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/use-application-actions.ts
 msgid "Moved to {0}"
 msgstr "Přesunuto na {0}"
+
+#: src/features/applications/use-application-actions.ts
+msgid "Moved to the trash. You can restore it for 30 days."
+msgstr ""
 
 #. placeholder {0}: getStageLabel(application.status)
 #: src/features/career/workspace/messages.tsx
@@ -10132,6 +10211,7 @@ msgid "Responsible for the design system and helping other teams with their desi
 msgstr "Zodpovědnost za návrhový systém a pomoc ostatním týmům s jejich návrhy."
 
 #: src/features/documents/document-actions.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Restore"
 msgstr "Obnovit"
 
@@ -10249,6 +10329,7 @@ msgstr "Získáno {0}. Čerstvost původu není známa, pokud není uvedeno."
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Retry"
 msgstr "Zkusit znovu"
 
@@ -12531,6 +12612,10 @@ msgstr "Text vychází nečitelný."
 msgid "The top of the first page does not look like a name."
 msgstr "Horní část první stránky nevypadá jako jméno."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "The trash is empty."
+msgstr ""
+
 #. Menu item that opens appearance theme selection submenu
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/theme.tsx
@@ -12560,8 +12645,12 @@ msgid "These are the answers saved when you applied."
 msgstr "Toto jsou odpovědi uložené při podání žádosti."
 
 #: src/features/applications/components/list-view.tsx
-msgid "They and their timelines are deleted permanently. This can't be undone."
-msgstr "Oni a jejich časové osy jsou trvale odstraněny. Toto nelze vrátit zpět."
+#~ msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgstr "Oni a jejich časové osy jsou trvale odstraněny. Toto nelze vrátit zpět."
+
+#: src/features/applications/components/list-view.tsx
+msgid "They leave the pipeline but can be restored for 30 days."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "They look for headings such as Experience, Education and Skills."
@@ -12985,6 +13074,8 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Trash"
 msgstr "Koš na odpad"
 
@@ -13010,6 +13101,7 @@ msgid "Try a sample"
 msgstr "Zkuste vzorek"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/applications/components/insights-view.tsx
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx

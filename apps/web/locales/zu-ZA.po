@@ -21,7 +21,20 @@ msgstr ""
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgstr ""
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/routes/dashboard/applications/trash.tsx
+msgid "“{0} · {1}” and its timeline are removed for good. This can't be undone."
+msgstr ""
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "“{0} · {1}” leaves the pipeline but can be restored for 30 days."
 msgstr ""
 
 #. placeholder {0}: term.label
@@ -1932,6 +1945,10 @@ msgstr ""
 msgid "Application deleted"
 msgstr ""
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application deleted permanently"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "Application details"
 msgstr ""
@@ -1942,6 +1959,10 @@ msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Application questions"
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application restored"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -1968,6 +1989,10 @@ msgstr ""
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Applications here are deleted automatically after 30 days."
 msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
@@ -2239,6 +2264,7 @@ msgid "Azerbaijani"
 msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Back"
 msgstr ""
 
@@ -3518,9 +3544,13 @@ msgstr ""
 msgid "Couldn't delete the account."
 msgstr ""
 
-#: src/features/applications/components/list-view.tsx
-msgid "Couldn't delete the applications. Try again."
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't delete the application. Try again."
 msgstr ""
+
+#: src/features/applications/components/list-view.tsx
+#~ msgid "Couldn't delete the applications. Try again."
+#~ msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Couldn't delete the interview."
@@ -3582,12 +3612,20 @@ msgstr ""
 msgid "Couldn't load documents"
 msgstr ""
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Couldn't load insights. Try again."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't load interviews. Retry"
 msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't load the sample file. Try again."
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't load the trash. Try again."
 msgstr ""
 
 #: src/features/career/load-state.tsx
@@ -3608,6 +3646,10 @@ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't mark this as read."
+msgstr ""
+
+#: src/features/applications/components/list-view.tsx
+msgid "Couldn't move the applications to the trash. Try again."
 msgstr ""
 
 #: src/features/career/workspace/prepare-bar.tsx
@@ -3647,6 +3689,10 @@ msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't restore the application. Try again."
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
@@ -4092,11 +4138,8 @@ msgstr ""
 msgid "Degree"
 msgstr ""
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4124,8 +4167,8 @@ msgstr ""
 
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
-msgid "Delete {0} applications?"
-msgstr ""
+#~ msgid "Delete {0} applications?"
+#~ msgstr ""
 
 #: src/features/settings/account/data.tsx
 msgid "Delete account"
@@ -4155,6 +4198,10 @@ msgstr ""
 msgid "Delete Page"
 msgstr ""
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete permanently"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Delete picture"
 msgstr ""
@@ -4171,10 +4218,14 @@ msgstr ""
 msgid "Delete story"
 msgstr ""
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete this application permanently?"
+msgstr ""
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Delete this application?"
-msgstr ""
+#~ msgid "Delete this application?"
+#~ msgstr ""
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Delete this conversation"
@@ -4200,10 +4251,7 @@ msgstr ""
 msgid "Delete your documents and account data."
 msgstr ""
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/settings/account/data.tsx
 msgid "Delete…"
 msgstr ""
@@ -4221,8 +4269,8 @@ msgstr ""
 msgid "Deleted “{title}”"
 msgstr ""
 
-#. placeholder {0}: result.deleted
-#: src/features/applications/components/list-view.tsx
+#. placeholder {0}: formatDate(application.trashedAt)
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Deleted {0}"
 msgstr ""
 
@@ -7465,6 +7513,11 @@ msgstr ""
 msgid "Mostly readable"
 msgstr ""
 
+#. placeholder {0}: ids.length
+#: src/features/applications/components/list-view.tsx
+msgid "Move {0} applications to the trash?"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Move all content inside the page boundaries and re-export."
 msgstr ""
@@ -7497,6 +7550,11 @@ msgstr ""
 msgid "Move section to another column or page"
 msgstr ""
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Move this application to the trash?"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr ""
@@ -7514,11 +7572,23 @@ msgstr ""
 msgid "Move to Interview"
 msgstr ""
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Move to Trash"
+msgstr ""
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash…"
 msgstr ""
 
 #: src/features/applications/components/application-actions-menu.tsx
@@ -7541,11 +7611,20 @@ msgstr ""
 msgid "Moved {0} of {1} to Trash. Locked documents were skipped."
 msgstr ""
 
+#. placeholder {0}: result.trashed
+#: src/features/applications/components/list-view.tsx
+msgid "Moved {0} to the trash"
+msgstr ""
+
 #. placeholder {0}: getStageLabel(entry.stage)
 #. placeholder {0}: getStageLabel(status)
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/use-application-actions.ts
 msgid "Moved to {0}"
+msgstr ""
+
+#: src/features/applications/use-application-actions.ts
+msgid "Moved to the trash. You can restore it for 30 days."
 msgstr ""
 
 #. placeholder {0}: getStageLabel(application.status)
@@ -10127,6 +10206,7 @@ msgid "Responsible for the design system and helping other teams with their desi
 msgstr ""
 
 #: src/features/documents/document-actions.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Restore"
 msgstr ""
 
@@ -10244,6 +10324,7 @@ msgstr ""
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Retry"
 msgstr ""
 
@@ -12526,6 +12607,10 @@ msgstr ""
 msgid "The top of the first page does not look like a name."
 msgstr ""
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "The trash is empty."
+msgstr ""
+
 #. Menu item that opens appearance theme selection submenu
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/theme.tsx
@@ -12555,7 +12640,11 @@ msgid "These are the answers saved when you applied."
 msgstr ""
 
 #: src/features/applications/components/list-view.tsx
-msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgstr ""
+
+#: src/features/applications/components/list-view.tsx
+msgid "They leave the pipeline but can be restored for 30 days."
 msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
@@ -12980,6 +13069,8 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Trash"
 msgstr ""
 
@@ -13005,6 +13096,7 @@ msgid "Try a sample"
 msgstr ""
 
 #: src/components/layout/error-screen.tsx
+#: src/features/applications/components/insights-view.tsx
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx

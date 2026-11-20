@@ -26,8 +26,21 @@ msgstr ""
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
-msgstr "“{0} · {1}” மற்றும் அதன் காலவரிசை நிரந்தரமாக நீக்கப்படும். இதை செயல்தவிர்க்க முடியாது."
+#~ msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgstr "“{0} · {1}” மற்றும் அதன் காலவரிசை நிரந்தரமாக நீக்கப்படும். இதை செயல்தவிர்க்க முடியாது."
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/routes/dashboard/applications/trash.tsx
+msgid "“{0} · {1}” and its timeline are removed for good. This can't be undone."
+msgstr ""
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "“{0} · {1}” leaves the pipeline but can be restored for 30 days."
+msgstr ""
 
 #. placeholder {0}: term.label
 #: src/features/resume/editor/check/job-match.tsx
@@ -1937,6 +1950,10 @@ msgstr "விண்ணப்பிக்கும் தேதி"
 msgid "Application deleted"
 msgstr "வேலை விண்ணப்பம் நீக்கப்பட்டது"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application deleted permanently"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "Application details"
 msgstr "விண்ணப்ப விவரங்கள்"
@@ -1947,6 +1964,10 @@ msgstr "வேலை விண்ணப்ப விருப்பங்கள�
 
 #: src/features/career/workspace/practise.tsx
 msgid "Application questions"
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application restored"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -1974,6 +1995,10 @@ msgstr "விண்ணப்பம் புதுப்பிக்கப்�
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
 msgstr "விண்ணப்பங்கள்"
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Applications here are deleted automatically after 30 days."
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Applications over time"
@@ -2244,6 +2269,7 @@ msgid "Azerbaijani"
 msgstr "அசர்பைஜானி"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Back"
 msgstr "மீண்டும்"
 
@@ -3523,9 +3549,13 @@ msgstr "அந்தக் கதையை நீக்க முடியவி
 msgid "Couldn't delete the account."
 msgstr "கணக்கை நீக்க முடியவில்லை."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't delete the application. Try again."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
-msgid "Couldn't delete the applications. Try again."
-msgstr "வேலை விண்ணப்பங்களை நீக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
+#~ msgid "Couldn't delete the applications. Try again."
+#~ msgstr "வேலை விண்ணப்பங்களை நீக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Couldn't delete the interview."
@@ -3587,6 +3617,10 @@ msgstr "விண்ணப்பங்களை ஏற்ற முடியவ�
 msgid "Couldn't load documents"
 msgstr "ஆவணங்களை ஏற்ற முடியவில்லை"
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Couldn't load insights. Try again."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't load interviews. Retry"
 msgstr "நேர்காணல்களை ஏற்ற முடியவில்லை. மீண்டும் முயற்சிக்கவும்"
@@ -3594,6 +3628,10 @@ msgstr "நேர்காணல்களை ஏற்ற முடியவி�
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't load the sample file. Try again."
 msgstr "மாதிரி கோப்பை ஏற்ற முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't load the trash. Try again."
+msgstr ""
 
 #: src/features/career/load-state.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
@@ -3614,6 +3652,10 @@ msgstr "விண்ணப்பித்ததாகக் குறிக்�
 #: src/features/career/today.tsx
 msgid "Couldn't mark this as read."
 msgstr "இதைப் படித்ததாகக் குறிக்க முடியவில்லை."
+
+#: src/features/applications/components/list-view.tsx
+msgid "Couldn't move the applications to the trash. Try again."
+msgstr ""
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Couldn't prepare the documents."
@@ -3653,6 +3695,10 @@ msgstr "விண்ணப்பங்களிலிருந்து அத�
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "மறுபெயரிட முடியவில்லை."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't restore the application. Try again."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 #~ msgid "Couldn't revoke the key."
@@ -4097,11 +4143,8 @@ msgstr "இயல்புநிலை"
 msgid "Degree"
 msgstr "பட்டம்"
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4129,8 +4172,8 @@ msgstr "{0} ஐ நீக்கு"
 
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
-msgid "Delete {0} applications?"
-msgstr "{0} வேலை விண்ணப்பங்களை நீக்கவா?"
+#~ msgid "Delete {0} applications?"
+#~ msgstr "{0} வேலை விண்ணப்பங்களை நீக்கவா?"
 
 #: src/features/settings/account/data.tsx
 msgid "Delete account"
@@ -4160,6 +4203,10 @@ msgstr "இப்போது நீக்கு…"
 msgid "Delete Page"
 msgstr "பக்கத்தை நீக்கு"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete permanently"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Delete picture"
 msgstr "படத்தை நீக்கு"
@@ -4176,10 +4223,14 @@ msgstr "பகுதியை நீக்கு"
 msgid "Delete story"
 msgstr "கதையை நீக்கு"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete this application permanently?"
+msgstr ""
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Delete this application?"
-msgstr "இந்த விண்ணப்பத்தை நீக்கவா?"
+#~ msgid "Delete this application?"
+#~ msgstr "இந்த விண்ணப்பத்தை நீக்கவா?"
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Delete this conversation"
@@ -4205,10 +4256,7 @@ msgstr "உங்கள் கணக்கை நீக்கவா?"
 msgid "Delete your documents and account data."
 msgstr "உங்கள் ஆவணங்கள் மற்றும் கணக்குத் தரவை நீக்கவும்."
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/settings/account/data.tsx
 msgid "Delete…"
 msgstr "நீக்கு…"
@@ -4226,8 +4274,8 @@ msgstr "\"{0}\" நீக்கப்பட்டது"
 msgid "Deleted “{title}”"
 msgstr "\"{title}\" நீக்கப்பட்டது"
 
-#. placeholder {0}: result.deleted
-#: src/features/applications/components/list-view.tsx
+#. placeholder {0}: formatDate(application.trashedAt)
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Deleted {0}"
 msgstr "{0} நீக்கப்பட்டது"
 
@@ -7470,6 +7518,11 @@ msgstr "பெரும்பாலான அமைப்புகள் மி�
 msgid "Mostly readable"
 msgstr "பெரும்பாலும் படிக்கக்கூடியது"
 
+#. placeholder {0}: ids.length
+#: src/features/applications/components/list-view.tsx
+msgid "Move {0} applications to the trash?"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "எல்லா உள்ளடக்கத்தையும் பக்க எல்லைக்குள் நகர்த்தி மீண்டும் ஏற்றுமதி செய்யவும்."
@@ -7502,6 +7555,11 @@ msgstr "பங்கை மேலே நகர்த்தவும்"
 msgid "Move section to another column or page"
 msgstr "பகுதியை மற்றொரு பத்திக்கோ அல்லது பக்கத்திற்கோ நகர்த்தவும்"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Move this application to the trash?"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr "இதற்கு நகர்த்தவும்"
@@ -7519,12 +7577,24 @@ msgstr "{stage} நிலைக்கு நகர்த்து"
 msgid "Move to Interview"
 msgstr "நேர்காணல் நிலைக்கு நகர்த்து"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Move to Trash"
 msgstr "குப்பைக்கு நகர்த்தவும்"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash…"
+msgstr ""
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/list-view.tsx
@@ -7546,12 +7616,21 @@ msgstr "உங்கள் மின்னஞ்சல் மற்றும் 
 msgid "Moved {0} of {1} to Trash. Locked documents were skipped."
 msgstr "{1} இல் {0} குப்பைக்கு நகர்த்தப்பட்டன. பூட்டப்பட்ட ஆவணங்கள் தவிர்க்கப்பட்டன."
 
+#. placeholder {0}: result.trashed
+#: src/features/applications/components/list-view.tsx
+msgid "Moved {0} to the trash"
+msgstr ""
+
 #. placeholder {0}: getStageLabel(entry.stage)
 #. placeholder {0}: getStageLabel(status)
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/use-application-actions.ts
 msgid "Moved to {0}"
 msgstr "{0} க்கு நகர்த்தப்பட்டது"
+
+#: src/features/applications/use-application-actions.ts
+msgid "Moved to the trash. You can restore it for 30 days."
+msgstr ""
 
 #. placeholder {0}: getStageLabel(application.status)
 #: src/features/career/workspace/messages.tsx
@@ -10132,6 +10211,7 @@ msgid "Responsible for the design system and helping other teams with their desi
 msgstr "வடிவமைப்பு அமைப்புக்கு பொறுப்பு மற்றும் பிற குழுக்களின் வடிவமைப்புகளுக்கு உதவுதல்."
 
 #: src/features/documents/document-actions.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Restore"
 msgstr "மீட்டெடு"
 
@@ -10249,6 +10329,7 @@ msgstr "{0} மீட்டெடுக்கப்பட்டது. புக
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Retry"
 msgstr "மீண்டும் முயற்சிக்கவும்"
 
@@ -12531,6 +12612,10 @@ msgstr "உரை படிக்க முடியாத நிலையில
 msgid "The top of the first page does not look like a name."
 msgstr "முதல் பக்கத்தின் மேற்பகுதி ஒரு பெயர் போல் தெரியவில்லை."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "The trash is empty."
+msgstr ""
+
 #. Menu item that opens appearance theme selection submenu
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/theme.tsx
@@ -12560,8 +12645,12 @@ msgid "These are the answers saved when you applied."
 msgstr "நீங்கள் விண்ணப்பித்தபோது சேமிக்கப்பட்ட பதில்கள் இவை."
 
 #: src/features/applications/components/list-view.tsx
-msgid "They and their timelines are deleted permanently. This can't be undone."
-msgstr "அவைகளும் அவற்றின் காலவரிசைகளும் நிரந்தரமாக நீக்கப்படும். இதை செயல்தவிர்க்க முடியாது."
+#~ msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgstr "அவைகளும் அவற்றின் காலவரிசைகளும் நிரந்தரமாக நீக்கப்படும். இதை செயல்தவிர்க்க முடியாது."
+
+#: src/features/applications/components/list-view.tsx
+msgid "They leave the pipeline but can be restored for 30 days."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "They look for headings such as Experience, Education and Skills."
@@ -12985,6 +13074,8 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Trash"
 msgstr "குப்பை"
 
@@ -13010,6 +13101,7 @@ msgid "Try a sample"
 msgstr "ஒரு மாதிரியை முயற்சிக்கவும்"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/applications/components/insights-view.tsx
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx

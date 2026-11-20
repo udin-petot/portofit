@@ -26,8 +26,21 @@ msgstr ""
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
-msgstr "“{0} · {1}” và dòng thời gian của nó sẽ bị xóa vĩnh viễn. Không thể hoàn tác việc này."
+#~ msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgstr "“{0} · {1}” và dòng thời gian của nó sẽ bị xóa vĩnh viễn. Không thể hoàn tác việc này."
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/routes/dashboard/applications/trash.tsx
+msgid "“{0} · {1}” and its timeline are removed for good. This can't be undone."
+msgstr ""
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "“{0} · {1}” leaves the pipeline but can be restored for 30 days."
+msgstr ""
 
 #. placeholder {0}: term.label
 #: src/features/resume/editor/check/job-match.tsx
@@ -1937,6 +1950,10 @@ msgstr "Ngày nộp đơn đến"
 msgid "Application deleted"
 msgstr "đơn xin việc đã bị xóa"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application deleted permanently"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "Application details"
 msgstr "Chi tiết hồ sơ ứng tuyển"
@@ -1947,6 +1964,10 @@ msgstr "lựa chọn xin việc"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Application questions"
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application restored"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -1974,6 +1995,10 @@ msgstr "Đã cập nhật hồ sơ ứng tuyển."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
 msgstr "Hồ sơ ứng tuyển"
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Applications here are deleted automatically after 30 days."
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Applications over time"
@@ -2244,6 +2269,7 @@ msgid "Azerbaijani"
 msgstr "Tiếng Azerbaijan"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Back"
 msgstr "Mặt sau"
 
@@ -3523,9 +3549,13 @@ msgstr "Không thể xóa câu chuyện đó."
 msgid "Couldn't delete the account."
 msgstr "Không thể xóa tài khoản."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't delete the application. Try again."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
-msgid "Couldn't delete the applications. Try again."
-msgstr "Không thể xóa đơn xin việc. Hãy thử lại."
+#~ msgid "Couldn't delete the applications. Try again."
+#~ msgstr "Không thể xóa đơn xin việc. Hãy thử lại."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Couldn't delete the interview."
@@ -3587,6 +3617,10 @@ msgstr "Không thể tải hồ sơ ứng tuyển. Hãy thử lại."
 msgid "Couldn't load documents"
 msgstr "Không thể tải tài liệu"
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Couldn't load insights. Try again."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't load interviews. Retry"
 msgstr "Không thể tải các buổi phỏng vấn. Thử lại"
@@ -3594,6 +3628,10 @@ msgstr "Không thể tải các buổi phỏng vấn. Thử lại"
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't load the sample file. Try again."
 msgstr "Không thể tải tệp mẫu. Hãy thử lại."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't load the trash. Try again."
+msgstr ""
 
 #: src/features/career/load-state.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
@@ -3614,6 +3652,10 @@ msgstr "Không thể đánh dấu là đã ứng tuyển."
 #: src/features/career/today.tsx
 msgid "Couldn't mark this as read."
 msgstr "Không thể đánh dấu là đã đọc."
+
+#: src/features/applications/components/list-view.tsx
+msgid "Couldn't move the applications to the trash. Try again."
+msgstr ""
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Couldn't prepare the documents."
@@ -3653,6 +3695,10 @@ msgstr "Không thể xóa khỏi Hồ sơ ứng tuyển."
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "Không thể đổi tên."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't restore the application. Try again."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 #~ msgid "Couldn't revoke the key."
@@ -4097,11 +4143,8 @@ msgstr "Mặc định"
 msgid "Degree"
 msgstr "Bằng cấp"
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4129,8 +4172,8 @@ msgstr "Xóa {0}"
 
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
-msgid "Delete {0} applications?"
-msgstr "Xóa {0} hồ sơ ứng tuyển?"
+#~ msgid "Delete {0} applications?"
+#~ msgstr "Xóa {0} hồ sơ ứng tuyển?"
 
 #: src/features/settings/account/data.tsx
 msgid "Delete account"
@@ -4160,6 +4203,10 @@ msgstr "Xóa ngay…"
 msgid "Delete Page"
 msgstr "Xóa trang"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete permanently"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Delete picture"
 msgstr "Xóa ảnh"
@@ -4176,10 +4223,14 @@ msgstr "Xóa phần"
 msgid "Delete story"
 msgstr "Xóa câu chuyện"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete this application permanently?"
+msgstr ""
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Delete this application?"
-msgstr "Xóa đơn ứng tuyển này?"
+#~ msgid "Delete this application?"
+#~ msgstr "Xóa đơn ứng tuyển này?"
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Delete this conversation"
@@ -4205,10 +4256,7 @@ msgstr "Xóa tài khoản của bạn?"
 msgid "Delete your documents and account data."
 msgstr "Xóa tài liệu và dữ liệu tài khoản của bạn."
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/settings/account/data.tsx
 msgid "Delete…"
 msgstr "Xóa bỏ…"
@@ -4226,8 +4274,8 @@ msgstr "Đã xóa “{0}”"
 msgid "Deleted “{title}”"
 msgstr "Đã xóa “{title}”"
 
-#. placeholder {0}: result.deleted
-#: src/features/applications/components/list-view.tsx
+#. placeholder {0}: formatDate(application.trashedAt)
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Deleted {0}"
 msgstr "Đã xóa {0}"
 
@@ -7470,6 +7518,11 @@ msgstr "Hầu hết các hệ thống gửi hồ sơ ứng viên theo địa ch�
 msgid "Mostly readable"
 msgstr "Hầu hết đều có thể đọc được"
 
+#. placeholder {0}: ids.length
+#: src/features/applications/components/list-view.tsx
+msgid "Move {0} applications to the trash?"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "Di chuyển toàn bộ nội dung vào trong phạm vi trang rồi xuất lại."
@@ -7502,6 +7555,11 @@ msgstr "Di chuyển vai trò lên"
 msgid "Move section to another column or page"
 msgstr "Di chuyển phần này sang cột hoặc trang khác."
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Move this application to the trash?"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr "Chuyển đến"
@@ -7519,12 +7577,24 @@ msgstr "Chuyển sang {stage}"
 msgid "Move to Interview"
 msgstr "Chuyển sang Phỏng vấn"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Move to Trash"
 msgstr "Chuyển vào Thùng rác"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash…"
+msgstr ""
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/list-view.tsx
@@ -7546,12 +7616,21 @@ msgstr "Di chuyển email và số điện thoại của bạn lên đầu trang
 msgid "Moved {0} of {1} to Trash. Locked documents were skipped."
 msgstr "Đã chuyển {0} trên {1} tài liệu vào Thùng rác. Đã bỏ qua các tài liệu bị khóa."
 
+#. placeholder {0}: result.trashed
+#: src/features/applications/components/list-view.tsx
+msgid "Moved {0} to the trash"
+msgstr ""
+
 #. placeholder {0}: getStageLabel(entry.stage)
 #. placeholder {0}: getStageLabel(status)
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/use-application-actions.ts
 msgid "Moved to {0}"
 msgstr "Đã chuyển đến {0}"
+
+#: src/features/applications/use-application-actions.ts
+msgid "Moved to the trash. You can restore it for 30 days."
+msgstr ""
 
 #. placeholder {0}: getStageLabel(application.status)
 #: src/features/career/workspace/messages.tsx
@@ -10132,6 +10211,7 @@ msgid "Responsible for the design system and helping other teams with their desi
 msgstr "Chịu trách nhiệm về hệ thống thiết kế và giúp đỡ các nhóm khác trong thiết kế của họ."
 
 #: src/features/documents/document-actions.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Restore"
 msgstr "Khôi phục"
 
@@ -10249,6 +10329,7 @@ msgstr "Đã lấy {0}. Độ tươi của nguồn gốc không được biết 
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Retry"
 msgstr "Thử lại"
 
@@ -12531,6 +12612,10 @@ msgstr "Văn bản khi trích xuất ra không thể đọc được."
 msgid "The top of the first page does not look like a name."
 msgstr "Phần đầu trang một không trông giống một cái tên."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "The trash is empty."
+msgstr ""
+
 #. Menu item that opens appearance theme selection submenu
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/theme.tsx
@@ -12560,8 +12645,12 @@ msgid "These are the answers saved when you applied."
 msgstr "Đây là các câu trả lời được lưu khi bạn ứng tuyển."
 
 #: src/features/applications/components/list-view.tsx
-msgid "They and their timelines are deleted permanently. This can't be undone."
-msgstr "Họ và dòng thời gian của họ sẽ bị xóa vĩnh viễn. Không thể hoàn tác việc này."
+#~ msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgstr "Họ và dòng thời gian của họ sẽ bị xóa vĩnh viễn. Không thể hoàn tác việc này."
+
+#: src/features/applications/components/list-view.tsx
+msgid "They leave the pipeline but can be restored for 30 days."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "They look for headings such as Experience, Education and Skills."
@@ -12985,6 +13074,8 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Trash"
 msgstr "Thùng rác"
 
@@ -13010,6 +13101,7 @@ msgid "Try a sample"
 msgstr "Hãy thử một mẫu"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/applications/components/insights-view.tsx
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx

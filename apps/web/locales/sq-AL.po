@@ -26,8 +26,21 @@ msgstr ""
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
-msgstr "\"{0} · {1}\" dhe afati kohor i tij fshihen përgjithmonë. Kjo nuk mund të zhbëhet."
+#~ msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgstr "\"{0} · {1}\" dhe afati kohor i tij fshihen përgjithmonë. Kjo nuk mund të zhbëhet."
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/routes/dashboard/applications/trash.tsx
+msgid "“{0} · {1}” and its timeline are removed for good. This can't be undone."
+msgstr ""
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "“{0} · {1}” leaves the pipeline but can be restored for 30 days."
+msgstr ""
 
 #. placeholder {0}: term.label
 #: src/features/resume/editor/check/job-match.tsx
@@ -1937,6 +1950,10 @@ msgstr "Data e aplikimit për"
 msgid "Application deleted"
 msgstr "aplikimi për punë u fshi"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application deleted permanently"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "Application details"
 msgstr "Detajet e aplikimit"
@@ -1947,6 +1964,10 @@ msgstr "opsionet e aplikimit për punë"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Application questions"
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application restored"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -1974,6 +1995,10 @@ msgstr "Aplikimi u përditësua."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
 msgstr "Aplikimet"
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Applications here are deleted automatically after 30 days."
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Applications over time"
@@ -2244,6 +2269,7 @@ msgid "Azerbaijani"
 msgstr "Azerbajxhanisht"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Back"
 msgstr "Mbrapa"
 
@@ -3523,9 +3549,13 @@ msgstr "Ajo histori nuk mund të fshihej."
 msgid "Couldn't delete the account."
 msgstr "Llogaria nuk mund të fshihej."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't delete the application. Try again."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
-msgid "Couldn't delete the applications. Try again."
-msgstr "Aplikimet për punë nuk mund të fshiheshin. Provo sërish."
+#~ msgid "Couldn't delete the applications. Try again."
+#~ msgstr "Aplikimet për punë nuk mund të fshiheshin. Provo sërish."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Couldn't delete the interview."
@@ -3587,6 +3617,10 @@ msgstr "Aplikimet nuk mund të ngarkoheshin. Provoni përsëri."
 msgid "Couldn't load documents"
 msgstr "Dokumentet nuk mund të ngarkoheshin"
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Couldn't load insights. Try again."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't load interviews. Retry"
 msgstr "Intervistat nuk mund të ngarkoheshin. Riprovo"
@@ -3594,6 +3628,10 @@ msgstr "Intervistat nuk mund të ngarkoheshin. Riprovo"
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't load the sample file. Try again."
 msgstr "Skedari i mostrës nuk mund të ngarkohej. Provo sërish."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't load the trash. Try again."
+msgstr ""
 
 #: src/features/career/load-state.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
@@ -3614,6 +3652,10 @@ msgstr "Nuk mund të shënohej si i aplikuar."
 #: src/features/career/today.tsx
 msgid "Couldn't mark this as read."
 msgstr "Nuk mund të shënohej si e lexuar."
+
+#: src/features/applications/components/list-view.tsx
+msgid "Couldn't move the applications to the trash. Try again."
+msgstr ""
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Couldn't prepare the documents."
@@ -3653,6 +3695,10 @@ msgstr "Nuk mund të hiqej nga Aplikimet."
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "Nuk mund të riemërtohej."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't restore the application. Try again."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 #~ msgid "Couldn't revoke the key."
@@ -4097,11 +4143,8 @@ msgstr "Parazgjedhje"
 msgid "Degree"
 msgstr "Diploma"
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4129,8 +4172,8 @@ msgstr "Fshij {0}"
 
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
-msgid "Delete {0} applications?"
-msgstr "Të fshihen {0} aplikime për punë?"
+#~ msgid "Delete {0} applications?"
+#~ msgstr "Të fshihen {0} aplikime për punë?"
 
 #: src/features/settings/account/data.tsx
 msgid "Delete account"
@@ -4160,6 +4203,10 @@ msgstr "Fshi tani…"
 msgid "Delete Page"
 msgstr "Fshi faqen"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete permanently"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Delete picture"
 msgstr "Fshi foton"
@@ -4176,10 +4223,14 @@ msgstr "Fshi seksionin"
 msgid "Delete story"
 msgstr "Fshi historinë"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete this application permanently?"
+msgstr ""
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Delete this application?"
-msgstr "Të fshihet ky aplikim?"
+#~ msgid "Delete this application?"
+#~ msgstr "Të fshihet ky aplikim?"
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Delete this conversation"
@@ -4205,10 +4256,7 @@ msgstr "Të fshihet llogaria juaj?"
 msgid "Delete your documents and account data."
 msgstr "Fshini dokumentet dhe të dhënat e llogarisë suaj."
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/settings/account/data.tsx
 msgid "Delete…"
 msgstr "Fshi…"
@@ -4226,8 +4274,8 @@ msgstr "U fshi \"{0}\""
 msgid "Deleted “{title}”"
 msgstr "U fshi \"{title}\""
 
-#. placeholder {0}: result.deleted
-#: src/features/applications/components/list-view.tsx
+#. placeholder {0}: formatDate(application.trashedAt)
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Deleted {0}"
 msgstr "U fshi {0}"
 
@@ -7470,6 +7518,11 @@ msgstr "Shumica e sistemeve paraqesin kandidatët me adresë emaili."
 msgid "Mostly readable"
 msgstr "Kryesisht i lexueshëm"
 
+#. placeholder {0}: ids.length
+#: src/features/applications/components/list-view.tsx
+msgid "Move {0} applications to the trash?"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "Zhvendosni gjithë përmbajtjen brenda kufijve të faqes dhe eksportoni përsëri."
@@ -7502,6 +7555,11 @@ msgstr "Zhvendos rolin lart"
 msgid "Move section to another column or page"
 msgstr "Zhvendos seksionin në një kolonë ose faqe tjetër"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Move this application to the trash?"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr "Lëviz te"
@@ -7519,12 +7577,24 @@ msgstr "Kalo te {stage}"
 msgid "Move to Interview"
 msgstr "Kalo te Intervistë"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Move to Trash"
 msgstr "Zhvendosni te koshi"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash…"
+msgstr ""
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/list-view.tsx
@@ -7546,12 +7616,21 @@ msgstr "Zhvendosni email-in dhe numrin e telefonit në krye të faqes së parë.
 msgid "Moved {0} of {1} to Trash. Locked documents were skipped."
 msgstr "U zhvendosën {0} nga {1} në Kosh. Dokumentet e mbyllura u anashkaluan."
 
+#. placeholder {0}: result.trashed
+#: src/features/applications/components/list-view.tsx
+msgid "Moved {0} to the trash"
+msgstr ""
+
 #. placeholder {0}: getStageLabel(entry.stage)
 #. placeholder {0}: getStageLabel(status)
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/use-application-actions.ts
 msgid "Moved to {0}"
 msgstr "U zhvendos në {0}"
+
+#: src/features/applications/use-application-actions.ts
+msgid "Moved to the trash. You can restore it for 30 days."
+msgstr ""
 
 #. placeholder {0}: getStageLabel(application.status)
 #: src/features/career/workspace/messages.tsx
@@ -10132,6 +10211,7 @@ msgid "Responsible for the design system and helping other teams with their desi
 msgstr "Përgjegjës për sistemin e projektimit dhe duke ndihmuar ekipet e tjera me dizajnet e tyre."
 
 #: src/features/documents/document-actions.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Restore"
 msgstr "Rivendos"
 
@@ -10249,6 +10329,7 @@ msgstr "E marrë {0}. Freskia e origjinës nuk dihet nëse nuk raportohet."
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Retry"
 msgstr "Riprovo"
 
@@ -12531,6 +12612,10 @@ msgstr "Teksti del i palexueshëm."
 msgid "The top of the first page does not look like a name."
 msgstr "Kreu i faqes së parë nuk duket si emër."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "The trash is empty."
+msgstr ""
+
 #. Menu item that opens appearance theme selection submenu
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/theme.tsx
@@ -12560,8 +12645,12 @@ msgid "These are the answers saved when you applied."
 msgstr "Këto janë përgjigjet e ruajtura kur aplikuat."
 
 #: src/features/applications/components/list-view.tsx
-msgid "They and their timelines are deleted permanently. This can't be undone."
-msgstr "Ato dhe afatet e tyre kohore fshihen përgjithmonë. Kjo nuk mund të zhbëhet."
+#~ msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgstr "Ato dhe afatet e tyre kohore fshihen përgjithmonë. Kjo nuk mund të zhbëhet."
+
+#: src/features/applications/components/list-view.tsx
+msgid "They leave the pipeline but can be restored for 30 days."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "They look for headings such as Experience, Education and Skills."
@@ -12985,6 +13074,8 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Trash"
 msgstr "Koshi"
 
@@ -13010,6 +13101,7 @@ msgid "Try a sample"
 msgstr "Provoni një mostër"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/applications/components/insights-view.tsx
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx

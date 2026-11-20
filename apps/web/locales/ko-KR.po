@@ -26,8 +26,21 @@ msgstr ""
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
-msgstr "\"{0} · {1}\" 및 해당 타임라인이 영구적으로 삭제됩니다. 이 작업은 취소할 수 없습니다."
+#~ msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgstr "\"{0} · {1}\" 및 해당 타임라인이 영구적으로 삭제됩니다. 이 작업은 취소할 수 없습니다."
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/routes/dashboard/applications/trash.tsx
+msgid "“{0} · {1}” and its timeline are removed for good. This can't be undone."
+msgstr ""
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "“{0} · {1}” leaves the pipeline but can be restored for 30 days."
+msgstr ""
 
 #. placeholder {0}: term.label
 #: src/features/resume/editor/check/job-match.tsx
@@ -1937,6 +1950,10 @@ msgstr "지원일 종료"
 msgid "Application deleted"
 msgstr "채용 지원서가 삭제되었습니다."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application deleted permanently"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "Application details"
 msgstr "지원 세부 정보"
@@ -1947,6 +1964,10 @@ msgstr "취업 지원 옵션"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Application questions"
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application restored"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -1974,6 +1995,10 @@ msgstr "지원이 업데이트되었습니다."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
 msgstr "지원 목록"
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Applications here are deleted automatically after 30 days."
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Applications over time"
@@ -2244,6 +2269,7 @@ msgid "Azerbaijani"
 msgstr "아제르바이잔어"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Back"
 msgstr "뒤쪽에"
 
@@ -3523,9 +3549,13 @@ msgstr "해당 스토리를 삭제할 수 없습니다."
 msgid "Couldn't delete the account."
 msgstr "계정을 삭제할 수 없습니다."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't delete the application. Try again."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
-msgid "Couldn't delete the applications. Try again."
-msgstr "채용 지원서를 삭제할 수 없습니다. 다시 시도해 보세요."
+#~ msgid "Couldn't delete the applications. Try again."
+#~ msgstr "채용 지원서를 삭제할 수 없습니다. 다시 시도해 보세요."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Couldn't delete the interview."
@@ -3587,6 +3617,10 @@ msgstr "지원 내역을 불러올 수 없습니다. 다시 시도하세요."
 msgid "Couldn't load documents"
 msgstr "문서를 로드할 수 없습니다."
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Couldn't load insights. Try again."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't load interviews. Retry"
 msgstr "면접을 불러올 수 없습니다. 다시 시도"
@@ -3594,6 +3628,10 @@ msgstr "면접을 불러올 수 없습니다. 다시 시도"
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't load the sample file. Try again."
 msgstr "샘플 파일을 로드할 수 없습니다. 다시 시도해 보세요."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't load the trash. Try again."
+msgstr ""
 
 #: src/features/career/load-state.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
@@ -3614,6 +3652,10 @@ msgstr "지원 완료로 표시할 수 없습니다."
 #: src/features/career/today.tsx
 msgid "Couldn't mark this as read."
 msgstr "읽음으로 표시할 수 없습니다."
+
+#: src/features/applications/components/list-view.tsx
+msgid "Couldn't move the applications to the trash. Try again."
+msgstr ""
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Couldn't prepare the documents."
@@ -3653,6 +3695,10 @@ msgstr "지원 목록에서 제거할 수 없습니다."
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "이름을 바꿀 수 없습니다."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't restore the application. Try again."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 #~ msgid "Couldn't revoke the key."
@@ -4097,11 +4143,8 @@ msgstr "기본값"
 msgid "Degree"
 msgstr "학위"
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4129,8 +4172,8 @@ msgstr "{0} 삭제"
 
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
-msgid "Delete {0} applications?"
-msgstr "{0} 채용 지원서를 삭제하시겠습니까?"
+#~ msgid "Delete {0} applications?"
+#~ msgstr "{0} 채용 지원서를 삭제하시겠습니까?"
 
 #: src/features/settings/account/data.tsx
 msgid "Delete account"
@@ -4160,6 +4203,10 @@ msgstr "지금 삭제하세요…"
 msgid "Delete Page"
 msgstr "페이지 삭제"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete permanently"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Delete picture"
 msgstr "사진 삭제"
@@ -4176,10 +4223,14 @@ msgstr "섹션 삭제"
 msgid "Delete story"
 msgstr "스토리 삭제"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete this application permanently?"
+msgstr ""
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Delete this application?"
-msgstr "이 지원서를 삭제할까요?"
+#~ msgid "Delete this application?"
+#~ msgstr "이 지원서를 삭제할까요?"
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Delete this conversation"
@@ -4205,10 +4256,7 @@ msgstr "계정을 삭제하시겠습니까?"
 msgid "Delete your documents and account data."
 msgstr "문서와 계정 데이터를 삭제하세요."
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/settings/account/data.tsx
 msgid "Delete…"
 msgstr "삭제…"
@@ -4226,8 +4274,8 @@ msgstr "\"{0}\"를 삭제했습니다."
 msgid "Deleted “{title}”"
 msgstr "\"{title}\"를 삭제했습니다."
 
-#. placeholder {0}: result.deleted
-#: src/features/applications/components/list-view.tsx
+#. placeholder {0}: formatDate(application.trashedAt)
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Deleted {0}"
 msgstr "{0}를 삭제했습니다."
 
@@ -7470,6 +7518,11 @@ msgstr "대부분의 시스템은 후보자를 이메일 주소로 제출합니�
 msgid "Mostly readable"
 msgstr "대부분 읽을 수 있음"
 
+#. placeholder {0}: ids.length
+#: src/features/applications/components/list-view.tsx
+msgid "Move {0} applications to the trash?"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "모든 내용을 페이지 경계 안으로 옮긴 뒤 다시 내보내세요."
@@ -7502,6 +7555,11 @@ msgstr "역할을 위로 이동"
 msgid "Move section to another column or page"
 msgstr "해당 섹션을 다른 열이나 페이지로 이동합니다."
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Move this application to the trash?"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr "이동"
@@ -7519,12 +7577,24 @@ msgstr "{stage} 단계로 이동"
 msgid "Move to Interview"
 msgstr "면접 단계로 이동"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Move to Trash"
 msgstr "휴지통으로 이동"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash…"
+msgstr ""
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/list-view.tsx
@@ -7546,12 +7616,21 @@ msgstr "이메일과 전화번호를 첫 페이지 상단으로 옮기세요."
 msgid "Moved {0} of {1} to Trash. Locked documents were skipped."
 msgstr "{1}개 중 {0}개를 휴지통으로 이동했습니다. 잠긴 서류는 건너뛰었습니다."
 
+#. placeholder {0}: result.trashed
+#: src/features/applications/components/list-view.tsx
+msgid "Moved {0} to the trash"
+msgstr ""
+
 #. placeholder {0}: getStageLabel(entry.stage)
 #. placeholder {0}: getStageLabel(status)
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/use-application-actions.ts
 msgid "Moved to {0}"
 msgstr "{0}로 이동했습니다."
+
+#: src/features/applications/use-application-actions.ts
+msgid "Moved to the trash. You can restore it for 30 days."
+msgstr ""
 
 #. placeholder {0}: getStageLabel(application.status)
 #: src/features/career/workspace/messages.tsx
@@ -10132,6 +10211,7 @@ msgid "Responsible for the design system and helping other teams with their desi
 msgstr "디자인 시스템을 담당하고 다른 팀의 디자인을 돕습니다."
 
 #: src/features/documents/document-actions.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Restore"
 msgstr "복원하다"
 
@@ -10249,6 +10329,7 @@ msgstr "{0}를 검색했습니다. 보고되지 않는 한 원산지 신선도�
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Retry"
 msgstr "다시 해 보다"
 
@@ -12531,6 +12612,10 @@ msgstr "텍스트가 읽을 수 없는 형태로 추출됩니다."
 msgid "The top of the first page does not look like a name."
 msgstr "첫 페이지 상단이 이름처럼 보이지 않습니다."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "The trash is empty."
+msgstr ""
+
 #. Menu item that opens appearance theme selection submenu
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/theme.tsx
@@ -12560,8 +12645,12 @@ msgid "These are the answers saved when you applied."
 msgstr "지원할 때 저장된 답변입니다."
 
 #: src/features/applications/components/list-view.tsx
-msgid "They and their timelines are deleted permanently. This can't be undone."
-msgstr "해당 사용자와 해당 타임라인은 영구적으로 삭제됩니다. 이 작업은 취소할 수 없습니다."
+#~ msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgstr "해당 사용자와 해당 타임라인은 영구적으로 삭제됩니다. 이 작업은 취소할 수 없습니다."
+
+#: src/features/applications/components/list-view.tsx
+msgid "They leave the pipeline but can be restored for 30 days."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "They look for headings such as Experience, Education and Skills."
@@ -12985,6 +13074,8 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Trash"
 msgstr "휴지통"
 
@@ -13010,6 +13101,7 @@ msgid "Try a sample"
 msgstr "샘플을 사용해 보세요"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/applications/components/insights-view.tsx
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx

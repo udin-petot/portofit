@@ -26,8 +26,21 @@ msgstr ""
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
-msgstr "“{0} · {1}” ಮತ್ತು ಅದರ ಟೈಮ್‌ಲೈನ್ ಅನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲಾಗುತ್ತದೆ. ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ."
+#~ msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgstr "“{0} · {1}” ಮತ್ತು ಅದರ ಟೈಮ್‌ಲೈನ್ ಅನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲಾಗುತ್ತದೆ. ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ."
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/routes/dashboard/applications/trash.tsx
+msgid "“{0} · {1}” and its timeline are removed for good. This can't be undone."
+msgstr ""
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "“{0} · {1}” leaves the pipeline but can be restored for 30 days."
+msgstr ""
 
 #. placeholder {0}: term.label
 #: src/features/resume/editor/check/job-match.tsx
@@ -1937,6 +1950,10 @@ msgstr "ಅರ್ಜಿ ಸಲ್ಲಿಸುವ ದಿನಾಂಕ"
 msgid "Application deleted"
 msgstr "ಉದ್ಯೋಗ ಅರ್ಜಿಯನ್ನು ಅಳಿಸಲಾಗಿದೆ"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application deleted permanently"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "Application details"
 msgstr "ಅರ್ಜಿಯ ವಿವರಗಳು"
@@ -1947,6 +1964,10 @@ msgstr "ಉದ್ಯೋಗ ಅರ್ಜಿ ಆಯ್ಕೆಗಳು"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Application questions"
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application restored"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -1974,6 +1995,10 @@ msgstr "ಅರ್ಜಿಯನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
 msgstr "ಅರ್ಜಿಗಳು"
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Applications here are deleted automatically after 30 days."
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Applications over time"
@@ -2244,6 +2269,7 @@ msgid "Azerbaijani"
 msgstr "ಅಜರ್‌ಬೈಜಾನಿ"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Back"
 msgstr "ಹಿಂದೆ"
 
@@ -3523,9 +3549,13 @@ msgstr "ಆ ಕಥೆಯನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗ
 msgid "Couldn't delete the account."
 msgstr "ಖಾತೆಯನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't delete the application. Try again."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
-msgid "Couldn't delete the applications. Try again."
-msgstr "ಉದ್ಯೋಗ ಅರ್ಜಿಗಳನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+#~ msgid "Couldn't delete the applications. Try again."
+#~ msgstr "ಉದ್ಯೋಗ ಅರ್ಜಿಗಳನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Couldn't delete the interview."
@@ -3587,6 +3617,10 @@ msgstr "ಅರ್ಜಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ
 msgid "Couldn't load documents"
 msgstr "ಡಾಕ್ಯುಮೆಂಟ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ"
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Couldn't load insights. Try again."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't load interviews. Retry"
 msgstr "ಸಂದರ್ಶನಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮರುಪ್ರಯತ್ನಿಸಿ"
@@ -3594,6 +3628,10 @@ msgstr "ಸಂದರ್ಶನಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸ
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't load the sample file. Try again."
 msgstr "ಮಾದರಿ ಫೈಲ್ ಅನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't load the trash. Try again."
+msgstr ""
 
 #: src/features/career/load-state.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
@@ -3614,6 +3652,10 @@ msgstr "ಅರ್ಜಿ ಸಲ್ಲಿಸಲಾಗಿದೆ ಎಂದು ಗು
 #: src/features/career/today.tsx
 msgid "Couldn't mark this as read."
 msgstr "ಇದನ್ನು ಓದಲಾಗಿದೆ ಎಂದು ಗುರುತಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ."
+
+#: src/features/applications/components/list-view.tsx
+msgid "Couldn't move the applications to the trash. Try again."
+msgstr ""
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Couldn't prepare the documents."
@@ -3653,6 +3695,10 @@ msgstr "ಅದನ್ನು ಅರ್ಜಿಗಳಿಂದ ತೆಗೆದುಹ�
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "ಮರುಹೆಸರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't restore the application. Try again."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 #~ msgid "Couldn't revoke the key."
@@ -4097,11 +4143,8 @@ msgstr "ಡೀಫಾಲ್ಟ್"
 msgid "Degree"
 msgstr "ಪದವಿ"
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4129,8 +4172,8 @@ msgstr "{0} ಅಳಿಸಿ"
 
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
-msgid "Delete {0} applications?"
-msgstr "{0} ಉದ್ಯೋಗ ಅರ್ಜಿಗಳನ್ನು ಅಳಿಸುವುದೇ?"
+#~ msgid "Delete {0} applications?"
+#~ msgstr "{0} ಉದ್ಯೋಗ ಅರ್ಜಿಗಳನ್ನು ಅಳಿಸುವುದೇ?"
 
 #: src/features/settings/account/data.tsx
 msgid "Delete account"
@@ -4160,6 +4203,10 @@ msgstr "ಈಗ ಅಳಿಸಿ..."
 msgid "Delete Page"
 msgstr "ಪುಟವನ್ನು ಅಳಿಸಿ"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete permanently"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Delete picture"
 msgstr "ಚಿತ್ರವನ್ನು ಅಳಿಸಿ"
@@ -4176,10 +4223,14 @@ msgstr "ವಿಭಾಗವನ್ನು ಅಳಿಸಿ"
 msgid "Delete story"
 msgstr "ಕಥೆಯನ್ನು ಅಳಿಸಿ"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete this application permanently?"
+msgstr ""
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Delete this application?"
-msgstr "ಈ ಅರ್ಜಿಯನ್ನು ಅಳಿಸುವುದೇ?"
+#~ msgid "Delete this application?"
+#~ msgstr "ಈ ಅರ್ಜಿಯನ್ನು ಅಳಿಸುವುದೇ?"
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Delete this conversation"
@@ -4205,10 +4256,7 @@ msgstr "ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸುವುದೇ?
 msgid "Delete your documents and account data."
 msgstr "ನಿಮ್ಮ ದಾಖಲೆಗಳು ಮತ್ತು ಖಾತೆ ಡೇಟಾವನ್ನು ಅಳಿಸಿ."
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/settings/account/data.tsx
 msgid "Delete…"
 msgstr "ಅಳಿಸಿ..."
@@ -4226,8 +4274,8 @@ msgstr "\"{0}\" ಅಳಿಸಲಾಗಿದೆ"
 msgid "Deleted “{title}”"
 msgstr "\"{title}\" ಅಳಿಸಲಾಗಿದೆ"
 
-#. placeholder {0}: result.deleted
-#: src/features/applications/components/list-view.tsx
+#. placeholder {0}: formatDate(application.trashedAt)
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Deleted {0}"
 msgstr "{0} ಅಳಿಸಲಾಗಿದೆ"
 
@@ -7470,6 +7518,11 @@ msgstr "ಹೆಚ್ಚಿನ ವ್ಯವಸ್ಥೆಗಳು ಇಮೇಲ್ 
 msgid "Mostly readable"
 msgstr "ಹೆಚ್ಚಾಗಿ ಓದಬಲ್ಲ"
 
+#. placeholder {0}: ids.length
+#: src/features/applications/components/list-view.tsx
+msgid "Move {0} applications to the trash?"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "ಎಲ್ಲಾ ವಿಷಯವನ್ನು ಪುಟದ ಗಡಿಗಳ ಒಳಗೆ ಸರಿಸಿ ಮತ್ತು ಮರು-ಎಕ್ಸ್‌ಪೋರ್ಟ್ ಮಾಡಿ."
@@ -7502,6 +7555,11 @@ msgstr "ಪಾತ್ರವನ್ನು ಮೇಲಕ್ಕೆ ಸರಿಸಿ"
 msgid "Move section to another column or page"
 msgstr "ವಿಭಾಗವನ್ನು ಮತ್ತೊಂದು ಕಾಲಮ್ ಅಥವಾ ಪುಟಕ್ಕೆ ಸರಿಸಿ"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Move this application to the trash?"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr "ಸ್ಥಳಾಂತರಿಸಿ"
@@ -7519,12 +7577,24 @@ msgstr "{stage} ಗೆ ಸರಿಸಿ"
 msgid "Move to Interview"
 msgstr "ಸಂದರ್ಶನಕ್ಕೆ ಸರಿಸಿ"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Move to Trash"
 msgstr "ಅನುಪಯುಕ್ತಕ್ಕೆ ಸರಿಸಿ"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash…"
+msgstr ""
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/list-view.tsx
@@ -7546,12 +7616,21 @@ msgstr "ನಿಮ್ಮ ಇಮೇಲ್ ಮತ್ತು ಫೋನ್ ಸಂಖ�
 msgid "Moved {0} of {1} to Trash. Locked documents were skipped."
 msgstr "{1} ರಲ್ಲಿ {0} ಅನ್ನು ಅನುಪಯುಕ್ತಕ್ಕೆ ಸರಿಸಲಾಗಿದೆ. ಲಾಕ್ ಮಾಡಲಾದ ದಾಖಲೆಗಳನ್ನು ಬಿಟ್ಟುಬಿಡಲಾಗಿದೆ."
 
+#. placeholder {0}: result.trashed
+#: src/features/applications/components/list-view.tsx
+msgid "Moved {0} to the trash"
+msgstr ""
+
 #. placeholder {0}: getStageLabel(entry.stage)
 #. placeholder {0}: getStageLabel(status)
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/use-application-actions.ts
 msgid "Moved to {0}"
 msgstr "{0} ಗೆ ಸರಿಸಲಾಗಿದೆ"
+
+#: src/features/applications/use-application-actions.ts
+msgid "Moved to the trash. You can restore it for 30 days."
+msgstr ""
 
 #. placeholder {0}: getStageLabel(application.status)
 #: src/features/career/workspace/messages.tsx
@@ -10132,6 +10211,7 @@ msgid "Responsible for the design system and helping other teams with their desi
 msgstr "ವಿನ್ಯಾಸ ವ್ಯವಸ್ಥೆಗೆ ಜವಾಬ್ದಾರರು ಮತ್ತು ಇತರ ತಂಡಗಳಿಗೆ ಅವರ ವಿನ್ಯಾಸಗಳೊಂದಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ."
 
 #: src/features/documents/document-actions.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Restore"
 msgstr "ಮರುಸ್ಥಾಪಿಸಿ"
 
@@ -10249,6 +10329,7 @@ msgstr "{0} ಮರುಪಡೆಯಲಾಗಿದೆ. ವರದಿ ಮಾಡದ �
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Retry"
 msgstr "ಮರುಪ್ರಯತ್ನಿಸಿ"
 
@@ -12531,6 +12612,10 @@ msgstr "ಪಠ್ಯ ಓದಲಾಗದಂತೆ ಹೊರಬರುತ್ತದ�
 msgid "The top of the first page does not look like a name."
 msgstr "ಮೊದಲ ಪುಟದ ಮೇಲ್ಭಾಗ ಹೆಸರಿನಂತೆ ಕಾಣುವುದಿಲ್ಲ."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "The trash is empty."
+msgstr ""
+
 #. Menu item that opens appearance theme selection submenu
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/theme.tsx
@@ -12560,8 +12645,12 @@ msgid "These are the answers saved when you applied."
 msgstr "ನೀವು ಅರ್ಜಿ ಸಲ್ಲಿಸಿದಾಗ ಉಳಿಸಲಾದ ಉತ್ತರಗಳು ಇವು."
 
 #: src/features/applications/components/list-view.tsx
-msgid "They and their timelines are deleted permanently. This can't be undone."
-msgstr "ಅವರು ಮತ್ತು ಅವರ ಟೈಮ್‌ಲೈನ್‌ಗಳನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲಾಗುತ್ತದೆ. ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ."
+#~ msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgstr "ಅವರು ಮತ್ತು ಅವರ ಟೈಮ್‌ಲೈನ್‌ಗಳನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲಾಗುತ್ತದೆ. ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ."
+
+#: src/features/applications/components/list-view.tsx
+msgid "They leave the pipeline but can be restored for 30 days."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "They look for headings such as Experience, Education and Skills."
@@ -12985,6 +13074,8 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Trash"
 msgstr "ಅನುಪಯುಕ್ತ"
 
@@ -13010,6 +13101,7 @@ msgid "Try a sample"
 msgstr "ಮಾದರಿಯನ್ನು ಪ್ರಯತ್ನಿಸಿ"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/applications/components/insights-view.tsx
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx

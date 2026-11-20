@@ -26,8 +26,21 @@ msgstr ""
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
-msgstr "“{0} · {1}” आणि त्याची टाइमलाइन कायमची हटवली आहे. हे पूर्ववत केले जाऊ शकत नाही."
+#~ msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgstr "“{0} · {1}” आणि त्याची टाइमलाइन कायमची हटवली आहे. हे पूर्ववत केले जाऊ शकत नाही."
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/routes/dashboard/applications/trash.tsx
+msgid "“{0} · {1}” and its timeline are removed for good. This can't be undone."
+msgstr ""
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "“{0} · {1}” leaves the pipeline but can be restored for 30 days."
+msgstr ""
 
 #. placeholder {0}: term.label
 #: src/features/resume/editor/check/job-match.tsx
@@ -1937,6 +1950,10 @@ msgstr "पर्यंत अर्ज करण्याची तारीख
 msgid "Application deleted"
 msgstr "नोकरी अर्ज हटवला"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application deleted permanently"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "Application details"
 msgstr "अर्जाचे तपशील"
@@ -1947,6 +1964,10 @@ msgstr "नोकरी अर्ज पर्याय"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Application questions"
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application restored"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -1974,6 +1995,10 @@ msgstr "अर्ज अपडेट केला."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
 msgstr "अर्ज"
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Applications here are deleted automatically after 30 days."
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Applications over time"
@@ -2244,6 +2269,7 @@ msgid "Azerbaijani"
 msgstr "अझरबैजानी"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Back"
 msgstr "मागे"
 
@@ -3523,9 +3549,13 @@ msgstr "ती कथा हटवता आली नाही."
 msgid "Couldn't delete the account."
 msgstr "खाते हटवू शकलो नाही."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't delete the application. Try again."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
-msgid "Couldn't delete the applications. Try again."
-msgstr "नोकरीचे अर्ज हटवू शकलो नाही. पुन्हा प्रयत्न करा."
+#~ msgid "Couldn't delete the applications. Try again."
+#~ msgstr "नोकरीचे अर्ज हटवू शकलो नाही. पुन्हा प्रयत्न करा."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Couldn't delete the interview."
@@ -3587,6 +3617,10 @@ msgstr "अर्ज लोड करता आले नाहीत. पुन
 msgid "Couldn't load documents"
 msgstr "दस्तऐवज लोड करू शकलो नाही"
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Couldn't load insights. Try again."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't load interviews. Retry"
 msgstr "मुलाखती लोड करता आल्या नाहीत. पुन्हा प्रयत्न करा"
@@ -3594,6 +3628,10 @@ msgstr "मुलाखती लोड करता आल्या नाह�
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't load the sample file. Try again."
 msgstr "नमुना फाइल लोड करू शकलो नाही. पुन्हा प्रयत्न करा."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't load the trash. Try again."
+msgstr ""
 
 #: src/features/career/load-state.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
@@ -3614,6 +3652,10 @@ msgstr "अर्ज केला म्हणून चिन्हांकि
 #: src/features/career/today.tsx
 msgid "Couldn't mark this as read."
 msgstr "हे वाचले म्हणून चिन्हांकित करता आले नाही."
+
+#: src/features/applications/components/list-view.tsx
+msgid "Couldn't move the applications to the trash. Try again."
+msgstr ""
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Couldn't prepare the documents."
@@ -3653,6 +3695,10 @@ msgstr "ते अर्जांमधून काढता आले ना�
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "नाव बदलता आले नाही."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't restore the application. Try again."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 #~ msgid "Couldn't revoke the key."
@@ -4097,11 +4143,8 @@ msgstr "डीफॉल्ट"
 msgid "Degree"
 msgstr "पदवी"
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4129,8 +4172,8 @@ msgstr "{0} हटवा"
 
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
-msgid "Delete {0} applications?"
-msgstr "{0} नोकरीचे अर्ज हटवायचे?"
+#~ msgid "Delete {0} applications?"
+#~ msgstr "{0} नोकरीचे अर्ज हटवायचे?"
 
 #: src/features/settings/account/data.tsx
 msgid "Delete account"
@@ -4160,6 +4203,10 @@ msgstr "आता हटवा..."
 msgid "Delete Page"
 msgstr "पान काढून टाका"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete permanently"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Delete picture"
 msgstr "चित्र हटवा"
@@ -4176,10 +4223,14 @@ msgstr "विभाग हटवा"
 msgid "Delete story"
 msgstr "कथा हटवा"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete this application permanently?"
+msgstr ""
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Delete this application?"
-msgstr "हा अर्ज हटवायचा?"
+#~ msgid "Delete this application?"
+#~ msgstr "हा अर्ज हटवायचा?"
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Delete this conversation"
@@ -4205,10 +4256,7 @@ msgstr "तुमचे खाते हटवायचे?"
 msgid "Delete your documents and account data."
 msgstr "तुमचे दस्तऐवज आणि खाते डेटा हटवा."
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/settings/account/data.tsx
 msgid "Delete…"
 msgstr "हटवा..."
@@ -4226,8 +4274,8 @@ msgstr "\"{0}\" हटवले"
 msgid "Deleted “{title}”"
 msgstr "\"{title}\" हटवले"
 
-#. placeholder {0}: result.deleted
-#: src/features/applications/components/list-view.tsx
+#. placeholder {0}: formatDate(application.trashedAt)
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Deleted {0}"
 msgstr "{0} हटवले"
 
@@ -7470,6 +7518,11 @@ msgstr "बहुतेक प्रणाली ईमेल पत्त्य
 msgid "Mostly readable"
 msgstr "बहुतेक वाचनीय"
 
+#. placeholder {0}: ids.length
+#: src/features/applications/components/list-view.tsx
+msgid "Move {0} applications to the trash?"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "सर्व सामग्री पानाच्या सीमांच्या आत आणा आणि पुन्हा निर्यात करा."
@@ -7502,6 +7555,11 @@ msgstr "भूमिका वर हलवा"
 msgid "Move section to another column or page"
 msgstr "विभाग दुसऱ्या स्तंभात किंवा पृष्ठावर हलवा"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Move this application to the trash?"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr "येथे हलवा"
@@ -7519,12 +7577,24 @@ msgstr "{stage} मध्ये हलवा"
 msgid "Move to Interview"
 msgstr "मुलाखत टप्प्यात हलवा"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Move to Trash"
 msgstr "कचरा मध्ये हलवा"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash…"
+msgstr ""
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/list-view.tsx
@@ -7546,12 +7616,21 @@ msgstr "तुमचा ईमेल आणि फोन नंबर पहि�
 msgid "Moved {0} of {1} to Trash. Locked documents were skipped."
 msgstr "{1} पैकी {0} कचऱ्यात हलवली. कुलूपबंद कागदपत्रे वगळली."
 
+#. placeholder {0}: result.trashed
+#: src/features/applications/components/list-view.tsx
+msgid "Moved {0} to the trash"
+msgstr ""
+
 #. placeholder {0}: getStageLabel(entry.stage)
 #. placeholder {0}: getStageLabel(status)
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/use-application-actions.ts
 msgid "Moved to {0}"
 msgstr "{0} वर हलवले"
+
+#: src/features/applications/use-application-actions.ts
+msgid "Moved to the trash. You can restore it for 30 days."
+msgstr ""
 
 #. placeholder {0}: getStageLabel(application.status)
 #: src/features/career/workspace/messages.tsx
@@ -10132,6 +10211,7 @@ msgid "Responsible for the design system and helping other teams with their desi
 msgstr "डिझाइन सिस्टमसाठी जबाबदार आणि इतर संघांना त्यांच्या डिझाइनसह मदत करणे."
 
 #: src/features/documents/document-actions.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Restore"
 msgstr "पुनर्संचयित करा"
 
@@ -10249,6 +10329,7 @@ msgstr "{0} पुनर्प्राप्त केले. अहवाल �
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Retry"
 msgstr "पुन्हा प्रयत्न करा"
 
@@ -12531,6 +12612,10 @@ msgstr "मजकूर वाचनीय नसलेल्या स्वर
 msgid "The top of the first page does not look like a name."
 msgstr "पहिल्या पानाचा वरचा भाग नावासारखा दिसत नाही."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "The trash is empty."
+msgstr ""
+
 #. Menu item that opens appearance theme selection submenu
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/theme.tsx
@@ -12560,8 +12645,12 @@ msgid "These are the answers saved when you applied."
 msgstr "तुम्ही अर्ज केला तेव्हा जतन केलेली ही उत्तरे आहेत."
 
 #: src/features/applications/components/list-view.tsx
-msgid "They and their timelines are deleted permanently. This can't be undone."
-msgstr "ते आणि त्यांच्या टाइमलाइन कायमच्या हटवल्या जातात. हे पूर्ववत केले जाऊ शकत नाही."
+#~ msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgstr "ते आणि त्यांच्या टाइमलाइन कायमच्या हटवल्या जातात. हे पूर्ववत केले जाऊ शकत नाही."
+
+#: src/features/applications/components/list-view.tsx
+msgid "They leave the pipeline but can be restored for 30 days."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "They look for headings such as Experience, Education and Skills."
@@ -12985,6 +13074,8 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Trash"
 msgstr "कचरा"
 
@@ -13010,6 +13101,7 @@ msgid "Try a sample"
 msgstr "एक नमुना वापरून पहा"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/applications/components/insights-view.tsx
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx

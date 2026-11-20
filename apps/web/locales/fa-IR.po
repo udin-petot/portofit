@@ -26,8 +26,21 @@ msgstr ""
 #. placeholder {1}: application.company
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
-msgstr "\"{0} · {1}\" و جدول زمانی آن برای همیشه حذف می شوند. این قابل واگرد نیست."
+#~ msgid "“{0} · {1}” and its timeline are deleted permanently. This can't be undone."
+#~ msgstr "\"{0} · {1}\" و جدول زمانی آن برای همیشه حذف می شوند. این قابل واگرد نیست."
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/routes/dashboard/applications/trash.tsx
+msgid "“{0} · {1}” and its timeline are removed for good. This can't be undone."
+msgstr ""
+
+#. placeholder {0}: application.role
+#. placeholder {1}: application.company
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "“{0} · {1}” leaves the pipeline but can be restored for 30 days."
+msgstr ""
 
 #. placeholder {0}: term.label
 #: src/features/resume/editor/check/job-match.tsx
@@ -1937,6 +1950,10 @@ msgstr "تاریخ درخواست به"
 msgid "Application deleted"
 msgstr "درخواست کار حذف شد"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application deleted permanently"
+msgstr ""
+
 #: src/features/career/workspace/shell.tsx
 msgid "Application details"
 msgstr "جزئیات درخواست"
@@ -1947,6 +1964,10 @@ msgstr "گزینه های درخواست شغل"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Application questions"
+msgstr ""
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Application restored"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -1974,6 +1995,10 @@ msgstr "درخواست به‌روزرسانی شد."
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
 msgstr "درخواست‌ها"
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Applications here are deleted automatically after 30 days."
+msgstr ""
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Applications over time"
@@ -2244,6 +2269,7 @@ msgid "Azerbaijani"
 msgstr "آذربایجانی"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Back"
 msgstr "برگشت"
 
@@ -3523,9 +3549,13 @@ msgstr "آن داستان حذف نشد."
 msgid "Couldn't delete the account."
 msgstr "اکانت حذف نشد"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't delete the application. Try again."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
-msgid "Couldn't delete the applications. Try again."
-msgstr "درخواست‌ها حذف نشدند. دوباره امتحان کنید."
+#~ msgid "Couldn't delete the applications. Try again."
+#~ msgstr "درخواست‌ها حذف نشدند. دوباره امتحان کنید."
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Couldn't delete the interview."
@@ -3587,6 +3617,10 @@ msgstr "درخواست‌ها بارگیری نشدند. دوباره امتحا
 msgid "Couldn't load documents"
 msgstr "اسناد بارگیری نشد"
 
+#: src/features/applications/components/insights-view.tsx
+msgid "Couldn't load insights. Try again."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't load interviews. Retry"
 msgstr "مصاحبه‌ها بارگیری نشدند. تلاش دوباره"
@@ -3594,6 +3628,10 @@ msgstr "مصاحبه‌ها بارگیری نشدند. تلاش دوباره"
 #: src/features/ats-checker/checker.tsx
 msgid "Couldn't load the sample file. Try again."
 msgstr "فایل نمونه بارگیری نشد. دوباره امتحان کنید."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't load the trash. Try again."
+msgstr ""
 
 #: src/features/career/load-state.tsx
 msgid "Couldn't load this. Your saved data hasn't changed."
@@ -3614,6 +3652,10 @@ msgstr "علامت‌گذاری به‌عنوان ارسال‌شده ممکن �
 #: src/features/career/today.tsx
 msgid "Couldn't mark this as read."
 msgstr "علامت‌گذاری به‌عنوان خوانده‌شده ممکن نشد."
+
+#: src/features/applications/components/list-view.tsx
+msgid "Couldn't move the applications to the trash. Try again."
+msgstr ""
 
 #: src/features/career/workspace/prepare-bar.tsx
 msgid "Couldn't prepare the documents."
@@ -3653,6 +3695,10 @@ msgstr "حذف آن از درخواست‌ها ممکن نشد."
 #: src/features/career/coach.tsx
 msgid "Couldn't rename it."
 msgstr "تغییر نام ممکن نشد."
+
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Couldn't restore the application. Try again."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 #~ msgid "Couldn't revoke the key."
@@ -4097,11 +4143,8 @@ msgstr "پیش‌فرض"
 msgid "Degree"
 msgstr "مدرک"
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -4129,8 +4172,8 @@ msgstr "{0} را حذف کنید"
 
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
-msgid "Delete {0} applications?"
-msgstr "{0} درخواست حذف شود؟"
+#~ msgid "Delete {0} applications?"
+#~ msgstr "{0} درخواست حذف شود؟"
 
 #: src/features/settings/account/data.tsx
 msgid "Delete account"
@@ -4160,6 +4203,10 @@ msgstr "حذف کن…"
 msgid "Delete Page"
 msgstr "حذف صفحه"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete permanently"
+msgstr ""
+
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Delete picture"
 msgstr "حذف تصویر"
@@ -4176,10 +4223,14 @@ msgstr "حذف بخش"
 msgid "Delete story"
 msgstr "حذف داستان"
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "Delete this application permanently?"
+msgstr ""
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
-msgid "Delete this application?"
-msgstr "این درخواست حذف شود؟"
+#~ msgid "Delete this application?"
+#~ msgstr "این درخواست حذف شود؟"
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Delete this conversation"
@@ -4205,10 +4256,7 @@ msgstr "حساب کاربری خود را حذف کنید؟"
 msgid "Delete your documents and account data."
 msgstr "اسناد و اطلاعات حساب خود را حذف کنید."
 
-#: src/features/applications/components/application-actions-menu.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/detail/activity.tsx
-#: src/features/applications/components/list-view.tsx
 #: src/features/settings/account/data.tsx
 msgid "Delete…"
 msgstr "حذف…"
@@ -4226,8 +4274,8 @@ msgstr "“{0}” حذف شد"
 msgid "Deleted “{title}”"
 msgstr "“{title}” حذف شد"
 
-#. placeholder {0}: result.deleted
-#: src/features/applications/components/list-view.tsx
+#. placeholder {0}: formatDate(application.trashedAt)
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Deleted {0}"
 msgstr "{0} حذف شد"
 
@@ -7470,6 +7518,11 @@ msgstr "اکثر سیستم ها نامزدها را با آدرس ایمیل پ
 msgid "Mostly readable"
 msgstr "بیشتر قابل خواندن است"
 
+#. placeholder {0}: ids.length
+#: src/features/applications/components/list-view.tsx
+msgid "Move {0} applications to the trash?"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Move all content inside the page boundaries and re-export."
 msgstr "همهٔ محتوا را داخل مرزهای صفحه ببرید و دوباره خروجی بگیرید."
@@ -7502,6 +7555,11 @@ msgstr "نقش را به بالا حرکت دهید"
 msgid "Move section to another column or page"
 msgstr "انتقال بخش به ستون یا صفحه دیگر"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+msgid "Move this application to the trash?"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr "انتقال به"
@@ -7519,12 +7577,24 @@ msgstr "انتقال به {stage}"
 msgid "Move to Interview"
 msgstr "انتقال به مصاحبه"
 
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 msgid "Move to Trash"
 msgstr "انتقال به سطل زباله"
+
+#: src/features/applications/components/application-actions-menu.tsx
+#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/list-view.tsx
+msgid "Move to trash…"
+msgstr ""
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/list-view.tsx
@@ -7546,12 +7616,21 @@ msgstr "ایمیل و شماره تلفن خود را به بالای صفحهٔ
 msgid "Moved {0} of {1} to Trash. Locked documents were skipped."
 msgstr "{0} از {1} به سطل زباله منتقل شد. اسناد قفل‌شده نادیده گرفته شدند."
 
+#. placeholder {0}: result.trashed
+#: src/features/applications/components/list-view.tsx
+msgid "Moved {0} to the trash"
+msgstr ""
+
 #. placeholder {0}: getStageLabel(entry.stage)
 #. placeholder {0}: getStageLabel(status)
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/use-application-actions.ts
 msgid "Moved to {0}"
 msgstr "به {0} منتقل شد"
+
+#: src/features/applications/use-application-actions.ts
+msgid "Moved to the trash. You can restore it for 30 days."
+msgstr ""
 
 #. placeholder {0}: getStageLabel(application.status)
 #: src/features/career/workspace/messages.tsx
@@ -10132,6 +10211,7 @@ msgid "Responsible for the design system and helping other teams with their desi
 msgstr "مسئول سیستم طراحی و کمک به تیم های دیگر در طراحی های خود."
 
 #: src/features/documents/document-actions.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Restore"
 msgstr "بازیابی"
 
@@ -10249,6 +10329,7 @@ msgstr "{0} بازیابی شد. تازه بودن مبدا ناشناخته ا�
 #: src/features/resume/editor/save-status.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Retry"
 msgstr "دوباره امتحان کنید"
 
@@ -12531,6 +12612,10 @@ msgstr "متن به‌صورت غیرقابل خواندن استخراج می�
 msgid "The top of the first page does not look like a name."
 msgstr "بالای صفحهٔ اول شبیه یک نام نیست."
 
+#: src/routes/dashboard/applications/trash.tsx
+msgid "The trash is empty."
+msgstr ""
+
 #. Menu item that opens appearance theme selection submenu
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/theme.tsx
@@ -12560,8 +12645,12 @@ msgid "These are the answers saved when you applied."
 msgstr "این‌ها پاسخ‌هایی هستند که هنگام ارسال درخواست ذخیره شدند."
 
 #: src/features/applications/components/list-view.tsx
-msgid "They and their timelines are deleted permanently. This can't be undone."
-msgstr "آنها و جدول زمانی آنها برای همیشه حذف می شوند. این قابل واگرد نیست."
+#~ msgid "They and their timelines are deleted permanently. This can't be undone."
+#~ msgstr "آنها و جدول زمانی آنها برای همیشه حذف می شوند. این قابل واگرد نیست."
+
+#: src/features/applications/components/list-view.tsx
+msgid "They leave the pipeline but can be restored for 30 days."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "They look for headings such as Experience, Education and Skills."
@@ -12985,6 +13074,8 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
+#: src/routes/dashboard/applications/index.tsx
+#: src/routes/dashboard/applications/trash.tsx
 msgid "Trash"
 msgstr "سطل زباله"
 
@@ -13010,6 +13101,7 @@ msgid "Try a sample"
 msgstr "یک نمونه را امتحان کنید"
 
 #: src/components/layout/error-screen.tsx
+#: src/features/applications/components/insights-view.tsx
 #: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx
