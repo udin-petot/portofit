@@ -1,0 +1,8 @@
+# PortoFit scheduled jobs.
+# Copy these lines into `crontab -e` on the Docker host. `portofit-cron.sh` lives in
+# /home/ubuntu/portofit and reads CRON_SECRET from the same .env as docker-compose.
+
+* * * * * /home/ubuntu/portofit/portofit-cron.sh order-expiry >> /home/ubuntu/portofit/cron.log 2>&1
+* * * * * /home/ubuntu/portofit/portofit-cron.sh invoice-mailer >> /home/ubuntu/portofit/cron.log 2>&1
+* * * * * /home/ubuntu/portofit/portofit-cron.sh admin-alerts >> /home/ubuntu/portofit/cron.log 2>&1
+*/15 * * * * /home/ubuntu/portofit/portofit-cron.sh career >> /home/ubuntu/portofit/cron.log 2>&1
