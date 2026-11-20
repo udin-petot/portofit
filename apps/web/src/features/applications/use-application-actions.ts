@@ -3,7 +3,7 @@ import type { ApplicationClosedReason, ApplicationStatus } from "@reactive-resum
 import { t } from "@lingui/core/macro";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "@reactive-resume/ui/components/toast";
-import { applicationsListQueryKey } from "./queries";
+import { applicationsListQueryKey, trashedApplicationsQueryKey } from "./queries";
 import { getStageLabel } from "./stages";
 import { getOrpcErrorMessage } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
@@ -14,6 +14,7 @@ export function useInvalidateApplications() {
 
 	return (id?: string) => {
 		void queryClient.invalidateQueries({ queryKey: applicationsListQueryKey() });
+		void queryClient.invalidateQueries({ queryKey: trashedApplicationsQueryKey() });
 		void queryClient.invalidateQueries({ queryKey: orpc.applications.stats.queryKey() });
 		void queryClient.invalidateQueries({ queryKey: orpc.applications.tags.queryKey() });
 		void queryClient.invalidateQueries({ queryKey: orpc.documents.list.key() });
@@ -62,6 +63,15 @@ export function useApplicationActions() {
 		onSettled: (_data, _error, input) => invalidate(input.id),
 	});
 
+	const trash = useMutation({
+		...orpc.applications.trash.mutationOptions(),
+		onSuccess: (_data, input) => {
+			invalidate(input.id);
+			toast.add({ description: t`Moved to the trash. You can restore it for 30 days.` });
+		},
+		onError: failed,
+	});
+
 	const remove = useMutation({
 		...orpc.applications.delete.mutationOptions(),
 		onSuccess: (_data, input) => {
@@ -73,6 +83,7 @@ export function useApplicationActions() {
 
 	return {
 		update,
+		trash,
 		remove,
 		moveTo: (application: Pick<Application, "id">, status: ApplicationStatus) =>
 			update.mutate(

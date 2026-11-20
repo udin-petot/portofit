@@ -8,7 +8,7 @@ import { I18nProvider } from "@lingui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const api = vi.hoisted(() => ({
-	bulkDelete: vi.fn(),
+	bulkTrash: vi.fn(),
 	bulkUpdate: vi.fn(),
 	parsePosting: vi.fn(),
 	create: vi.fn(),
@@ -22,7 +22,7 @@ vi.mock("@/libs/orpc/client", () => ({
 	client: { applications: { ai: { parsePosting: api.parsePosting } } },
 	orpc: {
 		applications: {
-			bulkDelete: { mutationOptions: () => ({ mutationFn: api.bulkDelete }) },
+			bulkTrash: { mutationOptions: () => ({ mutationFn: api.bulkTrash }) },
 			bulkUpdate: { mutationOptions: () => ({ mutationFn: api.bulkUpdate }) },
 			create: { mutationOptions: () => ({ mutationFn: api.create }) },
 			ai: {
@@ -38,7 +38,7 @@ vi.mock("@/libs/orpc/client", () => ({
 }));
 vi.mock("../use-application-actions", () => ({
 	useInvalidateApplications: () => api.invalidate,
-	useApplicationActions: () => ({ moveTo: api.moveTo, close: api.close, remove: { mutate: api.remove } }),
+	useApplicationActions: () => ({ moveTo: api.moveTo, close: api.close, trash: { mutate: api.remove } }),
 }));
 vi.mock("@/hooks/use-confirm", () => ({ useConfirm: () => api.confirm }));
 vi.mock("@reactive-resume/ui/hooks/use-breakpoint", () => ({ useBreakpoint: () => "desktop" }));
@@ -74,6 +74,7 @@ const application = (id: string, status: Application["status"]): Application => 
 	appliedAt: new Date(),
 	createdAt: new Date(),
 	updatedAt: new Date(),
+	trashedAt: null,
 	resumeId: null,
 	jobDescription: null,
 	postingSource: null,
@@ -101,7 +102,7 @@ beforeEach(() => {
 	vi.clearAllMocks();
 	i18n.loadAndActivate({ locale: "en-US", messages: {} });
 	api.confirm.mockResolvedValue(true);
-	api.bulkDelete.mockResolvedValue({ deleted: 1 });
+	api.bulkTrash.mockResolvedValue({ trashed: 1 });
 });
 afterEach(() => {
 	cleanup();
@@ -117,8 +118,8 @@ it("removes hidden closed applications from bulk selection before deleting visib
 	view.rerender(<ApplicationList applications={rows} showClosed={false} selectedId={null} onOpen={vi.fn()} />);
 	expect(screen.queryByRole("checkbox", { name: "Select Engineer at Closed Co" })).toBeNull();
 	expect(screen.getByText("1 selected")).toBeTruthy();
-	fireEvent.click(screen.getByRole("button", { name: "Delete…" }));
-	await waitFor(() => expect(api.bulkDelete.mock.calls[0]?.[0]).toEqual({ ids: ["open"] }));
+	fireEvent.click(screen.getByRole("button", { name: "Move to trash…" }));
+	await waitFor(() => expect(api.bulkTrash.mock.calls[0]?.[0]).toEqual({ ids: ["open"] }));
 });
 
 it("offers one board-card open control and a separate options control without a dead draggable tab stop", async () => {

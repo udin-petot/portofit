@@ -128,6 +128,7 @@ export const applicationDto = {
 				...paginationShape,
 				status: applicationStatusSchema.optional(),
 				tags: z.array(z.string()).optional(),
+				trashed: z.boolean().optional().describe("List the trash instead of active applications."),
 			})
 			.optional()
 			.default({}),
@@ -234,6 +235,21 @@ export const applicationDto = {
 	delete: {
 		input: applicationSchema.pick({ id: true }),
 		output: z.void(),
+	},
+
+	trash: {
+		input: applicationSchema.pick({ id: true }),
+		output: z.void(),
+	},
+
+	restore: {
+		input: applicationSchema.pick({ id: true }),
+		output: z.void(),
+	},
+
+	bulkTrash: {
+		input: z.object({ ids: z.array(z.string()).min(1).max(200, "Too many items in a single bulk operation") }),
+		output: z.object({ trashed: z.number() }),
 	},
 
 	// Table bulk actions: move stage, close, add tags across a selection.

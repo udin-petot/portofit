@@ -2,7 +2,7 @@ import type { Application } from "@/features/applications/types";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { useQuery } from "@tanstack/react-query";
-import { createFileRoute, stripSearchParams, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, stripSearchParams, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import z from "zod";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -131,6 +131,17 @@ function RouteComponent() {
 					<Trans>Applications</Trans>
 				</h1>
 				<div className="flex shrink-0 items-center gap-2">
+					<Button
+						variant="secondary"
+						nativeButton={false}
+						aria-label={t`Trash`}
+						render={<Link to="/dashboard/applications/trash" />}
+					>
+						<Icon name="trash" />
+						<span className="max-sm:hidden">
+							<Trans>Trash</Trans>
+						</span>
+					</Button>
 					<DropdownMenu>
 						<DropdownMenuTrigger render={<Button variant="secondary" aria-label={t`Import or export CSV`} />}>
 							<Icon name="file-text" />

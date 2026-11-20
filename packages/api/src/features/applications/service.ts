@@ -9,7 +9,7 @@ import type {
 	InterviewDetails,
 } from "@reactive-resume/schema/applications/data";
 import { ORPCError } from "@orpc/client";
-import { and, arrayContains, desc, eq, inArray, isNull, sql } from "drizzle-orm";
+import { and, arrayContains, desc, eq, inArray, isNotNull, isNull, lt, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import * as schema from "@reactive-resume/db/schema";
 import { lintResumeForAts } from "@reactive-resume/resume/ats";
@@ -438,13 +438,31 @@ const stripUserId = <T extends { userId: string; activity?: ApplicationTimelineE
 };
 
 export const applicationService = {
-	list: async (input: { userId: string; status?: ApplicationStatus; tags?: string[] }) => {
+	list: async (input: { userId: string; status?: ApplicationStatus; tags?: string[]; trashed?: boolean }) => {
+		// A trashed application is kept for 30 days, then removed with its uploaded files and coaching.
+		if (input.trashed) {
+			const cutoff = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+			const expired = await db
+				.select({ id: schema.application.id })
+				.from(schema.application)
+				.where(
+					and(
+						eq(schema.application.userId, input.userId),
+						isNotNull(schema.application.trashedAt),
+						lt(schema.application.trashedAt, cutoff),
+					),
+				);
+
+			for (const row of expired) await applicationService.delete({ id: row.id, userId: input.userId });
+		}
+
 		const rows = await db
 			.select()
 			.from(schema.application)
 			.where(
 				and(
 					eq(schema.application.userId, input.userId),
+					input.trashed ? isNotNull(schema.application.trashedAt) : isNull(schema.application.trashedAt),
 					input.status ? eq(schema.application.status, input.status) : undefined,
 					input.tags && input.tags.length > 0 ? arrayContains(schema.application.tags, input.tags) : undefined,
 				),
@@ -811,6 +829,33 @@ export const applicationService = {
 		});
 	},
 
+	trash: async (input: { id: string; userId: string }) => {
+		const existing = await requireOwned(input.id, input.userId);
+		if (existing.trashedAt) return;
+		await db
+			.update(schema.application)
+			.set({ trashedAt: new Date() })
+			.where(and(eq(schema.application.id, input.id), eq(schema.application.userId, input.userId)));
+	},
+
+	restore: async (input: { id: string; userId: string }) => {
+		await requireOwned(input.id, input.userId);
+		await db
+			.update(schema.application)
+			.set({ trashedAt: null })
+			.where(and(eq(schema.application.id, input.id), eq(schema.application.userId, input.userId)));
+	},
+
+	bulkTrash: async (input: { userId: string; ids: string[] }) => {
+		if (input.ids.length === 0) return { trashed: 0 };
+		const rows = await db
+			.update(schema.application)
+			.set({ trashedAt: new Date() })
+			.where(and(inArray(schema.application.id, input.ids), eq(schema.application.userId, input.userId)))
+			.returning({ id: schema.application.id });
+		return { trashed: rows.length };
+	},
+
 	delete: async (input: { id: string; userId: string }) => {
 		const existing = await requireOwned(input.id, input.userId);
 		await deleteApplicationCoaching(input.userId, [input.id]);
@@ -905,7 +950,7 @@ export const applicationService = {
 
 	// Raw counts for Insights; funnel/sankey/tiles are derived client-side from these.
 	stats: async (input: { userId: string }) => {
-		const scope = eq(schema.application.userId, input.userId);
+		const scope = and(eq(schema.application.userId, input.userId), isNull(schema.application.trashedAt));
 
 		const byStage = await db
 			.select({ status: schema.application.status, count: sql<number>`count(*)::int` })
@@ -934,7 +979,7 @@ export const applicationService = {
 		const rows = await db
 			.select({ tag: sql<string>`distinct unnest(${schema.application.tags})` })
 			.from(schema.application)
-			.where(eq(schema.application.userId, input.userId));
+			.where(and(eq(schema.application.userId, input.userId), isNull(schema.application.trashedAt)));
 
 		return rows.map((row) => row.tag).sort((a, b) => a.localeCompare(b));
 	},

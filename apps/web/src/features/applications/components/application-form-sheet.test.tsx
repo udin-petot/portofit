@@ -79,6 +79,7 @@ const application: Application = {
 	appliedAt: new Date(),
 	createdAt: new Date(),
 	updatedAt: new Date(),
+	trashedAt: null,
 };
 
 beforeAll(() => i18n.loadAndActivate({ locale: "en", messages: {} }));

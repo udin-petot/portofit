@@ -71,6 +71,8 @@ export const application = pg.pgTable(
 		followUpNote: pg.text("follow_up_note"),
 		contacts: pg.jsonb("contacts").notNull().$type<Contact[]>().default([]),
 		activity: pg.jsonb("activity").notNull().$type<ApplicationTimelineEntry[]>().default([]),
+		// Soft delete: the row leaves every list and statistic, but the user can restore it for 30 days.
+		trashedAt: pg.timestamp("trashed_at", { withTimezone: true }),
 		appliedAt: pg.timestamp("applied_at", { withTimezone: true }).notNull().defaultNow(),
 		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 		updatedAt: pg

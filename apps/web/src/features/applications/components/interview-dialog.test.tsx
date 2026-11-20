@@ -62,6 +62,7 @@ const application: Application = {
 	appliedAt: new Date(),
 	createdAt: new Date(),
 	updatedAt: new Date(),
+	trashedAt: null,
 	resumeId: null,
 	jobDescription: null,
 	postingSource: null,

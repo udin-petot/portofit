@@ -26,15 +26,15 @@ type ApplicationActionsMenuProps = { application: Application; className?: strin
 
 /** A card's ⋯ menu, the keyboard alternative to dragging: Move to…, Close…, and Delete after asking. */
 export function ApplicationActionsMenu({ application, className }: ApplicationActionsMenuProps) {
-	const { moveTo, close, remove } = useApplicationActions();
+	const { moveTo, close, trash } = useApplicationActions();
 	const confirm = useConfirm();
 
 	const onDelete = async () => {
-		const confirmed = await confirm(t`Delete this application?`, {
-			description: t`“${application.role} · ${application.company}” and its timeline are deleted permanently. This can't be undone.`,
-			confirmText: t`Delete`,
+		const confirmed = await confirm(t`Move this application to the trash?`, {
+			description: t`“${application.role} · ${application.company}” leaves the pipeline but can be restored for 30 days.`,
+			confirmText: t`Move to trash`,
 		});
-		if (confirmed) remove.mutate({ id: application.id });
+		if (confirmed) trash.mutate({ id: application.id });
 	};
 
 	return (
@@ -96,7 +96,7 @@ export function ApplicationActionsMenu({ application, className }: ApplicationAc
 
 					<DropdownMenuItem variant="destructive" onClick={onDelete}>
 						<Icon name="trash" size={18} />
-						<Trans>Delete…</Trans>
+						<Trans>Move to trash…</Trans>
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>

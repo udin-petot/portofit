@@ -333,14 +333,14 @@ function BulkBar({ ids, onDone }: BulkBarProps) {
 		},
 		onError: () => toast.add({ type: "error", description: t`Couldn't update the applications. Try again.` }),
 	});
-	const bulkDelete = useMutation({
-		...orpc.applications.bulkDelete.mutationOptions(),
+	const bulkTrash = useMutation({
+		...orpc.applications.bulkTrash.mutationOptions(),
 		onSuccess: (result) => {
 			invalidate();
 			onDone();
-			toast.add({ description: t`Deleted ${result.deleted}` });
+			toast.add({ description: t`Moved ${result.trashed} to the trash` });
 		},
-		onError: () => toast.add({ type: "error", description: t`Couldn't delete the applications. Try again.` }),
+		onError: () => toast.add({ type: "error", description: t`Couldn't move the applications to the trash. Try again.` }),
 	});
 
 	return (
@@ -408,14 +408,14 @@ function BulkBar({ ids, onDone }: BulkBarProps) {
 				variant="secondary"
 				className="text-danger-text"
 				onClick={async () => {
-					const confirmed = await confirm(t`Delete ${ids.length} applications?`, {
-						description: t`They and their timelines are deleted permanently. This can't be undone.`,
-						confirmText: t`Delete`,
+					const confirmed = await confirm(t`Move ${ids.length} applications to the trash?`, {
+						description: t`They leave the pipeline but can be restored for 30 days.`,
+						confirmText: t`Move to trash`,
 					});
-					if (confirmed) bulkDelete.mutate({ ids });
+					if (confirmed) bulkTrash.mutate({ ids });
 				}}
 			>
-				<Trans>Delete…</Trans>
+				<Trans>Move to trash…</Trans>
 			</Button>
 
 			<Button size="sm" variant="ghost" className="ms-auto text-bg hover:bg-bg/15" onClick={onDone}>

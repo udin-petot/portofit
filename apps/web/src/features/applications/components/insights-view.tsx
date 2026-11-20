@@ -30,7 +30,7 @@ export function InsightsSkeleton() {
 export function ApplicationInsights({ applications }: { applications: Application[] }) {
 	const { i18n } = useLingui();
 	const dateFormat = new Intl.DateTimeFormat(i18n.locale, { day: "numeric", month: "numeric" });
-	const { data } = useQuery(orpc.applications.stats.queryOptions({}));
+	const { data, isError, refetch } = useQuery(orpc.applications.stats.queryOptions({}));
 	const { data: documents } = useQuery(orpc.documents.list.queryOptions({ input: { trashed: false } }));
 
 	// A resume is tailored for an application when it was made for it (Copy for a job).
@@ -44,6 +44,21 @@ export function ApplicationInsights({ applications }: { applications: Applicatio
 	// Sending history includes applications that later closed, and excludes jobs never sent.
 	const timeline = computeTimeline(applications);
 	const maxWeek = Math.max(1, ...timeline.map((bucket) => bucket.count));
+
+	if (isError)
+		return (
+			<div
+				role="alert"
+				className="flex max-w-4xl flex-wrap items-center justify-between gap-3 rounded-xl border border-line p-4"
+			>
+				<p className="text-sm text-danger-text">
+					<Trans>Couldn't load insights. Try again.</Trans>
+				</p>
+				<Button variant="secondary" onClick={() => void refetch()}>
+					<Trans>Try again</Trans>
+				</Button>
+			</div>
+		);
 
 	if (!data) return <InsightsSkeleton />;
 

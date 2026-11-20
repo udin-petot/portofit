@@ -94,7 +94,7 @@ type DetailProps = {
 function Detail({ application, onEditDetails, onDeleted }: DetailProps) {
 	const { i18n } = useLingui();
 	const confirm = useConfirm();
-	const { moveTo, close, remove } = useApplicationActions();
+	const { moveTo, close, trash } = useApplicationActions();
 	const [interview, setInterview] = useState<{ open: boolean; entry: InterviewTimelineEntry | null }>({
 		open: false,
 		entry: null,
@@ -109,12 +109,12 @@ function Detail({ application, onEditDetails, onDeleted }: DetailProps) {
 	const closed = application.status === "closed";
 
 	const onDelete = async () => {
-		const confirmed = await confirm(t`Delete this application?`, {
-			description: t`“${application.role} · ${application.company}” and its timeline are deleted permanently. This can't be undone.`,
-			confirmText: t`Delete`,
+		const confirmed = await confirm(t`Move this application to the trash?`, {
+			description: t`“${application.role} · ${application.company}” leaves the pipeline but can be restored for 30 days.`,
+			confirmText: t`Move to trash`,
 		});
 		if (!confirmed) return;
-		remove.mutate({ id: application.id }, { onSuccess: onDeleted });
+		trash.mutate({ id: application.id }, { onSuccess: onDeleted });
 	};
 
 	return (
@@ -173,7 +173,7 @@ function Detail({ application, onEditDetails, onDeleted }: DetailProps) {
 								<DropdownMenuSeparator />
 								<DropdownMenuItem variant="destructive" onClick={onDelete}>
 									<Icon name="trash" size={18} />
-									<Trans>Delete…</Trans>
+									<Trans>Move to trash…</Trans>
 								</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>
@@ -252,7 +252,7 @@ function Detail({ application, onEditDetails, onDeleted }: DetailProps) {
 						application={application}
 						onScheduleInterview={(entry) => setInterview({ open: true, entry })}
 					/>
-					<SentDocuments application={application} disabled={remove.isPending} />
+					<SentDocuments application={application} disabled={trash.isPending} />
 					<Facts application={application} locale={i18n.locale} />
 					<Tags application={application} />
 					<ApplicationNotes application={application} />

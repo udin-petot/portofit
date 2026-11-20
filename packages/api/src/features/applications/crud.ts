@@ -26,6 +26,7 @@ export const crudRouter = {
 					userId: context.user.id,
 					...(input.status ? { status: input.status } : {}),
 					...(input.tags ? { tags: input.tags } : {}),
+					...(input.trashed ? { trashed: input.trashed } : {}),
 				}),
 				input,
 				context.resHeaders,
@@ -233,6 +234,36 @@ export const crudRouter = {
 		.output(applicationDto.deleteTimelineEntry.output)
 		.handler(({ input, context }) => applicationService.deleteTimelineEntry({ ...input, userId: context.user.id })),
 
+	trash: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/applications/{id}/trash",
+			tags: ["Applications"],
+			operationId: "trashApplication",
+			summary: "Move an application to the trash",
+			description: "Hides an application from lists and insights. It can be restored for 30 days. Requires authentication.",
+			successDescription: "The application was moved to the trash.",
+		})
+		.input(applicationDto.trash.input)
+		.use(resumeMutationRateLimit)
+		.output(applicationDto.trash.output)
+		.handler(({ input, context }) => applicationService.trash({ id: input.id, userId: context.user.id })),
+
+	restore: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/applications/{id}/restore",
+			tags: ["Applications"],
+			operationId: "restoreApplication",
+			summary: "Restore an application from the trash",
+			description: "Brings a trashed application back into the pipeline. Requires authentication.",
+			successDescription: "The application was restored.",
+		})
+		.input(applicationDto.restore.input)
+		.use(resumeMutationRateLimit)
+		.output(applicationDto.restore.output)
+		.handler(({ input, context }) => applicationService.restore({ id: input.id, userId: context.user.id })),
+
 	delete: protectedProcedure
 		.route({
 			method: "DELETE",
@@ -278,6 +309,21 @@ export const crudRouter = {
 		.use(resumeMutationRateLimit)
 		.output(applicationDto.bulkDelete.output)
 		.handler(({ input, context }) => applicationService.bulkDelete({ userId: context.user.id, ids: input.ids })),
+
+	bulkTrash: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/applications/bulk-trash",
+			tags: ["Applications"],
+			operationId: "bulkTrashApplications",
+			summary: "Move multiple applications to the trash",
+			description: "Hides multiple applications from lists and insights. They can be restored for 30 days. Requires authentication.",
+			successDescription: "The number of applications moved to the trash.",
+		})
+		.input(applicationDto.bulkTrash.input)
+		.use(resumeMutationRateLimit)
+		.output(applicationDto.bulkTrash.output)
+		.handler(({ input, context }) => applicationService.bulkTrash({ userId: context.user.id, ids: input.ids })),
 
 	stats: protectedProcedure
 		.route({
