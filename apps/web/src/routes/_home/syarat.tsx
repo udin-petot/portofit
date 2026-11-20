@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
 import { LegalList, LegalPage, LegalSection } from "@/features/legal/page";
+import { formatRupiah } from "@/features/billing/config";
 import { SUPPORT_WHATSAPP_URL } from "@reactive-resume/utils/support-faq";
+import { orpc } from "@/libs/orpc/client";
 
 export const Route = createFileRoute("/_home/syarat")({
 	component: RouteComponent,
@@ -17,10 +20,20 @@ export const Route = createFileRoute("/_home/syarat")({
 });
 
 function RouteComponent() {
+	const plans = useQuery(orpc.billing.plans.queryOptions());
+	const single = (code: string) => plans.data?.plans.find((plan) => plan.code === code);
+	const lamaran = single("lamaran");
+	const wawancara = single("wawancara");
+	const creditPrices =
+		lamaran && wawancara
+			? `Kredit lamaran ${formatRupiah(lamaran.priceIdr)} per kredit. Kredit wawancara ${formatRupiah(wawancara.priceIdr)} per kredit.`
+			: "Harga kredit mengikuti halaman Harga saat kamu membeli.";
+
 	return (
 		<LegalPage
 			title="Syarat Layanan"
 			summary="Dengan membuat akun atau memakai PortoFit, kamu setuju dengan syarat ini. Baca bagian kredit, pembayaran, dan batas AI sebelum membeli."
+			updated="20 November 2026"
 		>
 			<LegalSection title="1. Layanan">
 				<p>
@@ -62,7 +75,9 @@ function RouteComponent() {
 			<LegalSection title="5. Kredit, harga, dan pembayaran">
 				<LegalList
 					items={[
-						"Kredit lamaran Rp5.000 per kredit. Kredit wawancara Rp10.000 per kredit. Harga yang tampil di halaman Harga berlaku saat kamu membeli.",
+						<>
+							{creditPrices} Harga yang tampil di halaman Harga berlaku saat kamu membeli.
+						</>,
 						"Pembayaran memakai QRIS dengan kode unik tiga angka. Kamu harus membayar total pesanan, bukan hanya harga paket.",
 						"Admin memverifikasi setiap pembayaran secara manual. Kredit masuk setelah bukti cocok dan diverifikasi.",
 						"Tindakan yang memakai kredit ditandai di antarmuka sebelum dijalankan. Kredit yang sudah terpakai tidak dapat dikembalikan kecuali tindakan gagal karena kesalahan sistem.",

@@ -42,6 +42,7 @@ function RouteComponent() {
 		<LegalPage
 			title="Lisensi MIT"
 			summary="PortoFit dibangun di atas Reactive Resume, proyek sumber terbuka karya Amruth Pillai. Karya asli maupun fork ini dirilis dengan Lisensi MIT."
+			updated="29 Oktober 2026"
 		>
 			<LegalSection title="Apa yang diizinkan lisensi ini">
 				<p>

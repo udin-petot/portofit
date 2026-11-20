@@ -21,6 +21,7 @@ function RouteComponent() {
 		<LegalPage
 			title="Kebijakan Privasi"
 			summary="Kami hanya mengumpulkan data yang diperlukan untuk menjalankan PortoFit: menyusun CV, memeriksa keterbacaan, mencatat lamaran, dan memproses pembayaran. Kami tidak menjual datamu."
+			updated="29 Oktober 2026"
 		>
 			<LegalSection title="1. Data yang kami kumpulkan">
 				<LegalList

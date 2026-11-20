@@ -21,6 +21,7 @@ function RouteComponent() {
 		<LegalPage
 			title="Kebijakan Pengembalian Dana"
 			summary="Kredit yang belum terpakai dapat dikembalikan dalam 7 hari setelah pembayaran diverifikasi. Kredit yang sudah terpakai tidak dapat dikembalikan kecuali tindakan gagal karena kesalahan sistem."
+			updated="29 Oktober 2026"
 		>
 			<LegalSection title="1. Kredit yang belum terpakai">
 				<p>
