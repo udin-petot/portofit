@@ -8,7 +8,6 @@ import { LocaleToggle } from "@/features/locale/toggle";
 import { SCENE } from "./scroll";
 import { labelClass } from "./ui";
 
-const githubUrl = "https://github.com/udin-petot/portofit";
 const licenseUrl = "/lisensi";
 const linkClass = "text-ink transition-colors hover:text-accent-text max-sm:flex max-sm:min-h-11 max-sm:items-center";
 
@@ -34,8 +33,6 @@ const getColumns = (): { id: string; title: string; links: FooterLink[] }[] => [
 		id: "community",
 		title: t`Community`,
 		links: [
-			{ label: t`Source code`, href: githubUrl },
-			{ label: t`Report an issue`, href: `${githubUrl}/issues` },
 			{ label: t`Help`, href: "/bantuan" },
 			{ label: "WhatsApp", href: SUPPORT_WHATSAPP_URL },
 		],

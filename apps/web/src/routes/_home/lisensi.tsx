@@ -70,16 +70,7 @@ function RouteComponent() {
 					.
 				</p>
 				<p>
-					Fork ini:{" "}
-					<a
-						href="https://github.com/udin-petot/portofit"
-						className="font-medium text-accent-text underline-offset-4 hover:underline"
-						rel="noreferrer"
-						target="_blank"
-					>
-						github.com/udin-petot/portofit
-					</a>
-					. Berkas lisensi lengkap ada di akar repositori.
+					PortoFit adalah fork dari Reactive Resume. Berkas lisensi lengkap ada di akar repositori.
 				</p>
 			</LegalSection>
 

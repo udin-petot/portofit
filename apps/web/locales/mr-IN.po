@@ -5646,8 +5646,8 @@ msgid "From a document you attached"
 msgstr "तुम्ही जोडलेल्या दस्तऐवजातून"
 
 #: src/features/homepage/sections.tsx
-msgid "from developers who back it"
-msgstr "याला पाठिंबा देणाऱ्या डेव्हलपर्सकडून"
+#~ msgid "from developers who back it"
+#~ msgstr "याला पाठिंबा देणाऱ्या डेव्हलपर्सकडून"
 
 #: src/features/career/workspace/fit.tsx
 msgid "From Fit"
@@ -5711,6 +5711,10 @@ msgstr "अभिप्राय मिळवा"
 #: src/features/career/workspace/practise.tsx
 msgid "Get feedback sends the question, your answer, this posting and your stories to {providerName}."
 msgstr "“अभिप्राय मिळवा” प्रश्न, तुमचे उत्तर, ही जॉब पोस्टिंग आणि तुमच्या कथा {providerName} ला पाठवते."
+
+#: src/features/homepage/sections.tsx
+msgid "Get help"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "Get started"
@@ -9219,8 +9223,8 @@ msgid "PortoFit is built by a student team as an entrepreneurship project on an 
 msgstr ""
 
 #: src/features/homepage/header.tsx
-msgid "PortoFit on GitHub"
-msgstr ""
+#~ msgid "PortoFit on GitHub"
+#~ msgstr ""
 
 #: src/libs/seo.ts
 msgid "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
@@ -10240,12 +10244,12 @@ msgstr "प्रत्युत्तर कॉपी केले"
 
 #: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "Report a bug"
-msgstr "बग कळवा"
+#~ msgid "Report a bug"
+#~ msgstr "बग कळवा"
 
 #: src/features/homepage/footer.tsx
-msgid "Report an issue"
-msgstr "समस्या अहवाल द्या"
+#~ msgid "Report an issue"
+#~ msgstr "समस्या अहवाल द्या"
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Require a password"
@@ -11669,13 +11673,12 @@ msgstr "तारीखानुसार क्रमवारी करा"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Source"
 msgstr "स्त्रोत"
 
 #: src/features/homepage/footer.tsx
-msgid "Source code"
-msgstr "स्त्रोत कोड"
+#~ msgid "Source code"
+#~ msgstr "स्त्रोत कोड"
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -11750,25 +11753,25 @@ msgid "Standard section headings"
 msgstr "मानक विभाग शीर्षके"
 
 #: src/features/homepage/header.tsx
-msgid "Star PortoFit on GitHub, {count} stars"
-msgstr ""
+#~ msgid "Star PortoFit on GitHub, {count} stars"
+#~ msgstr ""
 
 #: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub (opens in new tab)"
-msgstr "GitHub वर आम्हाला स्टार द्या (नवीन टॅबमध्ये उघडतो)"
+#~ msgid "Star us on GitHub (opens in new tab)"
+#~ msgstr "GitHub वर आम्हाला स्टार द्या (नवीन टॅबमध्ये उघडतो)"
 
 #. placeholder {0}: starCount.toLocaleString()
 #: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
-msgstr "GitHub वर आम्हाला स्टार द्या, सध्या {0} स्टार आहेत (नवीन टॅबमध्ये उघडतो)"
+#~ msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
+#~ msgstr "GitHub वर आम्हाला स्टार द्या, सध्या {0} स्टार आहेत (नवीन टॅबमध्ये उघडतो)"
 
 #: src/components/level/combobox.tsx
 msgid "Stars"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
-msgid "Stars on GitHub"
-msgstr "GitHub वरील स्टार"
+#~ msgid "Stars on GitHub"
+#~ msgstr "GitHub वरील स्टार"
 
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "Start"

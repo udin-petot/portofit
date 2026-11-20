@@ -105,10 +105,6 @@ export function handleLlms(options?: StaticSeoOptions) {
 		`- [Agent skills](${baseUrl}/.well-known/agent-skills/index.json): eight job-search skills.`,
 		`- [Integrations](${baseUrl}/.well-known/integrations.json): every API surface with its authentication.`,
 		"",
-		"## Source",
-		"",
-		"- [Source code on GitHub](https://github.com/udin-petot/portofit)",
-		"",
 	].join("\n");
 
 	return textResponse(body, options);

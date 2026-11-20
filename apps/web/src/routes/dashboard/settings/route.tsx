@@ -2,7 +2,6 @@ import type { IconName } from "@reactive-resume/ui/components/icon";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
-import { Fragment } from "react";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { popTransition } from "@/features/settings/root";
 
@@ -19,11 +18,7 @@ const SETTINGS_PAGES: Page[] = [
 	{ to: "/dashboard/settings/ai", icon: "sparkle", label: () => t`AI` },
 ];
 
-// The project's own links: where to read up, see the code, help translate, report a problem or donate.
-const getProjectLinks = () => [
-	{ href: "https://github.com/udin-petot/portofit", label: t`Source` },
-	{ href: "https://github.com/udin-petot/portofit/issues", label: t`Report a bug` },
-];
+// The project's own links, kept out of the public marketing pages.
 
 export const Route = createFileRoute("/dashboard/settings")({ component: RouteComponent });
 
@@ -55,15 +50,6 @@ function RouteComponent() {
 				</div>
 				<p className="mt-auto px-2.5 text-xs leading-[18px] text-ink-3 max-lg:hidden">
 					<Trans>PortoFit {__APP_VERSION__} · MIT</Trans>
-					<br />
-					{getProjectLinks().map((link, index) => (
-						<Fragment key={link.href}>
-							{index > 0 && " · "}
-							<a className="underline" href={link.href} target="_blank" rel="noopener noreferrer">
-								{link.label}
-							</a>
-						</Fragment>
-					))}
 				</p>
 			</nav>
 

@@ -5647,8 +5647,8 @@ msgid "From a document you attached"
 msgstr "Dari dokumen yang Anda lampirkan"
 
 #: src/features/homepage/sections.tsx
-msgid "from developers who back it"
-msgstr "dari pengembang yang mendukungnya"
+#~ msgid "from developers who back it"
+#~ msgstr "dari pengembang yang mendukungnya"
 
 #: src/features/career/workspace/fit.tsx
 msgid "From Fit"
@@ -5712,6 +5712,10 @@ msgstr "Dapatkan masukan"
 #: src/features/career/workspace/practise.tsx
 msgid "Get feedback sends the question, your answer, this posting and your stories to {providerName}."
 msgstr "Dapatkan masukan mengirim pertanyaan, jawaban Anda, lowongan ini, dan cerita Anda ke {providerName}."
+
+#: src/features/homepage/sections.tsx
+msgid "Get help"
+msgstr "Dapatkan bantuan"
 
 #: src/features/homepage/footer.tsx
 msgid "Get started"
@@ -9220,8 +9224,8 @@ msgid "PortoFit is built by a student team as an entrepreneurship project on an 
 msgstr "PortoFit dikembangkan kelompok mahasiswa sebagai proyek kewirausahaan, dengan fondasi open source berlisensi MIT. Versi dasarnya gratis, dan ada paket berbayar murah untuk resume yang disesuaikan ke satu lowongan serta latihan wawancara. Tidak ada iklan dan tidak ada pelacak pihak ketiga."
 
 #: src/features/homepage/header.tsx
-msgid "PortoFit on GitHub"
-msgstr "PortoFit di GitHub"
+#~ msgid "PortoFit on GitHub"
+#~ msgstr "PortoFit di GitHub"
 
 #: src/libs/seo.ts
 msgid "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
@@ -10241,12 +10245,12 @@ msgstr "Balasan disalin"
 
 #: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "Report a bug"
-msgstr "Laporkan bug"
+#~ msgid "Report a bug"
+#~ msgstr "Laporkan bug"
 
 #: src/features/homepage/footer.tsx
-msgid "Report an issue"
-msgstr "Laporkan masalah"
+#~ msgid "Report an issue"
+#~ msgstr "Laporkan masalah"
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Require a password"
@@ -11670,13 +11674,12 @@ msgstr "Urutkan berdasarkan tanggal"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Source"
 msgstr "Sumber"
 
 #: src/features/homepage/footer.tsx
-msgid "Source code"
-msgstr "Kode sumber"
+#~ msgid "Source code"
+#~ msgstr "Kode sumber"
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -11751,25 +11754,25 @@ msgid "Standard section headings"
 msgstr "Judul bagian standar"
 
 #: src/features/homepage/header.tsx
-msgid "Star PortoFit on GitHub, {count} stars"
-msgstr "Beri bintang PortoFit di GitHub, {count} bintang"
+#~ msgid "Star PortoFit on GitHub, {count} stars"
+#~ msgstr "Beri bintang PortoFit di GitHub, {count} bintang"
 
 #: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub (opens in new tab)"
-msgstr "Beri bintang kami di GitHub (terbuka di tab baru)"
+#~ msgid "Star us on GitHub (opens in new tab)"
+#~ msgstr "Beri bintang kami di GitHub (terbuka di tab baru)"
 
 #. placeholder {0}: starCount.toLocaleString()
 #: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
-msgstr "Beri bintang kami di GitHub, saat ini {0} bintang (terbuka di tab baru)"
+#~ msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
+#~ msgstr "Beri bintang kami di GitHub, saat ini {0} bintang (terbuka di tab baru)"
 
 #: src/components/level/combobox.tsx
 msgid "Stars"
 msgstr "Bintang"
 
 #: src/features/homepage/sections.tsx
-msgid "Stars on GitHub"
-msgstr "Bintang di GitHub"
+#~ msgid "Stars on GitHub"
+#~ msgstr "Bintang di GitHub"
 
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "Start"

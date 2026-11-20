@@ -63,7 +63,7 @@ describe("web app fallback classification", () => {
 		expect(html).toContain(
 			'<meta property="og:description" content="Reactive Resume is a free and open-source resume builder that makes it easy to create, update, and share your resume.">',
 		);
-		expect(html).toContain('"sameAs":["https://github.com/udin-petot/portofit"]');
+		expect(html).not.toContain("github.com/udin-petot/portofit");
 		expect(html).not.toContain("amruth@rxresu.me");
 		expect(html).not.toContain("utm_source");
 

@@ -5646,8 +5646,8 @@ msgid "From a document you attached"
 msgstr "Iš pridėto dokumento"
 
 #: src/features/homepage/sections.tsx
-msgid "from developers who back it"
-msgstr "iš jį palaikančių kūrėjų"
+#~ msgid "from developers who back it"
+#~ msgstr "iš jį palaikančių kūrėjų"
 
 #: src/features/career/workspace/fit.tsx
 msgid "From Fit"
@@ -5711,6 +5711,10 @@ msgstr "Gauti atsiliepimą"
 #: src/features/career/workspace/practise.tsx
 msgid "Get feedback sends the question, your answer, this posting and your stories to {providerName}."
 msgstr "Paspaudus „Gauti atsiliepimą“, {providerName} gaus klausimą, jūsų atsakymą, šį skelbimą ir jūsų istorijas."
+
+#: src/features/homepage/sections.tsx
+msgid "Get help"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "Get started"
@@ -9219,8 +9223,8 @@ msgid "PortoFit is built by a student team as an entrepreneurship project on an 
 msgstr ""
 
 #: src/features/homepage/header.tsx
-msgid "PortoFit on GitHub"
-msgstr ""
+#~ msgid "PortoFit on GitHub"
+#~ msgstr ""
 
 #: src/libs/seo.ts
 msgid "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
@@ -10240,12 +10244,12 @@ msgstr "Atsakymas nukopijuotas"
 
 #: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "Report a bug"
-msgstr "Pranešti apie klaidą"
+#~ msgid "Report a bug"
+#~ msgstr "Pranešti apie klaidą"
 
 #: src/features/homepage/footer.tsx
-msgid "Report an issue"
-msgstr "Pranešti apie problemą"
+#~ msgid "Report an issue"
+#~ msgstr "Pranešti apie problemą"
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Require a password"
@@ -11669,13 +11673,12 @@ msgstr "Rūšiuoti pagal datą"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Source"
 msgstr "Šaltinis"
 
 #: src/features/homepage/footer.tsx
-msgid "Source code"
-msgstr "Šaltinio kodas"
+#~ msgid "Source code"
+#~ msgstr "Šaltinio kodas"
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -11750,25 +11753,25 @@ msgid "Standard section headings"
 msgstr "Standartinės skyrių antraštės"
 
 #: src/features/homepage/header.tsx
-msgid "Star PortoFit on GitHub, {count} stars"
-msgstr ""
+#~ msgid "Star PortoFit on GitHub, {count} stars"
+#~ msgstr ""
 
 #: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub (opens in new tab)"
-msgstr "Pridėkite žvaigždutę „GitHub“ (atidaro naujame skirtuke)"
+#~ msgid "Star us on GitHub (opens in new tab)"
+#~ msgstr "Pridėkite žvaigždutę „GitHub“ (atidaro naujame skirtuke)"
 
 #. placeholder {0}: starCount.toLocaleString()
 #: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
-msgstr "Pridėkite žvaigždutę „GitHub“, šiuo metu {0} žvaigždutės (atidaro naujame skirtuke)"
+#~ msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
+#~ msgstr "Pridėkite žvaigždutę „GitHub“, šiuo metu {0} žvaigždutės (atidaro naujame skirtuke)"
 
 #: src/components/level/combobox.tsx
 msgid "Stars"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
-msgid "Stars on GitHub"
-msgstr "Žvaigždutės GitHub"
+#~ msgid "Stars on GitHub"
+#~ msgstr "Žvaigždutės GitHub"
 
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "Start"

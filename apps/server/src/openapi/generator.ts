@@ -87,7 +87,7 @@ export async function generateOpenApiSpec({ appUrl, version }: GenerateOpenApiSp
 			version,
 			description:
 				"PortoFit API. Mutations do not support Idempotency-Key. Do not automatically retry POST, PUT, PATCH or DELETE requests after a timeout: first read the resource to determine whether the operation succeeded. Existing enum values and response shapes are retained for compatibility.",
-			license: { name: "MIT", url: "https://github.com/udin-petot/portofit/blob/main/LICENSE" },
+			license: { name: "MIT", url: `${appUrl}/lisensi` },
 			contact: { name: "PortoFit", url: "https://www.portofit.tech" },
 		},
 		servers: [{ url: `${appUrl}/api/openapi` }],

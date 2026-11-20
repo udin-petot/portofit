@@ -5646,8 +5646,8 @@ msgid "From a document you attached"
 msgstr "З документа, який ви додали"
 
 #: src/features/homepage/sections.tsx
-msgid "from developers who back it"
-msgstr "від розробників, які його підтримують"
+#~ msgid "from developers who back it"
+#~ msgstr "від розробників, які його підтримують"
 
 #: src/features/career/workspace/fit.tsx
 msgid "From Fit"
@@ -5711,6 +5711,10 @@ msgstr "Отримати відгук"
 #: src/features/career/workspace/practise.tsx
 msgid "Get feedback sends the question, your answer, this posting and your stories to {providerName}."
 msgstr "«Отримати відгук» надсилає запитання, вашу відповідь, це оголошення та ваші розповіді через {providerName}."
+
+#: src/features/homepage/sections.tsx
+msgid "Get help"
+msgstr ""
 
 #: src/features/homepage/footer.tsx
 msgid "Get started"
@@ -9219,8 +9223,8 @@ msgid "PortoFit is built by a student team as an entrepreneurship project on an 
 msgstr ""
 
 #: src/features/homepage/header.tsx
-msgid "PortoFit on GitHub"
-msgstr ""
+#~ msgid "PortoFit on GitHub"
+#~ msgstr ""
 
 #: src/libs/seo.ts
 msgid "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
@@ -10240,12 +10244,12 @@ msgstr "Відповідь скопійовано"
 
 #: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "Report a bug"
-msgstr "Повідомити про помилку"
+#~ msgid "Report a bug"
+#~ msgstr "Повідомити про помилку"
 
 #: src/features/homepage/footer.tsx
-msgid "Report an issue"
-msgstr "Повідомити про проблему"
+#~ msgid "Report an issue"
+#~ msgstr "Повідомити про проблему"
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Require a password"
@@ -11669,13 +11673,12 @@ msgstr "Сортувати за датою"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Source"
 msgstr "Джерело"
 
 #: src/features/homepage/footer.tsx
-msgid "Source code"
-msgstr "Вихідний код"
+#~ msgid "Source code"
+#~ msgstr "Вихідний код"
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -11750,25 +11753,25 @@ msgid "Standard section headings"
 msgstr "Стандартні заголовки розділів"
 
 #: src/features/homepage/header.tsx
-msgid "Star PortoFit on GitHub, {count} stars"
-msgstr ""
+#~ msgid "Star PortoFit on GitHub, {count} stars"
+#~ msgstr ""
 
 #: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub (opens in new tab)"
-msgstr "Поставте нам зірку на GitHub (відкриється у новій вкладці)"
+#~ msgid "Star us on GitHub (opens in new tab)"
+#~ msgstr "Поставте нам зірку на GitHub (відкриється у новій вкладці)"
 
 #. placeholder {0}: starCount.toLocaleString()
 #: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
-msgstr "Поставте нам зірку на GitHub, наразі {0} зірок (відкриється у новій вкладці)"
+#~ msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
+#~ msgstr "Поставте нам зірку на GitHub, наразі {0} зірок (відкриється у новій вкладці)"
 
 #: src/components/level/combobox.tsx
 msgid "Stars"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
-msgid "Stars on GitHub"
-msgstr "Зірки на GitHub"
+#~ msgid "Stars on GitHub"
+#~ msgstr "Зірки на GitHub"
 
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "Start"

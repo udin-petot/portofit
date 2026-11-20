@@ -14,8 +14,6 @@ import { CtaLink, Doodle, labelClass } from "./ui";
 import { formatRupiah } from "@/features/billing/config";
 import { orpc } from "@/libs/orpc/client";
 
-const githubUrl = "https://github.com/udin-petot/portofit";
-// The statistics service caches the totals for six hours.
 const statisticsStaleTime = 6 * 60 * 60 * 1000;
 // A fresh self-hosted install has a handful of users; a total that small reads as a joke, so it isn't shown.
 const smallestTotalShown = 100;
@@ -67,15 +65,13 @@ function RollingNumber({ value, roll, delay }: RollingNumberProps) {
 export function Numbers() {
 	const inView = useLanding((state) => state.numbersInView);
 	const totals = useQuery(orpc.statistics.getTotals.queryOptions({ staleTime: statisticsStaleTime }));
-	const stars = useQuery(orpc.statistics.github.getStarCount.queryOptions({ staleTime: statisticsStaleTime }));
 	// Both totals arrive after the page loads. Drawing the section before they land leaves the server HTML with
-	// "Stars on GitHub" and an em dash, which crawlers and link previews quote even though the visitor, whose
-	// client filters the small totals out, never sees it. So nothing is drawn until both answers are in.
-	if (totals.data == null || stars.data == null) return null;
+	// empty figures, which crawlers and link previews quote even though the visitor, whose client filters the
+	// small totals out, never sees it. So nothing is drawn until the answer is in.
+	if (totals.data == null) return null;
 	const rows = [
 		{ label: t`People using it`, detail: t`writing, tailoring and sending`, value: totals.data.users },
 		{ label: t`Resumes created`, detail: t`and counting`, value: totals.data.resumes },
-		{ label: t`Stars on GitHub`, detail: t`from developers who back it`, value: stars.data },
 	].filter((row) => row.value >= smallestTotalShown);
 	if (rows.length === 0) return null;
 
@@ -231,7 +227,7 @@ export function Support() {
 		[t`Tracking`, none],
 	] as const;
 	const pills: { href: string; icon: IconName; label: string }[] = [
-		{ href: `${githubUrl}/issues`, icon: "bug", label: t`Report a bug` },
+		{ href: "/bantuan", icon: "question", label: t`Get help` },
 	];
 
 	return (

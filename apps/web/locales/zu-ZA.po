@@ -5641,8 +5641,8 @@ msgid "From a document you attached"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
-msgid "from developers who back it"
-msgstr "ezivela konjiniyela abayisekelayo"
+#~ msgid "from developers who back it"
+#~ msgstr "ezivela konjiniyela abayisekelayo"
 
 #: src/features/career/workspace/fit.tsx
 msgid "From Fit"
@@ -5705,6 +5705,10 @@ msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Get feedback sends the question, your answer, this posting and your stories to {providerName}."
+msgstr ""
+
+#: src/features/homepage/sections.tsx
+msgid "Get help"
 msgstr ""
 
 #: src/features/homepage/footer.tsx
@@ -9214,8 +9218,8 @@ msgid "PortoFit is built by a student team as an entrepreneurship project on an 
 msgstr ""
 
 #: src/features/homepage/header.tsx
-msgid "PortoFit on GitHub"
-msgstr ""
+#~ msgid "PortoFit on GitHub"
+#~ msgstr ""
 
 #: src/libs/seo.ts
 msgid "PortoFit prepares your job application in one flow: build a resume, check how systems read it, match it to a job, then practise interviews. Start free, no ads."
@@ -10235,12 +10239,12 @@ msgstr ""
 
 #: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "Report a bug"
-msgstr ""
+#~ msgid "Report a bug"
+#~ msgstr ""
 
 #: src/features/homepage/footer.tsx
-msgid "Report an issue"
-msgstr ""
+#~ msgid "Report an issue"
+#~ msgstr ""
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Require a password"
@@ -11664,13 +11668,12 @@ msgstr ""
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/career/knowledge/facts.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Source"
 msgstr ""
 
 #: src/features/homepage/footer.tsx
-msgid "Source code"
-msgstr ""
+#~ msgid "Source code"
+#~ msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -11745,25 +11748,25 @@ msgid "Standard section headings"
 msgstr ""
 
 #: src/features/homepage/header.tsx
-msgid "Star PortoFit on GitHub, {count} stars"
-msgstr ""
+#~ msgid "Star PortoFit on GitHub, {count} stars"
+#~ msgstr ""
 
 #: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub (opens in new tab)"
-msgstr ""
+#~ msgid "Star us on GitHub (opens in new tab)"
+#~ msgstr ""
 
 #. placeholder {0}: starCount.toLocaleString()
 #: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
-msgstr ""
+#~ msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
+#~ msgstr ""
 
 #: src/components/level/combobox.tsx
 msgid "Stars"
 msgstr ""
 
 #: src/features/homepage/sections.tsx
-msgid "Stars on GitHub"
-msgstr "Izinkanyezi ku-GitHub"
+#~ msgid "Stars on GitHub"
+#~ msgstr "Izinkanyezi ku-GitHub"
 
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "Start"

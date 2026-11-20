@@ -120,10 +120,9 @@ const BASE_SECURITY_HEADERS = {
 		"default-src 'self'; img-src 'self' data: blob:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'",
 };
 
-const githubUrl = "https://github.com/udin-petot/portofit";
+const ROOT_TITLE = "PortoFit — Job preparation from resume to interview";
 // Fallback copy for a build without prerendered pages; a prerendered page carries its own locale's title and
 // description, and the social cards reuse them.
-const ROOT_TITLE = "PortoFit — Job preparation from resume to interview";
 const ROOT_DESCRIPTION =
 	"PortoFit prepares your job application in one flow: build a resume, match it to a job, then practise interviews. Start free, no ads.";
 const ATS_CHECKER_TITLE = "Free ATS resume checker — PortoFit";
@@ -158,7 +157,6 @@ function organization(origin: string): StructuredData {
 		name: "PortoFit",
 		url: `${origin}/`,
 		logo: { "@type": "ImageObject", url: `${origin}/pwa-512x512.png`, width: 512, height: 512 },
-		sameAs: [githubUrl],
 	};
 }
 
@@ -184,8 +182,7 @@ function homepageStructuredData(origin: string): StructuredData {
 				operatingSystem: "Web",
 				isAccessibleForFree: true,
 				offers: { "@type": "Offer", price: "0", priceCurrency: "IDR" },
-				license: `${githubUrl}/blob/main/LICENSE`,
-				codeRepository: githubUrl,
+				license: `${origin}/lisensi`,
 				publisher: { "@id": `${origin}/#organization` },
 				featureList: [
 					"Resume editor with a live page preview",
