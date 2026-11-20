@@ -1500,7 +1500,7 @@ msgstr "Admin"
 #~ msgid "Admin is online 06.00–22.00 WIB. Payment proofs are checked by hand in that window; anything sent after hours is checked the next morning. An order with an uploaded proof does not expire."
 #~ msgstr "Admin online jam 06.00–22.00 WIB. Bukti bayar dicek manual pada jam itu; bukti yang masuk di luar jam itu dicek pagi berikutnya. Pesanan yang buktinya sudah terunggah tidak hangus."
 
-#: src/routes/dashboard/beli-kredit.tsx
+#: src/features/billing/pricing.tsx
 msgid "Admin is online 06.00–22.00 WIB. Payment proofs are checked by hand in that window. Anything sent after hours is checked the next morning."
 msgstr "Admin online jam 06.00–22.00 WIB. Bukti bayar dicek manual pada jam itu, bukti yang masuk di luar jam itu dicek pagi berikutnya."
 
@@ -5501,6 +5501,10 @@ msgstr "Pemeriksa resume ATS gratis"
 msgid "Free Coach messages are used up."
 msgstr "Pesan Coach gratis sudah habis."
 
+#: src/features/homepage/sections.tsx
+msgid "Free to <0>start.</0>"
+msgstr "Gratis untuk <0>mulai.</0>"
+
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
 msgstr "Bebas dilihat. Tidak perlu akun untuk melihat."
@@ -6472,8 +6476,8 @@ msgid "Keep in Trash"
 msgstr "Simpan di Sampah"
 
 #: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "Bantu agar tetap <0>gratis.</0>"
+#~ msgid "Keep it <0>free.</0>"
+#~ msgstr "Bantu agar tetap <0>gratis.</0>"
 
 #: src/features/billing/invoice-sheet.tsx
 msgid "Keep it as proof of payment. The number is issued once an admin checks the payment, and it does not change when a package price changes later."

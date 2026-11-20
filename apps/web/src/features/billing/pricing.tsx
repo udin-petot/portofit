@@ -176,6 +176,12 @@ export function HowToPay({ collapsible = false }: { collapsible?: boolean }) {
 				<li>{t`2. Scan the QRIS and pay the exact amount down to the last three digits.`}</li>
 				<li>{t`3. Upload the proof in the same window. Credits land once an admin checks it.`}</li>
 			</ol>
+			<p className="mt-3 rounded-lg border border-line bg-sunken px-3 py-2.5 text-[12px] leading-5 text-ink-2">
+				<Trans>
+					Admin is online 06.00–22.00 WIB. Payment proofs are checked by hand in that window. Anything sent after
+					hours is checked the next morning.
+				</Trans>
+			</p>
 			<p className="mt-3 text-[11.5px] leading-5 text-ink-3">
 				{t`One application credit covers one Prepare this application: a tailored resume, a cover letter and a match score for one job. One interview credit covers one practice session for one interview. Credits do not expire.`}
 			</p>

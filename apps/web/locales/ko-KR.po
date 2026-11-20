@@ -1499,7 +1499,7 @@ msgstr ""
 #~ msgid "Admin is online 06.00–22.00 WIB. Payment proofs are checked by hand in that window; anything sent after hours is checked the next morning. An order with an uploaded proof does not expire."
 #~ msgstr ""
 
-#: src/routes/dashboard/beli-kredit.tsx
+#: src/features/billing/pricing.tsx
 msgid "Admin is online 06.00–22.00 WIB. Payment proofs are checked by hand in that window. Anything sent after hours is checked the next morning."
 msgstr ""
 
@@ -5500,6 +5500,10 @@ msgstr "무료 ATS 이력서 검사기"
 msgid "Free Coach messages are used up."
 msgstr ""
 
+#: src/features/homepage/sections.tsx
+msgid "Free to <0>start.</0>"
+msgstr ""
+
 #: src/routes/templates/$.tsx
 msgid "Free to browse. No account needed to look around."
 msgstr ""
@@ -6471,8 +6475,8 @@ msgid "Keep in Trash"
 msgstr "휴지통에 보관"
 
 #: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "계속 <0>무료로</0> 이용할 수 있도록 도와주세요."
+#~ msgid "Keep it <0>free.</0>"
+#~ msgstr "계속 <0>무료로</0> 이용할 수 있도록 도와주세요."
 
 #: src/features/billing/invoice-sheet.tsx
 msgid "Keep it as proof of payment. The number is issued once an admin checks the payment, and it does not change when a package price changes later."

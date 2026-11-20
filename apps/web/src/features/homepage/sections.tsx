@@ -254,7 +254,7 @@ export function Support() {
 					className="font-anybody text-[clamp(48px,5.6vw,100px)] leading-[.98] font-light tracking-[-.03em] text-ink"
 				>
 					<Trans>
-						Keep it <em className="font-display font-normal text-accent-text italic">free.</em>
+						Free to <em className="font-display font-normal text-accent-text italic">start.</em>
 					</Trans>
 				</h2>
 				<p className="max-w-[28em] font-display text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
