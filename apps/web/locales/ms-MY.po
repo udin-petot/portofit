@@ -1098,6 +1098,10 @@ msgstr "Pencapaian"
 msgid "Account"
 msgstr "Akaun"
 
+#: src/features/auth/pages/register.tsx
+msgid "Account created. You can verify your email from the dashboard."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 #: src/features/homepage/remember.tsx
 msgid "Action"
@@ -2749,8 +2753,8 @@ msgid "Check your email for a link to reset your password."
 msgstr "Semak e-mel anda untuk pautan bagi menetapkan semula kata laluan anda."
 
 #: src/features/auth/pages/register.tsx
-msgid "Check your email for a link to verify your account."
-msgstr "Semak e-mel anda untuk pautan bagi mengesahkan akaun anda."
+#~ msgid "Check your email for a link to verify your account."
+#~ msgstr "Semak e-mel anda untuk pautan bagi mengesahkan akaun anda."
 
 #: src/features/billing/invoice-sheet.tsx
 msgid "Checked by hand"
@@ -3222,12 +3226,10 @@ msgstr "Kandungan"
 msgid "Content is laid out in a grid."
 msgstr "Kandungan disusun dalam grid."
 
-#. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
 #. Primary action button to proceed to next step in two-factor setup
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/assistant/conversation.tsx
-#: src/features/auth/pages/register.tsx
 msgid "Continue"
 msgstr "Teruskan"
 
@@ -3746,6 +3748,7 @@ msgstr "Tidak dapat menyimpan. Cuba lagi."
 msgid "Couldn't schedule the interview."
 msgstr "Tidak dapat menjadualkan temu duga."
 
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Couldn't send the email. Try again."
 msgstr "Tidak dapat menghantar e-mel. Cuba lagi."
@@ -4794,6 +4797,10 @@ msgstr "Alamat E-mel"
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
 msgstr "Alamat e-mel tidak akan dikenali"
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Email delivery isn't set up on this server, so the address can't be verified yet."
+msgstr ""
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -10936,6 +10943,10 @@ msgstr ""
 msgid "Send the resume itself rather than a portfolio wrapper."
 msgstr "Hantar resume itu sendiri dan bukannya pembungkus portfolio."
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Send verification link"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Sender details copied into the letter"
 msgstr "Butiran pengirim disalin ke dalam surat"
@@ -12794,8 +12805,8 @@ msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "Percubaan log masuk ini telah tamat tempoh atau telah digunakan. Sila mulakan semula."
 
 #: src/features/auth/pages/register.tsx
-msgid "This step is optional, but recommended."
-msgstr "Langkah ini adalah pilihan, tetapi digalakkan."
+#~ msgid "This step is optional, but recommended."
+#~ msgstr "Langkah ini adalah pilihan, tetapi digalakkan."
 
 #: src/features/career/workspace/practise.tsx
 msgid "This story is unavailable or uses facts that are switched off."
@@ -13588,6 +13599,10 @@ msgstr "Sahkan"
 msgid "Verify with a Backup Code"
 msgstr "Sahkan dengan Kod Sandaran"
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Verify your email"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Verify your email in Settings first"
 msgstr "Sahkan e-mel anda dalam Tetapan dahulu"
@@ -13609,8 +13624,8 @@ msgid "Verifying password..."
 msgstr "Mengesahkan kata laluan..."
 
 #: src/features/auth/pages/register.tsx
-msgid "Verifying your email confirms that you own this address."
-msgstr "Mengesahkan e-mel anda mengesahkan bahawa anda memiliki alamat ini."
+#~ msgid "Verifying your email confirms that you own this address."
+#~ msgstr "Mengesahkan e-mel anda mengesahkan bahawa anda memiliki alamat ini."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Version sent {date}"
@@ -13743,6 +13758,7 @@ msgid "We sent a confirmation link to {email}. Open it to finish the change."
 msgstr "Kami menghantar pautan pengesahan ke {email}. Bukanya untuk menyelesaikan perubahan."
 
 #. placeholder {0}: user.email
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "We sent a new verification link to {0}."
 msgstr "Kami menghantar pautan pengesahan baharu ke {0}."
@@ -14316,13 +14332,16 @@ msgid "You're using a guest account"
 msgstr "Anda menggunakan akaun tetamu"
 
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/register.tsx
 msgid "You've got mail!"
 msgstr "Anda telah menerima emel!"
 
 #: src/features/settings/account/data.tsx
 msgid "Your account was deleted."
 msgstr "Akaun anda telah dipadamkan."
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Your account works now. Verifying the address confirms it is yours and keeps password recovery working."
+msgstr ""
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Your AI"

@@ -1098,6 +1098,10 @@ msgstr "Достижение"
 msgid "Account"
 msgstr "Аккаунт"
 
+#: src/features/auth/pages/register.tsx
+msgid "Account created. You can verify your email from the dashboard."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 #: src/features/homepage/remember.tsx
 msgid "Action"
@@ -2749,8 +2753,8 @@ msgid "Check your email for a link to reset your password."
 msgstr "Проверьте свою электронную почту: в письме есть ссылка для сброса пароля."
 
 #: src/features/auth/pages/register.tsx
-msgid "Check your email for a link to verify your account."
-msgstr "Проверьте свою электронную почту: в письме есть ссылка для подтверждения учетной записи."
+#~ msgid "Check your email for a link to verify your account."
+#~ msgstr "Проверьте свою электронную почту: в письме есть ссылка для подтверждения учетной записи."
 
 #: src/features/billing/invoice-sheet.tsx
 msgid "Checked by hand"
@@ -3222,12 +3226,10 @@ msgstr "Содержание"
 msgid "Content is laid out in a grid."
 msgstr "Содержимое расположено в виде сетки."
 
-#. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
 #. Primary action button to proceed to next step in two-factor setup
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/assistant/conversation.tsx
-#: src/features/auth/pages/register.tsx
 msgid "Continue"
 msgstr "Продолжить"
 
@@ -3746,6 +3748,7 @@ msgstr "Не удалось сохранить. Попробуйте еще ра
 msgid "Couldn't schedule the interview."
 msgstr "Не удалось назначить интервью."
 
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Couldn't send the email. Try again."
 msgstr "Не удалось отправить письмо. Попробуйте еще раз."
@@ -4794,6 +4797,10 @@ msgstr "Адрес электронной почты"
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
 msgstr "Адрес электронной почты не будет распознан"
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Email delivery isn't set up on this server, so the address can't be verified yet."
+msgstr ""
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -10936,6 +10943,10 @@ msgstr ""
 msgid "Send the resume itself rather than a portfolio wrapper."
 msgstr "Отправляйте само резюме, а не обёртку в виде портфолио."
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Send verification link"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Sender details copied into the letter"
 msgstr "Данные отправителя скопированы в письмо"
@@ -12794,8 +12805,8 @@ msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "Срок действия этой попытки входа истёк или она уже использована. Начните заново."
 
 #: src/features/auth/pages/register.tsx
-msgid "This step is optional, but recommended."
-msgstr "Этот шаг не обязателен, но рекомендуется."
+#~ msgid "This step is optional, but recommended."
+#~ msgstr "Этот шаг не обязателен, но рекомендуется."
 
 #: src/features/career/workspace/practise.tsx
 msgid "This story is unavailable or uses facts that are switched off."
@@ -13588,6 +13599,10 @@ msgstr "Подтвердить"
 msgid "Verify with a Backup Code"
 msgstr "Подтвердить с помощью резервного кода"
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Verify your email"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Verify your email in Settings first"
 msgstr "Сначала подтвердите почту в настройках"
@@ -13609,8 +13624,8 @@ msgid "Verifying password..."
 msgstr "Проверка пароля..."
 
 #: src/features/auth/pages/register.tsx
-msgid "Verifying your email confirms that you own this address."
-msgstr "Проверка электронной почты подтверждает, что вы являетесь владельцем этого адреса."
+#~ msgid "Verifying your email confirms that you own this address."
+#~ msgstr "Проверка электронной почты подтверждает, что вы являетесь владельцем этого адреса."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Version sent {date}"
@@ -13743,6 +13758,7 @@ msgid "We sent a confirmation link to {email}. Open it to finish the change."
 msgstr "Мы отправили ссылку для подтверждения на {email}. Откройте его, чтобы завершить изменение."
 
 #. placeholder {0}: user.email
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "We sent a new verification link to {0}."
 msgstr "Мы отправили новую ссылку для подтверждения на {0}."
@@ -14316,13 +14332,16 @@ msgid "You're using a guest account"
 msgstr "Вы используете гостевой аккаунт"
 
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/register.tsx
 msgid "You've got mail!"
 msgstr "Вы получили письмо!"
 
 #: src/features/settings/account/data.tsx
 msgid "Your account was deleted."
 msgstr "Ваш аккаунт был удален."
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Your account works now. Verifying the address confirms it is yours and keeps password recovery working."
+msgstr ""
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Your AI"

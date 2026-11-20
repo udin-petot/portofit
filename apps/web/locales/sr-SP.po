@@ -1098,6 +1098,10 @@ msgstr "Достигнуће"
 msgid "Account"
 msgstr "Налог"
 
+#: src/features/auth/pages/register.tsx
+msgid "Account created. You can verify your email from the dashboard."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 #: src/features/homepage/remember.tsx
 msgid "Action"
@@ -2749,8 +2753,8 @@ msgid "Check your email for a link to reset your password."
 msgstr "Проверите е-пошту за везу за ресетовање лозинке."
 
 #: src/features/auth/pages/register.tsx
-msgid "Check your email for a link to verify your account."
-msgstr "Проверите е-пошту за везу да верификујете налог."
+#~ msgid "Check your email for a link to verify your account."
+#~ msgstr "Проверите е-пошту за везу да верификујете налог."
 
 #: src/features/billing/invoice-sheet.tsx
 msgid "Checked by hand"
@@ -3222,12 +3226,10 @@ msgstr "Садржај"
 msgid "Content is laid out in a grid."
 msgstr "Садржај је распоређен у мрежи."
 
-#. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
 #. Primary action button to proceed to next step in two-factor setup
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/assistant/conversation.tsx
-#: src/features/auth/pages/register.tsx
 msgid "Continue"
 msgstr "Настави"
 
@@ -3746,6 +3748,7 @@ msgstr "Није могуће сачувати. Покушајте поново.
 msgid "Couldn't schedule the interview."
 msgstr "Нисам могао да закажем интервју."
 
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Couldn't send the email. Try again."
 msgstr "Није могуће послати имејл. Покушајте поново."
@@ -4794,6 +4797,10 @@ msgstr "Адреса е-поште"
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
 msgstr "Адреса е-поште неће бити препозната"
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Email delivery isn't set up on this server, so the address can't be verified yet."
+msgstr ""
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -10936,6 +10943,10 @@ msgstr ""
 msgid "Send the resume itself rather than a portfolio wrapper."
 msgstr "Пошаљите саму биографију, а не портфолио омот."
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Send verification link"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Sender details copied into the letter"
 msgstr "Детаљи пошиљаоца су копирани у писмо"
@@ -12794,8 +12805,8 @@ msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "Овај покушај пријављивања је истекао или је већ искоришћен. Почните поново."
 
 #: src/features/auth/pages/register.tsx
-msgid "This step is optional, but recommended."
-msgstr "Овај корак је опционо, али препоручен."
+#~ msgid "This step is optional, but recommended."
+#~ msgstr "Овај корак је опционо, али препоручен."
 
 #: src/features/career/workspace/practise.tsx
 msgid "This story is unavailable or uses facts that are switched off."
@@ -13588,6 +13599,10 @@ msgstr "Верификуј"
 msgid "Verify with a Backup Code"
 msgstr "Верификуј резервним кôдом"
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Verify your email"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Verify your email in Settings first"
 msgstr "Прво потврдите имејл у Подешавањима"
@@ -13609,8 +13624,8 @@ msgid "Verifying password..."
 msgstr "Провера лозинке..."
 
 #: src/features/auth/pages/register.tsx
-msgid "Verifying your email confirms that you own this address."
-msgstr "Верификација ваше е-поште потврђује да сте власник ове адресе."
+#~ msgid "Verifying your email confirms that you own this address."
+#~ msgstr "Верификација ваше е-поште потврђује да сте власник ове адресе."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Version sent {date}"
@@ -13743,6 +13758,7 @@ msgid "We sent a confirmation link to {email}. Open it to finish the change."
 msgstr "Послали смо везу за потврду на {email}. Отворите га да бисте завршили промену."
 
 #. placeholder {0}: user.email
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "We sent a new verification link to {0}."
 msgstr "Послали смо нову везу за верификацију на {0}."
@@ -14316,13 +14332,16 @@ msgid "You're using a guest account"
 msgstr "Користите налог госта"
 
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/register.tsx
 msgid "You've got mail!"
 msgstr "Стигла вам је пошта!"
 
 #: src/features/settings/account/data.tsx
 msgid "Your account was deleted."
 msgstr "Ваш налог је избрисан."
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Your account works now. Verifying the address confirms it is yours and keeps password recovery working."
+msgstr ""
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Your AI"

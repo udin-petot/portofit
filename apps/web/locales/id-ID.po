@@ -1099,6 +1099,10 @@ msgstr "Pencapaian"
 msgid "Account"
 msgstr "Akun"
 
+#: src/features/auth/pages/register.tsx
+msgid "Account created. You can verify your email from the dashboard."
+msgstr "Akun dibuat. Verifikasi email bisa dilakukan dari dasbor."
+
 #: src/features/career/knowledge/stories.tsx
 #: src/features/homepage/remember.tsx
 msgid "Action"
@@ -2750,8 +2754,8 @@ msgid "Check your email for a link to reset your password."
 msgstr "Periksa email Anda untuk tautan mengatur ulang kata sandi."
 
 #: src/features/auth/pages/register.tsx
-msgid "Check your email for a link to verify your account."
-msgstr "Periksa email Anda untuk tautan memverifikasi akun Anda."
+#~ msgid "Check your email for a link to verify your account."
+#~ msgstr "Periksa email Anda untuk tautan memverifikasi akun Anda."
 
 #: src/features/billing/invoice-sheet.tsx
 msgid "Checked by hand"
@@ -3223,12 +3227,10 @@ msgstr "Konten"
 msgid "Content is laid out in a grid."
 msgstr "Konten ditata dalam bentuk kisi."
 
-#. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
 #. Primary action button to proceed to next step in two-factor setup
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/assistant/conversation.tsx
-#: src/features/auth/pages/register.tsx
 msgid "Continue"
 msgstr "Lanjutkan"
 
@@ -3747,6 +3749,7 @@ msgstr "Tidak dapat menyimpan. Coba lagi."
 msgid "Couldn't schedule the interview."
 msgstr "Tidak dapat menjadwalkan wawancara."
 
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Couldn't send the email. Try again."
 msgstr "Tidak dapat mengirim email. Coba lagi."
@@ -4795,6 +4798,10 @@ msgstr "Email"
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
 msgstr "Alamat email tidak akan dikenali"
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Email delivery isn't set up on this server, so the address can't be verified yet."
+msgstr "Pengiriman email belum disiapkan di server ini, jadi alamat belum bisa diverifikasi."
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -10937,6 +10944,10 @@ msgstr "Kirim bukti lewat WhatsApp"
 msgid "Send the resume itself rather than a portfolio wrapper."
 msgstr "Kirim resume itu sendiri, bukan berkas portofolio pembungkusnya."
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Send verification link"
+msgstr "Kirim tautan verifikasi"
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Sender details copied into the letter"
 msgstr "Detail pengirim disalin ke dalam surat"
@@ -12795,8 +12806,8 @@ msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "Upaya masuk ini kedaluwarsa atau sudah digunakan. Silakan mulai lagi."
 
 #: src/features/auth/pages/register.tsx
-msgid "This step is optional, but recommended."
-msgstr "Langkah ini opsional, tetapi direkomendasikan."
+#~ msgid "This step is optional, but recommended."
+#~ msgstr "Langkah ini opsional, tetapi direkomendasikan."
 
 #: src/features/career/workspace/practise.tsx
 msgid "This story is unavailable or uses facts that are switched off."
@@ -13589,6 +13600,10 @@ msgstr "Verifikasi"
 msgid "Verify with a Backup Code"
 msgstr "Verifikasi dengan Kode Cadangan"
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Verify your email"
+msgstr "Verifikasi email"
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Verify your email in Settings first"
 msgstr "Verifikasi email Anda di Pengaturan terlebih dahulu"
@@ -13610,8 +13625,8 @@ msgid "Verifying password..."
 msgstr "Memverifikasi kata sandi..."
 
 #: src/features/auth/pages/register.tsx
-msgid "Verifying your email confirms that you own this address."
-msgstr "Memverifikasi email Anda mengonfirmasi bahwa Anda pemilik alamat ini."
+#~ msgid "Verifying your email confirms that you own this address."
+#~ msgstr "Memverifikasi email Anda mengonfirmasi bahwa Anda pemilik alamat ini."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Version sent {date}"
@@ -13744,6 +13759,7 @@ msgid "We sent a confirmation link to {email}. Open it to finish the change."
 msgstr "Kami mengirimkan link konfirmasi ke {email}. Buka untuk menyelesaikan perubahan."
 
 #. placeholder {0}: user.email
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "We sent a new verification link to {0}."
 msgstr "Kami mengirimkan tautan verifikasi baru ke {0}."
@@ -14317,13 +14333,16 @@ msgid "You're using a guest account"
 msgstr "Anda menggunakan akun tamu"
 
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/register.tsx
 msgid "You've got mail!"
 msgstr "Anda mendapat email!"
 
 #: src/features/settings/account/data.tsx
 msgid "Your account was deleted."
 msgstr "Akun Anda telah dihapus."
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Your account works now. Verifying the address confirms it is yours and keeps password recovery working."
+msgstr "Akun sudah bisa dipakai. Verifikasi alamat memastikan alamat ini milik Anda dan menjaga pemulihan kata sandi tetap berfungsi."
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Your AI"

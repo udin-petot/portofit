@@ -1098,6 +1098,10 @@ msgstr "Prestasie"
 msgid "Account"
 msgstr "Rekening"
 
+#: src/features/auth/pages/register.tsx
+msgid "Account created. You can verify your email from the dashboard."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 #: src/features/homepage/remember.tsx
 msgid "Action"
@@ -2749,8 +2753,8 @@ msgid "Check your email for a link to reset your password."
 msgstr "Gaan jou e-pos na vir 'n skakel om jou wagwoord te herstel."
 
 #: src/features/auth/pages/register.tsx
-msgid "Check your email for a link to verify your account."
-msgstr "Gaan jou e-pos na vir 'n skakel om jou rekening te verifieer."
+#~ msgid "Check your email for a link to verify your account."
+#~ msgstr "Gaan jou e-pos na vir 'n skakel om jou rekening te verifieer."
 
 #: src/features/billing/invoice-sheet.tsx
 msgid "Checked by hand"
@@ -3222,12 +3226,10 @@ msgstr "Inhoud"
 msgid "Content is laid out in a grid."
 msgstr "Inhoud is in 'n rooster uitgelê."
 
-#. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
 #. Primary action button to proceed to next step in two-factor setup
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/assistant/conversation.tsx
-#: src/features/auth/pages/register.tsx
 msgid "Continue"
 msgstr "Gaan voort"
 
@@ -3746,6 +3748,7 @@ msgstr "Kon nie stoor nie. Probeer weer."
 msgid "Couldn't schedule the interview."
 msgstr "Kon nie die onderhoud skeduleer nie."
 
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Couldn't send the email. Try again."
 msgstr "Kon nie die e-pos stuur nie. Probeer weer."
@@ -4794,6 +4797,10 @@ msgstr "E-posadres"
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
 msgstr "E-posadres sal nie herken word nie"
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Email delivery isn't set up on this server, so the address can't be verified yet."
+msgstr ""
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -10936,6 +10943,10 @@ msgstr ""
 msgid "Send the resume itself rather than a portfolio wrapper."
 msgstr "Stuur die CV self eerder as 'n portefeulje-omhulsel."
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Send verification link"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Sender details copied into the letter"
 msgstr "Senderbesonderhede in die brief gekopieer"
@@ -12794,8 +12805,8 @@ msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "Hierdie aanmeldingspoging het verval of is reeds gebruik. Begin asseblief weer."
 
 #: src/features/auth/pages/register.tsx
-msgid "This step is optional, but recommended."
-msgstr "Hierdie stap is opsioneel, maar word aanbeveel."
+#~ msgid "This step is optional, but recommended."
+#~ msgstr "Hierdie stap is opsioneel, maar word aanbeveel."
 
 #: src/features/career/workspace/practise.tsx
 msgid "This story is unavailable or uses facts that are switched off."
@@ -13588,6 +13599,10 @@ msgstr "Verifieer"
 msgid "Verify with a Backup Code"
 msgstr "Verifieer met 'n rugsteunkode"
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Verify your email"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Verify your email in Settings first"
 msgstr "Verifieer eers jou e-pos in Instellings"
@@ -13609,8 +13624,8 @@ msgid "Verifying password..."
 msgstr "Besig om wagwoord te verifieer..."
 
 #: src/features/auth/pages/register.tsx
-msgid "Verifying your email confirms that you own this address."
-msgstr "Deur jou e-pos te verifieer, bevestig jy dat jy hierdie adres besit."
+#~ msgid "Verifying your email confirms that you own this address."
+#~ msgstr "Deur jou e-pos te verifieer, bevestig jy dat jy hierdie adres besit."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Version sent {date}"
@@ -13743,6 +13758,7 @@ msgid "We sent a confirmation link to {email}. Open it to finish the change."
 msgstr "Ons het 'n bevestigingskakel na {email} gestuur. Maak dit oop om die verandering te voltooi."
 
 #. placeholder {0}: user.email
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "We sent a new verification link to {0}."
 msgstr "Ons het 'n nuwe verifikasieskakel na {0} gestuur."
@@ -14316,13 +14332,16 @@ msgid "You're using a guest account"
 msgstr "Jy gebruik 'n gasrekening"
 
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/register.tsx
 msgid "You've got mail!"
 msgstr "Jy het pos!"
 
 #: src/features/settings/account/data.tsx
 msgid "Your account was deleted."
 msgstr "Jou rekening is uitgevee."
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Your account works now. Verifying the address confirms it is yours and keeps password recovery working."
+msgstr ""
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Your AI"

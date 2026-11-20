@@ -1098,6 +1098,10 @@ msgstr "Assoliment"
 msgid "Account"
 msgstr "Compte"
 
+#: src/features/auth/pages/register.tsx
+msgid "Account created. You can verify your email from the dashboard."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 #: src/features/homepage/remember.tsx
 msgid "Action"
@@ -2749,8 +2753,8 @@ msgid "Check your email for a link to reset your password."
 msgstr "Comprova el correu electrònic per trobar un enllaç per restablir la contrasenya."
 
 #: src/features/auth/pages/register.tsx
-msgid "Check your email for a link to verify your account."
-msgstr "Comprova el correu electrònic per trobar un enllaç per verificar el compte."
+#~ msgid "Check your email for a link to verify your account."
+#~ msgstr "Comprova el correu electrònic per trobar un enllaç per verificar el compte."
 
 #: src/features/billing/invoice-sheet.tsx
 msgid "Checked by hand"
@@ -3222,12 +3226,10 @@ msgstr "Contingut"
 msgid "Content is laid out in a grid."
 msgstr "El contingut està disposat en una graella."
 
-#. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
 #. Primary action button to proceed to next step in two-factor setup
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/assistant/conversation.tsx
-#: src/features/auth/pages/register.tsx
 msgid "Continue"
 msgstr "Continua"
 
@@ -3746,6 +3748,7 @@ msgstr "No s'ha pogut desar. Torna-ho a provar."
 msgid "Couldn't schedule the interview."
 msgstr "No s'ha pogut programar l'entrevista."
 
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Couldn't send the email. Try again."
 msgstr "No s'ha pogut enviar el correu electrònic. Torna-ho a provar."
@@ -4794,6 +4797,10 @@ msgstr "Adreça de correu electrònic"
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
 msgstr "L'adreça electrònica no es reconeixerà"
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Email delivery isn't set up on this server, so the address can't be verified yet."
+msgstr ""
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -10936,6 +10943,10 @@ msgstr ""
 msgid "Send the resume itself rather than a portfolio wrapper."
 msgstr "Envia el currículum mateix en lloc d'un embolcall de portafoli."
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Send verification link"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Sender details copied into the letter"
 msgstr "Les dades del remitent s'han copiat a la carta"
@@ -12794,8 +12805,8 @@ msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "Aquest intent d'inici de sessió ha caducat o ja s'ha utilitzat. Torna a començar."
 
 #: src/features/auth/pages/register.tsx
-msgid "This step is optional, but recommended."
-msgstr "Aquest pas és opcional però recomanat."
+#~ msgid "This step is optional, but recommended."
+#~ msgstr "Aquest pas és opcional però recomanat."
 
 #: src/features/career/workspace/practise.tsx
 msgid "This story is unavailable or uses facts that are switched off."
@@ -13588,6 +13599,10 @@ msgstr "Verifica"
 msgid "Verify with a Backup Code"
 msgstr "Verifica amb un codi de reserva"
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Verify your email"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Verify your email in Settings first"
 msgstr "Primer verifiqueu el correu a Configuració"
@@ -13609,8 +13624,8 @@ msgid "Verifying password..."
 msgstr "S’està verificant la contrasenya..."
 
 #: src/features/auth/pages/register.tsx
-msgid "Verifying your email confirms that you own this address."
-msgstr "La verificació del vostre correu electrònic confirma que sou el propietari d'aquesta adreça."
+#~ msgid "Verifying your email confirms that you own this address."
+#~ msgstr "La verificació del vostre correu electrònic confirma que sou el propietari d'aquesta adreça."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Version sent {date}"
@@ -13743,6 +13758,7 @@ msgid "We sent a confirmation link to {email}. Open it to finish the change."
 msgstr "Hem enviat un enllaç de confirmació a {email}. Obriu-lo per acabar el canvi."
 
 #. placeholder {0}: user.email
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "We sent a new verification link to {0}."
 msgstr "Hem enviat un enllaç de verificació nou a {0}."
@@ -14316,13 +14332,16 @@ msgid "You're using a guest account"
 msgstr "Estàs fent servir un compte de convidat"
 
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/register.tsx
 msgid "You've got mail!"
 msgstr "Tens correu nou!"
 
 #: src/features/settings/account/data.tsx
 msgid "Your account was deleted."
 msgstr "S'ha suprimit el teu compte."
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Your account works now. Verifying the address confirms it is yours and keeps password recovery working."
+msgstr ""
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Your AI"

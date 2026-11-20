@@ -1098,6 +1098,10 @@ msgstr "कामगिरी"
 msgid "Account"
 msgstr "खाते"
 
+#: src/features/auth/pages/register.tsx
+msgid "Account created. You can verify your email from the dashboard."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 #: src/features/homepage/remember.tsx
 msgid "Action"
@@ -2749,8 +2753,8 @@ msgid "Check your email for a link to reset your password."
 msgstr "तुमचा पासवर्ड रिसेट करण्यासाठीच्या लिंकसाठी तुमचे ईमेल तपासा."
 
 #: src/features/auth/pages/register.tsx
-msgid "Check your email for a link to verify your account."
-msgstr "तुमचे खाते पडताळण्यासाठीच्या लिंकसाठी तुमचे ईमेल तपासा."
+#~ msgid "Check your email for a link to verify your account."
+#~ msgstr "तुमचे खाते पडताळण्यासाठीच्या लिंकसाठी तुमचे ईमेल तपासा."
 
 #: src/features/billing/invoice-sheet.tsx
 msgid "Checked by hand"
@@ -3222,12 +3226,10 @@ msgstr "सामग्री"
 msgid "Content is laid out in a grid."
 msgstr "सामग्री ग्रिडमध्ये मांडलेली आहे."
 
-#. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
 #. Primary action button to proceed to next step in two-factor setup
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/assistant/conversation.tsx
-#: src/features/auth/pages/register.tsx
 msgid "Continue"
 msgstr "पुढे"
 
@@ -3746,6 +3748,7 @@ msgstr "जतन करू शकलो नाही. पुन्हा प्
 msgid "Couldn't schedule the interview."
 msgstr "मुलाखत शेड्यूल करता आली नाही."
 
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "Couldn't send the email. Try again."
 msgstr "ईमेल पाठवू शकलो नाही. पुन्हा प्रयत्न करा."
@@ -4794,6 +4797,10 @@ msgstr "ईमेल पत्ता"
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
 msgstr "ईमेल पत्ता ओळखला जाणार नाही"
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Email delivery isn't set up on this server, so the address can't be verified yet."
+msgstr ""
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -10936,6 +10943,10 @@ msgstr ""
 msgid "Send the resume itself rather than a portfolio wrapper."
 msgstr "पोर्टफोलिओ रॅपरऐवजी रेझ्युमे स्वतःच पाठवा."
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Send verification link"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Sender details copied into the letter"
 msgstr "प्रेषकाचे तपशील पत्रात कॉपी केले आहेत"
@@ -12794,8 +12805,8 @@ msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "हा साइन-इन प्रयत्न कालबाह्य झाला किंवा आधीच वापरला गेला. कृपया पुन्हा सुरू करा."
 
 #: src/features/auth/pages/register.tsx
-msgid "This step is optional, but recommended."
-msgstr "हा टप्पा ऐच्छिक आहे, पण शिफारस केलेला आहे."
+#~ msgid "This step is optional, but recommended."
+#~ msgstr "हा टप्पा ऐच्छिक आहे, पण शिफारस केलेला आहे."
 
 #: src/features/career/workspace/practise.tsx
 msgid "This story is unavailable or uses facts that are switched off."
@@ -13588,6 +13599,10 @@ msgstr "पडताळा"
 msgid "Verify with a Backup Code"
 msgstr "बॅकअप कोडने पडताळा करा"
 
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Verify your email"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Verify your email in Settings first"
 msgstr "आधी सेटिंग्जमध्ये तुमचा ईमेल पडताळा"
@@ -13609,8 +13624,8 @@ msgid "Verifying password..."
 msgstr "पासवर्ड पडताळला जात आहे..."
 
 #: src/features/auth/pages/register.tsx
-msgid "Verifying your email confirms that you own this address."
-msgstr "तुमच्या ईमेलची पडताळणी केल्याने तुमच्या मालकीचा हा पत्ता पुष्टी होतो."
+#~ msgid "Verifying your email confirms that you own this address."
+#~ msgstr "तुमच्या ईमेलची पडताळणी केल्याने तुमच्या मालकीचा हा पत्ता पुष्टी होतो."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Version sent {date}"
@@ -13743,6 +13758,7 @@ msgid "We sent a confirmation link to {email}. Open it to finish the change."
 msgstr "आम्ही {email} वर पुष्टीकरण लिंक पाठवली. बदल पूर्ण करण्यासाठी ते उघडा."
 
 #. placeholder {0}: user.email
+#: src/features/auth/components/verify-email-banner.tsx
 #: src/features/settings/account/profile.tsx
 msgid "We sent a new verification link to {0}."
 msgstr "आम्ही {0} वर एक नवीन सत्यापन लिंक पाठवली आहे."
@@ -14316,13 +14332,16 @@ msgid "You're using a guest account"
 msgstr "तुम्ही अतिथी खाते वापरत आहात"
 
 #: src/features/auth/pages/forgot-password.tsx
-#: src/features/auth/pages/register.tsx
 msgid "You've got mail!"
 msgstr "तुम्हाला मेल पाठवले आहे!"
 
 #: src/features/settings/account/data.tsx
 msgid "Your account was deleted."
 msgstr "तुमचे खाते हटवले गेले."
+
+#: src/features/auth/components/verify-email-banner.tsx
+msgid "Your account works now. Verifying the address confirms it is yours and keeps password recovery working."
+msgstr ""
 
 #: src/features/career/workspace/coach-sheet.tsx
 msgid "Your AI"
