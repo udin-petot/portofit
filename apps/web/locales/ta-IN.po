@@ -2949,11 +2949,13 @@ msgstr "மூடப்பட்டது"
 msgid "Coach"
 msgstr "ஆலோசகர்"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Coach message"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 #: src/features/quota/page.tsx
 #: src/routes/dashboard/akun.tsx
@@ -3420,6 +3422,11 @@ msgstr "இரண்டு நிலை அங்கீகாரத்தை அ
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Could not sort these items; they stayed at the end: {0}."
 msgstr "இந்த உருப்படிகளை வரிசைப்படுத்த முடியவில்லை; அவர்கள் இறுதியில் தங்கினர்: {0}."
+
+#: src/features/billing/pricing.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Could not start the order. Try again."
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't add that fact."

@@ -31,6 +31,13 @@ const CHIP = {
 	danger: "bg-danger-soft text-danger-text",
 } as const;
 
+/** Nama satuan kredit untuk satu jenis. Dipakai di ringkasan setelah pembayaran dan saldo. */
+function creditNoun(kind: string, count: number) {
+	if (kind === "interview") return count === 1 ? t`interview credit` : t`interview credits`;
+	if (kind === "coach") return count === 1 ? t`Coach message` : t`Coach messages`;
+	return count === 1 ? t`application credit` : t`application credits`;
+}
+
 /** Satu chip status. Titiknya menandai keadaan yang nyata, bukan hiasan. */
 function StatusChip({ tone, children }: { tone: keyof typeof CHIP; children: ReactNode }) {
 	return (
@@ -112,11 +119,13 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 	const plan = order
 		? getPlanCopy({ code: order.planCode, name: order.planName, description: null, kind: order.kind }, english)
 		: null;
-	const credits = order?.credits ?? 1;
-	const creditUnit = (() => {
-		if (order?.kind === "interview") return credits === 1 ? t`interview credit` : t`interview credits`;
-		return credits === 1 ? t`application credit` : t`application credits`;
-	})();
+	// Bundel punya beberapa jenis kredit. Jangan pernah menampilkan totalnya sebagai kredit lamaran.
+	const creditItems =
+		order?.items && order.items.length > 0
+			? order.items
+			: order && order.kind !== "bundle"
+				? [{ kind: order.kind, credits: order.credits }]
+				: [];
 
 	const copyAmount = async () => {
 		if (!order) return;
@@ -289,14 +298,30 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 		<>
 			<QrMorph phase={phase} />
 			<p className="mx-auto max-w-[330px] text-center text-[13px] leading-5 text-ink-2">
-				{credits} {creditUnit} <Trans>added to your account.</Trans>
-				{balances ? (
+				{creditItems.length > 0 ? (
+					<>
+						{creditItems.map((item, index) => (
+							<span key={item.kind}>
+								{index > 0 ? " · " : null}
+								{item.credits} {creditNoun(item.kind, item.credits)}
+							</span>
+						))}{" "}
+						<Trans>added to your account.</Trans>
+					</>
+				) : null}
+				{balances && creditItems.length > 0 ? (
 					<>
 						<br />
 						<span className="text-ink-3">
 							<Trans>Balance now</Trans>{" "}
 							<span className="font-medium text-ink">
-								{order?.kind === "interview" ? balances.interview : balances.application}.
+								{creditItems.map((item, index) => (
+									<span key={item.kind}>
+										{index > 0 ? " · " : null}
+										{balances[item.kind]} {creditNoun(item.kind, balances[item.kind])}
+									</span>
+								))}
+								.
 							</span>
 						</span>
 					</>

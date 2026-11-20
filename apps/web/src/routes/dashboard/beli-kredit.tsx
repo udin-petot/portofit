@@ -1,11 +1,13 @@
 import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
+import { toast } from "@reactive-resume/ui/components/toast";
+import z from "zod";
 import { formatRupiah } from "@/features/billing/config";
 import { Countdown } from "@/features/billing/countdown";
 import { PaymentDialog } from "@/features/billing/payment-dialog";
@@ -14,6 +16,7 @@ import { FreeNote, HowToPay, PlanList } from "@/features/billing/pricing";
 import { orpc } from "@/libs/orpc/client";
 
 export const Route = createFileRoute("/dashboard/beli-kredit")({
+	validateSearch: z.object({ plan: z.string().optional().catch(undefined) }),
 	component: BuyCreditsPage,
 });
 
@@ -51,9 +54,30 @@ function BuyCreditsPage() {
 	const navigate = useNavigate();
 	const { i18n } = useLingui();
 	const queryClient = useQueryClient();
+	const search = Route.useSearch();
 	const [orderId, setOrderId] = useState<string | null>(null);
 	const balances = useQuery(orpc.billing.balances.queryOptions());
 	const active = useQuery({ ...orpc.billing.activeOrder.queryOptions(), refetchInterval: 20_000 });
+	const createOrder = useMutation(orpc.billing.createOrder.mutationOptions());
+	const autoStarted = useRef(false);
+
+	// Paket yang dipilih di halaman publik dibawa lewat login sebagai ?plan=. Buka pesanannya sekali.
+	useEffect(() => {
+		const planCode = search.plan;
+		if (!planCode || autoStarted.current) return;
+		autoStarted.current = true;
+		void createOrder
+			.mutateAsync({ planCode })
+			.then((order) => {
+				setOrderId(order.id);
+			})
+			.catch(() => {
+				toast.add({ type: "error", description: t`Could not start the order. Try again.` });
+			})
+			.finally(() => {
+				void navigate({ to: "/dashboard/beli-kredit", search: {}, replace: true });
+			});
+	}, [search.plan, createOrder, navigate]);
 
 	const pending = active.data?.order ?? null;
 	const pendingPlan = pending

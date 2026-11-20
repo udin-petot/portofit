@@ -2949,11 +2949,13 @@ msgstr "Gesloten"
 msgid "Coach"
 msgstr "Coach"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Coach message"
 msgstr ""
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 #: src/features/quota/page.tsx
 #: src/routes/dashboard/akun.tsx
@@ -3420,6 +3422,11 @@ msgstr "Tweestapsverificatie kon niet worden ingesteld."
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Could not sort these items; they stayed at the end: {0}."
 msgstr "Kon deze items niet sorteren; ze staan nog onderaan: {0}."
+
+#: src/features/billing/pricing.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Could not start the order. Try again."
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't add that fact."

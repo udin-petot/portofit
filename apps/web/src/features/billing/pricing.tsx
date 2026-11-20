@@ -6,6 +6,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
+import { toast } from "@reactive-resume/ui/components/toast";
 import { formatRupiah } from "./config";
 import { getPlanCopy, type PlanLike } from "./plan-copy";
 import { useNarrowScreen } from "./use-narrow-screen";
@@ -32,16 +33,24 @@ export function PlanList({ signedIn, onOrder }: PricingPageProps) {
 
 	const buy = async (planCode: string) => {
 		if (!signedIn) {
-			await navigate({ to: "/auth/login" });
+			// Bawa paket yang dipilih melewati login, supaya tidak perlu memilih ulang.
+			await navigate({
+				to: "/auth/login",
+				search: { callbackURL: `/harga?plan=${encodeURIComponent(planCode)}` },
+			});
 			return;
 		}
-		const order = await createOrder.mutateAsync({ planCode });
-		// Halaman yang punya popup membuka pesanan di tempat; halaman publik tetap pindah halaman.
-		if (onOrder) {
-			onOrder(order.id);
-			return;
+		try {
+			const order = await createOrder.mutateAsync({ planCode });
+			// Halaman yang punya popup membuka pesanan di tempat; halaman publik tetap pindah halaman.
+			if (onOrder) {
+				onOrder(order.id);
+				return;
+			}
+			await navigate({ to: "/dashboard/transaksi", search: { order: order.id } });
+		} catch {
+			toast.add({ type: "error", description: t`Could not start the order. Try again.` });
 		}
-		await navigate({ to: "/dashboard/transaksi", search: { order: order.id } });
 	};
 
 	if (isLoading) {

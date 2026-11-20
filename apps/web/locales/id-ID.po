@@ -2950,11 +2950,13 @@ msgstr "Tertutup"
 msgid "Coach"
 msgstr "Coach"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/pricing.tsx
 #: src/routes/dashboard/akun.tsx
 msgid "Coach message"
 msgstr "pesan Coach"
 
+#: src/features/billing/payment-dialog.tsx
 #: src/features/billing/plan-copy.ts
 #: src/features/quota/page.tsx
 #: src/routes/dashboard/akun.tsx
@@ -3421,6 +3423,11 @@ msgstr "Tidak dapat menyiapkan autentikasi dua faktor."
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Could not sort these items; they stayed at the end: {0}."
 msgstr "Tidak dapat mengurutkan item-item ini; item-item tersebut tetap berada di bagian akhir: {0}."
+
+#: src/features/billing/pricing.tsx
+#: src/routes/dashboard/beli-kredit.tsx
+msgid "Could not start the order. Try again."
+msgstr "Pesanan tidak bisa dimulai. Coba lagi."
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't add that fact."
