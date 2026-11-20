@@ -204,6 +204,17 @@ describe("createApp", () => {
 		expect(mocks.handleWellKnownFallback).not.toHaveBeenCalled();
 	});
 
+	it("serves the agent skills index at the bare discovery path", async () => {
+		const { createApp } = await import("./app");
+
+		const response = await createApp().fetch(new Request("http://localhost:3001/.well-known/agent-skills"));
+
+		expect(response.status).toBe(200);
+		expect(response.headers.get("content-type")).toContain("application/json");
+		await expect(response.json()).resolves.toMatchObject({ skills: expect.any(Array) });
+		expect(mocks.handleWellKnownFallback).not.toHaveBeenCalled();
+	});
+
 	it("routes GET / to the web app before static files", async () => {
 		const { createApp } = await import("./app");
 		const app = createApp();

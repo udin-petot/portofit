@@ -166,6 +166,12 @@ export function createApp(options: AppOptions = {}) {
 
 	app.get("/.well-known/integrations.json", () => handleIntegrations());
 	app.on(["GET", "HEAD"], "/.well-known/api-catalog", (c) => handleApiCatalog({ head: c.req.method === "HEAD" }));
+	app.on(["GET", "HEAD"], "/.well-known/agent-skills", (c) =>
+		handleAgentSkillsIndex({ head: c.req.method === "HEAD" }),
+	);
+	app.on(["GET", "HEAD"], "/.well-known/agent-skills/", (c) =>
+		handleAgentSkillsIndex({ head: c.req.method === "HEAD" }),
+	);
 	app.on(["GET", "HEAD"], "/.well-known/agent-skills/index.json", (c) =>
 		handleAgentSkillsIndex({ head: c.req.method === "HEAD" }),
 	);
