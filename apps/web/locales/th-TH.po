@@ -8488,12 +8488,20 @@ msgid "One column with a plain rule over every section and right-aligned dates. 
 msgstr ""
 
 #: src/dialogs/resume/template/data.ts
-msgid "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for tech, product and consulting roles."
+msgid "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for most industries, from operations to consulting."
 msgstr ""
 
 #: src/dialogs/resume/template/data.ts
-msgid "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
+#~ msgid "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for tech, product and consulting roles."
+#~ msgstr ""
+
+#: src/dialogs/resume/template/data.ts
+msgid "One column with compact spacing and standard headings. Built for early-career applicants applying through job portals and applicant tracking systems."
 msgstr ""
+
+#: src/dialogs/resume/template/data.ts
+#~ msgid "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
+#~ msgstr ""
 
 #: src/dialogs/resume/template/data.ts
 msgid "One column with every section on an accent rail: a thin line and a dot per entry. Dates stay right-aligned and the text order stays ATS-safe."
@@ -11487,8 +11495,12 @@ msgid "Single credits"
 msgstr ""
 
 #: src/dialogs/resume/template/data.ts
-msgid "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or applications in Japan."
-msgstr "แบบฟอร์มคอลัมน์เดียวที่ได้รับแรงบันดาลใจจากเรซูเม่ rirekisho ของญี่ปุ่น: ส่วนหัวประกอบด้วยช่องที่มีขอบ และทุกส่วนจะแสดงเป็นตารางที่มีแถบหัวเรื่องทึบ ขนาดกะทัดรัดและสแกนง่าย เหมาะสำหรับงานวิศวกรรม งานปฏิบัติการ หรือการสมัครงานในญี่ปุ่น"
+msgid "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or administrative roles."
+msgstr ""
+
+#: src/dialogs/resume/template/data.ts
+#~ msgid "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or applications in Japan."
+#~ msgstr "แบบฟอร์มคอลัมน์เดียวที่ได้รับแรงบันดาลใจจากเรซูเม่ rirekisho ของญี่ปุ่น: ส่วนหัวประกอบด้วยช่องที่มีขอบ และทุกส่วนจะแสดงเป็นตารางที่มีแถบหัวเรื่องทึบ ขนาดกะทัดรัดและสแกนง่าย เหมาะสำหรับงานวิศวกรรม งานปฏิบัติการ หรือการสมัครงานในญี่ปุ่น"
 
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column set like a magazine feature: a large display name under an uppercase kicker and the summary as a larger standfirst; refined for writers, designers, and communications roles."
@@ -11507,8 +11519,12 @@ msgid "Single-column with a minimal top header and lots of whitespace; clean and
 msgstr "คอลัมน์เดียว มีส่วนหัวบนแบบมินิมอลและพื้นที่ว่างเยอะ สะอาด ทันสมัย เหมาะกับนักออกแบบหรือผู้สร้างเนื้อหา"
 
 #: src/dialogs/resume/template/data.ts
-msgid "Single-column with a sidebar and clean grid layout; versatile for any professional or technical role."
-msgstr "คอลัมน์เดียว มีแถบข้างและโครงร่างตารางที่สะอาด ใช้ได้กับทุกสายงานมืออาชีพหรือสายเทคนิค"
+#~ msgid "Single-column with a sidebar and clean grid layout; versatile for any professional or technical role."
+#~ msgstr "คอลัมน์เดียว มีแถบข้างและโครงร่างตารางที่สะอาด ใช้ได้กับทุกสายงานมืออาชีพหรือสายเทคนิค"
+
+#: src/dialogs/resume/template/data.ts
+msgid "Single-column with a sidebar and clean grid layout; versatile for any professional role."
+msgstr ""
 
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
@@ -13282,8 +13298,12 @@ msgid "Two-column with a bold colored sidebar and skill bars; great for creative
 msgstr "สองคอลัมน์ มีแถบข้างสีโดดเด่นและกราฟแสดงทักษะ เหมาะกับสายงานสร้างสรรค์หรือเทคโนโลยีที่ต้องการความโดดเด่น"
 
 #: src/dialogs/resume/template/data.ts
-msgid "Two-column with a dark teal sidebar and skills grid; modern feel for developers, data scientists, or technical PMs."
-msgstr "สองคอลัมน์ มีแถบข้างสีฟ้าเขียวเข้มและกริดทักษะ ดูทันสมัย เหมาะกับนักพัฒนา นักวิทยาศาสตร์ข้อมูล หรือ PM สายเทคนิค"
+#~ msgid "Two-column with a dark teal sidebar and skills grid; modern feel for developers, data scientists, or technical PMs."
+#~ msgstr "สองคอลัมน์ มีแถบข้างสีฟ้าเขียวเข้มและกริดทักษะ ดูทันสมัย เหมาะกับนักพัฒนา นักวิทยาศาสตร์ข้อมูล หรือ PM สายเทคนิค"
+
+#: src/dialogs/resume/template/data.ts
+msgid "Two-column with a dark teal sidebar and skills grid; modern feel for technical, data, or product roles."
+msgstr ""
 
 #: src/dialogs/resume/template/data.ts
 msgid "Two-column with a left margin color; simple and approachable for creative, editorial, or junior roles."

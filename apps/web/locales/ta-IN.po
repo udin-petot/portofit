@@ -8488,12 +8488,20 @@ msgid "One column with a plain rule over every section and right-aligned dates. 
 msgstr ""
 
 #: src/dialogs/resume/template/data.ts
-msgid "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for tech, product and consulting roles."
+msgid "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for most industries, from operations to consulting."
 msgstr ""
 
 #: src/dialogs/resume/template/data.ts
-msgid "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
+#~ msgid "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for tech, product and consulting roles."
+#~ msgstr ""
+
+#: src/dialogs/resume/template/data.ts
+msgid "One column with compact spacing and standard headings. Built for early-career applicants applying through job portals and applicant tracking systems."
 msgstr ""
+
+#: src/dialogs/resume/template/data.ts
+#~ msgid "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
+#~ msgstr ""
 
 #: src/dialogs/resume/template/data.ts
 msgid "One column with every section on an accent rail: a thin line and a dot per entry. Dates stay right-aligned and the text order stays ATS-safe."
@@ -11487,8 +11495,12 @@ msgid "Single credits"
 msgstr ""
 
 #: src/dialogs/resume/template/data.ts
-msgid "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or applications in Japan."
-msgstr "ஜப்பானிய ரிரெகிஷோ ரெஸ்யூமால் ஈர்க்கப்பட்ட ஒற்றை-நெடுவரிசை வடிவம்: எல்லைக்குட்பட்ட புலங்களால் செய்யப்பட்ட தலைப்பு, மேலும் ஒவ்வொரு பகுதியும் திடமான தலைப்புப் பட்டியுடன் அட்டவணையாக வழங்கப்படுகிறது. ஜப்பானில் உள்ள பொறியியல் வேலைகள், செயல்பாட்டு வேலைகள் அல்லது வேலை விண்ணப்பங்களுக்கு ஏற்றது மற்றும் ஸ்கேன் செய்ய எளிதானது."
+msgid "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or administrative roles."
+msgstr ""
+
+#: src/dialogs/resume/template/data.ts
+#~ msgid "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or applications in Japan."
+#~ msgstr "ஜப்பானிய ரிரெகிஷோ ரெஸ்யூமால் ஈர்க்கப்பட்ட ஒற்றை-நெடுவரிசை வடிவம்: எல்லைக்குட்பட்ட புலங்களால் செய்யப்பட்ட தலைப்பு, மேலும் ஒவ்வொரு பகுதியும் திடமான தலைப்புப் பட்டியுடன் அட்டவணையாக வழங்கப்படுகிறது. ஜப்பானில் உள்ள பொறியியல் வேலைகள், செயல்பாட்டு வேலைகள் அல்லது வேலை விண்ணப்பங்களுக்கு ஏற்றது மற்றும் ஸ்கேன் செய்ய எளிதானது."
 
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column set like a magazine feature: a large display name under an uppercase kicker and the summary as a larger standfirst; refined for writers, designers, and communications roles."
@@ -11507,8 +11519,12 @@ msgid "Single-column with a minimal top header and lots of whitespace; clean and
 msgstr "குறைந்த அளவிலான மேல் தலைப்பும் நிறைய வெற்று இடைவெளியும் கொண்ட ஒற்றை நெடுவரிசை; வடிவமைப்பாளர்கள் அல்லது உள்ளடக்க உருவாக்குபவர்களுக்கு சுத்தமான மற்றும் நவீனமான தோற்றம்."
 
 #: src/dialogs/resume/template/data.ts
-msgid "Single-column with a sidebar and clean grid layout; versatile for any professional or technical role."
-msgstr "சைட்பாரும் சுத்தமான கிரிட் லேயவுடும் கொண்ட ஒற்றை நெடுவரிசை; எந்தத் தொழில்முறை அல்லது தொழில்நுட்ப பணிக்கும் பொருந்தும் பல்துறை வடிவம்."
+#~ msgid "Single-column with a sidebar and clean grid layout; versatile for any professional or technical role."
+#~ msgstr "சைட்பாரும் சுத்தமான கிரிட் லேயவுடும் கொண்ட ஒற்றை நெடுவரிசை; எந்தத் தொழில்முறை அல்லது தொழில்நுட்ப பணிக்கும் பொருந்தும் பல்துறை வடிவம்."
+
+#: src/dialogs/resume/template/data.ts
+msgid "Single-column with a sidebar and clean grid layout; versatile for any professional role."
+msgstr ""
 
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
@@ -13282,8 +13298,12 @@ msgid "Two-column with a bold colored sidebar and skill bars; great for creative
 msgstr "துணிச்சலான வண்ண சைட்பாரும் திறன்களை காட்டும் பட்டைகளும் கொண்ட இரு நெடுவரிசை; காட்சிப் பரிமாணம் வரவேற்கப்படும் சிருஷ்டி அல்லது டெக் பணிகளுக்கு சிறந்தது."
 
 #: src/dialogs/resume/template/data.ts
-msgid "Two-column with a dark teal sidebar and skills grid; modern feel for developers, data scientists, or technical PMs."
-msgstr "டார்க் டீல் சைட்பாரும் திறன் கிரிடும் கொண்ட இரு நெடுவரிசை; டெவலப்பர்கள், டேட்டா சயண்டிஸ்ட்கள் அல்லது தொழில்நுட்ப PM-களுக்கு நவீனமான உணர்வு தரும்."
+#~ msgid "Two-column with a dark teal sidebar and skills grid; modern feel for developers, data scientists, or technical PMs."
+#~ msgstr "டார்க் டீல் சைட்பாரும் திறன் கிரிடும் கொண்ட இரு நெடுவரிசை; டெவலப்பர்கள், டேட்டா சயண்டிஸ்ட்கள் அல்லது தொழில்நுட்ப PM-களுக்கு நவீனமான உணர்வு தரும்."
+
+#: src/dialogs/resume/template/data.ts
+msgid "Two-column with a dark teal sidebar and skills grid; modern feel for technical, data, or product roles."
+msgstr ""
 
 #: src/dialogs/resume/template/data.ts
 msgid "Two-column with a left margin color; simple and approachable for creative, editorial, or junior roles."

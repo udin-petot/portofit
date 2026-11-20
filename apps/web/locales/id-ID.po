@@ -8489,12 +8489,20 @@ msgid "One column with a plain rule over every section and right-aligned dates. 
 msgstr "Satu kolom dengan garis tipis di atas setiap bagian dan tanggal rata kanan. Tata letak paling tenang dan paling aman untuk ATS, cocok untuk portal lowongan dan perusahaan besar."
 
 #: src/dialogs/resume/template/data.ts
-msgid "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for tech, product and consulting roles."
-msgstr "Satu kolom dengan grid ketat, tanggal rata kanan, dan tanpa ikon. Pilihan tenang dan modern untuk peran teknologi, produk, dan konsultasi."
+msgid "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for most industries, from operations to consulting."
+msgstr "Satu kolom dengan grid ketat, tanggal rata kanan, dan tanpa ikon. Pilihan tenang dan modern untuk berbagai bidang, dari operasional sampai konsultasi."
 
 #: src/dialogs/resume/template/data.ts
-msgid "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
-msgstr "Satu kolom dengan jarak rapat dan judul bagian standar. Dibuat untuk fresh graduate yang melamar lewat portal kerja dan sistem pelacak lamaran."
+#~ msgid "One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for tech, product and consulting roles."
+#~ msgstr "Satu kolom dengan grid ketat, tanggal rata kanan, dan tanpa ikon. Pilihan tenang dan modern untuk peran teknologi, produk, dan konsultasi."
+
+#: src/dialogs/resume/template/data.ts
+msgid "One column with compact spacing and standard headings. Built for early-career applicants applying through job portals and applicant tracking systems."
+msgstr "Satu kolom dengan jarak rapat dan judul standar. Cocok untuk pencari kerja tahap awal yang melamar lewat portal lowongan dan sistem pelacakan pelamar."
+
+#: src/dialogs/resume/template/data.ts
+#~ msgid "One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems."
+#~ msgstr "Satu kolom dengan jarak rapat dan judul bagian standar. Dibuat untuk fresh graduate yang melamar lewat portal kerja dan sistem pelacak lamaran."
 
 #: src/dialogs/resume/template/data.ts
 msgid "One column with every section on an accent rail: a thin line and a dot per entry. Dates stay right-aligned and the text order stays ATS-safe."
@@ -11488,8 +11496,12 @@ msgid "Single credits"
 msgstr "Kredit satuan"
 
 #: src/dialogs/resume/template/data.ts
-msgid "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or applications in Japan."
-msgstr "Bentuk satu kolom yang terinspirasi oleh resume rirekisho Jepang: header terbuat dari bidang yang dibatasi, dan setiap bagian disajikan sebagai tabel dengan bilah judul yang solid. Ringkas dan mudah dipindai, cocok untuk pekerjaan teknik, pekerjaan operasi, atau lamaran pekerjaan di Jepang."
+msgid "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or administrative roles."
+msgstr "Formulir bergaris satu kolom yang terinspirasi rirekisho Jepang, header berisi sel bidang dan setiap bagian berupa tabel dengan judul tebal, padat dan cepat dipindai untuk peran teknik, operasional, atau administrasi."
+
+#: src/dialogs/resume/template/data.ts
+#~ msgid "Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or applications in Japan."
+#~ msgstr "Bentuk satu kolom yang terinspirasi oleh resume rirekisho Jepang: header terbuat dari bidang yang dibatasi, dan setiap bagian disajikan sebagai tabel dengan bilah judul yang solid. Ringkas dan mudah dipindai, cocok untuk pekerjaan teknik, pekerjaan operasi, atau lamaran pekerjaan di Jepang."
 
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column set like a magazine feature: a large display name under an uppercase kicker and the summary as a larger standfirst; refined for writers, designers, and communications roles."
@@ -11508,8 +11520,12 @@ msgid "Single-column with a minimal top header and lots of whitespace; clean and
 msgstr "Satu kolom dengan header atas minimal dan banyak ruang kosong; bersih dan modern untuk desainer atau pembuat konten."
 
 #: src/dialogs/resume/template/data.ts
-msgid "Single-column with a sidebar and clean grid layout; versatile for any professional or technical role."
-msgstr "Satu kolom dengan bilah sisi dan tata letak grid bersih; serbaguna untuk peran profesional atau teknis apa pun."
+#~ msgid "Single-column with a sidebar and clean grid layout; versatile for any professional or technical role."
+#~ msgstr "Satu kolom dengan bilah sisi dan tata letak grid bersih; serbaguna untuk peran profesional atau teknis apa pun."
+
+#: src/dialogs/resume/template/data.ts
+msgid "Single-column with a sidebar and clean grid layout; versatile for any professional role."
+msgstr "Satu kolom dengan sidebar dan tata letak grid yang bersih, serbaguna untuk berbagai peran profesional."
 
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
@@ -13283,8 +13299,12 @@ msgid "Two-column with a bold colored sidebar and skill bars; great for creative
 msgstr "Dua kolom dengan bilah sisi berwarna tebal dan bilah keahlian; bagus untuk peran kreatif atau teknologi di mana tampilan visual menarik dihargai."
 
 #: src/dialogs/resume/template/data.ts
-msgid "Two-column with a dark teal sidebar and skills grid; modern feel for developers, data scientists, or technical PMs."
-msgstr "Dua kolom dengan bilah sisi hijau tua dan grid keahlian; nuansa modern untuk pengembang, ilmuwan data, atau PM teknis."
+#~ msgid "Two-column with a dark teal sidebar and skills grid; modern feel for developers, data scientists, or technical PMs."
+#~ msgstr "Dua kolom dengan bilah sisi hijau tua dan grid keahlian; nuansa modern untuk pengembang, ilmuwan data, atau PM teknis."
+
+#: src/dialogs/resume/template/data.ts
+msgid "Two-column with a dark teal sidebar and skills grid; modern feel for technical, data, or product roles."
+msgstr "Dua kolom dengan sidebar hijau gelap dan grid keterampilan, terasa modern untuk peran teknis, data, atau produk."
 
 #: src/dialogs/resume/template/data.ts
 msgid "Two-column with a left margin color; simple and approachable for creative, editorial, or junior roles."

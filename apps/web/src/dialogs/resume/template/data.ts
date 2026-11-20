@@ -24,30 +24,30 @@ export type TemplateMetadata = {
 export const templates = {
 	swiss: {
 		name: "Swiss",
-		description: msg`One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for tech, product and consulting roles.`,
+		description: msg`One column with a strict grid, right-aligned dates and no icons. A calm, modern choice for most industries, from operations to consulting.`,
 		imageUrl: "/templates/jpg/swiss.jpg",
-		tags: ["One column", "ATS friendly", "Modern", "Grid", "Tech", "Consulting"],
+		tags: ["One column", "ATS friendly", "Modern", "Grid", "Business", "Consulting"],
 		style: "swiss",
 	},
 	compact: {
 		name: "Compact",
-		description: msg`One column with compact spacing and standard headings. Built for fresh graduates applying through job portals and applicant tracking systems.`,
+		description: msg`One column with compact spacing and standard headings. Built for early-career applicants applying through job portals and applicant tracking systems.`,
 		imageUrl: "/templates/jpg/compact.jpg",
-		tags: ["One column", "ATS friendly", "Compact", "Fresh graduate", "Job portal"],
+		tags: ["One column", "ATS friendly", "Compact", "Early career", "Job portal"],
 		style: "compact",
 	},
 	timeline: {
 		name: "Timeline",
 		description: msg`One column with every section on an accent rail: a thin line and a dot per entry. Dates stay right-aligned and the text order stays ATS-safe.`,
 		imageUrl: "/templates/jpg/timeline.jpg",
-		tags: ["One column", "ATS friendly", "Timeline", "Modern", "Fresh graduate", "Job portal"],
+		tags: ["One column", "ATS friendly", "Timeline", "Modern", "Early career", "Job portal"],
 		style: "timeline",
 	},
 	banner: {
 		name: "Banner",
 		description: msg`A full-width band in your accent color carries the name and contact, and the body below stays one plain column. Bold first impression without giving up ATS parsing.`,
 		imageUrl: "/templates/jpg/banner.jpg",
-		tags: ["One column", "ATS friendly", "Color band", "Bold", "Marketing", "Fresh graduate"],
+		tags: ["One column", "ATS friendly", "Color band", "Bold", "Marketing", "Early career"],
 		style: "banner",
 	},
 	technical: {
@@ -112,9 +112,9 @@ export const templates = {
 	},
 	ditgar: {
 		name: "Ditgar",
-		description: msg`Two-column with a dark teal sidebar and skills grid; modern feel for developers, data scientists, or technical PMs.`,
+		description: msg`Two-column with a dark teal sidebar and skills grid; modern feel for technical, data, or product roles.`,
 		imageUrl: "/templates/jpg/ditgar.jpg",
-		tags: ["Two-column", "Modern", "Developer", "Data science", "Technical PM", "Dark sidebar"],
+		tags: ["Two-column", "Modern", "Technical", "Data", "Product", "Dark sidebar"],
 	},
 	ditto: {
 		name: "Ditto",
@@ -160,9 +160,9 @@ export const templates = {
 	},
 	onyx: {
 		name: "Onyx",
-		description: msg`Single-column with a sidebar and clean grid layout; versatile for any professional or technical role.`,
+		description: msg`Single-column with a sidebar and clean grid layout; versatile for any professional role.`,
 		imageUrl: "/templates/jpg/onyx.jpg",
-		tags: ["Single-column", "ATS friendly", "Sidebar", "Grid layout", "Versatile", "Professional", "Technical"],
+		tags: ["Single-column", "ATS friendly", "Sidebar", "Grid layout", "Versatile", "Professional"],
 	},
 	persian: {
 		name: "Persian",
@@ -178,7 +178,7 @@ export const templates = {
 	},
 	porygon: {
 		name: "Porygon",
-		description: msg`Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or applications in Japan.`,
+		description: msg`Single-column ruled form inspired by the Japanese rirekisho: a bordered header of field cells and every section as a table with a solid title bar; dense and fast to scan for engineering, operations, or administrative roles.`,
 		imageUrl: "/templates/jpg/porygon.jpg",
 		tags: [
 			"Single-column",
@@ -188,6 +188,7 @@ export const templates = {
 			"Structured",
 			"Engineering",
 			"Operations",
+			"Administration",
 			"Asian style",
 		],
 	},
