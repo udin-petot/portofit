@@ -7,6 +7,7 @@ import { careerProfileDataSchema, careerWorkspaceSchema } from "@reactive-resume
 import { coverLetterSchema } from "@reactive-resume/schema/cover-letter/data";
 import { protectedProcedure, publicProcedure } from "../../context";
 import { applicationDto } from "../../dto/application";
+import { creditKindSchema, orderOutputSchema } from "../../dto/billing";
 import {
 	savedItemSchema,
 	careerFactSchema,
@@ -75,7 +76,7 @@ export const authRouter = {
 			operationId: "exportAccountData",
 			summary: "Export user account data",
 			description:
-				"Returns a JSON-serializable export of the authenticated user's profile, documents, applications, career knowledge, preparation, schedules and coaching conversations. Images remain URL references; coaching attachments include storage references. Secrets such as password hashes, tokens, and API keys are never included. Requires authentication.",
+				"Returns a JSON-serializable export of the authenticated user's profile, documents, applications, career knowledge, preparation, schedules, coaching conversations, and billing records. Images remain URL references; coaching attachments include storage references. Secrets such as password hashes, tokens, and API keys are never included. Requires authentication.",
 			successDescription: "The user's exported account data.",
 		})
 		.input(z.object({}).optional())
@@ -115,6 +116,30 @@ export const authRouter = {
 					jobs: z.array(createSelectSchema(schema.careerJob)),
 					transcripts: z.array(createSelectSchema(schema.careerTranscript)),
 					workspaces: z.array(createSelectSchema(schema.careerWorkspace, { data: careerWorkspaceSchema })),
+				}),
+				billing: z.object({
+					orders: z.array(orderOutputSchema).describe("Pesanan dan rincian kredit yang dibeli."),
+					invoices: z.array(
+						z.object({
+							id: z.string(),
+							orderId: z.string(),
+							number: z.string(),
+							issuedAt: z.string(),
+							planName: z.string(),
+							totalIdr: z.number().int(),
+						}),
+					),
+					ledger: z.array(
+						z.object({
+							id: z.string(),
+							kind: creditKindSchema,
+							delta: z.number().int(),
+							reason: z.string(),
+							balanceAfter: z.number().int(),
+							orderId: z.string().nullable(),
+							createdAt: z.date(),
+						}),
+					),
 				}),
 			}),
 		)

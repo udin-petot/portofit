@@ -1656,8 +1656,8 @@ msgid "All applications (including closed)"
 msgstr "모든 채용 지원서(마감된 포함)"
 
 #: src/features/settings/account/data.tsx
-msgid "All documents and applications as JSON, in one zip"
-msgstr "JSON 형식의 모든 문서 및 입사 지원서는 하나의 zip으로 제공됩니다."
+#~ msgid "All documents and applications as JSON, in one zip"
+#~ msgstr "JSON 형식의 모든 문서 및 입사 지원서는 하나의 zip으로 제공됩니다."
 
 #: src/routes/templates/$.tsx
 msgid "All templates"
@@ -4385,6 +4385,10 @@ msgstr "서류"
 #: src/features/career/workspace/shell.tsx
 msgid "Documents for this job"
 msgstr "이 작업에 대한 문서"
+
+#: src/features/settings/account/data.tsx
+msgid "Documents, applications, and payment records as JSON, in one zip"
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Does it use AI?"

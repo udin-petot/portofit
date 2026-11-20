@@ -1656,8 +1656,8 @@ msgid "All applications (including closed)"
 msgstr "すべての求人応募（終了したものを含む）"
 
 #: src/features/settings/account/data.tsx
-msgid "All documents and applications as JSON, in one zip"
-msgstr "すべてのドキュメントと求人応募書を JSON として 1 つの zip にまとめたもの"
+#~ msgid "All documents and applications as JSON, in one zip"
+#~ msgstr "すべてのドキュメントと求人応募書を JSON として 1 つの zip にまとめたもの"
 
 #: src/routes/templates/$.tsx
 msgid "All templates"
@@ -4385,6 +4385,10 @@ msgstr "書類"
 #: src/features/career/workspace/shell.tsx
 msgid "Documents for this job"
 msgstr "この仕事の書類"
+
+#: src/features/settings/account/data.tsx
+msgid "Documents, applications, and payment records as JSON, in one zip"
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Does it use AI?"

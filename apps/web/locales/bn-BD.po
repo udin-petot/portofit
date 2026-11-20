@@ -1656,8 +1656,8 @@ msgid "All applications (including closed)"
 msgstr "সমস্ত চাকরির আবেদন (বন্ধ সহ)"
 
 #: src/features/settings/account/data.tsx
-msgid "All documents and applications as JSON, in one zip"
-msgstr "JSON হিসাবে সমস্ত নথি এবং চাকরির আবেদন, এক জিপে"
+#~ msgid "All documents and applications as JSON, in one zip"
+#~ msgstr "JSON হিসাবে সমস্ত নথি এবং চাকরির আবেদন, এক জিপে"
 
 #: src/routes/templates/$.tsx
 msgid "All templates"
@@ -4385,6 +4385,10 @@ msgstr "নথিপত্র"
 #: src/features/career/workspace/shell.tsx
 msgid "Documents for this job"
 msgstr "এই কাজের জন্য নথি"
+
+#: src/features/settings/account/data.tsx
+msgid "Documents, applications, and payment records as JSON, in one zip"
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Does it use AI?"

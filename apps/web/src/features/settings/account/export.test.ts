@@ -37,6 +37,32 @@ describe("buildAccountZip", () => {
 			"Extract this account archive",
 		);
 	});
+	it("includes billing records in their own folder", () => {
+		const files = unzipSync(
+			buildAccountZip({
+				user: {},
+				resumes: [],
+				coverLetters: [],
+				applications: [],
+				career: emptyCareer,
+				billing: {
+					orders: [{ id: "order-1", totalIdr: 35000 }],
+					invoices: [{ id: "invoice-1", number: "PF/2026/000028" }],
+					ledger: [{ id: "ledger-1", delta: 3 }],
+				},
+			} as never),
+		);
+
+		expect(JSON.parse(strFromU8(files["billing/orders.json"] as Uint8Array))).toEqual([
+			{ id: "order-1", totalIdr: 35000 },
+		]);
+		expect(JSON.parse(strFromU8(files["billing/invoices.json"] as Uint8Array))).toEqual([
+			{ id: "invoice-1", number: "PF/2026/000028" },
+		]);
+		expect(JSON.parse(strFromU8(files["billing/ledger.json"] as Uint8Array))).toEqual([
+			{ id: "ledger-1", delta: 3 },
+		]);
+	});
 	it("exports individual documents that the importer accepts", () => {
 		const files = unzipSync(
 			buildAccountZip({

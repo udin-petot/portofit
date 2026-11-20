@@ -7,6 +7,9 @@ const mocks = vi.hoisted(() => ({
 	predicates: [] as unknown[],
 	getLetter: vi.fn(),
 	exportCareer: vi.fn(),
+	listOrders: vi.fn(),
+	ledger: vi.fn(),
+	listInvoices: vi.fn(),
 }));
 vi.mock("@reactive-resume/db/client", () => ({ db: { select: mocks.select } }));
 vi.mock("@reactive-resume/db/schema", () => ({
@@ -21,12 +24,19 @@ vi.mock("@reactive-resume/auth/config", () => ({ isCustomOAuthProviderEnabled: (
 vi.mock("../storage/service", () => ({ getStorageService: vi.fn() }));
 vi.mock("../cover-letters/service", () => ({ coverLetterService: { getById: mocks.getLetter } }));
 vi.mock("../career/service", () => ({ careerService: { exportData: mocks.exportCareer } }));
+vi.mock("../billing/service", () => ({
+	billingService: { listMyOrders: mocks.listOrders, ledger: mocks.ledger },
+}));
+vi.mock("../invoice/service", () => ({ listInvoices: mocks.listInvoices }));
 const { authService } = await import("./service");
 
 describe("account backup", () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
 		mocks.predicates.length = 0;
+		mocks.listOrders.mockResolvedValue({ orders: [] });
+		mocks.ledger.mockResolvedValue({ entries: [] });
+		mocks.listInvoices.mockResolvedValue([]);
 	});
 
 	it.each([false, true])(
@@ -98,6 +108,32 @@ describe("account backup", () => {
 			expect(mocks.predicates).toContainEqual({ column: "coverLetter.userId", value: "owner" });
 			expect(mocks.exportCareer).toHaveBeenCalledExactlyOnceWith("owner");
 			expect(exported.career).toEqual(career);
+			expect(exported.billing).toEqual({ orders: [], invoices: [], ledger: [] });
 		},
 	);
+
+	it("includes billing orders, invoices and the credit ledger", async () => {
+		mocks.listOrders.mockResolvedValue({ orders: [{ id: "order-1" }] });
+		mocks.ledger.mockResolvedValue({ entries: [{ id: "ledger-1" }] });
+		mocks.listInvoices.mockResolvedValue([{ id: "invoice-1" }]);
+		mocks.exportCareer.mockResolvedValue({});
+		for (const rows of [[{ id: "owner" }], [], [], []]) {
+			mocks.select.mockReturnValueOnce({
+				from: () => ({
+					where: () => Promise.resolve(rows),
+				}),
+			});
+		}
+
+		const exported = await authService.exportData({ userId: "owner" });
+
+		expect(exported.billing).toEqual({
+			orders: [{ id: "order-1" }],
+			invoices: [{ id: "invoice-1" }],
+			ledger: [{ id: "ledger-1" }],
+		});
+		expect(mocks.listOrders).toHaveBeenCalledWith("owner", 1000);
+		expect(mocks.ledger).toHaveBeenCalledWith("owner", 1000);
+		expect(mocks.listInvoices).toHaveBeenCalledWith("owner");
+	});
 });

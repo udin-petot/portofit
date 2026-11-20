@@ -44,7 +44,7 @@ export function DataSection() {
 		<SettingsSection title={<Trans>Your data</Trans>}>
 			<SettingsRow
 				title={<Trans>Export everything</Trans>}
-				description={<Trans>All documents and applications as JSON, in one zip</Trans>}
+				description={<Trans>Documents, applications, and payment records as JSON, in one zip</Trans>}
 			>
 				<Button size="sm" variant="secondary" loading={exportAll.isPending} onClick={() => exportAll.mutate()}>
 					<Trans>Export</Trans>

@@ -1656,8 +1656,8 @@ msgid "All applications (including closed)"
 msgstr "అన్ని ఉద్యోగ దరఖాస్తులు (మూసివేయబడిన వాటితో సహా)"
 
 #: src/features/settings/account/data.tsx
-msgid "All documents and applications as JSON, in one zip"
-msgstr "JSON వలె అన్ని డాక్యుమెంట్‌లు మరియు జాబ్ అప్లికేషన్‌లు, ఒకే జిప్‌లో"
+#~ msgid "All documents and applications as JSON, in one zip"
+#~ msgstr "JSON వలె అన్ని డాక్యుమెంట్‌లు మరియు జాబ్ అప్లికేషన్‌లు, ఒకే జిప్‌లో"
 
 #: src/routes/templates/$.tsx
 msgid "All templates"
@@ -4385,6 +4385,10 @@ msgstr "పత్రాలు"
 #: src/features/career/workspace/shell.tsx
 msgid "Documents for this job"
 msgstr "ఈ ఉద్యోగం కోసం పత్రాలు"
+
+#: src/features/settings/account/data.tsx
+msgid "Documents, applications, and payment records as JSON, in one zip"
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Does it use AI?"

@@ -27,5 +27,10 @@ export function buildAccountZip(data: AccountExport): Uint8Array {
 			version: 1,
 		});
 	}
+	if (data.billing) {
+		files["billing/orders.json"] = json(data.billing.orders);
+		files["billing/invoices.json"] = json(data.billing.invoices);
+		files["billing/ledger.json"] = json(data.billing.ledger);
+	}
 	return zipSync(files);
 }
