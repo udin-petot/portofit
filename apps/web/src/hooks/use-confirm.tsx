@@ -55,8 +55,9 @@ export function ConfirmDialogProvider({ children }: { children: React.ReactNode 
 		<AskContext.Provider value={ask}>
 			{children}
 
-			<AlertDialog open={state.open} onOpenChange={(open) => !open && answer(null)}>
-				<AlertDialogContent>
+			{state.open && (
+				<AlertDialog open onOpenChange={(open) => !open && answer(null)}>
+					<AlertDialogContent>
 					<AlertDialogHeader>
 						<AlertDialogTitle>{state.title}</AlertDialogTitle>
 						<AlertDialogDescription className={cn(!state.description && "sr-only")}>
@@ -83,7 +84,8 @@ export function ConfirmDialogProvider({ children }: { children: React.ReactNode 
 						</AlertDialogAction>
 					</AlertDialogFooter>
 				</AlertDialogContent>
-			</AlertDialog>
+				</AlertDialog>
+			)}
 		</AskContext.Provider>
 	);
 }
