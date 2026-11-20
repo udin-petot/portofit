@@ -80,6 +80,7 @@ export const crudRouter = {
 				tags: input.tags,
 				locale,
 				userId: context.user.id,
+				...(input.template ? { template: input.template } : {}),
 				data: createResumeData({
 					withSampleData: input.withSampleData,
 					name: context.user.name,

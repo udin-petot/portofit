@@ -80,4 +80,14 @@ describe("resume write route validation", () => {
 		expect(created.data.basics.name).not.toBe("Sam Taylor");
 		expect(created.data.basics.name.length).toBeGreaterThan(0);
 	});
+
+	it("passes the chosen template to the service", async () => {
+		const client = createRouterClient(crudRouter, {
+			context: { locale: "en-US", reqHeaders: new Headers(), user: { id: "user-id", name: "Sam Taylor" } } as never,
+		});
+
+		await client.create({ name: "Swiss resume", tags: [], withSampleData: false, template: "swiss" });
+
+		expect(mocks.create).toHaveBeenCalledWith(expect.objectContaining({ template: "swiss" }));
+	});
 });
