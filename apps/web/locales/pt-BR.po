@@ -2740,6 +2740,10 @@ msgstr "Verifique se o software consegue ler seu currículo PDF. É executado in
 msgid "Check your connection and try again."
 msgstr "Verifique sua conexão e tente novamente."
 
+#: src/features/billing/pricing.tsx
+msgid "Check your connection, then try again."
+msgstr ""
+
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Check your email for a link to reset your password."
 msgstr "Verifique seu email em busca de um link para redefinir sua senha."
@@ -8642,6 +8646,10 @@ msgstr "Ser responsável por um design system e evoluí-lo"
 msgid "Package {0}"
 msgstr ""
 
+#: src/features/billing/pricing.tsx
+msgid "Packages couldn't be loaded."
+msgstr ""
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -12988,6 +12996,7 @@ msgstr "Experimente uma amostra"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/billing/payment-dialog.tsx
+#: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx

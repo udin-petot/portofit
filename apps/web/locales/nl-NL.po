@@ -2740,6 +2740,10 @@ msgstr "Controleer of software jouw cv PDF kan lezen. Draait volledig in uw brow
 msgid "Check your connection and try again."
 msgstr "Controleer uw verbinding en probeer het opnieuw."
 
+#: src/features/billing/pricing.tsx
+msgid "Check your connection, then try again."
+msgstr ""
+
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Check your email for a link to reset your password."
 msgstr "Controleer uw e-mail voor een link om uw wachtwoord te resetten."
@@ -8642,6 +8646,10 @@ msgstr "Een designsysteem beheren en doorontwikkelen"
 msgid "Package {0}"
 msgstr ""
 
+#: src/features/billing/pricing.tsx
+msgid "Packages couldn't be loaded."
+msgstr ""
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -12988,6 +12996,7 @@ msgstr "Probeer een monster"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/billing/payment-dialog.tsx
+#: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx

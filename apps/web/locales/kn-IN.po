@@ -2740,6 +2740,10 @@ msgstr "ಸಾಫ್ಟ್‌ವೇರ್ ನಿಮ್ಮ ರೆಸ್ಯೂಮ�
 msgid "Check your connection and try again."
 msgstr "ನಿಮ್ಮ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ ಹಾಗೂ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
+#: src/features/billing/pricing.tsx
+msgid "Check your connection, then try again."
+msgstr ""
+
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Check your email for a link to reset your password."
 msgstr "ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ರೀಸೆಟ್ ಮಾಡಲು ಲಿಂಕ್‌ಗಾಗಿ ನಿಮ್ಮ ಇಮೇಲ್ ಪರಿಶೀಲಿಸಿ."
@@ -8642,6 +8646,10 @@ msgstr "ವಿನ್ಯಾಸ ವ್ಯವಸ್ಥೆಯನ್ನು ನಿರ�
 msgid "Package {0}"
 msgstr ""
 
+#: src/features/billing/pricing.tsx
+msgid "Packages couldn't be loaded."
+msgstr ""
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -12988,6 +12996,7 @@ msgstr "ಮಾದರಿಯನ್ನು ಪ್ರಯತ್ನಿಸಿ"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/billing/payment-dialog.tsx
+#: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx

@@ -2740,6 +2740,10 @@ msgstr "जाँच गर्नुहोस् कि सफ्टवेयर
 msgid "Check your connection and try again."
 msgstr "आफ्नो जडान जाँच गर्नुहोस् र फेरि प्रयास गर्नुहोस्।"
 
+#: src/features/billing/pricing.tsx
+msgid "Check your connection, then try again."
+msgstr ""
+
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Check your email for a link to reset your password."
 msgstr "पासवर्ड रिसेट गर्न लिङ्कको लागि आफ्नो इमेल जाँच गर्नुहोस्।"
@@ -8642,6 +8646,10 @@ msgstr "डिजाइन प्रणालीको जिम्मा लि
 msgid "Package {0}"
 msgstr ""
 
+#: src/features/billing/pricing.tsx
+msgid "Packages couldn't be loaded."
+msgstr ""
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -12988,6 +12996,7 @@ msgstr "एउटा नमूना प्रयास गर्नुहोस
 
 #: src/components/layout/error-screen.tsx
 #: src/features/billing/payment-dialog.tsx
+#: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx

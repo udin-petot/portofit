@@ -2740,6 +2740,10 @@ msgstr "Semak sama ada perisian boleh membaca resume anda PDF. Dijalankan sepenu
 msgid "Check your connection and try again."
 msgstr "Semak sambungan anda dan cuba lagi."
 
+#: src/features/billing/pricing.tsx
+msgid "Check your connection, then try again."
+msgstr ""
+
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Check your email for a link to reset your password."
 msgstr "Semak e-mel anda untuk pautan bagi menetapkan semula kata laluan anda."
@@ -8642,6 +8646,10 @@ msgstr "Memiliki dan mengembangkan sistem reka bentuk"
 msgid "Package {0}"
 msgstr ""
 
+#: src/features/billing/pricing.tsx
+msgid "Packages couldn't be loaded."
+msgstr ""
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -12988,6 +12996,7 @@ msgstr "Cuba sampel"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/billing/payment-dialog.tsx
+#: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx

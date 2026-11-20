@@ -80,7 +80,7 @@ export const SUPPORT_FAQ: readonly SupportFaq[] = [
 		topic: "pembayaran",
 		question: "Bagaimana cara membayar paket?",
 		answer:
-			"Pembayaran memakai QRIS. Pindai kode di halaman Harga, lalu bayar sesuai total pesanan yang tertera, bukan hanya harga paket.",
+			"Pembayaran memakai QRIS. Pindai kode di jendela pembayaran, lalu bayar sesuai total pesanan yang tertera, bukan hanya harga paket.",
 	},
 	{
 		id: "bayar-kode-unik",

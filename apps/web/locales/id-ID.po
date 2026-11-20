@@ -2741,6 +2741,10 @@ msgstr "Periksa apakah perangkat lunak dapat membaca resume Anda PDF. Berjalan s
 msgid "Check your connection and try again."
 msgstr "Periksa koneksi Anda dan coba lagi."
 
+#: src/features/billing/pricing.tsx
+msgid "Check your connection, then try again."
+msgstr "Periksa koneksi, lalu coba lagi."
+
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Check your email for a link to reset your password."
 msgstr "Periksa email Anda untuk tautan mengatur ulang kata sandi."
@@ -8643,6 +8647,10 @@ msgstr "Memiliki dan mengembangkan design system"
 msgid "Package {0}"
 msgstr "Paket {0}"
 
+#: src/features/billing/pricing.tsx
+msgid "Packages couldn't be loaded."
+msgstr "Paket tidak bisa dimuat."
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -12989,6 +12997,7 @@ msgstr "Coba sampel"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/billing/payment-dialog.tsx
+#: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx

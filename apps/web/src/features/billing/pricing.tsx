@@ -28,7 +28,7 @@ export function PlanList({ signedIn, onOrder }: PricingPageProps) {
 	const navigate = useNavigate();
 	const { i18n } = useLingui();
 	const english = i18n.locale.startsWith("en");
-	const { data, isLoading } = useQuery(orpc.billing.plans.queryOptions());
+	const { data, isLoading, isError, refetch } = useQuery(orpc.billing.plans.queryOptions());
 	const createOrder = useMutation(orpc.billing.createOrder.mutationOptions());
 
 	const buy = async (planCode: string) => {
@@ -56,6 +56,26 @@ export function PlanList({ signedIn, onOrder }: PricingPageProps) {
 	if (isLoading) {
 		return (
 			<div className="rounded-xl border border-line bg-surface p-6 text-sm text-ink-3">{t`Loading packages…`}</div>
+		);
+	}
+
+	if (isError) {
+		return (
+			<div role="alert" className="rounded-xl border border-line bg-surface p-6">
+				<p className="text-sm font-medium text-ink">
+					<Trans>Packages couldn't be loaded.</Trans>
+				</p>
+				<p className="mt-1 text-sm text-ink-2">
+					<Trans>Check your connection, then try again.</Trans>
+				</p>
+				<button
+					type="button"
+					className="mt-3 text-sm text-ink underline underline-offset-4"
+					onClick={() => void refetch()}
+				>
+					<Trans>Try again</Trans>
+				</button>
+			</div>
 		);
 	}
 

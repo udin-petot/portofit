@@ -2740,6 +2740,10 @@ msgstr "உங்கள் ரெஸ்யூம் PDF மென்பொரு
 msgid "Check your connection and try again."
 msgstr "உங்கள் இணைப்பைச் சரிபார்த்து மீண்டும் முயலவும்."
 
+#: src/features/billing/pricing.tsx
+msgid "Check your connection, then try again."
+msgstr ""
+
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Check your email for a link to reset your password."
 msgstr "உங்கள் கடவுச்சொல்லை மீட்டமைக்க ஒரு இணைப்புக்காக உங்கள் மின்னஞ்சலைச் சரிபார்க்கவும்."
@@ -8642,6 +8646,10 @@ msgstr "வடிவமைப்பு அமைப்பைப் பொறு�
 msgid "Package {0}"
 msgstr ""
 
+#: src/features/billing/pricing.tsx
+msgid "Packages couldn't be loaded."
+msgstr ""
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -12988,6 +12996,7 @@ msgstr "ஒரு மாதிரியை முயற்சிக்கவு�
 
 #: src/components/layout/error-screen.tsx
 #: src/features/billing/payment-dialog.tsx
+#: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx

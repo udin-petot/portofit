@@ -2740,6 +2740,10 @@ msgstr "بررسی کنید که آیا نرم افزار می تواند رزو
 msgid "Check your connection and try again."
 msgstr "اتصال خود را بررسی کنید و دوباره امتحان کنید."
 
+#: src/features/billing/pricing.tsx
+msgid "Check your connection, then try again."
+msgstr ""
+
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Check your email for a link to reset your password."
 msgstr "ایمیل خود را برای لینکی جهت تنظیم مجدد گذرواژه بررسی کنید."
@@ -8642,6 +8646,10 @@ msgstr "مالکیت و توسعهٔ یک سیستم طراحی"
 msgid "Package {0}"
 msgstr ""
 
+#: src/features/billing/pricing.tsx
+msgid "Packages couldn't be loaded."
+msgstr ""
+
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
@@ -12988,6 +12996,7 @@ msgstr "یک نمونه را امتحان کنید"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/billing/payment-dialog.tsx
+#: src/features/billing/pricing.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
