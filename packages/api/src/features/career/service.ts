@@ -14,6 +14,7 @@ import {
 	type CareerWorkspace,
 	type careerFactInputSchema,
 	type careerStoryInputSchema,
+	type OfferTerms,
 	type SavedItemData,
 } from "@reactive-resume/schema/career";
 import { generateId } from "@reactive-resume/utils/string";
@@ -651,8 +652,30 @@ export const careerService = {
 			...item,
 			application: company === null ? null : { company, role: role ?? "" },
 			// Knowledge, the posting or documents changed since it was written.
-			outdated: item.data.kind !== "answers" && context !== null && item.inputVersion !== context.version,
+			outdated:
+				item.inputVersion !== "manual" && item.data.kind !== "answers" && context !== null && item.inputVersion !== context.version,
 		}));
+	},
+	/** A user-entered offer, without the coach: stored as a normal saved offer so the comparison page reads it. */
+	saveOffer: async (input: OfferTerms & { userId: string; applicationId: string }) => {
+		const { userId, applicationId, ...terms } = input;
+		const application = await requireCareerApplication({ userId, applicationId });
+		if (!application) throw new ORPCError("NOT_FOUND");
+
+		const [row] = await db
+			.insert(tables.careerArtifact)
+			.values({
+				userId,
+				applicationId,
+				title: `${application.company} · ${terms.version === "verbal" ? "Verbal offer" : "Written offer"}`,
+				data: { kind: "offer", ...terms },
+				evidence: { factIds: [], storyIds: [] },
+				inputVersion: "manual",
+			})
+			.returning();
+
+		if (!row) throw new ORPCError("INTERNAL_SERVER_ERROR", { message: "The offer could not be saved." });
+		return row;
 	},
 	saveSavedItem: (input: {
 		userId: string;

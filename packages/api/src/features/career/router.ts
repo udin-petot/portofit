@@ -7,6 +7,7 @@ import {
 	careerStoryInputSchema,
 	careerWorkspaceSchema,
 	generateTaskSchema,
+	offerTermsSchema,
 } from "@reactive-resume/schema/career";
 import { protectedProcedure } from "../../context";
 import {
@@ -280,6 +281,19 @@ export const careerRouter = {
 		)
 		.output(z.array(savedItemOutput))
 		.handler(({ context, input }) => careerService.savedItems({ userId: context.user.id, ...input })),
+	saveOffer: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/career/offers",
+			tags: ["Career"],
+			operationId: "saveCareerOffer",
+			summary: "Save a job offer by hand",
+			description: "Stores an offer the user typed in, linked to an application, without calling the coach.",
+			successDescription: "The saved offer.",
+		})
+		.input(z.object({ applicationId: z.string().min(1), ...offerTermsSchema.shape }))
+		.output(savedItemSchema)
+		.handler(({ context, input }) => careerService.saveOffer({ userId: context.user.id, ...input })),
 	deleteSavedItem: protectedProcedure
 		.route({
 			method: "DELETE",

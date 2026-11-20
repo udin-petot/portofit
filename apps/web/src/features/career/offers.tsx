@@ -6,7 +6,7 @@ import { plural, t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
 import {
 	DropdownMenu,
@@ -21,6 +21,7 @@ import { Skeleton } from "@reactive-resume/ui/components/skeleton";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { CareerLoadError } from "./load-state";
+import { ManualOfferDialog } from "./manual-offer-dialog";
 import { defaultPair, formatMoney, matchingPlace, meetsMinimum, moneyDifference, sameTerms } from "./offer-compare";
 import { useCareerTime, useNow } from "./shared";
 import { orpc } from "@/libs/orpc/client";
@@ -54,6 +55,7 @@ type OffersPageProps = { a: string | undefined; b: string | undefined };
 /** C20: two saved offers side by side, in their own currency and pay period, against the user's requirements. */
 export function OffersPage({ a, b }: OffersPageProps) {
 	const navigate = useNavigate();
+	const [adding, setAdding] = useState(false);
 	const query = useQuery(orpc.career.savedItems.queryOptions({ input: { kind: "offer" } }));
 	const profileQuery = useQuery(orpc.career.profile.queryOptions());
 	const offers = query.data?.filter((item): item is Offer => item.data.kind === "offer");
@@ -99,17 +101,26 @@ export function OffersPage({ a, b }: OffersPageProps) {
 
 	if (!offers?.length)
 		return (
-			<div className="grid justify-items-center gap-2 rounded-xl border border-dashed border-line-2 p-7 text-center">
-				<h2 className="font-display text-[22px] leading-7 font-medium">
-					<Trans>No offers to compare yet</Trans>
-				</h2>
-				<p className="max-w-[360px] text-sm text-ink-2">
-					<Trans>Record an offer from an application, then compare pay, place and what you give up here.</Trans>
-				</p>
-				<Button variant="secondary" onClick={() => void navigate({ to: "/dashboard/applications" })}>
-					<Trans>Go to applications</Trans>
-				</Button>
-			</div>
+			<>
+				<div className="grid justify-items-center gap-2 rounded-xl border border-dashed border-line-2 p-7 text-center">
+					<h2 className="font-display text-[22px] leading-7 font-medium">
+						<Trans>No offers to compare yet</Trans>
+					</h2>
+					<p className="max-w-[360px] text-sm text-ink-2">
+						<Trans>Record an offer from an application, then compare pay, place and what you give up here.</Trans>
+					</p>
+					<div className="flex flex-wrap justify-center gap-2">
+						<Button onClick={() => setAdding(true)}>
+							<Icon name="plus" size={18} />
+							<Trans>Add offer</Trans>
+						</Button>
+						<Button variant="secondary" onClick={() => void navigate({ to: "/dashboard/applications" })}>
+							<Trans>Go to applications</Trans>
+						</Button>
+					</div>
+				</div>
+				<ManualOfferDialog open={adding} onOpenChange={setAdding} onSaved={(id) => setPair({ a: id, b })} />
+			</>
 		);
 
 	const left = offers.find((offer) => offer.id === a);
@@ -117,14 +128,19 @@ export function OffersPage({ a, b }: OffersPageProps) {
 	const pair = [left, right].filter((offer): offer is Offer => offer !== undefined);
 
 	return (
-		<div className="grid gap-5">
-			<div className="flex flex-wrap items-center justify-between gap-3">
+		<>
+			<div className="grid gap-5">
+				<div className="flex flex-wrap items-center justify-between gap-3">
 				<p className="text-sm text-ink-2">
 					<Trans>
 						Compared in their original currency and pay period. Comparing doesn't share anything with the coach.
 					</Trans>
 				</p>
 				<div className="flex gap-2">
+					<Button variant="secondary" onClick={() => setAdding(true)}>
+						<Icon name="plus" size={18} />
+						<Trans>Add offer</Trans>
+					</Button>
 					<Button variant="secondary" disabled={!left || !right} onClick={() => setPair({ a: b, b: a })}>
 						<Icon name="arrows-left-right" size={18} />
 						<Trans>Swap</Trans>
@@ -163,8 +179,10 @@ export function OffersPage({ a, b }: OffersPageProps) {
 						</Trans>
 					</span>
 				</p>
+				</div>
 			</div>
-		</div>
+			<ManualOfferDialog open={adding} onOpenChange={setAdding} onSaved={(id) => setPair({ a: id, b })} />
+		</>
 	);
 }
 
