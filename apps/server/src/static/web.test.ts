@@ -183,7 +183,7 @@ describe("web app fallback classification", () => {
 		expect(response.headers.get("Content-Security-Policy-Report-Only")).toContain("frame-ancestors 'none'");
 	});
 
-	it.each(["/auth/login", "/builder/resume-1", "/agent", "/templates", "/templates/azurill.pdf"])(
+	it.each(["/auth/login", "/builder/resume-1", "/agent"])(
 		"serves noindex shell for known app prefix %s",
 		async (pathname) => {
 			const response = await handleWebApp(new Request(`https://example.com${pathname}`));
@@ -194,6 +194,19 @@ describe("web app fallback classification", () => {
 			expect(await response.text()).toBe("<html>app</html>");
 		},
 	);
+
+	it("returns 404 for a template asset path", async () => {
+		const response = await handleWebApp(new Request("https://example.com/templates/azurill.pdf"));
+
+		expect(response.status).toBe(404);
+	});
+
+	it("serves the template gallery without a noindex header", async () => {
+		const response = await handleWebApp(new Request("https://example.com/templates"));
+
+		expect(response.status).toBe(200);
+		expect(response.headers.get("X-Robots-Tag")).toBeNull();
+	});
 
 	it("paints the dashboard title before the client renders", async () => {
 		vi.mocked(fs.readFile).mockResolvedValue('<html><body><div id="app"></div></body></html>');

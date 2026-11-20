@@ -32,7 +32,7 @@ const indexHtmlPath = `${staticRoot}/index.html`;
 // The marketing pages prerendered per locale by the web build (apps/web/vite.config.ts), as <page>/<locale>.html, kept
 // beside dist/ so they're never served at an address of their own.
 const prerenderRoot = `${staticRoot}-prerender`;
-const noindexShellPrefixes = ["/auth", "/dashboard", "/admin", "/builder", "/agent", "/templates"];
+const noindexShellPrefixes = ["/auth", "/dashboard", "/admin", "/builder", "/agent"];
 
 // The dashboard is client-rendered behind auth, so the first paint would otherwise wait for the session,
 // the documents query and the whole route chunk. Paint the page title immediately; React replaces it on
@@ -52,7 +52,16 @@ const dashboardBootShell = (html: string) =>
  * Without an entry here the fallback below returns 404 for the path in production — the dev Vite
  * server serves the shell for anything, so this failure only ever shows up once deployed.
  */
-const indexableAppPaths = new Set(["/ats-checker", "/bantuan", "/harga", "/syarat", "/privasi", "/refund", "/lisensi"]);
+const indexableAppPaths = new Set([
+	"/ats-checker",
+	"/bantuan",
+	"/harga",
+	"/syarat",
+	"/privasi",
+	"/refund",
+	"/lisensi",
+	"/templates",
+]);
 
 /**
  * Addresses people and crawlers guess, and the upstream documentation uses. They used to render an

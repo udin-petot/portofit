@@ -37,7 +37,17 @@ export function handleRobots(options?: StaticSeoOptions) {
 }
 
 // The indexable pages; everything else is the signed-in app or a public resume, both served noindex.
-const sitemapPaths = ["/", "/harga", "/ats-checker", "/syarat", "/privasi", "/refund"];
+const sitemapPaths = [
+	"/",
+	"/harga",
+	"/templates",
+	"/ats-checker",
+	"/bantuan",
+	"/syarat",
+	"/privasi",
+	"/refund",
+	"/lisensi",
+];
 
 export function handleSitemap(options?: StaticSeoOptions) {
 	const baseUrl = appUrl();
