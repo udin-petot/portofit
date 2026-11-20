@@ -20,14 +20,6 @@ vi.mock("@reactive-resume/env/server", () => ({
 	env: mocks.env,
 }));
 
-vi.mock("@reactive-resume/mcp/server-card", () => ({
-	buildMcpServerCard: vi.fn(() => ({})),
-}));
-
-vi.mock("../app-version", () => ({
-	appVersion: "test",
-}));
-
 describe("handleOAuthProtectedResource", () => {
 	it("advertises the mounted auth issuer as the authorization server", async () => {
 		const { handleOAuthProtectedResource } = await import("./metadata");
@@ -37,19 +29,6 @@ describe("handleOAuthProtectedResource", () => {
 		await expect(response.json()).resolves.toMatchObject({
 			resource: "https://rxresu.me",
 			authorization_servers: ["https://rxresu.me/api/auth"],
-		});
-	});
-});
-
-describe("handleMcpServerCard", () => {
-	it("advertises the connect URL and OAuth authorization server", async () => {
-		const { handleMcpServerCard } = await import("./metadata");
-
-		const response = handleMcpServerCard();
-
-		await expect(response.json()).resolves.toMatchObject({
-			url: "https://rxresu.me/mcp",
-			authentication: { type: "oauth2", authorization_server: "https://rxresu.me/api/auth" },
 		});
 	});
 });
@@ -66,7 +45,6 @@ describe("handleIntegrations", () => {
 		expect(document).toMatchObject({ version: 3 });
 		expect(document.surfaces.map((surface: { type: string; url: string }) => [surface.type, surface.url])).toEqual([
 			["http", "https://rxresu.me/api/openapi"],
-			["mcp", "https://rxresu.me/mcp"],
 		]);
 
 		const source = "https://rxresu.me/.well-known/integrations.json";
@@ -81,7 +59,7 @@ describe("handleIntegrations", () => {
 });
 
 describe("handleApiCatalog", () => {
-	it("serves an RFC 9727 linkset for the REST API and MCP server", async () => {
+	it("serves an RFC 9727 linkset for the REST API", async () => {
 		const { handleApiCatalog } = await import("./metadata");
 
 		const response = handleApiCatalog();
@@ -90,7 +68,6 @@ describe("handleApiCatalog", () => {
 		expect(response.headers.get("Content-Type")).toContain("application/linkset+json");
 		expect(catalog.linkset.map((link: { anchor: string }) => link.anchor)).toEqual([
 			"https://rxresu.me/api/openapi",
-			"https://rxresu.me/mcp",
 		]);
 		expect(catalog.linkset[0]["service-desc"][0].href).toBe("https://rxresu.me/openapi.json");
 		expect(await handleApiCatalog({ head: true }).text()).toBe("");

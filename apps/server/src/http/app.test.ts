@@ -10,10 +10,8 @@ const mocks = vi.hoisted(() => ({
 	handleOpenApiDocument: vi.fn(),
 	handleHealth: vi.fn(),
 	handleUpload: vi.fn(),
-	handleMcp: vi.fn(),
 	handleResumePdfDownload: vi.fn(),
 	handlePublicResumePdf: vi.fn(),
-	handleMcpServerCard: vi.fn(),
 	handleIntegrations: vi.fn(),
 	handleApiCatalog: vi.fn(),
 	handleOAuthAuthorizationServer: vi.fn(),
@@ -51,7 +49,6 @@ vi.mock("../openapi/handler", () => ({
 }));
 
 vi.mock("../openapi/metadata", () => ({
-	handleMcpServerCard: mocks.handleMcpServerCard,
 	handleIntegrations: mocks.handleIntegrations,
 	handleApiCatalog: mocks.handleApiCatalog,
 	handleOAuthAuthorizationServer: mocks.handleOAuthAuthorizationServer,
@@ -73,10 +70,6 @@ vi.mock("../static/seo", () => ({
 vi.mock("../static/web", () => ({
 	serveWebDistStatic: mocks.serveWebDistStatic,
 	handleWebApp: mocks.handleWebApp,
-}));
-
-vi.mock("../mcp/handler", () => ({
-	handleMcp: mocks.handleMcp,
 }));
 
 vi.mock("./resume-pdf", () => ({
@@ -101,10 +94,8 @@ beforeEach(() => {
 	mocks.handleOpenApi.mockResolvedValue(new Response("openapi"));
 	mocks.handleHealth.mockReturnValue(new Response("health"));
 	mocks.handleUpload.mockResolvedValue(new Response("upload"));
-	mocks.handleMcp.mockResolvedValue(new Response("mcp"));
 	mocks.handleResumePdfDownload.mockResolvedValue(new Response("pdf"));
 	mocks.handlePublicResumePdf.mockResolvedValue(new Response("public-pdf"));
-	mocks.handleMcpServerCard.mockReturnValue(new Response("server-card"));
 	mocks.handleIntegrations.mockReturnValue(new Response("integrations"));
 	mocks.handleApiCatalog.mockReturnValue(new Response("api-catalog"));
 	mocks.handleOpenApiDocument.mockResolvedValue(new Response("openapi-document"));
@@ -204,7 +195,6 @@ describe("createApp", () => {
 		["/openapi.json", "openapi-document"],
 		["/.well-known/integrations.json", "integrations"],
 		["/.well-known/api-catalog", "api-catalog"],
-		["/.well-known/mcp/server-card.json", "server-card"],
 	])("routes discovery document %s before the well-known fallback", async (path, body) => {
 		const { createApp } = await import("./app");
 
@@ -236,19 +226,17 @@ describe("createApp", () => {
 		const stream = () => new Response("data: x\n\n".repeat(500), { headers: { "Content-Type": "application/json" } });
 		mocks.handleWebApp.mockImplementation(async () => htmlResponse());
 		mocks.handleRpc.mockImplementation(async () => stream());
-		mocks.handleMcp.mockImplementation(async () => stream());
 		const headers = { "Accept-Encoding": "br, gzip" };
 
 		const page = await createApp().request("http://localhost:3000/", { headers });
 		const rpc = await createApp().request("http://localhost:3000/api/rpc/agent/chat", { headers });
-		const mcp = await createApp().request("http://localhost:3000/mcp", { headers });
 		const vercelPage = await createApp({ serveStatic: false }).request("http://localhost:3000/", { headers });
 
 		expect(page.headers.get("content-encoding")).toBe("gzip");
 		expect(page.headers.get("vary")).toBe("Cookie, Accept-Encoding");
 		expect(page.headers.get("cache-control")).toBe("private, no-store");
 		expect(gunzipSync(Buffer.from(await page.arrayBuffer())).toString()).toBe(html);
-		for (const response of [rpc, mcp, vercelPage]) expect(response.headers.get("content-encoding")).toBeNull();
+		for (const response of [rpc, vercelPage]) expect(response.headers.get("content-encoding")).toBeNull();
 		expect(vercelPage.headers.get("vary")).toBe("Cookie");
 	});
 });

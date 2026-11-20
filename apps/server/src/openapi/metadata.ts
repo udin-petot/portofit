@@ -1,8 +1,6 @@
 import { oauthProviderAuthServerMetadata, oauthProviderOpenIdConfigMetadata } from "@better-auth/oauth-provider";
 import { auth } from "@reactive-resume/auth/config";
 import { env } from "@reactive-resume/env/server";
-import { buildMcpServerCard } from "@reactive-resume/mcp/server-card";
-import { appVersion } from "../app-version";
 
 
 export const handleOAuthAuthorizationServer = oauthProviderAuthServerMetadata(auth);
@@ -27,24 +25,6 @@ export function handleWellKnownFallback() {
 	return new Response("OK", { status: 200 });
 }
 
-export function handleMcpServerCard() {
-	const card = buildMcpServerCard(appVersion);
-
-	return Response.json(
-		{
-			...card,
-			url: `${appUrl()}/mcp`,
-			authentication: { ...card.authentication, type: "oauth2", authorization_server: authorizationServer() },
-		},
-		{
-			headers: {
-				"Content-Type": "application/json",
-				"Cache-Control": "public, max-age=60, stale-while-revalidate=120",
-			},
-		},
-	);
-}
-
 export function handleOAuthProtectedResource() {
 	const metadata = {
 		resource: env.APP_URL,
@@ -64,26 +44,12 @@ export function handleOAuthProtectedResource() {
 function buildIntegrations() {
 	const baseUrl = appUrl();
 	const basis = { via: "declared", source: `${baseUrl}/.well-known/integrations.json` } as const;
-	const apiKey = {
-		id: "api-key",
-		mechanics: { source: "http", in: "header", headerName: "x-api-key" },
-	} as const;
 
 	return {
 		version: 3,
 		summary:
-			"PortoFit is a free and open-source resume builder. Agents can read and edit a user's resumes, cover letters and job applications through the REST API or the MCP server.",
+			"PortoFit is a free and open-source resume builder. Agents can read and edit a user's resumes, cover letters and job applications through the REST API.",
 		credentials: {
-			"api-key": {
-				type: "api_key",
-				label: "PortoFit API key",
-				generateUrl: `${baseUrl}/dashboard/settings/ai`,
-				setup: [
-					"Open **Settings → AI & developer**, select **New key** in the **API keys** section, name it, choose when it expires, then copy it.",
-					"The key is shown only once and acts as you: anyone holding it can read and edit your documents. Revoke it from the same table when you no longer need it.",
-					"Send it in the `x-api-key` header.",
-				].join("\n\n"),
-			},
 			oauth: {
 				type: "oauth2",
 				label: "PortoFit OAuth",
@@ -104,7 +70,6 @@ function buildIntegrations() {
 				auth: {
 					status: "required",
 					entries: [
-						{ use: [apiKey], basis },
 						{
 							use: [
 								{
@@ -114,21 +79,6 @@ function buildIntegrations() {
 							],
 							basis,
 						},
-					],
-				},
-			},
-			{
-				type: "mcp",
-				slug: "portofit-mcp",
-				name: "PortoFit MCP server",
-				basis,
-				url: `${baseUrl}/mcp`,
-				transports: ["streamable-http"],
-				auth: {
-					status: "required",
-					entries: [
-						{ use: [{ id: "oauth", mechanics: { source: "well-known" } }], basis },
-						{ use: [apiKey], basis },
 					],
 				},
 			},
@@ -142,7 +92,7 @@ export function handleIntegrations() {
 	});
 }
 
-/** RFC 9727 API catalog: the REST API and MCP server, each with its description and documentation. */
+/** RFC 9727 API catalog: the REST API and its documentation. */
 export function handleApiCatalog(options: { head?: boolean } = {}) {
 	const baseUrl = appUrl();
 	const linkset = {
@@ -151,10 +101,6 @@ export function handleApiCatalog(options: { head?: boolean } = {}) {
 				anchor: `${baseUrl}/api/openapi`,
 				"service-desc": [{ href: `${baseUrl}/openapi.json`, type: "application/vnd.oai.openapi+json" }],
 				status: [{ href: `${baseUrl}/api/health`, type: "application/json" }],
-			},
-			{
-				anchor: `${baseUrl}/mcp`,
-				"service-desc": [{ href: `${baseUrl}/.well-known/mcp/server-card.json`, type: "application/json" }],
 			},
 		],
 	};

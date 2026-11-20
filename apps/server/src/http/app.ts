@@ -8,14 +8,11 @@ import { bodyLimit } from "hono/body-limit";
 import { compress } from "hono/compress";
 import { prepareStagedBody, withStagedBody } from "@reactive-resume/api/features/storage/transport";
 import { env } from "@reactive-resume/env/server";
-import { prepareMcpDiscovery } from "@reactive-resume/mcp";
 import { isCrawlerUserAgent, isIgnorableClientError } from "@reactive-resume/utils/client-errors";
-import { handleMcp } from "../mcp/handler";
 import { handleOpenApi, handleOpenApiDocument } from "../openapi/handler";
 import {
 	handleApiCatalog,
 	handleIntegrations,
-	handleMcpServerCard,
 	handleOAuthAuthorizationServer,
 	handleOAuthProtectedResource,
 	handleOpenIdConfiguration,
@@ -83,7 +80,6 @@ function allowClientError(ip: string): boolean {
 }
 
 export function createApp(options: AppOptions = {}) {
-	prepareMcpDiscovery();
 	const app = new Hono<ServerEnvironment>();
 	const proxies = new BlockList();
 	for (const range of env.TRUSTED_PROXIES) {
@@ -167,8 +163,6 @@ export function createApp(options: AppOptions = {}) {
 	app.get("/uploads/*", (c) => handleUpload(c.req.raw));
 	app.get("/schema.json", () => handleSchemaJson());
 	app.get("/openapi.json", () => handleOpenApiDocument());
-	app.all("/mcp", (c) => handleMcp(c.req.raw, client(c)));
-	app.all("/mcp/*", (c) => handleMcp(c.req.raw, client(c)));
 
 	app.get("/.well-known/integrations.json", () => handleIntegrations());
 	app.on(["GET", "HEAD"], "/.well-known/api-catalog", (c) => handleApiCatalog({ head: c.req.method === "HEAD" }));
@@ -178,7 +172,6 @@ export function createApp(options: AppOptions = {}) {
 	app.on(["GET", "HEAD"], "/.well-known/agent-skills/:filename", (c) =>
 		handleAgentSkillArchive(c.req.param("filename"), { head: c.req.method === "HEAD" }),
 	);
-	app.get("/.well-known/mcp/server-card.json", () => handleMcpServerCard());
 	app.get("/.well-known/oauth-authorization-server", (c) => handleOAuthAuthorizationServer(c.req.raw));
 	app.get("/.well-known/oauth-authorization-server/*", (c) => handleOAuthAuthorizationServer(c.req.raw));
 	app.get("/.well-known/openid-configuration", (c) => handleOpenIdConfiguration(c.req.raw));
