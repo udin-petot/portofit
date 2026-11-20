@@ -821,6 +821,10 @@ msgstr "<0>已於 {0} 送出。</0>您寄出的版本保存在「已儲存」中
 msgid "<0>Totals aren't added up on purpose.</0> Bonus and equity depend on conditions, and equity value is uncertain for both. Read the original offer documents before comparing totals."
 msgstr "<0>總額特意未加總。</0>獎金和股權取決於條件，且兩份錄取通知的股權價值都不確定。比較總額前，請先閱讀原始錄取文件。"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "0 for fully remote"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 msgid "06/2017 – 2021"
@@ -1275,6 +1279,10 @@ msgstr "請先在應徵紀錄中新增面試"
 msgid "Add an interview to plan for it"
 msgstr "新增面試以規劃準備"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Add an offer"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Add and prepare resume"
 msgstr ""
@@ -1349,6 +1357,10 @@ msgstr "新增語言"
 
 #: src/features/career/today.tsx
 msgid "Add my first job"
+msgstr ""
+
+#: src/features/career/offers.tsx
+msgid "Add offer"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -1742,6 +1754,10 @@ msgstr "阿姆哈拉語"
 msgid "Amount"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Amounts must be zero or more."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
 msgstr "有一款嵌入的字體無法讀取。"
@@ -1891,6 +1907,7 @@ msgid "application"
 msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/trash-page.tsx
@@ -2345,6 +2362,10 @@ msgstr ""
 msgid "Barista, 2012"
 msgstr "咖啡師，2012"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Base pay"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Base salary"
 msgstr "底薪"
@@ -2387,6 +2408,10 @@ msgstr "最適合申請"
 msgid "Billing"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Blank when unknown"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr "阻斷性問題"
@@ -2416,6 +2441,7 @@ msgstr "正文設定為 {minimum} pt"
 msgid "Bold"
 msgstr "粗體"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Bonus"
 msgstr "獎金"
@@ -2581,6 +2607,7 @@ msgstr "軟體可以讀取您的履歷嗎？"
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2850,6 +2877,14 @@ msgstr "在 Write 中選擇一份與其設計相符的履歷。到那時，這�
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
 msgstr "選擇不超過 2 MB 的 WebM、MP4、MP3、WAV 或 Ogg 檔案。"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application first."
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Choose an application…"
@@ -3736,6 +3771,10 @@ msgstr "無法儲存後續內容。"
 msgid "Couldn't save the notes."
 msgstr "無法保存筆記。"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Couldn't save the offer. Try again."
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Couldn't save the posting."
@@ -3995,6 +4034,7 @@ msgid "CSV data"
 msgstr "CSV 資料"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Currency"
 msgstr "幣別"
 
@@ -4975,6 +5015,7 @@ msgstr "條目已刪除"
 msgid "Entry options"
 msgstr "參賽選項"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Equity"
 msgstr "股權"
@@ -5484,6 +5525,10 @@ msgstr "例如，記下您把這份履歷投給了哪些公司，或是職缺描
 #: src/features/career/workspace/fit.tsx
 msgid "For example: “{0}: I did … at … in 2024, and it led to …”"
 msgstr "例如：「{0}：2024 年我在……做了……，帶來了……」"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "For example: 10% of salary when the team hits its target"
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
@@ -6744,10 +6789,12 @@ msgstr "以結果為主導並給出一個尺度。"
 msgid "Leads with why you fit"
 msgstr "引導您了解適合的原因"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Learning budget"
 msgstr "學習預算"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 #: src/hooks/use-form-blocker.tsx
 msgid "Leave"
@@ -8363,13 +8410,29 @@ msgstr "離開。這封信保留了您的詳細資料的單獨副本。"
 msgid "Offer"
 msgstr "錄取"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer saved"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer type"
+msgstr ""
+
 #: src/routes/dashboard/career/route.tsx
 msgid "Offers"
 msgstr "錄取通知"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days a week"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Office days a week, at most"
 msgstr "每週進辦公室天數上限"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days can be at most five."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Office days not stated"
@@ -8610,6 +8673,7 @@ msgstr "打開您名字的編輯器。沒有什麼可以先填寫的。"
 msgid "Opportunity discovery"
 msgstr "職缺探索"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/settings/ai/web-access.tsx
 msgid "Optional"
 msgstr "選修的"
@@ -8698,6 +8762,7 @@ msgstr "其他"
 msgid "Other · OpenAI-compatible"
 msgstr "其他·OpenAI相容"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Other benefits"
 msgstr "其他福利"
@@ -8958,6 +9023,7 @@ msgid "Pay per document. No subscription, and credits do not expire."
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Pay period"
 msgstr "發薪週期"
 
@@ -8998,8 +9064,24 @@ msgstr "使用它的人"
 msgid "per credit"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per hour"
+msgstr ""
+
 #: src/routes/dashboard/akun.tsx
 msgid "per message"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per month"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year, blank when unknown"
 msgstr ""
 
 #: src/features/settings/account/data.tsx
@@ -10202,6 +10284,7 @@ msgstr "重設您的密碼"
 msgid "Resetting your password..."
 msgstr "正在重設您的密碼…"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Respond by"
 msgstr "答覆期限"
@@ -10615,6 +10698,10 @@ msgstr "儲存面試"
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save job"
 msgstr "保存工作"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Save offer"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Save one search and it runs every morning. Nothing is applied for until you pick a role."
@@ -13269,6 +13356,10 @@ msgstr ""
 msgid "Type instead"
 msgstr "改用輸入"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Type the terms you have. Leave anything you don't know blank, never zero."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr "文字"
@@ -13501,6 +13592,10 @@ msgstr "使用公認的格式，例如「2020 年 1 月 - 2022 年 3 月」或�
 msgid "Use a single column for anything that has to be read in sequence."
 msgstr "對於需要按順序閱讀的內容，使用單欄佈局。"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Use a three-letter currency code, like IDR or USD."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use A4 or US Letter so the layout survives being re-rendered."
 msgstr "使用 A4 或美式信紙尺寸，讓版面在重新轉譯後依然保持完好。"
@@ -13672,6 +13767,7 @@ msgstr "價值不確定"
 msgid "Vary the openings so the section does not read as boilerplate."
 msgstr "變換開頭方式，避免這部分讀起來像制式內容。"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Verbal offer"
 msgstr "口頭錄取"
@@ -13998,6 +14094,10 @@ msgstr ""
 msgid "What success looks like, which challenge matters most, and the next step."
 msgstr "成功是什麼樣子、哪個挑戰最重要，以及下一步。"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "What the bonus depends on"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "文件級檢查在您發送的 PDF 中發現的內容。它在此選項卡中運行；沒有上傳任何內容。"
@@ -14078,6 +14178,7 @@ msgstr ""
 msgid "Where you want to work"
 msgstr "您想在哪裡工作"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Where you work"
 msgstr "工作地點"
@@ -14296,6 +14397,7 @@ msgstr ""
 msgid "writing, tailoring and sending"
 msgstr "寫作、改編和發送"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Written offer"
 msgstr "書面錄取"

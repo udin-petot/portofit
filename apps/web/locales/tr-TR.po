@@ -821,6 +821,10 @@ msgstr "<0>{0} tarihinde gönderildi.</0> Gönderdiğiniz sürümler “Kaydedil
 msgid "<0>Totals aren't added up on purpose.</0> Bonus and equity depend on conditions, and equity value is uncertain for both. Read the original offer documents before comparing totals."
 msgstr "<0>Toplamlar bilerek hesaplanmadı.</0> Prim ve hisse koşullara bağlıdır, hisse değeri ise iki teklif için de belirsizdir. Toplamları karşılaştırmadan önce orijinal teklif belgelerini okuyun."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "0 for fully remote"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 msgid "06/2017 – 2021"
@@ -1275,6 +1279,10 @@ msgstr "Önce bir başvuruya görüşme ekleyin"
 msgid "Add an interview to plan for it"
 msgstr "Plan yapmak için bir görüşme ekleyin"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Add an offer"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Add and prepare resume"
 msgstr ""
@@ -1349,6 +1357,10 @@ msgstr "Dil ekle"
 
 #: src/features/career/today.tsx
 msgid "Add my first job"
+msgstr ""
+
+#: src/features/career/offers.tsx
+msgid "Add offer"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -1742,6 +1754,10 @@ msgstr "Amharca"
 msgid "Amount"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Amounts must be zero or more."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
 msgstr "Gömülü bir yazı tipi okunamadı."
@@ -1891,6 +1907,7 @@ msgid "application"
 msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/trash-page.tsx
@@ -2345,6 +2362,10 @@ msgstr ""
 msgid "Barista, 2012"
 msgstr "Barista, 2012"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Base pay"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Base salary"
 msgstr "Temel maaş"
@@ -2387,6 +2408,10 @@ msgstr "Başvuru için en iyisi"
 msgid "Billing"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Blank when unknown"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr "Engelleyici"
@@ -2416,6 +2441,7 @@ msgstr "Gövde metni {minimum} pt olarak ayarlandı"
 msgid "Bold"
 msgstr "Kalın"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Bonus"
 msgstr "Prim"
@@ -2581,6 +2607,7 @@ msgstr "Yazılım özgeçmişinizi okuyabilir mi?"
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2850,6 +2877,14 @@ msgstr "Write'da tasarımına uygun bir özgeçmiş seçin. O zamana kadar mektu
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
 msgstr "En fazla 2 MB boyutunda bir WebM, MP4, MP3, WAV veya Ogg dosyası seçin."
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application first."
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Choose an application…"
@@ -3736,6 +3771,10 @@ msgstr "Takip kaydedilemedi."
 msgid "Couldn't save the notes."
 msgstr "Notlar kaydedilemedi."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Couldn't save the offer. Try again."
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Couldn't save the posting."
@@ -3995,6 +4034,7 @@ msgid "CSV data"
 msgstr "CSV verileri"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Currency"
 msgstr "Para birimi"
 
@@ -4975,6 +5015,7 @@ msgstr "Giriş silindi"
 msgid "Entry options"
 msgstr "Giriş seçenekleri"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Equity"
 msgstr "Hisse"
@@ -5484,6 +5525,10 @@ msgstr "Örneğin bu özgeçmişi hangi şirketlere gönderdiğinizi ya da iş i
 #: src/features/career/workspace/fit.tsx
 msgid "For example: “{0}: I did … at … in 2024, and it led to …”"
 msgstr "Örneğin: “{0}: 2024'te … şirketinde … yaptım ve bu … sağladı”"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "For example: 10% of salary when the team hits its target"
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
@@ -6744,10 +6789,12 @@ msgstr "Sonuçla liderlik edin ve ona bir ölçek verin."
 msgid "Leads with why you fit"
 msgstr "Neden uygun olduğunuza yol açar"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Learning budget"
 msgstr "Eğitim bütçesi"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 #: src/hooks/use-form-blocker.tsx
 msgid "Leave"
@@ -8363,13 +8410,29 @@ msgstr "Kapalı. Mektup, bilgilerinizin kendi kopyasını saklar."
 msgid "Offer"
 msgstr "Teklif"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer saved"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer type"
+msgstr ""
+
 #: src/routes/dashboard/career/route.tsx
 msgid "Offers"
 msgstr "Teklifler"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days a week"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Office days a week, at most"
 msgstr "Haftada en fazla ofis günü"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days can be at most five."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Office days not stated"
@@ -8610,6 +8673,7 @@ msgstr "Adınızdaki düzenleyiciyi açar. Öncelikle doldurulacak başka bir ş
 msgid "Opportunity discovery"
 msgstr "Fırsat keşfi"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/settings/ai/web-access.tsx
 msgid "Optional"
 msgstr "İsteğe bağlı"
@@ -8698,6 +8762,7 @@ msgstr "Diğer"
 msgid "Other · OpenAI-compatible"
 msgstr "Diğer · OpenAI uyumlu"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Other benefits"
 msgstr "Diğer yan haklar"
@@ -8958,6 +9023,7 @@ msgid "Pay per document. No subscription, and credits do not expire."
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Pay period"
 msgstr "Ödeme dönemi"
 
@@ -8998,8 +9064,24 @@ msgstr "Bunu kullanan insanlar"
 msgid "per credit"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per hour"
+msgstr ""
+
 #: src/routes/dashboard/akun.tsx
 msgid "per message"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per month"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year, blank when unknown"
 msgstr ""
 
 #: src/features/settings/account/data.tsx
@@ -10202,6 +10284,7 @@ msgstr "Şifrenizi sıfırlayın"
 msgid "Resetting your password..."
 msgstr "Şifreniz sıfırlanıyor..."
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Respond by"
 msgstr "Son yanıt tarihi"
@@ -10615,6 +10698,10 @@ msgstr "Görüşmeyi kaydet"
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save job"
 msgstr "İşi kaydet"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Save offer"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Save one search and it runs every morning. Nothing is applied for until you pick a role."
@@ -13269,6 +13356,10 @@ msgstr ""
 msgid "Type instead"
 msgstr "Bunun yerine yaz"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Type the terms you have. Leave anything you don't know blank, never zero."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr "yazılı"
@@ -13501,6 +13592,10 @@ msgstr "\"Jan 2020 - Mar 2022\" veya \"2020 - 2022\" gibi tanınan bir biçim ku
 msgid "Use a single column for anything that has to be read in sequence."
 msgstr "Sırayla okunması gereken her şey için tek sütun kullanın."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Use a three-letter currency code, like IDR or USD."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use A4 or US Letter so the layout survives being re-rendered."
 msgstr "Düzenin yeniden oluşturulduğunda bozulmaması için A4 veya US Letter kullanın."
@@ -13672,6 +13767,7 @@ msgstr "Değer belirsiz"
 msgid "Vary the openings so the section does not read as boilerplate."
 msgstr "Bölümün kalıp metin gibi okunmaması için başlangıçları çeşitlendirin."
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Verbal offer"
 msgstr "Sözlü teklif"
@@ -13998,6 +14094,10 @@ msgstr ""
 msgid "What success looks like, which challenge matters most, and the next step."
 msgstr "Başarının neye benzediği, hangi zorluğun en önemli olduğu ve sonraki adım."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "What the bonus depends on"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "Göndereceğiniz PDF'da dosya düzeyindeki kontrolün ne bulduğu. Bu sekmede çalışıyordu; hiçbir şey yüklenmedi."
@@ -14078,6 +14178,7 @@ msgstr ""
 msgid "Where you want to work"
 msgstr "Çalışmak istediğiniz yer"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Where you work"
 msgstr "Çalışma yeri"
@@ -14296,6 +14397,7 @@ msgstr ""
 msgid "writing, tailoring and sending"
 msgstr "yazma, uyarlama ve gönderme"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Written offer"
 msgstr "Yazılı teklif"

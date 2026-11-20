@@ -821,6 +821,10 @@ msgstr "<0>Pateikta {0}.</0> Išsiųstos versijos saugomos skiltyje „Išsaugot
 msgid "<0>Totals aren't added up on purpose.</0> Bonus and equity depend on conditions, and equity value is uncertain for both. Read the original offer documents before comparing totals."
 msgstr "<0>Sumos sąmoningai nesudedamos.</0> Premija ir akcijos priklauso nuo sąlygų, o akcijų vertė abiem atvejais neaiški. Prieš lygindami sumas perskaitykite originalius pasiūlymo dokumentus."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "0 for fully remote"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 msgid "06/2017 – 2021"
@@ -1275,6 +1279,10 @@ msgstr "Pirmiausia paraiškoje pridėkite pokalbį"
 msgid "Add an interview to plan for it"
 msgstr "Pridėkite pokalbį, kad galėtumėte jam pasiruošti"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Add an offer"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Add and prepare resume"
 msgstr ""
@@ -1349,6 +1357,10 @@ msgstr "Pridėti kalbą"
 
 #: src/features/career/today.tsx
 msgid "Add my first job"
+msgstr ""
+
+#: src/features/career/offers.tsx
+msgid "Add offer"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -1742,6 +1754,10 @@ msgstr "Amharų"
 msgid "Amount"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Amounts must be zero or more."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
 msgstr "Nepavyko nuskaityti įterpto šrifto."
@@ -1891,6 +1907,7 @@ msgid "application"
 msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/trash-page.tsx
@@ -2345,6 +2362,10 @@ msgstr ""
 msgid "Barista, 2012"
 msgstr "Barista, 2012 m"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Base pay"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Base salary"
 msgstr "Bazinis atlyginimas"
@@ -2387,6 +2408,10 @@ msgstr "Geriausia teikiant paraiškas"
 msgid "Billing"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Blank when unknown"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr "Blokuojanti problema"
@@ -2416,6 +2441,7 @@ msgstr "Turinio tekstas nustatytas į {minimum} pt"
 msgid "Bold"
 msgstr "Pusjuodis"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Bonus"
 msgstr "Premija"
@@ -2581,6 +2607,7 @@ msgstr "Ar programinė įranga gali nuskaityti jūsų gyvenimo aprašymą?"
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2850,6 +2877,14 @@ msgstr "Pasirinkite gyvenimo aprašymą, kad atitiktų jo dizainą. Iki tol lai�
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
 msgstr "Pasirinkite WebM, MP4, MP3, WAV arba Ogg failą iki 2 MB."
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application first."
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Choose an application…"
@@ -3736,6 +3771,10 @@ msgstr "Nepavyko išsaugoti tolesnių veiksmų."
 msgid "Couldn't save the notes."
 msgstr "Nepavyko išsaugoti užrašų."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Couldn't save the offer. Try again."
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Couldn't save the posting."
@@ -3995,6 +4034,7 @@ msgid "CSV data"
 msgstr "CSV duomenys"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Currency"
 msgstr "Valiuta"
 
@@ -4975,6 +5015,7 @@ msgstr "Įrašas ištrintas"
 msgid "Entry options"
 msgstr "Įėjimo parinktys"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Equity"
 msgstr "Akcijos"
@@ -5484,6 +5525,10 @@ msgstr "Pavyzdžiui, pasižymėkite, kurioms įmonėms siuntėte šį gyvenimo a
 #: src/features/career/workspace/fit.tsx
 msgid "For example: “{0}: I did … at … in 2024, and it led to …”"
 msgstr "Pavyzdžiui: „{0}: 2024 m. … įmonėje atlikau …, ir tai lėmė …“"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "For example: 10% of salary when the team hits its target"
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
@@ -6744,10 +6789,12 @@ msgstr "Vadovaukitės rezultatu ir suteikite jam skalę."
 msgid "Leads with why you fit"
 msgstr "Nurodo, kodėl tu tinka"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Learning budget"
 msgstr "Mokymosi biudžetas"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 #: src/hooks/use-form-blocker.tsx
 msgid "Leave"
@@ -8363,13 +8410,29 @@ msgstr "Išjungta. Laiškas saugo savo duomenų kopiją."
 msgid "Offer"
 msgstr "Pasiūlymas"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer saved"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer type"
+msgstr ""
+
 #: src/routes/dashboard/career/route.tsx
 msgid "Offers"
 msgstr "Pasiūlymai"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days a week"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Office days a week, at most"
 msgstr "Daugiausia dienų biure per savaitę"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days can be at most five."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Office days not stated"
@@ -8610,6 +8673,7 @@ msgstr "Atidaro jūsų vardo redaktorių. Daugiau nieko nereikia užpildyti pirm
 msgid "Opportunity discovery"
 msgstr "Galimybių paieška"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/settings/ai/web-access.tsx
 msgid "Optional"
 msgstr "Neprivaloma"
@@ -8698,6 +8762,7 @@ msgstr "Kita"
 msgid "Other · OpenAI-compatible"
 msgstr "Kita · Suderinama su OpenAI"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Other benefits"
 msgstr "Kitos naudos"
@@ -8958,6 +9023,7 @@ msgid "Pay per document. No subscription, and credits do not expire."
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Pay period"
 msgstr "Mokėjimo laikotarpis"
 
@@ -8998,8 +9064,24 @@ msgstr "Žmonės, naudojantys"
 msgid "per credit"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per hour"
+msgstr ""
+
 #: src/routes/dashboard/akun.tsx
 msgid "per message"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per month"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year, blank when unknown"
 msgstr ""
 
 #: src/features/settings/account/data.tsx
@@ -10202,6 +10284,7 @@ msgstr "Atkurkite slaptažodį"
 msgid "Resetting your password..."
 msgstr "Atstatomas slaptažodis..."
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Respond by"
 msgstr "Atsakyti iki"
@@ -10615,6 +10698,10 @@ msgstr "Išsaugoti pokalbį"
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save job"
 msgstr "Išsaugoti darbą"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Save offer"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Save one search and it runs every morning. Nothing is applied for until you pick a role."
@@ -13269,6 +13356,10 @@ msgstr ""
 msgid "Type instead"
 msgstr "Verčiau įvesti tekstu"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Type the terms you have. Leave anything you don't know blank, never zero."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr "įvestas"
@@ -13501,6 +13592,10 @@ msgstr "Naudokite atpažįstamą formatą, pvz., „Jan 2020 - Mar 2022“ arba 
 msgid "Use a single column for anything that has to be read in sequence."
 msgstr "Viską, kas turi būti skaitoma iš eilės, dėkite į vieną stulpelį."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Use a three-letter currency code, like IDR or USD."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use A4 or US Letter so the layout survives being re-rendered."
 msgstr "Naudokite A4 arba US Letter formatą, kad maketas išliktų teisingas atkuriant iš naujo."
@@ -13672,6 +13767,7 @@ msgstr "Vertė neaiški"
 msgid "Vary the openings so the section does not read as boilerplate."
 msgstr "Įvairinkite pradžias, kad skyrius neskambėtų kaip šablonas."
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Verbal offer"
 msgstr "Žodinis pasiūlymas"
@@ -13998,6 +14094,10 @@ msgstr ""
 msgid "What success looks like, which challenge matters most, and the next step."
 msgstr "Kaip atrodo sėkmė, koks iššūkis svarbiausias ir koks kitas žingsnis."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "What the bonus depends on"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "Ką failo lygio patikra rado jūsų atsiųstame PDF. Jis vyko šiame skirtuke; nieko nebuvo įkelta."
@@ -14078,6 +14178,7 @@ msgstr ""
 msgid "Where you want to work"
 msgstr "Kur norite dirbti"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Where you work"
 msgstr "Darbo vieta"
@@ -14296,6 +14397,7 @@ msgstr ""
 msgid "writing, tailoring and sending"
 msgstr "rašymas, pritaikymas ir siuntimas"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Written offer"
 msgstr "Rašytinis pasiūlymas"

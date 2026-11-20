@@ -821,6 +821,10 @@ msgstr "<0>Đã nộp ngày {0}.</0> Các phiên bản bạn đã gửi được
 msgid "<0>Totals aren't added up on purpose.</0> Bonus and equity depend on conditions, and equity value is uncertain for both. Read the original offer documents before comparing totals."
 msgstr "<0>Tổng số được cố ý không cộng lại.</0> Thưởng và cổ phần phụ thuộc vào điều kiện, và giá trị cổ phần đều chưa chắc chắn ở cả hai bên. Hãy đọc tài liệu gốc của các lời đề nghị trước khi so sánh tổng số."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "0 for fully remote"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 msgid "06/2017 – 2021"
@@ -1275,6 +1279,10 @@ msgstr "Hãy thêm buổi phỏng vấn trong một hồ sơ ứng tuyển trư�
 msgid "Add an interview to plan for it"
 msgstr "Thêm buổi phỏng vấn để lên kế hoạch chuẩn bị"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Add an offer"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Add and prepare resume"
 msgstr ""
@@ -1349,6 +1357,10 @@ msgstr "Thêm ngôn ngữ"
 
 #: src/features/career/today.tsx
 msgid "Add my first job"
+msgstr ""
+
+#: src/features/career/offers.tsx
+msgid "Add offer"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -1742,6 +1754,10 @@ msgstr "Tiếng Amharic"
 msgid "Amount"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Amounts must be zero or more."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
 msgstr "Không thể đọc được một font đã nhúng."
@@ -1891,6 +1907,7 @@ msgid "application"
 msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/trash-page.tsx
@@ -2345,6 +2362,10 @@ msgstr ""
 msgid "Barista, 2012"
 msgstr "Nhân viên pha cà phê, 2012"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Base pay"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Base salary"
 msgstr "Lương cơ bản"
@@ -2387,6 +2408,10 @@ msgstr "Phù hợp nhất để ứng tuyển"
 msgid "Billing"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Blank when unknown"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr "Lỗi nghiêm trọng"
@@ -2416,6 +2441,7 @@ msgstr "Văn bản nội dung được đặt thành {minimum} pt"
 msgid "Bold"
 msgstr "Đậm"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Bonus"
 msgstr "Thưởng"
@@ -2581,6 +2607,7 @@ msgstr "Phần mềm có đọc được sơ yếu lý lịch của bạn không
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2850,6 +2877,14 @@ msgstr "Chọn một bản lý lịch trong Viết để phù hợp với thiế
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
 msgstr "Chọn tệp WebM, MP4, MP3, WAV hoặc Ogg tối đa 2 MB."
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application first."
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Choose an application…"
@@ -3736,6 +3771,10 @@ msgstr "Không thể lưu nội dung theo dõi."
 msgid "Couldn't save the notes."
 msgstr "Không thể lưu ghi chú."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Couldn't save the offer. Try again."
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Couldn't save the posting."
@@ -3995,6 +4034,7 @@ msgid "CSV data"
 msgstr "Dữ liệu CSV"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Currency"
 msgstr "Tiền tệ"
 
@@ -4975,6 +5015,7 @@ msgstr "Đã xóa mục nhập"
 msgid "Entry options"
 msgstr "Tùy chọn đầu vào"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Equity"
 msgstr "Cổ phần"
@@ -5484,6 +5525,10 @@ msgstr "Ví dụ, ghi lại bạn đã gửi sơ yếu lý lịch này đến nh
 #: src/features/career/workspace/fit.tsx
 msgid "For example: “{0}: I did … at … in 2024, and it led to …”"
 msgstr "Ví dụ: “{0}: Tôi đã làm … tại … vào năm 2024, và điều đó dẫn đến …”"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "For example: 10% of salary when the team hits its target"
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
@@ -6744,10 +6789,12 @@ msgstr "Dẫn đầu với kết quả và cho nó một thang đo."
 msgid "Leads with why you fit"
 msgstr "Dẫn đến lý do tại sao bạn phù hợp"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Learning budget"
 msgstr "Ngân sách học tập"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 #: src/hooks/use-form-blocker.tsx
 msgid "Leave"
@@ -8363,13 +8410,29 @@ msgstr "Tắt. Bức thư giữ bản sao riêng của thông tin chi tiết c�
 msgid "Offer"
 msgstr "Đề nghị"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer saved"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer type"
+msgstr ""
+
 #: src/routes/dashboard/career/route.tsx
 msgid "Offers"
 msgstr "Lời đề nghị"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days a week"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Office days a week, at most"
 msgstr "Số ngày lên văn phòng mỗi tuần, tối đa"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days can be at most five."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Office days not stated"
@@ -8610,6 +8673,7 @@ msgstr "Mở trình soạn thảo theo tên của bạn. Không có gì khác đ
 msgid "Opportunity discovery"
 msgstr "Khám phá cơ hội"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/settings/ai/web-access.tsx
 msgid "Optional"
 msgstr "Không bắt buộc"
@@ -8698,6 +8762,7 @@ msgstr "Khác"
 msgid "Other · OpenAI-compatible"
 msgstr "Khác · Tương thích với OpenAI"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Other benefits"
 msgstr "Phúc lợi khác"
@@ -8958,6 +9023,7 @@ msgid "Pay per document. No subscription, and credits do not expire."
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Pay period"
 msgstr "Kỳ trả lương"
 
@@ -8998,8 +9064,24 @@ msgstr "Mọi người sử dụng nó"
 msgid "per credit"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per hour"
+msgstr ""
+
 #: src/routes/dashboard/akun.tsx
 msgid "per message"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per month"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year, blank when unknown"
 msgstr ""
 
 #: src/features/settings/account/data.tsx
@@ -10202,6 +10284,7 @@ msgstr "Đặt lại mật khẩu"
 msgid "Resetting your password..."
 msgstr "Đang đặt lại mật khẩu..."
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Respond by"
 msgstr "Hạn trả lời"
@@ -10615,6 +10698,10 @@ msgstr "Lưu buổi phỏng vấn"
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save job"
 msgstr "Lưu công việc"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Save offer"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Save one search and it runs every morning. Nothing is applied for until you pick a role."
@@ -13269,6 +13356,10 @@ msgstr ""
 msgid "Type instead"
 msgstr "Nhập văn bản"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Type the terms you have. Leave anything you don't know blank, never zero."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr "đã gõ"
@@ -13501,6 +13592,10 @@ msgstr "Sử dụng định dạng được công nhận, chẳng hạn \"Tháng
 msgid "Use a single column for anything that has to be read in sequence."
 msgstr "Sử dụng bố cục một cột cho bất kỳ nội dung nào cần đọc theo trình tự."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Use a three-letter currency code, like IDR or USD."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use A4 or US Letter so the layout survives being re-rendered."
 msgstr "Sử dụng khổ A4 hoặc US Letter để bố cục không bị lỗi khi kết xuất lại."
@@ -13672,6 +13767,7 @@ msgstr "Giá trị chưa chắc chắn"
 msgid "Vary the openings so the section does not read as boilerplate."
 msgstr "Thay đổi cách mở đầu để phần này không đọc như một mẫu có sẵn."
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Verbal offer"
 msgstr "Đề nghị bằng lời"
@@ -13998,6 +14094,10 @@ msgstr ""
 msgid "What success looks like, which challenge matters most, and the next step."
 msgstr "Thành công trông như thế nào, thách thức nào quan trọng nhất và bước tiếp theo."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "What the bonus depends on"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "Kiểm tra cấp độ tệp được tìm thấy trong PDF mà bạn gửi. Nó chạy trong tab này; không có gì được tải lên."
@@ -14078,6 +14178,7 @@ msgstr ""
 msgid "Where you want to work"
 msgstr "Nơi bạn muốn làm việc"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Where you work"
 msgstr "Nơi làm việc"
@@ -14296,6 +14397,7 @@ msgstr ""
 msgid "writing, tailoring and sending"
 msgstr "viết, điều chỉnh và gửi"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Written offer"
 msgstr "Đề nghị bằng văn bản"

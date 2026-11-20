@@ -816,6 +816,10 @@ msgstr ""
 msgid "<0>Totals aren't added up on purpose.</0> Bonus and equity depend on conditions, and equity value is uncertain for both. Read the original offer documents before comparing totals."
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "0 for fully remote"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 msgid "06/2017 – 2021"
@@ -1270,6 +1274,10 @@ msgstr ""
 msgid "Add an interview to plan for it"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Add an offer"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Add and prepare resume"
 msgstr ""
@@ -1344,6 +1352,10 @@ msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Add my first job"
+msgstr ""
+
+#: src/features/career/offers.tsx
+msgid "Add offer"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -1737,6 +1749,10 @@ msgstr ""
 msgid "Amount"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Amounts must be zero or more."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
 msgstr ""
@@ -1886,6 +1902,7 @@ msgid "application"
 msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/trash-page.tsx
@@ -2340,6 +2357,10 @@ msgstr ""
 msgid "Barista, 2012"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Base pay"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Base salary"
 msgstr ""
@@ -2382,6 +2403,10 @@ msgstr ""
 msgid "Billing"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Blank when unknown"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr ""
@@ -2411,6 +2436,7 @@ msgstr ""
 msgid "Bold"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Bonus"
 msgstr ""
@@ -2576,6 +2602,7 @@ msgstr ""
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2844,6 +2871,14 @@ msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application first."
 msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
@@ -3731,6 +3766,10 @@ msgstr ""
 msgid "Couldn't save the notes."
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Couldn't save the offer. Try again."
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Couldn't save the posting."
@@ -3990,6 +4029,7 @@ msgid "CSV data"
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Currency"
 msgstr ""
 
@@ -4970,6 +5010,7 @@ msgstr ""
 msgid "Entry options"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Equity"
 msgstr ""
@@ -5478,6 +5519,10 @@ msgstr ""
 #. placeholder {0}: requirement.text
 #: src/features/career/workspace/fit.tsx
 msgid "For example: “{0}: I did … at … in 2024, and it led to …”"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "For example: 10% of salary when the team hits its target"
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -6739,10 +6784,12 @@ msgstr ""
 msgid "Leads with why you fit"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Learning budget"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 #: src/hooks/use-form-blocker.tsx
 msgid "Leave"
@@ -8358,12 +8405,28 @@ msgstr ""
 msgid "Offer"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer saved"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer type"
+msgstr ""
+
 #: src/routes/dashboard/career/route.tsx
 msgid "Offers"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days a week"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Office days a week, at most"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days can be at most five."
 msgstr ""
 
 #: src/features/career/today.tsx
@@ -8605,6 +8668,7 @@ msgstr ""
 msgid "Opportunity discovery"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/settings/ai/web-access.tsx
 msgid "Optional"
 msgstr ""
@@ -8693,6 +8757,7 @@ msgstr ""
 msgid "Other · OpenAI-compatible"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Other benefits"
 msgstr ""
@@ -8953,6 +9018,7 @@ msgid "Pay per document. No subscription, and credits do not expire."
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Pay period"
 msgstr ""
 
@@ -8993,8 +9059,24 @@ msgstr ""
 msgid "per credit"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per hour"
+msgstr ""
+
 #: src/routes/dashboard/akun.tsx
 msgid "per message"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per month"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year, blank when unknown"
 msgstr ""
 
 #: src/features/settings/account/data.tsx
@@ -10197,6 +10279,7 @@ msgstr ""
 msgid "Resetting your password..."
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Respond by"
 msgstr ""
@@ -10609,6 +10692,10 @@ msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save job"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Save offer"
 msgstr ""
 
 #: src/features/career/today.tsx
@@ -13264,6 +13351,10 @@ msgstr ""
 msgid "Type instead"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Type the terms you have. Leave anything you don't know blank, never zero."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr ""
@@ -13496,6 +13587,10 @@ msgstr ""
 msgid "Use a single column for anything that has to be read in sequence."
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Use a three-letter currency code, like IDR or USD."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use A4 or US Letter so the layout survives being re-rendered."
 msgstr ""
@@ -13667,6 +13762,7 @@ msgstr ""
 msgid "Vary the openings so the section does not read as boilerplate."
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Verbal offer"
 msgstr ""
@@ -13993,6 +14089,10 @@ msgstr ""
 msgid "What success looks like, which challenge matters most, and the next step."
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "What the bonus depends on"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr ""
@@ -14073,6 +14173,7 @@ msgstr ""
 msgid "Where you want to work"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Where you work"
 msgstr ""
@@ -14291,6 +14392,7 @@ msgstr ""
 msgid "writing, tailoring and sending"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Written offer"
 msgstr ""

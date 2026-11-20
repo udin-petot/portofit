@@ -821,6 +821,10 @@ msgstr "<0>{0}-ന് സമർപ്പിച്ചു.</0> നിങ്ങൾ 
 msgid "<0>Totals aren't added up on purpose.</0> Bonus and equity depend on conditions, and equity value is uncertain for both. Read the original offer documents before comparing totals."
 msgstr "<0>ആകെ തുകകൾ മനഃപൂർവം കൂട്ടിച്ചേർക്കുന്നില്ല.</0> ബോണസും ഇക്വിറ്റിയും വ്യവസ്ഥകളെ ആശ്രയിച്ചിരിക്കുന്നു, രണ്ട് ഓഫറുകളിലും ഇക്വിറ്റിയുടെ മൂല്യം അനിശ്ചിതമാണ്. ആകെ തുകകൾ താരതമ്യം ചെയ്യുന്നതിന് മുമ്പ് യഥാർത്ഥ ഓഫർ രേഖകൾ വായിക്കുക."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "0 for fully remote"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 msgid "06/2017 – 2021"
@@ -1275,6 +1279,10 @@ msgstr "ആദ്യം ഒരു അപേക്ഷയിൽ അഭിമുഖ
 msgid "Add an interview to plan for it"
 msgstr "തയ്യാറെടുക്കാൻ ഒരു അഭിമുഖം ചേർക്കുക"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Add an offer"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Add and prepare resume"
 msgstr ""
@@ -1349,6 +1357,10 @@ msgstr "ഭാഷ ചേർക്കുക"
 
 #: src/features/career/today.tsx
 msgid "Add my first job"
+msgstr ""
+
+#: src/features/career/offers.tsx
+msgid "Add offer"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -1742,6 +1754,10 @@ msgstr "അംഹാരിക്"
 msgid "Amount"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Amounts must be zero or more."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
 msgstr "എംബെഡ് ചെയ്ത ഒരു ഫോണ്ട് വായിക്കാൻ കഴിഞ്ഞില്ല."
@@ -1891,6 +1907,7 @@ msgid "application"
 msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/trash-page.tsx
@@ -2345,6 +2362,10 @@ msgstr ""
 msgid "Barista, 2012"
 msgstr "ബാരിസ്റ്റ, 2012"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Base pay"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Base salary"
 msgstr "അടിസ്ഥാന ശമ്പളം"
@@ -2387,6 +2408,10 @@ msgstr "അപേക്ഷിക്കുന്നതിന് ഏറ്റവ�
 msgid "Billing"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Blank when unknown"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr "തടസ്സം"
@@ -2416,6 +2441,7 @@ msgstr "ബോഡി ടെക്സ്റ്റ് {minimum} pt ആയി സ�
 msgid "Bold"
 msgstr "ബോൾഡ്"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Bonus"
 msgstr "ബോണസ്"
@@ -2581,6 +2607,7 @@ msgstr "സോഫ്റ്റ്‌വെയറിന് നിങ്ങളു�
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2850,6 +2877,14 @@ msgstr "അതിൻ്റെ ഡിസൈനുമായി പൊരുത്�
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
 msgstr "2 MB വരെയുള്ള WebM, MP4, MP3, WAV അല്ലെങ്കിൽ Ogg ഫയൽ തിരഞ്ഞെടുക്കുക."
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application first."
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Choose an application…"
@@ -3736,6 +3771,10 @@ msgstr "ഫോളോ-അപ്പ് സംരക്ഷിക്കാൻ കഴ
 msgid "Couldn't save the notes."
 msgstr "കുറിപ്പുകൾ സംരക്ഷിക്കാനായില്ല."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Couldn't save the offer. Try again."
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Couldn't save the posting."
@@ -3995,6 +4034,7 @@ msgid "CSV data"
 msgstr "CSV ഡാറ്റ"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Currency"
 msgstr "കറൻസി"
 
@@ -4975,6 +5015,7 @@ msgstr "എൻട്രി ഇല്ലാതാക്കി"
 msgid "Entry options"
 msgstr "പ്രവേശന ഓപ്ഷനുകൾ"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Equity"
 msgstr "ഇക്വിറ്റി"
@@ -5484,6 +5525,10 @@ msgstr "ഉദാഹരണത്തിന്, ഈ റിസ്യൂം ഏത�
 #: src/features/career/workspace/fit.tsx
 msgid "For example: “{0}: I did … at … in 2024, and it led to …”"
 msgstr "ഉദാഹരണത്തിന്: “{0}: 2024-ൽ … എന്നിടത്ത് ഞാൻ … ചെയ്തു, അത് … എന്നതിലേക്ക് നയിച്ചു”"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "For example: 10% of salary when the team hits its target"
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
@@ -6744,10 +6789,12 @@ msgstr "ഫലവുമായി നയിക്കുകയും അതിന�
 msgid "Leads with why you fit"
 msgstr "എന്തുകൊണ്ടാണ് നിങ്ങൾ യോജിക്കുന്നത് എന്നതിലേക്ക് നയിക്കുന്നു"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Learning budget"
 msgstr "പഠന ബജറ്റ്"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 #: src/hooks/use-form-blocker.tsx
 msgid "Leave"
@@ -8363,13 +8410,29 @@ msgstr "ഓഫ്. കത്ത് നിങ്ങളുടെ വിശദാ�
 msgid "Offer"
 msgstr "ഓഫർ"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer saved"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer type"
+msgstr ""
+
 #: src/routes/dashboard/career/route.tsx
 msgid "Offers"
 msgstr "ഓഫറുകൾ"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days a week"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Office days a week, at most"
 msgstr "ആഴ്ചയിൽ പരമാവധി ഓഫീസ് ദിവസങ്ങൾ"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days can be at most five."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Office days not stated"
@@ -8610,6 +8673,7 @@ msgstr "നിങ്ങളുടെ പേരിൽ എഡിറ്റർ തു
 msgid "Opportunity discovery"
 msgstr "അവസര കണ്ടെത്തൽ"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/settings/ai/web-access.tsx
 msgid "Optional"
 msgstr "ഓപ്ഷണൽ"
@@ -8698,6 +8762,7 @@ msgstr "മറ്റുള്ളവ"
 msgid "Other · OpenAI-compatible"
 msgstr "മറ്റുള്ളവ · OpenAI-അനുയോജ്യമാണ്"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Other benefits"
 msgstr "മറ്റ് ആനുകൂല്യങ്ങൾ"
@@ -8958,6 +9023,7 @@ msgid "Pay per document. No subscription, and credits do not expire."
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Pay period"
 msgstr "ശമ്പള കാലയളവ്"
 
@@ -8998,8 +9064,24 @@ msgstr "അത് ഉപയോഗിക്കുന്ന ആളുകൾ"
 msgid "per credit"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per hour"
+msgstr ""
+
 #: src/routes/dashboard/akun.tsx
 msgid "per message"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per month"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year, blank when unknown"
 msgstr ""
 
 #: src/features/settings/account/data.tsx
@@ -10202,6 +10284,7 @@ msgstr "നിങ്ങളുടെ പാസ്‌വേഡ് റീസെറ�
 msgid "Resetting your password..."
 msgstr "നിങ്ങളുടെ പാസ്‌വേഡ് റീസെറ്റ് ചെയ്യുന്നു..."
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Respond by"
 msgstr "മറുപടി നൽകേണ്ട തീയതി"
@@ -10615,6 +10698,10 @@ msgstr "അഭിമുഖം സേവ് ചെയ്യുക"
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save job"
 msgstr "ജോലി സംരക്ഷിക്കുക"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Save offer"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Save one search and it runs every morning. Nothing is applied for until you pick a role."
@@ -13269,6 +13356,10 @@ msgstr ""
 msgid "Type instead"
 msgstr "പകരം ടൈപ്പ് ചെയ്യുക"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Type the terms you have. Leave anything you don't know blank, never zero."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr "ടൈപ്പ് ചെയ്തത്"
@@ -13501,6 +13592,10 @@ msgstr "\"Jan 2020 - Mar 2022\" അല്ലെങ്കിൽ \"2020 - 2022\" �
 msgid "Use a single column for anything that has to be read in sequence."
 msgstr "ക്രമത്തിൽ വായിക്കേണ്ട എന്തിനും ഒറ്റ കോളം ഉപയോഗിക്കുക."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Use a three-letter currency code, like IDR or USD."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use A4 or US Letter so the layout survives being re-rendered."
 msgstr "ലേഔട്ട് വീണ്ടും റെൻഡർ ചെയ്യുമ്പോഴും നിലനിൽക്കാൻ A4 അല്ലെങ്കിൽ US Letter ഉപയോഗിക്കുക."
@@ -13672,6 +13767,7 @@ msgstr "മൂല്യം അനിശ്ചിതം"
 msgid "Vary the openings so the section does not read as boilerplate."
 msgstr "വിഭാഗം ബോയിലർപ്ലേറ്റ് പോലെ വായിക്കപ്പെടാതിരിക്കാൻ തുടക്കങ്ങൾ വൈവിധ്യമാക്കുക."
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Verbal offer"
 msgstr "വാക്കാലുള്ള ഓഫർ"
@@ -13998,6 +14094,10 @@ msgstr ""
 msgid "What success looks like, which challenge matters most, and the next step."
 msgstr "വിജയം എങ്ങനെയിരിക്കും, ഏത് വെല്ലുവിളിയാണ് ഏറ്റവും പ്രധാനം, അടുത്ത ഘട്ടം."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "What the bonus depends on"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "നിങ്ങൾ അയയ്‌ക്കാൻ ആഗ്രഹിക്കുന്ന PDF-ൽ ഫയൽ-ലെവൽ പരിശോധന കണ്ടെത്തിയത്. ഇത് ഈ ടാബിൽ പ്രവർത്തിച്ചു; ഒന്നും അപ്‌ലോഡ് ചെയ്തിട്ടില്ല."
@@ -14078,6 +14178,7 @@ msgstr ""
 msgid "Where you want to work"
 msgstr "നിങ്ങൾ ജോലി ചെയ്യാൻ ആഗ്രഹിക്കുന്ന സ്ഥലം"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Where you work"
 msgstr "ജോലിസ്ഥലം"
@@ -14296,6 +14397,7 @@ msgstr ""
 msgid "writing, tailoring and sending"
 msgstr "എഴുതുക, പൊരുത്തപ്പെടുത്തുക, അയയ്ക്കുക"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Written offer"
 msgstr "രേഖാമൂലമുള്ള ഓഫർ"

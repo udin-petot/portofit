@@ -821,6 +821,10 @@ msgstr "<0>{0} रोजी सबमिट केले.</0> तुम्ही
 msgid "<0>Totals aren't added up on purpose.</0> Bonus and equity depend on conditions, and equity value is uncertain for both. Read the original offer documents before comparing totals."
 msgstr "<0>बेरीज मुद्दाम केलेली नाही.</0> बोनस आणि इक्विटी अटींवर अवलंबून असतात, आणि दोन्हीकडे इक्विटीचे मूल्य अनिश्चित आहे. एकूण रकमांची तुलना करण्यापूर्वी मूळ ऑफर दस्तऐवज वाचा."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "0 for fully remote"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 msgid "06/2017 – 2021"
@@ -1275,6 +1279,10 @@ msgstr "आधी एखाद्या अर्जात मुलाखत �
 msgid "Add an interview to plan for it"
 msgstr "तयारीची योजना करण्यासाठी मुलाखत जोडा"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Add an offer"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Add and prepare resume"
 msgstr ""
@@ -1349,6 +1357,10 @@ msgstr "भाषा जोडा"
 
 #: src/features/career/today.tsx
 msgid "Add my first job"
+msgstr ""
+
+#: src/features/career/offers.tsx
+msgid "Add offer"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -1742,6 +1754,10 @@ msgstr "अम्हारिक"
 msgid "Amount"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Amounts must be zero or more."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
 msgstr "एम्बेड केलेला फाँट वाचता आला नाही."
@@ -1891,6 +1907,7 @@ msgid "application"
 msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/trash-page.tsx
@@ -2345,6 +2362,10 @@ msgstr ""
 msgid "Barista, 2012"
 msgstr "बरिस्ता, २०१२"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Base pay"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Base salary"
 msgstr "मूळ पगार"
@@ -2387,6 +2408,10 @@ msgstr "अर्ज करण्यासाठी सर्वोत्तम"
 msgid "Billing"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Blank when unknown"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Blocker"
 msgstr "अडथळा"
@@ -2416,6 +2441,7 @@ msgstr "मुख्य मजकूर {minimum} pt वर सेट केल�
 msgid "Bold"
 msgstr "जाड (Bold)"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Bonus"
 msgstr "बोनस"
@@ -2581,6 +2607,7 @@ msgstr "सॉफ्टवेअर तुमचा रेझ्युमे व
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -2850,6 +2877,14 @@ msgstr "त्याच्या डिझाइनशी जुळण्या�
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
 msgstr "2 MB पर्यंतची WebM, MP4, MP3, WAV किंवा Ogg फाइल निवडा."
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Choose an application first."
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Choose an application…"
@@ -3736,6 +3771,10 @@ msgstr "फॉलोअप जतन करू शकलो नाही."
 msgid "Couldn't save the notes."
 msgstr "नोट्स सेव्ह करू शकलो नाही."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Couldn't save the offer. Try again."
+msgstr ""
+
 #: src/features/career/workspace/apply.tsx
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Couldn't save the posting."
@@ -3995,6 +4034,7 @@ msgid "CSV data"
 msgstr "CSV डेटा"
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Currency"
 msgstr "चलन"
 
@@ -4975,6 +5015,7 @@ msgstr "एंट्री हटवली"
 msgid "Entry options"
 msgstr "प्रवेश पर्याय"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Equity"
 msgstr "इक्विटी"
@@ -5484,6 +5525,10 @@ msgstr "उदाहरणार्थ, हा रेझ्युमे तु�
 #: src/features/career/workspace/fit.tsx
 msgid "For example: “{0}: I did … at … in 2024, and it led to …”"
 msgstr "उदाहरणार्थ: “{0}: मी 2024 मध्ये … येथे … केले, आणि त्यामुळे …”"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "For example: 10% of salary when the team hits its target"
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
@@ -6744,10 +6789,12 @@ msgstr "परिणामासह आघाडी करा आणि त्�
 msgid "Leads with why you fit"
 msgstr "तुम्ही फिट का आहात यासह लीड्स"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Learning budget"
 msgstr "शिक्षण बजेट"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 #: src/hooks/use-form-blocker.tsx
 msgid "Leave"
@@ -8363,13 +8410,29 @@ msgstr "बंद. पत्र आपल्या तपशीलांची �
 msgid "Offer"
 msgstr "ऑफर"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer saved"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Offer type"
+msgstr ""
+
 #: src/routes/dashboard/career/route.tsx
 msgid "Offers"
 msgstr "ऑफर्स"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days a week"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Office days a week, at most"
 msgstr "आठवड्यातून ऑफिसचे जास्तीत जास्त दिवस"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Office days can be at most five."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Office days not stated"
@@ -8610,6 +8673,7 @@ msgstr "तुमच्या नावावर संपादक उघडत
 msgid "Opportunity discovery"
 msgstr "संधींचा शोध"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/settings/ai/web-access.tsx
 msgid "Optional"
 msgstr "ऐच्छिक"
@@ -8698,6 +8762,7 @@ msgstr "इतर"
 msgid "Other · OpenAI-compatible"
 msgstr "इतर · OpenAI-सुसंगत"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Other benefits"
 msgstr "इतर लाभ"
@@ -8958,6 +9023,7 @@ msgid "Pay per document. No subscription, and credits do not expire."
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
+#: src/features/career/manual-offer-dialog.tsx
 msgid "Pay period"
 msgstr "वेतन कालावधी"
 
@@ -8998,8 +9064,24 @@ msgstr "ते वापरणारे लोक"
 msgid "per credit"
 msgstr ""
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per hour"
+msgstr ""
+
 #: src/routes/dashboard/akun.tsx
 msgid "per message"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per month"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year"
+msgstr ""
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Per year, blank when unknown"
 msgstr ""
 
 #: src/features/settings/account/data.tsx
@@ -10202,6 +10284,7 @@ msgstr "तुमचा पासवर्ड रीसेट करा"
 msgid "Resetting your password..."
 msgstr "तुमचा पासवर्ड रीसेट केला जात आहे..."
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Respond by"
 msgstr "उत्तर देण्याची अंतिम तारीख"
@@ -10615,6 +10698,10 @@ msgstr "मुलाखत जतन करा"
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save job"
 msgstr "नोकरी वाचवा"
+
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Save offer"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Save one search and it runs every morning. Nothing is applied for until you pick a role."
@@ -13269,6 +13356,10 @@ msgstr ""
 msgid "Type instead"
 msgstr "त्याऐवजी टाइप करा"
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Type the terms you have. Leave anything you don't know blank, never zero."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "typed"
 msgstr "टाइप केलेले"
@@ -13501,6 +13592,10 @@ msgstr "\"Jan 2020 - Mar 2022\" किंवा \"2020 - 2022\" सारखे 
 msgid "Use a single column for anything that has to be read in sequence."
 msgstr "क्रमाने वाचायच्या कोणत्याही गोष्टीसाठी एकच स्तंभ वापरा."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "Use a three-letter currency code, like IDR or USD."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use A4 or US Letter so the layout survives being re-rendered."
 msgstr "मांडणी पुन्हा रेंडर केल्यावरही टिकावी म्हणून A4 किंवा US Letter वापरा."
@@ -13672,6 +13767,7 @@ msgstr "मूल्य अनिश्चित"
 msgid "Vary the openings so the section does not read as boilerplate."
 msgstr "विभाग साचेबद्ध वाटू नये म्हणून सुरुवाती वेगवेगळ्या ठेवा."
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Verbal offer"
 msgstr "तोंडी ऑफर"
@@ -13998,6 +14094,10 @@ msgstr ""
 msgid "What success looks like, which challenge matters most, and the next step."
 msgstr "यश कसे दिसते, कोणते आव्हान सर्वात महत्त्वाचे आहे, आणि पुढील पाऊल."
 
+#: src/features/career/manual-offer-dialog.tsx
+msgid "What the bonus depends on"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "What the file-level check found in the PDF you'd send. It ran in this tab; nothing was uploaded."
 msgstr "तुम्ही पाठवलेल्या PDF मध्ये फाइल-स्तरीय तपासणीमध्ये काय आढळले. ते या टॅबमध्ये चालले; काहीही अपलोड केले नाही."
@@ -14078,6 +14178,7 @@ msgstr ""
 msgid "Where you want to work"
 msgstr "तुम्हाला कुठे काम करायचे आहे"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Where you work"
 msgstr "कामाचे ठिकाण"
@@ -14296,6 +14397,7 @@ msgstr ""
 msgid "writing, tailoring and sending"
 msgstr "लिहिणे, रुपांतर करणे आणि पाठवणे"
 
+#: src/features/career/manual-offer-dialog.tsx
 #: src/features/career/offers.tsx
 msgid "Written offer"
 msgstr "लेखी ऑफर"
