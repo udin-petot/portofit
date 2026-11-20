@@ -89,6 +89,7 @@ const application: Application = {
 	appliedAt: new Date("2026-10-08T12:00:00Z"),
 	createdAt: new Date("2026-10-08T12:00:00Z"),
 	updatedAt: new Date("2026-10-08T12:00:00Z"),
+	trashedAt: null,
 	resumeId: null,
 	jobDescription: null,
 	postingSource: null,
