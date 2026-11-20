@@ -32,7 +32,7 @@ const indexHtmlPath = `${staticRoot}/index.html`;
 // The marketing pages prerendered per locale by the web build (apps/web/vite.config.ts), as <page>/<locale>.html, kept
 // beside dist/ so they're never served at an address of their own.
 const prerenderRoot = `${staticRoot}-prerender`;
-const noindexShellPrefixes = ["/auth", "/dashboard", "/admin", "/builder", "/agent"];
+const noindexShellPrefixes = ["/auth", "/dashboard", "/admin", "/builder", "/agent", "/templates"];
 
 // The dashboard is client-rendered behind auth, so the first paint would otherwise wait for the session,
 // the documents query and the whole route chunk. Paint the page title immediately; React replaces it on
