@@ -2,23 +2,18 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { useSelector } from "@tanstack/react-form";
 import { useQueryClient } from "@tanstack/react-query";
-import { Link, useSearch } from "@tanstack/react-router";
-import { useState } from "react";
+import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import z from "zod";
-import { Alert, AlertDescription, AlertTitle } from "@reactive-resume/ui/components/alert";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Checkbox } from "@reactive-resume/ui/components/checkbox";
 import { FormControl, FormItem, FormLabel, FormMessage } from "@reactive-resume/ui/components/form";
-import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { toast } from "@reactive-resume/ui/components/toast";
-import { cn } from "@reactive-resume/utils/style";
 import { AuthPanel } from "../components/auth-panel";
 import { SocialAuth } from "../components/social-auth";
 import { getAuthRedirectOptions, getOAuthSignInOptions, isOAuthRedirect } from "../redirect";
 import { PasswordInput } from "@/components/input/password-input";
 import { authClient } from "@/libs/auth/client";
-import { ENTER_CLASS } from "@/libs/motion";
 import { sessionQueryKey } from "@/libs/root-context";
 import { useAppForm } from "@/libs/tanstack-form";
 
@@ -50,7 +45,7 @@ type Props = {
 export function RegisterPage({ disableEmailAuth }: Props) {
 	const { callbackURL, reauthenticate } = useSearch({ from: "/auth" });
 	const queryClient = useQueryClient();
-	const [submitted, setSubmitted] = useState(false);
+	const navigate = useNavigate();
 
 	const form = useAppForm({
 		defaultValues: { name: "", username: "", email: "", password: "", accepted: false },
@@ -94,14 +89,16 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 				if (isOAuthRedirect(continuation.data)) return;
 			}
 			await queryClient.invalidateQueries({ queryKey: sessionQueryKey });
-			setSubmitted(true);
-			toast.close(toastId);
+			toast.add({
+				type: "success",
+				description: t`Account created. You can verify your email from the dashboard.`,
+				id: toastId,
+			});
+			void navigate(getAuthRedirectOptions(callbackURL));
 		},
 	});
 
 	const isSubmitting = useSelector(form.store, (state) => state.isSubmitting);
-
-	if (submitted) return <PostSignupScreen />;
 
 	return (
 		<AuthPanel
@@ -276,42 +273,5 @@ export function RegisterPage({ disableEmailAuth }: Props) {
 				</Trans>
 			</p>
 		</AuthPanel>
-	);
-}
-
-function PostSignupScreen() {
-	const { callbackURL } = useSearch({ from: "/auth" });
-	const redirectOptions = getAuthRedirectOptions(callbackURL);
-	return (
-		// Replaces the form in place: fades up into the auth column, with the layout's 24px gap.
-		<div className={cn(ENTER_CLASS, "grid gap-y-6")}>
-			<div className="space-y-1 text-center">
-				<h1 className="font-display text-[30px] leading-9 font-medium">
-					<Trans>You've got mail!</Trans>
-				</h1>
-				<p className="text-ink-3">
-					<Trans>Check your email for a link to verify your account.</Trans>
-				</p>
-			</div>
-
-			<Alert>
-				<AlertTitle>
-					<Trans>This step is optional, but recommended.</Trans>
-				</AlertTitle>
-				<AlertDescription>
-					<Trans>Verifying your email confirms that you own this address.</Trans>
-				</AlertDescription>
-			</Alert>
-
-			<Button
-				nativeButton={false}
-				render={
-					<Link to={redirectOptions.href} reloadDocument={redirectOptions.reloadDocument} replace>
-						<Trans comment="Button label to continue to dashboard after successful registration">Continue</Trans>{" "}
-						<Icon name="arrow-right" size={16} />
-					</Link>
-				}
-			/>
-		</div>
 	);
 }

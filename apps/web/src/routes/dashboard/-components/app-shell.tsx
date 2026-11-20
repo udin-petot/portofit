@@ -18,6 +18,7 @@ import { MobileTabIndicator } from "@/components/layout/mobile-tab-indicator";
 import { useDialogStore } from "@/dialogs/store";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
 import { GuestBanner } from "@/features/auth/components/guest-banner";
+import { VerifyEmailBanner } from "@/features/auth/components/verify-email-banner";
 import { useCommandPaletteStore } from "@/features/command-palette/store";
 import { isEditableElementFocused } from "@/features/resume/builder/draft";
 import { SupportLauncher } from "@/features/support/support-launcher";
@@ -129,6 +130,7 @@ export function AppShell({ children }: AppShellProps) {
 			{breakpoint !== "mobile" && (breakpoint === "tablet" ? <Rail /> : <Sidebar />)}
 			<main id="main-content" className="min-w-0 max-sm:pb-24">
 				<GuestBanner />
+				<VerifyEmailBanner />
 				{children}
 			</main>
 			{tabs && <MobileTabs />}
