@@ -7,9 +7,9 @@ describe("indonesian sample", () => {
 		const data = parseResumeData(indonesianSampleResumeData);
 
 		expect(data.basics.name).toBe("Rizky Pratama");
-		expect(data.basics.headline).toBe("Backend Engineer");
+		expect(data.basics.headline).toBe("Staf Administrasi");
 		expect(data.basics.email).toContain("@");
-		expect(data.summary.content).toContain("Backend engineer");
+		expect(data.summary.content).toContain("Staf administrasi");
 		expect(data.sections.experience.items.length).toBeGreaterThanOrEqual(2);
 		expect(data.sections.education.items.length).toBeGreaterThanOrEqual(1);
 		expect(data.sections.skills.items.length).toBeGreaterThanOrEqual(3);

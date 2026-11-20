@@ -2,7 +2,7 @@ import type { ResumeData } from "./data";
 
 /**
  * The example a new Indonesian user starts from: one page, already filled, in their own language. It is the
- * backend-engineer CV the product team keeps as its reference document, so the first screen of the editor shows
+ * office-administration CV the product team keeps as its reference document, so the first screen of the editor shows
  * what a finished CV looks like instead of an empty form. The persona is invented; nobody's own name is used.
  */
 export const indonesianSampleResumeData: ResumeData = {
@@ -21,13 +21,13 @@ export const indonesianSampleResumeData: ResumeData = {
 	},
 	basics: {
 		name: "Rizky Pratama",
-		headline: "Backend Engineer",
+		headline: "Staf Administrasi",
 		email: "rizky.pratama@example.com",
 		phone: "+62 812-3456-7890",
 		location: "Yogyakarta, Indonesia",
 		website: {
-			url: "",
-			label: "github.com/rizkypratama",
+			url: "https://linkedin.com/in/rizkypratama",
+			label: "linkedin.com/in/rizkypratama",
 		},
 		customFields: [],
 	},
@@ -40,7 +40,7 @@ export const indonesianSampleResumeData: ResumeData = {
 		keepTogether: false,
 		startOnNewPage: false,
 		content:
-			"<p>Backend engineer dengan 3 tahun pengalaman membangun layanan pembayaran dan API berlatensi rendah. Fokus pada keandalan, observabilitas, dan dokumentasi yang jelas.</p>",
+			"<p>Staf administrasi dengan 3 tahun pengalaman mengelola arsip, jadwal, dan kebutuhan operasional kantor. Teliti, terbiasa dengan Excel dan Google Workspace, serta nyaman berkoordinasi lintas tim.</p>",
 	},
 	sections: {
 		profiles: {
@@ -66,7 +66,7 @@ export const indonesianSampleResumeData: ResumeData = {
 					id: "706ae6dd-d639-4c76-8aee-10b24071d0ba",
 					hidden: false,
 					company: "Nusantara Digital",
-					position: "Backend Engineer",
+					position: "Staf Administrasi",
 					location: "Yogyakarta (hybrid)",
 					period: "Januari 2024 – Sekarang",
 					dates: {
@@ -80,14 +80,14 @@ export const indonesianSampleResumeData: ResumeData = {
 						inlineLink: false,
 					},
 					description:
-						"<ul><li>Membangun layanan pembayaran dengan idempotency key dan status transaksi eksplisit; tagihan ganda turun menjadi nol.</li><li>Menulis rekonsiliasi harian dan alert untuk transaksi tertahan.</li></ul>",
+						"<ul><li>Mengelola arsip digital 1.200 dokumen dan menyusun prosedur penamaan yang dipakai seluruh tim.</li><li>Menyiapkan jadwal rapat, korespondensi vendor, dan rekap belanja kantor bulanan.</li></ul>",
 					roles: [],
 				},
 				{
 					id: "371dfcd7-df2a-445a-ac8f-8885fe59e270",
 					hidden: false,
 					company: "Loket Kreatif",
-					position: "Junior Backend Developer",
+					position: "Admin Operasional",
 					location: "Yogyakarta",
 					period: "Juli 2022 – Desember 2023",
 					dates: {
@@ -101,7 +101,7 @@ export const indonesianSampleResumeData: ResumeData = {
 						inlineLink: false,
 					},
 					description:
-						"<ul><li>Mengembangkan API tiket acara dengan PostgreSQL dan Redis; menangani 1.200 pesanan pada acara terbesar.</li></ul>",
+						"<ul><li>Mendata 1.200 pendaftar acara, mencocokkan pembayaran, dan mengirim konfirmasi ke peserta.</li><li>Merapikan surat masuk dan keluar ke dalam arsip digital departemen.</li></ul>",
 					roles: [],
 				},
 			],
@@ -119,14 +119,14 @@ export const indonesianSampleResumeData: ResumeData = {
 					id: "20a14aef-82d6-435e-babf-b808dcb058fd",
 					hidden: false,
 					school: "Universitas Gadjah Mada",
-					degree: "S1",
-					area: "Ilmu Komputer",
+					degree: "D3",
+					area: "Administrasi Perkantoran",
 					grade: "IPK 3.62/4.00",
 					location: "Yogyakarta",
-					period: "Agustus 2018 – Juni 2022",
+					period: "Agustus 2018 – Juni 2021",
 					dates: {
 						start: "2018-08",
-						end: "2022-06",
+						end: "2021-06",
 						present: false,
 					},
 					website: {
@@ -140,7 +140,7 @@ export const indonesianSampleResumeData: ResumeData = {
 		},
 		projects: {
 			title: "",
-			icon: "code-simple",
+			icon: "file-text",
 			columns: 1,
 			hidden: false,
 			showHeading: true,
@@ -150,7 +150,7 @@ export const indonesianSampleResumeData: ResumeData = {
 				{
 					id: "c13282a2-04e8-4f8a-9068-dc9bc9ae26c4",
 					hidden: false,
-					name: "PortoFit — pemeriksa ATS",
+					name: "Arsip digital kantor",
 					period: "Agustus 2026 – Oktober 2026",
 					dates: {
 						start: "2026-08",
@@ -158,17 +158,17 @@ export const indonesianSampleResumeData: ResumeData = {
 						present: false,
 					},
 					website: {
-						url: "https://github.com/rizkypratama/portofit",
+						url: "",
 						label: "",
 						inlineLink: false,
 					},
 					description:
-						"<p>Alat pemeriksa keterbacaan CV untuk ATS: ekstraksi teks, skor, dan saran perbaikan (TypeScript, PostgreSQL).</p>",
+						"<p>Menyusun struktur folder dan prosedur arsip digital untuk 1.200 dokumen, memangkas waktu pencarian dari 15 menit menjadi 3 menit.</p>",
 				},
 				{
 					id: "e1aed0fe-8a4c-4e36-be27-eea96cb4b5da",
 					hidden: false,
-					name: "qris-reconcile",
+					name: "Rekap anggaran operasional",
 					period: "Februari 2026 – April 2026",
 					dates: {
 						start: "2026-02",
@@ -176,12 +176,12 @@ export const indonesianSampleResumeData: ResumeData = {
 						present: false,
 					},
 					website: {
-						url: "https://github.com/rizkypratama/qris-reconcile",
+						url: "",
 						label: "",
 						inlineLink: false,
 					},
 					description:
-						"<p>Skrip rekonsiliasi pembayaran QRIS: mencocokkan mutasi bank dengan order dan mengirim ringkasan harian.</p>",
+						"<p>Membuat template rekap bulanan di Excel untuk belanja kantor dan perjalanan dinas, dipakai tiga tim.</p>",
 				},
 			],
 		},
@@ -197,32 +197,32 @@ export const indonesianSampleResumeData: ResumeData = {
 				{
 					id: "ebb6b17b-8309-4cb7-81a3-3d1b9c3a0e45",
 					hidden: false,
-					icon: "code",
+					icon: "clipboard-text",
 					iconColor: "",
-					name: "Backend",
+					name: "Administrasi",
 					proficiency: "Advanced",
 					level: 4,
-					keywords: ["Node.js", "TypeScript", "REST", "Idempotency"],
+					keywords: ["Kearsipan", "Penjadwalan", "Korespondensi"],
 				},
 				{
 					id: "24c6df67-6cfd-4bc6-ba95-0403bb99680a",
 					hidden: false,
-					icon: "database",
+					icon: "briefcase",
 					iconColor: "",
-					name: "Data",
+					name: "Perkantoran",
 					proficiency: "Advanced",
 					level: 4,
-					keywords: ["PostgreSQL", "Redis", "SQL tuning"],
+					keywords: ["Microsoft Excel", "Google Workspace", "Data entry"],
 				},
 				{
 					id: "c01ff4c9-9a0d-451f-98d6-849a71191bd4",
 					hidden: false,
-					icon: "cloud",
+					icon: "chat-text",
 					iconColor: "",
-					name: "Infrastruktur",
+					name: "Komunikasi",
 					proficiency: "Intermediate",
 					level: 3,
-					keywords: ["Docker", "GitHub Actions", "Observability"],
+					keywords: ["Koordinasi", "Layanan vendor", "Tata kelola dokumen"],
 				},
 			],
 			keywordLayout: "inline",
@@ -248,8 +248,8 @@ export const indonesianSampleResumeData: ResumeData = {
 					id: "67fb6a37-59c1-49c2-a9a4-7822ceaa9d8d",
 					hidden: false,
 					language: "Inggris",
-					fluency: "Professional",
-					level: 5,
+					fluency: "Menengah",
+					level: 3,
 				},
 			],
 		},
