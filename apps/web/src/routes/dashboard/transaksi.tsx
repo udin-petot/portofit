@@ -9,8 +9,6 @@ export const Route = createFileRoute("/dashboard/transaksi")({
 
 function RouteComponent() {
 	const { order } = Route.useSearch();
-	const context = Route.useRouteContext();
-	const role = (context.session?.user as { role?: string | null } | undefined)?.role ?? "user";
 
-	return <TransactionsPage selectedOrderId={order} isAdmin={role === "admin"} />;
+	return <TransactionsPage selectedOrderId={order} />;
 }

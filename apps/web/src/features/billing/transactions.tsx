@@ -22,7 +22,7 @@ type Tab = "semua" | "menunggu_bayar" | "diproses" | "selesai" | "batal";
 
 const TABS: Tab[] = ["semua", "menunggu_bayar", "diproses", "selesai", "batal"];
 
-type TransactionsPageProps = { selectedOrderId?: string | undefined; isAdmin?: boolean };
+type TransactionsPageProps = { selectedOrderId?: string | undefined };
 
 /** Warna chip status mengikuti tone yang sudah dipakai di config, supaya daftar dan detail tidak berbeda. */
 function chipTone(status: string) {
