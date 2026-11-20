@@ -4,6 +4,12 @@ import { MAX_CONTENT_CHARS, MAX_PAGE_BYTES, WebAccessError } from "./contracts";
 import { normalizeSearch, parseResponse, postJson } from "./transport";
 
 const searchSchema = z.object({ results: z.array(z.unknown()).max(100) });
+const searchItemSchema = z.object({
+	url: z.string(),
+	title: z.string(),
+	highlights: z.array(z.string()).optional(),
+	text: z.string().optional(),
+});
 export async function searchExa(query: string, { connection, signal }: ProviderRequest) {
 	const response = parseResponse(
 		searchSchema,
@@ -12,12 +18,25 @@ export async function searchExa(query: string, { connection, signal }: ProviderR
 			{
 				"x-api-key": connection.apiKey ?? "",
 			},
-			{ query, numResults: 5, type: "auto" },
+			{ query, numResults: 5, type: "auto", contents: { highlights: true } },
 			signal,
 		),
 	);
-	// Search has no text/highlights/summary request; fetch only the result the user selects.
-	return normalizeSearch(response.results);
+	// Highlights keep the search response small while giving the coach enough text to choose a page to read.
+	return normalizeSearch(
+		response.results.flatMap((value) => {
+			const item = searchItemSchema.safeParse(value);
+			if (!item.success) return [];
+			const snippet = item.data.highlights?.filter(Boolean).join("\n\n") || item.data.text;
+			return [
+				{
+					url: item.data.url,
+					title: item.data.title,
+					...(snippet ? { snippet } : {}),
+				},
+			];
+		}),
+	);
 }
 
 const contentsSchema = z.object({

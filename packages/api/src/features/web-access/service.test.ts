@@ -102,7 +102,7 @@ const searchResponse = (provider: WebAccessProvider) => {
 		return {
 			results: [{ url: `${URL}#apply`, title: "Designer", content: "Berlin" }, ...unsafe],
 		};
-	return { results: [{ url: `${URL}#apply`, title: "Designer" }, ...unsafe] };
+	return { results: [{ url: `${URL}#apply`, title: "Designer", highlights: ["Berlin"] }, ...unsafe] };
 };
 const readResponse = (provider: WebAccessProvider, content = "# Designer\nAccessible product design") => {
 	if (provider === "firecrawl")
@@ -216,13 +216,14 @@ describe.each(PROVIDERS)("%s adapter at shared boundary", (provider) => {
 			{
 				url: URL,
 				title: "Designer",
-				...(provider !== "exa" ? { snippet: "Berlin" } : {}),
+				snippet: "Berlin",
 			},
 		]);
 		expect(requests[0]?.body.query).toBe("Lumen Health company");
 		expect(requests[0]?.auth).toContain("test-provider-key");
 		expect(requests[0]?.body).not.toHaveProperty("scrapeOptions");
-		expect(requests[0]?.body).not.toHaveProperty("contents");
+		if (provider === "exa") expect(requests[0]?.body).toMatchObject({ contents: { highlights: true } });
+		else expect(requests[0]?.body).not.toHaveProperty("contents");
 		if (provider === "tavily")
 			expect(requests[0]?.body).toMatchObject({
 				include_raw_content: false,
