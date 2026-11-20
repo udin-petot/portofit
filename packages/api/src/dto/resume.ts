@@ -4,6 +4,7 @@ import * as schema from "@reactive-resume/db/schema";
 import { jsonPatchOperationSchema } from "@reactive-resume/resume/patch";
 import { resumeDataSchema } from "@reactive-resume/schema/resume/data";
 import { writableResumeDataSchema } from "@reactive-resume/schema/resume/write";
+import { templateSchema } from "@reactive-resume/schema/templates";
 import { localeSchema } from "@reactive-resume/utils/locale";
 import { paginationShape } from "../pagination";
 
@@ -81,6 +82,7 @@ export const resumeDto = {
 				.optional()
 				.describe("The slug of the resume. Generated from the name, and made unique, when omitted."),
 			withSampleData: z.boolean().default(false),
+			template: templateSchema.optional().describe("The layout to start with."),
 			locale: localeSchema
 				.optional()
 				.describe("The language of the document and of its sample content. Defaults to the request's locale."),

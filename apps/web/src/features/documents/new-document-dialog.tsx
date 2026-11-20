@@ -1,4 +1,5 @@
 import type { ImportKind } from "@/features/resume/import/read-file";
+import type { Template } from "@reactive-resume/schema/templates";
 import type { IconName } from "@reactive-resume/ui/components/icon";
 import type { CSSProperties, Dispatch, SetStateAction } from "react";
 import { t } from "@lingui/core/macro";
@@ -36,6 +37,8 @@ export type NewDocumentDialogData = {
 	applicationId?: string;
 	/** A file dropped on the page, imported straight away. */
 	file?: File;
+	/** Template picked on the public gallery; the dialog creates the resume with it at once. */
+	template?: Template;
 };
 
 type Step =
@@ -195,6 +198,14 @@ export function NewDocumentDialog({ data }: { data?: NewDocumentDialogData | und
 	});
 
 	const { startBlank, trySample, newLetter, creating } = useStartDocument(data?.applicationId);
+	const templateStarted = useRef(false);
+
+	// "Use this template" lands on /dashboard?template=...; create that document without asking again.
+	useEffect(() => {
+		if (!data?.template || templateStarted.current) return;
+		templateStarted.current = true;
+		void startBlank(data.template);
+	}, [data?.template, startBlank]);
 
 	const chooseFile = () => inputRef.current?.click();
 
@@ -233,7 +244,7 @@ export function NewDocumentDialog({ data }: { data?: NewDocumentDialogData | und
 					step={step}
 					creating={creating}
 					onCancel={cancel}
-					onStartBlank={() => void startBlank()}
+					onStartBlank={() => void startBlank(data?.template)}
 					onChooseFile={chooseFile}
 					onClose={closeDialog}
 					onOpen={(resumeId, importedFrom) => openResume(resumeId, { importedFrom })}
@@ -290,7 +301,7 @@ export function NewDocumentDialog({ data }: { data?: NewDocumentDialogData | und
 							title={t`Start blank`}
 							description={t`Opens the editor on your name. Nothing else to fill in first.`}
 							disabled={creating}
-							onClick={() => void startBlank()}
+							onClick={() => void startBlank(data?.template)}
 						/>
 						<ChoiceTile
 							icon="copy"

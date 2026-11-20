@@ -2,6 +2,7 @@ import type { ResumeUpdatedEvent } from "./events";
 import type { DbOrTx } from "@reactive-resume/db/client";
 import type { JsonPatchOperation } from "@reactive-resume/resume/patch";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
+import type { Template } from "@reactive-resume/schema/templates";
 import type { Locale } from "@reactive-resume/utils/locale";
 import { ORPCError } from "@orpc/client";
 import { compare, hash } from "bcryptjs";
@@ -578,6 +579,8 @@ export const resumeService = {
 		slug?: string;
 		tags: string[];
 		locale: Locale;
+		/** Starting layout; defaults to the template in defaultResumeData. */
+		template?: Template;
 		data?: ResumeData;
 		/** The first version in History: "created", or "import" for an imported document. */
 		origin?: "created" | "import";
@@ -587,6 +590,7 @@ export const resumeService = {
 		const id = input.id ?? generateId();
 		const data = parseWritableResumeData(structuredClone(input.data ?? defaultResumeData));
 		data.metadata.page.locale = input.locale;
+		if (input.template) data.metadata.template = input.template;
 
 		try {
 			const slug = input.slug ?? (await findFreeSlug(db, input.userId, input.name));

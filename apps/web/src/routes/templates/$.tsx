@@ -150,7 +150,7 @@ function TemplatePreview({ slug }: { slug: string }) {
 				</a>
 				<span className={labelClass}>{templates[template].name}</span>
 				<a
-					href="/dashboard"
+					href={`/dashboard?template=${encodeURIComponent(template)}`}
 					className="rounded-full bg-accent px-3.5 py-1.5 text-sm font-semibold text-on-accent transition-opacity hover:opacity-90"
 				>
 					<Trans>Use this template</Trans>

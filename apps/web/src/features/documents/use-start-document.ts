@@ -1,4 +1,5 @@
 import type { Locale } from "@reactive-resume/utils/locale";
+import type { Template } from "@reactive-resume/schema/templates";
 import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -37,7 +38,7 @@ export function useStartDocument(applicationId?: string) {
 
 	return {
 		creating,
-		startBlank: async () => {
+		startBlank: async (template?: Template) => {
 			try {
 				const resumeId = await createResume({
 					name: t`Untitled resume`,
@@ -45,6 +46,7 @@ export function useStartDocument(applicationId?: string) {
 					autoName: true,
 					withSampleData: false,
 					locale,
+					...(template ? { template } : {}),
 				});
 				await created(resumeId, "resume");
 				void navigate({ to: "/builder/$resumeId", params: { resumeId } });
