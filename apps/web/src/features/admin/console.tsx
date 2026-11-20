@@ -37,6 +37,7 @@ import { Textarea } from "@reactive-resume/ui/components/textarea";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
 import { formatRupiah, ORDER_STATUS_LABEL } from "../billing/config";
+import { InvoiceSheet } from "../billing/invoice-sheet";
 import { RevenueChart, SignupBars, Sparkline, StatusDonut } from "./charts";
 import { FinanceView } from "./finance-view";
 import { UsagePanel } from "./usage-panel";
@@ -177,6 +178,7 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 	const [rejectReason, setRejectReason] = useState("");
 	const [creditTarget, setCreditTarget] = useState<{ user: AdminUser; kind: CreditKind; delta: number } | null>(null);
 	const [creditReason, setCreditReason] = useState("");
+	const [invoiceId, setInvoiceId] = useState<string | null>(null);
 
 	const analytics = useQuery(orpc.billing.adminAnalytics.queryOptions({ input: { days } }));
 	const orders = useQuery(orpc.billing.adminOrders.queryOptions({ input: { limit: 100 } }));
@@ -191,6 +193,8 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 	const reject = useMutation(orpc.billing.adminRejectOrder.mutationOptions());
 	const adjust = useMutation(orpc.billing.adminAdjustCredits.mutationOptions());
 	const updatePlan = useMutation(orpc.billing.adminUpdatePlan.mutationOptions());
+	const issueInvoice = useMutation(orpc.invoice.adminIssue.mutationOptions());
+	const resendInvoice = useMutation(orpc.invoice.adminResend.mutationOptions());
 	const exportCsv = useQuery({ ...orpc.billing.adminExportCsv.queryOptions(), enabled: false });
 
 	const proof = useQuery({
@@ -228,6 +232,24 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 			// A second admin may have verified the same order in another tab. Show the server's reason
 			// ("Order ini sudah lunas.") instead of a generic failure that looks like the click did nothing.
 			fail(error, "Verifikasi gagal. Coba lagi.", true);
+		}
+	};
+
+	const openInvoice = async (order: AdminOrder) => {
+		try {
+			const invoice = await issueInvoice.mutateAsync({ orderId: order.id });
+			setInvoiceId(invoice.id);
+		} catch (error) {
+			fail(error, "Invoice tidak bisa dibuka. Coba lagi.", true);
+		}
+	};
+
+	const resendInvoiceNow = async (id: string) => {
+		try {
+			await resendInvoice.mutateAsync({ invoiceId: id });
+			toast.add({ type: "success", description: "Email invoice dikirim ulang." });
+		} catch (error) {
+			fail(error, "Email invoice tidak bisa dikirim. Coba lagi.", true);
 		}
 	};
 
@@ -401,6 +423,7 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 							onOpenProof={setProofOrder}
 							onVerify={verifyNow}
 							onOpenReject={openReject}
+							onInvoice={openInvoice}
 							onSeeOrders={(filter) => {
 								setOrderFilter(filter ?? "semua");
 								setView("pesanan");
@@ -417,6 +440,7 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 							onOpenProof={setProofOrder}
 							onVerify={verifyNow}
 							onOpenReject={openReject}
+							onInvoice={openInvoice}
 							verifyingId={verify.isPending ? verify.variables?.orderId : undefined}
 						/>
 					) : null}
@@ -473,6 +497,11 @@ export function AdminConsolePage({ user }: { user: { name: string; email: string
 				onClose={() => setCreditTarget(null)}
 				onSubmit={submitCredit}
 				pending={adjust.isPending}
+			/>
+			<InvoiceSheet
+				invoiceId={invoiceId}
+				onClose={() => setInvoiceId(null)}
+				onResend={(id) => void resendInvoiceNow(id)}
 			/>
 		</div>
 	);
@@ -552,6 +581,7 @@ function OverviewView({
 	onOpenProof,
 	onVerify,
 	onOpenReject,
+	onInvoice,
 	onSeeOrders,
 }: {
 	analytics: Analytics | undefined;
@@ -563,6 +593,7 @@ function OverviewView({
 	onOpenProof: (order: AdminOrder) => void;
 	onVerify: (order: AdminOrder) => void;
 	onOpenReject: (order: AdminOrder) => void;
+	onInvoice: (order: AdminOrder) => void;
 	onSeeOrders: (filter?: "semua" | keyof typeof STATUS_VARIANT) => void;
 }) {
 	const range = analytics?.range;
@@ -752,6 +783,7 @@ function OverviewView({
 						onOpenProof={onOpenProof}
 						onVerify={onVerify}
 						onOpenReject={onOpenReject}
+						onInvoice={onInvoice}
 						compact
 					/>
 				</Panel>
@@ -856,6 +888,7 @@ function OrdersView({
 	onOpenProof,
 	onVerify,
 	onOpenReject,
+	onInvoice,
 	verifyingId,
 }: {
 	orders: AdminOrder[];
@@ -865,6 +898,7 @@ function OrdersView({
 	onOpenProof: (order: AdminOrder) => void;
 	onVerify: (order: AdminOrder) => void;
 	onOpenReject: (order: AdminOrder) => void;
+	onInvoice: (order: AdminOrder) => void;
 	verifyingId?: string | undefined;
 }) {
 	return (
@@ -893,6 +927,7 @@ function OrdersView({
 				onOpenProof={onOpenProof}
 				onVerify={onVerify}
 				onOpenReject={onOpenReject}
+				onInvoice={onInvoice}
 				verifyingId={verifyingId}
 			/>
 		</Panel>
@@ -905,6 +940,7 @@ function OrdersTable({
 	onOpenProof,
 	onVerify,
 	onOpenReject,
+	onInvoice,
 	verifyingId,
 	compact = false,
 }: {
@@ -913,6 +949,7 @@ function OrdersTable({
 	onOpenProof: (order: AdminOrder) => void;
 	onVerify: (order: AdminOrder) => void;
 	onOpenReject: (order: AdminOrder) => void;
+	onInvoice: (order: AdminOrder) => void;
 	verifyingId?: string | undefined;
 	compact?: boolean;
 }) {
@@ -995,6 +1032,12 @@ function OrdersTable({
 										<Button size="sm" variant="secondary" onClick={() => onOpenProof(order)}>
 											<Icon name="eye" size={15} />
 											Bukti
+										</Button>
+									) : null}
+									{!compact && order.status === "lunas" ? (
+										<Button size="sm" variant="ghost" onClick={() => onInvoice(order)}>
+											<Icon name="note" size={15} />
+											Invoice
 										</Button>
 									) : null}
 									{!compact && order.status === "menunggu_verifikasi" ? (

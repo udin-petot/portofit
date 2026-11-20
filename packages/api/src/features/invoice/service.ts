@@ -126,12 +126,18 @@ const findOwnedInvoice: FindInvoice = async (userId, invoiceId) => {
 	return row;
 };
 
+/** Admin path: the invoice id is enough. Only call this after checking the session role. */
+const findAnyInvoice: FindInvoice = async (_userId, invoiceId) => {
+	const [row] = await db.select().from(invoice).where(eq(invoice.id, invoiceId)).limit(1);
+	return row;
+};
+
 /** Pemilik saja. Kuitansi orang lain dijawab "tidak ditemukan", bukan "dilarang", supaya id tidak bisa ditebak. */
 export async function downloadInvoice(
-	input: { userId: string; invoiceId: string },
+	input: { userId: string; invoiceId: string; allowAny?: boolean },
 	deps: { find?: FindInvoice; render?: (input: InvoicePdfInput) => Promise<Buffer> } = {},
 ): Promise<{ fileName: string; pdf: string }> {
-	const find = deps.find ?? findOwnedInvoice;
+	const find = deps.find ?? (input.allowAny ? findAnyInvoice : findOwnedInvoice);
 	const row = await find(input.userId, input.invoiceId);
 
 	if (!row) throw new ORPCError("NOT_FOUND", { message: "Kuitansi tidak ditemukan." });
@@ -203,8 +209,11 @@ export async function resendInvoiceEmail(invoiceId: string): Promise<void> {
 }
 
 /** Snapshot lengkap untuk panel pratinjau. Sumbernya sama dengan PDF, jadi angkanya tidak mungkin beda. */
-export async function previewInvoice(input: { userId: string; invoiceId: string }) {
-	const row = await findOwnedInvoice(input.userId, input.invoiceId);
+export async function previewInvoice(input: { userId: string; invoiceId: string; allowAny?: boolean }) {
+	const row =
+		input.allowAny === true
+			? await findAnyInvoice(input.userId, input.invoiceId)
+			: await findOwnedInvoice(input.userId, input.invoiceId);
 	if (!row) throw new ORPCError("NOT_FOUND", { message: "Kuitansi tidak ditemukan." });
 
 	return { number: row.number, issuedAt: row.issuedAt.toISOString(), snapshot: row.snapshot };

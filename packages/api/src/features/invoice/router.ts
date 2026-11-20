@@ -9,6 +9,10 @@ function assertAdmin(user: User | null | undefined) {
 	if (role !== "admin") throw new ORPCError("FORBIDDEN", { message: "Khusus admin." });
 }
 
+function isAdmin(user: User | null | undefined): boolean {
+	return ((user as { role?: string | null } | null | undefined)?.role ?? null) === "admin";
+}
+
 export const invoiceRouter = {
 	list: protectedProcedure
 		.route({
@@ -49,7 +53,9 @@ export const invoiceRouter = {
 		})
 		.input(z.object({ invoiceId: z.string().min(1) }))
 		.output(z.object({ fileName: z.string(), pdf: z.string() }))
-		.handler(({ context, input }) => downloadInvoice({ userId: context.user.id, invoiceId: input.invoiceId })),
+		.handler(({ context, input }) =>
+			downloadInvoice({ userId: context.user.id, invoiceId: input.invoiceId, allowAny: isAdmin(context.user) }),
+		),
 
 	adminResend: protectedProcedure
 		.route({
@@ -99,7 +105,9 @@ export const invoiceRouter = {
 				}),
 			}),
 		)
-		.handler(({ context, input }) => previewInvoice({ userId: context.user.id, invoiceId: input.invoiceId })),
+		.handler(({ context, input }) =>
+			previewInvoice({ userId: context.user.id, invoiceId: input.invoiceId, allowAny: isAdmin(context.user) }),
+		),
 
 	adminIssue: protectedProcedure
 		.route({
