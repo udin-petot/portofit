@@ -143,6 +143,8 @@ export const env = createEnv({
 
 		// Admin alerts (optional): a WhatsApp message when a buyer uploads a payment proof.
 		ADMIN_WHATSAPP_NUMBER: z.string().min(6).optional(),
+		// Comma-separated emails promoted to admin on startup. Existing accounts only.
+		ADMIN_EMAILS: z.string().optional(),
 		WHATSAPP_PROVIDER: z.enum(["fonnte", "meta", "webhook"]).optional(),
 		WHATSAPP_TOKEN: z.string().min(1).optional(),
 		WHATSAPP_PHONE_ID: z.string().min(1).optional(),

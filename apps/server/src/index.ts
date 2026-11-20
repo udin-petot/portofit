@@ -10,6 +10,14 @@ export async function main() {
 	const { createApp } = await import("./http/app");
 	const { initializeAuth } = await import("@reactive-resume/auth/config");
 	await initializeAuth();
+	const { promoteConfiguredAdmins } = await import("./startup/admin-bootstrap");
+	try {
+		const promoted = await promoteConfiguredAdmins();
+		if (promoted > 0) console.info(`[admin] Promoted ${promoted} configured account(s) to admin.`);
+	} catch (error) {
+		// A convenience bootstrap must not take the site down. Fix ADMIN_EMAILS or the database, then restart.
+		console.error("[admin] Could not promote configured admins.", error);
+	}
 	const { startCareerScheduler } = await import("./startup/career-scheduler");
 	const { startTrashScheduler } = await import("./startup/trash-scheduler");
 
