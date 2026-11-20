@@ -16,7 +16,7 @@ export async function searchExa(query: string, { connection, signal }: ProviderR
 		await postJson(
 			"https://api.exa.ai/search",
 			{
-				"x-api-key": connection.apiKey ?? "",
+				authorization: `Bearer ${connection.apiKey ?? ""}`,
 			},
 			{ query, numResults: 5, type: "auto", contents: { highlights: true } },
 			signal,
@@ -57,7 +57,7 @@ export async function readExa(url: string, { connection, signal }: ProviderReque
 		await postJson(
 			"https://api.exa.ai/contents",
 			{
-				"x-api-key": connection.apiKey ?? "",
+				authorization: `Bearer ${connection.apiKey ?? ""}`,
 			},
 			{
 				urls: [url],
