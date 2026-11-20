@@ -176,7 +176,7 @@ export function FreeNote({ signedIn }: { signedIn: boolean }) {
 			<p className="text-[13px] leading-5 text-ink-2">
 				<Trans>Not sure yet?</Trans>{" "}
 				<span className="text-ink-3">
-					<Trans>Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance.</Trans>
+					<Trans>Try the free flow first: unlimited ATS checks, unlimited resumes, and the weekly AI allowance.</Trans>
 				</span>
 			</p>
 			<Button

@@ -13021,8 +13021,12 @@ msgid "Try the ATS checker"
 msgstr "Try the ATS checker"
 
 #: src/features/billing/pricing.tsx
-msgid "Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance."
-msgstr "Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance."
+#~ msgid "Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance."
+#~ msgstr "Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance."
+
+#: src/features/billing/pricing.tsx
+msgid "Try the free flow first: unlimited ATS checks, unlimited resumes, and the weekly AI allowance."
+msgstr "Try the free flow first: unlimited ATS checks, unlimited resumes, and the weekly AI allowance."
 
 #: src/features/career/workspace/practise.tsx
 msgid "Try this opening"

@@ -13026,8 +13026,12 @@ msgid "Try the ATS checker"
 msgstr "Coba pemeriksa ATS"
 
 #: src/features/billing/pricing.tsx
-msgid "Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance."
-msgstr "Coba alur gratis dulu: cek ATS tanpa batas, satu resume, dan kuota AI mingguan."
+#~ msgid "Try the free flow first: unlimited ATS checks, one resume, and the weekly AI allowance."
+#~ msgstr "Coba alur gratis dulu: cek ATS tanpa batas, satu resume, dan kuota AI mingguan."
+
+#: src/features/billing/pricing.tsx
+msgid "Try the free flow first: unlimited ATS checks, unlimited resumes, and the weekly AI allowance."
+msgstr "Coba alur gratisnya dulu: cek ATS tanpa batas, CV tanpa batas, dan jatah AI mingguan."
 
 #: src/features/career/workspace/practise.tsx
 msgid "Try this opening"
