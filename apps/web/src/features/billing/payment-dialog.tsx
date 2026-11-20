@@ -10,6 +10,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@reactive-resume/u
 import { cn } from "@reactive-resume/utils/style";
 import { formatRupiah, PROOF_ACCEPT, whatsappLink } from "./config";
 import { Countdown } from "./countdown";
+import { orderCreditItems } from "./credit-summary";
 import { savePdf } from "./invoice-sheet";
 import { paymentPhase } from "./payment-phase";
 import { getPlanCopy } from "./plan-copy";
@@ -120,12 +121,7 @@ export function PaymentDialog({ orderId, onClose, onRestart }: PaymentDialogProp
 		? getPlanCopy({ code: order.planCode, name: order.planName, description: null, kind: order.kind }, english)
 		: null;
 	// Bundel punya beberapa jenis kredit. Jangan pernah menampilkan totalnya sebagai kredit lamaran.
-	const creditItems =
-		order?.items && order.items.length > 0
-			? order.items
-			: order && order.kind !== "bundle"
-				? [{ kind: order.kind, credits: order.credits }]
-				: [];
+	const creditItems = orderCreditItems(order);
 
 	const copyAmount = async () => {
 		if (!order) return;
