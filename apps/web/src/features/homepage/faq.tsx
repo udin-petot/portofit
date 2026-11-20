@@ -26,7 +26,7 @@ function useQuestions(): Question[] {
 		{
 			id: "who",
 			question: t`Who is PortoFit for?`,
-			answer: t`For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs.`,
+			answer: t`For students and graduates from every level and field in Indonesia, from SD and SMP to SMK, SMA, D1 to S3, including people doing an internship or PKL.`,
 		},
 		{
 			id: "free",

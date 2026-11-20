@@ -5527,8 +5527,8 @@ msgid "For example: 10% of salary when the team hits its target"
 msgstr "For example: 10% of salary when the team hits its target"
 
 #: src/features/homepage/faq.tsx
-msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
-msgstr "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
+#~ msgid "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
+#~ msgstr "For job seekers in Indonesia, especially final-year students, fresh graduates, and people applying for internships or first jobs."
 
 #: src/features/resume/share/download-tab.tsx
 msgid "For LibreOffice and other open-source editors. Layout is simplified."
@@ -5541,6 +5541,10 @@ msgstr "For portals or recruiters who ask for Word. Layout is simplified."
 #: src/features/settings/ai/api-keys.tsx
 #~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
 #~ msgstr "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+
+#: src/features/homepage/faq.tsx
+msgid "For students and graduates from every level and field in Indonesia, from SD and SMP to SMK, SMA, D1 to S3, including people doing an internship or PKL."
+msgstr "For students and graduates from every level and field in Indonesia, from SD and SMP to SMK, SMA, D1 to S3, including people doing an internship or PKL."
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
