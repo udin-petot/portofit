@@ -74,7 +74,7 @@ export function SettingsRoot() {
 				<Link to="/dashboard/settings/ai" viewTransition={pushTransition} className={rowClass}>
 					<Row
 						icon="sparkle"
-						label={<Trans>AI & developer</Trans>}
+						label={<Trans>AI</Trans>}
 						value={provider?.label ?? <Trans>Not set up</Trans>}
 					/>
 				</Link>

@@ -881,16 +881,16 @@ msgid "3. Upload the proof in the same window. Credits land once an admin checks
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "30 days"
-msgstr "30 ημέρες"
+#~ msgid "30 days"
+#~ msgstr "30 ημέρες"
 
 #: src/features/homepage/hero.tsx
 msgid "40% faster reviews"
 msgstr "40% πιο γρήγορες κριτικές"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "90 days"
-msgstr "90 ημέρες"
+#~ msgid "90 days"
+#~ msgstr "90 ημέρες"
 
 #: src/features/homepage/remember.tsx
 msgid "A"
@@ -1075,8 +1075,8 @@ msgid "Accepted offer"
 msgstr "Αποδοχή προσφοράς"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Access"
-msgstr "Πρόσβαση"
+#~ msgid "Access"
+#~ msgstr "Πρόσβαση"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Access your account through the API, including reading, changing and deleting your documents and job applications."
@@ -1104,8 +1104,8 @@ msgid "Action"
 msgstr "Δράση"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Actions"
-msgstr "Δράσεις"
+#~ msgid "Actions"
+#~ msgstr "Δράσεις"
 
 #: src/features/homepage/remember.tsx
 msgid "Activation rose from 31% to 44% in one quarter, measured across new teams."
@@ -1562,9 +1562,14 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "AI & developer"
-msgstr "AI & προγραμματιστής"
+msgid "AI"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+#~ msgid "AI & developer"
+#~ msgstr "AI & προγραμματιστής"
 
 #: src/features/quota/page.tsx
 #: src/features/user/dropdown-menu.tsx
@@ -1573,8 +1578,8 @@ msgid "AI allowance"
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI and developer"
-msgstr ""
+#~ msgid "AI and developer"
+#~ msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
@@ -1813,12 +1818,12 @@ msgid "API key"
 msgstr "Κλειδί API"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "API keys"
-msgstr "Πλήκτρα API"
+#~ msgid "API keys"
+#~ msgstr "Πλήκτρα API"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "API Keys"
-msgstr "Κλειδιά API"
+#~ msgid "API Keys"
+#~ msgstr "Κλειδιά API"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "App"
@@ -2552,7 +2557,6 @@ msgstr "Μπορεί το λογισμικό να διαβάσει το βιογ
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
 msgid "Cancel"
@@ -2842,8 +2846,8 @@ msgid "Classic"
 msgstr "Κλασσικός"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Claude Desktop"
-msgstr "Claude Desktop"
+#~ msgid "Claude Desktop"
+#~ msgstr "Claude Desktop"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/list-view.tsx
@@ -3135,8 +3139,8 @@ msgid "Connected"
 msgstr "Συνδεδεμένος"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Connected applications"
-msgstr "Συνδεδεμένες εφαρμογές"
+#~ msgid "Connected applications"
+#~ msgstr "Συνδεδεμένες εφαρμογές"
 
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
@@ -3271,8 +3275,6 @@ msgstr "Μαγείρεμα"
 #: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copied"
 msgstr "Αντιγράφηκε"
 
@@ -3280,8 +3282,6 @@ msgstr "Αντιγράφηκε"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copy"
 msgstr "Αντιγραφή"
 
@@ -3314,8 +3314,8 @@ msgid "Copy it from the employer's page, including the requirements."
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Copy it now. For your security, it won't be shown again."
-msgstr "Αντιγράψτε το τώρα. Για την ασφάλειά σας, δεν θα εμφανιστεί ξανά."
+#~ msgid "Copy it now. For your security, it won't be shown again."
+#~ msgstr "Αντιγράψτε το τώρα. Για την ασφάλειά σας, δεν θα εμφανιστεί ξανά."
 
 #: src/features/homepage/share.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -3401,16 +3401,16 @@ msgid "Could not generate the PDF. Please try again."
 msgstr "Δεν ήταν δυνατή η δημιουργία του PDF. Προσπαθήστε ξανά."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not load connected applications."
-msgstr "Δεν ήταν δυνατή η φόρτωση των συνδεδεμένων εφαρμογών."
+#~ msgid "Could not load connected applications."
+#~ msgstr "Δεν ήταν δυνατή η φόρτωση των συνδεδεμένων εφαρμογών."
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "Δεν ήταν δυνατή η προετοιμασία του βιογραφικού σας για εκτύπωση. Προσπαθήστε ξανά."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not revoke this connection. Try again."
-msgstr "Δεν ήταν δυνατή η ανάκληση αυτής της σύνδεσης. Προσπαθήστε ξανά."
+#~ msgid "Could not revoke this connection. Try again."
+#~ msgstr "Δεν ήταν δυνατή η ανάκληση αυτής της σύνδεσης. Προσπαθήστε ξανά."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Could not set up two-factor authentication."
@@ -3491,8 +3491,8 @@ msgid "Couldn't create the document."
 msgstr "Δεν ήταν δυνατή η δημιουργία του εγγράφου."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't create the key. Try again."
-msgstr "Δεν ήταν δυνατή η δημιουργία του κλειδιού. Προσπαθήστε ξανά."
+#~ msgid "Couldn't create the key. Try again."
+#~ msgstr "Δεν ήταν δυνατή η δημιουργία του κλειδιού. Προσπαθήστε ξανά."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Couldn't create the letter."
@@ -3642,8 +3642,8 @@ msgid "Couldn't rename it."
 msgstr "Δεν ήταν δυνατή η μετονομασία."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't revoke the key."
-msgstr "Δεν ήταν δυνατή η ανάκληση του κλειδιού."
+#~ msgid "Couldn't revoke the key."
+#~ msgstr "Δεν ήταν δυνατή η ανάκληση του κλειδιού."
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't save that change."
@@ -3878,8 +3878,8 @@ msgid "Create and open"
 msgstr "Δημιουργία και άνοιγμα"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Create key"
-msgstr "Δημιουργία κλειδιού"
+#~ msgid "Create key"
+#~ msgstr "Δημιουργία κλειδιού"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
@@ -3888,7 +3888,6 @@ msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Created"
 msgstr "Ημερομηνία δημιουργίας"
@@ -4391,7 +4390,6 @@ msgstr "Προσφέρω"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "Γινώμενος"
 
@@ -4988,8 +4986,8 @@ msgid "Experience"
 msgstr "Εμπειρία"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Expires"
-msgstr "Λήγει"
+#~ msgid "Expires"
+#~ msgstr "Λήγει"
 
 #: src/features/homepage/prepare.tsx
 msgid "explain one limit of the measurement clearly, without underselling the work."
@@ -5430,8 +5428,8 @@ msgid "For portals or recruiters who ask for Word. Layout is simplified."
 msgstr "Για πύλες ή υπαλλήλους προσλήψεων που ζητούν Word. Η διάταξη είναι απλοποιημένη."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
-msgstr "Για σενάρια, επεκτάσεις και πελάτες MCP. Τα κλειδιά λειτουργούν όπως εσείς και μπορούν να διαβάσουν και να επεξεργαστούν τα έγγραφά σας."
+#~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+#~ msgstr "Για σενάρια, επεκτάσεις και πελάτες MCP. Τα κλειδιά λειτουργούν όπως εσείς και μπορούν να διαβάσουν και να επεξεργαστούν τα έγγραφά σας."
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
@@ -6106,8 +6104,8 @@ msgid "Insights"
 msgstr "Πληροφορίες"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Integrations"
-msgstr "Ενσωματώσεις"
+#~ msgid "Integrations"
+#~ msgstr "Ενσωματώσεις"
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -6568,8 +6566,8 @@ msgid "Key stored encrypted"
 msgstr "Το κλειδί αποθηκεύεται κρυπτογραφημένο"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Keys act as you and can read and edit your documents."
-msgstr "Τα κλειδιά λειτουργούν όπως εσείς και μπορούν να διαβάσουν και να επεξεργαστούν τα έγγραφά σας."
+#~ msgid "Keys act as you and can read and edit your documents."
+#~ msgstr "Τα κλειδιά λειτουργούν όπως εσείς και μπορούν να διαβάσουν και να επεξεργαστούν τα έγγραφά σας."
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Keyword layout"
@@ -6640,8 +6638,8 @@ msgid "Last edited"
 msgstr "Τελευταία επεξεργασία"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Last used"
-msgstr "Τελευταία χρήση"
+#~ msgid "Last used"
+#~ msgstr "Τελευταία χρήση"
 
 #: src/libs/locale.ts
 msgid "Latvian"
@@ -6751,8 +6749,8 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "Το μήκος δεν είναι ελάττωμα και δεν υπάρχει καθολικός κανόνας μίας σελίδας. Κρατήστε τις σελίδες που αξίζουν τη θέση τους."
 
 #: src/features/settings/ai/mcp.tsx
-msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
-msgstr "Επιτρέψτε σε πελάτες τεχνητής νοημοσύνης όπως το Claude ή το Cursor να διαβάσουν και να επεξεργαστούν τα βιογραφικά σας, χρησιμοποιώντας ένα κλειδί API παραπάνω."
+#~ msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
+#~ msgstr "Επιτρέψτε σε πελάτες τεχνητής νοημοσύνης όπως το Claude ή το Cursor να διαβάσουν και να επεξεργαστούν τα βιογραφικά σας, χρησιμοποιώντας ένα κλειδί API παραπάνω."
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6995,8 +6993,8 @@ msgid "Loading connection…"
 msgstr "Φόρτωση σύνδεσης…"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Loading connections..."
-msgstr "Φόρτωση συνδέσεων..."
+#~ msgid "Loading connections..."
+#~ msgstr "Φόρτωση συνδέσεων..."
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
@@ -7289,12 +7287,12 @@ msgid "Matching your facts"
 msgstr "Αντιστοίχιση των γεγονότων σας"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "MCP"
-msgstr "MCP"
+#~ msgid "MCP"
+#~ msgstr "MCP"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "MCP server"
-msgstr "Διακομιστής MCP"
+#~ msgid "MCP server"
+#~ msgstr "Διακομιστής MCP"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "median to first reply"
@@ -7569,7 +7567,6 @@ msgstr ""
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Name"
 msgstr "Όνομα"
@@ -7648,7 +7645,6 @@ msgid "Network"
 msgstr "Δίκτυο"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -7662,8 +7658,8 @@ msgid "New account sign-ups are currently disabled on this server."
 msgstr "Οι εγγραφές νέων λογαριασμών είναι προς το παρόν απενεργοποιημένες σε αυτόν τον διακομιστή."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New API key"
-msgstr "Νέο κλειδί API"
+#~ msgid "New API key"
+#~ msgstr "Νέο κλειδί API"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -7692,8 +7688,8 @@ msgid "New fact"
 msgstr "Νέο γεγονός"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New key"
-msgstr "Νέο κλειδί"
+#~ msgid "New key"
+#~ msgstr "Νέο κλειδί"
 
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New page"
@@ -7801,8 +7797,8 @@ msgid "No commands match that search."
 msgstr "Καμία εντολή δεν ταιριάζει με αυτήν την αναζήτηση."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "No connected applications."
-msgstr "Δεν υπάρχουν συνδεδεμένες εφαρμογές."
+#~ msgid "No connected applications."
+#~ msgstr "Δεν υπάρχουν συνδεδεμένες εφαρμογές."
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -7880,8 +7876,8 @@ msgid "No job yet"
 msgstr "Καμία δουλειά ακόμα"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "No keys yet."
-msgstr "Δεν υπάρχουν ακόμη κλειδιά."
+#~ msgid "No keys yet."
+#~ msgstr "Δεν υπάρχουν ακόμη κλειδιά."
 
 #: src/features/ats-checker/messages.ts
 msgid "No lines look like a job title paired with an employer."
@@ -9577,8 +9573,8 @@ msgid "Read it for me"
 msgstr "Διάβασέ το για μένα"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read only"
-msgstr "Πρόσβαση μόνο για ανάγνωση"
+#~ msgid "Read only"
+#~ msgstr "Πρόσβαση μόνο για ανάγνωση"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
@@ -9626,8 +9622,8 @@ msgid "Read your profile information."
 msgstr "Διαβάστε τις πληροφορίες του προφίλ σας."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read, write and delete"
-msgstr "Διαβάστε, γράψτε και διαγράψτε"
+#~ msgid "Read, write and delete"
+#~ msgstr "Διαβάστε, γράψτε και διαγράψτε"
 
 #: src/features/ats-checker/messages.ts
 msgid "Readability"
@@ -10282,25 +10278,25 @@ msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you wr
 msgstr "Ο έλεγχος χρειάζεται σύνδεση AI. <0>Προσθέστε μία στις Ρυθμίσεις</0>. Ό,τι γράφετε εδώ μένει σε αυτό το πρόγραμμα περιήγησης μέχρι τότε."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke"
-msgstr "Ανακαλώ"
+#~ msgid "Revoke"
+#~ msgstr "Ανακαλώ"
 
 #. placeholder {0}: key.name || key.start || ""
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke {0}"
-msgstr "Ανάκληση {0}"
+#~ msgid "Revoke {0}"
+#~ msgstr "Ανάκληση {0}"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke access"
-msgstr "Ανάκληση πρόσβασης"
+#~ msgid "Revoke access"
+#~ msgstr "Ανάκληση πρόσβασης"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke an application's access to your account."
-msgstr "Ανακαλέστε την πρόσβαση μιας εφαρμογής στον λογαριασμό σας."
+#~ msgid "Revoke an application's access to your account."
+#~ msgstr "Ανακαλέστε την πρόσβαση μιας εφαρμογής στον λογαριασμό σας."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoked “{name}”. Apps using it stop working now."
-msgstr "Ανακλήθηκε το “{name}”. Οι εφαρμογές που το χρησιμοποιούν σταματούν να λειτουργούν τώρα."
+#~ msgid "Revoked “{name}”. Apps using it stop working now."
+#~ msgstr "Ανακλήθηκε το “{name}”. Οι εφαρμογές που το χρησιμοποιούν σταματούν να λειτουργούν τώρα."
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Right"
@@ -12304,8 +12300,8 @@ msgid "The job posting is missing"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "the key"
-msgstr "το κλειδί"
+#~ msgid "the key"
+#~ msgstr "το κλειδί"
 
 #: src/features/settings/ai/providers.tsx
 msgid "The key is encrypted on the server and never shown again. Saving tests the connection."
@@ -12457,8 +12453,12 @@ msgid "The same line repeats on every page."
 msgstr "Η ίδια γραμμή επαναλαμβάνεται σε κάθε σελίδα."
 
 #: src/libs/error-message.ts
-msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
-msgstr "Το αποθηκευμένο κλειδί παρόχου δεν μπορεί να αποκρυπτογραφηθεί. Εισαγάγετε ξανά το κλειδί στις Ρυθμίσεις → AI & προγραμματιστής."
+#~ msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
+#~ msgstr "Το αποθηκευμένο κλειδί παρόχου δεν μπορεί να αποκρυπτογραφηθεί. Εισαγάγετε ξανά το κλειδί στις Ρυθμίσεις → AI & προγραμματιστής."
+
+#: src/libs/error-message.ts
+msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI."
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "The score counts how reliably software reads your resume. It doesn't predict whether you'll be shortlisted."
@@ -13180,7 +13180,6 @@ msgstr "Υπογράμμισε συνδέσμους"
 #: src/features/resume/editor/webmcp.ts
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/editor/write/section-row.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -13915,8 +13914,8 @@ msgid "What you're looking for"
 msgstr "Τι αναζητάτε"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "What's it for?"
-msgstr "Σε τι χρησιμεύει;"
+#~ msgid "What's it for?"
+#~ msgstr "Σε τι χρησιμεύει;"
 
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/practise.tsx

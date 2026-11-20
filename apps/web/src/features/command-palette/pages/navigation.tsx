@@ -122,12 +122,12 @@ export function NavigationCommandGroup() {
 				</CommandItem>
 
 				<CommandItem
-					keywords={[t`AI & developer`, t`AI providers`, t`API Keys`, t`MCP`, t`Integrations`]}
+					keywords={[t`AI`, t`AI providers`]}
 					value="navigation.settings.ai"
 					onSelect={() => onNavigate("/dashboard/settings/ai")}
 				>
-					<Icon name="key" size={16} />
-					<Trans>AI & developer</Trans>
+					<Icon name="sparkle" size={16} />
+					<Trans>AI</Trans>
 				</CommandItem>
 			</BaseCommandGroup>
 		</>

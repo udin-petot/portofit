@@ -881,16 +881,16 @@ msgid "3. Upload the proof in the same window. Credits land once an admin checks
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "30 days"
-msgstr "30일"
+#~ msgid "30 days"
+#~ msgstr "30일"
 
 #: src/features/homepage/hero.tsx
 msgid "40% faster reviews"
 msgstr "40% 더 빠른 검토 속도"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "90 days"
-msgstr "90일"
+#~ msgid "90 days"
+#~ msgstr "90일"
 
 #: src/features/homepage/remember.tsx
 msgid "A"
@@ -1075,8 +1075,8 @@ msgid "Accepted offer"
 msgstr "오퍼 수락함"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Access"
-msgstr "액세스"
+#~ msgid "Access"
+#~ msgstr "액세스"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Access your account through the API, including reading, changing and deleting your documents and job applications."
@@ -1104,8 +1104,8 @@ msgid "Action"
 msgstr "행동"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Actions"
-msgstr "행위"
+#~ msgid "Actions"
+#~ msgstr "행위"
 
 #: src/features/homepage/remember.tsx
 msgid "Activation rose from 31% to 44% in one quarter, measured across new teams."
@@ -1562,9 +1562,14 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "AI & developer"
-msgstr "AI 및 개발자"
+msgid "AI"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+#~ msgid "AI & developer"
+#~ msgstr "AI 및 개발자"
 
 #: src/features/quota/page.tsx
 #: src/features/user/dropdown-menu.tsx
@@ -1573,8 +1578,8 @@ msgid "AI allowance"
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI and developer"
-msgstr ""
+#~ msgid "AI and developer"
+#~ msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
@@ -1813,12 +1818,12 @@ msgid "API key"
 msgstr "API 키"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "API keys"
-msgstr "API 키"
+#~ msgid "API keys"
+#~ msgstr "API 키"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "API Keys"
-msgstr "API Key"
+#~ msgid "API Keys"
+#~ msgstr "API Key"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "App"
@@ -2552,7 +2557,6 @@ msgstr "소프트웨어가 이력서를 읽을 수 있나요?"
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
 msgid "Cancel"
@@ -2842,8 +2846,8 @@ msgid "Classic"
 msgstr "권위 있는"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Claude Desktop"
-msgstr "Claude Desktop"
+#~ msgid "Claude Desktop"
+#~ msgstr "Claude Desktop"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/list-view.tsx
@@ -3135,8 +3139,8 @@ msgid "Connected"
 msgstr "연결됨"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Connected applications"
-msgstr "연결된 애플리케이션"
+#~ msgid "Connected applications"
+#~ msgstr "연결된 애플리케이션"
 
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
@@ -3271,8 +3275,6 @@ msgstr "만드는 중"
 #: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copied"
 msgstr "복사됨"
 
@@ -3280,8 +3282,6 @@ msgstr "복사됨"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copy"
 msgstr "복사"
 
@@ -3314,8 +3314,8 @@ msgid "Copy it from the employer's page, including the requirements."
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Copy it now. For your security, it won't be shown again."
-msgstr "지금 복사하세요. 보안을 위해 다시 표시되지 않습니다."
+#~ msgid "Copy it now. For your security, it won't be shown again."
+#~ msgstr "지금 복사하세요. 보안을 위해 다시 표시되지 않습니다."
 
 #: src/features/homepage/share.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -3401,16 +3401,16 @@ msgid "Could not generate the PDF. Please try again."
 msgstr "PDF를 생성하지 못했습니다. 다시 시도하세요."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not load connected applications."
-msgstr "연결된 애플리케이션을 로드할 수 없습니다."
+#~ msgid "Could not load connected applications."
+#~ msgstr "연결된 애플리케이션을 로드할 수 없습니다."
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "이력서를 인쇄용으로 준비하지 못했습니다. 다시 시도하세요."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not revoke this connection. Try again."
-msgstr "이 연결을 취소할 수 없습니다. 다시 시도해 보세요."
+#~ msgid "Could not revoke this connection. Try again."
+#~ msgstr "이 연결을 취소할 수 없습니다. 다시 시도해 보세요."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Could not set up two-factor authentication."
@@ -3491,8 +3491,8 @@ msgid "Couldn't create the document."
 msgstr "문서를 만들 수 없습니다."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't create the key. Try again."
-msgstr "키를 생성할 수 없습니다. 다시 시도해 보세요."
+#~ msgid "Couldn't create the key. Try again."
+#~ msgstr "키를 생성할 수 없습니다. 다시 시도해 보세요."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Couldn't create the letter."
@@ -3642,8 +3642,8 @@ msgid "Couldn't rename it."
 msgstr "이름을 바꿀 수 없습니다."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't revoke the key."
-msgstr "키를 취소할 수 없습니다."
+#~ msgid "Couldn't revoke the key."
+#~ msgstr "키를 취소할 수 없습니다."
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't save that change."
@@ -3878,8 +3878,8 @@ msgid "Create and open"
 msgstr "생성 및 열기"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Create key"
-msgstr "키 생성"
+#~ msgid "Create key"
+#~ msgstr "키 생성"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
@@ -3888,7 +3888,6 @@ msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Created"
 msgstr "생성일"
@@ -4391,7 +4390,6 @@ msgstr "기부하세요"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "완료"
 
@@ -4988,8 +4986,8 @@ msgid "Experience"
 msgstr "경력"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Expires"
-msgstr "만료"
+#~ msgid "Expires"
+#~ msgstr "만료"
 
 #: src/features/homepage/prepare.tsx
 msgid "explain one limit of the measurement clearly, without underselling the work."
@@ -5430,8 +5428,8 @@ msgid "For portals or recruiters who ask for Word. Layout is simplified."
 msgstr "Word를 요청하는 포털 또는 채용 담당자용. 레이아웃이 단순화되었습니다."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
-msgstr "스크립트, 확장 및 MCP 클라이언트의 경우. 키는 귀하의 역할을 하며 문서를 읽고 편집할 수 있습니다."
+#~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+#~ msgstr "스크립트, 확장 및 MCP 클라이언트의 경우. 키는 귀하의 역할을 하며 문서를 읽고 편집할 수 있습니다."
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
@@ -6106,8 +6104,8 @@ msgid "Insights"
 msgstr "인사이트"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Integrations"
-msgstr "통합"
+#~ msgid "Integrations"
+#~ msgstr "통합"
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -6568,8 +6566,8 @@ msgid "Key stored encrypted"
 msgstr "암호화되어 저장된 키"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Keys act as you and can read and edit your documents."
-msgstr "키는 귀하의 역할을 하며 문서를 읽고 편집할 수 있습니다."
+#~ msgid "Keys act as you and can read and edit your documents."
+#~ msgstr "키는 귀하의 역할을 하며 문서를 읽고 편집할 수 있습니다."
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Keyword layout"
@@ -6640,8 +6638,8 @@ msgid "Last edited"
 msgstr "마지막으로 수정됨"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Last used"
-msgstr "마지막으로 사용됨"
+#~ msgid "Last used"
+#~ msgstr "마지막으로 사용됨"
 
 #: src/libs/locale.ts
 msgid "Latvian"
@@ -6751,8 +6749,8 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "길이 자체는 결함이 아니며, 보편적인 한 페이지 규칙도 없습니다. 그만한 가치가 있는 페이지만 남기세요."
 
 #: src/features/settings/ai/mcp.tsx
-msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
-msgstr "위의 API 키를 사용하여 Claude 또는 Cursor와 같은 AI 클라이언트가 이력서를 읽고 편집할 수 있도록 하세요."
+#~ msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
+#~ msgstr "위의 API 키를 사용하여 Claude 또는 Cursor와 같은 AI 클라이언트가 이력서를 읽고 편집할 수 있도록 하세요."
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6995,8 +6993,8 @@ msgid "Loading connection…"
 msgstr "연결 로드 중…"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Loading connections..."
-msgstr "연결 로드 중..."
+#~ msgid "Loading connections..."
+#~ msgstr "연결 로드 중..."
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
@@ -7289,12 +7287,12 @@ msgid "Matching your facts"
 msgstr "사실과 맞춰 보는 중"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "MCP"
-msgstr "MCP"
+#~ msgid "MCP"
+#~ msgstr "MCP"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "MCP server"
-msgstr "MCP 서버"
+#~ msgid "MCP server"
+#~ msgstr "MCP 서버"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "median to first reply"
@@ -7569,7 +7567,6 @@ msgstr ""
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Name"
 msgstr "이름"
@@ -7648,7 +7645,6 @@ msgid "Network"
 msgstr "네트워크"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Never"
 msgstr "절대"
 
@@ -7662,8 +7658,8 @@ msgid "New account sign-ups are currently disabled on this server."
 msgstr "이 서버에서는 현재 새 계정 가입이 비활성화되어 있습니다."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New API key"
-msgstr "새로운 API 키"
+#~ msgid "New API key"
+#~ msgstr "새로운 API 키"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -7692,8 +7688,8 @@ msgid "New fact"
 msgstr "새 사실"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New key"
-msgstr "새 키"
+#~ msgid "New key"
+#~ msgstr "새 키"
 
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New page"
@@ -7801,8 +7797,8 @@ msgid "No commands match that search."
 msgstr "검색과 일치하는 명령이 없습니다."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "No connected applications."
-msgstr "연결된 애플리케이션이 없습니다."
+#~ msgid "No connected applications."
+#~ msgstr "연결된 애플리케이션이 없습니다."
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -7880,8 +7876,8 @@ msgid "No job yet"
 msgstr "아직 일자리가 없습니다"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "No keys yet."
-msgstr "아직 열쇠가 없습니다."
+#~ msgid "No keys yet."
+#~ msgstr "아직 열쇠가 없습니다."
 
 #: src/features/ats-checker/messages.ts
 msgid "No lines look like a job title paired with an employer."
@@ -9577,8 +9573,8 @@ msgid "Read it for me"
 msgstr "대신 읽어 주세요"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read only"
-msgstr "읽기 전용 액세스"
+#~ msgid "Read only"
+#~ msgstr "읽기 전용 액세스"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
@@ -9626,8 +9622,8 @@ msgid "Read your profile information."
 msgstr "프로필 정보를 읽습니다."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read, write and delete"
-msgstr "읽기, 쓰기 및 삭제"
+#~ msgid "Read, write and delete"
+#~ msgstr "읽기, 쓰기 및 삭제"
 
 #: src/features/ats-checker/messages.ts
 msgid "Readability"
@@ -10282,25 +10278,25 @@ msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you wr
 msgstr "검토에는 AI 연결이 필요합니다. <0>설정에서 추가하세요</0>. 그때까지 여기에 쓴 내용은 이 브라우저에만 남습니다."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke"
-msgstr "취소"
+#~ msgid "Revoke"
+#~ msgstr "취소"
 
 #. placeholder {0}: key.name || key.start || ""
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke {0}"
-msgstr "{0} 취소"
+#~ msgid "Revoke {0}"
+#~ msgstr "{0} 취소"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke access"
-msgstr "액세스 취소"
+#~ msgid "Revoke access"
+#~ msgstr "액세스 취소"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke an application's access to your account."
-msgstr "귀하의 계정에 대한 애플리케이션의 액세스를 취소하십시오."
+#~ msgid "Revoke an application's access to your account."
+#~ msgstr "귀하의 계정에 대한 애플리케이션의 액세스를 취소하십시오."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoked “{name}”. Apps using it stop working now."
-msgstr "“{name}”를 폐지했습니다. 이를 사용하는 앱은 이제 작동이 중지됩니다."
+#~ msgid "Revoked “{name}”. Apps using it stop working now."
+#~ msgstr "“{name}”를 폐지했습니다. 이를 사용하는 앱은 이제 작동이 중지됩니다."
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Right"
@@ -12304,8 +12300,8 @@ msgid "The job posting is missing"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "the key"
-msgstr "열쇠"
+#~ msgid "the key"
+#~ msgstr "열쇠"
 
 #: src/features/settings/ai/providers.tsx
 msgid "The key is encrypted on the server and never shown again. Saving tests the connection."
@@ -12457,8 +12453,12 @@ msgid "The same line repeats on every page."
 msgstr "같은 줄이 모든 페이지에 반복됩니다."
 
 #: src/libs/error-message.ts
-msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
-msgstr "저장된 공급자 키는 해독할 수 없습니다. 설정 → AI 및 개발자에서 키를 다시 입력하세요."
+#~ msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
+#~ msgstr "저장된 공급자 키는 해독할 수 없습니다. 설정 → AI 및 개발자에서 키를 다시 입력하세요."
+
+#: src/libs/error-message.ts
+msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI."
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "The score counts how reliably software reads your resume. It doesn't predict whether you'll be shortlisted."
@@ -13180,7 +13180,6 @@ msgstr "링크에 밑줄을 긋습니다"
 #: src/features/resume/editor/webmcp.ts
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/editor/write/section-row.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -13915,8 +13914,8 @@ msgid "What you're looking for"
 msgstr "찾고 있는 것"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "What's it for?"
-msgstr "그것은 무엇입니까?"
+#~ msgid "What's it for?"
+#~ msgstr "그것은 무엇입니까?"
 
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/practise.tsx

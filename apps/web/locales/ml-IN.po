@@ -881,16 +881,16 @@ msgid "3. Upload the proof in the same window. Credits land once an admin checks
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "30 days"
-msgstr "30 ദിവസം"
+#~ msgid "30 days"
+#~ msgstr "30 ദിവസം"
 
 #: src/features/homepage/hero.tsx
 msgid "40% faster reviews"
 msgstr "40% വേഗത്തിലുള്ള അവലോകനങ്ങൾ"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "90 days"
-msgstr "90 ദിവസം"
+#~ msgid "90 days"
+#~ msgstr "90 ദിവസം"
 
 #: src/features/homepage/remember.tsx
 msgid "A"
@@ -1075,8 +1075,8 @@ msgid "Accepted offer"
 msgstr "ഓഫർ സ്വീകരിച്ചു"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Access"
-msgstr "പ്രവേശനം"
+#~ msgid "Access"
+#~ msgstr "പ്രവേശനം"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Access your account through the API, including reading, changing and deleting your documents and job applications."
@@ -1104,8 +1104,8 @@ msgid "Action"
 msgstr "പ്രവർത്തനം"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Actions"
-msgstr "പ്രവർത്തനങ്ങൾ"
+#~ msgid "Actions"
+#~ msgstr "പ്രവർത്തനങ്ങൾ"
 
 #: src/features/homepage/remember.tsx
 msgid "Activation rose from 31% to 44% in one quarter, measured across new teams."
@@ -1562,9 +1562,14 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "AI & developer"
-msgstr "AI & ഡെവലപ്പർ"
+msgid "AI"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+#~ msgid "AI & developer"
+#~ msgstr "AI & ഡെവലപ്പർ"
 
 #: src/features/quota/page.tsx
 #: src/features/user/dropdown-menu.tsx
@@ -1573,8 +1578,8 @@ msgid "AI allowance"
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI and developer"
-msgstr ""
+#~ msgid "AI and developer"
+#~ msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
@@ -1813,12 +1818,12 @@ msgid "API key"
 msgstr "API കീ"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "API keys"
-msgstr "API കീകൾ"
+#~ msgid "API keys"
+#~ msgstr "API കീകൾ"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "API Keys"
-msgstr "API കീകൾ"
+#~ msgid "API Keys"
+#~ msgstr "API കീകൾ"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "App"
@@ -2552,7 +2557,6 @@ msgstr "സോഫ്റ്റ്‌വെയറിന് നിങ്ങളു�
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
 msgid "Cancel"
@@ -2842,8 +2846,8 @@ msgid "Classic"
 msgstr "ക്ലാസിക്"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Claude Desktop"
-msgstr "Claude Desktop"
+#~ msgid "Claude Desktop"
+#~ msgstr "Claude Desktop"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/list-view.tsx
@@ -3135,8 +3139,8 @@ msgid "Connected"
 msgstr "ബന്ധിപ്പിച്ചു"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Connected applications"
-msgstr "ബന്ധിപ്പിച്ച ആപ്ലിക്കേഷനുകൾ"
+#~ msgid "Connected applications"
+#~ msgstr "ബന്ധിപ്പിച്ച ആപ്ലിക്കേഷനുകൾ"
 
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
@@ -3271,8 +3275,6 @@ msgstr "തയ്യാറാക്കുന്നു"
 #: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copied"
 msgstr "പകർത്തി"
 
@@ -3280,8 +3282,6 @@ msgstr "പകർത്തി"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copy"
 msgstr "പകർത്തുക"
 
@@ -3314,8 +3314,8 @@ msgid "Copy it from the employer's page, including the requirements."
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Copy it now. For your security, it won't be shown again."
-msgstr "ഇപ്പോൾ പകർത്തുക. നിങ്ങളുടെ സുരക്ഷയ്ക്കായി, ഇത് വീണ്ടും കാണിക്കില്ല."
+#~ msgid "Copy it now. For your security, it won't be shown again."
+#~ msgstr "ഇപ്പോൾ പകർത്തുക. നിങ്ങളുടെ സുരക്ഷയ്ക്കായി, ഇത് വീണ്ടും കാണിക്കില്ല."
 
 #: src/features/homepage/share.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -3401,16 +3401,16 @@ msgid "Could not generate the PDF. Please try again."
 msgstr "PDF ഉണ്ടാക്കാനായില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not load connected applications."
-msgstr "ബന്ധിപ്പിച്ച ആപ്ലിക്കേഷനുകൾ ലോഡ് ചെയ്യാനായില്ല."
+#~ msgid "Could not load connected applications."
+#~ msgstr "ബന്ധിപ്പിച്ച ആപ്ലിക്കേഷനുകൾ ലോഡ് ചെയ്യാനായില്ല."
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "പ്രിന്റിംഗിനായി നിങ്ങളുടെ റിസ്യൂം തയ്യാറാക്കാനായില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not revoke this connection. Try again."
-msgstr "ഈ കണക്ഷൻ അസാധുവാക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക."
+#~ msgid "Could not revoke this connection. Try again."
+#~ msgstr "ഈ കണക്ഷൻ അസാധുവാക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Could not set up two-factor authentication."
@@ -3491,8 +3491,8 @@ msgid "Couldn't create the document."
 msgstr "പ്രമാണം സൃഷ്‌ടിക്കാനായില്ല."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't create the key. Try again."
-msgstr "കീ സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക."
+#~ msgid "Couldn't create the key. Try again."
+#~ msgstr "കീ സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Couldn't create the letter."
@@ -3642,8 +3642,8 @@ msgid "Couldn't rename it."
 msgstr "പേര് മാറ്റാനായില്ല."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't revoke the key."
-msgstr "കീ അസാധുവാക്കാൻ കഴിഞ്ഞില്ല."
+#~ msgid "Couldn't revoke the key."
+#~ msgstr "കീ അസാധുവാക്കാൻ കഴിഞ്ഞില്ല."
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't save that change."
@@ -3878,8 +3878,8 @@ msgid "Create and open"
 msgstr "സൃഷ്ടിച്ച് തുറക്കുക"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Create key"
-msgstr "കീ സൃഷ്ടിക്കുക"
+#~ msgid "Create key"
+#~ msgstr "കീ സൃഷ്ടിക്കുക"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
@@ -3888,7 +3888,6 @@ msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Created"
 msgstr "സൃഷ്‌ടിച്ചത്"
@@ -4391,7 +4390,6 @@ msgstr "സംഭാവന ചെയ്യുക"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "ചെയ്തു"
 
@@ -4988,8 +4986,8 @@ msgid "Experience"
 msgstr "അനുഭവം"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Expires"
-msgstr "കാലഹരണപ്പെടുന്നു"
+#~ msgid "Expires"
+#~ msgstr "കാലഹരണപ്പെടുന്നു"
 
 #: src/features/homepage/prepare.tsx
 msgid "explain one limit of the measurement clearly, without underselling the work."
@@ -5430,8 +5428,8 @@ msgid "For portals or recruiters who ask for Word. Layout is simplified."
 msgstr "Word ആവശ്യപ്പെടുന്ന പോർട്ടലുകൾക്കോ ​​റിക്രൂട്ടർമാർക്കോ വേണ്ടി. ലേഔട്ട് ലളിതമാക്കിയിരിക്കുന്നു."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
-msgstr "സ്ക്രിപ്റ്റുകൾക്കും വിപുലീകരണങ്ങൾക്കും MCP ക്ലയൻ്റുകൾക്കും. കീകൾ നിങ്ങളെപ്പോലെ പ്രവർത്തിക്കുകയും നിങ്ങളുടെ പ്രമാണങ്ങൾ വായിക്കാനും എഡിറ്റുചെയ്യാനും കഴിയും."
+#~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+#~ msgstr "സ്ക്രിപ്റ്റുകൾക്കും വിപുലീകരണങ്ങൾക്കും MCP ക്ലയൻ്റുകൾക്കും. കീകൾ നിങ്ങളെപ്പോലെ പ്രവർത്തിക്കുകയും നിങ്ങളുടെ പ്രമാണങ്ങൾ വായിക്കാനും എഡിറ്റുചെയ്യാനും കഴിയും."
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
@@ -6106,8 +6104,8 @@ msgid "Insights"
 msgstr "ഉൾക്കാഴ്ചകൾ"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Integrations"
-msgstr "സംയോജനങ്ങൾ"
+#~ msgid "Integrations"
+#~ msgstr "സംയോജനങ്ങൾ"
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -6568,8 +6566,8 @@ msgid "Key stored encrypted"
 msgstr "കീ എൻക്രിപ്റ്റ് ചെയ്തു സംഭരിച്ചു"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Keys act as you and can read and edit your documents."
-msgstr "കീകൾ നിങ്ങളെപ്പോലെ പ്രവർത്തിക്കുകയും നിങ്ങളുടെ പ്രമാണങ്ങൾ വായിക്കാനും എഡിറ്റുചെയ്യാനും കഴിയും."
+#~ msgid "Keys act as you and can read and edit your documents."
+#~ msgstr "കീകൾ നിങ്ങളെപ്പോലെ പ്രവർത്തിക്കുകയും നിങ്ങളുടെ പ്രമാണങ്ങൾ വായിക്കാനും എഡിറ്റുചെയ്യാനും കഴിയും."
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Keyword layout"
@@ -6640,8 +6638,8 @@ msgid "Last edited"
 msgstr "അവസാനം എഡിറ്റ് ചെയ്തത്"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Last used"
-msgstr "അവസാനം ഉപയോഗിച്ചത്"
+#~ msgid "Last used"
+#~ msgstr "അവസാനം ഉപയോഗിച്ചത്"
 
 #: src/libs/locale.ts
 msgid "Latvian"
@@ -6751,8 +6749,8 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "നീളം ഒരു കുറവല്ല, ഒരു സാർവത്രിക ഒറ്റ-പേജ് നിയമവുമില്ല. അർഹമായ പേജുകൾ നിലനിർത്തുക."
 
 #: src/features/settings/ai/mcp.tsx
-msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
-msgstr "Claude അല്ലെങ്കിൽ Cursor പോലുള്ള AI ക്ലയൻ്റുകളെ മുകളിലുള്ള API കീ ഉപയോഗിച്ച് നിങ്ങളുടെ റെസ്യൂമെകൾ വായിക്കാനും എഡിറ്റ് ചെയ്യാനും അനുവദിക്കുക."
+#~ msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
+#~ msgstr "Claude അല്ലെങ്കിൽ Cursor പോലുള്ള AI ക്ലയൻ്റുകളെ മുകളിലുള്ള API കീ ഉപയോഗിച്ച് നിങ്ങളുടെ റെസ്യൂമെകൾ വായിക്കാനും എഡിറ്റ് ചെയ്യാനും അനുവദിക്കുക."
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6995,8 +6993,8 @@ msgid "Loading connection…"
 msgstr "കണക്ഷൻ ലോഡ് ചെയ്യുന്നു..."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Loading connections..."
-msgstr "കണക്ഷനുകൾ ലോഡ് ചെയ്യുന്നു..."
+#~ msgid "Loading connections..."
+#~ msgstr "കണക്ഷനുകൾ ലോഡ് ചെയ്യുന്നു..."
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
@@ -7289,12 +7287,12 @@ msgid "Matching your facts"
 msgstr "നിങ്ങളുടെ വസ്തുതകളുമായി പൊരുത്തപ്പെടുത്തുന്നു"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "MCP"
-msgstr "MCP"
+#~ msgid "MCP"
+#~ msgstr "MCP"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "MCP server"
-msgstr "MCP സെർവർ"
+#~ msgid "MCP server"
+#~ msgstr "MCP സെർവർ"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "median to first reply"
@@ -7569,7 +7567,6 @@ msgstr ""
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Name"
 msgstr "പേര്"
@@ -7648,7 +7645,6 @@ msgid "Network"
 msgstr "നെറ്റ്‌വർക്ക്"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Never"
 msgstr "ഒരിക്കലുമില്ല"
 
@@ -7662,8 +7658,8 @@ msgid "New account sign-ups are currently disabled on this server."
 msgstr "ഈ സെർവറിൽ പുതിയ അക്കൗണ്ട് രജിസ്ട്രേഷനുകൾ നിലവിൽ പ്രവർത്തനരഹിതമാണ്."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New API key"
-msgstr "പുതിയ API കീ"
+#~ msgid "New API key"
+#~ msgstr "പുതിയ API കീ"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -7692,8 +7688,8 @@ msgid "New fact"
 msgstr "പുതിയ വസ്തുത"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New key"
-msgstr "പുതിയ കീ"
+#~ msgid "New key"
+#~ msgstr "പുതിയ കീ"
 
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New page"
@@ -7801,8 +7797,8 @@ msgid "No commands match that search."
 msgstr "ആ തിരയലിന് ചേരുന്ന കമാൻഡുകളൊന്നുമില്ല."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "No connected applications."
-msgstr "ബന്ധിപ്പിച്ച അപ്ലിക്കേഷനുകളൊന്നുമില്ല."
+#~ msgid "No connected applications."
+#~ msgstr "ബന്ധിപ്പിച്ച അപ്ലിക്കേഷനുകളൊന്നുമില്ല."
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -7880,8 +7876,8 @@ msgid "No job yet"
 msgstr "ഇതുവരെ ജോലിയില്ല"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "No keys yet."
-msgstr "ഇതുവരെ കീകളൊന്നുമില്ല."
+#~ msgid "No keys yet."
+#~ msgstr "ഇതുവരെ കീകളൊന്നുമില്ല."
 
 #: src/features/ats-checker/messages.ts
 msgid "No lines look like a job title paired with an employer."
@@ -9577,8 +9573,8 @@ msgid "Read it for me"
 msgstr "എനിക്കുവേണ്ടി വായിക്കുക"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read only"
-msgstr "വായന-മാത്രം ആക്സസ്"
+#~ msgid "Read only"
+#~ msgstr "വായന-മാത്രം ആക്സസ്"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
@@ -9626,8 +9622,8 @@ msgid "Read your profile information."
 msgstr "നിങ്ങളുടെ പ്രൊഫൈൽ വിവരങ്ങൾ വായിക്കുക."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read, write and delete"
-msgstr "വായിക്കുക, എഴുതുക, ഇല്ലാതാക്കുക"
+#~ msgid "Read, write and delete"
+#~ msgstr "വായിക്കുക, എഴുതുക, ഇല്ലാതാക്കുക"
 
 #: src/features/ats-checker/messages.ts
 msgid "Readability"
@@ -10282,25 +10278,25 @@ msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you wr
 msgstr "വിലയിരുത്തലിന് ഒരു AI കണക്ഷൻ ആവശ്യമാണ്. <0>സെറ്റിംഗ്സിൽ ഒന്ന് ചേർക്കുക</0>. അതുവരെ നിങ്ങൾ ഇവിടെ എഴുതുന്നത് ഈ ബ്രൗസറിൽ തന്നെ നിലനിൽക്കും."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke"
-msgstr "അസാധുവാക്കുക"
+#~ msgid "Revoke"
+#~ msgstr "അസാധുവാക്കുക"
 
 #. placeholder {0}: key.name || key.start || ""
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke {0}"
-msgstr "{0} അസാധുവാക്കുക"
+#~ msgid "Revoke {0}"
+#~ msgstr "{0} അസാധുവാക്കുക"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke access"
-msgstr "ആക്സസ് റദ്ദാക്കുക"
+#~ msgid "Revoke access"
+#~ msgstr "ആക്സസ് റദ്ദാക്കുക"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke an application's access to your account."
-msgstr "നിങ്ങളുടെ അക്കൗണ്ടിലേക്കുള്ള ഒരു ആപ്ലിക്കേഷൻ്റെ ആക്‌സസ് റദ്ദാക്കുക."
+#~ msgid "Revoke an application's access to your account."
+#~ msgstr "നിങ്ങളുടെ അക്കൗണ്ടിലേക്കുള്ള ഒരു ആപ്ലിക്കേഷൻ്റെ ആക്‌സസ് റദ്ദാക്കുക."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoked “{name}”. Apps using it stop working now."
-msgstr "\"{name}\" റദ്ദാക്കി. ഇത് ഉപയോഗിക്കുന്ന ആപ്പുകൾ ഇപ്പോൾ പ്രവർത്തിക്കുന്നത് നിർത്തുന്നു."
+#~ msgid "Revoked “{name}”. Apps using it stop working now."
+#~ msgstr "\"{name}\" റദ്ദാക്കി. ഇത് ഉപയോഗിക്കുന്ന ആപ്പുകൾ ഇപ്പോൾ പ്രവർത്തിക്കുന്നത് നിർത്തുന്നു."
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Right"
@@ -12304,8 +12300,8 @@ msgid "The job posting is missing"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "the key"
-msgstr "താക്കോൽ"
+#~ msgid "the key"
+#~ msgstr "താക്കോൽ"
 
 #: src/features/settings/ai/providers.tsx
 msgid "The key is encrypted on the server and never shown again. Saving tests the connection."
@@ -12457,8 +12453,12 @@ msgid "The same line repeats on every page."
 msgstr "ഒരേ വരി ഓരോ പേജിലും ആവർത്തിക്കുന്നു."
 
 #: src/libs/error-message.ts
-msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
-msgstr "സംരക്ഷിച്ച ദാതാവിൻ്റെ കീ ഡീക്രിപ്റ്റ് ചെയ്യാൻ കഴിയില്ല. ക്രമീകരണം → AI & ഡെവലപ്പർ എന്നതിൽ കീ വീണ്ടും നൽകുക."
+#~ msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
+#~ msgstr "സംരക്ഷിച്ച ദാതാവിൻ്റെ കീ ഡീക്രിപ്റ്റ് ചെയ്യാൻ കഴിയില്ല. ക്രമീകരണം → AI & ഡെവലപ്പർ എന്നതിൽ കീ വീണ്ടും നൽകുക."
+
+#: src/libs/error-message.ts
+msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI."
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "The score counts how reliably software reads your resume. It doesn't predict whether you'll be shortlisted."
@@ -13180,7 +13180,6 @@ msgstr "ലിങ്കുകൾക്ക് അടിവരയിടുക"
 #: src/features/resume/editor/webmcp.ts
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/editor/write/section-row.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -13915,8 +13914,8 @@ msgid "What you're looking for"
 msgstr "നിങ്ങൾ തിരയുന്നത്"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "What's it for?"
-msgstr "അത് എന്തിനുവേണ്ടിയാണ്?"
+#~ msgid "What's it for?"
+#~ msgstr "അത് എന്തിനുവേണ്ടിയാണ്?"
 
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/practise.tsx

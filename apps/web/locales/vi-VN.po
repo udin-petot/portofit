@@ -881,16 +881,16 @@ msgid "3. Upload the proof in the same window. Credits land once an admin checks
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "30 days"
-msgstr "30 ngày"
+#~ msgid "30 days"
+#~ msgstr "30 ngày"
 
 #: src/features/homepage/hero.tsx
 msgid "40% faster reviews"
 msgstr "Đánh giá nhanh hơn 40%"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "90 days"
-msgstr "90 ngày"
+#~ msgid "90 days"
+#~ msgstr "90 ngày"
 
 #: src/features/homepage/remember.tsx
 msgid "A"
@@ -1075,8 +1075,8 @@ msgid "Accepted offer"
 msgstr "Đã nhận lời đề nghị"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Access"
-msgstr "Truy cập"
+#~ msgid "Access"
+#~ msgstr "Truy cập"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Access your account through the API, including reading, changing and deleting your documents and job applications."
@@ -1104,8 +1104,8 @@ msgid "Action"
 msgstr "Hành động"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Actions"
-msgstr "hành động"
+#~ msgid "Actions"
+#~ msgstr "hành động"
 
 #: src/features/homepage/remember.tsx
 msgid "Activation rose from 31% to 44% in one quarter, measured across new teams."
@@ -1562,9 +1562,14 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "AI & developer"
-msgstr "AI & nhà phát triển"
+msgid "AI"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+#~ msgid "AI & developer"
+#~ msgstr "AI & nhà phát triển"
 
 #: src/features/quota/page.tsx
 #: src/features/user/dropdown-menu.tsx
@@ -1573,8 +1578,8 @@ msgid "AI allowance"
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI and developer"
-msgstr ""
+#~ msgid "AI and developer"
+#~ msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
@@ -1813,12 +1818,12 @@ msgid "API key"
 msgstr "Phím API"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "API keys"
-msgstr "Phím API"
+#~ msgid "API keys"
+#~ msgstr "Phím API"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "API Keys"
-msgstr "API Key"
+#~ msgid "API Keys"
+#~ msgstr "API Key"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "App"
@@ -2552,7 +2557,6 @@ msgstr "Phần mềm có đọc được sơ yếu lý lịch của bạn không
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
 msgid "Cancel"
@@ -2842,8 +2846,8 @@ msgid "Classic"
 msgstr "Cổ điển"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Claude Desktop"
-msgstr "Claude Desktop"
+#~ msgid "Claude Desktop"
+#~ msgstr "Claude Desktop"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/list-view.tsx
@@ -3135,8 +3139,8 @@ msgid "Connected"
 msgstr "Đã kết nối"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Connected applications"
-msgstr "Ứng dụng được kết nối"
+#~ msgid "Connected applications"
+#~ msgstr "Ứng dụng được kết nối"
 
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
@@ -3271,8 +3275,6 @@ msgstr "Đang nấu"
 #: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copied"
 msgstr "Đã sao chép"
 
@@ -3280,8 +3282,6 @@ msgstr "Đã sao chép"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copy"
 msgstr "Sao chép"
 
@@ -3314,8 +3314,8 @@ msgid "Copy it from the employer's page, including the requirements."
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Copy it now. For your security, it won't be shown again."
-msgstr "Sao chép nó ngay bây giờ. Để bảo mật cho bạn, nó sẽ không được hiển thị lại."
+#~ msgid "Copy it now. For your security, it won't be shown again."
+#~ msgstr "Sao chép nó ngay bây giờ. Để bảo mật cho bạn, nó sẽ không được hiển thị lại."
 
 #: src/features/homepage/share.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -3401,16 +3401,16 @@ msgid "Could not generate the PDF. Please try again."
 msgstr "Không thể tạo tệp PDF. Vui lòng thử lại."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not load connected applications."
-msgstr "Không thể tải các ứng dụng được kết nối."
+#~ msgid "Could not load connected applications."
+#~ msgstr "Không thể tải các ứng dụng được kết nối."
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "Không thể chuẩn bị sơ yếu lý lịch của bạn để in. Vui lòng thử lại."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not revoke this connection. Try again."
-msgstr "Không thể thu hồi kết nối này. Hãy thử lại."
+#~ msgid "Could not revoke this connection. Try again."
+#~ msgstr "Không thể thu hồi kết nối này. Hãy thử lại."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Could not set up two-factor authentication."
@@ -3491,8 +3491,8 @@ msgid "Couldn't create the document."
 msgstr "Không thể tạo tài liệu."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't create the key. Try again."
-msgstr "Không thể tạo khóa. Hãy thử lại."
+#~ msgid "Couldn't create the key. Try again."
+#~ msgstr "Không thể tạo khóa. Hãy thử lại."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Couldn't create the letter."
@@ -3642,8 +3642,8 @@ msgid "Couldn't rename it."
 msgstr "Không thể đổi tên."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't revoke the key."
-msgstr "Không thể thu hồi chìa khóa."
+#~ msgid "Couldn't revoke the key."
+#~ msgstr "Không thể thu hồi chìa khóa."
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't save that change."
@@ -3878,8 +3878,8 @@ msgid "Create and open"
 msgstr "Tạo và mở"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Create key"
-msgstr "Tạo khóa"
+#~ msgid "Create key"
+#~ msgstr "Tạo khóa"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
@@ -3888,7 +3888,6 @@ msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Created"
 msgstr "Đã tạo"
@@ -4391,7 +4390,6 @@ msgstr "Quyên tặng"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "Xong"
 
@@ -4988,8 +4986,8 @@ msgid "Experience"
 msgstr "Kinh nghiệm"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Expires"
-msgstr "Hết hạn"
+#~ msgid "Expires"
+#~ msgstr "Hết hạn"
 
 #: src/features/homepage/prepare.tsx
 msgid "explain one limit of the measurement clearly, without underselling the work."
@@ -5430,8 +5428,8 @@ msgid "For portals or recruiters who ask for Word. Layout is simplified."
 msgstr "Dành cho các cổng thông tin hoặc nhà tuyển dụng yêu cầu Word. Bố cục được đơn giản hóa."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
-msgstr "Dành cho tập lệnh, tiện ích mở rộng và máy khách MCP. Các phím hoạt động như bạn và có thể đọc và chỉnh sửa tài liệu của bạn."
+#~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+#~ msgstr "Dành cho tập lệnh, tiện ích mở rộng và máy khách MCP. Các phím hoạt động như bạn và có thể đọc và chỉnh sửa tài liệu của bạn."
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
@@ -6106,8 +6104,8 @@ msgid "Insights"
 msgstr "Thông tin chi tiết"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Integrations"
-msgstr "Tích hợp"
+#~ msgid "Integrations"
+#~ msgstr "Tích hợp"
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -6568,8 +6566,8 @@ msgid "Key stored encrypted"
 msgstr "Khóa được lưu trữ được mã hóa"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Keys act as you and can read and edit your documents."
-msgstr "Các phím hoạt động như bạn và có thể đọc và chỉnh sửa tài liệu của bạn."
+#~ msgid "Keys act as you and can read and edit your documents."
+#~ msgstr "Các phím hoạt động như bạn và có thể đọc và chỉnh sửa tài liệu của bạn."
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Keyword layout"
@@ -6640,8 +6638,8 @@ msgid "Last edited"
 msgstr "Chỉnh sửa lần cuối"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Last used"
-msgstr "Lần sử dụng cuối cùng"
+#~ msgid "Last used"
+#~ msgstr "Lần sử dụng cuối cùng"
 
 #: src/libs/locale.ts
 msgid "Latvian"
@@ -6751,8 +6749,8 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "Độ dài không phải là khuyết điểm, và không có quy tắc một trang chung nào cả. Giữ lại những trang thực sự xứng đáng."
 
 #: src/features/settings/ai/mcp.tsx
-msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
-msgstr "Cho phép các ứng dụng khách AI như Claude hoặc Cursor đọc và chỉnh sửa sơ yếu lý lịch của bạn bằng cách sử dụng khóa API ở trên."
+#~ msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
+#~ msgstr "Cho phép các ứng dụng khách AI như Claude hoặc Cursor đọc và chỉnh sửa sơ yếu lý lịch của bạn bằng cách sử dụng khóa API ở trên."
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6995,8 +6993,8 @@ msgid "Loading connection…"
 msgstr "Đang tải kết nối…"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Loading connections..."
-msgstr "Đang tải kết nối..."
+#~ msgid "Loading connections..."
+#~ msgstr "Đang tải kết nối..."
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
@@ -7289,12 +7287,12 @@ msgid "Matching your facts"
 msgstr "Đang đối chiếu dữ kiện của bạn"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "MCP"
-msgstr "MCP"
+#~ msgid "MCP"
+#~ msgstr "MCP"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "MCP server"
-msgstr "Máy chủ MCP"
+#~ msgid "MCP server"
+#~ msgstr "Máy chủ MCP"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "median to first reply"
@@ -7569,7 +7567,6 @@ msgstr ""
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Name"
 msgstr "Tên"
@@ -7648,7 +7645,6 @@ msgid "Network"
 msgstr "Mạng"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Never"
 msgstr "Không bao giờ"
 
@@ -7662,8 +7658,8 @@ msgid "New account sign-ups are currently disabled on this server."
 msgstr "Việc đăng ký tài khoản mới hiện đang bị tắt trên máy chủ này."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New API key"
-msgstr "Khóa API mới"
+#~ msgid "New API key"
+#~ msgstr "Khóa API mới"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -7692,8 +7688,8 @@ msgid "New fact"
 msgstr "Dữ kiện mới"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New key"
-msgstr "Chìa khóa mới"
+#~ msgid "New key"
+#~ msgstr "Chìa khóa mới"
 
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New page"
@@ -7801,8 +7797,8 @@ msgid "No commands match that search."
 msgstr "Không có lệnh nào khớp với tìm kiếm đó."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "No connected applications."
-msgstr "Không có ứng dụng được kết nối."
+#~ msgid "No connected applications."
+#~ msgstr "Không có ứng dụng được kết nối."
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -7880,8 +7876,8 @@ msgid "No job yet"
 msgstr "Chưa có việc làm"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "No keys yet."
-msgstr "Chưa có chìa khóa."
+#~ msgid "No keys yet."
+#~ msgstr "Chưa có chìa khóa."
 
 #: src/features/ats-checker/messages.ts
 msgid "No lines look like a job title paired with an employer."
@@ -9577,8 +9573,8 @@ msgid "Read it for me"
 msgstr "Đọc giúp tôi"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read only"
-msgstr "Quyền truy cập chỉ đọc"
+#~ msgid "Read only"
+#~ msgstr "Quyền truy cập chỉ đọc"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
@@ -9626,8 +9622,8 @@ msgid "Read your profile information."
 msgstr "Đọc thông tin hồ sơ của bạn."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read, write and delete"
-msgstr "Đọc, viết và xóa"
+#~ msgid "Read, write and delete"
+#~ msgstr "Đọc, viết và xóa"
 
 #: src/features/ats-checker/messages.ts
 msgid "Readability"
@@ -10282,25 +10278,25 @@ msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you wr
 msgstr "Cần có kết nối AI để đánh giá. <0>Thêm kết nối trong Cài đặt</0>. Những gì bạn viết ở đây sẽ ở lại trong trình duyệt này cho đến lúc đó."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke"
-msgstr "Thu hồi"
+#~ msgid "Revoke"
+#~ msgstr "Thu hồi"
 
 #. placeholder {0}: key.name || key.start || ""
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke {0}"
-msgstr "Thu hồi {0}"
+#~ msgid "Revoke {0}"
+#~ msgstr "Thu hồi {0}"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke access"
-msgstr "Thu hồi quyền truy cập"
+#~ msgid "Revoke access"
+#~ msgstr "Thu hồi quyền truy cập"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke an application's access to your account."
-msgstr "Thu hồi quyền truy cập của ứng dụng vào tài khoản của bạn."
+#~ msgid "Revoke an application's access to your account."
+#~ msgstr "Thu hồi quyền truy cập của ứng dụng vào tài khoản của bạn."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoked “{name}”. Apps using it stop working now."
-msgstr "Đã thu hồi “{name}”. Các ứng dụng sử dụng nó ngừng hoạt động ngay bây giờ."
+#~ msgid "Revoked “{name}”. Apps using it stop working now."
+#~ msgstr "Đã thu hồi “{name}”. Các ứng dụng sử dụng nó ngừng hoạt động ngay bây giờ."
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Right"
@@ -12304,8 +12300,8 @@ msgid "The job posting is missing"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "the key"
-msgstr "chìa khóa"
+#~ msgid "the key"
+#~ msgstr "chìa khóa"
 
 #: src/features/settings/ai/providers.tsx
 msgid "The key is encrypted on the server and never shown again. Saving tests the connection."
@@ -12457,8 +12453,12 @@ msgid "The same line repeats on every page."
 msgstr "Cùng một dòng lặp lại trên mọi trang."
 
 #: src/libs/error-message.ts
-msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
-msgstr "Không thể giải mã khóa nhà cung cấp đã lưu. Nhập lại khóa trong Cài đặt → AI & nhà phát triển."
+#~ msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
+#~ msgstr "Không thể giải mã khóa nhà cung cấp đã lưu. Nhập lại khóa trong Cài đặt → AI & nhà phát triển."
+
+#: src/libs/error-message.ts
+msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI."
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "The score counts how reliably software reads your resume. It doesn't predict whether you'll be shortlisted."
@@ -13180,7 +13180,6 @@ msgstr "Gạch chân các liên kết"
 #: src/features/resume/editor/webmcp.ts
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/editor/write/section-row.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -13915,8 +13914,8 @@ msgid "What you're looking for"
 msgstr "Bạn đang tìm gì"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "What's it for?"
-msgstr "Nó dùng để làm gì?"
+#~ msgid "What's it for?"
+#~ msgstr "Nó dùng để làm gì?"
 
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/practise.tsx

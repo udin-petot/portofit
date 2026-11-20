@@ -881,16 +881,16 @@ msgid "3. Upload the proof in the same window. Credits land once an admin checks
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "30 days"
-msgstr "30 kun"
+#~ msgid "30 days"
+#~ msgstr "30 kun"
 
 #: src/features/homepage/hero.tsx
 msgid "40% faster reviews"
 msgstr "40% tezroq sharhlar"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "90 days"
-msgstr "90 kun"
+#~ msgid "90 days"
+#~ msgstr "90 kun"
 
 #: src/features/homepage/remember.tsx
 msgid "A"
@@ -1075,8 +1075,8 @@ msgid "Accepted offer"
 msgstr "Taklif qabul qilindi"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Access"
-msgstr "Kirish"
+#~ msgid "Access"
+#~ msgstr "Kirish"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Access your account through the API, including reading, changing and deleting your documents and job applications."
@@ -1104,8 +1104,8 @@ msgid "Action"
 msgstr "Harakat"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Actions"
-msgstr "Harakatlar"
+#~ msgid "Actions"
+#~ msgstr "Harakatlar"
 
 #: src/features/homepage/remember.tsx
 msgid "Activation rose from 31% to 44% in one quarter, measured across new teams."
@@ -1562,9 +1562,14 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "AI & developer"
-msgstr "AI va dasturchi"
+msgid "AI"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+#~ msgid "AI & developer"
+#~ msgstr "AI va dasturchi"
 
 #: src/features/quota/page.tsx
 #: src/features/user/dropdown-menu.tsx
@@ -1573,8 +1578,8 @@ msgid "AI allowance"
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI and developer"
-msgstr ""
+#~ msgid "AI and developer"
+#~ msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
@@ -1813,12 +1818,12 @@ msgid "API key"
 msgstr "API kaliti"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "API keys"
-msgstr "API kalitlari"
+#~ msgid "API keys"
+#~ msgstr "API kalitlari"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "API Keys"
-msgstr "API kalitlar"
+#~ msgid "API Keys"
+#~ msgstr "API kalitlar"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "App"
@@ -2552,7 +2557,6 @@ msgstr "Dasturiy ta'minot sizning rezyumeingizni o'qiy oladimi?"
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
 msgid "Cancel"
@@ -2842,8 +2846,8 @@ msgid "Classic"
 msgstr "Klassik"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Claude Desktop"
-msgstr "Claude Desktop"
+#~ msgid "Claude Desktop"
+#~ msgstr "Claude Desktop"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/list-view.tsx
@@ -3135,8 +3139,8 @@ msgid "Connected"
 msgstr "Ulangan"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Connected applications"
-msgstr "Ulangan ilovalar"
+#~ msgid "Connected applications"
+#~ msgstr "Ulangan ilovalar"
 
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
@@ -3271,8 +3275,6 @@ msgstr "Tayyorlanmoqda"
 #: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copied"
 msgstr "Ko‘chirildi"
 
@@ -3280,8 +3282,6 @@ msgstr "Ko‘chirildi"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copy"
 msgstr "Nusxalash"
 
@@ -3314,8 +3314,8 @@ msgid "Copy it from the employer's page, including the requirements."
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Copy it now. For your security, it won't be shown again."
-msgstr "Hozir nusxa ko'chiring. Xavfsizligingiz uchun u boshqa ko'rsatilmaydi."
+#~ msgid "Copy it now. For your security, it won't be shown again."
+#~ msgstr "Hozir nusxa ko'chiring. Xavfsizligingiz uchun u boshqa ko'rsatilmaydi."
 
 #: src/features/homepage/share.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -3401,16 +3401,16 @@ msgid "Could not generate the PDF. Please try again."
 msgstr "PDF faylini yaratib bo'lmadi. Iltimos, qayta urinib ko'ring."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not load connected applications."
-msgstr "Ulangan ilovalarni yuklab bo‘lmadi."
+#~ msgid "Could not load connected applications."
+#~ msgstr "Ulangan ilovalarni yuklab bo‘lmadi."
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "Rezyumengizni chop etishga tayyorlab bo'lmadi. Iltimos, qayta urinib ko'ring."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not revoke this connection. Try again."
-msgstr "Bu ulanishni bekor qilib bo‘lmadi. Qayta urinib ko'ring."
+#~ msgid "Could not revoke this connection. Try again."
+#~ msgstr "Bu ulanishni bekor qilib bo‘lmadi. Qayta urinib ko'ring."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Could not set up two-factor authentication."
@@ -3491,8 +3491,8 @@ msgid "Couldn't create the document."
 msgstr "Hujjatni yaratib bo‘lmadi."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't create the key. Try again."
-msgstr "Kalit yaratilmadi. Qayta urinib ko'ring."
+#~ msgid "Couldn't create the key. Try again."
+#~ msgstr "Kalit yaratilmadi. Qayta urinib ko'ring."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Couldn't create the letter."
@@ -3642,8 +3642,8 @@ msgid "Couldn't rename it."
 msgstr "Nomini o'zgartirib bo'lmadi."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't revoke the key."
-msgstr "Kalitni bekor qilib boʻlmadi."
+#~ msgid "Couldn't revoke the key."
+#~ msgstr "Kalitni bekor qilib boʻlmadi."
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't save that change."
@@ -3878,8 +3878,8 @@ msgid "Create and open"
 msgstr "Yarating va oching"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Create key"
-msgstr "Kalit yaratish"
+#~ msgid "Create key"
+#~ msgstr "Kalit yaratish"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
@@ -3888,7 +3888,6 @@ msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Created"
 msgstr "Yaratilgan"
@@ -4391,7 +4390,6 @@ msgstr "Xayriya qiling"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "Bajarildi"
 
@@ -4988,8 +4986,8 @@ msgid "Experience"
 msgstr "Tajriba"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Expires"
-msgstr "Muddati tugaydi"
+#~ msgid "Expires"
+#~ msgstr "Muddati tugaydi"
 
 #: src/features/homepage/prepare.tsx
 msgid "explain one limit of the measurement clearly, without underselling the work."
@@ -5430,8 +5428,8 @@ msgid "For portals or recruiters who ask for Word. Layout is simplified."
 msgstr "Word so'ragan portallar yoki yollovchilar uchun. Tartib soddalashtirilgan."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
-msgstr "Skriptlar, kengaytmalar va MCP mijozlari uchun. Kalitlar siz kabi ishlaydi va hujjatlaringizni o'qishi va tahrirlashi mumkin."
+#~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+#~ msgstr "Skriptlar, kengaytmalar va MCP mijozlari uchun. Kalitlar siz kabi ishlaydi va hujjatlaringizni o'qishi va tahrirlashi mumkin."
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
@@ -6106,8 +6104,8 @@ msgid "Insights"
 msgstr "Tahlillar"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Integrations"
-msgstr "Integratsiyalar"
+#~ msgid "Integrations"
+#~ msgstr "Integratsiyalar"
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -6568,8 +6566,8 @@ msgid "Key stored encrypted"
 msgstr "Kalit shifrlangan holda saqlanadi"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Keys act as you and can read and edit your documents."
-msgstr "Kalitlar siz kabi ishlaydi va hujjatlaringizni o'qishi va tahrirlashi mumkin."
+#~ msgid "Keys act as you and can read and edit your documents."
+#~ msgstr "Kalitlar siz kabi ishlaydi va hujjatlaringizni o'qishi va tahrirlashi mumkin."
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Keyword layout"
@@ -6640,8 +6638,8 @@ msgid "Last edited"
 msgstr "Oxirgi tahrirlangan"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Last used"
-msgstr "Oxirgi ishlatilgan"
+#~ msgid "Last used"
+#~ msgstr "Oxirgi ishlatilgan"
 
 #: src/libs/locale.ts
 msgid "Latvian"
@@ -6751,8 +6749,8 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "Uzunlik nuqson emas va universal bir sahifa qoidasi mavjud emas. Oʻz oʻrnini oqlaydigan sahifalarni saqlang."
 
 #: src/features/settings/ai/mcp.tsx
-msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
-msgstr "Claude yoki Cursor kabi AI mijozlariga yuqoridagi API tugmachasi yordamida rezyumelaringizni o‘qish va tahrirlashiga ruxsat bering."
+#~ msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
+#~ msgstr "Claude yoki Cursor kabi AI mijozlariga yuqoridagi API tugmachasi yordamida rezyumelaringizni o‘qish va tahrirlashiga ruxsat bering."
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6995,8 +6993,8 @@ msgid "Loading connection…"
 msgstr "Ulanish yuklanmoqda…"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Loading connections..."
-msgstr "Ulanishlar yuklanmoqda..."
+#~ msgid "Loading connections..."
+#~ msgstr "Ulanishlar yuklanmoqda..."
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
@@ -7289,12 +7287,12 @@ msgid "Matching your facts"
 msgstr "Faktlaringiz solishtirilmoqda"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "MCP"
-msgstr "MCP"
+#~ msgid "MCP"
+#~ msgstr "MCP"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "MCP server"
-msgstr "MCP serveri"
+#~ msgid "MCP server"
+#~ msgstr "MCP serveri"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "median to first reply"
@@ -7569,7 +7567,6 @@ msgstr ""
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Name"
 msgstr "Ism"
@@ -7648,7 +7645,6 @@ msgid "Network"
 msgstr "Tarmoq"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Never"
 msgstr "Hech qachon"
 
@@ -7662,8 +7658,8 @@ msgid "New account sign-ups are currently disabled on this server."
 msgstr "Bu serverda yangi hisob qaydnomalarini ro‘yxatdan o‘tkazish hozircha o‘chirilgan."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New API key"
-msgstr "Yangi API kaliti"
+#~ msgid "New API key"
+#~ msgstr "Yangi API kaliti"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -7692,8 +7688,8 @@ msgid "New fact"
 msgstr "Yangi fakt"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New key"
-msgstr "Yangi kalit"
+#~ msgid "New key"
+#~ msgstr "Yangi kalit"
 
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New page"
@@ -7801,8 +7797,8 @@ msgid "No commands match that search."
 msgstr "Bu qidiruvga mos buyruq topilmadi."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "No connected applications."
-msgstr "Ulangan ilovalar yo‘q."
+#~ msgid "No connected applications."
+#~ msgstr "Ulangan ilovalar yo‘q."
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -7880,8 +7876,8 @@ msgid "No job yet"
 msgstr "Hali ish yo'q"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "No keys yet."
-msgstr "Hali kalitlar yo'q."
+#~ msgid "No keys yet."
+#~ msgstr "Hali kalitlar yo'q."
 
 #: src/features/ats-checker/messages.ts
 msgid "No lines look like a job title paired with an employer."
@@ -9577,8 +9573,8 @@ msgid "Read it for me"
 msgstr "Men uchun o'qib chiqing"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read only"
-msgstr "Faqat o'qish uchun ruxsat"
+#~ msgid "Read only"
+#~ msgstr "Faqat o'qish uchun ruxsat"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
@@ -9626,8 +9622,8 @@ msgid "Read your profile information."
 msgstr "Profil ma'lumotlarini o'qing."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read, write and delete"
-msgstr "O'qing, yozing va o'chiring"
+#~ msgid "Read, write and delete"
+#~ msgstr "O'qing, yozing va o'chiring"
 
 #: src/features/ats-checker/messages.ts
 msgid "Readability"
@@ -10282,25 +10278,25 @@ msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you wr
 msgstr "Baholash uchun AI ulanishi kerak. <0>Uni Sozlamalarda qo'shing</0>. Ungacha bu yerda yozganlaringiz shu brauzerda qoladi."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke"
-msgstr "Bekor qilish"
+#~ msgid "Revoke"
+#~ msgstr "Bekor qilish"
 
 #. placeholder {0}: key.name || key.start || ""
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke {0}"
-msgstr "{0}ni bekor qilish"
+#~ msgid "Revoke {0}"
+#~ msgstr "{0}ni bekor qilish"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke access"
-msgstr "Kirishni bekor qilish"
+#~ msgid "Revoke access"
+#~ msgstr "Kirishni bekor qilish"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke an application's access to your account."
-msgstr "Ilovaning hisobingizga kirishini bekor qiling."
+#~ msgid "Revoke an application's access to your account."
+#~ msgstr "Ilovaning hisobingizga kirishini bekor qiling."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoked “{name}”. Apps using it stop working now."
-msgstr "Bekor qilingan “{name}”. Undan foydalanadigan ilovalar endi ishlamaydi."
+#~ msgid "Revoked “{name}”. Apps using it stop working now."
+#~ msgstr "Bekor qilingan “{name}”. Undan foydalanadigan ilovalar endi ishlamaydi."
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Right"
@@ -12304,8 +12300,8 @@ msgid "The job posting is missing"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "the key"
-msgstr "kalit"
+#~ msgid "the key"
+#~ msgstr "kalit"
 
 #: src/features/settings/ai/providers.tsx
 msgid "The key is encrypted on the server and never shown again. Saving tests the connection."
@@ -12457,8 +12453,12 @@ msgid "The same line repeats on every page."
 msgstr "Bir xil qator har bir sahifada takrorlanadi."
 
 #: src/libs/error-message.ts
-msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
-msgstr "Saqlangan provayder kalitini shifrlab bo‘lmaydi. Kalitni yana Sozlamalar → AI va dasturchiga kiriting."
+#~ msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
+#~ msgstr "Saqlangan provayder kalitini shifrlab bo‘lmaydi. Kalitni yana Sozlamalar → AI va dasturchiga kiriting."
+
+#: src/libs/error-message.ts
+msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI."
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "The score counts how reliably software reads your resume. It doesn't predict whether you'll be shortlisted."
@@ -13180,7 +13180,6 @@ msgstr "Havolalar tagiga chizish"
 #: src/features/resume/editor/webmcp.ts
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/editor/write/section-row.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -13915,8 +13914,8 @@ msgid "What you're looking for"
 msgstr "Nimani qidiryapsiz"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "What's it for?"
-msgstr "Bu nima uchun?"
+#~ msgid "What's it for?"
+#~ msgstr "Bu nima uchun?"
 
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/practise.tsx

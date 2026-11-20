@@ -881,16 +881,16 @@ msgid "3. Upload the proof in the same window. Credits land once an admin checks
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "30 days"
-msgstr "30 dni"
+#~ msgid "30 days"
+#~ msgstr "30 dni"
 
 #: src/features/homepage/hero.tsx
 msgid "40% faster reviews"
 msgstr "40% szybsze recenzje"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "90 days"
-msgstr "90 dni"
+#~ msgid "90 days"
+#~ msgstr "90 dni"
 
 #: src/features/homepage/remember.tsx
 msgid "A"
@@ -1075,8 +1075,8 @@ msgid "Accepted offer"
 msgstr "Przyjęta oferta"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Access"
-msgstr "Dostęp"
+#~ msgid "Access"
+#~ msgstr "Dostęp"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Access your account through the API, including reading, changing and deleting your documents and job applications."
@@ -1104,8 +1104,8 @@ msgid "Action"
 msgstr "Działanie"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Actions"
-msgstr "Działania"
+#~ msgid "Actions"
+#~ msgstr "Działania"
 
 #: src/features/homepage/remember.tsx
 msgid "Activation rose from 31% to 44% in one quarter, measured across new teams."
@@ -1562,9 +1562,14 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "AI & developer"
-msgstr "Sztuczna inteligencja i programista"
+msgid "AI"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+#~ msgid "AI & developer"
+#~ msgstr "Sztuczna inteligencja i programista"
 
 #: src/features/quota/page.tsx
 #: src/features/user/dropdown-menu.tsx
@@ -1573,8 +1578,8 @@ msgid "AI allowance"
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI and developer"
-msgstr ""
+#~ msgid "AI and developer"
+#~ msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
@@ -1813,12 +1818,12 @@ msgid "API key"
 msgstr "Klucz API"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "API keys"
-msgstr "Klucze API"
+#~ msgid "API keys"
+#~ msgstr "Klucze API"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "API Keys"
-msgstr "Klucze API"
+#~ msgid "API Keys"
+#~ msgstr "Klucze API"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "App"
@@ -2552,7 +2557,6 @@ msgstr "Czy oprogramowanie może odczytać Twoje CV?"
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
 msgid "Cancel"
@@ -2842,8 +2846,8 @@ msgid "Classic"
 msgstr "Klasyczny"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Claude Desktop"
-msgstr "Claude Desktop"
+#~ msgid "Claude Desktop"
+#~ msgstr "Claude Desktop"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/list-view.tsx
@@ -3135,8 +3139,8 @@ msgid "Connected"
 msgstr "Połączony"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Connected applications"
-msgstr "Połączone aplikacje"
+#~ msgid "Connected applications"
+#~ msgstr "Połączone aplikacje"
 
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
@@ -3271,8 +3275,6 @@ msgstr "Przygotowywanie"
 #: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copied"
 msgstr "Skopiowano"
 
@@ -3280,8 +3282,6 @@ msgstr "Skopiowano"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copy"
 msgstr "Kopiuj"
 
@@ -3314,8 +3314,8 @@ msgid "Copy it from the employer's page, including the requirements."
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Copy it now. For your security, it won't be shown again."
-msgstr "Skopiuj go teraz. Ze względów bezpieczeństwa nie będzie on wyświetlany ponownie."
+#~ msgid "Copy it now. For your security, it won't be shown again."
+#~ msgstr "Skopiuj go teraz. Ze względów bezpieczeństwa nie będzie on wyświetlany ponownie."
 
 #: src/features/homepage/share.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -3401,16 +3401,16 @@ msgid "Could not generate the PDF. Please try again."
 msgstr "Nie udało się wygenerować pliku PDF. Proszę spróbować ponownie."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not load connected applications."
-msgstr "Nie można załadować podłączonych aplikacji."
+#~ msgid "Could not load connected applications."
+#~ msgstr "Nie można załadować podłączonych aplikacji."
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "Nie udało się przygotować Twojego CV do druku. Proszę spróbować ponownie."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not revoke this connection. Try again."
-msgstr "Nie można odwołać tego połączenia. Spróbuj ponownie."
+#~ msgid "Could not revoke this connection. Try again."
+#~ msgstr "Nie można odwołać tego połączenia. Spróbuj ponownie."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Could not set up two-factor authentication."
@@ -3491,8 +3491,8 @@ msgid "Couldn't create the document."
 msgstr "Nie udało się utworzyć dokumentu."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't create the key. Try again."
-msgstr "Nie udało się utworzyć klucza. Spróbuj ponownie."
+#~ msgid "Couldn't create the key. Try again."
+#~ msgstr "Nie udało się utworzyć klucza. Spróbuj ponownie."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Couldn't create the letter."
@@ -3642,8 +3642,8 @@ msgid "Couldn't rename it."
 msgstr "Nie udało się zmienić nazwy."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't revoke the key."
-msgstr "Nie udało się unieważnić klucza."
+#~ msgid "Couldn't revoke the key."
+#~ msgstr "Nie udało się unieważnić klucza."
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't save that change."
@@ -3878,8 +3878,8 @@ msgid "Create and open"
 msgstr "Twórz i otwieraj"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Create key"
-msgstr "Utwórz klucz"
+#~ msgid "Create key"
+#~ msgstr "Utwórz klucz"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
@@ -3888,7 +3888,6 @@ msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Created"
 msgstr "Utworzono"
@@ -4391,7 +4390,6 @@ msgstr "Podarować"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "Zrobione"
 
@@ -4988,8 +4986,8 @@ msgid "Experience"
 msgstr "Doświadczenie"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Expires"
-msgstr "Wygasa"
+#~ msgid "Expires"
+#~ msgstr "Wygasa"
 
 #: src/features/homepage/prepare.tsx
 msgid "explain one limit of the measurement clearly, without underselling the work."
@@ -5430,8 +5428,8 @@ msgid "For portals or recruiters who ask for Word. Layout is simplified."
 msgstr "Dla portali lub rekruterów, którzy proszą o Word. Układ jest uproszczony."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
-msgstr "Dla skryptów, rozszerzeń i klientów MCP. Klucze działają jak Ty i mogą czytać i edytować Twoje dokumenty."
+#~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+#~ msgstr "Dla skryptów, rozszerzeń i klientów MCP. Klucze działają jak Ty i mogą czytać i edytować Twoje dokumenty."
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
@@ -6106,8 +6104,8 @@ msgid "Insights"
 msgstr "Spostrzeżenia"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Integrations"
-msgstr "Integracje"
+#~ msgid "Integrations"
+#~ msgstr "Integracje"
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -6568,8 +6566,8 @@ msgid "Key stored encrypted"
 msgstr "Klucz przechowywany w postaci zaszyfrowanej"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Keys act as you and can read and edit your documents."
-msgstr "Klucze działają jak Ty i mogą czytać i edytować Twoje dokumenty."
+#~ msgid "Keys act as you and can read and edit your documents."
+#~ msgstr "Klucze działają jak Ty i mogą czytać i edytować Twoje dokumenty."
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Keyword layout"
@@ -6640,8 +6638,8 @@ msgid "Last edited"
 msgstr "Ostatnio edytowane"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Last used"
-msgstr "Ostatnio używany"
+#~ msgid "Last used"
+#~ msgstr "Ostatnio używany"
 
 #: src/libs/locale.ts
 msgid "Latvian"
@@ -6751,8 +6749,8 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "Długość nie jest wadą i nie ma uniwersalnej zasady jednej strony. Zachowaj strony, które są tego warte."
 
 #: src/features/settings/ai/mcp.tsx
-msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
-msgstr "Pozwól klientom AI, takim jak Claude lub Cursor, czytać i edytować Twoje CV, korzystając z powyższego klucza API."
+#~ msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
+#~ msgstr "Pozwól klientom AI, takim jak Claude lub Cursor, czytać i edytować Twoje CV, korzystając z powyższego klucza API."
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6995,8 +6993,8 @@ msgid "Loading connection…"
 msgstr "Ładowanie połączenia…"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Loading connections..."
-msgstr "Ładowanie połączeń..."
+#~ msgid "Loading connections..."
+#~ msgstr "Ładowanie połączeń..."
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
@@ -7289,12 +7287,12 @@ msgid "Matching your facts"
 msgstr "Dopasowywanie do Twoich faktów"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "MCP"
-msgstr "MCP"
+#~ msgid "MCP"
+#~ msgstr "MCP"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "MCP server"
-msgstr "Serwer MCP"
+#~ msgid "MCP server"
+#~ msgstr "Serwer MCP"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "median to first reply"
@@ -7569,7 +7567,6 @@ msgstr ""
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Name"
 msgstr "Nazwa"
@@ -7648,7 +7645,6 @@ msgid "Network"
 msgstr "Sieć"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Never"
 msgstr "Nigdy"
 
@@ -7662,8 +7658,8 @@ msgid "New account sign-ups are currently disabled on this server."
 msgstr "Rejestracja nowych kont jest obecnie wyłączona na tym serwerze."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New API key"
-msgstr "Nowy klucz API"
+#~ msgid "New API key"
+#~ msgstr "Nowy klucz API"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -7692,8 +7688,8 @@ msgid "New fact"
 msgstr "Nowy fakt"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New key"
-msgstr "Nowy klucz"
+#~ msgid "New key"
+#~ msgstr "Nowy klucz"
 
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New page"
@@ -7801,8 +7797,8 @@ msgid "No commands match that search."
 msgstr "Żadne polecenie nie pasuje do tego wyszukiwania."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "No connected applications."
-msgstr "Brak połączonych aplikacji."
+#~ msgid "No connected applications."
+#~ msgstr "Brak połączonych aplikacji."
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -7880,8 +7876,8 @@ msgid "No job yet"
 msgstr "Nie ma jeszcze pracy"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "No keys yet."
-msgstr "Nie ma jeszcze kluczy."
+#~ msgid "No keys yet."
+#~ msgstr "Nie ma jeszcze kluczy."
 
 #: src/features/ats-checker/messages.ts
 msgid "No lines look like a job title paired with an employer."
@@ -9577,8 +9573,8 @@ msgid "Read it for me"
 msgstr "Przeczytaj to za mnie"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read only"
-msgstr "Dostęp tylko do odczytu"
+#~ msgid "Read only"
+#~ msgstr "Dostęp tylko do odczytu"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
@@ -9626,8 +9622,8 @@ msgid "Read your profile information."
 msgstr "Przeczytaj informacje o swoim profilu."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read, write and delete"
-msgstr "Czytaj, pisz i usuwaj"
+#~ msgid "Read, write and delete"
+#~ msgstr "Czytaj, pisz i usuwaj"
 
 #: src/features/ats-checker/messages.ts
 msgid "Readability"
@@ -10282,25 +10278,25 @@ msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you wr
 msgstr "Ocena wymaga połączenia z AI. <0>Dodaj je w Ustawieniach</0>. Do tego czasu to, co tu piszesz, zostaje w tej przeglądarce."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke"
-msgstr "Unieważnić"
+#~ msgid "Revoke"
+#~ msgstr "Unieważnić"
 
 #. placeholder {0}: key.name || key.start || ""
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke {0}"
-msgstr "Unieważnij {0}"
+#~ msgid "Revoke {0}"
+#~ msgstr "Unieważnij {0}"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke access"
-msgstr "Odwołaj dostęp"
+#~ msgid "Revoke access"
+#~ msgstr "Odwołaj dostęp"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke an application's access to your account."
-msgstr "Odbierz aplikacji dostęp do Twojego konta."
+#~ msgid "Revoke an application's access to your account."
+#~ msgstr "Odbierz aplikacji dostęp do Twojego konta."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoked “{name}”. Apps using it stop working now."
-msgstr "Unieważniono „{name}”. Używające go aplikacje przestają działać."
+#~ msgid "Revoked “{name}”. Apps using it stop working now."
+#~ msgstr "Unieważniono „{name}”. Używające go aplikacje przestają działać."
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Right"
@@ -12304,8 +12300,8 @@ msgid "The job posting is missing"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "the key"
-msgstr "klucz"
+#~ msgid "the key"
+#~ msgstr "klucz"
 
 #: src/features/settings/ai/providers.tsx
 msgid "The key is encrypted on the server and never shown again. Saving tests the connection."
@@ -12457,8 +12453,12 @@ msgid "The same line repeats on every page."
 msgstr "Ten sam wiersz powtarza się na każdej stronie."
 
 #: src/libs/error-message.ts
-msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
-msgstr "Zapisanego klucza dostawcy nie można odszyfrować. Wprowadź klucz ponownie w Ustawieniach → AI i programista."
+#~ msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
+#~ msgstr "Zapisanego klucza dostawcy nie można odszyfrować. Wprowadź klucz ponownie w Ustawieniach → AI i programista."
+
+#: src/libs/error-message.ts
+msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI."
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "The score counts how reliably software reads your resume. It doesn't predict whether you'll be shortlisted."
@@ -13180,7 +13180,6 @@ msgstr "Podkreśl linki"
 #: src/features/resume/editor/webmcp.ts
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/editor/write/section-row.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -13915,8 +13914,8 @@ msgid "What you're looking for"
 msgstr "Czego szukasz"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "What's it for?"
-msgstr "Po co to jest?"
+#~ msgid "What's it for?"
+#~ msgstr "Po co to jest?"
 
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/practise.tsx

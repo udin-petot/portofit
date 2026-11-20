@@ -881,16 +881,16 @@ msgid "3. Upload the proof in the same window. Credits land once an admin checks
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "30 days"
-msgstr "30 ቀናት"
+#~ msgid "30 days"
+#~ msgstr "30 ቀናት"
 
 #: src/features/homepage/hero.tsx
 msgid "40% faster reviews"
 msgstr "40% ፈጣን ግምገማዎች"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "90 days"
-msgstr "90 ቀናት"
+#~ msgid "90 days"
+#~ msgstr "90 ቀናት"
 
 #: src/features/homepage/remember.tsx
 msgid "A"
@@ -1075,8 +1075,8 @@ msgid "Accepted offer"
 msgstr "ቅናሹን ተቀብሏል"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Access"
-msgstr "መዳረሻ"
+#~ msgid "Access"
+#~ msgstr "መዳረሻ"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Access your account through the API, including reading, changing and deleting your documents and job applications."
@@ -1104,8 +1104,8 @@ msgid "Action"
 msgstr "እርምጃ"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Actions"
-msgstr "ድርጊቶች"
+#~ msgid "Actions"
+#~ msgstr "ድርጊቶች"
 
 #: src/features/homepage/remember.tsx
 msgid "Activation rose from 31% to 44% in one quarter, measured across new teams."
@@ -1562,9 +1562,14 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "AI & developer"
-msgstr "AI እና ገንቢ"
+msgid "AI"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+#~ msgid "AI & developer"
+#~ msgstr "AI እና ገንቢ"
 
 #: src/features/quota/page.tsx
 #: src/features/user/dropdown-menu.tsx
@@ -1573,8 +1578,8 @@ msgid "AI allowance"
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI and developer"
-msgstr ""
+#~ msgid "AI and developer"
+#~ msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
@@ -1813,12 +1818,12 @@ msgid "API key"
 msgstr "API ቁልፍ"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "API keys"
-msgstr "API ቁልፎች"
+#~ msgid "API keys"
+#~ msgstr "API ቁልፎች"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "API Keys"
-msgstr "API ቁልፎች"
+#~ msgid "API Keys"
+#~ msgstr "API ቁልፎች"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "App"
@@ -2552,7 +2557,6 @@ msgstr "ሶፍትዌር የእርስዎን የስራ ልምድ ማንበብ ይ�
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
 msgid "Cancel"
@@ -2842,8 +2846,8 @@ msgid "Classic"
 msgstr "ክላሲክ"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Claude Desktop"
-msgstr "Claude Desktop"
+#~ msgid "Claude Desktop"
+#~ msgstr "Claude Desktop"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/list-view.tsx
@@ -3135,8 +3139,8 @@ msgid "Connected"
 msgstr "ተገናኝቷል"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Connected applications"
-msgstr "የተገናኙ መተግበሪያዎች"
+#~ msgid "Connected applications"
+#~ msgstr "የተገናኙ መተግበሪያዎች"
 
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
@@ -3271,8 +3275,6 @@ msgstr "በማብሰል ላይ"
 #: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copied"
 msgstr "ተገልብጧል"
 
@@ -3280,8 +3282,6 @@ msgstr "ተገልብጧል"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copy"
 msgstr "ቅጂ አድርግ"
 
@@ -3314,8 +3314,8 @@ msgid "Copy it from the employer's page, including the requirements."
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Copy it now. For your security, it won't be shown again."
-msgstr "አሁን ገልብጠው። ለእርስዎ ደህንነት፣ እንደገና አይታይም።"
+#~ msgid "Copy it now. For your security, it won't be shown again."
+#~ msgstr "አሁን ገልብጠው። ለእርስዎ ደህንነት፣ እንደገና አይታይም።"
 
 #: src/features/homepage/share.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -3401,16 +3401,16 @@ msgid "Could not generate the PDF. Please try again."
 msgstr "PDF መፍጠር አልተቻለም። እባክዎ እንደገና ይሞክሩ።"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not load connected applications."
-msgstr "የተገናኙ መተግበሪያዎችን መጫን አልተቻለም።"
+#~ msgid "Could not load connected applications."
+#~ msgstr "የተገናኙ መተግበሪያዎችን መጫን አልተቻለም።"
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "የስራ ልምድ ማስረጃዎን ለህትመት ማዘጋጀት አልተቻለም። እባክዎ እንደገና ይሞክሩ።"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not revoke this connection. Try again."
-msgstr "ይህን ግንኙነት መሻር አልተቻለም። እንደገና ይሞክሩ።"
+#~ msgid "Could not revoke this connection. Try again."
+#~ msgstr "ይህን ግንኙነት መሻር አልተቻለም። እንደገና ይሞክሩ።"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Could not set up two-factor authentication."
@@ -3491,8 +3491,8 @@ msgid "Couldn't create the document."
 msgstr "ሰነዱን መፍጠር አልተቻለም።"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't create the key. Try again."
-msgstr "ቁልፉን መፍጠር አልተቻለም። እንደገና ይሞክሩ።"
+#~ msgid "Couldn't create the key. Try again."
+#~ msgstr "ቁልፉን መፍጠር አልተቻለም። እንደገና ይሞክሩ።"
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Couldn't create the letter."
@@ -3642,8 +3642,8 @@ msgid "Couldn't rename it."
 msgstr "ስሙን መቀየር አልተቻለም።"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't revoke the key."
-msgstr "ቁልፉን መሻር አልተቻለም።"
+#~ msgid "Couldn't revoke the key."
+#~ msgstr "ቁልፉን መሻር አልተቻለም።"
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't save that change."
@@ -3878,8 +3878,8 @@ msgid "Create and open"
 msgstr "ይፍጠሩ እና ይክፈቱ"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Create key"
-msgstr "ቁልፍ ፍጠር"
+#~ msgid "Create key"
+#~ msgstr "ቁልፍ ፍጠር"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
@@ -3888,7 +3888,6 @@ msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Created"
 msgstr "የተፈጠረበት ቀን።"
@@ -4391,7 +4390,6 @@ msgstr "ይለግሱ"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "ተከናውኗል"
 
@@ -4988,8 +4986,8 @@ msgid "Experience"
 msgstr "ልምድ"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Expires"
-msgstr "ጊዜው ያበቃል"
+#~ msgid "Expires"
+#~ msgstr "ጊዜው ያበቃል"
 
 #: src/features/homepage/prepare.tsx
 msgid "explain one limit of the measurement clearly, without underselling the work."
@@ -5430,8 +5428,8 @@ msgid "For portals or recruiters who ask for Word. Layout is simplified."
 msgstr "Word ለሚጠይቁ ፖርታል ወይም ቀጣሪዎች። አቀማመጥ ቀላል ነው።"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
-msgstr "ለስክሪፕቶች፣ ቅጥያዎች እና MCP ደንበኞች። ቁልፎች እንደ እርስዎ ይሰራሉ ​​እና ሰነዶችዎን ማንበብ እና ማርትዕ ይችላሉ።"
+#~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+#~ msgstr "ለስክሪፕቶች፣ ቅጥያዎች እና MCP ደንበኞች። ቁልፎች እንደ እርስዎ ይሰራሉ ​​እና ሰነዶችዎን ማንበብ እና ማርትዕ ይችላሉ።"
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
@@ -6106,8 +6104,8 @@ msgid "Insights"
 msgstr "ግንዛቤዎች"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Integrations"
-msgstr "ውህደቶች"
+#~ msgid "Integrations"
+#~ msgstr "ውህደቶች"
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -6568,8 +6566,8 @@ msgid "Key stored encrypted"
 msgstr "የተከማቸ ቁልፍ ተመስጥሯል።"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Keys act as you and can read and edit your documents."
-msgstr "ቁልፎች እንደ እርስዎ ይሰራሉ ​​እና ሰነዶችዎን ማንበብ እና ማርትዕ ይችላሉ።"
+#~ msgid "Keys act as you and can read and edit your documents."
+#~ msgstr "ቁልፎች እንደ እርስዎ ይሰራሉ ​​እና ሰነዶችዎን ማንበብ እና ማርትዕ ይችላሉ።"
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Keyword layout"
@@ -6640,8 +6638,8 @@ msgid "Last edited"
 msgstr "መጨረሻ የተስተካከለው"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Last used"
-msgstr "ለመጨረሻ ጊዜ ጥቅም ላይ የዋለ"
+#~ msgid "Last used"
+#~ msgstr "ለመጨረሻ ጊዜ ጥቅም ላይ የዋለ"
 
 #: src/libs/locale.ts
 msgid "Latvian"
@@ -6751,8 +6749,8 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "ርዝመት ጉድለት አይደለም፣ እና ሁሉን አቀፍ የአንድ-ገጽ ህግ የለም። ቦታቸውን የሚገባቸውን ገጾች ያቆዩ።"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
-msgstr "እንደ Claude ወይም Cursor ያሉ የ AI ደንበኞች ከላይ ያለውን የAPI ቁልፍ ተጠቅመው የስራ ልምድዎን እንዲያነቡ እና እንዲያርትዑ ያድርጉ።"
+#~ msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
+#~ msgstr "እንደ Claude ወይም Cursor ያሉ የ AI ደንበኞች ከላይ ያለውን የAPI ቁልፍ ተጠቅመው የስራ ልምድዎን እንዲያነቡ እና እንዲያርትዑ ያድርጉ።"
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6995,8 +6993,8 @@ msgid "Loading connection…"
 msgstr "ግንኙነትን በመጫን ላይ…"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Loading connections..."
-msgstr "ግንኙነቶችን በመጫን ላይ..."
+#~ msgid "Loading connections..."
+#~ msgstr "ግንኙነቶችን በመጫን ላይ..."
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
@@ -7289,12 +7287,12 @@ msgid "Matching your facts"
 msgstr "እውነታዎችዎን በማዛመድ ላይ"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "MCP"
-msgstr "MCP"
+#~ msgid "MCP"
+#~ msgstr "MCP"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "MCP server"
-msgstr "MCP አገልጋይ"
+#~ msgid "MCP server"
+#~ msgstr "MCP አገልጋይ"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "median to first reply"
@@ -7569,7 +7567,6 @@ msgstr ""
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Name"
 msgstr "ስም"
@@ -7648,7 +7645,6 @@ msgid "Network"
 msgstr "ኔትዎርክ"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Never"
 msgstr "በጭራሽ"
 
@@ -7662,8 +7658,8 @@ msgid "New account sign-ups are currently disabled on this server."
 msgstr "በዚህ አገልጋይ ላይ አዲስ መለያ መመዝገብ በአሁኑ ጊዜ ተሰናክሏል።"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New API key"
-msgstr "አዲስ API ቁልፍ"
+#~ msgid "New API key"
+#~ msgstr "አዲስ API ቁልፍ"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -7692,8 +7688,8 @@ msgid "New fact"
 msgstr "አዲስ እውነታ"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New key"
-msgstr "አዲስ ቁልፍ"
+#~ msgid "New key"
+#~ msgstr "አዲስ ቁልፍ"
 
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New page"
@@ -7801,8 +7797,8 @@ msgid "No commands match that search."
 msgstr "ከዚያ ፍለጋ ጋር የሚዛመድ ትእዛዝ የለም።"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "No connected applications."
-msgstr "ምንም የተገናኙ መተግበሪያዎች የሉም።"
+#~ msgid "No connected applications."
+#~ msgstr "ምንም የተገናኙ መተግበሪያዎች የሉም።"
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -7880,8 +7876,8 @@ msgid "No job yet"
 msgstr "እስካሁን ምንም ስራ የለም።"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "No keys yet."
-msgstr "እስካሁን ምንም ቁልፎች የሉም።"
+#~ msgid "No keys yet."
+#~ msgstr "እስካሁን ምንም ቁልፎች የሉም።"
 
 #: src/features/ats-checker/messages.ts
 msgid "No lines look like a job title paired with an employer."
@@ -9577,8 +9573,8 @@ msgid "Read it for me"
 msgstr "አንብብልኝ"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read only"
-msgstr "ተነባቢ-ብቻ መዳረሻ"
+#~ msgid "Read only"
+#~ msgstr "ተነባቢ-ብቻ መዳረሻ"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
@@ -9626,8 +9622,8 @@ msgid "Read your profile information."
 msgstr "የመገለጫ መረጃዎን ያንብቡ።"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read, write and delete"
-msgstr "አንብብ፣ ጻፍ እና ሰርዝ"
+#~ msgid "Read, write and delete"
+#~ msgstr "አንብብ፣ ጻፍ እና ሰርዝ"
 
 #: src/features/ats-checker/messages.ts
 msgid "Readability"
@@ -10282,25 +10278,25 @@ msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you wr
 msgstr "መገምገም AI ግንኙነት ይፈልጋል። <0>በቅንብሮች ውስጥ አንድ ያክሉ</0>። እስከዚያ ድረስ እዚህ የሚጽፉት በዚህ አሳሽ ውስጥ ይቆያል።"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke"
-msgstr "መሻር"
+#~ msgid "Revoke"
+#~ msgstr "መሻር"
 
 #. placeholder {0}: key.name || key.start || ""
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke {0}"
-msgstr "{0} ይሻሩ"
+#~ msgid "Revoke {0}"
+#~ msgstr "{0} ይሻሩ"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke access"
-msgstr "መዳረሻን ሻር"
+#~ msgid "Revoke access"
+#~ msgstr "መዳረሻን ሻር"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke an application's access to your account."
-msgstr "የመተግበሪያውን የመለያዎ መዳረሻ ይሰርዙ።"
+#~ msgid "Revoke an application's access to your account."
+#~ msgstr "የመተግበሪያውን የመለያዎ መዳረሻ ይሰርዙ።"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoked “{name}”. Apps using it stop working now."
-msgstr "\"{name}\" ተሽሯል። እሱን የሚጠቀሙ መተግበሪያዎች አሁን መስራት ያቆማሉ።"
+#~ msgid "Revoked “{name}”. Apps using it stop working now."
+#~ msgstr "\"{name}\" ተሽሯል። እሱን የሚጠቀሙ መተግበሪያዎች አሁን መስራት ያቆማሉ።"
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Right"
@@ -12304,8 +12300,8 @@ msgid "The job posting is missing"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "the key"
-msgstr "ቁልፉ"
+#~ msgid "the key"
+#~ msgstr "ቁልፉ"
 
 #: src/features/settings/ai/providers.tsx
 msgid "The key is encrypted on the server and never shown again. Saving tests the connection."
@@ -12457,8 +12453,12 @@ msgid "The same line repeats on every page."
 msgstr "ተመሳሳይ መስመር በእያንዳንዱ ገጽ ላይ ይደጋገማል።"
 
 #: src/libs/error-message.ts
-msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
-msgstr "የተቀመጠው የአቅራቢ ቁልፍ ዲክሪፕት ሊደረግ አይችልም። ቁልፉን እንደገና በቅንብሮች → AI እና ገንቢ ውስጥ ያስገቡ።"
+#~ msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
+#~ msgstr "የተቀመጠው የአቅራቢ ቁልፍ ዲክሪፕት ሊደረግ አይችልም። ቁልፉን እንደገና በቅንብሮች → AI እና ገንቢ ውስጥ ያስገቡ።"
+
+#: src/libs/error-message.ts
+msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI."
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "The score counts how reliably software reads your resume. It doesn't predict whether you'll be shortlisted."
@@ -13180,7 +13180,6 @@ msgstr "አገናኞችን አስምር"
 #: src/features/resume/editor/webmcp.ts
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/editor/write/section-row.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -13915,8 +13914,8 @@ msgid "What you're looking for"
 msgstr "የሚፈልጉት"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "What's it for?"
-msgstr "ለምንድነው?"
+#~ msgid "What's it for?"
+#~ msgstr "ለምንድነው?"
 
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/practise.tsx

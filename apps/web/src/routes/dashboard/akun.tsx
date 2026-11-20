@@ -26,7 +26,7 @@ const SETTINGS_LINKS: {
 }[] = [
 	{ to: "/dashboard/settings/account", icon: "user-circle", title: t`Profile and security` },
 	{ to: "/dashboard/settings/preferences", icon: "sliders-horizontal", title: t`Preferences` },
-	{ to: "/dashboard/settings/ai", icon: "sparkle", title: t`AI and developer` },
+	{ to: "/dashboard/settings/ai", icon: "sparkle", title: t`AI` },
 ];
 
 /** Judul bagian di luar panel, dengan badge angka bila bagiannya punya jumlah. */

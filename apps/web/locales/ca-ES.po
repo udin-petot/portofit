@@ -881,16 +881,16 @@ msgid "3. Upload the proof in the same window. Credits land once an admin checks
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "30 days"
-msgstr "30 dies"
+#~ msgid "30 days"
+#~ msgstr "30 dies"
 
 #: src/features/homepage/hero.tsx
 msgid "40% faster reviews"
 msgstr "Comentaris un 40% més ràpids"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "90 days"
-msgstr "90 dies"
+#~ msgid "90 days"
+#~ msgstr "90 dies"
 
 #: src/features/homepage/remember.tsx
 msgid "A"
@@ -1075,8 +1075,8 @@ msgid "Accepted offer"
 msgstr "Oferta acceptada"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Access"
-msgstr "Accés"
+#~ msgid "Access"
+#~ msgstr "Accés"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Access your account through the API, including reading, changing and deleting your documents and job applications."
@@ -1104,8 +1104,8 @@ msgid "Action"
 msgstr "Acció"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Actions"
-msgstr "Accions"
+#~ msgid "Actions"
+#~ msgstr "Accions"
 
 #: src/features/homepage/remember.tsx
 msgid "Activation rose from 31% to 44% in one quarter, measured across new teams."
@@ -1562,9 +1562,14 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "AI & developer"
-msgstr "IA i desenvolupador"
+msgid "AI"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+#~ msgid "AI & developer"
+#~ msgstr "IA i desenvolupador"
 
 #: src/features/quota/page.tsx
 #: src/features/user/dropdown-menu.tsx
@@ -1573,8 +1578,8 @@ msgid "AI allowance"
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI and developer"
-msgstr ""
+#~ msgid "AI and developer"
+#~ msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
@@ -1813,12 +1818,12 @@ msgid "API key"
 msgstr "Clau API"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "API keys"
-msgstr "Tecles API"
+#~ msgid "API keys"
+#~ msgstr "Tecles API"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "API Keys"
-msgstr "Claus API"
+#~ msgid "API Keys"
+#~ msgstr "Claus API"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "App"
@@ -2552,7 +2557,6 @@ msgstr "El programari pot llegir el vostre currículum?"
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
 msgid "Cancel"
@@ -2842,8 +2846,8 @@ msgid "Classic"
 msgstr "Clàssic"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Claude Desktop"
-msgstr "Claude Desktop"
+#~ msgid "Claude Desktop"
+#~ msgstr "Claude Desktop"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/list-view.tsx
@@ -3135,8 +3139,8 @@ msgid "Connected"
 msgstr "Connectat"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Connected applications"
-msgstr "Aplicacions connectades"
+#~ msgid "Connected applications"
+#~ msgstr "Aplicacions connectades"
 
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
@@ -3271,8 +3275,6 @@ msgstr "Cuinant"
 #: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copied"
 msgstr "Copiat"
 
@@ -3280,8 +3282,6 @@ msgstr "Copiat"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copy"
 msgstr "Copia"
 
@@ -3314,8 +3314,8 @@ msgid "Copy it from the employer's page, including the requirements."
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Copy it now. For your security, it won't be shown again."
-msgstr "Copia-ho ara. Per la vostra seguretat, no es tornarà a mostrar."
+#~ msgid "Copy it now. For your security, it won't be shown again."
+#~ msgstr "Copia-ho ara. Per la vostra seguretat, no es tornarà a mostrar."
 
 #: src/features/homepage/share.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -3401,16 +3401,16 @@ msgid "Could not generate the PDF. Please try again."
 msgstr "No s'ha pogut generar el PDF. Torna-ho a provar."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not load connected applications."
-msgstr "No s'han pogut carregar les aplicacions connectades."
+#~ msgid "Could not load connected applications."
+#~ msgstr "No s'han pogut carregar les aplicacions connectades."
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "No s'ha pogut preparar el teu currículum per imprimir. Torna-ho a provar."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not revoke this connection. Try again."
-msgstr "No s'ha pogut revocar aquesta connexió. Torna-ho a provar."
+#~ msgid "Could not revoke this connection. Try again."
+#~ msgstr "No s'ha pogut revocar aquesta connexió. Torna-ho a provar."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Could not set up two-factor authentication."
@@ -3491,8 +3491,8 @@ msgid "Couldn't create the document."
 msgstr "No s'ha pogut crear el document."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't create the key. Try again."
-msgstr "No s'ha pogut crear la clau. Torna-ho a provar."
+#~ msgid "Couldn't create the key. Try again."
+#~ msgstr "No s'ha pogut crear la clau. Torna-ho a provar."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Couldn't create the letter."
@@ -3642,8 +3642,8 @@ msgid "Couldn't rename it."
 msgstr "No s'ha pogut canviar el nom."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't revoke the key."
-msgstr "No s'ha pogut revocar la clau."
+#~ msgid "Couldn't revoke the key."
+#~ msgstr "No s'ha pogut revocar la clau."
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't save that change."
@@ -3878,8 +3878,8 @@ msgid "Create and open"
 msgstr "Crear i obrir"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Create key"
-msgstr "Crea clau"
+#~ msgid "Create key"
+#~ msgstr "Crea clau"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
@@ -3888,7 +3888,6 @@ msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Created"
 msgstr "Creat"
@@ -4391,7 +4390,6 @@ msgstr "Donar"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "Fet"
 
@@ -4988,8 +4986,8 @@ msgid "Experience"
 msgstr "Experiència"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Expires"
-msgstr "Caduca"
+#~ msgid "Expires"
+#~ msgstr "Caduca"
 
 #: src/features/homepage/prepare.tsx
 msgid "explain one limit of the measurement clearly, without underselling the work."
@@ -5430,8 +5428,8 @@ msgid "For portals or recruiters who ask for Word. Layout is simplified."
 msgstr "Per a portals o reclutadors que demanen Word. El disseny es simplifica."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
-msgstr "Per a scripts, extensions i clients MCP. Les claus actuen com tu i poden llegir i editar els teus documents."
+#~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+#~ msgstr "Per a scripts, extensions i clients MCP. Les claus actuen com tu i poden llegir i editar els teus documents."
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
@@ -6106,8 +6104,8 @@ msgid "Insights"
 msgstr "Perspectives"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Integrations"
-msgstr "Integracions"
+#~ msgid "Integrations"
+#~ msgstr "Integracions"
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -6568,8 +6566,8 @@ msgid "Key stored encrypted"
 msgstr "Clau emmagatzemada encriptada"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Keys act as you and can read and edit your documents."
-msgstr "Les claus actuen com tu i poden llegir i editar els teus documents."
+#~ msgid "Keys act as you and can read and edit your documents."
+#~ msgstr "Les claus actuen com tu i poden llegir i editar els teus documents."
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Keyword layout"
@@ -6640,8 +6638,8 @@ msgid "Last edited"
 msgstr "Última edició"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Last used"
-msgstr "Últim ús"
+#~ msgid "Last used"
+#~ msgstr "Últim ús"
 
 #: src/libs/locale.ts
 msgid "Latvian"
@@ -6751,8 +6749,8 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "La longitud no és cap defecte, i no hi ha cap regla universal d'una sola pàgina. Conserva les pàgines que es guanyen el seu lloc."
 
 #: src/features/settings/ai/mcp.tsx
-msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
-msgstr "Permeteu que clients d'IA com Claude o Cursor llegeixin i editin els vostres currículums, utilitzant una clau API anterior."
+#~ msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
+#~ msgstr "Permeteu que clients d'IA com Claude o Cursor llegeixin i editin els vostres currículums, utilitzant una clau API anterior."
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6995,8 +6993,8 @@ msgid "Loading connection…"
 msgstr "S'està carregant la connexió..."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Loading connections..."
-msgstr "S'estan carregant les connexions..."
+#~ msgid "Loading connections..."
+#~ msgstr "S'estan carregant les connexions..."
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
@@ -7289,12 +7287,12 @@ msgid "Matching your facts"
 msgstr "Comparant amb els vostres fets"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "MCP"
-msgstr "MCP"
+#~ msgid "MCP"
+#~ msgstr "MCP"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "MCP server"
-msgstr "Servidor MCP"
+#~ msgid "MCP server"
+#~ msgstr "Servidor MCP"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "median to first reply"
@@ -7569,7 +7567,6 @@ msgstr ""
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Name"
 msgstr "Nom"
@@ -7648,7 +7645,6 @@ msgid "Network"
 msgstr "Xarxa"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Never"
 msgstr "Mai"
 
@@ -7662,8 +7658,8 @@ msgid "New account sign-ups are currently disabled on this server."
 msgstr "El registre de comptes nous està desactivat actualment en aquest servidor."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New API key"
-msgstr "Nova clau API"
+#~ msgid "New API key"
+#~ msgstr "Nova clau API"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -7692,8 +7688,8 @@ msgid "New fact"
 msgstr "Fet nou"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New key"
-msgstr "Nova clau"
+#~ msgid "New key"
+#~ msgstr "Nova clau"
 
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New page"
@@ -7801,8 +7797,8 @@ msgid "No commands match that search."
 msgstr "Cap ordre no coincideix amb aquesta cerca."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "No connected applications."
-msgstr "No hi ha aplicacions connectades."
+#~ msgid "No connected applications."
+#~ msgstr "No hi ha aplicacions connectades."
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -7880,8 +7876,8 @@ msgid "No job yet"
 msgstr "Encara no hi ha feina"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "No keys yet."
-msgstr "Encara no hi ha claus."
+#~ msgid "No keys yet."
+#~ msgstr "Encara no hi ha claus."
 
 #: src/features/ats-checker/messages.ts
 msgid "No lines look like a job title paired with an employer."
@@ -9577,8 +9573,8 @@ msgid "Read it for me"
 msgstr "Llegeix-ho per mi"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read only"
-msgstr "Accés només de lectura"
+#~ msgid "Read only"
+#~ msgstr "Accés només de lectura"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
@@ -9626,8 +9622,8 @@ msgid "Read your profile information."
 msgstr "Llegir la informació del teu perfil."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read, write and delete"
-msgstr "Llegir, escriure i esborrar"
+#~ msgid "Read, write and delete"
+#~ msgstr "Llegir, escriure i esborrar"
 
 #: src/features/ats-checker/messages.ts
 msgid "Readability"
@@ -10282,25 +10278,25 @@ msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you wr
 msgstr "La revisió necessita una connexió d'IA. <0>Afegiu-ne una a Configuració</0>. Mentrestant, el que escriviu aquí es queda en aquest navegador."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke"
-msgstr "Revocar"
+#~ msgid "Revoke"
+#~ msgstr "Revocar"
 
 #. placeholder {0}: key.name || key.start || ""
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke {0}"
-msgstr "Revocar {0}"
+#~ msgid "Revoke {0}"
+#~ msgstr "Revocar {0}"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke access"
-msgstr "Revoca l'accés"
+#~ msgid "Revoke access"
+#~ msgstr "Revoca l'accés"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke an application's access to your account."
-msgstr "Revoca l'accés d'una aplicació al teu compte."
+#~ msgid "Revoke an application's access to your account."
+#~ msgstr "Revoca l'accés d'una aplicació al teu compte."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoked “{name}”. Apps using it stop working now."
-msgstr "S'ha revocat \"{name}\". Les aplicacions que l'utilitzen ara deixen de funcionar."
+#~ msgid "Revoked “{name}”. Apps using it stop working now."
+#~ msgstr "S'ha revocat \"{name}\". Les aplicacions que l'utilitzen ara deixen de funcionar."
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Right"
@@ -12304,8 +12300,8 @@ msgid "The job posting is missing"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "the key"
-msgstr "la clau"
+#~ msgid "the key"
+#~ msgstr "la clau"
 
 #: src/features/settings/ai/providers.tsx
 msgid "The key is encrypted on the server and never shown again. Saving tests the connection."
@@ -12457,8 +12453,12 @@ msgid "The same line repeats on every page."
 msgstr "La mateixa línia es repeteix a cada pàgina."
 
 #: src/libs/error-message.ts
-msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
-msgstr "La clau del proveïdor desada no es pot desxifrar. Torneu a introduir la clau a Configuració → IA i desenvolupador."
+#~ msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
+#~ msgstr "La clau del proveïdor desada no es pot desxifrar. Torneu a introduir la clau a Configuració → IA i desenvolupador."
+
+#: src/libs/error-message.ts
+msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI."
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "The score counts how reliably software reads your resume. It doesn't predict whether you'll be shortlisted."
@@ -13180,7 +13180,6 @@ msgstr "Subratlla els enllaços"
 #: src/features/resume/editor/webmcp.ts
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/editor/write/section-row.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -13915,8 +13914,8 @@ msgid "What you're looking for"
 msgstr "Què busqueu"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "What's it for?"
-msgstr "Per a què serveix?"
+#~ msgid "What's it for?"
+#~ msgstr "Per a què serveix?"
 
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/practise.tsx

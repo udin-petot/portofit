@@ -881,16 +881,16 @@ msgid "3. Upload the proof in the same window. Credits land once an admin checks
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "30 days"
-msgstr "30 дана"
+#~ msgid "30 days"
+#~ msgstr "30 дана"
 
 #: src/features/homepage/hero.tsx
 msgid "40% faster reviews"
 msgstr "40% брже рецензије"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "90 days"
-msgstr "90 дана"
+#~ msgid "90 days"
+#~ msgstr "90 дана"
 
 #: src/features/homepage/remember.tsx
 msgid "A"
@@ -1075,8 +1075,8 @@ msgid "Accepted offer"
 msgstr "Прихваћена понуда"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Access"
-msgstr "Приступ"
+#~ msgid "Access"
+#~ msgstr "Приступ"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Access your account through the API, including reading, changing and deleting your documents and job applications."
@@ -1104,8 +1104,8 @@ msgid "Action"
 msgstr "Акција"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Actions"
-msgstr "Акције"
+#~ msgid "Actions"
+#~ msgstr "Акције"
 
 #: src/features/homepage/remember.tsx
 msgid "Activation rose from 31% to 44% in one quarter, measured across new teams."
@@ -1562,9 +1562,14 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "AI & developer"
-msgstr "АИ и програмер"
+msgid "AI"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+#~ msgid "AI & developer"
+#~ msgstr "АИ и програмер"
 
 #: src/features/quota/page.tsx
 #: src/features/user/dropdown-menu.tsx
@@ -1573,8 +1578,8 @@ msgid "AI allowance"
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI and developer"
-msgstr ""
+#~ msgid "AI and developer"
+#~ msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
@@ -1813,12 +1818,12 @@ msgid "API key"
 msgstr "Кључ API"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "API keys"
-msgstr "API кључеви"
+#~ msgid "API keys"
+#~ msgstr "API кључеви"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "API Keys"
-msgstr "API кључеви"
+#~ msgid "API Keys"
+#~ msgstr "API кључеви"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "App"
@@ -2552,7 +2557,6 @@ msgstr "Може ли софтвер да прочита ваш резиме?"
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
 msgid "Cancel"
@@ -2842,8 +2846,8 @@ msgid "Classic"
 msgstr "Цлассиц"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Claude Desktop"
-msgstr "Claude Desktop"
+#~ msgid "Claude Desktop"
+#~ msgstr "Claude Desktop"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/list-view.tsx
@@ -3135,8 +3139,8 @@ msgid "Connected"
 msgstr "Повезано"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Connected applications"
-msgstr "Повезане апликације"
+#~ msgid "Connected applications"
+#~ msgstr "Повезане апликације"
 
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
@@ -3271,8 +3275,6 @@ msgstr "Кување"
 #: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copied"
 msgstr "Копирано"
 
@@ -3280,8 +3282,6 @@ msgstr "Копирано"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copy"
 msgstr "Копирај"
 
@@ -3314,8 +3314,8 @@ msgid "Copy it from the employer's page, including the requirements."
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Copy it now. For your security, it won't be shown again."
-msgstr "Копирајте га сада. Због ваше безбедности, неће се поново приказивати."
+#~ msgid "Copy it now. For your security, it won't be shown again."
+#~ msgstr "Копирајте га сада. Због ваше безбедности, неће се поново приказивати."
 
 #: src/features/homepage/share.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -3401,16 +3401,16 @@ msgid "Could not generate the PDF. Please try again."
 msgstr "Није било могуће генерисати PDF. Молимо покушајте поново."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not load connected applications."
-msgstr "Није могуће учитати повезане апликације."
+#~ msgid "Could not load connected applications."
+#~ msgstr "Није могуће учитати повезане апликације."
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "Није било могуће припремити ваш резиме за штампу. Молимо покушајте поново."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not revoke this connection. Try again."
-msgstr "Није могуће опозвати ову везу. Покушајте поново."
+#~ msgid "Could not revoke this connection. Try again."
+#~ msgstr "Није могуће опозвати ову везу. Покушајте поново."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Could not set up two-factor authentication."
@@ -3491,8 +3491,8 @@ msgid "Couldn't create the document."
 msgstr "Није могуће направити документ."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't create the key. Try again."
-msgstr "Није могуће креирати кључ. Покушајте поново."
+#~ msgid "Couldn't create the key. Try again."
+#~ msgstr "Није могуће креирати кључ. Покушајте поново."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Couldn't create the letter."
@@ -3642,8 +3642,8 @@ msgid "Couldn't rename it."
 msgstr "Није могуће преименовати."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't revoke the key."
-msgstr "Није могуће опозвати кључ."
+#~ msgid "Couldn't revoke the key."
+#~ msgstr "Није могуће опозвати кључ."
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't save that change."
@@ -3878,8 +3878,8 @@ msgid "Create and open"
 msgstr "Креирајте и отворите"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Create key"
-msgstr "Креирајте кључ"
+#~ msgid "Create key"
+#~ msgstr "Креирајте кључ"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
@@ -3888,7 +3888,6 @@ msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Created"
 msgstr "Креирано"
@@ -4391,7 +4390,6 @@ msgstr "Донирајте"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "Готово"
 
@@ -4988,8 +4986,8 @@ msgid "Experience"
 msgstr "Искуство"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Expires"
-msgstr "Истиче"
+#~ msgid "Expires"
+#~ msgstr "Истиче"
 
 #: src/features/homepage/prepare.tsx
 msgid "explain one limit of the measurement clearly, without underselling the work."
@@ -5430,8 +5428,8 @@ msgid "For portals or recruiters who ask for Word. Layout is simplified."
 msgstr "За портале или регруте који траже Word. Распоред је поједностављен."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
-msgstr "За скрипте, екстензије и MCP клијенте. Тастери се понашају као ви и могу да читају и уређују ваше документе."
+#~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+#~ msgstr "За скрипте, екстензије и MCP клијенте. Тастери се понашају као ви и могу да читају и уређују ваше документе."
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
@@ -6106,8 +6104,8 @@ msgid "Insights"
 msgstr "Инсигхтс"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Integrations"
-msgstr "Интеграције"
+#~ msgid "Integrations"
+#~ msgstr "Интеграције"
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -6568,8 +6566,8 @@ msgid "Key stored encrypted"
 msgstr "Кључ се чува шифрован"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Keys act as you and can read and edit your documents."
-msgstr "Тастери се понашају као ви и могу да читају и уређују ваше документе."
+#~ msgid "Keys act as you and can read and edit your documents."
+#~ msgstr "Тастери се понашају као ви и могу да читају и уређују ваше документе."
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Keyword layout"
@@ -6640,8 +6638,8 @@ msgid "Last edited"
 msgstr "Последње измењено"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Last used"
-msgstr "Последње коришћено"
+#~ msgid "Last used"
+#~ msgstr "Последње коришћено"
 
 #: src/libs/locale.ts
 msgid "Latvian"
@@ -6751,8 +6749,8 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "Дужина није мана, и не постоји универзално правило од једне странице. Задржите странице које заслужују своје место."
 
 #: src/features/settings/ai/mcp.tsx
-msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
-msgstr "Дозволите АИ клијентима као што су Claude или Cursor да читају и уређују ваше резиме, користећи API кључ изнад."
+#~ msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
+#~ msgstr "Дозволите АИ клијентима као што су Claude или Cursor да читају и уређују ваше резиме, користећи API кључ изнад."
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6995,8 +6993,8 @@ msgid "Loading connection…"
 msgstr "Учитавање везе…"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Loading connections..."
-msgstr "Учитавање веза..."
+#~ msgid "Loading connections..."
+#~ msgstr "Учитавање веза..."
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
@@ -7289,12 +7287,12 @@ msgid "Matching your facts"
 msgstr "Поклапање ваших чињеница"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "MCP"
-msgstr "MCP"
+#~ msgid "MCP"
+#~ msgstr "MCP"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "MCP server"
-msgstr "MCP сервер"
+#~ msgid "MCP server"
+#~ msgstr "MCP сервер"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "median to first reply"
@@ -7569,7 +7567,6 @@ msgstr ""
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Name"
 msgstr "Име"
@@ -7648,7 +7645,6 @@ msgid "Network"
 msgstr "Мрежа"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Never"
 msgstr "Никада"
 
@@ -7662,8 +7658,8 @@ msgid "New account sign-ups are currently disabled on this server."
 msgstr "Регистрација нових налога тренутно је онемогућена на овом серверу."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New API key"
-msgstr "Нови кључ API"
+#~ msgid "New API key"
+#~ msgstr "Нови кључ API"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -7692,8 +7688,8 @@ msgid "New fact"
 msgstr "Нова чињеница"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New key"
-msgstr "Нови кључ"
+#~ msgid "New key"
+#~ msgstr "Нови кључ"
 
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New page"
@@ -7801,8 +7797,8 @@ msgid "No commands match that search."
 msgstr "Ниједна команда не одговара тој претрази."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "No connected applications."
-msgstr "Нема повезаних апликација."
+#~ msgid "No connected applications."
+#~ msgstr "Нема повезаних апликација."
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -7880,8 +7876,8 @@ msgid "No job yet"
 msgstr "Још нема посла"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "No keys yet."
-msgstr "Још нема кључева."
+#~ msgid "No keys yet."
+#~ msgstr "Још нема кључева."
 
 #: src/features/ats-checker/messages.ts
 msgid "No lines look like a job title paired with an employer."
@@ -9577,8 +9573,8 @@ msgid "Read it for me"
 msgstr "Прочитај уместо мене"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read only"
-msgstr "Приступ само за читање"
+#~ msgid "Read only"
+#~ msgstr "Приступ само за читање"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
@@ -9626,8 +9622,8 @@ msgid "Read your profile information."
 msgstr "Прочитајте информације о свом профилу."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read, write and delete"
-msgstr "Читајте, пишите и бришите"
+#~ msgid "Read, write and delete"
+#~ msgstr "Читајте, пишите и бришите"
 
 #: src/features/ats-checker/messages.ts
 msgid "Readability"
@@ -10282,25 +10278,25 @@ msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you wr
 msgstr "За преглед је потребна АИ веза. <0>Додајте је у Подешавањима</0>. Оно што овде напишете до тада остаје у овом прегледачу."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke"
-msgstr "Опозови"
+#~ msgid "Revoke"
+#~ msgstr "Опозови"
 
 #. placeholder {0}: key.name || key.start || ""
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke {0}"
-msgstr "Опозовите {0}"
+#~ msgid "Revoke {0}"
+#~ msgstr "Опозовите {0}"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke access"
-msgstr "Опозови приступ"
+#~ msgid "Revoke access"
+#~ msgstr "Опозови приступ"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke an application's access to your account."
-msgstr "Опозовите приступ апликацији вашем налогу."
+#~ msgid "Revoke an application's access to your account."
+#~ msgstr "Опозовите приступ апликацији вашем налогу."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoked “{name}”. Apps using it stop working now."
-msgstr "Опозвано “{name}”. Апликације које га користе сада престају да раде."
+#~ msgid "Revoked “{name}”. Apps using it stop working now."
+#~ msgstr "Опозвано “{name}”. Апликације које га користе сада престају да раде."
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Right"
@@ -12304,8 +12300,8 @@ msgid "The job posting is missing"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "the key"
-msgstr "кључ"
+#~ msgid "the key"
+#~ msgstr "кључ"
 
 #: src/features/settings/ai/providers.tsx
 msgid "The key is encrypted on the server and never shown again. Saving tests the connection."
@@ -12457,8 +12453,12 @@ msgid "The same line repeats on every page."
 msgstr "Исти ред се понавља на свакој страници."
 
 #: src/libs/error-message.ts
-msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
-msgstr "Сачувани кључ провајдера се не може дешифровати. Поново унесите кључ у Подешавања → АИ и програмер."
+#~ msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
+#~ msgstr "Сачувани кључ провајдера се не може дешифровати. Поново унесите кључ у Подешавања → АИ и програмер."
+
+#: src/libs/error-message.ts
+msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI."
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "The score counts how reliably software reads your resume. It doesn't predict whether you'll be shortlisted."
@@ -13180,7 +13180,6 @@ msgstr "Подвуци везе"
 #: src/features/resume/editor/webmcp.ts
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/editor/write/section-row.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -13915,8 +13914,8 @@ msgid "What you're looking for"
 msgstr "Шта тражите"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "What's it for?"
-msgstr "за шта је то?"
+#~ msgid "What's it for?"
+#~ msgstr "за шта је то?"
 
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/practise.tsx

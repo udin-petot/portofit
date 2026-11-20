@@ -881,16 +881,16 @@ msgid "3. Upload the proof in the same window. Credits land once an admin checks
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "30 days"
-msgstr "30日"
+#~ msgid "30 days"
+#~ msgstr "30日"
 
 #: src/features/homepage/hero.tsx
 msgid "40% faster reviews"
 msgstr "レビューが 40% 高速化"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "90 days"
-msgstr "90日"
+#~ msgid "90 days"
+#~ msgstr "90日"
 
 #: src/features/homepage/remember.tsx
 msgid "A"
@@ -1075,8 +1075,8 @@ msgid "Accepted offer"
 msgstr "内定を承諾"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Access"
-msgstr "アクセス"
+#~ msgid "Access"
+#~ msgstr "アクセス"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Access your account through the API, including reading, changing and deleting your documents and job applications."
@@ -1104,8 +1104,8 @@ msgid "Action"
 msgstr "行動"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Actions"
-msgstr "アクション"
+#~ msgid "Actions"
+#~ msgstr "アクション"
 
 #: src/features/homepage/remember.tsx
 msgid "Activation rose from 31% to 44% in one quarter, measured across new teams."
@@ -1562,9 +1562,14 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "AI & developer"
-msgstr "AIと開発者"
+msgid "AI"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+#~ msgid "AI & developer"
+#~ msgstr "AIと開発者"
 
 #: src/features/quota/page.tsx
 #: src/features/user/dropdown-menu.tsx
@@ -1573,8 +1578,8 @@ msgid "AI allowance"
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI and developer"
-msgstr ""
+#~ msgid "AI and developer"
+#~ msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
@@ -1813,12 +1818,12 @@ msgid "API key"
 msgstr "APIキー"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "API keys"
-msgstr "API キー"
+#~ msgid "API keys"
+#~ msgstr "API キー"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "API Keys"
-msgstr "API キー"
+#~ msgid "API Keys"
+#~ msgstr "API キー"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "App"
@@ -2552,7 +2557,6 @@ msgstr "ソフトウェアはあなたの履歴書を読み取ることができ
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
 msgid "Cancel"
@@ -2842,8 +2846,8 @@ msgid "Classic"
 msgstr "クラシック"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Claude Desktop"
-msgstr "Claude Desktop"
+#~ msgid "Claude Desktop"
+#~ msgstr "Claude Desktop"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/list-view.tsx
@@ -3135,8 +3139,8 @@ msgid "Connected"
 msgstr "接続済み"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Connected applications"
-msgstr "接続されたアプリケーション"
+#~ msgid "Connected applications"
+#~ msgstr "接続されたアプリケーション"
 
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
@@ -3271,8 +3275,6 @@ msgstr "仕込み中"
 #: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copied"
 msgstr "コピーされました"
 
@@ -3280,8 +3282,6 @@ msgstr "コピーされました"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copy"
 msgstr "コピー"
 
@@ -3314,8 +3314,8 @@ msgid "Copy it from the employer's page, including the requirements."
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Copy it now. For your security, it won't be shown again."
-msgstr "今すぐコピーしてください。セキュリティのため、再度表示されることはありません。"
+#~ msgid "Copy it now. For your security, it won't be shown again."
+#~ msgstr "今すぐコピーしてください。セキュリティのため、再度表示されることはありません。"
 
 #: src/features/homepage/share.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -3401,16 +3401,16 @@ msgid "Could not generate the PDF. Please try again."
 msgstr "PDF を生成できませんでした。もう一度お試しください。"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not load connected applications."
-msgstr "接続されているアプリケーションをロードできませんでした。"
+#~ msgid "Could not load connected applications."
+#~ msgstr "接続されているアプリケーションをロードできませんでした。"
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "履歴書を印刷用に準備できませんでした。もう一度お試しください。"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not revoke this connection. Try again."
-msgstr "この接続を取り消すことができませんでした。もう一度やり直してください。"
+#~ msgid "Could not revoke this connection. Try again."
+#~ msgstr "この接続を取り消すことができませんでした。もう一度やり直してください。"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Could not set up two-factor authentication."
@@ -3491,8 +3491,8 @@ msgid "Couldn't create the document."
 msgstr "ドキュメントを作成できませんでした。"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't create the key. Try again."
-msgstr "キーを作成できませんでした。もう一度やり直してください。"
+#~ msgid "Couldn't create the key. Try again."
+#~ msgstr "キーを作成できませんでした。もう一度やり直してください。"
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Couldn't create the letter."
@@ -3642,8 +3642,8 @@ msgid "Couldn't rename it."
 msgstr "名前を変更できませんでした。"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't revoke the key."
-msgstr "キーを取り消すことができませんでした。"
+#~ msgid "Couldn't revoke the key."
+#~ msgstr "キーを取り消すことができませんでした。"
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't save that change."
@@ -3878,8 +3878,8 @@ msgid "Create and open"
 msgstr "作成して開く"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Create key"
-msgstr "キーの作成"
+#~ msgid "Create key"
+#~ msgstr "キーの作成"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
@@ -3888,7 +3888,6 @@ msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Created"
 msgstr "作成日"
@@ -4391,7 +4390,6 @@ msgstr "寄付する"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "終わり"
 
@@ -4988,8 +4986,8 @@ msgid "Experience"
 msgstr "職歴"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Expires"
-msgstr "有効期限が切れます"
+#~ msgid "Expires"
+#~ msgstr "有効期限が切れます"
 
 #: src/features/homepage/prepare.tsx
 msgid "explain one limit of the measurement clearly, without underselling the work."
@@ -5430,8 +5428,8 @@ msgid "For portals or recruiters who ask for Word. Layout is simplified."
 msgstr "Word を要求するポータルまたは採用担当者向け。レイアウトが簡素化されています。"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
-msgstr "スクリプト、拡張機能、および MCP クライアント用。キーはユーザーとして機能し、ドキュメントを読み取ったり編集したりできます。"
+#~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+#~ msgstr "スクリプト、拡張機能、および MCP クライアント用。キーはユーザーとして機能し、ドキュメントを読み取ったり編集したりできます。"
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
@@ -6106,8 +6104,8 @@ msgid "Insights"
 msgstr "インサイト"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Integrations"
-msgstr "統合"
+#~ msgid "Integrations"
+#~ msgstr "統合"
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -6568,8 +6566,8 @@ msgid "Key stored encrypted"
 msgstr "キーは暗号化されて保存されます"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Keys act as you and can read and edit your documents."
-msgstr "キーはユーザーとして機能し、ドキュメントを読み取ったり編集したりできます。"
+#~ msgid "Keys act as you and can read and edit your documents."
+#~ msgstr "キーはユーザーとして機能し、ドキュメントを読み取ったり編集したりできます。"
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Keyword layout"
@@ -6640,8 +6638,8 @@ msgid "Last edited"
 msgstr "最終編集"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Last used"
-msgstr "最後に使用した"
+#~ msgid "Last used"
+#~ msgstr "最後に使用した"
 
 #: src/libs/locale.ts
 msgid "Latvian"
@@ -6751,8 +6749,8 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "長さそのものは欠点ではなく、1ページに収めるべきという普遍的なルールもありません。価値のあるページだけを残してください。"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
-msgstr "上の API キーを使用して、Claude や Cursor などの AI クライアントに履歴書を読み取って編集させます。"
+#~ msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
+#~ msgstr "上の API キーを使用して、Claude や Cursor などの AI クライアントに履歴書を読み取って編集させます。"
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6995,8 +6993,8 @@ msgid "Loading connection…"
 msgstr "接続を読み込み中…"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Loading connections..."
-msgstr "接続を読み込み中..."
+#~ msgid "Loading connections..."
+#~ msgstr "接続を読み込み中..."
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
@@ -7289,12 +7287,12 @@ msgid "Matching your facts"
 msgstr "事実を照合中"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "MCP"
-msgstr "MCP"
+#~ msgid "MCP"
+#~ msgstr "MCP"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "MCP server"
-msgstr "MCPサーバー"
+#~ msgid "MCP server"
+#~ msgstr "MCPサーバー"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "median to first reply"
@@ -7569,7 +7567,6 @@ msgstr ""
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Name"
 msgstr "名前"
@@ -7648,7 +7645,6 @@ msgid "Network"
 msgstr "ネットワーク"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Never"
 msgstr "一度もない"
 
@@ -7662,8 +7658,8 @@ msgid "New account sign-ups are currently disabled on this server."
 msgstr "このサーバーでは現在、新規アカウントの登録が無効になっています。"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New API key"
-msgstr "新しい API キー"
+#~ msgid "New API key"
+#~ msgstr "新しい API キー"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -7692,8 +7688,8 @@ msgid "New fact"
 msgstr "新しい事実"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New key"
-msgstr "新しいキー"
+#~ msgid "New key"
+#~ msgstr "新しいキー"
 
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New page"
@@ -7801,8 +7797,8 @@ msgid "No commands match that search."
 msgstr "検索に一致するコマンドはありません。"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "No connected applications."
-msgstr "接続されているアプリケーションはありません。"
+#~ msgid "No connected applications."
+#~ msgstr "接続されているアプリケーションはありません。"
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -7880,8 +7876,8 @@ msgid "No job yet"
 msgstr "まだ仕事がありません"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "No keys yet."
-msgstr "まだ鍵がありません。"
+#~ msgid "No keys yet."
+#~ msgstr "まだ鍵がありません。"
 
 #: src/features/ats-checker/messages.ts
 msgid "No lines look like a job title paired with an employer."
@@ -9577,8 +9573,8 @@ msgid "Read it for me"
 msgstr "代わりに読む"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read only"
-msgstr "読み取り専用アクセス"
+#~ msgid "Read only"
+#~ msgstr "読み取り専用アクセス"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
@@ -9626,8 +9622,8 @@ msgid "Read your profile information."
 msgstr "プロフィール情報を読み取ります。"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read, write and delete"
-msgstr "読み取り、書き込み、削除"
+#~ msgid "Read, write and delete"
+#~ msgstr "読み取り、書き込み、削除"
 
 #: src/features/ats-checker/messages.ts
 msgid "Readability"
@@ -10282,25 +10278,25 @@ msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you wr
 msgstr "レビューにはAI接続が必要です。<0>設定で追加してください</0>。それまでは、ここに書いた内容はこのブラウザー内にとどまります。"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke"
-msgstr "取り消す"
+#~ msgid "Revoke"
+#~ msgstr "取り消す"
 
 #. placeholder {0}: key.name || key.start || ""
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke {0}"
-msgstr "{0}を取り消す"
+#~ msgid "Revoke {0}"
+#~ msgstr "{0}を取り消す"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke access"
-msgstr "アクセスを取り消す"
+#~ msgid "Revoke access"
+#~ msgstr "アクセスを取り消す"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke an application's access to your account."
-msgstr "アプリケーションのアカウントへのアクセスを取り消します。"
+#~ msgid "Revoke an application's access to your account."
+#~ msgstr "アプリケーションのアカウントへのアクセスを取り消します。"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoked “{name}”. Apps using it stop working now."
-msgstr "「{name}」を取り消しました。これを使用しているアプリは動作を停止します。"
+#~ msgid "Revoked “{name}”. Apps using it stop working now."
+#~ msgstr "「{name}」を取り消しました。これを使用しているアプリは動作を停止します。"
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Right"
@@ -12304,8 +12300,8 @@ msgid "The job posting is missing"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "the key"
-msgstr "鍵"
+#~ msgid "the key"
+#~ msgstr "鍵"
 
 #: src/features/settings/ai/providers.tsx
 msgid "The key is encrypted on the server and never shown again. Saving tests the connection."
@@ -12457,8 +12453,12 @@ msgid "The same line repeats on every page."
 msgstr "同じ行がすべてのページに繰り返し表示されています。"
 
 #: src/libs/error-message.ts
-msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
-msgstr "保存されたプロバイダー キーは復号化できません。 「設定」→「AIと開発者」にキーを再度入力します。"
+#~ msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
+#~ msgstr "保存されたプロバイダー キーは復号化できません。 「設定」→「AIと開発者」にキーを再度入力します。"
+
+#: src/libs/error-message.ts
+msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI."
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "The score counts how reliably software reads your resume. It doesn't predict whether you'll be shortlisted."
@@ -13180,7 +13180,6 @@ msgstr "リンクに下線を引く"
 #: src/features/resume/editor/webmcp.ts
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/editor/write/section-row.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -13915,8 +13914,8 @@ msgid "What you're looking for"
 msgstr "探している仕事"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "What's it for?"
-msgstr "何のためにあるのですか？"
+#~ msgid "What's it for?"
+#~ msgstr "何のためにあるのですか？"
 
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/practise.tsx

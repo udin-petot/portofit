@@ -882,16 +882,16 @@ msgid "3. Upload the proof in the same window. Credits land once an admin checks
 msgstr "3. Unggah bukti di jendela yang sama. Kredit masuk setelah admin memeriksanya."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "30 days"
-msgstr "30 hari"
+#~ msgid "30 days"
+#~ msgstr "30 hari"
 
 #: src/features/homepage/hero.tsx
 msgid "40% faster reviews"
 msgstr "40% lebih cepat ditinjau"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "90 days"
-msgstr "90 hari"
+#~ msgid "90 days"
+#~ msgstr "90 hari"
 
 #: src/features/homepage/remember.tsx
 msgid "A"
@@ -1076,8 +1076,8 @@ msgid "Accepted offer"
 msgstr "Penawaran diterima"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Access"
-msgstr "Akses"
+#~ msgid "Access"
+#~ msgstr "Akses"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Access your account through the API, including reading, changing and deleting your documents and job applications."
@@ -1105,8 +1105,8 @@ msgid "Action"
 msgstr "Tindakan"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Actions"
-msgstr "Tindakan"
+#~ msgid "Actions"
+#~ msgstr "Tindakan"
 
 #: src/features/homepage/remember.tsx
 msgid "Activation rose from 31% to 44% in one quarter, measured across new teams."
@@ -1563,9 +1563,14 @@ msgstr "Setujui Syarat Layanan dan Kebijakan Privasi untuk melanjutkan."
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "AI & developer"
-msgstr "AI & pengembang"
+msgid "AI"
+msgstr "AI"
+
+#: src/features/command-palette/pages/navigation.tsx
+#~ msgid "AI & developer"
+#~ msgstr "AI & pengembang"
 
 #: src/features/quota/page.tsx
 #: src/features/user/dropdown-menu.tsx
@@ -1574,8 +1579,8 @@ msgid "AI allowance"
 msgstr "Penggunaan AI"
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI and developer"
-msgstr "AI & developer"
+#~ msgid "AI and developer"
+#~ msgstr "AI & developer"
 
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
@@ -1814,12 +1819,12 @@ msgid "API key"
 msgstr "Kunci API"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "API keys"
-msgstr "Kunci API"
+#~ msgid "API keys"
+#~ msgstr "Kunci API"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "API Keys"
-msgstr "API Key"
+#~ msgid "API Keys"
+#~ msgstr "API Key"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "App"
@@ -2553,7 +2558,6 @@ msgstr "Bisakah perangkat lunak membaca resume Anda?"
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
 msgid "Cancel"
@@ -2843,8 +2847,8 @@ msgid "Classic"
 msgstr "Klasik"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Claude Desktop"
-msgstr "Claude Desktop"
+#~ msgid "Claude Desktop"
+#~ msgstr "Claude Desktop"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/list-view.tsx
@@ -3136,8 +3140,8 @@ msgid "Connected"
 msgstr "Terhubung"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Connected applications"
-msgstr "Aplikasi yang terhubung"
+#~ msgid "Connected applications"
+#~ msgstr "Aplikasi yang terhubung"
 
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
@@ -3272,8 +3276,6 @@ msgstr "Memasak"
 #: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copied"
 msgstr "Disalin"
 
@@ -3281,8 +3283,6 @@ msgstr "Disalin"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copy"
 msgstr "Salin"
 
@@ -3315,8 +3315,8 @@ msgid "Copy it from the employer's page, including the requirements."
 msgstr "Salin dari halaman perusahaan, termasuk bagian persyaratannya."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Copy it now. For your security, it won't be shown again."
-msgstr "Salin sekarang. Demi keamanan Anda, ini tidak akan ditampilkan lagi."
+#~ msgid "Copy it now. For your security, it won't be shown again."
+#~ msgstr "Salin sekarang. Demi keamanan Anda, ini tidak akan ditampilkan lagi."
 
 #: src/features/homepage/share.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -3402,16 +3402,16 @@ msgid "Could not generate the PDF. Please try again."
 msgstr "Tidak dapat membuat PDF. Silakan coba lagi."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not load connected applications."
-msgstr "Tidak dapat memuat aplikasi yang terhubung."
+#~ msgid "Could not load connected applications."
+#~ msgstr "Tidak dapat memuat aplikasi yang terhubung."
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "Tidak dapat menyiapkan resume Anda untuk dicetak. Silakan coba lagi."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not revoke this connection. Try again."
-msgstr "Tidak dapat mencabut hubungan ini. Coba lagi."
+#~ msgid "Could not revoke this connection. Try again."
+#~ msgstr "Tidak dapat mencabut hubungan ini. Coba lagi."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Could not set up two-factor authentication."
@@ -3492,8 +3492,8 @@ msgid "Couldn't create the document."
 msgstr "Tidak dapat membuat dokumen."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't create the key. Try again."
-msgstr "Tidak dapat membuat kunci. Coba lagi."
+#~ msgid "Couldn't create the key. Try again."
+#~ msgstr "Tidak dapat membuat kunci. Coba lagi."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Couldn't create the letter."
@@ -3643,8 +3643,8 @@ msgid "Couldn't rename it."
 msgstr "Tidak dapat mengganti namanya."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't revoke the key."
-msgstr "Tidak dapat mencabut kuncinya."
+#~ msgid "Couldn't revoke the key."
+#~ msgstr "Tidak dapat mencabut kuncinya."
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't save that change."
@@ -3879,8 +3879,8 @@ msgid "Create and open"
 msgstr "Buat dan buka"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Create key"
-msgstr "Buat kunci"
+#~ msgid "Create key"
+#~ msgstr "Buat kunci"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
@@ -3889,7 +3889,6 @@ msgstr "Buat sekarang"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Created"
 msgstr "Dibuat"
@@ -4392,7 +4391,6 @@ msgstr "Donasi"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "Selesai"
 
@@ -4989,8 +4987,8 @@ msgid "Experience"
 msgstr "Pengalaman"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Expires"
-msgstr "Kedaluwarsa"
+#~ msgid "Expires"
+#~ msgstr "Kedaluwarsa"
 
 #: src/features/homepage/prepare.tsx
 msgid "explain one limit of the measurement clearly, without underselling the work."
@@ -5431,8 +5429,8 @@ msgid "For portals or recruiters who ask for Word. Layout is simplified."
 msgstr "Untuk portal atau perekrut yang meminta Word. Tata letak disederhanakan."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
-msgstr "Untuk skrip, ekstensi, dan klien MCP. Kunci bertindak sebagai Anda dan dapat membaca serta mengedit dokumen Anda."
+#~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+#~ msgstr "Untuk skrip, ekstensi, dan klien MCP. Kunci bertindak sebagai Anda dan dapat membaca serta mengedit dokumen Anda."
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
@@ -6107,8 +6105,8 @@ msgid "Insights"
 msgstr "Statistik"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Integrations"
-msgstr "Integrasi"
+#~ msgid "Integrations"
+#~ msgstr "Integrasi"
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -6569,8 +6567,8 @@ msgid "Key stored encrypted"
 msgstr "Kunci disimpan terenkripsi"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Keys act as you and can read and edit your documents."
-msgstr "Kunci bertindak sebagai Anda dan dapat membaca serta mengedit dokumen Anda."
+#~ msgid "Keys act as you and can read and edit your documents."
+#~ msgstr "Kunci bertindak sebagai Anda dan dapat membaca serta mengedit dokumen Anda."
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Keyword layout"
@@ -6641,8 +6639,8 @@ msgid "Last edited"
 msgstr "Terakhir diedit"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Last used"
-msgstr "Terakhir digunakan"
+#~ msgid "Last used"
+#~ msgstr "Terakhir digunakan"
 
 #: src/libs/locale.ts
 msgid "Latvian"
@@ -6752,8 +6750,8 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "Panjang bukan cacat, dan tidak ada aturan satu halaman yang berlaku universal. Pertahankan halaman yang memang pantas ada."
 
 #: src/features/settings/ai/mcp.tsx
-msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
-msgstr "Biarkan klien AI seperti Claude atau Cursor membaca dan mengedit resume Anda, menggunakan kunci API di atas."
+#~ msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
+#~ msgstr "Biarkan klien AI seperti Claude atau Cursor membaca dan mengedit resume Anda, menggunakan kunci API di atas."
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6996,8 +6994,8 @@ msgid "Loading connection…"
 msgstr "Memuat koneksi…"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Loading connections..."
-msgstr "Memuat koneksi..."
+#~ msgid "Loading connections..."
+#~ msgstr "Memuat koneksi..."
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
@@ -7290,12 +7288,12 @@ msgid "Matching your facts"
 msgstr "Mencocokkan fakta Anda"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "MCP"
-msgstr "MCP"
+#~ msgid "MCP"
+#~ msgstr "MCP"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "MCP server"
-msgstr "Server MCP"
+#~ msgid "MCP server"
+#~ msgstr "Server MCP"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "median to first reply"
@@ -7570,7 +7568,6 @@ msgstr "nama.pengguna"
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Name"
 msgstr "Nama"
@@ -7649,7 +7646,6 @@ msgid "Network"
 msgstr "Jaringan"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Never"
 msgstr "Tidak pernah"
 
@@ -7663,8 +7659,8 @@ msgid "New account sign-ups are currently disabled on this server."
 msgstr "Pendaftaran akun baru saat ini dinonaktifkan di server ini."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New API key"
-msgstr "Kunci API baru"
+#~ msgid "New API key"
+#~ msgstr "Kunci API baru"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -7693,8 +7689,8 @@ msgid "New fact"
 msgstr "Fakta baru"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New key"
-msgstr "Kunci baru"
+#~ msgid "New key"
+#~ msgstr "Kunci baru"
 
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New page"
@@ -7802,8 +7798,8 @@ msgid "No commands match that search."
 msgstr "Tidak ada perintah yang cocok dengan pencarian itu."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "No connected applications."
-msgstr "Tidak ada aplikasi yang terhubung."
+#~ msgid "No connected applications."
+#~ msgstr "Tidak ada aplikasi yang terhubung."
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -7881,8 +7877,8 @@ msgid "No job yet"
 msgstr "Belum ada pekerjaan"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "No keys yet."
-msgstr "Belum ada kunci."
+#~ msgid "No keys yet."
+#~ msgstr "Belum ada kunci."
 
 #: src/features/ats-checker/messages.ts
 msgid "No lines look like a job title paired with an employer."
@@ -9578,8 +9574,8 @@ msgid "Read it for me"
 msgstr "Baca untuk saya"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read only"
-msgstr "Akses hanya baca"
+#~ msgid "Read only"
+#~ msgstr "Akses hanya baca"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
@@ -9627,8 +9623,8 @@ msgid "Read your profile information."
 msgstr "Baca informasi profil Anda."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read, write and delete"
-msgstr "Membaca, menulis, dan menghapus"
+#~ msgid "Read, write and delete"
+#~ msgstr "Membaca, menulis, dan menghapus"
 
 #: src/features/ats-checker/messages.ts
 msgid "Readability"
@@ -10283,25 +10279,25 @@ msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you wr
 msgstr "Peninjauan memerlukan koneksi AI. <0>Tambahkan di Pengaturan</0>. Sampai saat itu, apa yang Anda tulis di sini tetap di browser ini."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke"
-msgstr "Menarik kembali"
+#~ msgid "Revoke"
+#~ msgstr "Menarik kembali"
 
 #. placeholder {0}: key.name || key.start || ""
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke {0}"
-msgstr "Cabut {0}"
+#~ msgid "Revoke {0}"
+#~ msgstr "Cabut {0}"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke access"
-msgstr "Cabut akses"
+#~ msgid "Revoke access"
+#~ msgstr "Cabut akses"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke an application's access to your account."
-msgstr "Cabut akses aplikasi ke akun Anda."
+#~ msgid "Revoke an application's access to your account."
+#~ msgstr "Cabut akses aplikasi ke akun Anda."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoked “{name}”. Apps using it stop working now."
-msgstr "Mencabut “{name}”. Aplikasi yang menggunakannya berhenti berfungsi sekarang."
+#~ msgid "Revoked “{name}”. Apps using it stop working now."
+#~ msgstr "Mencabut “{name}”. Aplikasi yang menggunakannya berhenti berfungsi sekarang."
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Right"
@@ -12305,8 +12301,8 @@ msgid "The job posting is missing"
 msgstr "Deskripsi lowongan belum ada"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "the key"
-msgstr "kuncinya"
+#~ msgid "the key"
+#~ msgstr "kuncinya"
 
 #: src/features/settings/ai/providers.tsx
 msgid "The key is encrypted on the server and never shown again. Saving tests the connection."
@@ -12458,8 +12454,12 @@ msgid "The same line repeats on every page."
 msgstr "Baris yang sama berulang di setiap halaman."
 
 #: src/libs/error-message.ts
-msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
-msgstr "Kunci penyedia yang disimpan tidak dapat didekripsi. Masukkan kuncinya lagi di Pengaturan → AI & pengembang."
+#~ msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
+#~ msgstr "Kunci penyedia yang disimpan tidak dapat didekripsi. Masukkan kuncinya lagi di Pengaturan → AI & pengembang."
+
+#: src/libs/error-message.ts
+msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI."
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "The score counts how reliably software reads your resume. It doesn't predict whether you'll be shortlisted."
@@ -13181,7 +13181,6 @@ msgstr "Garis bawahi tautan"
 #: src/features/resume/editor/webmcp.ts
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/editor/write/section-row.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -13916,8 +13915,8 @@ msgid "What you're looking for"
 msgstr "Yang Anda cari"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "What's it for?"
-msgstr "Untuk apa?"
+#~ msgid "What's it for?"
+#~ msgstr "Untuk apa?"
 
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/practise.tsx

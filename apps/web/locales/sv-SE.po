@@ -881,16 +881,16 @@ msgid "3. Upload the proof in the same window. Credits land once an admin checks
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "30 days"
-msgstr "30 dagar"
+#~ msgid "30 days"
+#~ msgstr "30 dagar"
 
 #: src/features/homepage/hero.tsx
 msgid "40% faster reviews"
 msgstr "40 % snabbare recensioner"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "90 days"
-msgstr "90 dagar"
+#~ msgid "90 days"
+#~ msgstr "90 dagar"
 
 #: src/features/homepage/remember.tsx
 msgid "A"
@@ -1075,8 +1075,8 @@ msgid "Accepted offer"
 msgstr "Accepterat erbjudande"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Access"
-msgstr "Tillgång"
+#~ msgid "Access"
+#~ msgstr "Tillgång"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Access your account through the API, including reading, changing and deleting your documents and job applications."
@@ -1104,8 +1104,8 @@ msgid "Action"
 msgstr "Handling"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Actions"
-msgstr "Åtgärder"
+#~ msgid "Actions"
+#~ msgstr "Åtgärder"
 
 #: src/features/homepage/remember.tsx
 msgid "Activation rose from 31% to 44% in one quarter, measured across new teams."
@@ -1562,9 +1562,14 @@ msgstr ""
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/page.tsx
 #: src/features/settings/root.tsx
+#: src/routes/dashboard/akun.tsx
 #: src/routes/dashboard/settings/route.tsx
-msgid "AI & developer"
-msgstr "AI & utvecklare"
+msgid "AI"
+msgstr ""
+
+#: src/features/command-palette/pages/navigation.tsx
+#~ msgid "AI & developer"
+#~ msgstr "AI & utvecklare"
 
 #: src/features/quota/page.tsx
 #: src/features/user/dropdown-menu.tsx
@@ -1573,8 +1578,8 @@ msgid "AI allowance"
 msgstr ""
 
 #: src/routes/dashboard/akun.tsx
-msgid "AI and developer"
-msgstr ""
+#~ msgid "AI and developer"
+#~ msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "AI connection"
@@ -1813,12 +1818,12 @@ msgid "API key"
 msgstr "API nyckel"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "API keys"
-msgstr "API nycklar"
+#~ msgid "API keys"
+#~ msgstr "API nycklar"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "API Keys"
-msgstr "API nycklar"
+#~ msgid "API Keys"
+#~ msgstr "API nycklar"
 
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "App"
@@ -2552,7 +2557,6 @@ msgstr "Kan programvara läsa ditt CV?"
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
 msgid "Cancel"
@@ -2842,8 +2846,8 @@ msgid "Classic"
 msgstr "Klassisk"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Claude Desktop"
-msgstr "Claude Desktop"
+#~ msgid "Claude Desktop"
+#~ msgstr "Claude Desktop"
 
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/applications/components/list-view.tsx
@@ -3135,8 +3139,8 @@ msgid "Connected"
 msgstr "Ansluten"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Connected applications"
-msgstr "Anslutna applikationer"
+#~ msgid "Connected applications"
+#~ msgstr "Anslutna applikationer"
 
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
@@ -3271,8 +3275,6 @@ msgstr "Puttrar"
 #: src/features/billing/payment-dialog.tsx
 #: src/features/homepage/share.tsx
 #: src/features/resume/share/copy-link-button.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copied"
 msgstr "Kopierade"
 
@@ -3280,8 +3282,6 @@ msgstr "Kopierade"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/resume/share/link-tab.tsx
-#: src/features/settings/ai/api-keys.tsx
-#: src/features/settings/ai/mcp.tsx
 msgid "Copy"
 msgstr "Kopiera"
 
@@ -3314,8 +3314,8 @@ msgid "Copy it from the employer's page, including the requirements."
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Copy it now. For your security, it won't be shown again."
-msgstr "Kopiera det nu. För din säkerhet kommer den inte att visas igen."
+#~ msgid "Copy it now. For your security, it won't be shown again."
+#~ msgstr "Kopiera det nu. För din säkerhet kommer den inte att visas igen."
 
 #: src/features/homepage/share.tsx
 #: src/features/resume/public/public-resume.tsx
@@ -3401,16 +3401,16 @@ msgid "Could not generate the PDF. Please try again."
 msgstr "Det gick inte att generera PDF-filen. Försök igen."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not load connected applications."
-msgstr "Det gick inte att ladda anslutna appar."
+#~ msgid "Could not load connected applications."
+#~ msgstr "Det gick inte att ladda anslutna appar."
 
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "Det gick inte att förbereda ditt CV för utskrift. Försök igen."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Could not revoke this connection. Try again."
-msgstr "Det gick inte att återkalla den här anslutningen. Försök igen."
+#~ msgid "Could not revoke this connection. Try again."
+#~ msgstr "Det gick inte att återkalla den här anslutningen. Försök igen."
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Could not set up two-factor authentication."
@@ -3491,8 +3491,8 @@ msgid "Couldn't create the document."
 msgstr "Det gick inte att skapa dokumentet."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't create the key. Try again."
-msgstr "Det gick inte att skapa nyckeln. Försök igen."
+#~ msgid "Couldn't create the key. Try again."
+#~ msgstr "Det gick inte att skapa nyckeln. Försök igen."
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Couldn't create the letter."
@@ -3642,8 +3642,8 @@ msgid "Couldn't rename it."
 msgstr "Det gick inte att byta namn."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Couldn't revoke the key."
-msgstr "Det gick inte att återkalla nyckeln."
+#~ msgid "Couldn't revoke the key."
+#~ msgstr "Det gick inte att återkalla nyckeln."
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Couldn't save that change."
@@ -3878,8 +3878,8 @@ msgid "Create and open"
 msgstr "Skapa och öppna"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Create key"
-msgstr "Skapa nyckel"
+#~ msgid "Create key"
+#~ msgstr "Skapa nyckel"
 
 #. Call-to-action link from login page to account registration page
 #: src/features/auth/pages/login.tsx
@@ -3888,7 +3888,6 @@ msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Created"
 msgstr "Skapad"
@@ -4391,7 +4390,6 @@ msgstr "Donera"
 
 #: src/features/billing/payment-dialog.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "Gjort"
 
@@ -4988,8 +4986,8 @@ msgid "Experience"
 msgstr "Erfarenhet"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Expires"
-msgstr "Upphör att gälla"
+#~ msgid "Expires"
+#~ msgstr "Upphör att gälla"
 
 #: src/features/homepage/prepare.tsx
 msgid "explain one limit of the measurement clearly, without underselling the work."
@@ -5430,8 +5428,8 @@ msgid "For portals or recruiters who ask for Word. Layout is simplified."
 msgstr "För portaler eller rekryterare som frågar efter Word. Layouten är förenklad."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
-msgstr "För skript, tillägg och MCP-klienter. Nycklar fungerar som du och kan läsa och redigera dina dokument."
+#~ msgid "For scripts, extensions and MCP clients. Keys act as you and can read and edit your documents."
+#~ msgstr "För skript, tillägg och MCP-klienter. Nycklar fungerar som du och kan läsa och redigera dina dokument."
 
 #: src/features/career/workspace/debrief.tsx
 msgid "For the next round:"
@@ -6106,8 +6104,8 @@ msgid "Insights"
 msgstr "Insikter"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "Integrations"
-msgstr "Integrationer"
+#~ msgid "Integrations"
+#~ msgstr "Integrationer"
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -6568,8 +6566,8 @@ msgid "Key stored encrypted"
 msgstr "Nyckel lagrad krypterad"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Keys act as you and can read and edit your documents."
-msgstr "Nycklar fungerar som du och kan läsa och redigera dina dokument."
+#~ msgid "Keys act as you and can read and edit your documents."
+#~ msgstr "Nycklar fungerar som du och kan läsa och redigera dina dokument."
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Keyword layout"
@@ -6640,8 +6638,8 @@ msgid "Last edited"
 msgstr "Senast redigerad"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Last used"
-msgstr "Senast använd"
+#~ msgid "Last used"
+#~ msgstr "Senast använd"
 
 #: src/libs/locale.ts
 msgid "Latvian"
@@ -6751,8 +6749,8 @@ msgid "Length is not a defect, and there is no universal one-page rule. Keep the
 msgstr "Längd är ingen brist, och det finns ingen universell enkelsidesregel. Behåll de sidor som förtjänar sin plats."
 
 #: src/features/settings/ai/mcp.tsx
-msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
-msgstr "Låt AI-klienter som Claude eller Cursor läsa och redigera dina CV, med hjälp av en API-nyckel ovan."
+#~ msgid "Let AI clients like Claude or Cursor read and edit your resumes, using an API key above."
+#~ msgstr "Låt AI-klienter som Claude eller Cursor läsa och redigera dina CV, med hjälp av en API-nyckel ovan."
 
 #: src/features/career/coach.tsx
 msgid "Lets the coach search public pages through your web search service"
@@ -6995,8 +6993,8 @@ msgid "Loading connection…"
 msgstr "Laddar anslutning..."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Loading connections..."
-msgstr "Laddar anslutningar..."
+#~ msgid "Loading connections..."
+#~ msgstr "Laddar anslutningar..."
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
@@ -7289,12 +7287,12 @@ msgid "Matching your facts"
 msgstr "Matchar dina fakta"
 
 #: src/features/command-palette/pages/navigation.tsx
-msgid "MCP"
-msgstr "MCP"
+#~ msgid "MCP"
+#~ msgstr "MCP"
 
 #: src/features/settings/ai/mcp.tsx
-msgid "MCP server"
-msgstr "MCP server"
+#~ msgid "MCP server"
+#~ msgstr "MCP server"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "median to first reply"
@@ -7569,7 +7567,6 @@ msgstr ""
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/features/settings/account/profile.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Name"
 msgstr "Namn"
@@ -7648,7 +7645,6 @@ msgid "Network"
 msgstr "Nätverk"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/settings/ai/api-keys.tsx
 msgid "Never"
 msgstr "Aldrig"
 
@@ -7662,8 +7658,8 @@ msgid "New account sign-ups are currently disabled on this server."
 msgstr "Registrering av nya konton är för närvarande inaktiverad på den här servern."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New API key"
-msgstr "Ny API nyckel"
+#~ msgid "New API key"
+#~ msgstr "Ny API nyckel"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -7692,8 +7688,8 @@ msgid "New fact"
 msgstr "Nytt faktum"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "New key"
-msgstr "Ny nyckel"
+#~ msgid "New key"
+#~ msgstr "Ny nyckel"
 
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "New page"
@@ -7801,8 +7797,8 @@ msgid "No commands match that search."
 msgstr "Inga kommandon matchar den sökningen."
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "No connected applications."
-msgstr "Inga anslutna applikationer."
+#~ msgid "No connected applications."
+#~ msgstr "Inga anslutna applikationer."
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -7880,8 +7876,8 @@ msgid "No job yet"
 msgstr "Inget jobb än"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "No keys yet."
-msgstr "Inga nycklar än."
+#~ msgid "No keys yet."
+#~ msgstr "Inga nycklar än."
 
 #: src/features/ats-checker/messages.ts
 msgid "No lines look like a job title paired with an employer."
@@ -9577,8 +9573,8 @@ msgid "Read it for me"
 msgstr "Läs den åt mig"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read only"
-msgstr "Skrivskyddad åtkomst"
+#~ msgid "Read only"
+#~ msgstr "Skrivskyddad åtkomst"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/career/today.tsx
@@ -9626,8 +9622,8 @@ msgid "Read your profile information."
 msgstr "Läsa din profilinformation."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Read, write and delete"
-msgstr "Läs, skriv och radera"
+#~ msgid "Read, write and delete"
+#~ msgstr "Läs, skriv och radera"
 
 #: src/features/ats-checker/messages.ts
 msgid "Readability"
@@ -10282,25 +10278,25 @@ msgid "Reviewing needs an AI connection. <0>Add one in Settings</0>. What you wr
 msgstr "Granskning kräver en AI-anslutning. <0>Lägg till en i Inställningar</0>. Det du skriver här stannar i den här webbläsaren tills dess."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke"
-msgstr "Återkalla"
+#~ msgid "Revoke"
+#~ msgstr "Återkalla"
 
 #. placeholder {0}: key.name || key.start || ""
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoke {0}"
-msgstr "Återkalla {0}"
+#~ msgid "Revoke {0}"
+#~ msgstr "Återkalla {0}"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke access"
-msgstr "Återkalla åtkomst"
+#~ msgid "Revoke access"
+#~ msgstr "Återkalla åtkomst"
 
 #: src/features/settings/ai/connected-apps.tsx
-msgid "Revoke an application's access to your account."
-msgstr "Återkalla ett programs åtkomst till ditt konto."
+#~ msgid "Revoke an application's access to your account."
+#~ msgstr "Återkalla ett programs åtkomst till ditt konto."
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "Revoked “{name}”. Apps using it stop working now."
-msgstr "Återkallat \"{name}\". Appar som använder det slutar fungera nu."
+#~ msgid "Revoked “{name}”. Apps using it stop working now."
+#~ msgstr "Återkallat \"{name}\". Appar som använder det slutar fungera nu."
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Right"
@@ -12304,8 +12300,8 @@ msgid "The job posting is missing"
 msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "the key"
-msgstr "nyckeln"
+#~ msgid "the key"
+#~ msgstr "nyckeln"
 
 #: src/features/settings/ai/providers.tsx
 msgid "The key is encrypted on the server and never shown again. Saving tests the connection."
@@ -12457,8 +12453,12 @@ msgid "The same line repeats on every page."
 msgstr "Samma rad upprepas på varje sida."
 
 #: src/libs/error-message.ts
-msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
-msgstr "Den sparade leverantörsnyckeln kan inte dekrypteras. Ange nyckeln igen i Inställningar → AI och utvecklare."
+#~ msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI & developer."
+#~ msgstr "Den sparade leverantörsnyckeln kan inte dekrypteras. Ange nyckeln igen i Inställningar → AI och utvecklare."
+
+#: src/libs/error-message.ts
+msgid "The saved provider key can't be decrypted. Enter the key again in Settings → AI."
+msgstr ""
 
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "The score counts how reliably software reads your resume. It doesn't predict whether you'll be shortlisted."
@@ -13180,7 +13180,6 @@ msgstr "Stryk under länkar"
 #: src/features/resume/editor/webmcp.ts
 #: src/features/resume/editor/write/entry-card.tsx
 #: src/features/resume/editor/write/section-row.tsx
-#: src/features/settings/ai/api-keys.tsx
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
@@ -13915,8 +13914,8 @@ msgid "What you're looking for"
 msgstr "Vad du letar efter"
 
 #: src/features/settings/ai/api-keys.tsx
-msgid "What's it for?"
-msgstr "Vad är det till för?"
+#~ msgid "What's it for?"
+#~ msgstr "Vad är det till för?"
 
 #: src/features/career/bank-browse.tsx
 #: src/features/career/workspace/practise.tsx
