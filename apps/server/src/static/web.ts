@@ -1,4 +1,5 @@
 import type { Locale } from "@reactive-resume/utils/locale";
+import { randomBytes } from "node:crypto";
 import { existsSync } from "node:fs";
 import fs from "node:fs/promises";
 import { fileURLToPath } from "node:url";
@@ -109,15 +110,34 @@ function isPublicResumePath(pathname: string): boolean {
 	return segments.length === 2 && firstSegment !== undefined && !reservedPublicResumeSegments.has(firstSegment);
 }
 
+// A fresh nonce for every HTML response. The shell's inline theme script and the JSON-LD blocks the server injects
+// carry it, so `script-src` needs no 'unsafe-inline' and an injected inline script has nothing to guess.
+const createScriptNonce = () => randomBytes(18).toString("base64");
+
+const contentSecurityPolicy = (nonce?: string) =>
+	[
+		"default-src 'self'",
+		"img-src 'self' data: blob:",
+		"font-src 'self' data:",
+		"style-src 'self' 'unsafe-inline'",
+		// `wasm-unsafe-eval` lets the PDF engine (Forme, WebAssembly) start in the browser.
+		nonce ? `script-src 'self' 'nonce-${nonce}' 'wasm-unsafe-eval'` : "script-src 'self' 'wasm-unsafe-eval'",
+		// PDF previews and downloads are blob: documents shown in an iframe; interview answers play from blob: audio.
+		"frame-src 'self' blob:",
+		"media-src 'self' blob: data:",
+		"connect-src 'self'",
+		"frame-ancestors 'none'",
+		"base-uri 'self'",
+		"object-src 'none'",
+	].join("; ");
+
+const withScriptNonce = (html: string, nonce: string) => html.replace(/<script(?=[\s>])/gi, `<script nonce="${nonce}"`);
+
 const BASE_SECURITY_HEADERS = {
 	"X-Frame-Options": "DENY",
 	"X-Content-Type-Options": "nosniff",
 	"Referrer-Policy": "strict-origin-when-cross-origin",
-	// Enforced, not report-only: framing is a clickjacking control, so it must not depend on X-Frame-Options alone.
-	"Content-Security-Policy": "frame-ancestors 'none'",
-	// `wasm-unsafe-eval` lets the PDF engine (Forme, WebAssembly) start in the browser.
-	"Content-Security-Policy-Report-Only":
-		"default-src 'self'; img-src 'self' data: blob:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'",
+	"Content-Security-Policy": contentSecurityPolicy(),
 };
 
 const ROOT_TITLE = "PortoFit — Job preparation from resume to interview";
@@ -357,26 +377,28 @@ export const serveWebDistStatic = env.CLOUDFLARE
 			},
 		});
 
-function getFallbackResponseHeaders(pathname: string) {
+function getFallbackResponseHeaders(pathname: string, nonce: string) {
+	// The body about to be sent carries its inline scripts under this nonce.
+	const securityHeaders = { ...BASE_SECURITY_HEADERS, "Content-Security-Policy": contentSecurityPolicy(nonce) };
 	if (pathname === "/" && env.ROOT_RESUME_ID) {
 		return {
 			"Content-Type": "text/html; charset=UTF-8",
 			"X-Robots-Tag": "noindex, follow",
 			"Cache-Control": "private, no-store",
-			...BASE_SECURITY_HEADERS,
+			...securityHeaders,
 		};
 	}
 	// A shell that is cached by heuristic freshness keeps pointing at the previous build's hashed assets, which is
 	// how a phone ends up showing an interface weeks after a deploy. Every HTML answer revalidates.
 	if (pathname === "/" || indexableAppPaths.has(pathname)) {
-		return { "Content-Type": "text/html; charset=UTF-8", "Cache-Control": "no-cache", ...BASE_SECURITY_HEADERS };
+		return { "Content-Type": "text/html; charset=UTF-8", "Cache-Control": "no-cache", ...securityHeaders };
 	}
 	if (isNoindexShellPath(pathname) || isPublicResumePath(pathname)) {
 		return {
 			"Content-Type": "text/html; charset=UTF-8",
 			"X-Robots-Tag": "noindex, follow",
 			"Cache-Control": "no-cache",
-			...BASE_SECURITY_HEADERS,
+			...securityHeaders,
 		};
 	}
 
@@ -487,6 +509,7 @@ export type ReadWebFile = (path: string) => Promise<string>;
 export async function handleWebApp(request: Request, readFile: ReadWebFile = (path) => fs.readFile(path, "utf-8")) {
 	const isHead = request.method === "HEAD";
 	const pathname = new URL(request.url).pathname;
+	const nonce = createScriptNonce();
 
 	const redirectTo = legalPathRedirects[pathname];
 	if (redirectTo) {
@@ -500,12 +523,14 @@ export async function handleWebApp(request: Request, readFile: ReadWebFile = (pa
 		return new Response(isHead ? null : "Not Found", { status: 404 });
 	}
 
-	const headers = getFallbackResponseHeaders(pathname);
+	const headers = getFallbackResponseHeaders(pathname, nonce);
 	if (!headers) return notFoundResponse({ head: isHead, noindex: true });
 
 	if (isHead) return new Response(null, { status: 200, headers });
 
 	const html = await readFile(indexHtmlPath);
+	const respond = (body: string, responseHeaders: Record<string, string> = headers) =>
+		new Response(withScriptNonce(body, nonce), { headers: responseHeaders });
 
 	if (pathname === "/" && env.ROOT_RESUME_ID) {
 		const canonicalUrl = new URL("/", env.APP_URL).toString();
@@ -515,10 +540,7 @@ export async function handleWebApp(request: Request, readFile: ReadWebFile = (pa
 			.replace(/<title>[^<]*<\/title>/, "<title>PortoFit</title>")
 			.replace(/<meta\s+name="description"[^>]*>/, '<meta name="description" content="">');
 		const markup = `<link rel="canonical" href="${escapeAttribute(canonicalUrl)}" data-root-resume-shell><meta name="robots" content="noindex, follow" data-root-resume-shell>`;
-		return new Response(
-			shell.replace("</head>", () => `${markup}</head>`),
-			{ headers },
-		);
+		return respond(shell.replace("</head>", () => `${markup}</head>`));
 	}
 
 	const prerendered = prerenderedPages[pathname];
@@ -542,9 +564,9 @@ export async function handleWebApp(request: Request, readFile: ReadWebFile = (pa
 		});
 
 		// The saved locale changes what this address shows, so caches have to key on the cookie.
-		return new Response(
+		return respond(
 			page.replace("</head>", () => `${markup}</head>`),
-			{ headers: { ...pageHeaders, Vary: "Cookie" } },
+			{ ...pageHeaders, Vary: "Cookie" },
 		);
 	}
 
@@ -560,16 +582,13 @@ export async function handleWebApp(request: Request, readFile: ReadWebFile = (pa
 					() => `<meta name="description" content="${resumeSeo.description}">`,
 				);
 
-			return new Response(
-				withTitle.replace("</head>", () => `${resumeSeo.markup}</head>`),
-				{ headers },
-			);
+			return respond(withTitle.replace("</head>", () => `${resumeSeo.markup}</head>`));
 		}
 	}
 
 	if (pathname === "/dashboard" || pathname === "/dashboard/") {
-		return new Response(dashboardBootShell(html), { headers });
+		return respond(dashboardBootShell(html));
 	}
 
-	return new Response(html, { headers });
+	return respond(html);
 }

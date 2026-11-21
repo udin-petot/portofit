@@ -93,7 +93,9 @@ export function createApp(options: AppOptions = {}) {
 
 	app.use("/auth/*", async (c, next) => {
 		await next();
-		c.header("Content-Security-Policy", "frame-ancestors 'none'");
+		// handleWebApp already sends the full policy bound to this response's script nonce. Only fill the header in
+		// when nothing else set one, or this would strip the nonce from the page's own inline scripts.
+		if (!c.res.headers.has("Content-Security-Policy")) c.header("Content-Security-Policy", "frame-ancestors 'none'");
 		c.header("X-Frame-Options", "DENY");
 		c.header("Referrer-Policy", "no-referrer");
 		c.header("Cache-Control", "no-store");

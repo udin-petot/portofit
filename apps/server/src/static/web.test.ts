@@ -59,7 +59,7 @@ describe("web app fallback classification", () => {
 
 		expect(html).toContain('<link rel="canonical" href="https://rxresu.me/">');
 		expect(html).toContain('<meta property="og:url" content="https://rxresu.me/">');
-		expect(html).toContain('<script type="application/ld+json">');
+		expect(html).toContain('type="application/ld+json"');
 		expect(html).toContain(
 			'<meta property="og:description" content="Reactive Resume is a free and open-source resume builder that makes it easy to create, update, and share your resume.">',
 		);
@@ -174,13 +174,38 @@ describe("web app fallback classification", () => {
 		});
 	});
 
-	it.each(["/", "/alice/resume"])("sets framing and report-only CSP security headers on %s", async (pathname) => {
+	it.each(["/", "/alice/resume"])("enforces the CSP with a per-response script nonce on %s", async (pathname) => {
+		vi.mocked(fs.readFile).mockResolvedValue(
+			'<html><head><script>const dark = 1;</script><script type="application/ld+json">{"@type":"Thing"}</script></head><body></body></html>',
+		);
 		const response = await handleWebApp(new Request(`https://example.com${pathname}`));
 
 		expect(response.status).toBe(200);
 		expect(response.headers.get("X-Frame-Options")).toBe("DENY");
 		expect(response.headers.get("X-Content-Type-Options")).toBe("nosniff");
-		expect(response.headers.get("Content-Security-Policy-Report-Only")).toContain("frame-ancestors 'none'");
+		expect(response.headers.get("Content-Security-Policy-Report-Only")).toBeNull();
+
+		const policy = response.headers.get("Content-Security-Policy") ?? "";
+		const nonce = policy.match(/'nonce-([^']+)'/)?.[1];
+		expect(nonce).toBeTruthy();
+		expect(policy).toContain("frame-ancestors 'none'");
+		const scriptDirective = policy.split("; ").find((directive) => directive.startsWith("script-src"));
+		expect(scriptDirective).not.toContain("'unsafe-inline'");
+
+		const html = await response.text();
+		const inlineScriptTags = html.match(/<script(?![^>]*\bsrc=)[^>]*>/g) ?? [];
+		expect(inlineScriptTags.length).toBeGreaterThan(1);
+		for (const tag of inlineScriptTags) expect(tag).toContain(`nonce="${nonce}"`);
+	});
+
+	it("mints a fresh nonce for every response", async () => {
+		const nonceOf = (response: Response) =>
+			response.headers.get("Content-Security-Policy")?.match(/'nonce-([^']+)'/)?.[1];
+		const first = await handleWebApp(new Request("https://example.com/"));
+		const second = await handleWebApp(new Request("https://example.com/"));
+
+		expect(nonceOf(first)).toBeTruthy();
+		expect(nonceOf(first)).not.toBe(nonceOf(second));
 	});
 
 	it.each(["/auth/login", "/builder/resume-1", "/agent", "/templates/swiss", "/templates/azurill.pdf"])(
