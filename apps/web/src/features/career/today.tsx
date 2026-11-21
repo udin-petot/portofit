@@ -30,6 +30,7 @@ import {
 import { applicationsListQueryOptions } from "@/features/applications/queries";
 import { getOrpcErrorMessage } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
+import { safeHref } from "@/libs/safe-href";
 
 type Notification = RouterOutput["career"]["notifications"][number];
 type Opportunity = RouterOutput["career"]["opportunities"][number];
@@ -596,6 +597,7 @@ const companyOf = (row: Opportunity) => row.company || new URL(row.url).hostname
 function RoleCard({ row, found, tracked, pending, onTrack, onUndo, onDismiss }: RoleCardProps) {
 	const { matches, unknowns } = row;
 	const company = companyOf(row);
+	const postingHref = safeHref(row.url);
 	const unknownLabels = { salary: t`Salary not listed`, office: t`Office days not stated` };
 	return (
 		<article
@@ -656,15 +658,17 @@ function RoleCard({ row, found, tracked, pending, onTrack, onUndo, onDismiss }: 
 							{!pending && <Icon name="bookmark-simple" size={18} />}
 							<Trans>Track in Applications</Trans>
 						</Button>
-						<Button
-							variant="ghost"
-							nativeButton={false}
-							className="h-8 px-2.5 text-[13px] text-ink-2"
-							render={<a href={row.url} target="_blank" rel="noopener noreferrer" />}
-						>
-							<Trans>Read posting</Trans>
-							<Icon name="arrow-square-out" size={16} />
-						</Button>
+						{postingHref && (
+							<Button
+								variant="ghost"
+								nativeButton={false}
+								className="h-8 px-2.5 text-[13px] text-ink-2"
+								render={<a href={postingHref} target="_blank" rel="noopener noreferrer" />}
+							>
+								<Trans>Read posting</Trans>
+								<Icon name="arrow-square-out" size={16} />
+							</Button>
+						)}
 						<Button
 							variant="ghost"
 							className="ms-auto h-8 px-2.5 text-[13px] text-ink-2"

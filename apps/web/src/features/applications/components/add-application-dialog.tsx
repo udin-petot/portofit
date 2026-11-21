@@ -25,6 +25,7 @@ import { AiProviderLoadState } from "@/features/settings/integrations/ai-provide
 import { useHasUsableAiProvider } from "@/features/settings/integrations/hooks/use-has-usable-ai-provider";
 import { getOrpcErrorMessage } from "@/libs/error-message";
 import { client, orpc } from "@/libs/orpc/client";
+import { safeHref } from "@/libs/safe-href";
 
 type Parsed = RouterOutput["applications"]["ai"]["parsePosting"];
 export type ApplicationStartStage = "saved" | "applied" | "interview";
@@ -299,14 +300,16 @@ function AddApplicationForm({ initialStage, onClose, onAdded }: AddApplicationFo
 									<strong className="text-sm font-medium">{result.title}</strong>
 									<p className="line-clamp-2 text-xs text-ink-3">{result.description}</p>
 									<div className="mt-2 flex items-center gap-3">
-										<a
-											href={result.url}
-											target="_blank"
-											rel="noreferrer"
-											className="text-xs text-accent-text hover:underline"
-										>
-											<Trans>View posting</Trans>
-										</a>
+										{safeHref(result.url) && (
+											<a
+												href={safeHref(result.url)}
+												target="_blank"
+												rel="noreferrer"
+												className="text-xs text-accent-text hover:underline"
+											>
+												<Trans>View posting</Trans>
+											</a>
+										)}
 										<Button
 											type="button"
 											size="sm"

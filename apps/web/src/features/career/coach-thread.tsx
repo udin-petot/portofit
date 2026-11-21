@@ -31,6 +31,7 @@ import { getOrpcErrorMessage } from "@/libs/error-message";
 import { isImeComposing } from "@/libs/keyboard";
 import { ENTER_CLASS } from "@/libs/motion";
 import { client, orpc } from "@/libs/orpc/client";
+import { safeHref } from "@/libs/safe-href";
 
 // ---- What a message shared: recorded on the user message when it's sent, shown as "Used" chips under the answer. ----
 
@@ -571,17 +572,25 @@ function MessageView({ message, used, streaming, enter, knowledge, company, scop
 					<span className="font-medium text-ink-3">
 						<Trans>Sources</Trans>
 					</span>
-					{sources.map((source) => (
-						<a
-							key={source.url}
-							href={source.url}
-							target="_blank"
-							rel="noreferrer"
-							className="truncate text-accent-text underline underline-offset-2"
-						>
-							{source.title?.trim() || source.url}
-						</a>
-					))}
+					{sources.map((source) => {
+						const href = safeHref(source.url);
+						const label = source.title?.trim() || source.url;
+						return href ? (
+							<a
+								key={source.url}
+								href={href}
+								target="_blank"
+								rel="noreferrer"
+								className="truncate text-accent-text underline underline-offset-2"
+							>
+								{label}
+							</a>
+						) : (
+							<span key={source.url} className="truncate text-ink-3">
+								{label}
+							</span>
+						);
+					})}
 				</div>
 			)}
 

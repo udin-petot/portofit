@@ -2,6 +2,7 @@ import { t } from "@lingui/core/macro";
 import { useRef } from "react";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { safeHref } from "@/libs/safe-href";
 
 export type FileAttachment = { url: string; name: string };
 
@@ -36,11 +37,11 @@ export function FileAttachmentField({ value, onChange, attachLabel, disabled }: 
 					<span className="flex size-8 items-center justify-center rounded-md bg-accent/10 text-accent-text">
 						<Icon name="file-pdf" size={16} />
 					</span>
-					{value instanceof File ? (
+					{value instanceof File || !safeHref(value.url) ? (
 						<span className="min-w-0 flex-1 truncate text-sm">{value.name}</span>
 					) : (
 						<a
-							href={value.url}
+							href={safeHref(value.url)}
 							target="_blank"
 							rel="noreferrer"
 							className="min-w-0 flex-1 truncate text-sm hover:underline"
