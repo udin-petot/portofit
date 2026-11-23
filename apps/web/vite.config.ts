@@ -24,20 +24,21 @@ const escapeHtml = (value: string) =>
 	value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 
 /**
- * The faces the first screen paints with, so the browser can start them beside the render-blocking stylesheet instead
- * of after it parses. Worded as filename prefixes because the build adds a content hash: the two latin Newsreader
- * faces the landing headline uses, and the latin Hanken Grotesk the body text uses. Measured on the live site: the
+ * The faces the app shell paints with, so the browser can start them beside the render-blocking stylesheet instead of
+ * after it parses. Worded as filename prefixes because the build adds a content hash. Measured on the live site: the
  * font requests used to start ~700 ms after the HTML, because `@font-face` is only discovered once the CSS arrives.
+ *
+ * The italic Newsreader is not here: it is the landing page's headline face, and the dashboard and builder never paint
+ * it. Marketing pages add it themselves (`marketingFontPrefixes`), so every signed-in page is spared 147 kB.
  */
-const criticalFontPrefixes = [
-	"hanken-grotesk-latin-wght-normal-",
-	"newsreader-latin-opsz-normal-",
-	"newsreader-latin-opsz-italic-",
-];
+const criticalFontPrefixes = ["hanken-grotesk-latin-wght-normal-", "newsreader-latin-opsz-normal-"];
 
-async function preloadCriticalFonts(shell: string) {
+/** The marketing pages' faces on top of the shell's: the italic Newsreader the landing headline sets. */
+const marketingFontPrefixes = [...criticalFontPrefixes, "newsreader-latin-opsz-italic-"];
+
+async function preloadFonts(html: string, prefixes: readonly string[]) {
 	const fonts = await readdir(`${webRoot}dist/assets`);
-	const links = criticalFontPrefixes
+	const links = prefixes
 		.map((prefix) => fonts.find((file) => file.startsWith(prefix) && file.endsWith(".woff2")))
 		.filter((file) => file !== undefined)
 		.map(
@@ -46,7 +47,7 @@ async function preloadCriticalFonts(shell: string) {
 		)
 		.join("\n		");
 
-	return shell.replace("</head>", () => `	${links}\n	</head>`);
+	return html.replace("</head>", () => `	${links}\n	</head>`);
 }
 
 /**
@@ -58,7 +59,8 @@ async function prerenderPages() {
 	const { locales, prerenderedPages, renderPage }: PrerenderModule = await import(
 		pathToFileURL(`${prerenderBundleDir}/prerender.js`).href
 	);
-	const shell = await preloadCriticalFonts(await readFile(`${webRoot}dist/index.html`, "utf8"));
+	const rawShell = await readFile(`${webRoot}dist/index.html`, "utf8");
+	const shell = await preloadFonts(rawShell, criticalFontPrefixes);
 	// The shell itself is served for every page the build does not prerender, so it carries the preloads too.
 	await writeFile(`${webRoot}dist/index.html`, shell);
 
@@ -69,17 +71,21 @@ async function prerenderPages() {
 
 		for (const locale of locales) {
 			const page = await renderPage(name, locale);
-			const html = shell
-				.replace(/<html lang="[^"]*">/, () => `<html lang="${locale}" dir="${page.dir}">`)
-				.replace(/<title>[^<]*<\/title>/, () => `<title>${escapeHtml(page.title)}</title>`)
-				.replace(
-					/<meta\s+name="description"[^>]*>/,
-					() => `<meta name="description" content="${escapeHtml(page.description)}">`,
-				)
-				.replace('<div id="app"></div>', () => `<div id="app">${page.html}</div>`)
-				// The page is readable before any script runs, so the stylesheet, fonts and images go first.
-				.replaceAll('<link rel="modulepreload" ', '<link rel="modulepreload" fetchpriority="low" ')
-				.replace('<script type="module" ', '<script type="module" fetchpriority="low" ');
+			// Marketing pages set their headline in the italic face, so they preload it on top of the shell's two.
+			const html = await preloadFonts(
+				rawShell
+					.replace(/<html lang="[^"]*">/, () => `<html lang="${locale}" dir="${page.dir}">`)
+					.replace(/<title>[^<]*<\/title>/, () => `<title>${escapeHtml(page.title)}</title>`)
+					.replace(
+						/<meta\s+name="description"[^>]*>/,
+						() => `<meta name="description" content="${escapeHtml(page.description)}">`,
+					)
+					.replace('<div id="app"></div>', () => `<div id="app">${page.html}</div>`)
+					// The page is readable before any script runs, so the stylesheet, fonts and images go first.
+					.replaceAll('<link rel="modulepreload" ', '<link rel="modulepreload" fetchpriority="low" ')
+					.replace('<script type="module" ', '<script type="module" fetchpriority="low" '),
+				marketingFontPrefixes,
+			);
 			await writeFile(`${prerenderOutDir}/${name}/${locale}.html`, html);
 		}
 	}
