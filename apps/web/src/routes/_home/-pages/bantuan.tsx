@@ -30,7 +30,8 @@ export function SupportPage({ signedIn }: { signedIn: boolean }) {
 			</p>
 
 			<div className="mt-10">
-				<FaqList priceLine={priceLine} />
+				{/* An empty string reserves the line's space until the plans arrive, so the FAQ list does not jump. */}
+				<FaqList priceLine={priceLine ?? ""} />
 			</div>
 
 			<div className="mt-12 flex flex-wrap items-center gap-3 border-t border-line pt-6">
