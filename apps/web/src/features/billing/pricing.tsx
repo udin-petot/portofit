@@ -18,10 +18,15 @@ type PricingPageProps = { signedIn: boolean; onOrder?: ((orderId: string) => voi
  * Daftar paket sebagai baris, bukan kartu besar. Dua paket saja tidak butuh dua kotak,
  * dan baris mengikuti irama blok lain di halaman ini.
  */
-const ITEM_NOUN: Record<string, string> = {
-	application: t`application`,
-	interview: t`interview session`,
-	coach: t`Coach message`,
+// Resolved while rendering, not at module load: the prerender bundle imports this file before any locale is active.
+const itemNoun = (kind: string) => {
+	const nouns: Record<string, string> = {
+		application: t`application`,
+		interview: t`interview session`,
+		coach: t`Coach message`,
+	};
+
+	return nouns[kind] ?? kind;
 };
 
 export function PlanList({ signedIn, onOrder }: PricingPageProps) {
@@ -127,7 +132,7 @@ export function PlanList({ signedIn, onOrder }: PricingPageProps) {
 						<li key={item.kind} className="flex items-start gap-2">
 							<span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-accent-text" />
 							<span>
-								{item.credits}× {ITEM_NOUN[item.kind] ?? item.kind}
+								{item.credits}× {itemNoun(item.kind)}
 							</span>
 						</li>
 					))}
@@ -207,8 +212,8 @@ export function HowToPay({ collapsible = false }: { collapsible?: boolean }) {
 			</ol>
 			<p className="mt-3 rounded-lg border border-line bg-sunken px-3 py-2.5 text-[12px] leading-5 text-ink-2">
 				<Trans>
-					Admin is online 06.00–22.00 WIB. Payment proofs are checked by hand in that window. Anything sent after
-					hours is checked the next morning.
+					Admin is online 06.00–22.00 WIB. Payment proofs are checked by hand in that window. Anything sent after hours
+					is checked the next morning.
 				</Trans>
 			</p>
 			<p className="mt-3 text-[11.5px] leading-5 text-ink-3">

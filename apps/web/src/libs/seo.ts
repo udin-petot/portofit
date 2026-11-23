@@ -1,4 +1,5 @@
 import { t } from "@lingui/core/macro";
+import { templateSchema } from "@reactive-resume/schema/templates";
 
 /**
  * The server writes every page's canonical link, hreflang alternates, social cards and site-wide structured data into
@@ -46,4 +47,45 @@ export const getAtsCheckerMeta = () => ({
 export const getPricingMeta = () => ({
 	title: `${t`Pricing`} — ${appName}`,
 	description: t`PortoFit pricing: free ATS checks, Rp5,000 per application for a tailored resume and cover letter, Rp10,000 per interview practice session. Pay by QRIS, verified manually.`,
+});
+
+/** The public template gallery's title and description. */
+export const getTemplatesMeta = () => ({
+	title: `Resume templates — ${appName}`,
+	description: `All ${templateSchema.options.length} PortoFit resume templates in one place. Every one exports a text-based PDF that applicant tracking systems can read.`,
+});
+
+/** The help page's title and description. The page's content is Indonesian, so the copy does not follow the locale. */
+export const getSupportMeta = () => ({
+	title: `Bantuan ${appName}`,
+	description:
+		"Pertanyaan umum soal pembayaran, kredit, dan pengembalian dana PortoFit, plus jalan menghubungi admin lewat WhatsApp.",
+});
+
+/** The terms page's title and description. Indonesian with the page's content. */
+export const getTermsMeta = () => ({
+	title: `Syarat Layanan ${appName}`,
+	description:
+		"Aturan pemakaian PortoFit: akun, konten, kredit dan pembayaran, batas pemakaian AI, serta tanggung jawab pengguna.",
+});
+
+/** The privacy page's title and description. Indonesian with the page's content. */
+export const getPrivacyMeta = () => ({
+	title: `Kebijakan Privasi ${appName}`,
+	description:
+		"Data apa yang dikumpulkan PortoFit, untuk apa, siapa yang memproses, berapa lama disimpan, dan cara meminta akses atau penghapusan.",
+});
+
+/** The refund page's title and description. Indonesian with the page's content. */
+export const getRefundMeta = () => ({
+	title: `Kebijakan Pengembalian Dana ${appName}`,
+	description:
+		"Kapan kredit PortoFit dapat dikembalikan, kapan tidak, dan cara mengajukan pengembalian dana lewat WhatsApp.",
+});
+
+/** The license page's title and description. Indonesian with the page's content. */
+export const getLicenseMeta = () => ({
+	title: `Lisensi MIT ${appName}`,
+	description:
+		"Lisensi MIT yang berlaku untuk PortoFit, proyek Reactive Resume yang menjadi fondasinya, dan atribusi yang diwajibkan keduanya.",
 });

@@ -1,6 +1,6 @@
 import type { ProxyOptions } from "vite";
 import { readFileSync } from "node:fs";
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { lingui } from "@lingui/vite-plugin";
 import babel from "@rolldown/plugin-babel";
@@ -24,16 +24,43 @@ const escapeHtml = (value: string) =>
 	value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 
 /**
+ * The faces the first screen paints with, so the browser can start them beside the render-blocking stylesheet instead
+ * of after it parses. Worded as filename prefixes because the build adds a content hash: the two latin Newsreader
+ * faces the landing headline uses, and the latin Hanken Grotesk the body text uses. Measured on the live site: the
+ * font requests used to start ~700 ms after the HTML, because `@font-face` is only discovered once the CSS arrives.
+ */
+const criticalFontPrefixes = [
+	"hanken-grotesk-latin-wght-normal-",
+	"newsreader-latin-opsz-normal-",
+	"newsreader-latin-opsz-italic-",
+];
+
+async function preloadCriticalFonts(shell: string) {
+	const fonts = await readdir(`${webRoot}dist/assets`);
+	const links = criticalFontPrefixes
+		.map((prefix) => fonts.find((file) => file.startsWith(prefix) && file.endsWith(".woff2")))
+		.filter((file) => file !== undefined)
+		.map(
+			(file) =>
+				`<link rel="preload" as="font" type="font/woff2" href="/assets/${file}" crossorigin fetchpriority="high">`,
+		)
+		.join("\n		");
+
+	return shell.replace("</head>", () => `	${links}\n	</head>`);
+}
+
+/**
  * Writes dist-prerender/<page>/<locale>.html: the built index.html with the page rendered into #app, in that locale's
- * language, direction, title and description. The server sends them for "/" and "/ats-checker"
- * (apps/server/src/static/web.ts).
+ * language, direction, title and description. The server sends them for the marketing pages (apps/server/src/static/web.ts).
  */
 async function prerenderPages() {
 	type PrerenderModule = typeof import("./src/features/homepage/prerender");
 	const { locales, prerenderedPages, renderPage }: PrerenderModule = await import(
 		pathToFileURL(`${prerenderBundleDir}/prerender.js`).href
 	);
-	const shell = await readFile(`${webRoot}dist/index.html`, "utf8");
+	const shell = await preloadCriticalFonts(await readFile(`${webRoot}dist/index.html`, "utf8"));
+	// The shell itself is served for every page the build does not prerender, so it carries the preloads too.
+	await writeFile(`${webRoot}dist/index.html`, shell);
 
 	await rm(prerenderOutDir, { recursive: true, force: true });
 

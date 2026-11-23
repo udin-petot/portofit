@@ -17,9 +17,26 @@ import { renderToString } from "react-dom/server";
 import { isRTL, localeSchema } from "@reactive-resume/utils/locale";
 import { Homepage } from "./page";
 import { AtsCheckerPage } from "@/features/ats-checker/page";
+import { PricingPage } from "@/features/billing/pricing";
+import { TemplateGallery } from "@/features/templates/gallery";
 import { ThemeProvider } from "@/features/theme/provider";
 import { getLocaleMessages } from "@/libs/locale";
-import { getAtsCheckerMeta, getHomepageMeta } from "@/libs/seo";
+import {
+	getAtsCheckerMeta,
+	getHomepageMeta,
+	getLicenseMeta,
+	getPricingMeta,
+	getPrivacyMeta,
+	getRefundMeta,
+	getSupportMeta,
+	getTemplatesMeta,
+	getTermsMeta,
+} from "@/libs/seo";
+import { SupportPage } from "@/routes/_home/-pages/bantuan";
+import { LicensePage } from "@/routes/_home/-pages/lisensi";
+import { PrivacyPage } from "@/routes/_home/-pages/privasi";
+import { RefundPage } from "@/routes/_home/-pages/refund";
+import { TermsPage } from "@/routes/_home/-pages/syarat";
 import { Header } from "@/routes/_home/-sections/header";
 
 export const locales = localeSchema.options;
@@ -29,7 +46,8 @@ const iconContextValue: IconProps = { size: 16, weight: "regular" };
 
 const pages = {
 	home: { path: "/", meta: getHomepageMeta, render: () => <Homepage /> },
-	// What the /_home layout renders around the checker for a signed-out visitor (routes/_home/route.tsx).
+	// The /_home layout renders the shared header around every marketing page for a signed-out visitor
+	// (routes/_home/route.tsx). The homepage and the gallery ship their own.
 	"ats-checker": {
 		path: "/ats-checker",
 		meta: getAtsCheckerMeta,
@@ -37,6 +55,67 @@ const pages = {
 			<>
 				<Header />
 				<AtsCheckerPage signedIn={false} />
+			</>
+		),
+	},
+	harga: {
+		path: "/harga",
+		meta: getPricingMeta,
+		render: () => (
+			<>
+				<Header />
+				<PricingPage signedIn={false} />
+			</>
+		),
+	},
+	templates: { path: "/templates", meta: getTemplatesMeta, render: () => <TemplateGallery /> },
+	bantuan: {
+		path: "/bantuan",
+		meta: getSupportMeta,
+		render: () => (
+			<>
+				<Header />
+				<SupportPage signedIn={false} />
+			</>
+		),
+	},
+	syarat: {
+		path: "/syarat",
+		meta: getTermsMeta,
+		render: () => (
+			<>
+				<Header />
+				<TermsPage />
+			</>
+		),
+	},
+	privasi: {
+		path: "/privasi",
+		meta: getPrivacyMeta,
+		render: () => (
+			<>
+				<Header />
+				<PrivacyPage />
+			</>
+		),
+	},
+	refund: {
+		path: "/refund",
+		meta: getRefundMeta,
+		render: () => (
+			<>
+				<Header />
+				<RefundPage />
+			</>
+		),
+	},
+	lisensi: {
+		path: "/lisensi",
+		meta: getLicenseMeta,
+		render: () => (
+			<>
+				<Header />
+				<LicensePage />
 			</>
 		),
 	},

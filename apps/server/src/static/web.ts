@@ -166,6 +166,8 @@ const SUPPORT_DESCRIPTION =
 const LICENSE_TITLE = "Lisensi MIT PortoFit";
 const LICENSE_DESCRIPTION =
 	"Lisensi MIT yang berlaku untuk PortoFit, proyek Reactive Resume yang menjadi fondasinya, dan atribusi yang diwajibkan keduanya.";
+const TEMPLATES_TITLE = "Resume templates — PortoFit";
+const TEMPLATES_DESCRIPTION = `All ${templateSchema.options.length} PortoFit resume templates in one place. Every one exports a text-based PDF that applicant tracking systems can read.`;
 
 type StructuredData = Record<string, unknown>;
 
@@ -500,6 +502,13 @@ const prerenderedPages: Record<
 		image: "/opengraph/banner.jpg",
 		structuredData: homepageStructuredData,
 		fallback: (shell) => withMeta(shell, { title: LICENSE_TITLE, description: LICENSE_DESCRIPTION }),
+	},
+	"/templates": {
+		name: "templates",
+		meta: { title: TEMPLATES_TITLE, description: TEMPLATES_DESCRIPTION },
+		image: "/opengraph/banner.jpg",
+		structuredData: homepageStructuredData,
+		fallback: (shell) => withMeta(shell, { title: TEMPLATES_TITLE, description: TEMPLATES_DESCRIPTION }),
 	},
 };
 
