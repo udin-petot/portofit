@@ -59,8 +59,13 @@ export function PlanList({ signedIn, onOrder }: PricingPageProps) {
 	};
 
 	if (isLoading) {
+		// The grid below replaces this line in place, so its height is reserved here: without it the payment
+		// instructions and the FAQ jump ~1,400px down on a phone and Lighthouse counts that shift (0.35 CLS).
+		// The numbers are the loaded grid's measured height at each breakpoint, widest layout last.
 		return (
-			<div className="rounded-xl border border-line bg-surface p-6 text-sm text-ink-3">{t`Loading packages…`}</div>
+			<div className="min-h-[1487px] sm:min-h-[1340px] xl:min-h-[860px]">
+				<div className="rounded-xl border border-line bg-surface p-6 text-sm text-ink-3">{t`Loading packages…`}</div>
+			</div>
 		);
 	}
 

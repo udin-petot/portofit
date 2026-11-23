@@ -145,6 +145,23 @@
 	--p: 0;
 }
 
+/*
+ * Scenes below the first screen are styled and laid out on load even though nobody sees them: on a throttled phone that
+ * is most of the 2.1s Lighthouse attributes to Style & Layout. `content-visibility: auto` skips both until the scene
+ * comes near the viewport. Only scenes the scroll engine does not measure at mount are listed: it reads the design
+ * stack's width and Tailor's thread anchors straight after mount, so 0, 1, 2 and 4 stay rendered.
+ */
+.landing [data-scene="3"],
+.landing [data-scene="5"],
+.landing [data-scene="6"],
+.landing [data-scene="7"],
+.landing [data-scene="9"],
+.landing [data-scene="10"],
+.landing [data-scene="11"] {
+	content-visibility: auto;
+	contain-intrinsic-size: auto 100vh;
+}
+
 /* Reduced motion renders every scene at its end state; the pinned scenes also collapse to one screen. */
 @media (prefers-reduced-motion: reduce) {
 	.landing [data-scene] {
