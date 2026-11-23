@@ -37,19 +37,15 @@ const noindexShellPrefixes = ["/auth", "/dashboard", "/admin", "/builder", "/age
 
 // The dashboard is client-rendered behind auth, so the first paint would otherwise wait for the session,
 // the documents query and the whole route chunk. Paint the page title immediately; React replaces it on
-// mount. Kept to the exact title block, in the same column the app puts it in (AppShell's nav rail is 64px
-// from 640px and its sidebar 240px from 1024px), so the swap does not move the rest of the page.
+// mount. Kept to the exact title block so the swap does not move the rest of the page.
 const dashboardBootShell = (html: string) =>
 	html.replace(
 		'<div id="app"></div>',
 		() => `<div id="app"><style>
-#dashboard-boot-grid { display: grid; grid-template-columns: 0 minmax(0, 1fr); }
-@media (min-width: 640px) { #dashboard-boot-grid { grid-template-columns: 64px minmax(0, 1fr); } }
-@media (min-width: 1024px) { #dashboard-boot-grid { grid-template-columns: 240px minmax(0, 1fr); } }
 #dashboard-boot { width: 100%; max-width: 1180px; margin: 0 auto; padding: 32px 32px 0; }
 #dashboard-boot h1 { margin: 0; color: var(--ink, #1c1a17); font-family: var(--font-display, ui-serif, Georgia, serif); font-size: 30px; font-weight: 500; line-height: 36px; }
 @media (max-width: 640px) { #dashboard-boot { padding: 20px 16px 0; } #dashboard-boot h1 { font-size: 46px; line-height: 54px; } }
-</style><main id="main-content"><div id="dashboard-boot-grid"><div></div><div id="dashboard-boot"><h1>Documents</h1></div></div></main></div>`,
+</style><main id="main-content"><div id="dashboard-boot"><h1>Documents</h1></div></main></div>`,
 	);
 /**
  * Marketing pages the SPA owns that search engines should index.
